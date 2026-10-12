@@ -22,6 +22,25 @@ class QuotePrefs(context: Context) {
             ?: Category.entries.toSet()
         set(value) = prefs.edit().putStringSet("categories", value.map { it.key }.toSet()).apply()
 
+    var font: QuoteFont
+        get() = QuoteFont.fromKey(prefs.getString("font", null))
+        set(value) = prefs.edit().putString("font", value.key).apply()
+
+    var size: QuoteSize
+        get() = QuoteSize.fromKey(prefs.getString("size", null))
+        set(value) = prefs.edit().putString("size", value.key).apply()
+
+    /** ARGB text color, or null to follow the system default. */
+    var textColor: Int?
+        get() = if (prefs.contains("text_color")) prefs.getInt("text_color", 0) else null
+        set(value) {
+            val editor = prefs.edit()
+            if (value == null) editor.remove("text_color") else editor.putInt("text_color", value)
+            editor.apply()
+        }
+
+    val style: QuoteStyle get() = QuoteStyle(font, size, textColor)
+
     var currentText: String?
         get() = prefs.getString("current_text", null)
         set(value) = prefs.edit().putString("current_text", value).apply()

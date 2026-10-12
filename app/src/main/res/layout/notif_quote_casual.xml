@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/quote_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:fontFamily="casual"
+        android:maxLines="2"
+        android:textAppearance="@android:style/TextAppearance.Material.Notification"
+        android:textStyle="normal" />
+
+    <TextView
+        android:id="@+id/quote_author"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:ellipsize="end"
+        android:fontFamily="casual"
+        android:maxLines="1"
+        android:textAppearance="@android:style/TextAppearance.Material.Notification"
+        android:textStyle="normal" />
+</LinearLayout>

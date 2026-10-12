@@ -6,6 +6,9 @@ import android.app.NotificationManager
 import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
+import android.util.TypedValue
+import android.view.View
+import android.widget.RemoteViews
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
 
@@ -33,11 +36,14 @@ object QuoteNotifier {
             PendingIntent.FLAG_IMMUTABLE or PendingIntent.FLAG_UPDATE_CURRENT,
         )
 
+        val style = QuotePrefs(appContext).style
         val notification = NotificationCompat.Builder(appContext, CHANNEL_ID)
             .setSmallIcon(R.drawable.ic_quote)
             .setContentTitle(quote.author ?: appContext.getString(R.string.app_name))
             .setContentText(quote.text)
-            .setStyle(NotificationCompat.BigTextStyle().bigText(quote.text))
+            .setStyle(NotificationCompat.DecoratedCustomViewStyle())
+            .setCustomContentView(quoteView(appContext, quote, style, expanded = false))
+            .setCustomBigContentView(quoteView(appContext, quote, style, expanded = true))
             .setContentIntent(openApp)
             .addAction(0, appContext.getString(R.string.action_next), next)
             .setOngoing(true)
@@ -47,6 +53,43 @@ object QuoteNotifier {
             .setVisibility(NotificationCompat.VISIBILITY_PUBLIC)
             .build()
         manager.notify(NOTIFICATION_ID, notification)
+    }
+
+    /** Custom layout so the user's font, size and color apply; the system still draws the background. */
+    private fun quoteView(
+        context: Context,
+        quote: Quote,
+        style: QuoteStyle,
+        expanded: Boolean,
+    ): RemoteViews {
+        val views = RemoteViews(context.packageName, style.font.layout)
+        val text = "\u201C${quote.text}\u201D"
+        val author = quote.author?.let { "\u2014 $it" }
+
+        if (expanded) {
+            views.setTextViewText(R.id.quote_text, text)
+            views.setInt(R.id.quote_text, "setMaxLines", 10)
+            if (author != null) {
+                views.setTextViewText(R.id.quote_author, author)
+                views.setViewVisibility(R.id.quote_author, View.VISIBLE)
+            } else {
+                views.setViewVisibility(R.id.quote_author, View.GONE)
+            }
+        } else {
+            // The collapsed area is short, so the author shares the text and the size is capped.
+            views.setTextViewText(R.id.quote_text, if (author != null) "$text $author" else text)
+            views.setInt(R.id.quote_text, "setMaxLines", 2)
+            views.setViewVisibility(R.id.quote_author, View.GONE)
+        }
+
+        val sp = if (expanded) style.size.sizeSp else minOf(style.size.sizeSp, 16f)
+        views.setTextViewTextSize(R.id.quote_text, TypedValue.COMPLEX_UNIT_SP, sp)
+        views.setTextViewTextSize(R.id.quote_author, TypedValue.COMPLEX_UNIT_SP, sp * 0.85f)
+        style.color?.let {
+            views.setTextColor(R.id.quote_text, it)
+            views.setTextColor(R.id.quote_author, it)
+        }
+        return views
     }
 
     fun cancel(context: Context) {
