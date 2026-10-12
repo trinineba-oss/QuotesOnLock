@@ -1,5 +1,5 @@
 # One quote per line: category|text|author   (a literal \n in the text is a line break)
-# Categories: motivation, thought, stoic, kindness, gibran, rilke, nietzsche, dostoevsky, tolstoy, kafka, plato, laotzu, kierkegaard, camus, hesse
+# Categories: motivation, thought, stoic, kindness, gibran, rilke, nietzsche, dostoevsky, tolstoy, kafka, plato, laotzu, kierkegaard, camus, hesse, confucius, dhammapada, rumi, khayyam, suntzu
 motivation|A journey of a thousand miles begins with a single step.|Lao Tzu
 motivation|It does not matter how slowly you go as long as you do not stop.|Confucius
 motivation|Nothing great was ever achieved without enthusiasm.|Ralph Waldo Emerson
@@ -1286,3 +1286,224 @@ hesse|It is not for me to judge another man's life. I must judge, I must choose,
 hesse|In eternity there is no time, only an instant long enough for a joke.|Hermann Hesse
 hesse|Gaze into the fire, into the clouds, and as soon as the inner voices begin to speak... surrender to them. Don't ask first whether it's permitted, or would please your teachers or father or some god. You will ruin yourself if you do that.|Hermann Hesse
 hesse|I will no longer mutilate and destroy myself in order to find a secret behind the ruins.|Hermann Hesse
+confucius|At fifteen, I had my mind bent on learning. At thirty, I stood firm. At forty, I had no doubts. At fifty, I knew the decrees of Heaven. At sixty, my ear was an obedient organ for the reception of truth. At seventy, I could follow what my heart desired, without transgressing what was right.|Confucius
+confucius|If the people be led by laws, and uniformity sought to be given them by punishments, they will try to avoid the punishment, but have no sense of shame. If they be led by virtue, and uniformity sought to be given them by the rules of propriety, they will have the sense of shame, and moreover will become good.|Confucius
+confucius|I will not be afflicted at men's not knowing me; I will be afflicted that I do not know men.|Confucius
+confucius|He who exercises government by means of his virtue may be compared to the north polar star, which keeps its place and all the stars turn towards it.|Confucius
+confucius|If a man keeps cherishing his old knowledge, so as continually to be acquiring new, he may be a teacher of others.|Confucius
+confucius|Learning without thought is labour lost; thought without learning is perilous.|Confucius
+confucius|Yu, shall I teach you what knowledge is? When you know a thing, to hold that you know it; and when you do not know a thing, to allow that you do not know it;—this is knowledge.|Confucius
+confucius|If a man in the morning hear the right way, he may die in the evening without regret.|Confucius
+confucius|The superior man, in the world, does not set his mind either for anything, or against anything; what is right he will follow.|Confucius
+confucius|The superior man thinks of virtue; the small man thinks of comfort. The superior man thinks of the sanctions of law; the small man thinks of favours which he may receive.|Confucius
+confucius|A man should say, I am not concerned that I have no place, I am concerned how I may fit myself for one. I am not concerned that I am not known, I seek to be worthy to be known.|Confucius
+confucius|The mind of the superior man is conversant with righteousness; the mind of the mean man is conversant with gain.|Confucius
+confucius|When we see men of worth, we should think of equalling them; when we see men of a contrary character, we should turn inwards and examine ourselves.|Confucius
+confucius|The reason why the ancients did not readily give utterance to their words, was that they feared lest their actions should not come up to them.|Confucius
+confucius|The superior man wishes to be slow in his speech and earnest in his conduct.|Confucius
+confucius|Virtue is not left to stand alone. He who practises it will have neighbors.|Confucius
+confucius|It is all over! I have not yet seen one who could perceive his faults, and inwardly accuse himself.|Confucius
+confucius|Where the solid qualities are in excess of accomplishments, we have rusticity; where the accomplishments are in excess of the solid qualities, we have the manners of a clerk. When the accomplishments and solid qualities are equally blended, we then have the man of virtue.|Confucius
+confucius|Man is born for uprightness. If a man lose his uprightness, and yet live, his escape from death is the effect of mere good fortune.|Confucius
+confucius|They who know the truth are not equal to those who love it, and they who love it are not equal to those who delight in it.|Confucius
+confucius|The wise find pleasure in water; the virtuous find pleasure in hills. The wise are active; the virtuous are tranquil. The wise are joyful; the virtuous are long-lived.|Confucius
+confucius|The superior man, extensively studying all learning, and keeping himself under the restraint of the rules of propriety, may thus likewise not overstep what is right.|Confucius
+confucius|I am not one who was born in the possession of knowledge; I am one who is fond of antiquity, and earnest in seeking it there.|Confucius
+confucius|When I walk along with two others, they may serve me as my teachers. I will select their good qualities and follow them, their bad qualities and avoid them.|Confucius
+confucius|Is virtue a thing remote? I wish to be virtuous, and lo! virtue is at hand.|Confucius
+confucius|Learn as if you could not reach your object, and were always fearing also lest you should lose it.|Confucius
+confucius|I have not seen one who loves virtue as he loves beauty.|Confucius
+confucius|The prosecution of learning may be compared to what may happen in raising a mound. If there want but one basket of earth to complete the work, and I stop, the stopping is my own work. It may be compared to throwing down the earth on the level ground. Though but one basketful is thrown at a time, the advancing with it is my own going forward.|Confucius
+confucius|A youth is to be regarded with respect. How do we know that his future will not be equal to our present? If he reach the age of forty or fifty, and has not made himself heard of, then indeed he will not be worth being regarded with respect.|Confucius
+confucius|The commander of the forces of a large state may be carried off, but the will of even a common man cannot be taken from him.|Confucius
+confucius|When the year becomes cold, then we know how the pine and the cypress are the last to lose their leaves.|Confucius
+confucius|The wise are free from perplexities; the virtuous from anxiety; and the bold from fear.|Confucius
+confucius|The superior man seeks to perfect the admirable qualities of men, and does not seek to perfect their bad qualities. The mean man does the opposite of this.|Confucius
+confucius|When a prince's personal conduct is correct, his government is effective without the issuing of orders. If his personal conduct is not correct, he may issue orders, but they will not be followed.|Confucius
+confucius|If a minister make his own conduct correct, what difficulty will he have in assisting in government? If he cannot rectify himself, what has he to do with rectifying others?|Confucius
+confucius|The superior man is affable, but not adulatory; the mean man is adulatory, but not affable.|Confucius
+confucius|The superior man has a dignified ease without pride. The mean man has pride without a dignified ease.|Confucius
+confucius|The firm, the enduring, the simple, and the modest are near to virtue.|Confucius
+confucius|To be poor without murmuring is difficult. To be rich without being proud is easy.|Confucius
+confucius|The progress of the superior man is upwards; the progress of the mean man is downwards.|Confucius
+confucius|In ancient times, men learned with a view to their own improvement. Now-a-days, men learn with a view to the approbation of others.|Confucius
+confucius|The superior man is modest in his speech, but exceeds in his actions.|Confucius
+confucius|I will not be concerned at men's not knowing me; I will be concerned at my own want of ability.|Confucius
+confucius|The determined scholar and the man of virtue will not seek to live at the expense of injuring their virtue. They will even sacrifice their lives to preserve their virtue complete.|Confucius
+confucius|If a man take no thought about what is distant, he will find sorrow near at hand.|Confucius
+confucius|He who requires much from himself and little from others, will keep himself from being the object of resentment.|Confucius
+confucius|When a man is not in the habit of saying—"What shall I think of this? What shall I think of this?" I can indeed do nothing with him!|Confucius
+confucius|The superior man in everything considers righteousness to be essential. He performs it according to the rules of propriety. He brings it forth in humility. He completes it with sincerity. This is indeed a superior man.|Confucius
+confucius|What the superior man seeks, is in himself. What the mean man seeks, is in others.|Confucius
+confucius|The superior man is dignified, but does not wrangle. He is sociable, but not a partizan.|Confucius
+confucius|Specious words confound virtue. Want of forbearance in small matters confounds great plans.|Confucius
+confucius|A man can enlarge the principles which he follows; those principles do not enlarge the man.|Confucius
+confucius|To have faults and not to reform them,—this, indeed, should be pronounced having faults.|Confucius
+confucius|I have been the whole day without eating, and the whole night without sleeping:—occupied with thinking. It was of no use. The better plan is to learn.|Confucius
+confucius|The object of the superior man is truth. Food is not his object. There is plowing;—even in that there is sometimes want. So with learning;—emolument may be found in it. The superior man is anxious lest he should not get truth; he is not anxious lest poverty should come upon him.|Confucius
+confucius|Virtue is more to man than either water or fire. I have seen men die from treading on water and fire, but I have never seen a man die from treading the course of virtue.|Confucius
+confucius|Let every man consider virtue as what devolves on himself. He may not yield the performance of it even to his teacher.|Confucius
+confucius|In teaching there should be no distinction of classes.|Confucius
+confucius|In language it is simply required that it convey the meaning.|Confucius
+confucius|By nature, men are nearly alike; by practice, they get to be wide apart.|Confucius
+confucius|Your good, careful people of the villages are the thieves of virtue.|Confucius
+dhammapada|All that we are is the result of what we have thought: it is founded on our thoughts, it is made up of our thoughts. If a man speaks or acts with an evil thought, pain follows him, as the wheel follows the foot of the ox that draws the carriage.|The Dhammapada
+dhammapada|All that we are is the result of what we have thought: it is founded on our thoughts, it is made up of our thoughts. If a man speaks or acts with a pure thought, happiness follows him, like a shadow that never leaves him.|The Dhammapada
+dhammapada|For hatred does not cease by hatred at any time: hatred ceases by love, this is an old rule.|The Dhammapada
+dhammapada|The world does not know that we must all come to an end here;—but those who know it, their quarrels cease at once.|The Dhammapada
+dhammapada|As rain breaks through an ill-thatched house, passion will break through an unreflecting mind.|The Dhammapada
+dhammapada|As rain does not break through a well-thatched house, passion will not break through a well-reflecting mind.|The Dhammapada
+dhammapada|Earnestness is the path of immortality (Nirvana), thoughtlessness the path of death. Those who are in earnest do not die, those who are thoughtless are as if dead already.|The Dhammapada
+dhammapada|By rousing himself, by earnestness, by restraint and control, the wise man may make for himself an island which no flood can overwhelm.|The Dhammapada
+dhammapada|Fools follow after vanity, men of evil wisdom. The wise man keeps earnestness as his best jewel.|The Dhammapada
+dhammapada|Earnest among the thoughtless, awake among the sleepers, the wise man advances like a racer, leaving behind the hack.|The Dhammapada
+dhammapada|As a fletcher makes straight his arrow, a wise man makes straight his trembling and unsteady thought, which is difficult to guard, difficult to hold back.|The Dhammapada
+dhammapada|It is good to tame the mind, which is difficult to hold in and flighty, rushing wherever it listeth; a tamed mind brings happiness.|The Dhammapada
+dhammapada|Whatever a hater may do to a hater, or an enemy to an enemy, a wrongly-directed mind will do us greater mischief. Not a mother, not a father will do so much, nor any other relative; a well-directed mind will do us greater service.|The Dhammapada
+dhammapada|Death carries off a man who is gathering flowers and whose mind is distracted, as a flood carries off a sleeping village.|The Dhammapada
+dhammapada|As the bee collects nectar and departs without injuring the flower, or its colour or scent, so let a sage dwell in his village.|The Dhammapada
+dhammapada|Not the perversities of others, not their sins of commission or omission, but his own misdeeds and negligences should a sage take notice of.|The Dhammapada
+dhammapada|Like a beautiful flower, full of colour, but without scent, are the fine but fruitless words of him who does not act accordingly. But, like a beautiful flower, full of colour and full of scent, are the fine and fruitful words of him who acts accordingly.|The Dhammapada
+dhammapada|Long is the night to him who is awake; long is a mile to him who is tired; long is life to the foolish who do not know the true law.|The Dhammapada
+dhammapada|If a traveller does not meet with one who is his better, or his equal, let him firmly keep to his solitary journey; there is no companionship with a fool.|The Dhammapada
+dhammapada|The fool who knows his foolishness, is wise at least so far. But a fool who thinks himself wise, he is called a fool indeed.|The Dhammapada
+dhammapada|Well-makers lead the water (wherever they like); fletchers bend the arrow; carpenters bend a log of wood; wise people fashion themselves.|The Dhammapada
+dhammapada|As a solid rock is not shaken by the wind, wise people falter not amidst blame and praise.|The Dhammapada
+dhammapada|Wise people, after they have listened to the laws, become serene, like a deep, smooth, and still lake.|The Dhammapada
+dhammapada|Even though a speech be a thousand (of words), but made up of senseless words, one word of sense is better, which if a man hears, he becomes quiet.|The Dhammapada
+dhammapada|If one man conquer in battle a thousand times thousand men, and if another conquer himself, he is the greatest of conquerors.|The Dhammapada
+dhammapada|Let no man think lightly of evil, saying in his heart, It will not come nigh unto me. Even by the falling of water-drops a water-pot is filled; the fool becomes full of evil, even if he gather it little by little.|The Dhammapada
+dhammapada|If a man offend a harmless, pure, and innocent person, the evil falls back upon that fool, like light dust thrown up against the wind.|The Dhammapada
+dhammapada|Do not speak harshly to anybody; those who are spoken to will answer thee in the same way. Angry speech is painful, blows for blows will touch thee.|The Dhammapada
+dhammapada|How is there laughter, how is there joy, as this world is always burning? Why do you not seek a light, ye who are surrounded by darkness?|The Dhammapada
+dhammapada|A man who has learnt little, grows old like an ox; his flesh grows, but his knowledge does not grow.|The Dhammapada
+dhammapada|Let each man direct himself first to what is proper, then let him teach others; thus a wise man will not suffer.|The Dhammapada
+dhammapada|If a man make himself as he teaches others to be, then, being himself well subdued, he may subdue (others); one's own self is indeed difficult to subdue.|The Dhammapada
+dhammapada|Self is the lord of self, who else could be the lord? With self well subdued, a man finds a lord such as few can find.|The Dhammapada
+dhammapada|Bad deeds, and deeds hurtful to ourselves, are easy to do; what is beneficial and good, that is very difficult to do.|The Dhammapada
+dhammapada|By oneself the evil is done, by oneself one suffers; by oneself evil is left undone, by oneself one is purified. Purity and impurity belong to oneself, no one can purify another.|The Dhammapada
+dhammapada|Let no one forget his own duty for the sake of another's, however great; let a man, after he has discerned his own duty, be always attentive to his duty.|The Dhammapada
+dhammapada|Look upon the world as a bubble, look upon it as a mirage: the king of death does not see him who thus looks down upon the world.|The Dhammapada
+dhammapada|Come, look at this glittering world, like unto a royal chariot; the foolish are immersed in it, but the wise do not touch it.|The Dhammapada
+dhammapada|Not to commit any sin, to do good, and to purify one's mind, that is the teaching of (all) the Awakened.|The Dhammapada
+dhammapada|Not to blame, not to strike, to live restrained under the law, to be moderate in eating, to sleep and sit alone, and to dwell on the highest thoughts,—this is the teaching of the Awakened.|The Dhammapada
+dhammapada|Let us live happily then, not hating those who hate us! among men who hate us let us dwell free from hatred!|The Dhammapada
+dhammapada|Let us live happily then, free from ailments among the ailing! among men who are ailing let us dwell free from ailments!|The Dhammapada
+dhammapada|Let us live happily then, free from greed among the greedy! among men who are greedy let us dwell free from greed!|The Dhammapada
+dhammapada|Let us live happily then, though we call nothing our own! We shall be like the bright gods, feeding on happiness!|The Dhammapada
+dhammapada|Victory breeds hatred, for the conquered is unhappy. He who has given up both victory and defeat, he, the contented, is happy.|The Dhammapada
+dhammapada|There is no fire like passion; there is no losing throw like hatred; there is no pain like this body; there is no happiness higher than rest.|The Dhammapada
+dhammapada|Hunger is the worst of diseases, the body the greatest of pains; if one knows this truly, that is Nirvana, the highest happiness.|The Dhammapada
+dhammapada|Health is the greatest of gifts, contentedness the best riches; trust is the best of relationships, Nirvana the highest happiness.|The Dhammapada
+dhammapada|The sight of the elect (Arya) is good, to live with them is always happiness; if a man does not see fools, he will be truly happy.|The Dhammapada
+dhammapada|He who walks in the company of fools suffers a long way; company with fools, as with an enemy, is always painful; company with the wise is pleasure, like meeting with kinsfolk.|The Dhammapada
+dhammapada|From pleasure comes grief, from pleasure comes fear; he who is free from pleasure knows neither grief nor fear.|The Dhammapada
+dhammapada|From affection comes grief, from affection comes fear; he who is free from affection knows neither grief nor fear.|The Dhammapada
+dhammapada|From lust comes grief, from lust comes fear; he who is free from lust knows neither grief nor fear.|The Dhammapada
+dhammapada|From love comes grief, from love comes fear; he who is free from love knows neither grief nor fear.|The Dhammapada
+dhammapada|From greed comes grief, from greed comes fear; he who is free from greed knows neither grief nor fear.|The Dhammapada
+dhammapada|He who holds back rising anger like a rolling chariot, him I call a real driver; other people are but holding the reins.|The Dhammapada
+dhammapada|Let a man overcome anger by love, let him overcome evil by good; let him overcome the greedy by liberality, the liar by truth!|The Dhammapada
+dhammapada|Speak the truth, do not yield to anger; give, if thou art asked for little; by these three steps thou wilt go near the gods.|The Dhammapada
+dhammapada|This is an old saying, O Atula, this is not only of to-day: 'They blame him who sits silent, they blame him who speaks much, they also blame him who says little; there is no one on earth who is not blamed.' There never was, there never will be, nor is there now, a man who is always blamed, or a man who is always praised.|The Dhammapada
+dhammapada|Let a wise man blow off the impurities of his self, as a smith blows off the impurities of silver one by one, little by little, and from time to time.|The Dhammapada
+dhammapada|But there is a taint worse than all taints,—ignorance is the greatest taint. O mendicants! throw off that taint, and become taintless!|The Dhammapada
+dhammapada|The fault of others is easily perceived, but that of oneself is difficult to perceive; a man winnows his neighbour's faults like chaff, but his own fault he hides, as a cheat hides the bad die from the gambler.|The Dhammapada
+dhammapada|A man is not learned because he talks much; he who is patient, free from hatred and fear, he is called learned.|The Dhammapada
+dhammapada|A man is not an elder because his head is grey; his age may be ripe, but he is called 'Old-in-vain.'|The Dhammapada
+dhammapada|He in whom there is truth, virtue, love, restraint, moderation, he who is free from impurity and is wise, he is called an elder.|The Dhammapada
+dhammapada|You yourself must make an effort. The Tathagatas (Buddhas) are only preachers. The thoughtful who enter the way are freed from the bondage of Mara.|The Dhammapada
+dhammapada|If by leaving a small pleasure one sees a great pleasure, let a wise man leave the small pleasure, and look to the great.|The Dhammapada
+dhammapada|An evil deed is better left undone, for a man repents of it afterwards; a good deed is better done, for having done it, one does not repent.|The Dhammapada
+dhammapada|Mules are good, if tamed, and noble Sindhu horses, and elephants with large tusks; but he who tames himself is better still.|The Dhammapada
+dhammapada|Be not thoughtless, watch your thoughts! Draw yourself out of the evil way, like an elephant sunk in mud.|The Dhammapada
+dhammapada|If a man find a prudent companion who walks with him, is wise, and lives soberly, he may walk with him, overcoming all dangers, happy, but considerate.|The Dhammapada
+dhammapada|It is better to live alone, there is no companionship with a fool; let a man walk alone, let him commit no sin, with few wishes, like an elephant in the forest.|The Dhammapada
+dhammapada|The thirst of a thoughtless man grows like a creeper; he runs from life to life, like a monkey seeking fruit in the forest.|The Dhammapada
+dhammapada|As a tree, even though it has been cut down, is firm so long as its root is safe, and grows again, thus, unless the feeders of thirst are destroyed, the pain (of life) will return again and again.|The Dhammapada
+dhammapada|The gift of the law exceeds all gifts; the sweetness of the law exceeds all sweetness; the delight in the law exceeds all delights; the extinction of thirst overcomes all pain.|The Dhammapada
+dhammapada|Without knowledge there is no meditation, without meditation there is no knowledge: he who has knowledge and meditation is near unto Nirvana.|The Dhammapada
+dhammapada|Rouse thyself by thyself, examine thyself by thyself, thus self-protected and attentive wilt thou live happily, O Bhikshu!|The Dhammapada
+dhammapada|For self is the lord of self, self is the refuge of self; therefore curb thyself as the merchant curbs a good horse.|The Dhammapada
+dhammapada|A man does not become a Brahmana by his platted hair, by his family, or by birth; in whom there is truth and righteousness, he is blessed, he is a Brahmana.|The Dhammapada
+rumi|Complain not that in Chains, thou here art firmly bound;\nComplain not that Earth's Yoke, doth crush thee to the Ground.\nComplain not that the World is but a Prison wide;\n'Tis only thy complainings that build thy Dungeon round.|Rumi
+rumi|O Bird, that freest to Freedom win;\nLove caged thee in that Prison thin.\nO Soul, if thou, too, wouldst be free,\nThen love the Love that shuts thee in.|Rumi
+rumi|With Thy sweet Soul, this Soul of mine—\nHath mixed as Water doth with Wine.\nWho can the Wine and Water part,\nOr me and Thee when we combine?|Rumi
+rumi|I saw how Sunward soaring, an Eagle cleaved the air;\nAnd how in Shadow sitting, there coo'd a Turtle pair.|Rumi
+rumi|I saw a Grass blade blossom at Morn and fade at Night;\nWhile Cedars braved a thousand Years the Tempests raging there.|Rumi
+rumi|I saw the Great was Smallest, and saw the Smallest Great;\nFor God had set His Likeness on all the Things that were.|Rumi
+rumi|A mote I in the Sunshine, yet am the Sun's vast Ball;\nI bid the Sun spread Sunlight, and make the Mote be small.\nI am the Morning Splendour; I am the Evening Breeze;\nI am the Leaf's soft Rustle; the Billow's Rise and Fall.|Rumi
+rumi|I am the Cure and Doctor, Disease and Antidote;\nI am the Sweet and Bitter, the Honey and the Gall.|Rumi
+rumi|In all Mosques, Pagodas, Churches, I do find One Shrine alone;\nThy Face is there my sole delight: Be not far, O be not far!|Rumi
+rumi|All Unbelief is Midnight, but Faith the Night-Lamp's glow;\nThen see that no Thief cometh to steal thy Lamp when low.|Rumi
+rumi|Death endeth sure Life's need and pain;\nYet Life in fear would Death restrain.\nLife only sees dark Death's dread Hand,\nNot that bright Cup it offered plain.|Rumi
+rumi|O cease to dream and rouse thee; and do thy Duty well;\nBuy choicest Pearls more wisely, and give not Gold for Sand.|Rumi
+rumi|One Deer distils perfumed Musk, another bitterest Gall,\nYet grazed together, side by side, upon the self-same Height.|Rumi
+rumi|The Bee's Lip, and the Snake's sucked from the self-same Flower;\nThe one made Honey's Sweetness, the other Poison's Bite.|Rumi
+rumi|And when thou fadest sere, then burn thyself;\nAnd give thy Ashes, all Earth bore, to Love.\nAnd wing'd, from Ashes wilt thou fairer rise;\nAnd with Love's highest Message soar, to Love.|Rumi
+rumi|Why pray ye thus, O Fools, to Clay and Stone?\nRevere the House for which the Pure are bound.\nThe Heart's own House, Shrine of the True, the One:\nO blest are they whose Striving there is crown'd!|Rumi
+rumi|I ask all I meet: Where is He?\nIn me incomplete: Where is He?\nThe Tree of my Thought stretch'd on high,\nReach'd not to His Seat: Where is He?|Rumi
+rumi|I am the Vine; Strong Elm, O give me leave,\nAll round thee my fond Tendrils now to weave.\nI am the Ivy; be my Cedar Trunk,\nThat I no more to Earth's damp soil may cleave.|Rumi
+khayyam|Here with a Loaf of Bread beneath the Bough,\nA Flask of Wine, a Book of Verse—and Thou\nBeside me singing in the Wilderness—\nAnd Wilderness is Paradise enow.|Omar Khayyam
+khayyam|The Worldly Hope men set their Hearts upon\nTurns Ashes—or it prospers; and anon,\nLike Snow upon the Desert's dusty Face\nLighting a little Hour or two—is gone.|Omar Khayyam
+khayyam|Think, in this batter'd Caravanserai\nWhose Doorways are alternate Night and Day,\nHow Sultan after Sultan with his Pomp\nAbode his Hour or two, and went his way.|Omar Khayyam
+khayyam|I sometimes think that never blows so red\nThe Rose as where some buried Caesar bled;\nThat every Hyacinth the Garden wears\nDropt in its Lap from some once lovely Head.|Omar Khayyam
+khayyam|And this delightful Herb whose tender Green\nFledges the River's Lip on which we lean—\nAh, lean upon it lightly! for who knows\nFrom what once lovely Lip it springs unseen!|Omar Khayyam
+khayyam|Ah! my Beloved, fill the Cup that clears\nTO-DAY of past Regrets and future Fears-\nTo-morrow?—Why, To-morrow I may be\nMyself with Yesterday's Sev'n Thousand Years.|Omar Khayyam
+khayyam|And we, that now make merry in the Room\nThey left, and Summer dresses in new Bloom,\nOurselves must we beneath the Couch of Earth\nDescend, ourselves to make a Couch—for whom?|Omar Khayyam
+khayyam|Ah, make the most of what we yet may spend,\nBefore we too into the Dust Descend;\nDust into Dust, and under Dust, to lie,\nSans Wine, sans Song, sans Singer and—sans End!|Omar Khayyam
+khayyam|Oh, come with old Khayyam, and leave the Wise\nTo talk; one thing is certain, that Life flies;\nOne thing is certain, and the Rest is Lies;\nThe Flower that once has blown for ever dies.|Omar Khayyam
+khayyam|Myself when young did eagerly frequent\nDoctor and Saint, and heard great Argument\nAbout it and about: but evermore\nCame out by the same Door as in I went.|Omar Khayyam
+khayyam|With them the Seed of Wisdom did I sow,\nAnd with my own hand labour'd it to grow:\nAnd this was all the Harvest that I reap'd—\n"I came like Water, and like Wind I go."|Omar Khayyam
+khayyam|Into this Universe, and why not knowing,\nNor whence, like Water willy-nilly flowing:\nAnd out of it, as Wind along the Waste,\nI know not whither, willy-nilly blowing.|Omar Khayyam
+khayyam|Up from Earth's Centre through the seventh Gate\nI rose, and on the Throne of Saturn sate,\nAnd many Knots unravel'd by the Road;\nBut not the Knot of Human Death and Fate.|Omar Khayyam
+khayyam|There was a Door to which I found no Key:\nThere was a Veil past which I could not see:\nSome little Talk awhile of ME and THEE\nThere seemed—and then no more of THEE and ME.|Omar Khayyam
+khayyam|Then to the rolling Heav'n itself I cried,\nAsking, "What Lamp had Destiny to guide\nHer little Children stumbling in the Dark?"\nAnd—"A blind understanding!" Heav'n replied.|Omar Khayyam
+khayyam|For in the Market-place, one Dusk of Day,\nI watch'd the Potter thumping his wet Clay:\nAnd with its all obliterated Tongue\nIt murmur'd—"Gently, Brother, gently, pray!"|Omar Khayyam
+khayyam|Ah, fill the Cup:—what boots it to repeat\nHow Time is slipping underneath our Feet:\nUnborn TO-MORROW and dead YESTERDAY,\nWhy fret about them if TO-DAY be sweet!|Omar Khayyam
+khayyam|One Moment in Annihilation's Waste,\nOne moment, of the Well of Life to taste—\nThe Stars are setting, and the Caravan\nStarts for the dawn of Nothing—Oh, make haste!|Omar Khayyam
+khayyam|For in and out, above, about, below,\n'Tis nothing but a Magic Shadow-show,\nPlay'd in a Box whose Candle is the Sun,\nRound which we Phantom Figures come and go.|Omar Khayyam
+khayyam|And if the Wine you drink, the Lip you press,\nEnd in the Nothing all Things end in—Yes-\nThen fancy while Thou art, Thou art but what\nThou shalt be—Nothing—Thou shalt not be less.|Omar Khayyam
+khayyam|'Tis all a Chequer-board of Nights and Days\nWhere Destiny with Men for Pieces plays:\nHither and thither moves, and mates, and slays,\nAnd one by one back in the Closet lays.|Omar Khayyam
+khayyam|The Moving Finger writes; and, having writ,\nMoves on: nor all thy Piety nor Wit\nShall lure it back to cancel half a Line,\nNor all thy Tears wash out a Word of it.|Omar Khayyam
+khayyam|And that inverted Bowl we call The Sky,\nWhereunder crawling coop't we live and die,\nLift not thy hands to IT for help—for It\nRolls impotently on as Thou or I.|Omar Khayyam
+khayyam|And this I know: whether the one True Light,\nKindle to Love, or Wrath consume me quite,\nOne Glimpse of It within the Tavern caught\nBetter than in the Temple lost outright.|Omar Khayyam
+khayyam|What, without asking, hither hurried whence?\nAnd, without asking, whither hurried hence!\nAnother and another Cup to drown\nThe Memory of this Impertinence!|Omar Khayyam
+khayyam|Lo! some we loved, the loveliest and the best\nThat Time and Fate of all their Vintage prest,\nHave drunk their Cup a Round or two before,\nAnd one by one crept silently to Rest.|Omar Khayyam
+khayyam|"How sweet is mortal Sovranty!"—think some:\nOthers—"How blest the Paradise to come!"\nAh, take the Cash in hand and waive the Rest;\nOh, the brave Music of a distant Drum!|Omar Khayyam
+suntzu|The art of war is of vital importance to the State. It is a matter of life and death, a road either to safety or to ruin. Hence it is a subject of inquiry which can on no account be neglected.|Sun Tzu
+suntzu|Hence, when able to attack, we must seem unable; when using our forces, we must seem inactive; when we are near, we must make the enemy believe we are far away; when far away, we must make him believe we are near.|Sun Tzu
+suntzu|Attack him where he is unprepared, appear where you are not expected.|Sun Tzu
+suntzu|There is no instance of a country having benefited from prolonged warfare.|Sun Tzu
+suntzu|In war, then, let your great object be victory, not lengthy campaigns.|Sun Tzu
+suntzu|In the practical art of war, the best thing of all is to take the enemy’s country whole and intact; to shatter and destroy it is not so good. So, too, it is better to capture an army entire than to destroy it, to capture a regiment, a detachment or a company entire than to destroy them.|Sun Tzu
+suntzu|Hence to fight and conquer in all your battles is not supreme excellence; supreme excellence consists in breaking the enemy’s resistance without fighting.|Sun Tzu
+suntzu|Therefore the skilful leader subdues the enemy’s troops without any fighting; he captures their cities without laying siege to them; he overthrows their kingdom without lengthy operations in the field.|Sun Tzu
+suntzu|If you know the enemy and know yourself, you need not fear the result of a hundred battles. If you know yourself but not the enemy, for every victory gained you will also suffer a defeat. If you know neither the enemy nor yourself, you will succumb in every battle.|Sun Tzu
+suntzu|The good fighters of old first put themselves beyond the possibility of defeat, and then waited for an opportunity of defeating the enemy. To secure ourselves against defeat lies in our own hands, but the opportunity of defeating the enemy is provided by the enemy himself.|Sun Tzu
+suntzu|To see victory only when it is within the ken of the common herd is not the acme of excellence. Neither is it the acme of excellence if you fight and conquer and the whole Empire says, “Well done!”|Sun Tzu
+suntzu|What the ancients called a clever fighter is one who not only wins, but excels in winning with ease. Hence his victories bring him neither reputation for wisdom nor credit for courage. He wins his battles by making no mistakes. Making no mistakes is what establishes the certainty of victory, for it means conquering an enemy that is already defeated.|Sun Tzu
+suntzu|Hence the skilful fighter puts himself into a position which makes defeat impossible, and does not miss the moment for defeating the enemy.|Sun Tzu
+suntzu|Thus it is that in war the victorious strategist only seeks battle after the victory has been won, whereas he who is destined to defeat first fights and afterwards looks for victory.|Sun Tzu
+suntzu|Indirect tactics, efficiently applied, are inexhaustible as Heaven and Earth, unending as the flow of rivers and streams; like the sun and moon, they end but to begin anew; like the four seasons, they pass away but to return once more.|Sun Tzu
+suntzu|There are not more than five musical notes, yet the combinations of these five give rise to more melodies than can ever be heard.|Sun Tzu
+suntzu|In battle, there are not more than two methods of attack—the direct and the indirect; yet these two in combination give rise to an endless series of manœuvers. The direct and the indirect lead on to each other in turn. It is like moving in a circle—you never come to an end. Who can exhaust the possibilities of their combination?|Sun Tzu
+suntzu|Therefore the clever combatant imposes his will on the enemy, but does not allow the enemy’s will to be imposed on him.|Sun Tzu
+suntzu|An army may march great distances without distress, if it marches through country where the enemy is not.|Sun Tzu
+suntzu|You can be sure of succeeding in your attacks if you only attack places which are undefended.You can ensure the safety of your defence if you only hold positions that cannot be attacked.|Sun Tzu
+suntzu|Hence that general is skilful in attack whose opponent does not know what to defend; and he is skilful in defence whose opponent does not know what to attack.|Sun Tzu
+suntzu|O divine art of subtlety and secrecy! Through you we learn to be invisible, through you inaudible; and hence we can hold the enemy’s fate in our hands.|Sun Tzu
+suntzu|In making tactical dispositions, the highest pitch you can attain is to conceal them; conceal your dispositions, and you will be safe from the prying of the subtlest spies, from the machinations of the wisest brains.|Sun Tzu
+suntzu|All men can see the tactics whereby I conquer, but what none can see is the strategy out of which victory is evolved.|Sun Tzu
+suntzu|Do not repeat the tactics which have gained you one victory, but let your methods be regulated by the infinite variety of circumstances.|Sun Tzu
+suntzu|Military tactics are like unto water; for water in its natural course runs away from high places and hastens downwards. So in war, the way is to avoid what is strong and to strike at what is weak. Water shapes its course according to the nature of the ground over which it flows; the soldier works out his victory in relation to the foe whom he is facing. Therefore, just as water retains no constant shape, so in warfare there are no constant conditions.|Sun Tzu
+suntzu|He who can modify his tactics in relation to his opponent and thereby succeed in winning, may be called a heaven-born captain.|Sun Tzu
+suntzu|In war, practise dissimulation, and you will succeed. Move only if there is a real advantage to be gained.|Sun Tzu
+suntzu|Let your rapidity be that of the wind, your compactness that of the forest. In raiding and plundering be like fire, in immovability like a mountain. Let your plans be dark and impenetrable as night, and when you move, fall like a thunderbolt.|Sun Tzu
+suntzu|The art of war teaches us to rely not on the likelihood of the enemy’s not coming, but on our own readiness to receive him; not on the chance of his not attacking, but rather on the fact that we have made our position unassailable.|Sun Tzu
+suntzu|The natural formation of the country is the soldier’s best ally; but a power of estimating the adversary, of controlling the forces of victory, and of shrewdly calculating difficulties, dangers and distances, constitutes the test of a great general.|Sun Tzu
+suntzu|The general who advances without coveting fame and retreats without fearing disgrace, whose only thought is to protect his country and do good service for his sovereign, is the jewel of the kingdom.|Sun Tzu
+suntzu|If you know the enemy and know yourself, your victory will not stand in doubt; if you know Heaven and know Earth, you may make your victory complete.|Sun Tzu
+suntzu|Place your army in deadly peril, and it will survive; plunge it into desperate straits, and it will come off in safety.|Sun Tzu
+suntzu|Thus, what enables the wise sovereign and the good general to strike and conquer, and achieve things beyond the reach of ordinary men, is foreknowledge.|Sun Tzu
+suntzu|Hence it is that with none in the whole army are more intimate relations to be maintained than with spies. None should be more liberally rewarded. In no other business should greater secrecy be preserved.|Sun Tzu

@@ -35,6 +35,11 @@ editions below, or a translation made for this app and labelled `(tr. Claude)`.
 | Plato | Apology; Phaedo; Symposium; Phaedrus; Republic | Benjamin Jowett | Project Gutenberg #1656, #1658, #1600, #1636, #1497 |
 | Lao Tzu | Tao Teh King | James Legge (1891) | Project Gutenberg #216 |
 | Søren Kierkegaard | Selections from the Writings of Kierkegaard | Lee M. Hollander (1923) | Project Gutenberg #60333 |
+| Confucius | The Analects | James Legge | Project Gutenberg #3330 |
+| The Dhammapada | Dhammapada, a Collection of Verses | F. Max Müller (Sacred Books of the East) | Project Gutenberg #2017 |
+| Sun Tzu | The Art of War | Lionel Giles (1910) | Project Gutenberg #17405 |
+| Omar Khayyam | Rubaiyat (first edition) | Edward FitzGerald (1859) | Project Gutenberg #246 |
+| Rumi | The Festival of Spring, from the Díván of Jeláleddín | William Hastie (1903), English renderings after Friedrich Rückert's German versions | Project Gutenberg #57068 |
 
 The themed quotes (Motivation, Thought-provoking, Stoic & ancient wisdom, Kindness & hope) are short, widely
 published sayings and aphorisms by ancient and 19th-century authors, attributed to the person traditionally credited.
@@ -53,5 +58,7 @@ recognise as really being theirs (Goodreads quotes are typed in by readers and a
 mangled; many of the top "Camus" and "Hesse" quotes there were dropped for that reason). The wording is that of
 whichever published English translation the reader copied from, so it can differ slightly from your edition. These
 are short excerpts; if you spot a mistake, please open an issue.
+
+Legge's (Tao Teh King, Analects), Müller's and Giles's parentheses mark words the translators supplied; the app drops those marks and otherwise keeps their wording. FitzGerald's *Rubaiyat* is a free English re-creation rather than a literal translation, and Hastie's Rumi poems are free versions made via Rückert's German, so they are looser than the originals.
 
 Legge's Tao Teh King marks words he supplied with parentheses; the app drops those parentheses and otherwise keeps his wording.
