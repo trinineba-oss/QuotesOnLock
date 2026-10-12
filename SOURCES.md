@@ -32,6 +32,9 @@ editions below, or a translation made for this app and labelled `(tr. Claude)`.
 | Franz Kafka | The Trial; The Metamorphosis | David Wyllie | Project Gutenberg #7849, #5200 |
 | Franz Kafka | Betrachtungen über Sünde, Leid, Hoffnung und den wahren Weg (the Zürau Aphorisms, 1917–18) | German original, **translated for this app** | German Wikisource |
 | Franz Kafka | Betrachtung (Contemplation) | German original, **translated for this app** | Project Gutenberg #23532 |
+| Plato | Apology; Phaedo; Symposium; Phaedrus; Republic | Benjamin Jowett | Project Gutenberg #1656, #1658, #1600, #1636, #1497 |
+| Lao Tzu | Tao Teh King | James Legge (1891) | Project Gutenberg #216 |
+| Søren Kierkegaard | Selections from the Writings of Kierkegaard | Lee M. Hollander (1923) | Project Gutenberg #60333 |
 
 The themed quotes (Motivation, Thought-provoking, Stoic & ancient wisdom, Kindness & hope) are short, widely
 published sayings and aphorisms by ancient and 19th-century authors, attributed to the person traditionally credited.
@@ -41,3 +44,5 @@ published sayings and aphorisms by ancient and 19th-century authors, attributed 
 Most English translations of Rilke and Kafka are still under copyright, so the quotes marked `(tr. Claude)` are
 translations made for this app from the public-domain German text. They aim to be faithful rather than poetic, and
 they are not the well-known published versions. If you spot an error or have a better rendering, open an issue.
+
+Legge's Tao Teh King marks words he supplied with parentheses; the app drops those parentheses and otherwise keeps his wording.

@@ -6,7 +6,7 @@ Android doesn't let normal apps draw on the lock screen, so the app posts the qu
 
 ## Features
 
-- About 1,150 built-in quotes you can switch on and off by theme (motivation, thought-provoking, stoic & ancient wisdom, kindness & hope; the first two now include Marcus Aurelius, Epictetus, Seneca, Schopenhauer, Montaigne, Pascal, Emerson, Thoreau and more) or by author (Kahlil Gibran, Rainer Maria Rilke, Friedrich Nietzsche, Fyodor Dostoevsky, Leo Tolstoy, Franz Kafka), plus your own. Rotation never repeats a quote until it has shown all the enabled ones. Sources and translation notes are in [SOURCES.md](SOURCES.md).
+- About 1,240 built-in quotes you can switch on and off by theme (motivation, thought-provoking, stoic & ancient wisdom, kindness & hope; the first two now include Marcus Aurelius, Epictetus, Seneca, Schopenhauer, Montaigne, Pascal, Emerson, Thoreau and more) or by author (Kahlil Gibran, Rainer Maria Rilke, Friedrich Nietzsche, Fyodor Dostoevsky, Leo Tolstoy, Franz Kafka, Plato, Lao Tzu, Søren Kierkegaard), plus your own. Rotation never repeats a quote until it has shown all the enabled ones. Sources and translation notes are in [SOURCES.md](SOURCES.md).
 - Choose the font (six built-in Android families), size and text color of the quote. The notification uses a custom layout for this; Android still draws the background, so colors can clash with your light or dark theme ("System default" always works).
 - Rotation every 15 minutes up to daily (WorkManager).
 - The quote comes back after a reboot.
