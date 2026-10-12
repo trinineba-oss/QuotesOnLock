@@ -41,6 +41,11 @@ class QuotePrefs(context: Context) {
 
     val style: QuoteStyle get() = QuoteStyle(font, size, textColor)
 
+    /** Keys of quotes already shown in this pass through the pool, so nothing repeats until all are seen. */
+    var seen: Set<String>
+        get() = prefs.getStringSet("seen", null)?.toSet() ?: emptySet()
+        set(value) = prefs.edit().putStringSet("seen", value.toSet()).apply()
+
     var currentText: String?
         get() = prefs.getString("current_text", null)
         set(value) = prefs.edit().putString("current_text", value).apply()

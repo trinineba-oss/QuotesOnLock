@@ -85,17 +85,29 @@ class QuoteRepository(
 
     fun current(): Quote? = prefs.currentText?.let { Quote(it, prefs.currentAuthor) }
 
-    /** Picks a random quote from the pool (never the current one if there is a choice) and stores it. */
+    /**
+     * Picks a random quote that hasn't been shown yet in this pass through the pool and stores it.
+     * Once every quote in the pool has been shown, the pass starts over, so nothing repeats until
+     * the whole pool has been seen (and never twice in a row).
+     */
     fun advance(): Quote? {
         val pool = pool()
+        if (pool.isEmpty()) return null
         val currentText = prefs.currentText
-        val next = pool.filter { it.text != currentText }.randomOrNull() ?: pool.firstOrNull()
-        if (next != null) {
-            prefs.currentText = next.text
-            prefs.currentAuthor = next.author
+        var seen = prefs.seen
+        var candidates = pool.filter { it.key() !in seen && it.text != currentText }
+        if (candidates.isEmpty()) {
+            seen = emptySet()
+            candidates = pool.filter { it.text != currentText }.ifEmpty { pool }
         }
+        val next = candidates.random()
+        prefs.seen = seen + next.key()
+        prefs.currentText = next.text
+        prefs.currentAuthor = next.author
         return next
     }
+
+    private fun Quote.key() = "$text|$author".hashCode().toString()
 
     private companion object {
         @Volatile
