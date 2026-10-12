@@ -280,23 +280,32 @@ private fun QuotesScreen(prefs: QuotePrefs, repo: QuoteRepository) {
                 }
             }
 
-            items(Category.entries, key = { it.key }) { category ->
-                Row(
-                    modifier = Modifier.fillMaxWidth(),
-                    horizontalArrangement = Arrangement.SpaceBetween,
-                    verticalAlignment = Alignment.CenterVertically,
-                ) {
-                    Column(Modifier.weight(1f)) {
-                        Text(category.label)
-                        Text(
-                            "${countOf(category)} quotes",
-                            style = MaterialTheme.typography.bodySmall,
+            QuoteGroup.entries.forEach { group ->
+                item(key = "group-${group.name}") {
+                    Text(
+                        group.title,
+                        style = MaterialTheme.typography.labelLarge,
+                        modifier = Modifier.padding(top = 8.dp),
+                    )
+                }
+                items(Category.entries.filter { it.group == group }, key = { it.key }) { category ->
+                    Row(
+                        modifier = Modifier.fillMaxWidth(),
+                        horizontalArrangement = Arrangement.SpaceBetween,
+                        verticalAlignment = Alignment.CenterVertically,
+                    ) {
+                        Column(Modifier.weight(1f)) {
+                            Text(category.label)
+                            Text(
+                                "${countOf(category)} quotes",
+                                style = MaterialTheme.typography.bodySmall,
+                            )
+                        }
+                        Switch(
+                            checked = category in categories,
+                            onCheckedChange = { toggleCategory(category, it) },
                         )
                     }
-                    Switch(
-                        checked = category in categories,
-                        onCheckedChange = { toggleCategory(category, it) },
-                    )
                 }
             }
 

@@ -14,13 +14,19 @@ class QuotePrefs(context: Context) {
         get() = prefs.getLong("interval_minutes", 60L)
         set(value) = prefs.edit().putLong("interval_minutes", value).apply()
 
-    /** Quote categories that take part in rotation. All of them until the user changes it. */
+    /**
+     * Quote categories that take part in rotation. Stored as the ones switched *off*, so categories
+     * added in later versions are on by default.
+     */
     var enabledCategories: Set<Category>
-        get() = prefs.getStringSet("categories", null)
-            ?.mapNotNull { Category.fromKey(it) }
-            ?.toSet()
-            ?: Category.entries.toSet()
-        set(value) = prefs.edit().putStringSet("categories", value.map { it.key }.toSet()).apply()
+        get() {
+            val off = prefs.getStringSet("categories_off", null)?.mapNotNull { Category.fromKey(it) }?.toSet()
+                ?: emptySet()
+            return Category.entries.toSet() - off
+        }
+        set(value) = prefs.edit()
+            .putStringSet("categories_off", (Category.entries.toSet() - value).map { it.key }.toSet())
+            .apply()
 
     var font: QuoteFont
         get() = QuoteFont.fromKey(prefs.getString("font", null))

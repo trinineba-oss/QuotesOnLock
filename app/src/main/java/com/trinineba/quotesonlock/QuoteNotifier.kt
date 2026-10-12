@@ -68,7 +68,7 @@ object QuoteNotifier {
 
         if (expanded) {
             views.setTextViewText(R.id.quote_text, text)
-            views.setInt(R.id.quote_text, "setMaxLines", 10)
+            views.setInt(R.id.quote_text, "setMaxLines", 16)
             if (author != null) {
                 views.setTextViewText(R.id.quote_author, author)
                 views.setViewVisibility(R.id.quote_author, View.VISIBLE)

@@ -1,5 +1,5 @@
-# One quote per line: category|text|author
-# Categories: motivation, thought, stoic, kindness
+# One quote per line: category|text|author   (a literal \n in the text is a line break)
+# Categories: motivation, thought, stoic, kindness, gibran, rilke, nietzsche, dostoevsky, tolstoy, kafka
 motivation|A journey of a thousand miles begins with a single step.|Lao Tzu
 motivation|It does not matter how slowly you go as long as you do not stop.|Confucius
 motivation|Nothing great was ever achieved without enthusiasm.|Ralph Waldo Emerson
@@ -58,3 +58,637 @@ kindness|No one is useless in this world who lightens the burdens of another.|Ch
 kindness|No act of kindness, no matter how small, is ever wasted.|Aesop
 kindness|Love all, trust a few, do wrong to none.|William Shakespeare
 kindness|Gratitude is not only the greatest of virtues, but the parent of all the others.|Cicero
+gibran|You are your own forerunner, and the towers you have builded are but the foundation of your giant-self. And that self too shall be a foundation.|Kahlil Gibran, The Forerunner
+gibran|Always have we been our own forerunners, and always shall we be. And all that we have gathered and shall gather shall be but seeds for fields yet unploughed. We are the fields and the ploughmen, the gatherers and the gathered.|Kahlil Gibran, The Forerunner
+gibran|Countless are the eagles who descend from the upper air to live with moles that they may know the secrets of the earth.|Kahlil Gibran, The Forerunner
+gibran|And greater yet than all of these is he who renounces the kingdom of sorrow that he may not seem proud and vainglorious.|Kahlil Gibran, The Forerunner
+gibran|Then the king said, “Because I am the wisest man they crowned me king.” And the naked man said, “If you were still wiser you would not choose to be king.”|Kahlil Gibran, The Forerunner
+gibran|At last he cried, “My friends, because my horse is stolen, you have hastened one and all to tell me my faults and my shortcomings. But strange, not one word of reproach have you uttered about the man who stole my horse.”|Kahlil Gibran, The Forerunner
+gibran|How can a prisoner within the temple behold its golden domes? How shall the heart of a fruit be stretched to envelop the fruit also?|Kahlil Gibran, The Forerunner
+gibran|And the fourth frog said, “Each of you is right, and none of you is wrong. The moving is in the log and the water and our thinking also.”|Kahlil Gibran, The Forerunner
+gibran|And the snow-white sheet of paper did remain pure and chaste for ever—pure and chaste—and empty.|Kahlil Gibran, The Forerunner
+gibran|The dream of what a soul!—and fresh with the sweet sleep of a thousand years. How can any one give all this for money, dead and dreamless?|Kahlil Gibran, The Forerunner
+gibran|A fish said to another fish, “Above this sea of ours there is another sea, with creatures swimming in it—and they live there even as we live here.”|Kahlil Gibran, The Forerunner
+gibran|Beyond my solitude is another solitude, and to him who dwells therein my aloneness is a crowded market-place and my silence a confusion of sounds.|Kahlil Gibran, The Forerunner
+gibran|Beyond this burdened self lives my freer self; and to him my dreams are a battle fought in twilight and my desires the rattling of bones.|Kahlil Gibran, The Forerunner
+gibran|And how shall I become my freer self unless I slay my burdened selves, or unless all men become free? How shall my leaves fly singing upon the wind unless my roots shall wither in the dark?|Kahlil Gibran, The Forerunner
+gibran|I love the one among you as though he were all, and all as if you were one.|Kahlil Gibran, The Forerunner
+gibran|You would drink love from a cup, but not from a surging river. You would hear love’s faint murmur, but when love shouts you would muffle your ears.|Kahlil Gibran, The Forerunner
+gibran|It was love lashed by its own self that spoke. It was pride half slain that fluttered in the dust. It was my hunger for your love that raged from the housetop, while my own love, kneeling in silence, prayed your forgiveness.|Kahlil Gibran, The Forerunner
+gibran|For he knew in his heart that love humiliated in its nakedness is greater than love that seeks triumph in disguise; and he was ashamed.|Kahlil Gibran, The Forerunner
+gibran|For the first time the sun kissed my own naked face and my soul was inflamed with love for the sun, and I wanted my masks no more.|Kahlil Gibran, The Madman
+gibran|And I have found both freedom and safety in my madness; the freedom of loneliness and the safety from being understood, for those who understand us enslave something in us. But let me not be too proud of my safety. Even a Thief in a jail is safe from another thief.|Kahlil Gibran, The Madman
+gibran|I would not have thee believe in what I say nor trust in what I do—for my words are naught but thy own thoughts in sound and my deeds thy own hopes in action.|Kahlil Gibran, The Madman
+gibran|A fox looked at his shadow at sunrise and said, "I will have a camel for lunch today." And all morning he went about looking for camels. But at noon he saw his shadow again—and he said, "A mouse will do."|Kahlil Gibran, The Madman
+gibran|Once, as I was burying one of my dead selves, the grave-digger came by and said to me, "Of all those who come here to bury, you alone I like." Said I, "You please me exceedingly, but why do you like me?" "Because," said he, "They come weeping and go weeping—you only come laughing and go laughing."|Kahlil Gibran, The Madman
+gibran|Defeat, my Defeat, my solitude and my aloofness; You are dearer to me than a thousand triumphs, and sweeter to my heart than all world-glory.|Kahlil Gibran, The Madman
+gibran|Defeat, my Defeat, my self-knowledge and my defiance, Through you I know that I am yet young and swift of foot And not to be trapped by withering laurels.|Kahlil Gibran, The Madman
+gibran|Defeat, my Defeat, my shining sword and shield, In your eyes I have read That to be enthroned is to be enslaved, and to be understood is to be leveled down, and to be grasped is but to reach one's fullness And like a ripe fruit to fall and be consumed.|Kahlil Gibran, The Madman
+gibran|Defeat, my Defeat, my deathless courage, You and I shall laugh together with the storm, and together we shall dig graves for all that die in us, and we shall stand in the sun with a will, and we shall be dangerous.|Kahlil Gibran, The Madman
+gibran|I have seen a face with a thousand countenances, and a face that was but a single countenance as if held in a mould.|Kahlil Gibran, The Madman
+gibran|I have seen a face whose sheen I could look through to the ugliness beneath, and a face whose sheen I had to lift to see how beautiful it was. I have seen an old face much lined with nothing, and a smooth face in which all things were graven.|Kahlil Gibran, The Madman
+gibran|I know faces, because I look through the fabric my own eye weaves, and behold the reality beneath.|Kahlil Gibran, The Madman
+gibran|He is the realist, who turns his back on the whole he cannot grasp, and busies himself with a fragment.|Kahlil Gibran, The Madman
+gibran|And they said, "Why should your blood be upon our heads?" And I answered, "How else shall you be exalted except by crucifying madmen?"|Kahlil Gibran, The Madman
+gibran|For what is there can quench a madman's thirst but his own blood? I was dumb—and I asked wounds of you for mouths. I was imprisoned in your days and nights—and I sought a door into larger days and nights.|Kahlil Gibran, The Madman
+gibran|And now I only remember my dead Joy in remembering my dead Sorrow. But memory is an autumn leaf that murmurs a while in the wind and then is heard no more.|Kahlil Gibran, The Madman
+gibran|It is not a garment I cast off this day, but a skin that I tear with my own hands.|Kahlil Gibran, The Prophet
+gibran|For to stay, though the hours burn in the night, is to freeze and crystallize and be bound in a mould.|Kahlil Gibran, The Prophet
+gibran|A voice cannot carry the tongue and the lips that gave it wings.|Kahlil Gibran, The Prophet
+gibran|And ever has it been that love knows not its own depth until the hour of separation.|Kahlil Gibran, The Prophet
+gibran|For even as love crowns you so shall he crucify you. Even as he is for your growth so is he for your pruning.|Kahlil Gibran, The Prophet
+gibran|All these things shall love do unto you that you may know the secrets of your heart, and in that knowledge become a fragment of Life’s heart.|Kahlil Gibran, The Prophet
+gibran|Love gives naught but itself and takes naught but from itself. Love possesses not nor would it be possessed; for love is sufficient unto love.|Kahlil Gibran, The Prophet
+gibran|When you love you should not say, “God is in my heart,” but rather, “I am in the heart of God.”|Kahlil Gibran, The Prophet
+gibran|And think not you can direct the course of love, for love, if it finds you worthy, directs your course.|Kahlil Gibran, The Prophet
+gibran|Love has no other desire but to fulfil itself.|Kahlil Gibran, The Prophet
+gibran|You were born together, and together you shall be forevermore. You shall be together when the white wings of death scatter your days. Aye, you shall be together even in the silent memory of God.|Kahlil Gibran, The Prophet
+gibran|But let there be spaces in your togetherness, and let the winds of the heavens dance between you.|Kahlil Gibran, The Prophet
+gibran|Love one another, but make not a bond of love: let it rather be a moving sea between the shores of your souls.|Kahlil Gibran, The Prophet
+gibran|Fill each other’s cup but drink not from one cup. Give one another of your bread but eat not from the same loaf.|Kahlil Gibran, The Prophet
+gibran|Sing and dance together and be joyous, but let each one of you be alone, even as the strings of a lute are alone though they quiver with the same music.|Kahlil Gibran, The Prophet
+gibran|Give your hearts, but not into each other’s keeping. For only the hand of Life can contain your hearts.|Kahlil Gibran, The Prophet
+gibran|And stand together yet not too near together: for the pillars of the temple stand apart, and the oak tree and the cypress grow not in each other’s shadow.|Kahlil Gibran, The Prophet
+gibran|Your children are not your children. They are the sons and daughters of Life’s longing for itself.|Kahlil Gibran, The Prophet
+gibran|You may give them your love but not your thoughts, for they have their own thoughts.|Kahlil Gibran, The Prophet
+gibran|You may house their bodies but not their souls, for their souls dwell in the house of tomorrow, which you cannot visit, not even in your dreams.|Kahlil Gibran, The Prophet
+gibran|You may strive to be like them, but seek not to make them like you. For life goes not backward nor tarries with yesterday.|Kahlil Gibran, The Prophet
+gibran|You are the bows from which your children as living arrows are sent forth.|Kahlil Gibran, The Prophet
+gibran|You give but little when you give of your possessions. It is when you give of yourself that you truly give.|Kahlil Gibran, The Prophet
+gibran|And there are those who have little and give it all. These are the believers in life and the bounty of life, and their coffer is never empty.|Kahlil Gibran, The Prophet
+gibran|There are those who give with joy, and that joy is their reward. And there are those who give with pain, and that pain is their baptism.|Kahlil Gibran, The Prophet
+gibran|They give as in yonder valley the myrtle breathes its fragrance into space. Through the hands of such as these God speaks, and from behind their eyes He smiles upon the earth.|Kahlil Gibran, The Prophet
+gibran|They give that they may live, for to withhold is to perish.|Kahlil Gibran, The Prophet
+gibran|For in truth it is life that gives unto life—while you, who deem yourself a giver, are but a witness.|Kahlil Gibran, The Prophet
+gibran|When you work you are a flute through whose heart the whispering of the hours turns to music.|Kahlil Gibran, The Prophet
+gibran|Work is love made visible.|Kahlil Gibran, The Prophet
+gibran|And in keeping yourself with labour you are in truth loving life, and to love life through labour is to be intimate with life’s inmost secret.|Kahlil Gibran, The Prophet
+gibran|And I say that life is indeed darkness save when there is urge, and all urge is blind save when there is knowledge, and all knowledge is vain save when there is work, and all work is empty save when there is love; and when you work with love you bind yourself to yourself, and to one another, and to God.|Kahlil Gibran, The Prophet
+gibran|And what is it to work with love? It is to weave the cloth with threads drawn from your heart, even as if your beloved were to wear that cloth. It is to build a house with affection, even as if your beloved were to dwell in that house.|Kahlil Gibran, The Prophet
+gibran|For if you bake bread with indifference, you bake a bitter bread that feeds but half man’s hunger. And if you grudge the crushing of the grapes, your grudge distils a poison in the wine.|Kahlil Gibran, The Prophet
+gibran|Your joy is your sorrow unmasked. And the selfsame well from which your laughter rises was oftentimes filled with your tears.|Kahlil Gibran, The Prophet
+gibran|The deeper that sorrow carves into your being, the more joy you can contain.|Kahlil Gibran, The Prophet
+gibran|Is not the cup that holds your wine the very cup that was burned in the potter’s oven? And is not the lute that soothes your spirit, the very wood that was hollowed with knives?|Kahlil Gibran, The Prophet
+gibran|When you are joyous, look deep into your heart and you shall find it is only that which has given you sorrow that is giving you joy.|Kahlil Gibran, The Prophet
+gibran|When you are sorrowful look again in your heart, and you shall see that in truth you are weeping for that which has been your delight.|Kahlil Gibran, The Prophet
+gibran|Together they come, and when one sits alone with you at your board, remember that the other is asleep upon your bed.|Kahlil Gibran, The Prophet
+gibran|Verily you are suspended like scales between your sorrow and your joy. Only when you are empty are you at standstill and balanced.|Kahlil Gibran, The Prophet
+gibran|Build of your imaginings a bower in the wilderness ere you build a house within the city walls.|Kahlil Gibran, The Prophet
+gibran|Or have you only comfort, and the lust for comfort, that stealthy thing that enters the house a guest, and then becomes a host, and then a master?|Kahlil Gibran, The Prophet
+gibran|Verily the lust for comfort murders the passion of the soul, and then walks grinning in the funeral.|Kahlil Gibran, The Prophet
+gibran|Your house shall be not an anchor but a mast. It shall not be a glistening film that covers a wound, but an eyelid that guards the eye.|Kahlil Gibran, The Prophet
+gibran|But I say that even as the holy and the righteous cannot rise beyond the highest which is in each one of you, so the wicked and the weak cannot fall lower than the lowest which is in you also.|Kahlil Gibran, The Prophet
+gibran|You cannot separate the just from the unjust and the good from the wicked; for they stand together before the face of the sun even as the black thread and the white are woven together.|Kahlil Gibran, The Prophet
+gibran|What shall I say of these save that they too stand in the sunlight, but with their backs to the sun? They see only their shadows, and their shadows are their laws.|Kahlil Gibran, The Prophet
+gibran|People of Orphalese, you can muffle the drum, and you can loosen the strings of the lyre, but who shall command the skylark not to sing?|Kahlil Gibran, The Prophet
+gibran|In truth that which you call freedom is the strongest of these chains, though its links glitter in the sun and dazzle your eyes.|Kahlil Gibran, The Prophet
+gibran|And if it is a despot you would dethrone, see first that his throne erected within you is destroyed.|Kahlil Gibran, The Prophet
+gibran|And if it is a fear you would dispel, the seat of that fear is in your heart and not in the hand of the feared.|Kahlil Gibran, The Prophet
+gibran|And when the shadow fades and is no more, the light that lingers becomes a shadow to another light. And thus your freedom when it loses its fetters becomes itself the fetter of a greater freedom.|Kahlil Gibran, The Prophet
+gibran|Your reason and your passion are the rudder and the sails of your seafaring soul.|Kahlil Gibran, The Prophet
+gibran|For reason, ruling alone, is a force confining; and passion, unattended, is a flame that burns to its own destruction.|Kahlil Gibran, The Prophet
+gibran|Therefore let your soul exalt your reason to the height of passion, that it may sing; and let it direct your passion with reason, that your passion may live through its own daily resurrection, and like the phoenix rise above its own ashes.|Kahlil Gibran, The Prophet
+gibran|Your pain is the breaking of the shell that encloses your understanding. Even as the stone of the fruit must break, that its heart may stand in the sun, so must you know pain.|Kahlil Gibran, The Prophet
+gibran|Much of your pain is self-chosen. It is the bitter potion by which the physician within you heals your sick self.|Kahlil Gibran, The Prophet
+gibran|Your hearts know in silence the secrets of the days and the nights. But your ears thirst for the sound of your heart’s knowledge.|Kahlil Gibran, The Prophet
+gibran|You would know in words that which you have always known in thought. You would touch with your fingers the naked body of your dreams.|Kahlil Gibran, The Prophet
+gibran|Say not, “I have found the truth,” but rather, “I have found a truth.”|Kahlil Gibran, The Prophet
+gibran|Say rather, “I have met the soul walking upon my path.” For the soul walks upon all paths.|Kahlil Gibran, The Prophet
+gibran|The soul walks not upon a line, neither does it grow like a reed. The soul unfolds itself, like a lotus of countless petals.|Kahlil Gibran, The Prophet
+gibran|If he is indeed wise he does not bid you enter the house of his wisdom, but rather leads you to the threshold of your own mind.|Kahlil Gibran, The Prophet
+gibran|For the vision of one man lends not its wings to another man.|Kahlil Gibran, The Prophet
+gibran|Your friend is your needs answered. He is your field which you sow with love and reap with thanksgiving.|Kahlil Gibran, The Prophet
+gibran|When you part from your friend, you grieve not; for that which you love most in him may be clearer in his absence, as the mountain to the climber is clearer from the plain.|Kahlil Gibran, The Prophet
+gibran|For in the dew of little things the heart finds its morning and is refreshed.|Kahlil Gibran, The Prophet
+gibran|You talk when you cease to be at peace with your thoughts; and when you can no longer dwell in the solitude of your heart you live in your lips, and sound is a diversion and a pastime.|Kahlil Gibran, The Prophet
+gibran|And in much of your talking, thinking is half murdered. For thought is a bird of space, that in a cage of words may indeed unfold its wings but cannot fly.|Kahlil Gibran, The Prophet
+gibran|Yet the timeless in you is aware of life’s timelessness, and knows that yesterday is but today’s memory and tomorrow is today’s dream.|Kahlil Gibran, The Prophet
+gibran|But if in your thought you must measure time into seasons, let each season encircle all the other seasons, and let today embrace the past with remembrance and the future with longing.|Kahlil Gibran, The Prophet
+gibran|For what is evil but good tortured by its own hunger and thirst?|Kahlil Gibran, The Prophet
+gibran|Yet when you are not one with yourself you are not evil. For a divided house is not a den of thieves; it is only a divided house.|Kahlil Gibran, The Prophet
+gibran|In your longing for your giant self lies your goodness: and that longing is in all of you.|Kahlil Gibran, The Prophet
+gibran|For what is prayer but the expansion of yourself into the living ether?|Kahlil Gibran, The Prophet
+gibran|But regret is the beclouding of the mind and not its chastisement.|Kahlil Gibran, The Prophet
+gibran|They should remember their pleasures with gratitude, as they would the harvest of a summer.|Kahlil Gibran, The Prophet
+gibran|People of Orphalese, be in your pleasures like the flowers and the bees.|Kahlil Gibran, The Prophet
+gibran|People of Orphalese, beauty is life when life unveils her holy face. But you are life and you are the veil. Beauty is eternity gazing at itself in a mirror. But you are eternity and you are the mirror.|Kahlil Gibran, The Prophet
+gibran|All your hours are wings that beat through space from self to self.|Kahlil Gibran, The Prophet
+gibran|He who wears his morality but as his best garment were better naked. The wind and the sun will tear no holes in his skin.|Kahlil Gibran, The Prophet
+gibran|Your daily life is your temple and your religion. Whenever you enter into it take with you your all.|Kahlil Gibran, The Prophet
+gibran|And if you would know God be not therefore a solver of riddles. Rather look about you and you shall see Him playing with your children.|Kahlil Gibran, The Prophet
+gibran|If you would indeed behold the spirit of death, open your heart wide unto the body of life. For life and death are one, even as the river and the sea are one.|Kahlil Gibran, The Prophet
+gibran|In the depth of your hopes and desires lies your silent knowledge of the beyond; and like seeds dreaming beneath the snow your heart dreams of spring. Trust the dreams, for in them is hidden the gate to eternity.|Kahlil Gibran, The Prophet
+gibran|For what is it to die but to stand naked in the wind and to melt into the sun?|Kahlil Gibran, The Prophet
+gibran|Only when you drink from the river of silence shall you indeed sing. And when you have reached the mountain top, then you shall begin to climb. And when the earth shall claim your limbs, then shall you truly dance.|Kahlil Gibran, The Prophet
+gibran|We wanderers, ever seeking the lonelier way, begin no day where we have ended another day; and no sunrise finds us where sunset left us.|Kahlil Gibran, The Prophet
+gibran|Man’s needs change, but not his love, nor his desire that his love should satisfy his needs.|Kahlil Gibran, The Prophet
+gibran|You have been told that, even like a chain, you are as weak as your weakest link. This is but half the truth. You are also as strong as your strongest link.|Kahlil Gibran, The Prophet
+gibran|To measure you by your smallest deed is to reckon the power of ocean by the frailty of its foam. To judge you by your failures is to cast blame upon the seasons for their inconstancy.|Kahlil Gibran, The Prophet
+gibran|And what is word knowledge but a shadow of wordless knowledge?|Kahlil Gibran, The Prophet
+gibran|Surely there is no greater gift to a man than that which turns all his aims into parching lips and all life into a fountain.|Kahlil Gibran, The Prophet
+gibran|Too proud indeed am I to receive wages, but not gifts.|Kahlil Gibran, The Prophet
+gibran|Verily the kindness that gazes upon itself in a mirror turns to stone, and a good deed that calls itself by tender names becomes the parent to a curse.|Kahlil Gibran, The Prophet
+gibran|How could I have seen you save from a great height or a great distance?|Kahlil Gibran, The Prophet
+gibran|You are not enclosed within your bodies, nor confined to houses or fields. That which is you dwells above the mountain and roves with the wind.|Kahlil Gibran, The Prophet
+gibran|Vague and nebulous is the beginning of all things, but not their end, and I fain would have you remember me as a beginning.|Kahlil Gibran, The Prophet
+gibran|Life, and all that lives, is conceived in the mist and not in the crystal. And who knows but a crystal is mist in decay?|Kahlil Gibran, The Prophet
+gibran|That which seems most feeble and bewildered in you is the strongest and most determined.|Kahlil Gibran, The Prophet
+gibran|Yet you shall not deplore having known blindness, nor regret having been deaf. For in that day you shall know the hidden purposes in all things, and you shall bless darkness as you would bless light.|Kahlil Gibran, The Prophet
+gibran|If in the twilight of memory we should meet once more, we shall speak again together and you shall sing to me a deeper song. And if our hands should meet in another dream we shall build another tower in the sky.|Kahlil Gibran, The Prophet
+gibran|I am forever walking upon these shores, Betwixt the sand and the foam. The high tide will erase my foot-prints, And the wind will blow away the foam. But the sea and the shore will remain Forever.|Kahlil Gibran, Sand and Foam
+gibran|It was but yesterday I thought myself a fragment quivering without rhythm in the sphere of life. Now I know that I am the sphere, and all life in rhythmic fragments moves within me.|Kahlil Gibran, Sand and Foam
+gibran|The first thought of God was an angel, The first word of God was a man.|Kahlil Gibran, Sand and Foam
+gibran|The Sphinx spoke only once, and the Sphinx said, "A grain of sand is a desert, and a desert is a grain of sand; and now let us all be silent again."|Kahlil Gibran, Sand and Foam
+gibran|Once I saw the face of a woman, and I beheld all her children not yet born. And a woman looked upon my face and she knew all my forefathers, dead before she was born.|Kahlil Gibran, Sand and Foam
+gibran|A pearl is a temple built by pain around a grain of sand.|Kahlil Gibran, Sand and Foam
+gibran|Give me silence and I will outdare the night.|Kahlil Gibran, Sand and Foam
+gibran|Remembrance is a form of meeting. Forgetfulness is a form of freedom.|Kahlil Gibran, Sand and Foam
+gibran|Humanity is a river of light running from ex-eternity to eternity.|Kahlil Gibran, Sand and Foam
+gibran|One may not reach the dawn save by the path of the night.|Kahlil Gibran, Sand and Foam
+gibran|My house says to me, "Do not leave me, for here dwells your past." And the road says to me, "Come and follow me, for I am your future." And I say to both my house and the road, "I have no past, nor have I a future. If I stay here, there is a going in my staying; and if I go there is a staying in my going. Only love and death change all things."|Kahlil Gibran, Sand and Foam
+gibran|How can I lose faith in the justice of life, when the dreams of those who sleep upon feathers are not more beautiful than the dreams of those who sleep upon the earth?|Kahlil Gibran, Sand and Foam
+gibran|I am ignorant of absolute truth. But I am humble before my ignorance and therein lies my honor and my reward.|Kahlil Gibran, Sand and Foam
+gibran|There is a space between man's imagination and man's attainment that may only be traversed by his longing.|Kahlil Gibran, Sand and Foam
+gibran|Paradise is there, behind that door, in the next room; but I have lost the key. Perhaps I have only mislaid it.|Kahlil Gibran, Sand and Foam
+gibran|The significance of man is not in what he attains, but rather in what he longs to attain.|Kahlil Gibran, Sand and Foam
+gibran|Some of us are like ink and some like paper. And if it were not for the blackness of some of us, some of us would be dumb.|Kahlil Gibran, Sand and Foam
+gibran|Our mind is a sponge; our heart is a stream. Is it not strange that most of us choose sucking rather than running?|Kahlil Gibran, Sand and Foam
+gibran|When you long for blessings that you may not name, and when you grieve knowing not the cause, then indeed you are growing with all things that grow, and rising toward your greater self.|Kahlil Gibran, Sand and Foam
+gibran|When one is drunk with a vision, he deems his faint expression of it the very wine.|Kahlil Gibran, Sand and Foam
+gibran|When my cup is empty I resign myself to its emptiness; but when it is half full I resent its half-fulness.|Kahlil Gibran, Sand and Foam
+gibran|The reality of the other person is not in what he reveals to you, but in what he cannot reveal to you. Therefore, if you would understand him, listen not to what he says but rather to what he does not say.|Kahlil Gibran, Sand and Foam
+gibran|Half of what I say is meaningless; but I say it so that the other half may reach you.|Kahlil Gibran, Sand and Foam
+gibran|My loneliness was born when men praised my talkative faults and blamed my silent virtues.|Kahlil Gibran, Sand and Foam
+gibran|When Life does not find a singer to sing her heart she produces a philosopher to speak her mind.|Kahlil Gibran, Sand and Foam
+gibran|A truth is to be known always, to be uttered sometimes.|Kahlil Gibran, Sand and Foam
+gibran|The real in us is silent; the acquired is talkative.|Kahlil Gibran, Sand and Foam
+gibran|The voice of life in me cannot reach the ear of life in you; but let us talk that we may not feel lonely.|Kahlil Gibran, Sand and Foam
+gibran|Only the dumb envy the talkative.|Kahlil Gibran, Sand and Foam
+gibran|If winter should say, "Spring is in my heart," who would believe winter?|Kahlil Gibran, Sand and Foam
+gibran|Should you really open your eyes and see, you would behold your image in all images. And should you open your ears and listen, you would hear your own voice in all voices.|Kahlil Gibran, Sand and Foam
+gibran|It takes two of us to discover truth: one to utter it and one to understand it.|Kahlil Gibran, Sand and Foam
+gibran|Though the wave of words is forever upon us, yet our depth is forever silent.|Kahlil Gibran, Sand and Foam
+gibran|Many a doctrine is like a window pane. We see truth through it but it divides us from truth.|Kahlil Gibran, Sand and Foam
+gibran|I would walk with all those who walk. I would not stand still to watch the procession passing by.|Kahlil Gibran, Sand and Foam
+gibran|Every dragon gives birth to a St. George who slays it.|Kahlil Gibran, Sand and Foam
+gibran|Trees are poems that the earth writes upon the sky. We fell them down and turn them into paper that we may record our emptiness.|Kahlil Gibran, Sand and Foam
+gibran|Should you care to write (and only the saints know why you should) you must needs have knowledge and art and magic — the knowledge of the music of words, the art of being artless, and the magic of loving your readers.|Kahlil Gibran, Sand and Foam
+gibran|If I were to choose between the power of writing a poem and the ecstasy of a poem unwritten, I would choose the ecstasy. It is better poetry.|Kahlil Gibran, Sand and Foam
+gibran|Poetry is not an opinion expressed. It is a song that rises from a bleeding wound or a smiling mouth.|Kahlil Gibran, Sand and Foam
+gibran|A poet is a dethroned king sitting among the ashes of his palace trying to fashion an image out of the ashes.|Kahlil Gibran, Sand and Foam
+gibran|Poetry is a deal of joy and pain and wonder, with a dash of the dictionary.|Kahlil Gibran, Sand and Foam
+gibran|If you sing of beauty though alone in the heart of the desert you will have an audience.|Kahlil Gibran, Sand and Foam
+gibran|Poetry is wisdom that enchants the heart. Wisdom is poetry that sings in the mind.|Kahlil Gibran, Sand and Foam
+gibran|Inspiration will always sing; inspiration will never explain.|Kahlil Gibran, Sand and Foam
+gibran|We often sing lullabyes to our children that we ourselves may sleep.|Kahlil Gibran, Sand and Foam
+gibran|All our words are but crumbs that fall down from the feast of the mind.|Kahlil Gibran, Sand and Foam
+gibran|Thinking is always the stumbling stone to poetry.|Kahlil Gibran, Sand and Foam
+gibran|A great singer is he who sings our silences.|Kahlil Gibran, Sand and Foam
+gibran|Genius is but a robin's song at the beginning of a slow spring.|Kahlil Gibran, Sand and Foam
+gibran|The song that lies silent in the heart of a mother sings upon the lips of her child.|Kahlil Gibran, Sand and Foam
+gibran|No longing remains unfulfilled.|Kahlil Gibran, Sand and Foam
+gibran|I have never agreed with my other self wholly. The truth of the matter seems to lie between us. Your other self is always sorry for you. But your other self grows on sorrow; so all is well.|Kahlil Gibran, Sand and Foam
+gibran|There is no struggle of soul and body save in the minds of those whose souls are asleep and whose bodies are out of tune.|Kahlil Gibran, Sand and Foam
+gibran|When you reach the heart of life you shall find beauty in all things, even in the eyes that are blind to beauty.|Kahlil Gibran, Sand and Foam
+gibran|We live only to discover beauty. All else is a form of waiting.|Kahlil Gibran, Sand and Foam
+gibran|Sow a seed and the earth will yield you a flower. Dream your dream to the sky and it will bring you your beloved.|Kahlil Gibran, Sand and Foam
+gibran|The devil died the very day you were born. Now you do not have to go through hell to meet an angel.|Kahlil Gibran, Sand and Foam
+gibran|If you would possess you must not claim.|Kahlil Gibran, Sand and Foam
+gibran|When a man's hand touches the hand of a woman they both touch the heart of eternity.|Kahlil Gibran, Sand and Foam
+gibran|Love is the veil between lover and lover.|Kahlil Gibran, Sand and Foam
+gibran|Every man loves two women; the one is the creation of his imagination, and the other is not yet born.|Kahlil Gibran, Sand and Foam
+gibran|Men who do not forgive women their little faults will never enjoy their great virtues.|Kahlil Gibran, Sand and Foam
+gibran|Love that does not renew itself every day becomes a habit and in turn a slavery.|Kahlil Gibran, Sand and Foam
+gibran|Lovers embrace that which is between them rather than each other.|Kahlil Gibran, Sand and Foam
+gibran|Love and doubt have never been on speaking terms.|Kahlil Gibran, Sand and Foam
+gibran|Love is a word of light, written by a hand of light, upon a page of light.|Kahlil Gibran, Sand and Foam
+gibran|If you do not understand your friend under all conditions you will never understand him.|Kahlil Gibran, Sand and Foam
+gibran|Your most radiant garment is of the other person's weaving; Your most savory meal is that which you eat at the other person's table; Your most comfortable bed is in the other person's house. Now tell me, how can you separate yourself from the other person?|Kahlil Gibran, Sand and Foam
+gibran|Your mind and my heart will never agree until your mind ceases to live in numbers and my heart in the mist.|Kahlil Gibran, Sand and Foam
+gibran|We shall never understand one another until we reduce the language to seven words.|Kahlil Gibran, Sand and Foam
+gibran|How shall my heart be unsealed unless it be broken?|Kahlil Gibran, Sand and Foam
+gibran|Only great sorrow or great joy can reveal your truth.|Kahlil Gibran, Sand and Foam
+gibran|If you would be revealed you must either dance naked in the sun, or carry your cross.|Kahlil Gibran, Sand and Foam
+gibran|Should nature heed what we say of contentment no river would seek the sea, and no winter would turn to Spring. Should she heed all we say of thrift, how many of us would be breathing this air?|Kahlil Gibran, Sand and Foam
+gibran|You see but your shadow when you turn your back to the sun.|Kahlil Gibran, Sand and Foam
+gibran|You are free before the sun of the day, and free before the stars of the night; And you are free when there is no sun and no moon and no star. You are even free when you close your eyes upon all there is.|Kahlil Gibran, Sand and Foam
+gibran|But you are a slave to him whom you love because you love him, And a slave to him who loves you because he loves you.|Kahlil Gibran, Sand and Foam
+gibran|We are all beggars at the gate of the temple, and each one of us receives his share of the bounty of the King when he enters the temple, and when he goes out. But we are all jealous of one another, which is another way of belittling the King.|Kahlil Gibran, Sand and Foam
+gibran|You cannot consume beyond your appetite. The other half of the loaf belongs to the other person, and there should remain a little bread for the chance guest. If it were not for guests all houses would be graves.|Kahlil Gibran, Sand and Foam
+gibran|I stopped my guest on the threshold and said, "Nay, wipe not your feet as you enter, but as you go out."|Kahlil Gibran, Sand and Foam
+gibran|Generosity is not in giving me that which I need more than you do, but it is in giving me that which you need more than I do.|Kahlil Gibran, Sand and Foam
+gibran|You are indeed charitable when you give, and while giving, turn your face away so that you may not see the shyness of the receiver.|Kahlil Gibran, Sand and Foam
+gibran|The difference between the richest man and the poorest is but a day of hunger and an hour of thirst.|Kahlil Gibran, Sand and Foam
+gibran|We often borrow from our tomorrows to pay our debts to our yesterdays.|Kahlil Gibran, Sand and Foam
+gibran|Those who give you a serpent when you ask for a fish, may have nothing but serpents to give. It is then generosity on their part.|Kahlil Gibran, Sand and Foam
+gibran|Trickery succeeds sometimes, but it always commits suicide.|Kahlil Gibran, Sand and Foam
+gibran|You are truly a forgiver when you forgive murderers who never spill blood, thieves who never steal, and liars who utter no falsehood.|Kahlil Gibran, Sand and Foam
+gibran|He who can put his finger upon that which divides good from evil is he who can touch the very hem of the garment of God.|Kahlil Gibran, Sand and Foam
+gibran|If your heart is a volcano how shall you expect flowers to bloom in your hands?|Kahlil Gibran, Sand and Foam
+gibran|Let him who wipes his soiled hands with your garment take your garment. He may need it again; surely you would not.|Kahlil Gibran, Sand and Foam
+gibran|Please do not whitewash your inherent faults with your acquired virtues. I would have the faults; they are like mine own.|Kahlil Gibran, Sand and Foam
+gibran|How often have I attributed to myself crimes I have never committed, so that the other person may feel comfortable in my presence.|Kahlil Gibran, Sand and Foam
+gibran|Even the masks of life are masks of deeper mystery.|Kahlil Gibran, Sand and Foam
+gibran|You may judge others only according to your knowledge of yourself.|Kahlil Gibran, Sand and Foam
+gibran|Tell me now, who among us is guilty and who is unguilty?|Kahlil Gibran, Sand and Foam
+gibran|The truly just is he who feels half guilty of your misdeeds.|Kahlil Gibran, Sand and Foam
+gibran|Only an idiot and a genius break man-made laws; and they are the nearest to the heart of God.|Kahlil Gibran, Sand and Foam
+gibran|It is only when you are pursued that you become swift.|Kahlil Gibran, Sand and Foam
+gibran|You will be quite friendly with your enemy when you both die.|Kahlil Gibran, Sand and Foam
+gibran|Perhaps a man may commit suicide in self-defense.|Kahlil Gibran, Sand and Foam
+gibran|When you see a man led to prison say in your heart, "Mayhap he is escaping from a narrower prison." And when you see a man drunken say in your heart, "Mayhap he sought escape from something still more unbeautiful."|Kahlil Gibran, Sand and Foam
+gibran|Oftentimes I have hated in self-defense; but if I were stronger I would not have used such a weapon.|Kahlil Gibran, Sand and Foam
+gibran|How stupid is he who would patch the hatred in his eyes with the smile of his lips.|Kahlil Gibran, Sand and Foam
+gibran|Only those beneath me can envy or hate me. I have never been envied nor hated; I am above no one. Only those above me can praise or belittle me. I have never been praised nor belittled; I am below no one.|Kahlil Gibran, Sand and Foam
+gibran|How mean am I when life gives me gold and I give you silver, and yet I deem myself generous.|Kahlil Gibran, Sand and Foam
+gibran|When you reach the heart of life you will find yourself not higher than the felon, and not lower than the prophet.|Kahlil Gibran, Sand and Foam
+gibran|Strange that you should pity the slow-footed and not the slow-minded, And the blind-eyed rather than the blind-hearted.|Kahlil Gibran, Sand and Foam
+gibran|It is wiser for the lame not to break his crutches upon the head of his enemy.|Kahlil Gibran, Sand and Foam
+gibran|How blind is he who gives you out of his pocket that he may take out of your heart.|Kahlil Gibran, Sand and Foam
+gibran|Life is a procession. The slow of foot finds it too swift and he steps out; And the swift of foot finds it too slow and he too steps out.|Kahlil Gibran, Sand and Foam
+gibran|If there is such a thing as sin some of us commit it backward following our forefathers footsteps; And some of us commit it forward by overruling our children.|Kahlil Gibran, Sand and Foam
+gibran|The truly good is he who is one with all those who are deemed bad.|Kahlil Gibran, Sand and Foam
+gibran|We are all prisoners but some of us are in cells with windows and some without.|Kahlil Gibran, Sand and Foam
+gibran|Strange that we all defend our wrongs with more vigor than we do our rights.|Kahlil Gibran, Sand and Foam
+gibran|Should we all confess our sins to one another we would all laugh at one another for our lack of originality. Should we all reveal our virtues we would also laugh for the same cause.|Kahlil Gibran, Sand and Foam
+gibran|An individual is above man-made laws until he commits a crime against man-made conventions; After that he is neither above anyone nor lower than anyone.|Kahlil Gibran, Sand and Foam
+gibran|Government is an agreement between you and myself. You and myself are often wrong.|Kahlil Gibran, Sand and Foam
+gibran|Crime is either another name of need or an aspect of a disease.|Kahlil Gibran, Sand and Foam
+gibran|Is there a greater fault than being conscious of the other person's faults?|Kahlil Gibran, Sand and Foam
+gibran|If the other person laughs at you, you can pity him; but if you laugh at him you may never forgive yourself.|Kahlil Gibran, Sand and Foam
+gibran|If the other person injures you, you may forget the injury; but if you injure him you will always remember.|Kahlil Gibran, Sand and Foam
+gibran|In truth the other person is your most sensitive self given another body.|Kahlil Gibran, Sand and Foam
+gibran|How heedless you are when you would have men fly with your wings and you cannot even give them a feather.|Kahlil Gibran, Sand and Foam
+gibran|Hate is a dead thing. Who of you would be a tomb?|Kahlil Gibran, Sand and Foam
+gibran|It is the honor of the murdered that he is not the murderer.|Kahlil Gibran, Sand and Foam
+gibran|The tribune of humanity is in its silent heart never its talkative mind.|Kahlil Gibran, Sand and Foam
+gibran|They deem me mad because I will not sell my days for gold; And I deem them mad because they think my days have a price.|Kahlil Gibran, Sand and Foam
+gibran|I would be the least among men with dreams and the desire to fulfill them, rather than the greatest with no dreams and no desires.|Kahlil Gibran, Sand and Foam
+gibran|The most pitiful among men is he who turns his dreams into silver and gold.|Kahlil Gibran, Sand and Foam
+gibran|You cannot judge any man beyond your knowledge of him, and how small is your knowledge.|Kahlil Gibran, Sand and Foam
+gibran|The truly free man is he who bears the load of the bond slave patiently.|Kahlil Gibran, Sand and Foam
+gibran|A thousand years ago my neighbor said to me, "I hate life, for it is naught but a thing of pain." And yesterday I passed by a cemetery and saw life dancing upon his grave.|Kahlil Gibran, Sand and Foam
+gibran|Strife in nature is but disorder longing for order.|Kahlil Gibran, Sand and Foam
+gibran|Solitude is a silent storm that breaks down all our dead branches; Yet it sends our living roots deeper into the living heart of the living earth.|Kahlil Gibran, Sand and Foam
+gibran|Once I spoke of the sea to a brook, and the brook thought me but an imaginative exaggerator; And once I spoke of a brook to the sea, and the sea thought me but a depreciative defamer.|Kahlil Gibran, Sand and Foam
+gibran|How narrow is the vision that exalts the busyness of the ant above the singing of the grasshopper.|Kahlil Gibran, Sand and Foam
+gibran|The highest virtue here may be the least in another world.|Kahlil Gibran, Sand and Foam
+gibran|The deep and the high go to the depth or to the height in a straight line; only the spacious can move in circles.|Kahlil Gibran, Sand and Foam
+gibran|If it were not for our conception of weights and measures we would stand in awe of the firefly as we do before the sun.|Kahlil Gibran, Sand and Foam
+gibran|A scientist without imagination is a butcher with dull knives and out-worn scales.|Kahlil Gibran, Sand and Foam
+gibran|When you sing the hungry hears you with his stomach.|Kahlil Gibran, Sand and Foam
+gibran|Death is not nearer to the aged than to the new-born; neither is life.|Kahlil Gibran, Sand and Foam
+gibran|If indeed you must be candid, be candid beautifully; otherwise keep silent, for there is a man in our neighborhood who is dying.|Kahlil Gibran, Sand and Foam
+gibran|Mayhap a funeral among men is a wedding feast among the angels.|Kahlil Gibran, Sand and Foam
+gibran|In truth we talk only to ourselves, but sometimes we talk loud enough that others may hear us.|Kahlil Gibran, Sand and Foam
+gibran|The obvious is that which is never seen until someone expresses it simply.|Kahlil Gibran, Sand and Foam
+gibran|If the Milky Way were not within me how should I have seen it or known it?|Kahlil Gibran, Sand and Foam
+gibran|Perhaps the sea's definition of a shell is the pearl. Perhaps time's definition of coal is the diamond.|Kahlil Gibran, Sand and Foam
+gibran|Fame is the shadow of passion standing in the light.|Kahlil Gibran, Sand and Foam
+gibran|A root is a flower that disdains fame.|Kahlil Gibran, Sand and Foam
+gibran|There is neither religion nor science beyond beauty.|Kahlil Gibran, Sand and Foam
+gibran|Every great man I have known had something small in his make-up; and it was that small something which prevented inactivity or madness or suicide.|Kahlil Gibran, Sand and Foam
+gibran|The truly great man is he who would master no one, and who would be mastered by none.|Kahlil Gibran, Sand and Foam
+gibran|Tolerance is love sick with the sickness of haughtiness.|Kahlil Gibran, Sand and Foam
+gibran|Worms will turn; but is it not strange that even elephants will yield?|Kahlil Gibran, Sand and Foam
+gibran|A disagreement may be the shortest cut between two minds.|Kahlil Gibran, Sand and Foam
+gibran|I am the flame and I am the dry brush, and one part of me consumes the other part.|Kahlil Gibran, Sand and Foam
+gibran|Wisdom ceases to be wisdom when it becomes too proud to weep, too grave to laugh, and too self-ful to seek other than itself.|Kahlil Gibran, Sand and Foam
+gibran|Had I filled myself with all that you know what room should I have for all that you do not know?|Kahlil Gibran, Sand and Foam
+gibran|I have learned silence from the talkative, toleration from the intolerant, and kindness from the unkind; yet strange, I am ungrateful to these teachers.|Kahlil Gibran, Sand and Foam
+gibran|A bigot is a stone-deaf orator.|Kahlil Gibran, Sand and Foam
+gibran|The silence of the envious is too noisy.|Kahlil Gibran, Sand and Foam
+gibran|When you reach the end of what you should know, you will be at the beginning of what you should sense.|Kahlil Gibran, Sand and Foam
+gibran|If you can see only what light reveals and hear only what sound announces, Then in truth you do not see nor do you hear.|Kahlil Gibran, Sand and Foam
+gibran|You cannot laugh and be unkind at the same time.|Kahlil Gibran, Sand and Foam
+gibran|The nearest to my heart are a king without a kingdom and a poor man who does not know how to beg.|Kahlil Gibran, Sand and Foam
+gibran|A shy failure is nobler than an immodest success.|Kahlil Gibran, Sand and Foam
+gibran|Dig anywhere in the earth and you will find a treasure, only you must dig with the faith of a peasant.|Kahlil Gibran, Sand and Foam
+gibran|It is the mind in us that yields to the laws made by us, but never the spirit in us.|Kahlil Gibran, Sand and Foam
+gibran|Birth and death are the two noblest expressions of bravery.|Kahlil Gibran, Sand and Foam
+gibran|They say to me, "Should you know yourself you would know all men." And I say, "Only when I seek all men shall I know myself."|Kahlil Gibran, Sand and Foam
+gibran|A hermit is one who renounces the world of fragments that he may enjoy the world wholly and without interruption.|Kahlil Gibran, Sand and Foam
+gibran|Yestereve I saw philosophers in the market-place carrying their heads in baskets, and crying aloud, "Wisdom! Wisdom for sale!" Poor philosophers! They must needs sell their heads to feed their hearts.|Kahlil Gibran, Sand and Foam
+gibran|Said a philosopher to a street sweeper, "I pity you. Yours is a hard and dirty task." And the street sweeper said, "Thank you, sir. But tell me what is your task?" And the philosopher answered saying, "I study man's mind, his deeds and his desires." Then the street sweeper went on with his sweeping and said with a smile, "I pity you too."|Kahlil Gibran, Sand and Foam
+gibran|He who listens to truth is not less than he who utters truth.|Kahlil Gibran, Sand and Foam
+gibran|No man can draw the line between necessities and luxuries. Only the angels can do that, and the angels are wise and wistful. Perhaps the angels are our better thoughts in space.|Kahlil Gibran, Sand and Foam
+gibran|He is the true prince who finds his throne in the heart of the dervish.|Kahlil Gibran, Sand and Foam
+gibran|Generosity is giving more than you can, and pride is taking less than you need.|Kahlil Gibran, Sand and Foam
+gibran|In truth you owe naught to any man. You owe all to all men.|Kahlil Gibran, Sand and Foam
+gibran|All those who have lived in the past live with us now. Surely none of us would be an ungracious host.|Kahlil Gibran, Sand and Foam
+gibran|He who longs the most lives the longest.|Kahlil Gibran, Sand and Foam
+gibran|They say to me, "A bird in the hand is worth ten in the bush." But I say, "A bird and a feather in the bush is worth more than ten birds in the hand." Your seeking after that feather is life with winged feet; nay, it is life itself.|Kahlil Gibran, Sand and Foam
+gibran|There are only two elements here, beauty and truth; beauty in the hearts of lovers, and truth in the arms of the tillers of the soil.|Kahlil Gibran, Sand and Foam
+gibran|Great beauty captures me, but a beauty still greater frees me even from itself.|Kahlil Gibran, Sand and Foam
+gibran|Beauty shines brighter in the heart of him who longs for it than in the eyes of him who sees it.|Kahlil Gibran, Sand and Foam
+gibran|The angels know that too many practical men eat their bread with the sweat of the dreamer's brow.|Kahlil Gibran, Sand and Foam
+gibran|Wit is often a mask. If you could tear it you would find either a genius irritated or cleverness juggling.|Kahlil Gibran, Sand and Foam
+gibran|Only those with secrets in their hearts could divine the secrets in our hearts.|Kahlil Gibran, Sand and Foam
+gibran|Yes, there is a Nirvanah; it is in leading your sheep to a green pasture, and in putting your child to sleep, and in writing the last line of your poem.|Kahlil Gibran, Sand and Foam
+gibran|Sadness is but a wall between two gardens.|Kahlil Gibran, Sand and Foam
+gibran|When either your joy or your sorrow becomes great the world becomes small.|Kahlil Gibran, Sand and Foam
+gibran|Desire is half of life; indifference is half of death.|Kahlil Gibran, Sand and Foam
+gibran|The bitterest thing in our today's sorrow is the memory of our yesterday's joy.|Kahlil Gibran, Sand and Foam
+gibran|They say to me, "You must needs choose between the pleasures of this world and the peace of the next world." And I say to them, "I have chosen both the delights of this world and the peace of the next. For I know in my heart that the Supreme Poet wrote but one poem, and it scans perfectly, and it also rhymes perfectly."|Kahlil Gibran, Sand and Foam
+gibran|Faith is an oasis in the heart which will never be reached by the caravan of thinking.|Kahlil Gibran, Sand and Foam
+gibran|When you reach your height you shall desire but only for desire; and you shall hunger, for hunger; and you shall thirst for greater thirst.|Kahlil Gibran, Sand and Foam
+gibran|If you reveal your secrets to the wind you should not blame the wind for revealing them to the trees.|Kahlil Gibran, Sand and Foam
+gibran|The flowers of spring are winter's dreams related at the breakfast table of the angels.|Kahlil Gibran, Sand and Foam
+gibran|The most talkative is the least intelligent, and there is hardly a difference between an orator and an auctioneer.|Kahlil Gibran, Sand and Foam
+gibran|Be grateful that you do not have to live down the renown of a father nor the wealth of an uncle. But above all be grateful that no one will have to live down either your renown or your wealth.|Kahlil Gibran, Sand and Foam
+gibran|Long were you a dream in your mother's sleep, and then she woke to give you birth. The germ of the race is in your mother's longing.|Kahlil Gibran, Sand and Foam
+gibran|Some of our children are our justifications and some are but our regrets.|Kahlil Gibran, Sand and Foam
+gibran|When night comes and you too are dark, lie down and be dark with a will. And when morning comes and you are still dark stand up and say to the day with a will, "I am still dark."|Kahlil Gibran, Sand and Foam
+gibran|The mountain veiled in mist is not a hill; an oak tree in the rain is not a weeping willow.|Kahlil Gibran, Sand and Foam
+gibran|Behold here is a paradox: the deep and high are nearer to one another than the mid-level to either.|Kahlil Gibran, Sand and Foam
+gibran|When I stood a clear mirror before you, you gazed into me and saw your image. Then you said, "I love you." But in truth you loved yourself in me.|Kahlil Gibran, Sand and Foam
+gibran|When you enjoy loving your neighbor it ceases to be a virtue.|Kahlil Gibran, Sand and Foam
+gibran|Love which is not always springing is always dying.|Kahlil Gibran, Sand and Foam
+gibran|You cannot have youth and the knowledge of it at the same time; For youth is too busy living to know, and knowledge is too busy seeking itself to live.|Kahlil Gibran, Sand and Foam
+gibran|You may sit at your window watching the passersby. And watching you may see a nun walking toward your right hand, and a prostitute toward your left hand. And you may say in your innocence, "How noble is the one and how ignoble is the other." But should you close your eyes and listen awhile you would hear a voice whispering in the ether, "One seeks me in prayer, and the other in pain. And in the spirit of each there is a bower for my spirit."|Kahlil Gibran, Sand and Foam
+gibran|Once every hundred years Jesus of Nazareth meets Jesus of the Christian in a garden among the hills of Lebanon. And they talk long; and each time Jesus of Nazareth goes away saying to Jesus of the Christian, "My friend, I fear we shall never, never agree."|Kahlil Gibran, Sand and Foam
+gibran|A great man has two hearts; one bleeds and the other forbears.|Kahlil Gibran, Sand and Foam
+gibran|Should one tell a lie which does not hurt you nor anyone else, why not say in your heart that the house of his facts is too small for his fancies, and he had to leave it for larger space?|Kahlil Gibran, Sand and Foam
+gibran|Behind every closed door is a mystery sealed with seven seals.|Kahlil Gibran, Sand and Foam
+gibran|What if trouble should be a new window in the Eastern wall of your house?|Kahlil Gibran, Sand and Foam
+gibran|There must be something strangely sacred in salt. It is in our tears and in the sea. Our God in His gracious thirst will drink us all, the dewdrop and the tear.|Kahlil Gibran, Sand and Foam
+gibran|You are but a fragment of your giant self, a mouth that seeks bread, and a blind hand that holds the cup for a thirsty mouth.|Kahlil Gibran, Sand and Foam
+gibran|If you would rise but a cubit above race and country and self you would indeed become godlike.|Kahlil Gibran, Sand and Foam
+gibran|If I were you I would not find fault with the sea at low tide. It is a good ship and our Captain is able; it is only your stomach that is in disorder.|Kahlil Gibran, Sand and Foam
+gibran|What we long for and cannot attain is dearer than what we have already attained.|Kahlil Gibran, Sand and Foam
+gibran|Should you sit upon a cloud you would not see the boundary line between one country and another, nor the boundary stone between a farm and a farm. It is a pity you cannot sit upon a cloud.|Kahlil Gibran, Sand and Foam
+gibran|Seven centuries ago seven white doves rose from a deep valley flying to the snow-white summit of the mountain. One of the seven men who watched the flight said, "I see a black spot on the wing of the seventh dove." Today the people in that valley tell of seven black doves that flew to the summit of the snowy mountain.|Kahlil Gibran, Sand and Foam
+gibran|In the autumn I gathered all my sorrows and buried them in my garden. And when April returned and spring came to wed the earth, there grew in my garden beautiful flowers unlike all other flowers. And my neighbors came to behold them, and they all said to me, "When autumn comes again, at seeding time, will you not give us of the seeds of these flowers that we may have them in our gardens'?"|Kahlil Gibran, Sand and Foam
+gibran|It is indeed misery if I stretch an empty hand to men and receive nothing; but it is hopelessness if I stretch a full hand and find none to receive.|Kahlil Gibran, Sand and Foam
+gibran|I long for eternity because there I shall meet my unwritten poems and my unpainted pictures.|Kahlil Gibran, Sand and Foam
+gibran|Art is a step from nature toward the Infinite.|Kahlil Gibran, Sand and Foam
+gibran|A work of art is a mist carved into an image.|Kahlil Gibran, Sand and Foam
+gibran|Even the hands that make crowns of thorns are better than idle hands.|Kahlil Gibran, Sand and Foam
+gibran|Our most sacred tears never seek our eyes.|Kahlil Gibran, Sand and Foam
+gibran|Every man is the descendant of every king and every slave that ever lived.|Kahlil Gibran, Sand and Foam
+gibran|If the great-grandfather of Jesus had known what was hidden within him, would he not have stood in awe of himself?|Kahlil Gibran, Sand and Foam
+gibran|Was the love of Judas' mother for her son less than the love of Mary for Jesus?|Kahlil Gibran, Sand and Foam
+gibran|There are three miracles of our Brother Jesus not yet recorded in the Book: the first that He was a man like you and me; the second that He had a sense of humor; and the third that He knew He was a conqueror though conquered.|Kahlil Gibran, Sand and Foam
+gibran|You may have heard of the Blessed Mountain. It is the highest mountain in our world. Should you reach the summit you would have only one desire, and that to descend and be with those who dwell in the deepest valley. That is why it is called the Blessed Mountain.|Kahlil Gibran, Sand and Foam
+gibran|Every thought I have imprisoned in expression I must free by my deeds.|Kahlil Gibran, Sand and Foam
+rilke|That is longing: To dwell in the flux of things,\nTo have no home in the present.\nAnd these are wishes: gentle dialogues\nOf the poor hours with eternity.|Rainer Maria Rilke, tr. Jessie Lemont
+rilke|The leaves fall, fall as from far,\nLike distant gardens withered in the heavens;\nThey fall with slow and lingering descent.\n\nAnd in the nights the heavy Earth, too, falls\nFrom out the stars into the Solitude.\n\nThus all doth fall. This hand of mine must fall\nAnd lo! the other one:—it is the law.\nBut there is One who holds this falling\nInfinitely softly in His hands.|Rainer Maria Rilke, tr. Jessie Lemont
+rilke|Whoever weeps somewhere out in the world\nWeeps without cause in the world\nWeeps over me.\n\nWhoever laughs somewhere out in the night\nLaughs without cause in the night\nLaughs at me.\n\nWhoever wanders somewhere in the world\nWanders in vain in the world\nWanders to me.\n\nWhoever dies somewhere in the world\nDies without cause in the world\nLooks at me.|Rainer Maria Rilke, tr. Jessie Lemont
+rilke|They all have tired mouths\nAnd luminous, illimitable souls;\nAnd a longing (as if for sin)\nTrembles at times through their dreams.\n\nThey all resemble one another,\nIn God's garden they are silent\nLike many, many intervals\nIn His mighty melody.\n\nBut when they spread their wings\nThey awaken the winds\nThat stir as though God\nWith His far-reaching master hands\nTurned the pages of the dark book of Beginning.|Rainer Maria Rilke, tr. Jessie Lemont
+rilke|Lord! It is time. So great was Summer's glow:\nThy shadows lay upon the dials' faces\nAnd o'er wide spaces let thy tempests blow.\n\nCommand to ripen the last fruits of thine,\nGive to them two more burning days and press\nThe last sweetness into the heavy wine.\n\nHe who has now no house will ne'er build one,\nWho is alone will now remain alone;\nHe will awake, will read, will letters write\nThrough the long day and in the lonely night;\nAnd restless, solitary, he will rove\nWhere the leaves rustle, wind-blown, in the grove.|Rainer Maria Rilke, tr. Jessie Lemont
+rilke|Before us great Death stands\nOur fate held close within his quiet hands.\nWhen with proud joy we lift Life's red wine\nTo drink deep of the mystic shining cup\nAnd ecstasy through all our being leaps—\nDeath bows his head and weeps.|Rainer Maria Rilke, tr. Jessie Lemont
+rilke|From infinite longings finite deeds rise\nAs fountains spring toward far-off glowing skies,\nBut rushing swiftly upward weakly bend\nAnd trembling from their lack of power descend—\nSo through the falling torrent of our fears\nOur joyous force leaps like these dancing tears.|Rainer Maria Rilke, tr. Jessie Lemont
+rilke|You Hour! From me you ever take your flight,\nYour swift wings wound me as they whir along;\nWithout you void would be my day and night,\nWithout you I'll not capture my great song.\n\nI have no earthly spot where I can live,\nI have no love, I have no household fane,\nAnd all the things to which myself I give\nImpoverish me with richness they attain.|Rainer Maria Rilke, tr. Jessie Lemont
+rilke|His weary glance, from passing by the bars,\nHas grown into a dazed and vacant stare;\nIt seems to him there are a thousand bars\nAnd out beyond those bars the empty air.\n\nThe pad of his strong feet, that ceaseless sound\nOf supple tread behind the iron bands,\nIs like a dance of strength circling around,\nWhile in the circle, stunned, a great will stands.\n\nBut there are times the pupils of his eyes\nDilate, the strong limbs stand alert, apart,\nTense with the flood of visions that arise\nOnly to sink and die within his heart.|Rainer Maria Rilke, tr. Jessie Lemont
+rilke|I live my life in circles that grow wide\nAnd endlessly unroll,\nI may not reach the last, but on I glide\nStrong pinioned toward my goal.\n\nAbout the old tower, dark against the sky,\nThe beat of my wings hums,\nI circle about God, sweep far and high\nOn through milleniums.\n\nAm I a bird that skims the clouds along,\nOr am I a wild storm, or a great song?|Rainer Maria Rilke, tr. Jessie Lemont
+rilke|But though my vigil constantly I keep\nMy God is dark—like woven texture flowing,\nA hundred drinking roots, all intertwined;\nI only know that from His warmth I'm growing.\nMore I know not: my roots lie hidden deep\nMy branches only are swayed by the wind.|Rainer Maria Rilke, tr. Jessie Lemont
+rilke|When thou art dreaming then I am thy Dream,\nBut when thou art awake I am thy Will\nPotent with splendour, radiant and sublime,\nExpanding like far space star-lit and still\nInto the distant mystic realm of Time.|Rainer Maria Rilke, tr. Jessie Lemont
+rilke|I love my life's dark hours\nIn which my senses quicken and grow deep,\nWhile, as from faint incense of faded flowers\nOr letters old, I magically steep\nMyself in days gone by: again I give\nMyself unto the past:—again I live.\n\nOut of my dark hours wisdom dawns apace,\nInfinite Life unrolls its boundless space .|Rainer Maria Rilke, tr. Jessie Lemont
+rilke|By day Thou are the Legend and the Dream\nThat like a whisper floats about all men,\nThe deep and brooding stillnesses which seem,\nAfter the hour has struck, to close again.\n\nAnd when the day with drowsy gesture bends\nAnd sinks to sleep beneath the evening skies,\nAs from each roof a tower of smoke ascends—\nSo does Thy Realm, my God, around me rise.|Rainer Maria Rilke, tr. Jessie Lemont
+rilke|All those who seek Thee tempt Thee,\nAnd those who find would bind Thee\nTo gesture and to form.\n\nBut I would comprehend Thee\nAs the wide Earth unfolds Thee.\nThou growest with my maturity,\nThou Art in calm and storm.|Rainer Maria Rilke, tr. Jessie Lemont
+rilke|In the deep nights I dig for you, O Treasure!\nTo seek you over the wide world I roam,\nFor all abundance is but meager measure\nOf your bright beauty which is yet to come.\n\nOver the road to you the leaves are blowing,\nFew follow it, the way is long and steep.\nYou dwell in solitude—Oh, does your glowing\nHeart in some far off valley lie asleep?|Rainer Maria Rilke, tr. Jessie Lemont
+rilke|Her mouth is like the mouth of a fine bust\nThat cannot utter sound, nor breathe, nor kiss,\nBut that had once from Life received all this\nWhich shaped its subtle curves, and ever must\nFrom fullness of past knowledge dwell alone,\nA thing apart, a parable in stone.|Rainer Maria Rilke, tr. Jessie Lemont
+rilke|Alone Thou wanderest through space,\nProfound One with the hidden face;\nThou art Poverty's great rose,\nThe eternal metamorphose\nOf gold into the light of sun.\n\nThou art the mystic homeless One;\nInto the world Thou never came,\nToo mighty Thou, too great to name;\nVoice of the storm, Song that the wild wind sings,\nThou Harp that shatters those who play Thy strings!|Rainer Maria Rilke, tr. Jessie Lemont
+rilke|For verses are not, as people think, feelings (one has those early enough) — they are experiences.|Rainer Maria Rilke, The Notebooks of Malte Laurids Brigge (tr. Claude)
+rilke|I think I ought to begin to do some work, now that I am learning to see.|Rainer Maria Rilke, The Notebooks of Malte Laurids Brigge (tr. Claude)
+rilke|Once people knew (or perhaps they sensed it) that they had death within them, as the fruit has its kernel.|Rainer Maria Rilke, The Notebooks of Malte Laurids Brigge (tr. Claude)
+rilke|Even the rich, who could well afford to die at length, are beginning to grow careless and indifferent; the wish to have a death of one's own is becoming ever rarer.|Rainer Maria Rilke, The Notebooks of Malte Laurids Brigge (tr. Claude)
+rilke|A little while longer, and it will be as rare as a life of one's own.|Rainer Maria Rilke, The Notebooks of Malte Laurids Brigge (tr. Claude)
+rilke|Is it possible, one thinks, that we have not yet seen, known or said anything real and important?|Rainer Maria Rilke, The Notebooks of Malte Laurids Brigge (tr. Claude)
+rilke|Is it possible that, in spite of inventions and progress, in spite of culture, religion and philosophy, we have remained on the surface of life?|Rainer Maria Rilke, The Notebooks of Malte Laurids Brigge (tr. Claude)
+rilke|Is it possible that all realities are nothing to them; that their life runs on, connected with nothing, like a clock in an empty room?|Rainer Maria Rilke, The Notebooks of Malte Laurids Brigge (tr. Claude)
+rilke|To sit and look at a warm strip of afternoon sun, and to know a great deal about girls long gone, and to be a poet.|Rainer Maria Rilke, The Notebooks of Malte Laurids Brigge (tr. Claude)
+rilke|For all my fear, I am in the end like someone standing before something great, and I remember that it was often like this in me before I began to write.|Rainer Maria Rilke, The Notebooks of Malte Laurids Brigge (tr. Claude)
+rilke|It sometimes surprises me how readily I give up everything I expected for what is real, even when it is bad.|Rainer Maria Rilke, The Notebooks of Malte Laurids Brigge (tr. Claude)
+rilke|I believe there is no fulfilment, but there are wishes that last long, a whole life long, so that one could not possibly wait for the fulfilment anyway.|Rainer Maria Rilke, The Notebooks of Malte Laurids Brigge (tr. Claude)
+rilke|There are no classes in life for beginners; it is always the most difficult thing that is asked of you right away.|Rainer Maria Rilke, The Notebooks of Malte Laurids Brigge (tr. Claude)
+rilke|Could we not try to develop a little, and take our share of the work in love upon ourselves slowly, bit by bit?|Rainer Maria Rilke, The Notebooks of Malte Laurids Brigge (tr. Claude)
+rilke|But what if we despised our successes, what if we began entirely from the start to learn the work of love, which has always been done for us?|Rainer Maria Rilke, The Notebooks of Malte Laurids Brigge (tr. Claude)
+rilke|They have begun to look around, to seek; they whose strength has always consisted in being found.|Rainer Maria Rilke, The Notebooks of Malte Laurids Brigge (tr. Claude)
+rilke|And yet they have held out day and night, and have grown in love and in misery.|Rainer Maria Rilke, The Notebooks of Malte Laurids Brigge (tr. Claude)
+rilke|For now I knew that out there it went on just as indifferently, that outside too there was nothing but my loneliness.|Rainer Maria Rilke, The Notebooks of Malte Laurids Brigge (tr. Claude)
+rilke|The loneliness I had brought upon myself, and to whose greatness my heart no longer bore any proportion.|Rainer Maria Rilke, The Notebooks of Malte Laurids Brigge (tr. Claude)
+rilke|And as he sat there with wide eyes in the dark room, he began to understand that what he now felt was real time, passing by.|Rainer Maria Rilke, The Notebooks of Malte Laurids Brigge (tr. Claude)
+rilke|They have never seen a lonely man; they have only hated him, without knowing him.|Rainer Maria Rilke, The Notebooks of Malte Laurids Brigge (tr. Claude)
+rilke|Such love needs no return; it holds its own call and its own answer; it hears itself.|Rainer Maria Rilke, The Notebooks of Malte Laurids Brigge (tr. Claude)
+rilke|The one who loves always surpasses the one who is loved, because life is greater than fate.|Rainer Maria Rilke, The Notebooks of Malte Laurids Brigge (tr. Claude)
+rilke|For glory is only a moment, and we have never seen anything longer than misery.|Rainer Maria Rilke, The Notebooks of Malte Laurids Brigge (tr. Claude)
+rilke|Perhaps this is new, that we endure it: the year and love.|Rainer Maria Rilke, The Notebooks of Malte Laurids Brigge (tr. Claude)
+rilke|But we who have set ourselves God as our task, we cannot finish.|Rainer Maria Rilke, The Notebooks of Malte Laurids Brigge (tr. Claude)
+rilke|Before we have even begun God, we already pray to him: let us get through the night.|Rainer Maria Rilke, The Notebooks of Malte Laurids Brigge (tr. Claude)
+rilke|It does not surprise him that she was misjudged; that in this utterly future lover people saw only the excess, not the new unit of measure for love and heartache.|Rainer Maria Rilke, The Notebooks of Malte Laurids Brigge (tr. Claude)
+rilke|I know she longed to strip her love of everything transitive, but could her truthful heart deceive itself that God is only a direction of love, not an object of love?|Rainer Maria Rilke, The Notebooks of Malte Laurids Brigge (tr. Claude)
+rilke|For he loved and loved again in his solitude, each time squandering his whole nature, in unspeakable fear for the other's freedom.|Rainer Maria Rilke, The Notebooks of Malte Laurids Brigge (tr. Claude)
+rilke|I see more than him, I see his existence, which then began the long love of God, the quiet, aimless work.|Rainer Maria Rilke, The Notebooks of Malte Laurids Brigge (tr. Claude)
+rilke|Now that he was learning to love so laboriously and sorrowfully, he was shown how careless and slight all the love had been that he had thought he was accomplishing.|Rainer Maria Rilke, The Notebooks of Malte Laurids Brigge (tr. Claude)
+rilke|It must have been indescribably liberating for him that everyone misunderstood him, despite the desperate clarity of his bearing.|Rainer Maria Rilke, The Notebooks of Malte Laurids Brigge (tr. Claude)
+rilke|You, neighbour God, if I disturb you sometimes\nwith hard knocking in the long night,\nit is because I seldom hear you breathe\nand know: you are alone in the hall.\nAnd if you need something, no one is there\nto hand a drink to your groping:\nI am always listening. Give a small sign.\nI am quite near.|Rainer Maria Rilke, The Book of Hours (tr. Claude)
+rilke|I believe in everything never yet said.\nI want to set my most devout feelings free.\nWhat no one yet dared to will\nwill one day be second nature to me.|Rainer Maria Rilke, The Book of Hours (tr. Claude)
+rilke|I love the dark hours of my being,\nin which my senses deepen;\nin them, as in old letters, I have found\nmy everyday life already lived,\nand, like a legend, far away and overcome.|Rainer Maria Rilke, The Book of Hours (tr. Claude)
+rilke|Put out my eyes: I can still see you.\nSeal my ears: I can still hear you.\nAnd without feet I can walk to you,\nand without a mouth I can still call you up.\nBreak off my arms, I will hold you\nwith my heart as with a hand.\nStop my heart, and my brain will beat;\nand if you set my brain on fire,\nI will carry you on my blood.|Rainer Maria Rilke, The Book of Hours (tr. Claude)
+rilke|I find you in all these things\nto which I am kind and like a brother;\nas a seed you bask in the small ones,\nand in the great you give yourself greatly.|Rainer Maria Rilke, The Book of Hours (tr. Claude)
+rilke|I live just as the century departs.\nOne feels the wind from a great page\nthat God and you and I have written on,\nand that turns, high up, in foreign hands.|Rainer Maria Rilke, The Book of Hours (tr. Claude)
+rilke|And yet, though each one strives away from himself\nas from a prison that hates and holds him,\nthere is a great wonder in the world:\nI feel that all life is being lived.|Rainer Maria Rilke, The Book of Hours (tr. Claude)
+rilke|I am too alone in the world, and yet not alone enough\nto make every hour holy.\nI want to unfold.\nNowhere do I want to stay bent,\nfor where I am bent, there I am false.|Rainer Maria Rilke, The Book of Hours (tr. Claude)
+rilke|How shall I hold my soul so that\nit does not touch yours? How shall I\nlift it up, above you, to other things?\nAh, gladly would I lodge it with something\nlost in the dark, in some strange quiet place\nthat does not keep vibrating when your depths vibrate.\nYet everything that touches us, you and me,\ntakes us together like a bow-stroke\nthat draws one voice from two strings.\nOn what instrument are we strung?\nAnd what player has us in his hand?\nO sweet song.|Rainer Maria Rilke, New Poems (tr. Claude)
+rilke|To estimate and interpret the work of an artist is to be creatively just to him.|Rainer Maria Rilke, Auguste Rodin (tr. Jessie Lemont & Hans Trausil)
+rilke|The strongest and most procreant contact is that which takes place between two creative minds.|Rainer Maria Rilke, Auguste Rodin (tr. Jessie Lemont & Hans Trausil)
+rilke|For fame is ultimately but the summary of all misunderstandings that crystallize about a new name.|Rainer Maria Rilke, Auguste Rodin (tr. Jessie Lemont & Hans Trausil)
+rilke|And, indeed, it is an underlying patience in Rodin which renders him so great, a silent, superior forbearance resembling the wonderful patience and kindness of Nature that begins creation with a trifle in order to proceed silently and steadily toward abundant consummation.|Rainer Maria Rilke, Auguste Rodin (tr. Jessie Lemont & Hans Trausil)
+rilke|He possessed the quiet perseverance of men who are necessary, the strength of those for whom a great work is waiting.|Rainer Maria Rilke, Auguste Rodin (tr. Jessie Lemont & Hans Trausil)
+rilke|His art was not built upon a great idea, but upon a minute, conscientious realization, upon the attainable, upon a craft.|Rainer Maria Rilke, Auguste Rodin (tr. Jessie Lemont & Hans Trausil)
+rilke|He pledged himself to a humble and difficult beauty that he could oversee, summon and direct. The other beauty, the great beauty, had to come when everything was prepared, as animals come to a drinking-place in the forest in the late night when nothing foreign is there.|Rainer Maria Rilke, Auguste Rodin (tr. Jessie Lemont & Hans Trausil)
+rilke|At the moment when they began to doubt him, he doubted himself no longer, all uncertainty lay behind him.|Rainer Maria Rilke, Auguste Rodin (tr. Jessie Lemont & Hans Trausil)
+rilke|During the period of his growth no strange voice sounded, no praise bewildered, no blame disturbed him.|Rainer Maria Rilke, Auguste Rodin (tr. Jessie Lemont & Hans Trausil)
+rilke|However great the movement of a sculpture may be, though it spring out of infinite distances, even from the depths of the sky, it must return to itself, the great circle must complete itself, the circle of solitude that encloses a work of art.|Rainer Maria Rilke, Auguste Rodin (tr. Jessie Lemont & Hans Trausil)
+rilke|New relations connected him more closely with the past of the art of sculpture, and the greatness of this past, which has been a restriction to so many, to him had become the wing that carried him.|Rainer Maria Rilke, Auguste Rodin (tr. Jessie Lemont & Hans Trausil)
+rilke|There is a history of hands; they have their own culture, their particular beauty; one concedes to them the right of their own development, their own needs, feelings, caprices and tendernesses.|Rainer Maria Rilke, Auguste Rodin (tr. Jessie Lemont & Hans Trausil)
+rilke|To discover in all lusts and crimes, in all trials and all despair, an infinite reason for existence is a part of that great longing that creates poets.|Rainer Maria Rilke, Auguste Rodin (tr. Jessie Lemont & Hans Trausil)
+rilke|He recognized in all this the eternal, and becoming less and less perplexed by the many things, he perceived the one great thing for which grief was good, and heaviness promised maternity, and pain became beautiful.|Rainer Maria Rilke, Auguste Rodin (tr. Jessie Lemont & Hans Trausil)
+rilke|To create an image meant to Rodin to seek eternity in a countenance, that part of eternity with which the face was allied in the great course of things eternal.|Rainer Maria Rilke, Auguste Rodin (tr. Jessie Lemont & Hans Trausil)
+rilke|The muses that surround him are like thoughts of his solitude become visible.|Rainer Maria Rilke, Auguste Rodin (tr. Jessie Lemont & Hans Trausil)
+rilke|The body of work here manifests itself as did formerly the body of love:—it is a new revelation of life. This creator lived so completely in his conceptions, so entirely in the depths of his work, that inspiration or revelation came to him only through the medium of his art.|Rainer Maria Rilke, Auguste Rodin (tr. Jessie Lemont & Hans Trausil)
+rilke|Some time it will be realized what has made this great artist so supreme. He was a worker whose only desire was to penetrate with all his forces into the humble and difficult significance of his tools.|Rainer Maria Rilke, Auguste Rodin (tr. Jessie Lemont & Hans Trausil)
+nietzsche|Granted that we want the truth: why not rather untruth?|Friedrich Nietzsche, Beyond Good and Evil
+nietzsche|To recognise untruth as A condition of life; that is certainly to impugn the traditional ideas of value in a dangerous manner, and a philosophy which ventures to do so, has thereby alone placed itself beyond good and evil.|Friedrich Nietzsche, Beyond Good and Evil
+nietzsche|To live—is not that just endeavouring to be otherwise than this Nature?|Friedrich Nietzsche, Beyond Good and Evil
+nietzsche|A living thing seeks above all to discharge its strength—life itself is will to power; self-preservation is only one of the indirect and most frequent results thereof.|Friedrich Nietzsche, Beyond Good and Evil
+nietzsche|Choose the good solitude, the free, wanton, lightsome solitude, which also gives you the right still to remain good in any sense whatsoever!|Friedrich Nietzsche, Beyond Good and Evil
+nietzsche|It is nothing more than a moral prejudice that truth is worth more than semblance; it is, in fact, the worst proved supposition in the world.|Friedrich Nietzsche, Beyond Good and Evil
+nietzsche|Might not the philosopher elevate himself above faith in grammar?|Friedrich Nietzsche, Beyond Good and Evil
+nietzsche|One must subject oneself to one's own tests that one is destined for independence and command, and do so at the right time.|Friedrich Nietzsche, Beyond Good and Evil
+nietzsche|Whoever has seen deeply into the world has doubtless divined what wisdom there is in the fact that men are superficial.|Friedrich Nietzsche, Beyond Good and Evil
+nietzsche|The charm of knowledge would be small, were it not so much shame has to be overcome on the way to it.|Friedrich Nietzsche, Beyond Good and Evil
+nietzsche|Love to one only is a barbarity, for it is exercised at the expense of all others.|Friedrich Nietzsche, Beyond Good and Evil
+nietzsche|Many a peacock hides his tail from every eye—and calls it his pride.|Friedrich Nietzsche, Beyond Good and Evil
+nietzsche|The degree and nature of a man's sensuality extends to the highest altitudes of his spirit.|Friedrich Nietzsche, Beyond Good and Evil
+nietzsche|A soul which knows that it is loved, but does not itself love, betrays its sediment: its dregs come up.|Friedrich Nietzsche, Beyond Good and Evil
+nietzsche|Is it necessary that you should so salt your truth that it will no longer—quench thirst?|Friedrich Nietzsche, Beyond Good and Evil
+nietzsche|Heavy, melancholy men turn lighter, and come temporarily to their surface, precisely by that which makes others heavy—by hatred and love.|Friedrich Nietzsche, Beyond Good and Evil
+nietzsche|Who has not, at one time or another—sacrificed himself for the sake of his good name?|Friedrich Nietzsche, Beyond Good and Evil
+nietzsche|One should part from life as Ulysses parted from Nausicaa—blessing it rather than in love with it.|Friedrich Nietzsche, Beyond Good and Evil
+nietzsche|When one trains one's conscience, it kisses one while it bites.|Friedrich Nietzsche, Beyond Good and Evil
+nietzsche|Our vanity is most difficult to wound just when our pride has been wounded.|Friedrich Nietzsche, Beyond Good and Evil
+nietzsche|The great epochs of our life are at the points when we gain courage to rebaptize our badness as the best in us.|Friedrich Nietzsche, Beyond Good and Evil
+nietzsche|The will to overcome an emotion, is ultimately only the will of another, or of several other, emotions.|Friedrich Nietzsche, Beyond Good and Evil
+nietzsche|A nation is a detour of nature to arrive at six or seven great men.—Yes, and then to get round them.|Friedrich Nietzsche, Beyond Good and Evil
+nietzsche|The more abstract the truth you wish to teach, the more must you allure the senses to it.|Friedrich Nietzsche, Beyond Good and Evil
+nietzsche|We do the same when awake as when dreaming: we only invent and imagine him with whom we have intercourse—and forget it immediately.|Friedrich Nietzsche, Beyond Good and Evil
+nietzsche|He who fights with monsters should be careful lest he thereby become a monster. And if thou gaze long into an abyss, the abyss will also gaze into thee.|Friedrich Nietzsche, Beyond Good and Evil
+nietzsche|That which an age considers evil is usually an unseasonable echo of what was formerly considered good—the atavism of an old ideal.|Friedrich Nietzsche, Beyond Good and Evil
+nietzsche|What is done out of love always takes place beyond good and evil.|Friedrich Nietzsche, Beyond Good and Evil
+nietzsche|Objection, evasion, joyous distrust, and love of irony are signs of health; everything absolute belongs to pathology.|Friedrich Nietzsche, Beyond Good and Evil
+nietzsche|The thought of suicide is a great consolation: by means of it one gets successfully through many a bad night.|Friedrich Nietzsche, Beyond Good and Evil
+nietzsche|Not only our reason, but also our conscience, truckles to our strongest impulse—the tyrant in us.|Friedrich Nietzsche, Beyond Good and Evil
+nietzsche|One no longer loves one's knowledge sufficiently after one has communicated it.|Friedrich Nietzsche, Beyond Good and Evil
+nietzsche|One may indeed lie with the mouth; but with the accompanying grimace one nevertheless tells the truth.|Friedrich Nietzsche, Beyond Good and Evil
+nietzsche|The vanity of others is only counter to our taste when it is counter to our vanity.|Friedrich Nietzsche, Beyond Good and Evil
+nietzsche|There is an innocence in lying which is the sign of good faith in a cause.|Friedrich Nietzsche, Beyond Good and Evil
+nietzsche|It is the music in our conscience, the dance in our spirit, to which Puritan litanies, moral sermons, and goody-goodness won't chime.|Friedrich Nietzsche, Beyond Good and Evil
+nietzsche|But one should not be too much in the right if one wishes to have the laughers on one's own side; a grain of wrong pertains even to good taste.|Friedrich Nietzsche, Beyond Good and Evil
+nietzsche|The discipline of suffering, of great suffering—know ye not that it is only this discipline that has produced all the elevations of humanity hitherto?|Friedrich Nietzsche, Beyond Good and Evil
+nietzsche|Our honesty, we free spirits—let us be careful lest it become our vanity, our ornament and ostentation, our limitation, our stupidity!|Friedrich Nietzsche, Beyond Good and Evil
+nietzsche|Is not life a hundred times too short for us—to bore ourselves?|Friedrich Nietzsche, Beyond Good and Evil
+nietzsche|It is the age of the masses: they lie on their belly before everything that is massive.|Friedrich Nietzsche, Beyond Good and Evil
+nietzsche|A man's estimates of value betray something of the structure of his soul, and wherein it sees its conditions of life, its intrinsic needs.|Friedrich Nietzsche, Beyond Good and Evil
+nietzsche|Men of profound sadness betray themselves when they are happy: they have a mode of seizing upon happiness as though they would choke and strangle it, out of jealousy—ah, they know only too well that it will flee from them!|Friedrich Nietzsche, Beyond Good and Evil
+nietzsche|If you think it evil, you make it evil.—The passions become evil and malignant when regarded with evil and malignant eyes.|Friedrich Nietzsche, The Dawn of Day
+nietzsche|We are like spiders in our own webs, and, whatever we may catch in them, it will only be something that our web is capable of catching.|Friedrich Nietzsche, The Dawn of Day
+nietzsche|Oh, for the man who could give us the history of that subtle feeling called loneliness!|Friedrich Nietzsche, The Dawn of Day
+nietzsche|Dangerous unlearning.—We begin by unlearning to love others, and end by finding nothing lovable in ourselves.|Friedrich Nietzsche, The Dawn of Day
+nietzsche|Making others happy.—Why is the fact of our making others happy more gratifying to us than all other pleasures?—Because in so doing we gratify fifty cravings at one time.|Friedrich Nietzsche, The Dawn of Day
+nietzsche|It may be that mankind may perish eventually from this passion for knowledge!—but even that does not daunt us.|Friedrich Nietzsche, The Dawn of Day
+nietzsche|Never renounce.—Renouncing the world without knowing it, like a nun, results in a fruitless and perhaps melancholy solitude.|Friedrich Nietzsche, The Dawn of Day
+nietzsche|Where a strong wind blows, where the waves are rolling angrily, and where more than usual danger is to be faced, there I feel happy.|Friedrich Nietzsche, The Dawn of Day
+nietzsche|Against the tyranny of truth.—Even if we were mad enough to consider all our opinions as truth, we should nevertheless not wish them alone to exist.|Friedrich Nietzsche, The Dawn of Day
+nietzsche|Not concealing one’s virtues.—I love those men who are as transparent as water, and who, to use Pope’s expression, hide not from view the turbid bottom of their stream.|Friedrich Nietzsche, The Dawn of Day
+nietzsche|It is not the things themselves, but the opinions about things that do not exist, which have been such a source of trouble to mankind.|Friedrich Nietzsche, The Dawn of Day
+nietzsche|The battle-field dispensary of the soul.—What is the most efficacious remedy?—Victory.|Friedrich Nietzsche, The Dawn of Day
+nietzsche|The higher we soar the smaller we appear to those who cannot fly.|Friedrich Nietzsche, The Dawn of Day
+nietzsche|How much truth can a certain mind endure; how much truth can it dare?—these questions became for me ever more and more the actual test of values.|Friedrich Nietzsche, Ecce Homo
+nietzsche|But I need solitude—that is to say, recovery, return to myself, the breathing of free, crisp, bracing air.|Friedrich Nietzsche, Ecce Homo
+nietzsche|Remain seated as little as possible, put no trust in any thought that is not born in the open, to the accompaniment of free bodily motion—nor in one in which even the muscles do not celebrate a feast.|Friedrich Nietzsche, Ecce Homo
+nietzsche|My formula for greatness in man is: amor fati: the fact that a man wishes nothing to be different, either in front of him or behind him, or for all eternity.|Friedrich Nietzsche, Ecce Homo
+nietzsche|To this end, a man must never have spared himself, he must have been hard in his habits, in order to be good-humoured and merry among a host of inexorable truths.|Friedrich Nietzsche, Ecce Homo
+nietzsche|A man pays dearly for being immortal: to this end he must die many times over during his life.|Friedrich Nietzsche, Ecce Homo
+nietzsche|The devil is simply God's moment of idleness, on that seventh day.|Friedrich Nietzsche, Ecce Homo
+nietzsche|You cannot endure it more, Your tyrannous destiny, Love it—you're given no choice!|Friedrich Nietzsche, Ecce Homo
+nietzsche|Only the poet who can lie Wilfully, skilfully, Can tell the truth.|Friedrich Nietzsche, Ecce Homo
+nietzsche|Truth is not a thing which one might have and another be without: only peasants or peasant-apostles, after the style of Luther, can think like this about truth.|Friedrich Nietzsche, The Antichrist
+nietzsche|A spirit who desires great things, and who also desires the means thereto, is necessarily a sceptic.|Friedrich Nietzsche, The Antichrist
+nietzsche|Great passion makes use of and consumes convictions, it does not submit to them—it knows that it is a sovereign power.|Friedrich Nietzsche, The Antichrist
+nietzsche|Now I would fain put the decisive question: is there any difference at all between a lie and a conviction?—All the world believes that there is, but what in Heaven’s name does not all the world believe!|Friedrich Nietzsche, The Antichrist
+nietzsche|To comprehend the limits of reason—this alone is genuine philosophy.|Friedrich Nietzsche, The Antichrist
+nietzsche|For the mediocre it is a joy to be mediocre; in them mastery in one thing, a speciality, is a natural instinct.|Friedrich Nietzsche, The Antichrist
+nietzsche|Everything has returned: Sirius, and the spider, and thy thoughts at this moment, and this last thought of thine that all these things will return.|Friedrich Nietzsche, Eternal Recurrence (notes)
+nietzsche|Your whole life, like a sandglass, will always be reversed and will ever run out again,—a long minute of time will elapse until all those conditions out of which you were evolved return in the wheel of the cosmic process. And then you will find every pain and every pleasure, every friend and every enemy, every hope and every error, every blade of grass and every ray of sunshine once more, and the whole fabric of things that makes up your life. This ring in which you are but a grain will glitter afresh for ever.|Friedrich Nietzsche, Eternal Recurrence (notes)
+nietzsche|Know also, that transiency singeth its short song for ever afresh and that at the sound of the first verse thou wilt almost die of longing when thou thinkest that it might be for the last time.|Friedrich Nietzsche, Eternal Recurrence (notes)
+nietzsche|We must not strive after distant and unknown states of bliss and blessings and acts of grace, but we must live so that we would fain live again and live for ever so, to all eternity!—Our duty is present with us every instant.|Friedrich Nietzsche, Eternal Recurrence (notes)
+nietzsche|Even the pluckiest among us has but seldom the courage of what he really knows.|Friedrich Nietzsche, Twilight of the Idols
+nietzsche|Once for all I wish to be blind to many things.—Wisdom sets bounds even to knowledge.|Friedrich Nietzsche, Twilight of the Idols
+nietzsche|A man recovers best from his exceptional nature—his intellectuality—by giving his animal instincts a chance.|Friedrich Nietzsche, Twilight of the Idols
+nietzsche|That which does not kill me, makes me stronger.|Friedrich Nietzsche, Twilight of the Idols
+nietzsche|If a man knows the wherefore of his existence, then the manner of it can take care of itself.|Friedrich Nietzsche, Twilight of the Idols
+nietzsche|Man does not aspire to happiness; only the Englishman does that.|Friedrich Nietzsche, Twilight of the Idols
+nietzsche|Without music life would be a mistake.|Friedrich Nietzsche, Twilight of the Idols
+nietzsche|A sedentary life is the real sin against the Holy Spirit.|Friedrich Nietzsche, Twilight of the Idols
+nietzsche|A man should know what he desires, and that he desires something.—Fourth question of conscience.|Friedrich Nietzsche, Twilight of the Idols
+nietzsche|I fear we shall never be rid of God, so long as we still believe in grammar.|Friedrich Nietzsche, Twilight of the Idols
+nietzsche|A man is productive only in so far as he is rich in contrasted instincts; he can remain young only on condition that his soul does not begin to take things easy and to yearn for peace.|Friedrich Nietzsche, Twilight of the Idols
+nietzsche|Nothing could make us less envious than the moral cow and the plump happiness of a clean conscience.|Friedrich Nietzsche, Twilight of the Idols
+nietzsche|The man who has renounced war has renounced a grand life.|Friedrich Nietzsche, Twilight of the Idols
+nietzsche|To yearn for a strong faith is not the proof of a strong faith, but rather the reverse.|Friedrich Nietzsche, Twilight of the Idols
+nietzsche|If a man have a strong faith he can indulge in the luxury of scepticism; he is strong enough, firm enough, well-knit enough for such a luxury.|Friedrich Nietzsche, Twilight of the Idols
+nietzsche|The most intellectual men, provided they are also the most courageous, experience the most excruciating tragedies: but on that very account they honour life, because it confronts them with its most formidable antagonism.|Friedrich Nietzsche, Twilight of the Idols
+nietzsche|That which justifies man is his reality,—it will justify him to all eternity.|Friedrich Nietzsche, Twilight of the Idols
+nietzsche|Death should be chosen freely,—death at the right time, faced clearly and joyfully and embraced while one is surrounded by one’s children and other witnesses.|Friedrich Nietzsche, Twilight of the Idols
+nietzsche|Everything good is an inheritance: that which is not inherited is imperfect, it is simply a beginning.|Friedrich Nietzsche, Twilight of the Idols
+nietzsche|Life itself, to my mind, is nothing more nor less than the instinct of growth, of permanence, of accumulating forces, of power: where the will to power is lacking, degeneration sets in.|Friedrich Nietzsche, Twilight of the Idols
+nietzsche|Man is something that is to be surpassed.|Friedrich Nietzsche, Thus Spake Zarathustra
+nietzsche|Man is a rope stretched between the animal and the Superman—a rope over an abyss.|Friedrich Nietzsche, Thus Spake Zarathustra
+nietzsche|I love those that know not how to live except as down-goers, for they are the over-goers.|Friedrich Nietzsche, Thus Spake Zarathustra
+nietzsche|I tell you: one must still have chaos in one, to give birth to a dancing star.|Friedrich Nietzsche, Thus Spake Zarathustra
+nietzsche|Ten times a day must thou overcome thyself: that causeth wholesome weariness, and is poppy to the soul.|Friedrich Nietzsche, Thus Spake Zarathustra
+nietzsche|A new pride taught me mine ego, and that teach I unto men: no longer to thrust one’s head into the sand of celestial things, but to carry it freely, a terrestrial head, which giveth meaning to the earth!|Friedrich Nietzsche, Thus Spake Zarathustra
+nietzsche|My brother, when thou hast a virtue, and it is thine own virtue, thou hast it in common with no one.|Friedrich Nietzsche, Thus Spake Zarathustra
+nietzsche|Who among you can at the same time laugh and be exalted?|Friedrich Nietzsche, Thus Spake Zarathustra
+nietzsche|Ye shall love peace as a means to new wars—and the short peace more than the long.|Friedrich Nietzsche, Thus Spake Zarathustra
+nietzsche|Let your love to life be love to your highest hope; and let your highest hope be the highest thought of life!|Friedrich Nietzsche, Thus Spake Zarathustra
+nietzsche|Never yet did truth cling to the arm of an absolute one.|Friedrich Nietzsche, Thus Spake Zarathustra
+nietzsche|Canst thou give unto thyself thy bad and thy good, and set up thy will as a law over thee?|Friedrich Nietzsche, Thus Spake Zarathustra
+nietzsche|With thy love, go into thine isolation, my brother, and with thy creating; and late only will justice limp after thee.|Friedrich Nietzsche, Thus Spake Zarathustra
+nietzsche|Marriage: so call I the will of the twain to create the one that is more than those who created it.|Friedrich Nietzsche, Thus Spake Zarathustra
+nietzsche|Uncommon is the highest virtue, and unprofiting, beaming is it, and soft of lustre: a bestowing virtue is the highest virtue.|Friedrich Nietzsche, Thus Spake Zarathustra
+nietzsche|God is a conjecture: but I do not wish your conjecturing to reach beyond your creating will.|Friedrich Nietzsche, Thus Spake Zarathustra
+nietzsche|Yea, much bitter dying must there be in your life, ye creators!|Friedrich Nietzsche, Thus Spake Zarathustra
+nietzsche|If, however, thou hast a suffering friend, then be a resting-place for his suffering; like a hard bed, however, a camp-bed: thus wilt thou serve him best.|Friedrich Nietzsche, Thus Spake Zarathustra
+nietzsche|To rise striveth life, and in rising to surpass itself.|Friedrich Nietzsche, Thus Spake Zarathustra
+nietzsche|Ye seem to me lukewarm ones: but coldly floweth all deep knowledge.|Friedrich Nietzsche, Thus Spake Zarathustra
+nietzsche|But that I am fond of Wisdom, and often too fond, is because she remindeth me very strongly of Life!|Friedrich Nietzsche, Thus Spake Zarathustra
+nietzsche|Only where there is life, is there also will: not, however, Will to Life, but—so teach I thee—Will to Power!|Friedrich Nietzsche, Thus Spake Zarathustra
+nietzsche|And he who hath to be a creator in good and evil—verily, he hath first to be a destroyer, and break values in pieces.|Friedrich Nietzsche, Thus Spake Zarathustra
+nietzsche|Verily, like the sun do I love life, and all deep seas.|Friedrich Nietzsche, Thus Spake Zarathustra
+nietzsche|From the gateway, This Moment, there runneth a long eternal lane backwards: behind us lieth an eternity.|Friedrich Nietzsche, Thus Spake Zarathustra
+nietzsche|Man is difficult to discover, and unto himself most difficult of all; often lieth the spirit concerning the soul.|Friedrich Nietzsche, Thus Spake Zarathustra
+nietzsche|Your Will and your feet which seek to surpass you—let these be your new honour!|Friedrich Nietzsche, Thus Spake Zarathustra
+nietzsche|Everything breaketh, everything is integrated anew; eternally buildeth itself the same house of existence.|Friedrich Nietzsche, Thus Spake Zarathustra
+nietzsche|Oh, how could I not be ardent for Eternity, and for the marriage-ring of rings—the ring of the return?|Friedrich Nietzsche, Thus Spake Zarathustra
+nietzsche|And what in the world hath caused more suffering than the follies of the pitiful?|Friedrich Nietzsche, Thus Spake Zarathustra
+nietzsche|Sometimes I meant to lie, and behold! then only did I hit—the truth.|Friedrich Nietzsche, Thus Spake Zarathustra
+nietzsche|I will run alone, so that it may again become bright around me.|Friedrich Nietzsche, Thus Spake Zarathustra
+nietzsche|Do not will anything beyond your power: there is a bad falseness in those who will beyond their power.|Friedrich Nietzsche, Thus Spake Zarathustra
+nietzsche|In solitude there groweth what any one bringeth into it—also the brute in one’s nature.|Friedrich Nietzsche, Thus Spake Zarathustra
+nietzsche|Courage, however, and adventure, and delight in the uncertain, in the unattempted—courage seemeth to me the entire primitive history of man.|Friedrich Nietzsche, Thus Spake Zarathustra
+nietzsche|Joy, however, doth not want heirs, it doth not want children,—joy wanteth itself, it wanteth eternity, it wanteth recurrence, it wanteth everything eternally-like-itself.|Friedrich Nietzsche, Thus Spake Zarathustra
+dostoevsky|Above all, don’t lie to yourself. The man who lies to himself and listens to his own lie comes to such a pass that he cannot distinguish the truth within him, or around him, and so loses all respect for himself and for others.|Fyodor Dostoevsky, The Brothers Karamazov
+dostoevsky|I am sorry I can say nothing more consoling to you, for love in action is a harsh and dreadful thing compared with love in dreams.|Fyodor Dostoevsky, The Brothers Karamazov
+dostoevsky|One can love one’s neighbors in the abstract, or even at a distance, but at close quarters it’s almost impossible.|Fyodor Dostoevsky, The Brothers Karamazov
+dostoevsky|The world stands on absurdities, and perhaps nothing would have come to pass in it without them.|Fyodor Dostoevsky, The Brothers Karamazov
+dostoevsky|I want to be there when every one suddenly understands what it has all been for. All the religions of the world are built on this longing, and I am a believer.|Fyodor Dostoevsky, The Brothers Karamazov
+dostoevsky|And if the sufferings of children go to swell the sum of sufferings which was necessary to pay for truth, then I protest that the truth is not worth such a price.|Fyodor Dostoevsky, The Brothers Karamazov
+dostoevsky|So long as man remains free he strives for nothing so incessantly and so painfully as to find some one to worship.|Fyodor Dostoevsky, The Brothers Karamazov
+dostoevsky|I tell Thee that man is tormented by no greater anxiety than to find some one quickly to whom he can hand over that gift of freedom with which the ill-fated creature is born. But only one who can appease their conscience can take over their freedom.|Fyodor Dostoevsky, The Brothers Karamazov
+dostoevsky|For the secret of man’s being is not only to live but to have something to live for. Without a stable conception of the object of life, man would not consent to go on living, and would rather destroy himself than remain on earth, though he had bread in abundance.|Fyodor Dostoevsky, The Brothers Karamazov
+dostoevsky|Nothing is more seductive for man than his freedom of conscience, but nothing is a greater cause of suffering.|Fyodor Dostoevsky, The Brothers Karamazov
+dostoevsky|But Thou didst not know that when man rejects miracle he rejects God too; for man seeks not so much God as the miraculous.|Fyodor Dostoevsky, The Brothers Karamazov
+dostoevsky|They have succeeded in accumulating a greater mass of objects, but the joy in the world has grown less.|Fyodor Dostoevsky, The Brothers Karamazov
+dostoevsky|Every time you pray, if your prayer is sincere, there will be new feeling and new meaning in it, which will give you fresh courage, and you will understand that prayer is an education.|Fyodor Dostoevsky, The Brothers Karamazov
+dostoevsky|Love a man even in his sin, for that is the semblance of Divine Love and is the highest love on earth. Love all God’s creation, the whole and every grain of sand in it. Love every leaf, every ray of God’s light. Love the animals, love the plants, love everything. If you love everything, you will perceive the divine mystery in things. Once you perceive it, you will begin to comprehend it better every day.|Fyodor Dostoevsky, The Brothers Karamazov
+dostoevsky|Loving humility is marvelously strong, the strongest of all things, and there is nothing else like it.|Fyodor Dostoevsky, The Brothers Karamazov
+dostoevsky|Brothers, love is a teacher; but one must know how to acquire it, for it is hard to acquire, it is dearly bought, it is won slowly by long labor. For we must love not only occasionally, for a moment, but for ever.|Fyodor Dostoevsky, The Brothers Karamazov
+dostoevsky|Remember particularly that you cannot be a judge of any one. For no one can judge a criminal, until he recognizes that he is just such a criminal as the man standing before him, and that he perhaps is more than all men to blame for that crime.|Fyodor Dostoevsky, The Brothers Karamazov
+dostoevsky|If all men abandon you and even drive you away by force, then when you are left alone fall on the earth and kiss it, water it with your tears and it will bring forth fruit even though no one has seen or heard you in your solitude.|Fyodor Dostoevsky, The Brothers Karamazov
+dostoevsky|And if two of you are gathered together—then there is a whole world, a world of living love.|Fyodor Dostoevsky, The Brothers Karamazov
+dostoevsky|Kiss the earth and love it with an unceasing, consuming love.|Fyodor Dostoevsky, The Brothers Karamazov
+dostoevsky|Fathers and teachers, I ponder, “What is hell?” I maintain that it is the suffering of being unable to love.|Fyodor Dostoevsky, The Brothers Karamazov
+dostoevsky|But in some cases it is really more creditable to be carried away by an emotion, however unreasonable, which springs from a great love, than to be unmoved.|Fyodor Dostoevsky, The Brothers Karamazov
+dostoevsky|Taking a new step, uttering a new word is what they fear most.|Fyodor Dostoevsky, Crime and Punishment
+dostoevsky|To go wrong in one’s own way is better than to go right in someone else’s.|Fyodor Dostoevsky, Crime and Punishment
+dostoevsky|Pain and suffering are always inevitable for a large intelligence and a deep heart.|Fyodor Dostoevsky, Crime and Punishment
+dostoevsky|It was not only that I could not become spiteful, I did not know how to become anything; neither spiteful nor kind, neither a rascal nor an honest man, neither a hero nor an insect.|Fyodor Dostoevsky, Notes from Underground
+dostoevsky|Oh, gentlemen, do you know, perhaps I consider myself an intelligent man, only because all my life I have been able neither to begin nor to finish anything.|Fyodor Dostoevsky, Notes from Underground
+dostoevsky|The only gain of civilisation for mankind is the greater capacity for variety of sensations—and absolutely nothing more.|Fyodor Dostoevsky, Notes from Underground
+dostoevsky|Besides, he will at once be transformed from a human being into an organ-stop or something of the sort; for what is a man without desires, without free will and without choice, if not a stop in an organ?|Fyodor Dostoevsky, Notes from Underground
+dostoevsky|It may be the law of logic, but not the law of humanity.|Fyodor Dostoevsky, Notes from Underground
+dostoevsky|May it not be that he loves chaos and destruction (there can be no disputing that he does sometimes love it) because he is instinctively afraid of attaining his object and completing the edifice he is constructing?|Fyodor Dostoevsky, Notes from Underground
+dostoevsky|Granted that man does nothing but seek that mathematical certainty, he traverses oceans, sacrifices his life in the quest, but to succeed, really to find it, dreads, I assure you. He feels that when he has found it there will be nothing for him to look for.|Fyodor Dostoevsky, Notes from Underground
+dostoevsky|Perhaps suffering is just as great a benefit to him as well-being?|Fyodor Dostoevsky, Notes from Underground
+dostoevsky|Why, suffering is the sole origin of consciousness.|Fyodor Dostoevsky, Notes from Underground
+dostoevsky|Destroy my desires, eradicate my ideals, show me something better, and I will follow you.|Fyodor Dostoevsky, Notes from Underground
+dostoevsky|Anything but the foremost place I could not conceive for myself, and for that very reason I quite contentedly occupied the lowest in reality.|Fyodor Dostoevsky, Notes from Underground
+dostoevsky|Besides, with love one can live even without happiness. Even in sorrow life is sweet; life is sweet, however one lives.|Fyodor Dostoevsky, Notes from Underground
+dostoevsky|Another thing, Liza, man is fond of reckoning up his troubles, but does not count his joys. If he counted them up as he ought, he would see that every lot has enough happiness provided for it.|Fyodor Dostoevsky, Notes from Underground
+dostoevsky|And, indeed, I will ask on my own account here, an idle question: which is better—cheap happiness or exalted sufferings?|Fyodor Dostoevsky, Notes from Underground
+dostoevsky|We are so divorced from it that we feel at once a sort of loathing for real life, and so cannot bear to be reminded of it.|Fyodor Dostoevsky, Notes from Underground
+dostoevsky|So that perhaps, after all, there is more life in me than in you.|Fyodor Dostoevsky, Notes from Underground
+tolstoy|Happy families are all alike; every unhappy family is unhappy in its own way.|Leo Tolstoy, Anna Karenina
+tolstoy|Art is a human activity, consisting in this, that one man consciously, by means of certain external signs, hands on to others feelings he has lived through, and that other people are infected by these feelings, and also experience them.|Leo Tolstoy, What Is Art?
+tolstoy|Remember then: there is only one time that is important—Now! It is the most important time because it is the only time when we have any power. The most necessary man is he with whom you are, for no man knows whether he will ever have dealings with any one else: and the most important affair is, to do him good, because for that purpose alone was man sent into this life!|Leo Tolstoy, Three Questions
+tolstoy|All, everything that I understand, I understand only because I love.|Leo Tolstoy, War and Peace
+tolstoy|And there is no greatness where simplicity, goodness, and truth are absent.|Leo Tolstoy, War and Peace
+tolstoy|But believe me, my dear boy, there is nothing stronger than those two: patience and time, they will do it all.|Leo Tolstoy, War and Peace
+kafka|One morning, when Gregor Samsa woke from troubled dreams, he found himself transformed in his bed into a horrible vermin.|Franz Kafka, The Metamorphosis
+kafka|Someone must have been telling lies about Josef K., he knew he had done nothing wrong but, one morning, he was arrested.|Franz Kafka, The Trial
+kafka|You don't need to accept everything as true, you only have to accept it as necessary.|Franz Kafka, The Trial
+kafka|For we are like tree trunks in the snow. They seem to lie smoothly on the surface, and with a little push one should be able to shove them away. No, one cannot, for they are firmly connected to the ground. But see, even that is only apparent.|Franz Kafka, Contemplation (tr. Claude)
+kafka|If one were only an Indian, instantly alert, and on the galloping horse, leaning into the wind, kept quivering briefly again and again over the quivering ground, until one let go of the spurs, for there were no spurs, until one threw away the reins, for there were no reins, and hardly saw the land before one as a smoothly mown heath, already without horse's neck and horse's head.|Franz Kafka, Contemplation (tr. Claude)

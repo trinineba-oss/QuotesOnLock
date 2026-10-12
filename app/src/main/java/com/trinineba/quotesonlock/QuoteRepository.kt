@@ -14,7 +14,7 @@ class QuoteRepository(
 
     fun bundled(): List<Quote> = bundledCache ?: loadBundled().also { bundledCache = it }
 
-    /** Lines look like `category|text|author`. */
+    /** Lines look like `category|text|author`; a literal `\n` in the text is a line break. */
     private fun loadBundled(): List<Quote> =
         appContext.resources.openRawResource(R.raw.quotes).bufferedReader().useLines { lines ->
             lines
@@ -25,7 +25,7 @@ class QuoteRepository(
                     val rest = line.substringAfter('|', "")
                     if (category == null || !rest.contains('|')) return@mapNotNull null
                     Quote(
-                        text = rest.substringBeforeLast('|').trim(),
+                        text = rest.substringBeforeLast('|').trim().replace("\\n", "\n"),
                         author = rest.substringAfterLast('|').trim().ifBlank { null },
                         category = category,
                     )
