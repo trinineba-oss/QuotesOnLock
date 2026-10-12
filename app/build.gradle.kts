@@ -16,6 +16,16 @@ android {
         versionName = "1.0"
     }
 
+    signingConfigs {
+        // Shared debug key (public, not a secret) so each CI build installs over the previous one.
+        getByName("debug") {
+            storeFile = file("debug.keystore")
+            storePassword = "android"
+            keyAlias = "androiddebugkey"
+            keyPassword = "android"
+        }
+    }
+
     buildTypes {
         release {
             isMinifyEnabled = false

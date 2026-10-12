@@ -27,4 +27,4 @@ Debug APK:
 ./gradlew assembleDebug   # app/build/outputs/apk/debug/app-debug.apk
 ```
 
-Needs JDK 17+ and the Android SDK (API 35). The GitHub Actions workflow builds the APK on every push and uploads it as an artifact.
+Needs JDK 17+ and the Android SDK (API 35). The GitHub Actions workflow builds the APK on every push, uploads it as an artifact, and publishes it to the [`latest` release](../../releases/tag/latest), which is the easiest place to download it on a phone. Builds share one debug key, so a new APK installs over the old one and keeps your quotes and settings.
