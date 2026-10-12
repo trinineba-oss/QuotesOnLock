@@ -15,7 +15,7 @@ for f in sorted(glob.glob(BASE+'out/*.out')):
         if not l: continue
         c,rest=l.split('|',1); t,a=rest.rsplit('|',1); rows.append((c,t,a))
 for t,a in KAFKA_TR: rows.append(('kafka',t,a))
-FIX={'"No," said the priest, "you don\'t need to accept everything as true, you only have to accept it as necessary."':"You don't need to accept everything as true, you only have to accept it as necessary.",
+FIX={'Now I say that I know the meaning of my life: To live for God, for my soul.\u2019':'Now I say that I know the meaning of my life: "To live for God, for my soul."','"No," said the priest, "you don\'t need to accept everything as true, you only have to accept it as necessary."':"You don't need to accept everything as true, you only have to accept it as necessary.",
      'He is the realist, who turns his back on the whole he cannot grasp, and busies himself with a fragment."':'He is the realist, who turns his back on the whole he cannot grasp, and busies himself with a fragment.'}
 seen=set(); final=[]
 for c,t,a in rows:

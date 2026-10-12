@@ -37,6 +37,181 @@ thought|Man is the measure of all things.|Protagoras
 thought|Know thyself.|Inscription at the Temple of Apollo at Delphi
 thought|Man is born free, and everywhere he is in chains.|Jean-Jacques Rousseau
 thought|The journey is better than the inn.|Miguel de Cervantes
+thought|Virtue then is in a sense a mean state, since it certainly has an aptitude for aiming at the mean.|Aristotle, Nicomachean Ethics (tr. W. D. Ross)
+thought|What is truth? said jesting Pilate, and would not stay for an answer.|Francis Bacon, Essays
+thought|Men fear death, as children fear to go in the dark; and as that natural fear in children, is increased with tales, so is the other.|Francis Bacon, Essays
+thought|Revenge is a kind of wild justice; which the more man's nature runs to, the more ought law to weed it out.|Francis Bacon, Essays
+thought|Certainly, in taking revenge, a man is but even with his enemy; but in passing it over, he is superior; for it is a prince's part to pardon.|Francis Bacon, Essays
+thought|Prosperity is not without many fears and distastes; and adversity is not without comforts and hopes.|Francis Bacon, Essays
+thought|Certainly virtue is like precious odors, most fragrant when they are incensed, or crushed: for prosperity doth best discover vice, but adversity doth best discover virtue.|Francis Bacon, Essays
+thought|He that hath wife and children hath given hostages to fortune; for they are impediments to great enterprises, either of virtue or mischief.|Francis Bacon, Essays
+thought|For there was never proud man thought so absurdly well of himself, as the lover doth of the person loved; and therefore it was well said, that it is impossible to love, and to be wise.|Francis Bacon, Essays
+thought|Some books are to be tasted, others to be swallowed, and some few to be chewed and digested; that is, some books are to be read only in parts; others to be read, but not curiously; and some few to be read wholly, and with diligence and attention.|Francis Bacon, Essays
+thought|Reading maketh a full man; conference a ready man; and writing an exact man.|Francis Bacon, Essays
+thought|Histories make men wise; poets witty; the mathematics subtile; natural philosophy deep; moral grave; logic and rhetoric able to contend.|Francis Bacon, Essays
+thought|Happiness is the one end which all created beings seek.|Boethius, The Consolation of Philosophy (tr. H. R. James)
+thought|A man should learn to detect and watch that gleam of light which flashes across his mind from within, more than the lustre of the firmament of bards and sages.|Ralph Waldo Emerson, Essays: First Series
+thought|Trust thyself: every heart vibrates to that iron string.|Ralph Waldo Emerson, Essays: First Series
+thought|Society everywhere is in conspiracy against the manhood of every one of its members.|Ralph Waldo Emerson, Essays: First Series
+thought|Whoso would be a man, must be a nonconformist.|Ralph Waldo Emerson, Essays: First Series
+thought|Nothing is at last sacred but the integrity of your own mind.|Ralph Waldo Emerson, Essays: First Series
+thought|It is easy in the world to live after the world’s opinion; it is easy in solitude to live after our own; but the great man is he who in the midst of the crowd keeps with perfect sweetness the independence of solitude.|Ralph Waldo Emerson, Essays: First Series
+thought|A foolish consistency is the hobgoblin of little minds, adored by little statesmen and philosophers and divines.|Ralph Waldo Emerson, Essays: First Series
+thought|To be great is to be misunderstood.|Ralph Waldo Emerson, Essays: First Series
+thought|The centuries are conspirators against the sanity and authority of the soul.|Ralph Waldo Emerson, Essays: First Series
+thought|We are afraid of truth, afraid of fortune, afraid of death and afraid of each other.|Ralph Waldo Emerson, Essays: First Series
+thought|Insist on yourself; never imitate.|Ralph Waldo Emerson, Essays: First Series
+thought|Do that which is assigned you, and you cannot hope too much or dare too much.|Ralph Waldo Emerson, Essays: First Series
+thought|Nothing can bring you peace but the triumph of principles.|Ralph Waldo Emerson, Essays: First Series
+thought|The good are befriended even by weakness and defect.|Ralph Waldo Emerson, Essays: First Series
+thought|In general, every evil to which we do not succumb is a benefactor.|Ralph Waldo Emerson, Essays: First Series
+thought|The less a man thinks or knows about his virtues the better we like him.|Ralph Waldo Emerson, Essays: First Series
+thought|Not in nature but in man is all the beauty and worth he sees.|Ralph Waldo Emerson, Essays: First Series
+thought|The lesson which these observations convey is, Be, and not seem.|Ralph Waldo Emerson, Essays: First Series
+thought|Every promise of the soul has innumerable fulfilments; each of its joys ripens into a new want.|Ralph Waldo Emerson, Essays: First Series
+thought|Our friendships hurry to short and poor conclusions, because we have made them a texture of wine and dreams, instead of the tough fibre of the human heart.|Ralph Waldo Emerson, Essays: First Series
+thought|The only reward of virtue is virtue; the only way to have a friend is to be one.|Ralph Waldo Emerson, Essays: First Series
+thought|The essence of friendship is entireness, a total magnanimity and trust.|Ralph Waldo Emerson, Essays: First Series
+thought|That country is the fairest which is inhabited by the noblest minds.|Ralph Waldo Emerson, Essays: First Series
+thought|The soul looketh steadily forwards, creating a world before her, leaving worlds behind her.|Ralph Waldo Emerson, Essays: First Series
+thought|Nature abhors the old, and old age seems the only disease; all others run into this one.|Ralph Waldo Emerson, Essays: First Series
+thought|The simplest words,—we do not know what they mean except when we love and aspire.|Ralph Waldo Emerson, Essays: First Series
+thought|Silence is a solvent that destroys personality, and gives us leave to be great and universal.|Ralph Waldo Emerson, Essays: First Series
+thought|Nature transcends all our moods of thought, and its secret we do not yet find.|Ralph Waldo Emerson, Essays: First Series
+thought|That to study philosophy is to learn to die.|Michel de Montaigne, Essays (tr. Charles Cotton)
+thought|Thus, reader, myself am the matter of my book: there’s no reason thou shouldst employ thy leisure about so frivolous and vain a subject.|Michel de Montaigne, Essays (tr. Charles Cotton)
+thought|The perpetual work of your life is but to lay the foundation of death.|Michel de Montaigne, Essays (tr. Charles Cotton)
+thought|We should rather examine, who is better learned, than who is more learned.|Michel de Montaigne, Essays (tr. Charles Cotton)
+thought|The most manifest sign of wisdom is a continual cheerfulness; her state is like that of things in the regions above the moon, always clear and serene.|Michel de Montaigne, Essays (tr. Charles Cotton)
+thought|The estimate and value of a man consist in the heart and in the will: there his true honour lies.|Michel de Montaigne, Essays (tr. Charles Cotton)
+thought|In this decay of nature which renders him useless, burdensome, and importunate to others, let him take care not to be useless, burdensome, and importunate to himself.|Michel de Montaigne, Essays (tr. Charles Cotton)
+thought|Reason directs that we should always go the same way, but not always at the same pace.|Michel de Montaigne, Essays (tr. Charles Cotton)
+thought|Death is terrible to Cicero, coveted by Cato, indifferent to Socrates.|Michel de Montaigne, Essays (tr. Charles Cotton)
+thought|No one lays down a certain design for his life, and we only deliberate thereof by pieces.|Michel de Montaigne, Essays (tr. Charles Cotton)
+thought|We owe justice to men, and graciousness and benignity to other creatures that are capable of it; there is a certain commerce and mutual obligation betwixt them and us.|Michel de Montaigne, Essays (tr. Charles Cotton)
+thought|All that seems strange to us, and that we do not understand, we condemn.|Michel de Montaigne, Essays (tr. Charles Cotton)
+thought|Man cannot be any thing but what he is, nor imagine beyond the reach of his capacity.|Michel de Montaigne, Essays (tr. Charles Cotton)
+thought|There is no reason that has not its contrary, say the wisest of the philosophers.|Michel de Montaigne, Essays (tr. Charles Cotton)
+thought|The lowest walk is the safest; tis the seat of constancy; you have there need of no one but yourself; tis there founded and wholly stands upon its own basis.|Michel de Montaigne, Essays (tr. Charles Cotton)
+thought|Whatever falls out contrary to custom we say is contrary to nature, but nothing, whatever it be, is contrary to her.|Michel de Montaigne, Essays (tr. Charles Cotton)
+thought|A good marriage, if there be any such, rejects the company and conditions of love, and tries to represent those of friendship.|Michel de Montaigne, Essays (tr. Charles Cotton)
+thought|Fear springs sometimes as much from want of judgment as from want of courage.|Michel de Montaigne, Essays (tr. Charles Cotton)
+thought|In fine, we must live amongst the living, and let the river run under the bridge without our care, or, at least, without our interference.|Michel de Montaigne, Essays (tr. Charles Cotton)
+thought|There is, peradventure, no more manifest vanity than to write of it so vainly.|Michel de Montaigne, Essays (tr. Charles Cotton)
+thought|Nothing presses so hard upon a state as innovation: change only gives form to injustice and tyranny.|Michel de Montaigne, Essays (tr. Charles Cotton)
+thought|There are so many dangerous steps, that, for the more safety, we must a little lightly and superficially glide over the world, and not rush through it.|Michel de Montaigne, Essays (tr. Charles Cotton)
+thought|We give ourselves the lie, to excuse the lie we have given to another.|Michel de Montaigne, Essays (tr. Charles Cotton)
+thought|To forbear doing is often as generous as to do; but tis less in the light, and the little good I have in me is of this kind.|Michel de Montaigne, Essays (tr. Charles Cotton)
+thought|Books have not so much served me for instruction as exercise.|Michel de Montaigne, Essays (tr. Charles Cotton)
+thought|There is no quality so universal in this image of things as diversity and variety.|Michel de Montaigne, Essays (tr. Charles Cotton)
+thought|Every place swarms with commentaries; of authors there is great scarcity.|Michel de Montaigne, Essays (tr. Charles Cotton)
+thought|The world proceeds quite the other way, and thinks nothing profitable that is not painful; it has great suspicion of facility.|Michel de Montaigne, Essays (tr. Charles Cotton)
+thought|Nature is a gentle guide, but not more sweet and gentle than prudent and just.|Michel de Montaigne, Essays (tr. Charles Cotton)
+thought|The last thing one settles in writing a book is what one should put in first.|Blaise Pascal, Pensées (tr. W. F. Trotter)
+thought|We never seek things for themselves, but for the search.|Blaise Pascal, Pensées (tr. W. F. Trotter)
+thought|We labour unceasingly to adorn and preserve this imaginary existence, and neglect the real.|Blaise Pascal, Pensées (tr. W. F. Trotter)
+thought|We anticipate the future as too slow in coming, as if in order to hasten its course; or we recall the past, to stop its too rapid flight.|Blaise Pascal, Pensées (tr. W. F. Trotter)
+thought|We run carelessly to the precipice, after we have put something before us to prevent us seeing it.|Blaise Pascal, Pensées (tr. W. F. Trotter)
+thought|The eternal silence of these infinite spaces frightens me.|Blaise Pascal, Pensées (tr. W. F. Trotter)
+thought|Reasons, seen from afar, appear to limit our view; but when they are reached, we begin to see beyond.|Blaise Pascal, Pensées (tr. W. F. Trotter)
+thought|There is nothing so conformable to reason as this disavowal of reason.|Blaise Pascal, Pensées (tr. W. F. Trotter)
+thought|The heart has its reasons, which reason does not know.|Blaise Pascal, Pensées (tr. W. F. Trotter)
+thought|Thought constitutes the greatness of man.|Blaise Pascal, Pensées (tr. W. F. Trotter)
+thought|Man is but a reed, the most feeble thing in nature; but he is a thinking reed.|Blaise Pascal, Pensées (tr. W. F. Trotter)
+thought|Man is neither angel nor brute, and the unfortunate thing is that he who would act the angel acts the brute.|Blaise Pascal, Pensées (tr. W. F. Trotter)
+thought|Nothing fortifies scepticism more than that there are some who are not sceptics; if all were so, they would be wrong.|Blaise Pascal, Pensées (tr. W. F. Trotter)
+thought|When we are too young, we do not judge well; so, also, when we are too old.|Blaise Pascal, Pensées (tr. W. F. Trotter)
+thought|The harbour decides for those who are in a ship; but where shall we find a harbour in morality?|Blaise Pascal, Pensées (tr. W. F. Trotter)
+thought|The greatness of man is great in that he knows himself to be miserable.|Blaise Pascal, Pensées (tr. W. F. Trotter)
+thought|It is then being miserable to know oneself to be miserable; but it is also being great to know that one is miserable.|Blaise Pascal, Pensées (tr. W. F. Trotter)
+thought|Man must not think that he is on a level either with the brutes or with the angels, nor must he be ignorant of both sides of his nature; but he must know both.|Blaise Pascal, Pensées (tr. W. F. Trotter)
+thought|There are only two kinds of men: the righteous who believe themselves sinners; the rest, sinners, who believe themselves righteous.|Blaise Pascal, Pensées (tr. W. F. Trotter)
+thought|The clearness in divine things requires us to revere the obscurities in them.|Blaise Pascal, Pensées (tr. W. F. Trotter)
+thought|All bodies together, and all minds together, and all their products, are not equal to the least feeling of charity.|Blaise Pascal, Pensées (tr. W. F. Trotter)
+thought|Silence is the greatest persecution; the saints were never silent.|Blaise Pascal, Pensées (tr. W. F. Trotter)
+thought|There is no doubt that life is given us, not to be enjoyed, but to be overcome—to be got over.|Arthur Schopenhauer, Counsels and Maxims
+thought|The happiest lot is not to have experienced the keenest delights or the greatest pleasures, but to have brought life to a close without any very great pain, bodily or mental.|Arthur Schopenhauer, Counsels and Maxims
+thought|Everything in the world is like a hollow nut; there is little kernel anywhere, and when it does exist, it is still more rare to find it in the shell.|Arthur Schopenhauer, Counsels and Maxims
+thought|We often find something else, nay, something better than what we are looking for; and what we look for, we often find on a very different path from that on which we began a vain search.|Arthur Schopenhauer, Counsels and Maxims
+thought|Many live too long in the present—frivolous people, I mean; others, too much in the future, ever anxious and full of care.|Arthur Schopenhauer, Counsels and Maxims
+thought|The present alone is true and actual; it is the only time which possesses full reality, and our existence lies in it exclusively.|Arthur Schopenhauer, Counsels and Maxims
+thought|It is the height of folly to refuse the present hour of happiness, or wantonly to spoil it by vexation at by-gones or uneasiness about what is to come.|Arthur Schopenhauer, Counsels and Maxims
+thought|Only those evils which are sure to come at a definite date have any right to disturb us; and how few there are which fulfill this description.|Arthur Schopenhauer, Counsels and Maxims
+thought|We are happy in proportion as our range of vision, our sphere of work, our points of contact with the world, are restricted and circumscribed.|Arthur Schopenhauer, Counsels and Maxims
+thought|The young should early be trained to bear being left alone; for it is a source of happiness and peace of mind.|Arthur Schopenhauer, Counsels and Maxims
+thought|In the same way, the need of society drives the human porcupines together—only to be mutually repelled by the many prickly and disagreeable qualities of their nature.|Arthur Schopenhauer, Counsels and Maxims
+thought|The prime reason for social intercourse is mutual need; and as soon as that is satisfied, boredom drives people together once more.|Arthur Schopenhauer, Counsels and Maxims
+thought|To be alone is the fate of all great minds—a fate deplored at times, but still always chosen as the less grievous of two evils.|Arthur Schopenhauer, Counsels and Maxims
+thought|It is much better to take a very calm and prosaic view of what is disagreeable; for that is the easiest way of bearing it.|Arthur Schopenhauer, Counsels and Maxims
+thought|It is a source of consolation to look back upon those great misfortunes which never happened.|Arthur Schopenhauer, Counsels and Maxims
+thought|Our thoughts must be arranged, as it were, in little drawers, so that we may open one without disturbing any of the others.|Arthur Schopenhauer, Counsels and Maxims
+thought|Life consists in movement, says Aristotle; and he is obviously right.|Arthur Schopenhauer, Counsels and Maxims
+thought|Great minds are like eagles, and build their nest in some lofty solitude.|Arthur Schopenhauer, Counsels and Maxims
+thought|Most men are so thoroughly subjective that nothing really interests them but themselves.|Arthur Schopenhauer, Counsels and Maxims
+thought|Men are like children, in that, if you spoil them, they become naughty.|Arthur Schopenhauer, Counsels and Maxims
+thought|A man shows his character just in the way in which he deals with trifles,—for then he is off his guard.|Arthur Schopenhauer, Counsels and Maxims
+thought|In savage countries they eat one another, in civilized they deceive one another; and that is what people call the way of the world!|Arthur Schopenhauer, Counsels and Maxims
+thought|He who criticises others, works at the reformation of himself.|Arthur Schopenhauer, Counsels and Maxims
+thought|Let your enemies' censure be like a bitter medicine, to be used as a means of self-knowledge.|Arthur Schopenhauer, Counsels and Maxims
+thought|To make enemies by unnecessary and willful incivility, is just as insane a proceeding as to set your house on fire.|Arthur Schopenhauer, Counsels and Maxims
+thought|To combine politeness with pride is a masterpiece of wisdom.|Arthur Schopenhauer, Counsels and Maxims
+thought|It is also well to avoid correcting people's mistakes in conversation, however good your intentions may be; for it is easy to offend people, and difficult, if not impossible, to mend them.|Arthur Schopenhauer, Counsels and Maxims
+thought|Money is never spent to so much advantage as when you have been cheated out of it; for at one stroke you have purchased prudence.|Arthur Schopenhauer, Counsels and Maxims
+thought|It is only cold-blooded animals whose bite is poisonous.|Arthur Schopenhauer, Counsels and Maxims
+thought|Such is Time's usury; and all who cannot wait are its victims. There is no more thriftless proceeding than to try and mend the measured pace of Time.|Arthur Schopenhauer, Counsels and Maxims
+thought|The most terrible misfortunes are also the most improbable and remote—the least likely to occur.|Arthur Schopenhauer, Counsels and Maxims
+thought|It is a cowardly soul that shrinks or grows faint and despondent as soon as the storm begins to gather, or even when the first cloud appears on the horizon.|Arthur Schopenhauer, Counsels and Maxims
+thought|The years of childhood are thus rendered so full of bliss that the memory of them is always coupled with longing and regret.|Arthur Schopenhauer, Counsels and Maxims
+thought|If the chief feature of the earlier half of life is a never-satisfied longing after happiness, the later half is characterized by the dread of misfortune.|Arthur Schopenhauer, Counsels and Maxims
+thought|The first thing that experience finds to do is to free us from the phantoms of the brain—those false notions that have been put into us in youth.|Arthur Schopenhauer, Counsels and Maxims
+thought|The wrong side is not so pretty as the right, but it is more instructive; it shows the way in which the threads have been worked together.|Arthur Schopenhauer, Counsels and Maxims
+thought|Every generation, no matter how paltry its character, thinks itself much wiser than the one immediately preceding it, let alone those that are more remote.|Arthur Schopenhauer, Counsels and Maxims
+thought|The progress of life shows a man the stuff of which he is made.|Arthur Schopenhauer, Counsels and Maxims
+thought|In age the passions cool and leave a man at rest, and then forthwith his mind takes a contemplative tone; the intellect is set free and attains the upper hand.|Arthur Schopenhauer, Counsels and Maxims
+thought|The old man is genial and cheerful because, after long lying in the bonds of passion, he can now move about in freedom.|Arthur Schopenhauer, Counsels and Maxims
+thought|A good, temperate, gentle character can be happy in needy circumstances, whilst a covetous, envious and malicious man, even if he be the richest in the world, goes miserable.|Arthur Schopenhauer, The Wisdom of Life
+thought|What a man is and has in himself,—in a word personality, with all it entails, is the only immediate and direct factor in his happiness and welfare.|Arthur Schopenhauer, The Wisdom of Life
+thought|The man who is cheerful and merry has always a good reason for being so,—the fact, namely, that he is so. There is nothing which, like this quality, can so completely replace the loss of every other blessing.|Arthur Schopenhauer, The Wisdom of Life
+thought|Even trees must be shaken by the wind, if they are to thrive.|Arthur Schopenhauer, The Wisdom of Life
+thought|It is not what things are objectively and in themselves, but what they are for us, in our way of looking at them, that makes us happy or the reverse.|Arthur Schopenhauer, The Wisdom of Life
+thought|The most general survey shows us that the two foes of human happiness are pain and boredom. We may go further, and say that in the degree in which we are fortunate enough to get away from the one, we approach the other. Life presents, in fact, a more or less violent oscillation between the two.|Arthur Schopenhauer, The Wisdom of Life
+thought|Nothing is so good a protection against such misery as inward wealth, the wealth of the mind, because the greater it grows, the less room it leaves for boredom.|Arthur Schopenhauer, The Wisdom of Life
+thought|No man ought to expect much from others, or, in general, from the external world.|Arthur Schopenhauer, The Wisdom of Life
+thought|There is not much to be got anywhere in the world. It is filled with misery and pain; and if a man escapes these, boredom lies in wait for him at every corner.|Arthur Schopenhauer, The Wisdom of Life
+thought|In such a world as this, a man who is rich in himself is like a bright, warm, happy room at Christmastide, while without are the frost and snow of a December night.|Arthur Schopenhauer, The Wisdom of Life
+thought|It is solicitude about what others will say that underlies all our vanity and pretension, yes, and all our show and swagger too.|Arthur Schopenhauer, The Wisdom of Life
+thought|No doubt, when modesty was made a virtue, it was a very advantageous thing for the fools; for everybody is expected to speak of himself as if he were one.|Arthur Schopenhauer, The Wisdom of Life
+thought|Fame is something which must be won; honor, only something which must not be lost.|Arthur Schopenhauer, The Wisdom of Life
+thought|That was an incomparable fine saying of Seneca's, that fame follows merit as surely as the body casts a shadow; sometimes falling in front, and sometimes behind.|Arthur Schopenhauer, The Wisdom of Life
+thought|It is the possession of a great heart or a great head, and not the mere fame of it, which is worth having, and conducive to happiness. Not fame, but that which deserves to be famous, is what a man should hold in esteem.|Arthur Schopenhauer, The Wisdom of Life
+thought|It is only work done from the heart that ever gains the laurel.|Arthur Schopenhauer, The Wisdom of Life
+thought|Life is such a poor business that the strictest economy must be exercised in its good things.|Arthur Schopenhauer, The Wisdom of Life
+thought|There is no greater consolation in age than the feeling of having put the whole force of one's youth into works which still remain young.|Arthur Schopenhauer, The Wisdom of Life
+thought|Hatred is increased by being reciprocated, and can on the other hand be destroyed by love.|Baruch Spinoza, Ethics (tr. R. H. M. Elwes)
+thought|A free man thinks of death least of all things; and his wisdom is a meditation not of death but of life.|Baruch Spinoza, Ethics (tr. R. H. M. Elwes)
+thought|Blessedness is not the reward of virtue, but virtue itself; neither do we rejoice therein, because we control our lusts, but, contrariwise, because we rejoice therein, we are able to control our lusts.|Baruch Spinoza, Ethics (tr. R. H. M. Elwes)
+thought|The mass of men lead lives of quiet desperation.|Henry David Thoreau, Walden
+thought|If I were to preach at all in this strain, I should say rather, Set about being good.|Henry David Thoreau, Walden
+thought|Do not stay to be an overseer of the poor, but endeavor to become one of the worthies of the world.|Henry David Thoreau, Walden
+thought|All memorable events, I should say, transpire in morning time and in a morning atmosphere.|Henry David Thoreau, Walden
+thought|Every man is tasked to make his life, even in its details, worthy of the contemplation of his most elevated and critical hour.|Henry David Thoreau, Walden
+thought|I went to the woods because I wished to live deliberately, to front only the essential facts of life, and see if I could not learn what it had to teach, and not, when I came to die, discover that I had not lived.|Henry David Thoreau, Walden
+thought|Men say that a stitch in time saves nine, and so they take a thousand stitches to-day to save nine to-morrow.|Henry David Thoreau, Walden
+thought|If one may judge who rarely looks into the newspapers, nothing new does ever happen in foreign parts, a French revolution not excepted.|Henry David Thoreau, Walden
+thought|That time which we really improve, or which is improvable, is neither past, present, nor future.|Henry David Thoreau, Walden
+thought|Books are the treasured wealth of the world and the fit inheritance of generations and nations.|Henry David Thoreau, Walden
+thought|A man thinking or working is always alone, let him be where he will.|Henry David Thoreau, Walden
+thought|Let not to get a living be thy trade, but thy sport.|Henry David Thoreau, Walden
+thought|No man ever followed his genius till it misled him.|Henry David Thoreau, Walden
+thought|I learned this, at least, by my experiment; that if one advances confidently in the direction of his dreams, and endeavors to live the life which he has imagined, he will meet with a success unexpected in common hours.|Henry David Thoreau, Walden
+thought|In proportion as he simplifies his life, the laws of the universe will appear less complex, and solitude will not be solitude, nor poverty poverty, nor weakness weakness.|Henry David Thoreau, Walden
+thought|The commonest sense is the sense of men asleep, which they express by snoring.|Henry David Thoreau, Walden
+thought|If a man does not keep pace with his companions, perhaps it is because he hears a different drummer.|Henry David Thoreau, Walden
+thought|No face which we can give to a matter will stead us so well at last as the truth.|Henry David Thoreau, Walden
+thought|Do not trouble yourself much to get new things, whether clothes or friends.|Henry David Thoreau, Walden
+thought|Rather than love, than money, than fame, give me truth.|Henry David Thoreau, Walden
+thought|There is not one of my readers who has yet lived a whole human life.|Henry David Thoreau, Walden
+thought|It is not so important that many should be as good as you, as that there be some absolute goodness somewhere; for that will leaven the whole lump.|Henry David Thoreau, Walden
 stoic|Waste no more time arguing about what a good man should be. Be one.|Marcus Aurelius
 stoic|If it is not right, do not do it; if it is not true, do not say it.|Marcus Aurelius
 stoic|The soul is dyed by the colour of its thoughts.|Marcus Aurelius
@@ -51,6 +226,221 @@ stoic|Make the best use of what is in your power, and take the rest as it happen
 stoic|Do not spoil what you have by desiring what you have not.|Epicurus
 stoic|He who knows others is wise; he who knows himself is enlightened.|Lao Tzu
 stoic|If you have a garden and a library, you have everything you need.|Cicero
+stoic|There are things which are within our power, and there are things which are beyond our power. Within our power are opinion, aim, desire, aversion, and, in one word, whatever affairs are our own. Beyond our power are body, property, reputation, office, and, in one word, whatever are not properly our own affairs.|Epictetus, Enchiridion (tr. Thomas Wentworth Higginson)
+stoic|Men are disturbed not by things, but by the views which they take of things. Thus death is nothing terrible, else it would have appeared so to Socrates. But the terror consists in our notion of death, that it is terrible.|Epictetus, Enchiridion (tr. Thomas Wentworth Higginson)
+stoic|Be not elated at any excellence not your own.|Epictetus, Enchiridion (tr. Thomas Wentworth Higginson)
+stoic|Demand not that events should happen as you wish; but wish them to happen as they do happen, and you will go on well.|Epictetus, Enchiridion (tr. Thomas Wentworth Higginson)
+stoic|Sickness is an impediment to the body, but not to the will unless itself pleases. Lameness is an impediment to the leg, but not to the will; and say this to yourself with regard to everything that happens. For you will find it to be an impediment to something else, but not truly to yourself.|Epictetus, Enchiridion (tr. Thomas Wentworth Higginson)
+stoic|Never say of anything, “I have lost it,” but, “I have restored it.”|Epictetus, Enchiridion (tr. Thomas Wentworth Higginson)
+stoic|If you would improve, be content to be thought foolish and dull with regard to externals.|Epictetus, Enchiridion (tr. Thomas Wentworth Higginson)
+stoic|Do not desire to be thought to know anything; and though you should appear to others to be somebody, distrust yourself.|Epictetus, Enchiridion (tr. Thomas Wentworth Higginson)
+stoic|If you wish your children and your wife and your friends to live forever, you are foolish, for you wish things to be in your power which are not so, and what belongs to others to be your own.|Epictetus, Enchiridion (tr. Thomas Wentworth Higginson)
+stoic|Whoever then would be free, let him wish nothing, let him decline nothing, which depends on others; else he must necessarily be a slave.|Epictetus, Enchiridion (tr. Thomas Wentworth Higginson)
+stoic|Remember that you are an actor in a drama of such sort as the Author chooses—if short, then in a short one; if long, then in a long one.|Epictetus, Enchiridion (tr. Thomas Wentworth Higginson)
+stoic|You can be unconquerable if you enter into no combat in which it is not in your own power to conquer.|Epictetus, Enchiridion (tr. Thomas Wentworth Higginson)
+stoic|Let death and exile, and all other things which appear terrible, be daily before your eyes, but death chiefly; and you will never entertain an abject thought, nor too eagerly covet anything.|Epictetus, Enchiridion (tr. Thomas Wentworth Higginson)
+stoic|Be content, then, in everything, with being a philosopher; and if you wish to seem so likewise to anyone, appear so to yourself, and it will suffice you.|Epictetus, Enchiridion (tr. Thomas Wentworth Higginson)
+stoic|Consider first, man, what the matter is, and what your own nature is able to bear.|Epictetus, Enchiridion (tr. Thomas Wentworth Higginson)
+stoic|You must cultivate either your own reason or else externals; apply yourself either to things within or without you—that is, be either a philosopher or one of the mob.|Epictetus, Enchiridion (tr. Thomas Wentworth Higginson)
+stoic|Consider not what he does, but what you are to do to keep your own will in a state conformable to nature, for another cannot hurt you unless you please. You will then be hurt when you consent to be hurt.|Epictetus, Enchiridion (tr. Thomas Wentworth Higginson)
+stoic|It is a mark of want of intellect to spend much time in things relating to the body, as to be immoderate in exercises, in eating and drinking, and in the discharge of other animal functions. These things should be done incidentally and our main strength be applied to our reason.|Epictetus, Enchiridion (tr. Thomas Wentworth Higginson)
+stoic|How long, then, will you delay to demand of yourself the noblest improvements, and in no instance to transgress the judgments of reason?|Epictetus, Enchiridion (tr. Thomas Wentworth Higginson)
+stoic|You know yourself what you are worth in your own eyes; and at what price you will sell yourself.|Epictetus, Golden Sayings
+stoic|For the greatness of Reason is not measured by length or height, but by the resolves of the mind.|Epictetus, Golden Sayings
+stoic|Wouldst thou have men speak good of thee? speak good of them. And when thou hast learned to speak good of them, try to do good unto them, and thus thou wilt reap in return their speaking good of thee.|Epictetus, Golden Sayings
+stoic|Show me a man that is sick—and happy; an exile—and happy; in evil report—and happy!|Epictetus, Golden Sayings
+stoic|No man can rob us of our Will—no man can lord it over that!|Epictetus, Golden Sayings
+stoic|A live coal placed next a dead one will either kindle that or be quenched by it.|Epictetus, Golden Sayings
+stoic|He that hath no musical instruction is a child in Music; he that hath no letters is a child in Learning; he that is untaught is a child in Life.|Epictetus, Golden Sayings
+stoic|Nay, but bring what you will and I will transmute it into Good. Bring sickness, bring death, bring poverty and reproach, bring trial for life—all these things through the rod of Hermes shall be turned to profit.|Epictetus, Golden Sayings
+stoic|A Philosopher’s school is a Surgery: pain, not pleasure, you should have felt therein.|Epictetus, Golden Sayings
+stoic|Every life is a warfare, and that long and various.|Epictetus, Golden Sayings
+stoic|Reward! do you seek any greater reward for a good man than doing what is right and just?|Epictetus, Golden Sayings
+stoic|To a good man there is no evil, either in life or death.|Epictetus, Golden Sayings
+stoic|Reflect that the chief source of all evils to Man, and of baseness and cowardice, is not death, but the fear of death.|Epictetus, Golden Sayings
+stoic|He is free who lives as he wishes to live; to whom none can do violence, none hinder or compel; whose impulses are unimpeded, whose desires are attain their purpose, who falls not into what he would avoid.|Epictetus, Golden Sayings
+stoic|If you seek Truth, you will not seek to gain a victory by every possible means; and when you have found Truth, you need not fear being defeated.|Epictetus, Golden Sayings
+stoic|Remember that in life thou shouldst order thy conduct as at a banquet.|Epictetus, Golden Sayings
+stoic|Keep death and exile daily before thine eyes, with all else that men deem terrible, but more especially Death.|Epictetus, Golden Sayings
+stoic|At feasts, remember that you are entertaining two guests, body and soul. What you give to the body, you presently lose; what you give to the soul, you keep for ever.|Epictetus, Golden Sayings
+stoic|A life entangled with Fortune is like a torrent.|Epictetus, Golden Sayings
+stoic|The soul that companies with Virtue is like an ever-flowing source.|Epictetus, Golden Sayings
+stoic|Nature hath given men one tongue but two ears, that we may hear from others twice as much as we speak.|Epictetus, Golden Sayings
+stoic|Do not give sentence in another tribunal till you have been yourself judged in the tribunal of Justice.|Epictetus, Golden Sayings
+stoic|Freedom is the name of virtue: Slavery, of vice.|Epictetus, Golden Sayings
+stoic|A ship should not ride on a single anchor, nor life on a single hope.|Epictetus, Golden Sayings
+stoic|Choose the life that is noblest, for custom can make it sweet to thee.|Epictetus, Golden Sayings
+stoic|Do every deed, speak every word, think every thought in the knowledge that you may end your days any moment.|Marcus Aurelius, Meditations
+stoic|No man can lose either the past or the future, for how can a man be deprived of what he has not? These two things then are to be remembered: First, that all things recur in cycles, and are the same from everlasting, and that, therefore, it matters nothing whether a man shall contemplate these same things for one hundred years, or for two hundred, or for an infinite stretch of time: and, secondly, that he who lives longest and he who dies soonest have an equal loss in death. The present moment is all of which either is deprived, since that is all he has.|Marcus Aurelius, Meditations
+stoic|To fret against any particular event is to revolt against the general law of Nature, which comprehends the order of all events whatsoever.|Marcus Aurelius, Meditations
+stoic|Be sure you are neglecting other work if you busy yourself with what such a one is doing and why, with what he is saying, thinking, or scheming. All such things do but divert you from the steadfast guardianship of your own soul.|Marcus Aurelius, Meditations
+stoic|Remember also that every man lives only this present moment, which is a fleeting instant: the rest of time is either spent or quite unknown. Short is the time which each of us has to live, and small the corner of the earth he has to live in.|Marcus Aurelius, Meditations
+stoic|Remember then that there ever remains for you retirement into the little field within.|Marcus Aurelius, Meditations
+stoic|Hold fast your freedom: consider all things as a man of courage, as a human being, as a citizen, as a mortal.|Marcus Aurelius, Meditations
+stoic|Death, like birth, is a mystery of nature; the one a compounding of elements, the other a resolution into the same.|Marcus Aurelius, Meditations
+stoic|What makes not a man worse than he was, makes not his life worse, nor hurts him without or within.|Marcus Aurelius, Meditations
+stoic|All that happens, happens right: you will find it so if you observe narrowly.|Marcus Aurelius, Meditations
+stoic|Think not as your insulter judges or wishes you to judge: but see things as they truly are.|Marcus Aurelius, Meditations
+stoic|Whatever is beautiful at all is beautiful in itself.|Marcus Aurelius, Meditations
+stoic|Nothing is the better or the worse for being praised; and this holds also of what is beautiful in the common estimation: of material forms and works of art.|Marcus Aurelius, Meditations
+stoic|Love the art which you have learned, humble though it be, and in it find your recreation.|Marcus Aurelius, Meditations
+stoic|You are presently to die, and yet you have not attained to simplicity or calm, or to disbelief that you can be hurt by things external. You have not learned to be kindly to all men, or to count just dealing the whole of wisdom.|Marcus Aurelius, Meditations
+stoic|Time is a river, a violent torrent of things coming into being.|Marcus Aurelius, Meditations
+stoic|All that happens is as natural and familiar as a rose in spring, or fruit in summer.|Marcus Aurelius, Meditations
+stoic|Be like a promontory against which the waves are always breaking. It stands fast, and stills the waters that rage around it. "Wretched am I," says one, "that this has befallen me."|Marcus Aurelius, Meditations
+stoic|Remember, therefore, for the future, upon all occasions of sorrow, to use the maxim: this thing is not misfortune, but to bear it bravely is good fortune.|Marcus Aurelius, Meditations
+stoic|You do not love yourself; if you did, you would love your nature and its purpose.|Marcus Aurelius, Meditations
+stoic|Be not dissuaded by any consequent criticism or censure from others; but, if the speech or action be honourable, judge yourself worthy to say or do it.|Marcus Aurelius, Meditations
+stoic|The character of your most frequent impressions will be the character of your mind. The soul takes colour from its impressions, therefore steep it in such thoughts as these:—Wherever a man can live, he can live well.|Marcus Aurelius, Meditations
+stoic|Nothing can befall any man which he is not fitted by nature to bear.|Marcus Aurelius, Meditations
+stoic|The soul is bent or moved by itself alone, and remodels all things that present themselves from without in accordance with whatever judgment it adopts within.|Marcus Aurelius, Meditations
+stoic|Let the leading and ruling part of your soul stand unmoved by the stirrings of the flesh, whether gentle or rude.|Marcus Aurelius, Meditations
+stoic|If my house be smoky, I go out, and where is the great matter?|Marcus Aurelius, Meditations
+stoic|Your life is now a tale that is told, and your service is all discharged.|Marcus Aurelius, Meditations
+stoic|A name is but so much empty sound and echo, and the things which are so much prized in life are empty, mean, and rotten.|Marcus Aurelius, Meditations
+stoic|The best revenge is not to copy him that wronged you.|Marcus Aurelius, Meditations
+stoic|Even as a thing is born some part of it is already dead.|Marcus Aurelius, Meditations
+stoic|If a thing seems to you very difficult to accomplish, conclude not that it is beyond human power.|Marcus Aurelius, Meditations
+stoic|If any one can convince or shew me that I am wrong in thought or deed, I will gladly change. It is truth that I seek; and truth never yet hurt any man. What does hurt is persistence in error or in ignorance.|Marcus Aurelius, Meditations
+stoic|Death is the cessation of the sensual impressions, of the impulses of the passions, of the questionings of reason, and of the servitude to the flesh.|Marcus Aurelius, Meditations
+stoic|Life is short, and the one fruit of it in this world is a pure mind and unselfish conduct.|Marcus Aurelius, Meditations
+stoic|The one precious thing in life is to spend it in a steady course of truth and justice, with kindliness even for the false and the unjust.|Marcus Aurelius, Meditations
+stoic|Nothing rejoices the heart so much as instances, the more the better, of goodness manifested in the characters of those around us.|Marcus Aurelius, Meditations
+stoic|You have it in your power to form no opinion about this or that, and so to have peace of mind.|Marcus Aurelius, Meditations
+stoic|No man can prevent you from living according to the plan of your nature; and nothing can befall you which is contrary to the plan of the nature of the Universe.|Marcus Aurelius, Meditations
+stoic|What is external to my mind is of no consequence to it. Learn this, and you stand upright; you can always renew your life.|Marcus Aurelius, Meditations
+stoic|All things are twined together, in one sacred bond.|Marcus Aurelius, Meditations
+stoic|Let any one say or do what he pleases, I must be a good man.|Marcus Aurelius, Meditations
+stoic|The ruling part is, in itself, free from all dependence, unless it makes itself dependent.|Marcus Aurelius, Meditations
+stoic|The time is at hand when you shall forget all things, and when all shall forget you.|Marcus Aurelius, Meditations
+stoic|When you see where his error lies you will pity him, and be neither surprised nor angry.|Marcus Aurelius, Meditations
+stoic|Dwell not on what you lack so much as on what you have already.|Marcus Aurelius, Meditations
+stoic|The mind can abstract itself from the body, and the soul takes no hurt.|Marcus Aurelius, Meditations
+stoic|The man who is a man indeed should not set his heart on living through a few more years of life, nor should he make that the end of his desire.|Marcus Aurelius, Meditations
+stoic|Consider yourself as dead, your life as finished and past. Live what yet remains according to Nature's laws, as an overplus granted to you beyond your hope.|Marcus Aurelius, Meditations
+stoic|Love that only which is your hap, which comes upon you as your part in Fate's great spinning.|Marcus Aurelius, Meditations
+stoic|Remember that always, and this as well, that the happiness of life lies in very few things.|Marcus Aurelius, Meditations
+stoic|It is the perfection of morals to spend each day as if it were the last of life, without excitement, without sloth, and without hypocrisy.|Marcus Aurelius, Meditations
+stoic|No man wearies of what brings him gain, and your gain lies in acting according to nature. Be not weary, therefore, of gaining by the act which gives others gain.|Marcus Aurelius, Meditations
+stoic|You have made many efforts and wandered much, but you have nowhere found happiness; not in syllogisms, not in riches, not in fame or pleasure, not in anything.|Marcus Aurelius, Meditations
+stoic|Do unflinchingly whatever man's nature requires, and speak as seems most just, yet in kindliness, modesty, and sincerity.|Marcus Aurelius, Meditations
+stoic|All is change, yet is there no need to fear innovation, for all obey the laws of custom, and in equal measure all things are apportioned.|Marcus Aurelius, Meditations
+stoic|It is folly in a physician to be surprised that a man has fallen into a fever; or in a pilot that the wind has turned against him.|Marcus Aurelius, Meditations
+stoic|Remember that to change your course, and to follow any man who can set you right is no compromise of your freedom. The act is your own, performed on your own impulse and judgment, and according to your own understanding.|Marcus Aurelius, Meditations
+stoic|Blot out false imaginations, and say often to yourself:—It is now in my power to preserve my soul free from all wickedness, all lust, all confusion or disturbance.|Marcus Aurelius, Meditations
+stoic|Nature made you to be a part of the whole, but you have cut yourself off from it.|Marcus Aurelius, Meditations
+stoic|Take away your opinion about the things that seem to give you pain, and you stand yourself upon the surest ground.|Marcus Aurelius, Meditations
+stoic|When you are grieved about anything external it is not the thing itself which afflicts you, but your judgment about it.|Marcus Aurelius, Meditations
+stoic|The soul, thus free from passions, is a strong fort; nor can a man find any stronger to which he can fly and become henceforth invincible.|Marcus Aurelius, Meditations
+stoic|Dwell thus upon first appearances; add nothing to them from within, and no harm befalls you: or rather add the recognition that all is part of the world's lot.|Marcus Aurelius, Meditations
+stoic|Men slay you, cut you to pieces, pursue you with curses. What has this to do with your soul remaining pure, prudent, temperate, and just?|Marcus Aurelius, Meditations
+stoic|The wrong-doer wrongs himself by making himself evil.|Marcus Aurelius, Meditations
+stoic|Men are often unjust by omissions as well as by actions.|Marcus Aurelius, Meditations
+stoic|Wipe out impression; stay impulse; quench desire; and keep the governing part master of itself.|Marcus Aurelius, Meditations
+stoic|It is not in passive feeling, but in action, that the good and evil of the rational animal formed for society consists.|Marcus Aurelius, Meditations
+stoic|When another reproaches or hates you, or utters anything to that purpose; go to his soul; enter in there; and look what manner of man he is. You will see that you need not trouble yourself to make him think well or ill of you.|Marcus Aurelius, Meditations
+stoic|Let nothing due to a cause outside yourself disturb your calm.|Marcus Aurelius, Meditations
+stoic|You can suppress many of the superfluous troubles which beset you, for they lie wholly in your own opinion.|Marcus Aurelius, Meditations
+stoic|Give your mind only to the business now in hand and to the means whereby it is to be accomplished.|Marcus Aurelius, Meditations
+stoic|When you are offended by the shamelessness of any man, straightway ask yourself: Can the world exist without shameless men?|Marcus Aurelius, Meditations
+stoic|Whatever happens, Nature has either formed you able to bear it or unable. If able, then bear it as Nature has made you able, and fret not. If unable, yet do not fret, for when the trial has consumed you it too will pass away.|Marcus Aurelius, Meditations
+stoic|If a man is going wrong, instruct him kindly, and shew him his mistake. If you are unable to do this, blame yourself or none.|Marcus Aurelius, Meditations
+stoic|Keep this ever clear before you: that a country retreat is just like any other place. All things here go the same as on a mountain top, or on the sea beach, or where you will.|Marcus Aurelius, Meditations
+stoic|You should regard as enjoyment everything which you are at liberty to do in accordance with your own proper nature; and this liberty you have everywhere.|Marcus Aurelius, Meditations
+stoic|A branch cut off from its adjacent branch must necessarily be severed from the whole tree. Even so a man, parted from any fellow-man, has fallen away from the whole social community.|Marcus Aurelius, Meditations
+stoic|To live the best life is within the power of the soul, if it be indifferent to indifferent things.|Marcus Aurelius, Meditations
+stoic|To look for figs in winter is madness; and so it is to long for a child that may no longer be yours.|Marcus Aurelius, Meditations
+stoic|All that you desire to compass by devious means is yours already, if you will but freely take it.|Marcus Aurelius, Meditations
+stoic|Consider how many are themselves the causes of all the disquiet that they suffer; how no man may be hindered by another; how all is matter of opinion.|Marcus Aurelius, Meditations
+stoic|If there be an unalterable necessity, why strive against it? If there be a Providence admitting of propitiation, make yourself worthy of the divine aid. If there be an ungoverned confusion, be comforted; seeing that in this tempest you have within yourself a guiding intelligence.|Marcus Aurelius, Meditations
+stoic|If a thing be not becoming, do it not; if not true, say it not.|Marcus Aurelius, Meditations
+stoic|It is the nature of all things to change, to turn, and to corrupt; in order that other things may, in their course, spring out of them.|Marcus Aurelius, Meditations
+stoic|What remains but to enjoy life, adding one good to an another, so as not to lose the smallest interval?|Marcus Aurelius, Meditations
+stoic|Considering all this, reckon nothing great except to act as your nature leads you, and to endure what universal Nature brings to pass.|Marcus Aurelius, Meditations
+stoic|All other things, within or without our control, are but corpses, dust, and smoke.|Marcus Aurelius, Meditations
+stoic|You have lived, O man, as a citizen of this great city; of what consequence to you whether for five years or for three?|Marcus Aurelius, Meditations
+stoic|Do not, I beg you, dread those things which the immortal gods apply to our minds like spurs: misfortune is virtue’s opportunity.|Seneca, Minor Dialogues (tr. Aubrey Stewart)
+stoic|It is the part of grovellers and cowards to follow the safe track; courage loves a lofty path.|Seneca, Minor Dialogues (tr. Aubrey Stewart)
+stoic|The invulnerable is not that which is never struck, but that which is never wounded.|Seneca, Minor Dialogues (tr. Aubrey Stewart)
+stoic|Virtue is free, inviolable, not to be moved, not to be shaken, and so hardened against misfortunes that she cannot be bent, let alone overcome by them.|Seneca, Minor Dialogues (tr. Aubrey Stewart)
+stoic|Mankind is born for mutual assistance, anger for mutual ruin: the former loves society, the latter estrangement.|Seneca, Minor Dialogues (tr. Aubrey Stewart)
+stoic|The most trustworthy virtue is that which long and carefully considers itself, controls itself, and slowly and deliberately brings itself to the front.|Seneca, Minor Dialogues (tr. Aubrey Stewart)
+stoic|The sword of justice is ill-placed in the hands of an angry man.|Seneca, Minor Dialogues (tr. Aubrey Stewart)
+stoic|Virtue alone is lofty and sublime, nor is anything great which is not at the same time tranquil.|Seneca, Minor Dialogues (tr. Aubrey Stewart)
+stoic|To avoid being angry with individuals, you must pardon the whole mass, you must grant forgiveness to the entire human race.|Seneca, Minor Dialogues (tr. Aubrey Stewart)
+stoic|Everything ought either to move us to tears or to laughter.|Seneca, Minor Dialogues (tr. Aubrey Stewart)
+stoic|What is more restful than a mind at peace, and what more toilsome than anger? What is more at leisure than clemency, what fuller of business than cruelty?|Seneca, Minor Dialogues (tr. Aubrey Stewart)
+stoic|We should always allow some time to elapse, for time discloses the truth.|Seneca, Minor Dialogues (tr. Aubrey Stewart)
+stoic|A great part of mankind is not angry with sins, but with sinners.|Seneca, Minor Dialogues (tr. Aubrey Stewart)
+stoic|When you are especially enjoying yourself, be especially on your guard: when everything seems to you to be peaceful, be sure that mischief is not absent, but only asleep. Always believe that something will occur to offend you.|Seneca, Minor Dialogues (tr. Aubrey Stewart)
+stoic|It is the part of a great mind to despise wrongs done to it; the most contemptuous form of revenge is not to deem one’s adversary worth taking vengeance upon.|Seneca, Minor Dialogues (tr. Aubrey Stewart)
+stoic|If any one is angry with you, meet his anger by returning benefits for it: a quarrel which is only taken up on one side falls to the ground: it takes two men to fight.|Seneca, Minor Dialogues (tr. Aubrey Stewart)
+stoic|The other vices move our minds; anger hurls them headlong.|Seneca, Minor Dialogues (tr. Aubrey Stewart)
+stoic|The man who is not angry remains unshaken by injury: he who is angry has been moved by it.|Seneca, Minor Dialogues (tr. Aubrey Stewart)
+stoic|Every one of us therefore will find in his own breast the vice which he blames in another.|Seneca, Minor Dialogues (tr. Aubrey Stewart)
+stoic|Let us therefore be more gentle one to another: we are bad men, living among bad men: there is only one thing which can afford us peace, and that is to agree to forgive one another.|Seneca, Minor Dialogues (tr. Aubrey Stewart)
+stoic|If you will do so at some time, how better is it that you should abandon anger than that anger should abandon you?|Seneca, Minor Dialogues (tr. Aubrey Stewart)
+stoic|It is, I repeat, the setting a great value on trifles that is the cause of your anger and madness.|Seneca, Minor Dialogues (tr. Aubrey Stewart)
+stoic|The spirit ought to be brought up for examination daily. It was the custom of Sextius when the day was over, and he had betaken himself to rest, to inquire of his spirit: “What bad habit of yours have you cured to-day? what vice have you checked? in what respect are you better?” Anger will cease, and become more gentle, if it knows that every day it will have to appear before the judgment seat.|Seneca, Minor Dialogues (tr. Aubrey Stewart)
+stoic|A good man delights in receiving advice: all the worst men are the most impatient of guidance.|Seneca, Minor Dialogues (tr. Aubrey Stewart)
+stoic|The mind is strong enough to bear those evils for which it is prepared.|Seneca, Minor Dialogues (tr. Aubrey Stewart)
+stoic|Life is a matter which does not admit of waste, and we have no spare time to throw away.|Seneca, Minor Dialogues (tr. Aubrey Stewart)
+stoic|Let us rather pass the little remnant of our lives in peace and quiet: may no one loathe us when we lie dead.|Seneca, Minor Dialogues (tr. Aubrey Stewart)
+stoic|We ought frequently to remind ourselves that we must love the things of this life as we would what is shortly to leave us, or indeed in the very act of leaving us. Whatever gift Fortune bestows upon a man, let him think while he enjoys it, that it will prove as fickle as the goddess from whom it came.|Seneca, Minor Dialogues (tr. Aubrey Stewart)
+stoic|Those whom you love and those whom you despise will both be made equal in the same ashes.|Seneca, Minor Dialogues (tr. Aubrey Stewart)
+stoic|What is man? a potter’s vessel, to be broken by the slightest shake or toss: it requires no great storm to rend you asunder: you fall to pieces wherever you strike.|Seneca, Minor Dialogues (tr. Aubrey Stewart)
+stoic|Life is full of misfortunes; our path is beset with them: no one can make a long peace, nay, scarcely an armistice with fortune.|Seneca, Minor Dialogues (tr. Aubrey Stewart)
+stoic|If you wish to enjoy these blessings you must pass through these pains.|Seneca, Minor Dialogues (tr. Aubrey Stewart)
+stoic|Death is a release from and an end of all pains: beyond it our sufferings cannot extend: it restores us to the peaceful rest in which we lay before we were born. If any one pities the dead, he ought also to pity those who have not been born.|Seneca, Minor Dialogues (tr. Aubrey Stewart)
+stoic|Fortune cannot take hold of that which Nature has let go, nor can a man be unhappy if he is nothing.|Seneca, Minor Dialogues (tr. Aubrey Stewart)
+stoic|Think how great a blessing is a timely death, how many have been injured by living longer than they ought.|Seneca, Minor Dialogues (tr. Aubrey Stewart)
+stoic|All human works are brief and fleeting; they take up no part whatever of infinite time.|Seneca, Minor Dialogues (tr. Aubrey Stewart)
+stoic|To each man a varying length of days has been assigned: no one dies before his time, because he was not destined to live any longer than he did. Everyone’s end is fixed, and will always remain where it has been placed: neither industry nor favour will move it on any further.|Seneca, Minor Dialogues (tr. Aubrey Stewart)
+stoic|All human affairs are evanescent and perishable, nor is any part of our life so frail and liable to accident as that which we especially enjoy.|Seneca, Minor Dialogues (tr. Aubrey Stewart)
+stoic|Whatever has arrived at perfection, is ripe for dissolution.|Seneca, Minor Dialogues (tr. Aubrey Stewart)
+stoic|Nothing, therefore, is more important than that we should not, like sheep, follow the flock that has gone before us, and thus proceed not whither we ought, but whither the rest are going.|Seneca, Minor Dialogues (tr. Aubrey Stewart)
+stoic|If a man ever allows his mind some breathing space and has leisure for communing with himself, what truths he will confess to himself, after having been put to the torture by his own self!|Seneca, Minor Dialogues (tr. Aubrey Stewart)
+stoic|You may, then, boldly declare that the highest good is singleness of mind: for where agreement and unity are, there must the virtues be: it is the vices that are at war one with another.|Seneca, Minor Dialogues (tr. Aubrey Stewart)
+stoic|True happiness, therefore, consists in virtue: and what will this virtue bid you do?|Seneca, Minor Dialogues (tr. Aubrey Stewart)
+stoic|The hardness of flint is known to none so well as to those who strike it.|Seneca, Minor Dialogues (tr. Aubrey Stewart)
+stoic|We have a habit of saying that the highest good is to live according to nature: now nature has produced us for both purposes, for contemplation and for action.|Seneca, Minor Dialogues (tr. Aubrey Stewart)
+stoic|Nature, however, intended me to do both, to practise both contemplation and action: and I do both, because even contemplation is not devoid of action.|Seneca, Minor Dialogues (tr. Aubrey Stewart)
+stoic|What you desire, to be undisturbed, is a great thing, nay, the greatest thing of all, and one which raises a man almost to the level of a god.|Seneca, Minor Dialogues (tr. Aubrey Stewart)
+stoic|The services of a good citizen are never thrown away: he does good by being heard and seen, by his expression, his gestures, his silent determination, and his very walk.|Seneca, Minor Dialogues (tr. Aubrey Stewart)
+stoic|We should choose for our friends men who are, as far as possible, free from strong desires: for vices are contagious, and pass from a man to his neighbour, and injure those who touch them.|Seneca, Minor Dialogues (tr. Aubrey Stewart)
+stoic|Look upon the universe: you will see the gods quite bare of property, and possessing nothing though they give everything. Do you think that this man who has stripped himself of all fortuitous accessories is a pauper, or one like to the immortal gods?|Seneca, Minor Dialogues (tr. Aubrey Stewart)
+stoic|What is the use of possessing numberless books and libraries, whose titles their owner can hardly read through in a lifetime? A student is overwhelmed by such a mass, not instructed, and it is much better to devote yourself to a few writers than to skim through many.|Seneca, Minor Dialogues (tr. Aubrey Stewart)
+stoic|Let a man, then, obtain as many books as he wants, but none for show.|Seneca, Minor Dialogues (tr. Aubrey Stewart)
+stoic|No one could hold out against misfortune if it permanently exercised the same force as at its first onset.|Seneca, Minor Dialogues (tr. Aubrey Stewart)
+stoic|All life is slavery: let each man therefore reconcile himself to his lot, complain of it as little as possible, and lay hold of whatever good lies within his reach. No condition can be so wretched that an impartial mind can find no compensations in it.|Seneca, Minor Dialogues (tr. Aubrey Stewart)
+stoic|It is too late to school the mind to endurance of peril after peril has come.|Seneca, Minor Dialogues (tr. Aubrey Stewart)
+stoic|Many men spend their lives in exactly the same fashion, which one may call a state of restless indolence.|Seneca, Minor Dialogues (tr. Aubrey Stewart)
+stoic|We must take a higher view of all things, and bear with them more easily: it better becomes a man to scoff at life than to lament over it.|Seneca, Minor Dialogues (tr. Aubrey Stewart)
+stoic|Men’s minds ought to have relaxation: they rise up better and more vigorous after rest.|Seneca, Minor Dialogues (tr. Aubrey Stewart)
+stoic|We must humour our minds and grant them rest from time to time, which acts upon them like food, and restores their strength.|Seneca, Minor Dialogues (tr. Aubrey Stewart)
+stoic|You fear everything, like mortals as you are, and yet you desire everything as if you were immortals.|Seneca, Minor Dialogues (tr. Aubrey Stewart)
+stoic|No man knows less about living than a business man: there is nothing about which it is more difficult to gain knowledge.|Seneca, Minor Dialogues (tr. Aubrey Stewart)
+stoic|You have no grounds, therefore, for supposing that any one has lived long, because he has wrinkles or grey hairs: such a man has not lived long, but has only been long alive.|Seneca, Minor Dialogues (tr. Aubrey Stewart)
+stoic|You dispose of that which is in the hand of Fortune, and you let go that which is in your own.|Seneca, Minor Dialogues (tr. Aubrey Stewart)
+stoic|It is the privilege of a tranquil and peaceful mind to review all the parts of its life: but the minds of busy men are like animals under the yoke, and cannot bend aside or look back.|Seneca, Minor Dialogues (tr. Aubrey Stewart)
+stoic|If any time be past, he recals it by his memory; if it be present, he uses it; if it be future, he anticipates it: his life is a long one because he concentrates all times into it.|Seneca, Minor Dialogues (tr. Aubrey Stewart)
+stoic|Everything for which we are dependent on chance is uncertain: the higher it rises, the more opportunities it has of falling.|Seneca, Minor Dialogues (tr. Aubrey Stewart)
+stoic|If such men wish to know how short their lives are, let them think how small a fraction of them is their own.|Seneca, Minor Dialogues (tr. Aubrey Stewart)
+stoic|Nothing is sufficient for covetous desire, but Nature can be satisfied even with scant measure.|Seneca, Minor Dialogues (tr. Aubrey Stewart)
+stoic|Even a place of exile suffices to provide one with necessaries; whole kingdoms do not suffice to provide one with superfluities.|Seneca, Minor Dialogues (tr. Aubrey Stewart)
+stoic|Reason does not conquers vices one by one, but all together: if reason is defeated, it is utterly defeated once for all.|Seneca, Minor Dialogues (tr. Aubrey Stewart)
+stoic|The seven wonders of the world, and any even greater wonders which the ambition of later ages has constructed, will be seen some day levelled with the ground.|Seneca, Minor Dialogues (tr. Aubrey Stewart)
+stoic|The ways in which things come to an end are manifold, but yet everything that has a beginning has an end also.|Seneca, Minor Dialogues (tr. Aubrey Stewart)
+stoic|It is, therefore, a great consolation to reflect that what has happened to us has happened to every one before us and will happen to every one after us.|Seneca, Minor Dialogues (tr. Aubrey Stewart)
+stoic|We might go on blaming fate much longer, but we cannot alter it: it stands harsh and inexorable: no one can move it by reproaches, by tears, or by justice.|Seneca, Minor Dialogues (tr. Aubrey Stewart)
+stoic|Do you not see what sort of a life it must be that Nature has promised to us men when she makes us weep as soon as we are born? We begin life in this fashion, and all the chain of years that follow it is in harmony with it.|Seneca, Minor Dialogues (tr. Aubrey Stewart)
+stoic|We roll and plunge upon the waves, and sometimes strike against one another, sometimes are shipwrecked, always are in terror.|Seneca, Minor Dialogues (tr. Aubrey Stewart)
+stoic|It is for this that we have all been brought up: every one who is brought into life is intended to die.|Seneca, Minor Dialogues (tr. Aubrey Stewart)
+stoic|Our mind ought always to be on the alert, and while it ought never to fear what is certain to happen, it ought always to be ready for what may happen at any time.|Seneca, Minor Dialogues (tr. Aubrey Stewart)
+stoic|Nature demands from us a certain amount of grief, our imagination adds some more to it; but I will never forbid you to mourn at all.|Seneca, Minor Dialogues (tr. Aubrey Stewart)
+stoic|No courage is so great as that which is born of utter desperation.|Seneca, Minor Dialogues (tr. Aubrey Stewart)
+stoic|No creature is more self-willed, requires more careful management, or ought to be treated with greater indulgence than man.|Seneca, Minor Dialogues (tr. Aubrey Stewart)
+stoic|The human mind is naturally self-willed, kicks against the goad, and sets its face against authority; it will follow more readily than it can be led.|Seneca, Minor Dialogues (tr. Aubrey Stewart)
 kindness|Hatred does not cease by hatred, but only by love; this is the eternal rule.|The Dhammapada
 kindness|Hope is the thing with feathers that perches in the soul.|Emily Dickinson
 kindness|There is no charm equal to tenderness of heart.|Jane Austen
@@ -682,11 +1072,82 @@ dostoevsky|And, indeed, I will ask on my own account here, an idle question: whi
 dostoevsky|We are so divorced from it that we feel at once a sort of loathing for real life, and so cannot bear to be reminded of it.|Fyodor Dostoevsky, Notes from Underground
 dostoevsky|So that perhaps, after all, there is more life in me than in you.|Fyodor Dostoevsky, Notes from Underground
 tolstoy|Happy families are all alike; every unhappy family is unhappy in its own way.|Leo Tolstoy, Anna Karenina
+tolstoy|I and all men have only one firm, incontestable, clear knowledge, and that knowledge cannot be explained by the reason—it is outside it, and has no causes and can have no effects.|Leo Tolstoy, Anna Karenina
+tolstoy|I understand the force that in the past gave me life, and now too gives me life. I have been set free from falsity, I have found the Master.|Leo Tolstoy, Anna Karenina
+tolstoy|Now I say that I know the meaning of my life: "To live for God, for my soul."|Leo Tolstoy, Anna Karenina
+tolstoy|The answer has been given me by life itself, in my knowledge of what is right and what is wrong.|Leo Tolstoy, Anna Karenina
+tolstoy|By reason could I have arrived at knowing that I must love my neighbor and not oppress him? I was told that in my childhood, and I believed it gladly, for they told me what was already in my soul.|Leo Tolstoy, Anna Karenina
+tolstoy|Reason discovered the struggle for existence, and the law that requires us to oppress all who hinder the satisfaction of our desires.|Leo Tolstoy, Anna Karenina
 tolstoy|Art is a human activity, consisting in this, that one man consciously, by means of certain external signs, hands on to others feelings he has lived through, and that other people are infected by these feelings, and also experience them.|Leo Tolstoy, What Is Art?
+tolstoy|Art begins when one person, with the object of joining another or others to himself in one and the same feeling, expresses that feeling by certain external indications.|Leo Tolstoy, What Is Art?
+tolstoy|If the work does not infect people, no explanation can make it contagious.|Leo Tolstoy, What Is Art?
+tolstoy|A real work of art destroys, in the consciousness of the receiver, the separation between himself and the artist, nor that alone, but also between himself and all whose minds receive this work of art.|Leo Tolstoy, What Is Art?
+tolstoy|The presence in various degrees of these three conditions: individuality, clearness, and sincerity, decides the merit of a work of art, as art, apart from subject-matter.|Leo Tolstoy, What Is Art?
+tolstoy|Every art causes those to whom the artist’s feeling is transmitted to unite in soul with the artist, and also with all who receive the same impression.|Leo Tolstoy, What Is Art?
+tolstoy|Only those productions will be considered art which transmit feelings drawing men together in brotherly union, or such universal feelings as can unite all men.|Leo Tolstoy, What Is Art?
+tolstoy|Art is an organ of human life, transmitting man’s reasonable perception into feeling.|Leo Tolstoy, What Is Art?
+tolstoy|The ideal that has power over men is not an ideal invented by someone, but the ideal that every man carries within his soul.|Leo Tolstoy, The Kingdom of God Is Within You
+tolstoy|Life, according to the Christian religion, is a progress toward the divine perfection.|Leo Tolstoy, The Kingdom of God Is Within You
+tolstoy|The ideal is not to desire to do ill to anyone, not to provoke ill will, to love all men.|Leo Tolstoy, The Kingdom of God Is Within You
+tolstoy|A man may cease to do what he regards as wrong, but he cannot cease to consider wrong what is wrong.|Leo Tolstoy, The Kingdom of God Is Within You
+tolstoy|All the evil of our life seems to exist only because it has been so for so long; those who do the evil have not had time yet to learn how to act otherwise, though they do not want to act as they do.|Leo Tolstoy, The Kingdom of God Is Within You
+tolstoy|Every new truth, by which the order of human life is changed and humanity is advanced, is at first accepted by only a very small number of men who understand it through inner spiritual intuition.|Leo Tolstoy, The Kingdom of God Is Within You
+tolstoy|The existing order is maintained, not by force, but by public opinion, the action of which is disturbed by the use of force.|Leo Tolstoy, The Kingdom of God Is Within You
+tolstoy|The conditions of the new order of life cannot be known by us because we have to create them by our own labors.|Leo Tolstoy, The Kingdom of God Is Within You
+tolstoy|The recognition of the life of every man as sacred is the first and only basis of all ethics.|Leo Tolstoy, The Kingdom of God Is Within You
 tolstoy|Remember then: there is only one time that is important—Now! It is the most important time because it is the only time when we have any power. The most necessary man is he with whom you are, for no man knows whether he will ever have dealings with any one else: and the most important affair is, to do him good, because for that purpose alone was man sent into this life!|Leo Tolstoy, Three Questions
 tolstoy|All, everything that I understand, I understand only because I love.|Leo Tolstoy, War and Peace
 tolstoy|And there is no greatness where simplicity, goodness, and truth are absent.|Leo Tolstoy, War and Peace
 tolstoy|But believe me, my dear boy, there is nothing stronger than those two: patience and time, they will do it all.|Leo Tolstoy, War and Peace
+tolstoy|He felt that it was not in his power to regain faith in the meaning of life.|Leo Tolstoy, War and Peace
+tolstoy|He did not, and could not, understand the meaning of words apart from their context. Every word and action of his was the manifestation of an activity unknown to him, which was his life. But his life, as he regarded it, had no meaning as a separate thing. It had meaning only as part of a whole of which he was always conscious.|Leo Tolstoy, War and Peace
+tolstoy|To love everything and everybody and always to sacrifice oneself for love meant not to love anyone, not to live this earthly life. And the more imbued he became with that principle of love, the more he renounced life and the more completely he destroyed that dreadful barrier which—in the absence of such love—stands between life and death.|Leo Tolstoy, War and Peace
+tolstoy|Is it possible that the truth of life has been revealed to me only to show me that I have spent my life in falsity?|Leo Tolstoy, War and Peace
+tolstoy|Man’s mind cannot grasp the causes of events in their completeness, but the desire to find those causes is implanted in man’s soul.|Leo Tolstoy, War and Peace
+tolstoy|And now during these last three weeks of the march he had learned still another new, consolatory truth—that nothing in this world is terrible. He had learned that as there is no condition in which man can be happy and entirely free, so there is no condition in which he need be unhappy and lack freedom.|Leo Tolstoy, War and Peace
+tolstoy|But pure and complete sorrow is as impossible as pure and complete joy.|Leo Tolstoy, War and Peace
+kafka|The true path runs along a rope that is not stretched high up, but just above the ground. It seems designed more to make one stumble than to be walked on.|Franz Kafka, The Zürau Aphorisms (tr. Claude)
+kafka|All human errors are impatience, a premature breaking-off of method, a seeming pegging-down of a seeming thing.|Franz Kafka, The Zürau Aphorisms (tr. Claude)
+kafka|From a certain point on there is no turning back. That point must be reached.|Franz Kafka, The Zürau Aphorisms (tr. Claude)
+kafka|A first sign of beginning understanding is the wish to die. This life seems unbearable, another unattainable.|Franz Kafka, The Zürau Aphorisms (tr. Claude)
+kafka|If you walked across a plain, had the good will to walk and yet made no progress, it would be a hopeless matter; but since you are climbing a steep slope, as steep as you yourself appear when seen from below, the setbacks may be caused only by the nature of the ground, and you must not despair.|Franz Kafka, The Zürau Aphorisms (tr. Claude)
+kafka|Like a path in autumn: hardly is it swept clean when it is again covered with dry leaves.|Franz Kafka, The Zürau Aphorisms (tr. Claude)
+kafka|A cage went in search of a bird.|Franz Kafka, The Zürau Aphorisms (tr. Claude)
+kafka|If it had been possible to build the Tower of Babel without climbing it, it would have been permitted.|Franz Kafka, The Zürau Aphorisms (tr. Claude)
+kafka|Do not let the evil make you believe you could keep secrets from it.|Franz Kafka, The Zürau Aphorisms (tr. Claude)
+kafka|As firmly as the hand holds the stone. It holds it firmly only to throw it all the farther. But the way leads into that distance too.|Franz Kafka, The Zürau Aphorisms (tr. Claude)
+kafka|You are the task. No pupil far and wide.|Franz Kafka, The Zürau Aphorisms (tr. Claude)
+kafka|From the true adversary boundless courage flows into you.|Franz Kafka, The Zürau Aphorisms (tr. Claude)
+kafka|To understand the happiness that the ground on which you stand cannot be larger than what your two feet cover.|Franz Kafka, The Zürau Aphorisms (tr. Claude)
+kafka|How can one rejoice in the world, unless one flees to it?|Franz Kafka, The Zürau Aphorisms (tr. Claude)
+kafka|To do the negative is still required of us; the positive is already given.|Franz Kafka, The Zürau Aphorisms (tr. Claude)
+kafka|The good is, in a certain sense, comfortless.|Franz Kafka, The Zürau Aphorisms (tr. Claude)
+kafka|The crows maintain that a single crow could destroy the heavens. That is beyond doubt, but proves nothing against the heavens, for heaven means precisely: the impossibility of crows.|Franz Kafka, The Zürau Aphorisms (tr. Claude)
+kafka|There is no having, only being, only a being that craves its last breath, its suffocation.|Franz Kafka, The Zürau Aphorisms (tr. Claude)
+kafka|Earlier I did not understand why I received no answer to my question; today I do not understand how I could believe I was able to ask. But I did not believe at all, I only asked.|Franz Kafka, The Zürau Aphorisms (tr. Claude)
+kafka|One marveled at how easily he walked the road of eternity; he was, in fact, racing down it.|Franz Kafka, The Zürau Aphorisms (tr. Claude)
+kafka|Only our concept of time lets us call the Last Judgment by that name; in truth it is a summary court-martial.|Franz Kafka, The Zürau Aphorisms (tr. Claude)
+kafka|The disproportion of the world seems, consolingly, to be only a matter of numbers.|Franz Kafka, The Zürau Aphorisms (tr. Claude)
+kafka|To believe in progress does not mean to believe that progress has already happened. That would be no belief.|Franz Kafka, The Zürau Aphorisms (tr. Claude)
+kafka|A person cannot live without a lasting trust in something indestructible within himself, though both the indestructible and the trust may remain permanently hidden from him. One of the ways this hiddenness can express itself is the belief in a personal God.|Franz Kafka, The Zürau Aphorisms (tr. Claude)
+kafka|One must not deceive anyone, not even the world of its victory.|Franz Kafka, The Zürau Aphorisms (tr. Claude)
+kafka|There are questions we could not get past if we were not freed from them by nature.|Franz Kafka, The Zürau Aphorisms (tr. Claude)
+kafka|One lies as little as possible only by lying as little as possible, not by having as little occasion to lie as possible.|Franz Kafka, The Zürau Aphorisms (tr. Claude)
+kafka|Whoever renounces the world must love all human beings, for he also renounces their world. He therefore begins to sense the true human nature, which cannot be other than loved, provided one is its equal.|Franz Kafka, The Zürau Aphorisms (tr. Claude)
+kafka|The fact that there is nothing but a spiritual world takes away our hope and gives us certainty.|Franz Kafka, The Zürau Aphorisms (tr. Claude)
+kafka|Our art is a being dazzled by the truth: the light on the grotesque, recoiling face is true, nothing else.|Franz Kafka, The Zürau Aphorisms (tr. Claude)
+kafka|He runs after the facts like a beginner at ice-skating who, moreover, is practising somewhere it is forbidden.|Franz Kafka, The Zürau Aphorisms (tr. Claude)
+kafka|Theoretically there is a perfect possibility of happiness: to believe in the indestructible within oneself and not to strive toward it.|Franz Kafka, The Zürau Aphorisms (tr. Claude)
+kafka|If what is said to have been destroyed in Paradise was destructible, it was not decisive; but if it was indestructible, then we live in a false belief.|Franz Kafka, The Zürau Aphorisms (tr. Claude)
+kafka|Test yourself against humanity. It makes the doubter doubt, the believer believe.|Franz Kafka, The Zürau Aphorisms (tr. Claude)
+kafka|The mind becomes free only when it ceases to be a support.|Franz Kafka, The Zürau Aphorisms (tr. Claude)
+kafka|Truth is indivisible and therefore cannot know itself; whoever wishes to know it must be a lie.|Franz Kafka, The Zürau Aphorisms (tr. Claude)
+kafka|Why do we lament over the Fall? It was not because of it that we were driven out of Paradise, but because of the Tree of Life, lest we eat of it.|Franz Kafka, The Zürau Aphorisms (tr. Claude)
+kafka|We are sinful not only because we have eaten from the Tree of Knowledge, but also because we have not yet eaten from the Tree of Life. The state in which we find ourselves is sinful, independent of guilt.|Franz Kafka, The Zürau Aphorisms (tr. Claude)
+kafka|Death is before us, rather like a picture of the Battle of Alexander on the wall of a classroom. What matters is to darken or even extinguish the picture through our deeds still in this life.|Franz Kafka, The Zürau Aphorisms (tr. Claude)
+kafka|There can be knowledge of the diabolical, but no belief in it, for there is no more of the diabolical than there is.|Franz Kafka, The Zürau Aphorisms (tr. Claude)
+kafka|Sin always comes openly and can be grasped at once with the senses. It walks on its roots and need not be torn out.|Franz Kafka, The Zürau Aphorisms (tr. Claude)
+kafka|You can hold yourself back from the sufferings of the world, that is permitted to you and accords with your nature, but perhaps this very holding back is the one suffering you could have avoided.|Franz Kafka, The Zürau Aphorisms (tr. Claude)
 kafka|One morning, when Gregor Samsa woke from troubled dreams, he found himself transformed in his bed into a horrible vermin.|Franz Kafka, The Metamorphosis
 kafka|Someone must have been telling lies about Josef K., he knew he had done nothing wrong but, one morning, he was arrested.|Franz Kafka, The Trial
 kafka|You don't need to accept everything as true, you only have to accept it as necessary.|Franz Kafka, The Trial

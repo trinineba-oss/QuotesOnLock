@@ -22,6 +22,7 @@ def clean(t):
     for k, v in MANUAL.items():
         t = t.replace(k, v)
     t = t.replace('_', '')
+    t = re.sub(r'\[\d+\]', '', t)
     for k, v in MANUAL.items():
         t = t.replace(k, v)
     t = decap(t)
