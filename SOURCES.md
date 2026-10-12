@@ -45,4 +45,13 @@ Most English translations of Rilke and Kafka are still under copyright, so the q
 translations made for this app from the public-domain German text. They aim to be faithful rather than poetic, and
 they are not the well-known published versions. If you spot an error or have a better rendering, open an issue.
 
+### Camus and Hesse (Goodreads)
+
+Camus and Hesse are still in copyright, so no book texts could be checked. Their quotes were picked from the
+most-liked entries on Goodreads' community quote pages for each author, then filtered by hand to lines I could
+recognise as really being theirs (Goodreads quotes are typed in by readers and are often misattributed or
+mangled; many of the top "Camus" and "Hesse" quotes there were dropped for that reason). The wording is that of
+whichever published English translation the reader copied from, so it can differ slightly from your edition. These
+are short excerpts; if you spot a mistake, please open an issue.
+
 Legge's Tao Teh King marks words he supplied with parentheses; the app drops those parentheses and otherwise keeps his wording.

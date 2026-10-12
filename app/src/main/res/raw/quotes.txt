@@ -1,5 +1,5 @@
 # One quote per line: category|text|author   (a literal \n in the text is a line break)
-# Categories: motivation, thought, stoic, kindness, gibran, rilke, nietzsche, dostoevsky, tolstoy, kafka, plato, laotzu, kierkegaard
+# Categories: motivation, thought, stoic, kindness, gibran, rilke, nietzsche, dostoevsky, tolstoy, kafka, plato, laotzu, kierkegaard, camus, hesse
 motivation|A journey of a thousand miles begins with a single step.|Lao Tzu
 motivation|It does not matter how slowly you go as long as you do not stop.|Confucius
 motivation|Nothing great was ever achieved without enthusiasm.|Ralph Waldo Emerson
@@ -1242,3 +1242,47 @@ kierkegaard|And if you are yourself conscious of your sin he will not ask about 
 kierkegaard|For he who invites knows that it is a mark of true suffering, if one walks alone and broods in silent disconsolateness, without courage to confide in any one, and with even less self-confidence to dare to hope for help.|Søren Kierkegaard
 kierkegaard|True worship of God consists, very simply, in doing God's will.|Søren Kierkegaard
 kierkegaard|Therefore, do not deceive yourself, and of all deceivers fear most yourself!|Søren Kierkegaard
+camus|In the depth of winter, I finally learned that within me there lay an invincible summer.|Albert Camus
+camus|Man is the only creature who refuses to be what he is.|Albert Camus
+camus|Live to the point of tears.|Albert Camus
+camus|Real generosity towards the future lies in giving all to the present.|Albert Camus
+camus|What is a rebel? A man who says no.|Albert Camus
+camus|There is not love of life without despair about life.|Albert Camus
+camus|At the heart of all beauty lies something inhuman.|Albert Camus
+camus|Autumn is a second spring when every leaf is a flower.|Albert Camus
+camus|It is the job of thinking people not to be on the side of the executioners.|Albert Camus
+camus|The evil that is in the world almost always comes from ignorance, and good intentions may do as much harm as malevolence if they lack understanding.|Albert Camus
+camus|Since we're all going to die, it's obvious that when and how don't matter.|Albert Camus
+camus|Do not wait for the last judgment. It comes every day.|Albert Camus
+camus|People hasten to judge in order not to be judged themselves.|Albert Camus
+camus|I opened myself to the gentle indifference of the world.|Albert Camus
+camus|Seeking what is true is not seeking what is desirable.|Albert Camus
+camus|In order to understand the world, one has to turn away from it on occasion.|Albert Camus
+camus|Men are never convinced of your reasons, of your sincerity, of the seriousness of your sufferings, except by your death. So long as you are alive, your case is doubtful; you have a right only to their skepticism.|Albert Camus
+camus|There is scarcely any passion without struggle.|Albert Camus
+camus|But in the end one needs more courage to live than to kill himself.|Albert Camus
+camus|Nobody realizes that some people expend tremendous energy merely to be normal.|Albert Camus
+camus|I had only a little time left and I didn't want to waste it on God.|Albert Camus
+camus|I may not have been sure about what really did interest me, but I was absolutely sure about what didn't.|Albert Camus
+camus|You know what charm is: a way of getting the answer yes without having asked any clear question.|Albert Camus
+camus|Mother died today. Or maybe yesterday; I can't be sure.|Albert Camus
+hesse|Learn what is to be taken seriously and laugh at the rest.|Hermann Hesse
+hesse|If you hate a person, you hate something in him that is part of yourself. What isn't part of ourselves doesn't disturb us.|Hermann Hesse
+hesse|Wisdom cannot be imparted. Wisdom that a wise man attempts to impart always sounds like foolishness to someone else ... Knowledge can be communicated, but not wisdom. One can find it, live it, do wonders through it, but one cannot communicate and teach it.|Hermann Hesse
+hesse|Whoever wants music instead of noise, joy instead of pleasure, soul instead of gold, creative work instead of business, passion instead of foolery, finds no home in this trivial world of ours.|Hermann Hesse
+hesse|I have been and still am a seeker, but I have ceased to question stars and books; I have begun to listen to the teaching my blood whispers to me.|Hermann Hesse
+hesse|Words do not express thoughts very well. They always become a little different immediately after they are expressed, a little distorted, a little foolish.|Hermann Hesse
+hesse|We are sun and moon, dear friend; we are sea and land. It is not our purpose to become each other; it is to recognize each other, to learn to see the other and honor him for what he is: each the other's opposite and complement.|Hermann Hesse
+hesse|Solitude is independence. It had been my wish and with the years I had attained it. It was cold. Oh, cold enough! But it was also still, wonderfully still and vast like the cold stillness of space in which the stars revolve.|Hermann Hesse
+hesse|Each man had only one genuine vocation - to find the way to himself... His task was to discover his own destiny - not an arbitrary one - and to live it out wholly and resolutely within himself. Everything else was only a would-be existence, an attempt at evasion, a flight back to the ideals of the masses, conformity and fear of one's own inwardness.|Hermann Hesse
+hesse|I wanted only to live in accord with the promptings which came from my true self. Why was that so very difficult?|Hermann Hesse
+hesse|I realize today that nothing in the world is more distasteful to a man than to take the path that leads to himself.|Hermann Hesse
+hesse|The bird fights its way out of the egg. The egg is the world. Who would be born must first destroy a world. The bird flies to God. That God's name is Abraxas.|Hermann Hesse
+hesse|There is no reality except the one contained within us. That is why so many people live such an unreal life. They take the images outside of them for reality and never allow the world within to assert itself.|Hermann Hesse
+hesse|Your soul is the whole world.|Hermann Hesse
+hesse|I can think. I can wait. I can fast.|Hermann Hesse
+hesse|Because the world is so full of death and horror, I try again and again to console my heart and pick the flowers that grow in the midst of hell.|Hermann Hesse
+hesse|It is not for me to judge another man's life. I must judge, I must choose, I must spurn, purely for myself. For myself, alone.|Hermann Hesse
+hesse|In eternity there is no time, only an instant long enough for a joke.|Hermann Hesse
+hesse|Gaze into the fire, into the clouds, and as soon as the inner voices begin to speak... surrender to them. Don't ask first whether it's permitted, or would please your teachers or father or some god. You will ruin yourself if you do that.|Hermann Hesse
+hesse|I will no longer mutilate and destroy myself in order to find a secret behind the ruins.|Hermann Hesse
