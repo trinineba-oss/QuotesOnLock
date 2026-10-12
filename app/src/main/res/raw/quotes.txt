@@ -1266,6 +1266,33 @@ camus|I had only a little time left and I didn't want to waste it on God.|Albert
 camus|I may not have been sure about what really did interest me, but I was absolutely sure about what didn't.|Albert Camus
 camus|You know what charm is: a way of getting the answer yes without having asked any clear question.|Albert Camus
 camus|Mother died today. Or maybe yesterday; I can't be sure.|Albert Camus
+camus|Where there is no hope, it is incumbent on us to invent it.|Albert Camus
+camus|The struggle itself towards the heights is enough to fill a man's heart. One must imagine Sisyphus happy.|Albert Camus
+camus|Beauty is unbearable, drives us to despair, offering us for a minute the glimpse of an eternity that we should like to stretch out over the whole of time.|Albert Camus
+camus|Man stands face to face with the irrational. He feels within him his longing for happiness and for reason. The absurd is born of this confrontation between the human need and the unreasonable silence of the world.|Albert Camus
+camus|I know simply that the sky will last longer than I.|Albert Camus
+camus|Idleness is fatal only to the mediocre.|Albert Camus
+camus|The truth is that everyone is bored, and devotes himself to cultivating habits.|Albert Camus
+camus|Peace is the only battle worth waging.|Albert Camus
+camus|There is no sun without shadow, and it is essential to know the night.|Albert Camus
+camus|There are crimes of passion and crimes of logic. The boundary between them is not clearly defined.|Albert Camus
+camus|The absurd is the essential concept and the first truth.|Albert Camus
+camus|A man devoid of hope and conscious of being so has ceased to belong to the future.|Albert Camus
+camus|A man's work is nothing but this slow trek to rediscover, through the detours of art, those two or three great and simple images in whose presence his heart first opened.|Albert Camus
+camus|We all carry within us places of exile, our crimes, our ravages. Our task is not to unleash them on the world; it is to transform them in ourselves and others.|Albert Camus
+camus|For if there is a sin against life, it consists perhaps not so much in despairing of life as in hoping for another life and in eluding the implacable grandeur of this life.|Albert Camus
+camus|Integrity has no need of rules.|Albert Camus
+camus|But what does it mean, the plague? It's life, that's all.|Albert Camus
+camus|Happiness and the absurd are two sons of the same earth. They are inseparable.|Albert Camus
+camus|We get into the habit of living before acquiring the habit of thinking.|Albert Camus
+camus|He who despairs of the human condition is a coward, but he who has hope for it is a fool.|Albert Camus
+camus|But what is happiness except the simple harmony between a man and the life he leads?|Albert Camus
+camus|Those who lack the courage will always find a philosophy to justify it.|Albert Camus
+camus|Rebellion cannot exist without a strange form of love.|Albert Camus
+camus|the habit of despair is worse than despair itself.|Albert Camus
+camus|Well, personally, I've seen enough of people who die for an idea. I don't believe in heroism; I know it's easy and I've learned that it can be murderous. What interests me is living and dying for what one loves.|Albert Camus
+camus|Always there comes an hour when one is weary of one's work and devotion to duty, and all one craves for is a loved face, the warmth and wonder of a loving heart.|Albert Camus
+camus|You can't create experience, you undergo it.|Albert Camus
 hesse|Learn what is to be taken seriously and laugh at the rest.|Hermann Hesse
 hesse|If you hate a person, you hate something in him that is part of yourself. What isn't part of ourselves doesn't disturb us.|Hermann Hesse
 hesse|Wisdom cannot be imparted. Wisdom that a wise man attempts to impart always sounds like foolishness to someone else ... Knowledge can be communicated, but not wisdom. One can find it, live it, do wonders through it, but one cannot communicate and teach it.|Hermann Hesse
@@ -1286,6 +1313,23 @@ hesse|It is not for me to judge another man's life. I must judge, I must choose,
 hesse|In eternity there is no time, only an instant long enough for a joke.|Hermann Hesse
 hesse|Gaze into the fire, into the clouds, and as soon as the inner voices begin to speak... surrender to them. Don't ask first whether it's permitted, or would please your teachers or father or some god. You will ruin yourself if you do that.|Hermann Hesse
 hesse|I will no longer mutilate and destroy myself in order to find a secret behind the ruins.|Hermann Hesse
+hesse|You are only afraid if you are not in harmony with yourself.|Hermann Hesse
+hesse|An enlightened man had but one duty - to seek the way to himself, to reach inner certainty, to grope his way forward, no matter where it led.|Hermann Hesse
+hesse|Now true humor begins when a man ceases to take himself seriously.|Hermann Hesse
+hesse|madness, in a higher sense, is the beginning of all wisdom|Hermann Hesse
+hesse|The opposite of every truth is just as true.|Hermann Hesse
+hesse|The bourgeois prefers comfort to pleasure, convenience to liberty, and a pleasant temperature to the deathly inner consuming fire|Hermann Hesse
+hesse|Our god's name is Abraxas and he is God and Satan and he contains both the luminous and the dark world.|Hermann Hesse
+hesse|What we can and should change is ourselves: our impatience, our egoism (including intellectual egoism), our sense of injury, our lack of love and forbearance. I regard every other attempt to change the world, even if it springs from the best intentions, as futile.|Hermann Hesse
+hesse|Seeking means: to have a goal; but finding means: to be free, to be receptive, to have no goal. You, O worthy one, are perhaps indeed a seeker, for in striving towards your goal, you do not see many things that are under your nose.|Hermann Hesse
+hesse|Trees are sanctuaries. Whoever knows how to speak to them, whoever knows how to listen to them, can learn the truth. They do not preach learning and precepts, they preach, undeterred by particulars, the ancient law of life.|Hermann Hesse
+hesse|Writing is good, thinking is better. Cleverness is good, patience is better.|Hermann Hesse
+hesse|The world is not imperfect or slowly evolving along a path to perfection. No, it is perfect at every moment, every sin already carries grace in it.|Hermann Hesse
+hesse|If you need something desperately and find it, this is not an accident; your own craving and compulsion leads you to it.|Hermann Hesse
+hesse|I call that man awake who, with conscious knowledge and understanding, can perceive the deep unreasoning powers in his soul, his whole innermost strength, desire and weakness, and knows how to reckon with himself.|Hermann Hesse
+hesse|Whither will my path yet lead me? This path is stupid, it goes in spirals, perhaps in circles, but whichever way it goes, I will follow it.|Hermann Hesse
+hesse|Within Siddhartha there slowly grew and ripened the knowledge of what wisdom really was and the goal of his long seeking. It was nothing but a preparation of the soul, a capacity, a secret art of thinking, feeling and breathing thoughts of unity at every moment of life.|Hermann Hesse
+hesse|I felt knowledge and the unity of the world circulate in me like my own blood.|Hermann Hesse
 confucius|At fifteen, I had my mind bent on learning. At thirty, I stood firm. At forty, I had no doubts. At fifty, I knew the decrees of Heaven. At sixty, my ear was an obedient organ for the reception of truth. At seventy, I could follow what my heart desired, without transgressing what was right.|Confucius
 confucius|If the people be led by laws, and uniformity sought to be given them by punishments, they will try to avoid the punishment, but have no sense of shame. If they be led by virtue, and uniformity sought to be given them by the rules of propriety, they will have the sense of shame, and moreover will become good.|Confucius
 confucius|I will not be afflicted at men's not knowing me; I will be afflicted that I do not know men.|Confucius
