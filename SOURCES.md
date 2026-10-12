@@ -32,14 +32,15 @@ editions below, or a translation made for this app and labelled `(tr. Claude)`.
 | Franz Kafka | The Trial; The Metamorphosis | David Wyllie | Project Gutenberg #7849, #5200 |
 | Franz Kafka | Betrachtungen über Sünde, Leid, Hoffnung und den wahren Weg (the Zürau Aphorisms, 1917–18) | German original, **translated for this app** | German Wikisource |
 | Franz Kafka | Betrachtung (Contemplation) | German original, **translated for this app** | Project Gutenberg #23532 |
-| Plato | Apology; Phaedo; Symposium; Phaedrus; Republic | Benjamin Jowett | Project Gutenberg #1656, #1658, #1600, #1636, #1497 |
+| Plato | Apology; Phaedo; Symposium; Phaedrus; Republic; Meno; Theaetetus; Gorgias | Benjamin Jowett | Project Gutenberg #1656, #1658, #1600, #1636, #1497, #1643, #1726, #1672 |
 | Lao Tzu | Tao Teh King | James Legge (1891) | Project Gutenberg #216 |
 | Søren Kierkegaard | Selections from the Writings of Kierkegaard | Lee M. Hollander (1923) | Project Gutenberg #60333 |
 | Confucius | The Analects | James Legge | Project Gutenberg #3330 |
 | The Dhammapada | Dhammapada, a Collection of Verses | F. Max Müller (Sacred Books of the East) | Project Gutenberg #2017 |
 | Sun Tzu | The Art of War | Lionel Giles (1910) | Project Gutenberg #17405 |
-| Omar Khayyam | Rubaiyat (first edition) | Edward FitzGerald (1859) | Project Gutenberg #246 |
+| Omar Khayyam | Rubaiyat (fifth edition) | Edward FitzGerald (1859) | Project Gutenberg #246 |
 | Rumi | The Festival of Spring, from the Díván of Jeláleddín | William Hastie (1903), English renderings after Friedrich Rückert's German versions | Project Gutenberg #57068 |
+| Rumi | The Persian Mystics: Jalálu'd-dín Rúmí (selections from the Dīvān and the Masnavi) | R. A. Nicholson (Dīvān) and E. H. Whinfield (Masnavi), as printed in F. Hadland Davis's 1907 anthology | Project Gutenberg #45159 |
 
 The themed quotes (Motivation, Thought-provoking, Stoic & ancient wisdom, Kindness & hope) are short, widely
 published sayings and aphorisms by ancient and 19th-century authors, attributed to the person traditionally credited.

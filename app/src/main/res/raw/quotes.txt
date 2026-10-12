@@ -1173,6 +1173,12 @@ plato|You know also that the beginning is the most important part of any work, e
 plato|Now the worst part of the punishment is that he who refuses to rule is liable to be ruled by one who is worse than himself.|Plato
 plato|Any one who has common sense will remember that the bewilderments of the eyes are of two kinds, and arise from two causes, either from coming out of the light or from going into the light, which is true of the mind’s eye, quite as much as of the bodily eye; and he who remembers this when he sees any one whose vision is perplexed and weak, will not be too ready to laugh; he will first ask whether that soul of man has come out of the brighter life, and is unable to see because unaccustomed to the dark, or having turned from darkness to the day is dazzled by excess of light.|Plato
 plato|Whereas, our argument shows that the power and capacity of learning exists in the soul already; and that just as the eye was unable to turn from darkness to light without the whole body, so too the instrument of knowledge can only by the movement of the whole soul be turned from the world of becoming into that of being, and learn by degrees to endure the sight of being, and of the brightest and best of being, or in other words, of the good.|Plato
+plato|The soul, then, as being immortal, and having been born again many times, and having seen all things that exist, whether in this world or in the world below, has knowledge of them all; and it is no wonder that she should be able to call to remembrance all that she ever knew about virtue, and about everything; for as all nature is akin, and the soul has learned all things; there is no difficulty in her eliciting or as men say learning, out of a single recollection all the rest, if a man is strenuous and does not faint; for all enquiry and all learning is but recollection.|Plato
+plato|And therefore we ought not to listen to this sophistical argument about the impossibility of enquiry: for it will make us idle; and is sweet only to the sluggard; but the other saying will make us active and inquisitive.|Plato
+plato|Now this is an illustration of the nature of true opinions: while they abide with us they are beautiful and fruitful, but they run away out of the human soul, and do not remain long, and therefore they are not of much value until they are fastened by the tie of the cause; and this fastening of them, friend Meno, is recollection, as you and I have agreed to call it. But when they are bound, in the first place, they have the nature of knowledge; and, in the second place, they are abiding. And this is why knowledge is more honourable and excellent than true opinion, because fastened by a chain.|Plato
+plato|I see, my dear Theaetetus, that Theodorus had a true insight into your nature when he said that you were a philosopher, for wonder is the feeling of a philosopher, and philosophy begins in wonder.|Plato
+plato|That may very well be, inasmuch as doing injustice is the greatest of evils.|Plato
+plato|I should not like either, but if I must choose between them, I would rather suffer than do.|Plato
 laotzu|The Tao that can be trodden is not the enduring and unchanging Tao. The name that can be named is not the enduring and unchanging name.|Lao Tzu
 laotzu|The tree which fills the arms grew from the tiniest sprout; the tower of nine storeys rose from a small heap of earth; the journey of a thousand li commenced with a single step.|Lao Tzu
 laotzu|He who knows other men is discerning; he who knows himself is intelligent. He who overcomes others is strong; he who overcomes himself is mighty. He who is satisfied with his lot is rich; he who goes on acting with energy has a firm will.|Lao Tzu
@@ -1242,6 +1248,10 @@ kierkegaard|And if you are yourself conscious of your sin he will not ask about 
 kierkegaard|For he who invites knows that it is a mark of true suffering, if one walks alone and broods in silent disconsolateness, without courage to confide in any one, and with even less self-confidence to dare to hope for help.|Søren Kierkegaard
 kierkegaard|True worship of God consists, very simply, in doing God's will.|Søren Kierkegaard
 kierkegaard|Therefore, do not deceive yourself, and of all deceivers fear most yourself!|Søren Kierkegaard
+kierkegaard|Then, faith was a task for a whole life-time because it was held that proficiency in faith was not to be won within a few days or weeks.|Søren Kierkegaard
+kierkegaard|Do not despair over each relapse which the God of patience has patience enough to pardon, and which a sinner should surely have patience enough to humble himself under.|Søren Kierkegaard
+kierkegaard|But these movements I watch closely, and I will not be deceived, whether by myself or by any one else.|Søren Kierkegaard
+kierkegaard|And therefore religious life has become diseased or has died out; alas, for precisely that which the worldly mind regards as health is, in a Christian sense, disease—just as, vice versa, that which is healthy in a Christian sense, is regarded as diseased from a worldly point of view.|Søren Kierkegaard
 camus|In the depth of winter, I finally learned that within me there lay an invincible summer.|Albert Camus
 camus|Man is the only creature who refuses to be what he is.|Albert Camus
 camus|Live to the point of tears.|Albert Camus
@@ -1391,6 +1401,37 @@ confucius|In teaching there should be no distinction of classes.|Confucius
 confucius|In language it is simply required that it convey the meaning.|Confucius
 confucius|By nature, men are nearly alike; by practice, they get to be wide apart.|Confucius
 confucius|Your good, careful people of the villages are the thieves of virtue.|Confucius
+confucius|I do not know how a man without truthfulness is to get on. How can a large carriage be made to go without the cross-bar for yoking the oxen to, or a small carriage without the arrangement for yoking the horses?|Confucius
+confucius|It is only the truly virtuous man, who can love, or who can hate, others.|Confucius
+confucius|A scholar, whose mind is set on truth, and who is ashamed of bad clothes and bad food, is not fit to be discoursed with.|Confucius
+confucius|He who acts with a constant view to his own advantage will be much murmured against.|Confucius
+confucius|Admirable indeed was the virtue of Hui! With a single bamboo dish of rice, a single gourd dish of drink, and living in his mean narrow lane, while others could not have endured the distress, he did not allow his joy to be affected by it. Admirable indeed was the virtue of Hui!|Confucius
+confucius|Who can go out but by the door? How is it that men will not walk according to these ways?|Confucius
+confucius|To those whose talents are above mediocrity, the highest subjects may be announced. To those who are below mediocrity, the highest subjects may not be announced.|Confucius
+confucius|I do not open up the truth to one who is not eager to get knowledge, nor help out any one who is not anxious to explain himself. When I have presented one corner of a subject to any one, and he cannot from it learn the other three, I do not repeat my lesson.|Confucius
+confucius|If the search for riches is sure to be successful, though I should become a groom with whip in hand to get them, I will do so. As the search may not be successful, I will follow after that which I love.|Confucius
+confucius|With coarse rice to eat, with water to drink, and my bended arm for a pillow;—I have still joy in the midst of these things. Riches and honours acquired by unrighteousness, are to me as a floating cloud.|Confucius
+confucius|Do you think, my disciples, that I have any concealments? I conceal nothing from you. There is nothing which I do that is not shown to you, my disciples;—that is my way.|Confucius
+confucius|The superior man is satisfied and composed; the mean man is always full of distress.|Confucius
+confucius|It is not easy to find a man who has learned for three years without coming to be good.|Confucius
+confucius|Ardent and yet not upright; stupid and yet not attentive; simple and yet not sincere:—such persons I do not understand.|Confucius
+confucius|There are cases in which the blade springs, but the plant does not go on to flower! There are cases where it flowers, but no fruit is subsequently produced!|Confucius
+confucius|Can men refuse to assent to the words of strict admonition? But it is reforming the conduct because of them which is valuable. Can men refuse to be pleased with words of gentle advice? But it is unfolding their aim which is valuable. If a man be pleased with these words, but does not unfold their aim, and assents to those, but does not reform his conduct, I can really do nothing with him.|Confucius
+confucius|There are some with whom we may study in common, but we shall find them unable to go along with us to principles. Perhaps we may go on with them to principles, but we shall find them unable to get established in those along with us. Or if we may get so established along with them, we shall find them unable to weigh occurring events along with us.|Confucius
+confucius|To lead an uninstructed people to war, is to throw them away.|Confucius
+confucius|The virtuous will be sure to speak correctly, but those whose speech is good may not always be virtuous. Men of principle are sure to be bold, but those who are bold may not always be men of principle.|Confucius
+confucius|Can there be love which does not lead to strictness with its object? Can there be loyalty which does not lead to the instruction of its object?|Confucius
+confucius|He who speaks without modesty will find it difficult to make his words good.|Confucius
+confucius|He who does not anticipate attempts to deceive him, nor think beforehand of his not being believed, and yet apprehends these things readily when they occur;—is he not a man of superior worth?|Confucius
+confucius|When a man may be spoken with, not to speak to him is to err in reference to the man. When a man may not be spoken with, to speak to him is to err in reference to our words. The wise err neither in regard to their man nor to their words.|Confucius
+confucius|When a number of people are together, for a whole day, without their conversation turning on righteousness, and when they are fond of carrying out the suggestions of a small shrewdness;—theirs is indeed a hard case.|Confucius
+confucius|When the multitude hate a man, it is necessary to examine into the case. When the multitude like a man, it is necessary to examine into the case.|Confucius
+confucius|The superior man cannot be known in little matters; but he may be intrusted with great concerns. The small man may not be intrusted with great concerns, but he may be known in little matters.|Confucius
+confucius|The superior man is correctly firm, and not firm merely.|Confucius
+confucius|Those whose courses are different cannot lay plans for one another.|Confucius
+confucius|"It is according to the rules of propriety," they say.—"It is according to the rules of propriety," they say. Are gems and silk all that is meant by propriety? "It is music," they say.—"It is music," they say. Are bells and drums all that is meant by music?|Confucius
+confucius|To tell, as we go along, what we have heard on the way, is to cast away our virtue.|Confucius
+confucius|Hard is it to deal with him, who will stuff himself with food the whole day, without applying his mind to anything good! Are there not gamesters and chess players? To be one of these would still be better than doing nothing at all.|Confucius
 dhammapada|All that we are is the result of what we have thought: it is founded on our thoughts, it is made up of our thoughts. If a man speaks or acts with an evil thought, pain follows him, as the wheel follows the foot of the ox that draws the carriage.|The Dhammapada
 dhammapada|All that we are is the result of what we have thought: it is founded on our thoughts, it is made up of our thoughts. If a man speaks or acts with a pure thought, happiness follows him, like a shadow that never leaves him.|The Dhammapada
 dhammapada|For hatred does not cease by hatred at any time: hatred ceases by love, this is an old rule.|The Dhammapada
@@ -1488,33 +1529,93 @@ rumi|And when thou fadest sere, then burn thyself;\nAnd give thy Ashes, all Eart
 rumi|Why pray ye thus, O Fools, to Clay and Stone?\nRevere the House for which the Pure are bound.\nThe Heart's own House, Shrine of the True, the One:\nO blest are they whose Striving there is crown'd!|Rumi
 rumi|I ask all I meet: Where is He?\nIn me incomplete: Where is He?\nThe Tree of my Thought stretch'd on high,\nReach'd not to His Seat: Where is He?|Rumi
 rumi|I am the Vine; Strong Elm, O give me leave,\nAll round thee my fond Tendrils now to weave.\nI am the Ivy; be my Cedar Trunk,\nThat I no more to Earth's damp soil may cleave.|Rumi
-khayyam|Here with a Loaf of Bread beneath the Bough,\nA Flask of Wine, a Book of Verse—and Thou\nBeside me singing in the Wilderness—\nAnd Wilderness is Paradise enow.|Omar Khayyam
-khayyam|The Worldly Hope men set their Hearts upon\nTurns Ashes—or it prospers; and anon,\nLike Snow upon the Desert's dusty Face\nLighting a little Hour or two—is gone.|Omar Khayyam
-khayyam|Think, in this batter'd Caravanserai\nWhose Doorways are alternate Night and Day,\nHow Sultan after Sultan with his Pomp\nAbode his Hour or two, and went his way.|Omar Khayyam
-khayyam|I sometimes think that never blows so red\nThe Rose as where some buried Caesar bled;\nThat every Hyacinth the Garden wears\nDropt in its Lap from some once lovely Head.|Omar Khayyam
-khayyam|And this delightful Herb whose tender Green\nFledges the River's Lip on which we lean—\nAh, lean upon it lightly! for who knows\nFrom what once lovely Lip it springs unseen!|Omar Khayyam
-khayyam|Ah! my Beloved, fill the Cup that clears\nTO-DAY of past Regrets and future Fears-\nTo-morrow?—Why, To-morrow I may be\nMyself with Yesterday's Sev'n Thousand Years.|Omar Khayyam
-khayyam|And we, that now make merry in the Room\nThey left, and Summer dresses in new Bloom,\nOurselves must we beneath the Couch of Earth\nDescend, ourselves to make a Couch—for whom?|Omar Khayyam
-khayyam|Ah, make the most of what we yet may spend,\nBefore we too into the Dust Descend;\nDust into Dust, and under Dust, to lie,\nSans Wine, sans Song, sans Singer and—sans End!|Omar Khayyam
-khayyam|Oh, come with old Khayyam, and leave the Wise\nTo talk; one thing is certain, that Life flies;\nOne thing is certain, and the Rest is Lies;\nThe Flower that once has blown for ever dies.|Omar Khayyam
-khayyam|Myself when young did eagerly frequent\nDoctor and Saint, and heard great Argument\nAbout it and about: but evermore\nCame out by the same Door as in I went.|Omar Khayyam
-khayyam|With them the Seed of Wisdom did I sow,\nAnd with my own hand labour'd it to grow:\nAnd this was all the Harvest that I reap'd—\n"I came like Water, and like Wind I go."|Omar Khayyam
-khayyam|Into this Universe, and why not knowing,\nNor whence, like Water willy-nilly flowing:\nAnd out of it, as Wind along the Waste,\nI know not whither, willy-nilly blowing.|Omar Khayyam
-khayyam|Up from Earth's Centre through the seventh Gate\nI rose, and on the Throne of Saturn sate,\nAnd many Knots unravel'd by the Road;\nBut not the Knot of Human Death and Fate.|Omar Khayyam
-khayyam|There was a Door to which I found no Key:\nThere was a Veil past which I could not see:\nSome little Talk awhile of ME and THEE\nThere seemed—and then no more of THEE and ME.|Omar Khayyam
-khayyam|Then to the rolling Heav'n itself I cried,\nAsking, "What Lamp had Destiny to guide\nHer little Children stumbling in the Dark?"\nAnd—"A blind understanding!" Heav'n replied.|Omar Khayyam
-khayyam|For in the Market-place, one Dusk of Day,\nI watch'd the Potter thumping his wet Clay:\nAnd with its all obliterated Tongue\nIt murmur'd—"Gently, Brother, gently, pray!"|Omar Khayyam
-khayyam|Ah, fill the Cup:—what boots it to repeat\nHow Time is slipping underneath our Feet:\nUnborn TO-MORROW and dead YESTERDAY,\nWhy fret about them if TO-DAY be sweet!|Omar Khayyam
-khayyam|One Moment in Annihilation's Waste,\nOne moment, of the Well of Life to taste—\nThe Stars are setting, and the Caravan\nStarts for the dawn of Nothing—Oh, make haste!|Omar Khayyam
-khayyam|For in and out, above, about, below,\n'Tis nothing but a Magic Shadow-show,\nPlay'd in a Box whose Candle is the Sun,\nRound which we Phantom Figures come and go.|Omar Khayyam
-khayyam|And if the Wine you drink, the Lip you press,\nEnd in the Nothing all Things end in—Yes-\nThen fancy while Thou art, Thou art but what\nThou shalt be—Nothing—Thou shalt not be less.|Omar Khayyam
-khayyam|'Tis all a Chequer-board of Nights and Days\nWhere Destiny with Men for Pieces plays:\nHither and thither moves, and mates, and slays,\nAnd one by one back in the Closet lays.|Omar Khayyam
-khayyam|The Moving Finger writes; and, having writ,\nMoves on: nor all thy Piety nor Wit\nShall lure it back to cancel half a Line,\nNor all thy Tears wash out a Word of it.|Omar Khayyam
-khayyam|And that inverted Bowl we call The Sky,\nWhereunder crawling coop't we live and die,\nLift not thy hands to IT for help—for It\nRolls impotently on as Thou or I.|Omar Khayyam
-khayyam|And this I know: whether the one True Light,\nKindle to Love, or Wrath consume me quite,\nOne Glimpse of It within the Tavern caught\nBetter than in the Temple lost outright.|Omar Khayyam
-khayyam|What, without asking, hither hurried whence?\nAnd, without asking, whither hurried hence!\nAnother and another Cup to drown\nThe Memory of this Impertinence!|Omar Khayyam
-khayyam|Lo! some we loved, the loveliest and the best\nThat Time and Fate of all their Vintage prest,\nHave drunk their Cup a Round or two before,\nAnd one by one crept silently to Rest.|Omar Khayyam
-khayyam|"How sweet is mortal Sovranty!"—think some:\nOthers—"How blest the Paradise to come!"\nAh, take the Cash in hand and waive the Rest;\nOh, the brave Music of a distant Drum!|Omar Khayyam
+rumi|I am silent. Speak Thou, O Soul of Soul of Soul,\nFrom desire of whose Face every atom grew articulate.|Rumi
+rumi|Keep God in remembrance till self is forgotten,\nThat thou may be lost in the Called, without distraction of caller and call.|Rumi
+rumi|Every moment the voice of Love is coming from left and right.\nWe are bound for heaven: who has a mind to sight-seeing?\nWe have been in heaven, we have been friends of the angels;\nThither, Sire, let us return, for that is our country.|Rumi
+rumi|Mankind, like waterfowl, are sprung from the sea—the Sea of Soul;\nRisen from that Sea, why should the bird make here his home?\nNay, we are pearls in that Sea, therein we all abide;\nElse, why does wave follow wave from the Sea of Soul?|Rumi
+rumi|Every form you see has its archetype in the placeless world;\nIf the form perished, no matter, since its Original is everlasting.|Rumi
+rumi|Conceive the Soul as a fountain, and these created things as rivers:\nWhile the Fountain flows, the rivers run from it.|Rumi
+rumi|'Tis Love and the Lover that live to all Eternity;\nSet not thy heart on aught else; 'tis only borrowed,\nHow long wilt thou embrace a dead beloved?\nEmbrace the Soul which is embraced by nothing.|Rumi
+rumi|Cross and Christians, from end to end,\nI surveyed; He was not on the Cross.\nI went to the idol-temple, to the ancient pagoda;\nNo trace was visible there.\nI went to the mountains of Herāt and Candahār;\nI looked; He was not in that hill-and-dale.|Rumi
+rumi|I gazed into my own heart;\nThere I saw Him; He was nowhere else.|Rumi
+rumi|When my bier moveth on the day of Death,\nThink not my heart is in this world.|Rumi
+rumi|To thee it seems a setting, but 'tis a rising;\nTho' the vault seems a prison, 'tis the release of the soul.|Rumi
+rumi|The world resembles a mirror: thy Love is the perfect image:\nO people, who has ever seen a part greater than the whole?|Rumi
+rumi|O how long shall we, like children, in the earthly sphere\nFill our lap with dust and stones and sherds?\nLet us give up the earth and fly heavenwards,\nLet us flee from childhood to the banquet of men.|Rumi
+rumi|This is Love: to fly heavenward,\nTo rend, every instant, a hundred veils.\nThe first moment, to renounce Life:\nThe last step, to feel without feet.\nTo regard this world as invisible,\nNot to see what appears to one's self.|Rumi
+rumi|Thou wert dust and art spirit, thou wert ignorant and art wise.\nHe who has led thee thus far will lead thee further also.|Rumi
+rumi|Why, when God's earth is so wide, have you fallen asleep in a prison?\nAvoid entangled thoughts, that you may see the explanation of Paradise.\nRefrain from speaking, that you may win speech hereafter.\nAbandon life and the world, that you may behold the Life of the world.|Rumi
+rumi|Be silent that the Lord who gave thee language may speak,\nFor as He fashioned a door and lock, He has also made a key.|Rumi
+rumi|Happy the moment when we are seated in the Palace, thou and I,\nWith two forms and with two figures but with one soul, thou and I.|Rumi
+rumi|A heavy slumber fell upon thee from the circling spheres:\nAlas, for this life so light, beware of this slumber so heavy!|Rumi
+rumi|Thou wert a love-lorn nightingale among owls:\nThe scent of the Rose-Garden, reached thee, and thou didst go to the Rose-Garden.|Rumi
+rumi|Look not on the fleshy cheek which corrupts and decays,\nLook on the spiritual cheek—may it be sweet and agreeable!|Rumi
+rumi|Love is the astrolabe of God's mysteries.\nA lover may hanker after this love or that love,\nBut at the last he is drawn to the KING of Love.\nHowever much we describe and explain Love,\nWhen we fall in love we are ashamed of our words.\nExplanation by the tongue makes most things clear,\nBut Love unexplained is better.|Rumi
+rumi|Whoso recognises and confesses his own defects\nIs hastening in the way that leads to Perfection!\nBut he advances not towards the Almighty\nWho fancies himself to be perfect.|Rumi
+rumi|Pain is a treasure, for it contains mercies;\nThe kernel is soft when the rind is scraped off.\nO brother, the place of darkness and cold\nIs the fountain of Life and the cup of ecstasy.|Rumi
+rumi|The spring seasons are hidden in the autumns,\nAnd the autumns are charged with springs.|Rumi
+rumi|The sea itself is one thing, the foam another;\nNeglect the foam, and regard the sea with your eyes.\nWaves of foam rise from the sea night and day.\nYou look at the foam ripples and not at the mighty sea.|Rumi
+rumi|Ah! you who are asleep in the boat of the body,\nYou see the water; behold the Water of waters!\nUnder the water you see there is another Water moving it.\nWithin the spirit is a Spirit that calls it.|Rumi
+rumi|No lover ever seeks union with his beloved,\nBut his beloved is also seeking union with him.|Rumi
+rumi|When the Love of God arises in thy heart,\nWithout doubt God also feels love for thee.|Rumi
+rumi|The Love of the soul is for Life and the Living One,\nBecause its origin is the Soul not bound to place.|Rumi
+rumi|Lovers and beloved have both perished;\nAnd not themselves only, but their love as well.|Rumi
+rumi|But if the child see not the state of reason,\nDoes the man of reason therefore forsake reason?\nAnd if the man of reason sees not the state of Love,\nIs the blessed moon of Love thereby eclipsed?|Rumi
+rumi|Where will you find one more liberal than God?\nHe buys the worthless rubbish which is your wealth,\nHe pays you the Light that illumines your heart.|Rumi
+rumi|Thou art hidden from us, though the heavens are filled\nWith Thy Light, which is brighter than sun and moon!|Rumi
+rumi|Thou art the Spring, and we the sweet green garden;\nSpring is not seen, though its gifts are seen.|Rumi
+rumi|Thou art as the Soul, we as hand and foot;\nSoul instructs hand and foot to hold and take.|Rumi
+rumi|Every night Thou freest our spirits from the body\nAnd its snare, making them pure as rased tablets.|Rumi
+rumi|At night prisoners are unaware of their prison,\nAt night kings are unaware of their majesty.|Rumi
+rumi|The kingly soul lays waste the body,\nAnd after its destruction he builds it anew.|Rumi
+rumi|The heart of the harper was emancipated.\nLike a soul he was freed from weeping and rejoicing,\nHis old life died, and he was regenerated.|Rumi
+rumi|When night returns and 'tis the time of the sky's levée,\nThe stars that were hidden come forth to their work.|Rumi
+rumi|The sect of lovers is distinct from all others,\nLovers have a religion and a faith of their own.|Rumi
+rumi|Trust in God, yet tie the camel's leg.|Rumi
+khayyam|Wake! For the Sun, who scatter'd into flight\nThe Stars before him from the Field of Night,\nDrives Night along with them from Heav'n, and strikes\nThe Sultan's Turret with a Shaft of Light.|Omar Khayyam
+khayyam|Come, fill the Cup, and in the fire of Spring\nYour Winter garment of Repentance fling:\nThe Bird of Time has but a little way\nTo flutter—and the Bird is on the Wing.|Omar Khayyam
+khayyam|Whether at Naishapur or Babylon,\nWhether the Cup with sweet or bitter run,\nThe Wine of Life keeps oozing drop by drop,\nThe Leaves of Life keep falling one by one.|Omar Khayyam
+khayyam|Each Morn a thousand Roses brings, you say:\nYes, but where leaves the Rose of Yesterday?\nAnd this first Summer month that brings the Rose\nShall take Jamshyd and Kaikobad away.|Omar Khayyam
+khayyam|A Book of Verses underneath the Bough,\nA Jug of Wine, a Loaf of Bread—and Thou\nBeside me singing in the Wilderness—\nOh, Wilderness were Paradise enow!|Omar Khayyam
+khayyam|Some for the Glories of This World; and some\nSigh for the Prophet's Paradise to come;\nAh, take the Cash, and let the Credit go,\nNor heed the rumble of a distant Drum!|Omar Khayyam
+khayyam|The Worldly Hope men set their Hearts upon\nTurns Ashes—or it prospers; and anon,\nLike Snow upon the Desert's dusty Face,\nLighting a little hour or two—is gone.|Omar Khayyam
+khayyam|Think, in this batter'd Caravanserai\nWhose Portals are alternate Night and Day,\nHow Sultan after Sultan with his Pomp\nAbode his destined Hour, and went his way.|Omar Khayyam
+khayyam|I sometimes think that never blows so red\nThe Rose as where some buried Caesar bled;\nThat every Hyacinth the Garden wears\nDropt in her Lap from some once lovely Head.|Omar Khayyam
+khayyam|And this reviving Herb whose tender Green\nFledges the River-Lip on which we lean—\nAh, lean upon it lightly! for who knows\nFrom what once lovely Lip it springs unseen!|Omar Khayyam
+khayyam|Ah, my Beloved, fill the Cup that clears\nTO-DAY of past Regrets and future Fears:\nTo-morrow—Why, To-morrow I may be\nMyself with Yesterday's Sev'n thousand Years.|Omar Khayyam
+khayyam|And we, that now make merry in the Room\nThey left, and Summer dresses in new bloom,\nOurselves must we beneath the Couch of Earth\nDescend—ourselves to make a Couch—for whom?|Omar Khayyam
+khayyam|Ah, make the most of what we yet may spend,\nBefore we too into the Dust descend;\nDust into Dust, and under Dust to lie,\nSans Wine, sans Song, sans Singer, and—sans End!|Omar Khayyam
+khayyam|Myself when young did eagerly frequent\nDoctor and Saint, and heard great argument\nAbout it and about: but evermore\nCame out by the same door where in I went.|Omar Khayyam
+khayyam|With them the seed of Wisdom did I sow,\nAnd with mine own hand wrought to make it grow;\nAnd this was all the Harvest that I reap'd—\n"I came like Water, and like Wind I go."|Omar Khayyam
+khayyam|Into this Universe, and Why not knowing\nNor Whence, like Water willy-nilly flowing;\nAnd out of it, as Wind along the Waste,\nI know not Whither, willy-nilly blowing.|Omar Khayyam
+khayyam|Up from Earth's Center through the Seventh Gate\nI rose, and on the Throne of Saturn sate,\nAnd many a Knot unravel'd by the Road;\nBut not the Master-knot of Human Fate.|Omar Khayyam
+khayyam|There was the Door to which I found no Key;\nThere was the Veil through which I might not see:\nSome little talk awhile of ME and THEE\nThere was—and then no more of THEE and ME.|Omar Khayyam
+khayyam|Then to the Lip of this poor earthen Urn\nI lean'd, the Secret of my Life to learn:\nAnd Lip to Lip it murmur'd—"While you live,\n"Drink!—for, once dead, you never shall return."|Omar Khayyam
+khayyam|For I remember stopping by the way\nTo watch a Potter thumping his wet Clay:\nAnd with its all-obliterated Tongue\nIt murmur'd—"Gently, Brother, gently, pray!"|Omar Khayyam
+khayyam|Perplext no more with Human or Divine,\nTo-morrow's tangle to the winds resign,\nAnd lose your fingers in the tresses of\nThe Cypress-slender Minister of Wine.|Omar Khayyam
+khayyam|And if the Wine you drink, the Lip you press,\nEnd in what All begins and ends in—Yes;\nThink then you are TO-DAY what YESTERDAY\nYou were—TO-MORROW you shall not be less.|Omar Khayyam
+khayyam|Why, if the Soul can fling the Dust aside,\nAnd naked on the Air of Heaven ride,\nWere't not a Shame—were't not a Shame for him\nIn this clay carcass crippled to abide?|Omar Khayyam
+khayyam|And fear not lest Existence closing your\nAccount, and mine, should know the like no more;\nThe Eternal Saki from that Bowl has pour'd\nMillions of Bubbles like us, and will pour.|Omar Khayyam
+khayyam|When You and I behind the Veil are past,\nOh, but the long, long while the World shall last,\nWhich of our Coming and Departure heeds\nAs the Sea's self should heed a pebble-cast.|Omar Khayyam
+khayyam|A Moment's Halt—a momentary taste\nOf BEING from the Well amid the Waste—\nAnd Lo!—the phantom Caravan has reach'd\nThe NOTHING it set out from—Oh, make haste!|Omar Khayyam
+khayyam|Waste not your Hour, nor in the vain pursuit\nOf This and That endeavor and dispute;\nBetter be jocund with the fruitful Grape\nThan sadden after none, or bitter, Fruit.|Omar Khayyam
+khayyam|You know, my Friends, with what a brave Carouse\nI made a Second Marriage in my house;\nDivorced old barren Reason from my Bed,\nAnd took the Daughter of the Vine to Spouse.|Omar Khayyam
+khayyam|For "Is" and "Is-not" though with Rule and Line\nAnd "UP-AND-DOWN" by Logic I define,\nOf all that one should care to fathom, I\nwas never deep in anything but—Wine.|Omar Khayyam
+khayyam|Ah, by my Computations, People say,\nReduce the Year to better reckoning?—Nay,\n'Twas only striking from the Calendar\nUnborn To-morrow and dead Yesterday.|Omar Khayyam
+khayyam|Of threats of Hell and Hopes of Paradise!\nOne thing at least is certain—This Life flies;\nOne thing is certain and the rest is Lies;\nThe Flower that once has blown for ever dies.|Omar Khayyam
+khayyam|Strange, is it not? that of the myriads who\nBefore us pass'd the door of Darkness through,\nNot one returns to tell us of the Road,\nWhich to discover we must travel too.|Omar Khayyam
+khayyam|I sent my Soul through the Invisible,\nSome letter of that After-life to spell:\nAnd by and by my Soul return'd to me,\nAnd answer'd "I Myself am Heav'n and Hell:"|Omar Khayyam
+khayyam|Heav'n but the Vision of fulfill'd Desire,\nAnd Hell the Shadow from a Soul on fire,\nCast on the Darkness into which Ourselves,\nSo late emerged from, shall so soon expire.|Omar Khayyam
+khayyam|We are no other than a moving row\nOf Magic Shadow-shapes that come and go\nRound with the Sun-illumined Lantern held\nIn Midnight by the Master of the Show;|Omar Khayyam
+khayyam|But helpless Pieces of the Game He plays\nUpon this Chequer-board of Nights and Days;\nHither and thither moves, and checks, and slays,\nAnd one by one back in the Closet lays.|Omar Khayyam
+khayyam|The Moving Finger writes; and, having writ,\nMoves on: nor all your Piety nor Wit\nShall lure it back to cancel half a Line,\nNor all your Tears wash out a Word of it.|Omar Khayyam
+khayyam|And that inverted Bowl they call the Sky,\nWhereunder crawling coop'd we live and die,\nLift not your hands to It for help—for It\nAs impotently moves as you or I.|Omar Khayyam
+khayyam|YESTERDAY This Day's Madness did prepare;\nTO-MORROW's Silence, Triumph, or Despair:\nDrink! for you not know whence you came, nor why:\nDrink! for you know not why you go, nor where.|Omar Khayyam
+khayyam|And much as Wine has play'd the Infidel,\nAnd robb'd me of my Robe of Honor—Well,\nI wonder often what the Vintners buy\nOne half so precious as the stuff they sell.|Omar Khayyam
+khayyam|Yet Ah, that Spring should vanish with the Rose!\nThat Youth's sweet-scented manuscript should close!\nThe Nightingale that in the branches sang,\nAh whence, and whither flown again, who knows!|Omar Khayyam
+khayyam|Ah Love! could you and I with Him conspire\nTo grasp this sorry Scheme of Things entire,\nWould not we shatter it to bits—and then\nRe-mold it nearer to the Heart's Desire!|Omar Khayyam
+khayyam|Yon rising Moon that looks for us again—\nHow oft hereafter will she wax and wane;\nHow oft hereafter rising look for us\nThrough this same Garden—and for one in vain!|Omar Khayyam
+khayyam|And when like her, oh Saki, you shall pass\nAmong the Guests Star-scatter'd on the Grass,\nAnd in your joyous errand reach the spot\nWhere I made One—turn down an empty Glass!|Omar Khayyam
 suntzu|The art of war is of vital importance to the State. It is a matter of life and death, a road either to safety or to ruin. Hence it is a subject of inquiry which can on no account be neglected.|Sun Tzu
 suntzu|Hence, when able to attack, we must seem unable; when using our forces, we must seem inactive; when we are near, we must make the enemy believe we are far away; when far away, we must make him believe we are near.|Sun Tzu
 suntzu|Attack him where he is unprepared, appear where you are not expected.|Sun Tzu
