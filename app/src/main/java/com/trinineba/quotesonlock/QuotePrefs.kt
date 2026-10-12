@@ -14,9 +14,13 @@ class QuotePrefs(context: Context) {
         get() = prefs.getLong("interval_minutes", 60L)
         set(value) = prefs.edit().putLong("interval_minutes", value).apply()
 
-    var includeBundled: Boolean
-        get() = prefs.getBoolean("include_bundled", true)
-        set(value) = prefs.edit().putBoolean("include_bundled", value).apply()
+    /** Quote categories that take part in rotation. All of them until the user changes it. */
+    var enabledCategories: Set<Category>
+        get() = prefs.getStringSet("categories", null)
+            ?.mapNotNull { Category.fromKey(it) }
+            ?.toSet()
+            ?: Category.entries.toSet()
+        set(value) = prefs.edit().putStringSet("categories", value.map { it.key }.toSet()).apply()
 
     var currentText: String?
         get() = prefs.getString("current_text", null)

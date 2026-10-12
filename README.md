@@ -6,7 +6,7 @@ Android doesn't let normal apps draw on the lock screen, so the app posts the qu
 
 ## Features
 
-- Built-in quotes (`app/src/main/res/raw/quotes.txt`, one `text|author` per line) plus your own, stored on the device.
+- Built-in quotes in four categories (motivation, thought-provoking, stoic & ancient wisdom, kindness & hope) plus your own, stored on the device. Turn each type on or off in the app; the list is `app/src/main/res/raw/quotes.txt` (`category|text|author` per line).
 - Rotation every 15 minutes up to daily (WorkManager).
 - The quote comes back after a reboot.
 - No internet permission, no accounts, no network access.

@@ -14,15 +14,20 @@ class QuoteRepository(
 
     fun bundled(): List<Quote> = bundledCache ?: loadBundled().also { bundledCache = it }
 
+    /** Lines look like `category|text|author`. */
     private fun loadBundled(): List<Quote> =
         appContext.resources.openRawResource(R.raw.quotes).bufferedReader().useLines { lines ->
             lines
                 .map { it.trim() }
-                .filter { it.isNotEmpty() && !it.startsWith("#") && it.contains('|') }
-                .map { line ->
+                .filter { it.isNotEmpty() && !it.startsWith("#") }
+                .mapNotNull { line ->
+                    val category = Category.fromKey(line.substringBefore('|').trim())
+                    val rest = line.substringAfter('|', "")
+                    if (category == null || !rest.contains('|')) return@mapNotNull null
                     Quote(
-                        text = line.substringBefore('|').trim(),
-                        author = line.substringAfter('|').trim().ifBlank { null },
+                        text = rest.substringBeforeLast('|').trim(),
+                        author = rest.substringAfterLast('|').trim().ifBlank { null },
+                        category = category,
                     )
                 }
                 .toList()
@@ -37,7 +42,7 @@ class QuoteRepository(
                 Quote(
                     text = obj.getString("text"),
                     author = obj.optString("author").ifBlank { null },
-                    custom = true,
+                    category = Category.CUSTOM,
                     id = obj.getString("id"),
                 )
             }
@@ -47,7 +52,7 @@ class QuoteRepository(
     }
 
     fun addCustom(text: String, author: String?) {
-        val quotes = custom() + Quote(text, author, custom = true, id = UUID.randomUUID().toString())
+        val quotes = custom() + Quote(text, author, Category.CUSTOM, UUID.randomUUID().toString())
         saveCustom(quotes)
     }
 
@@ -67,8 +72,16 @@ class QuoteRepository(
         prefs.customJson = array.toString()
     }
 
-    /** The quotes eligible for rotation, based on the "include built-in quotes" setting. */
-    fun pool(): List<Quote> = custom() + if (prefs.includeBundled) bundled() else emptyList()
+    /** The quotes eligible for rotation, based on the categories the user turned on. */
+    fun pool(): List<Quote> {
+        val enabled = prefs.enabledCategories
+        val mine = if (Category.CUSTOM in enabled) custom() else emptyList()
+        return mine + bundled().filter { q -> q.category?.let { it in enabled } == true }
+    }
+
+    /** How many quotes a category holds, whether or not it is turned on. */
+    fun count(category: Category): Int =
+        if (category == Category.CUSTOM) custom().size else bundled().count { it.category == category }
 
     fun current(): Quote? = prefs.currentText?.let { Quote(it, prefs.currentAuthor) }
 

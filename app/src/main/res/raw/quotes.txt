@@ -1,47 +1,60 @@
-# One quote per line: text|author
-The unexamined life is not worth living.|Socrates
-Waste no more time arguing about what a good man should be. Be one.|Marcus Aurelius
-If it is not right, do not do it; if it is not true, do not say it.|Marcus Aurelius
-The soul is dyed by the colour of its thoughts.|Marcus Aurelius
-It is not that we have a short time to live, but that we waste a lot of it.|Seneca
-We suffer more often in imagination than in reality.|Seneca
-Difficulties strengthen the mind, as labor does the body.|Seneca
-While we are postponing, life speeds by.|Seneca
-It's not what happens to you, but how you react to it that matters.|Epictetus
-A journey of a thousand miles begins with a single step.|Lao Tzu
-He who knows others is wise; he who knows himself is enlightened.|Lao Tzu
-It does not matter how slowly you go as long as you do not stop.|Confucius
-Nothing great was ever achieved without enthusiasm.|Ralph Waldo Emerson
-Our life is frittered away by detail. Simplify, simplify.|Henry David Thoreau
-Not till we are lost do we begin to find ourselves.|Henry David Thoreau
-Well done is better than well said.|Benjamin Franklin
-Lost time is never found again.|Benjamin Franklin
-There is nothing either good or bad, but thinking makes it so.|William Shakespeare
-This above all: to thine own self be true.|William Shakespeare
-We are all in the gutter, but some of us are looking at the stars.|Oscar Wilde
-The beginning is the most important part of the work.|Plato
-Well begun is half done.|Aristotle
-You cannot step twice into the same river.|Heraclitus
-Life is either a daring adventure or nothing at all.|Helen Keller
-You must do the thing you think you cannot do.|Eleanor Roosevelt
-Do what you can, with what you have, where you are.|Theodore Roosevelt
-Nothing in the world is worth having or worth doing unless it means effort, pain, difficulty.|Theodore Roosevelt
-Imagination is more important than knowledge.|Albert Einstein
-Fortune favors the bold.|Virgil
-Nothing will ever be attempted if all possible objections must first be overcome.|Samuel Johnson
-The perfect is the enemy of the good.|Voltaire
-Hatred does not cease by hatred, but only by love; this is the eternal rule.|The Dhammapada
-Do not spoil what you have by desiring what you have not.|Epicurus
-Hope is the thing with feathers that perches in the soul.|Emily Dickinson
-Two roads diverged in a wood, and I took the one less traveled by, and that has made all the difference.|Robert Frost
-Great is the art of beginning, but greater is the art of ending.|Henry Wadsworth Longfellow
-If there is no struggle, there is no progress.|Frederick Douglass
-Chance favors only the prepared mind.|Louis Pasteur
-If I have seen further, it is by standing on the shoulders of giants.|Isaac Newton
-If I am not for myself, who will be for me? If not now, when?|Hillel the Elder
-He who has a why to live can bear almost any how.|Friedrich Nietzsche
-Life can only be understood backwards; but it must be lived forwards.|Søren Kierkegaard
-There is no charm equal to tenderness of heart.|Jane Austen
-No one is useless in this world who lightens the burdens of another.|Charles Dickens
-The journey is better than the inn.|Miguel de Cervantes
-If you have a garden and a library, you have everything you need.|Cicero
+# One quote per line: category|text|author
+# Categories: motivation, thought, stoic, kindness
+motivation|A journey of a thousand miles begins with a single step.|Lao Tzu
+motivation|It does not matter how slowly you go as long as you do not stop.|Confucius
+motivation|Nothing great was ever achieved without enthusiasm.|Ralph Waldo Emerson
+motivation|Well done is better than well said.|Benjamin Franklin
+motivation|Lost time is never found again.|Benjamin Franklin
+motivation|Well begun is half done.|Aristotle
+motivation|Life is either a daring adventure or nothing at all.|Helen Keller
+motivation|You must do the thing you think you cannot do.|Eleanor Roosevelt
+motivation|Do what you can, with what you have, where you are.|Theodore Roosevelt
+motivation|Nothing in the world is worth having or worth doing unless it means effort, pain, difficulty.|Theodore Roosevelt
+motivation|Fortune favors the bold.|Virgil
+motivation|Nothing will ever be attempted if all possible objections must first be overcome.|Samuel Johnson
+motivation|The perfect is the enemy of the good.|Voltaire
+motivation|If there is no struggle, there is no progress.|Frederick Douglass
+motivation|Chance favors only the prepared mind.|Louis Pasteur
+motivation|Great is the art of beginning, but greater is the art of ending.|Henry Wadsworth Longfellow
+motivation|Two roads diverged in a wood, and I took the one less traveled by, and that has made all the difference.|Robert Frost
+motivation|If I am not for myself, who will be for me? If not now, when?|Hillel the Elder
+motivation|Courage is resistance to fear, mastery of fear, not absence of fear.|Mark Twain
+motivation|The only thing we have to fear is fear itself.|Franklin D. Roosevelt
+thought|The unexamined life is not worth living.|Socrates
+thought|You cannot step twice into the same river.|Heraclitus
+thought|Imagination is more important than knowledge.|Albert Einstein
+thought|He who has a why to live can bear almost any how.|Friedrich Nietzsche
+thought|Life can only be understood backwards; but it must be lived forwards.|Søren Kierkegaard
+thought|There is nothing either good or bad, but thinking makes it so.|William Shakespeare
+thought|This above all: to thine own self be true.|William Shakespeare
+thought|We are all in the gutter, but some of us are looking at the stars.|Oscar Wilde
+thought|If I have seen further, it is by standing on the shoulders of giants.|Isaac Newton
+thought|Our life is frittered away by detail. Simplify, simplify.|Henry David Thoreau
+thought|Not till we are lost do we begin to find ourselves.|Henry David Thoreau
+thought|The beginning is the most important part of the work.|Plato
+thought|I think, therefore I am.|René Descartes
+thought|Man is the measure of all things.|Protagoras
+thought|Know thyself.|Inscription at the Temple of Apollo at Delphi
+thought|Man is born free, and everywhere he is in chains.|Jean-Jacques Rousseau
+thought|The journey is better than the inn.|Miguel de Cervantes
+stoic|Waste no more time arguing about what a good man should be. Be one.|Marcus Aurelius
+stoic|If it is not right, do not do it; if it is not true, do not say it.|Marcus Aurelius
+stoic|The soul is dyed by the colour of its thoughts.|Marcus Aurelius
+stoic|Very little is needed to make a happy life; it is all within yourself, in your way of thinking.|Marcus Aurelius
+stoic|It is not that we have a short time to live, but that we waste a lot of it.|Seneca
+stoic|We suffer more often in imagination than in reality.|Seneca
+stoic|Difficulties strengthen the mind, as labor does the body.|Seneca
+stoic|While we are postponing, life speeds by.|Seneca
+stoic|He who is brave is free.|Seneca
+stoic|It's not what happens to you, but how you react to it that matters.|Epictetus
+stoic|Make the best use of what is in your power, and take the rest as it happens.|Epictetus
+stoic|Do not spoil what you have by desiring what you have not.|Epicurus
+stoic|He who knows others is wise; he who knows himself is enlightened.|Lao Tzu
+stoic|If you have a garden and a library, you have everything you need.|Cicero
+kindness|Hatred does not cease by hatred, but only by love; this is the eternal rule.|The Dhammapada
+kindness|Hope is the thing with feathers that perches in the soul.|Emily Dickinson
+kindness|There is no charm equal to tenderness of heart.|Jane Austen
+kindness|No one is useless in this world who lightens the burdens of another.|Charles Dickens
+kindness|No act of kindness, no matter how small, is ever wasted.|Aesop
+kindness|Love all, trust a few, do wrong to none.|William Shakespeare
+kindness|Gratitude is not only the greatest of virtues, but the parent of all the others.|Cicero

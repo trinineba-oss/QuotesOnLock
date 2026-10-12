@@ -92,7 +92,7 @@ private fun QuotesScreen(prefs: QuotePrefs, repo: QuoteRepository) {
     val context = LocalContext.current
     var enabled by remember { mutableStateOf(prefs.enabled) }
     var interval by remember { mutableStateOf(prefs.intervalMinutes) }
-    var includeBundled by remember { mutableStateOf(prefs.includeBundled) }
+    var categories by remember { mutableStateOf(prefs.enabledCategories) }
     var current by remember { mutableStateOf(repo.current()) }
     var custom by remember { mutableStateOf(repo.custom()) }
     var newText by rememberSaveable { mutableStateOf("") }
@@ -133,10 +133,23 @@ private fun QuotesScreen(prefs: QuotePrefs, repo: QuoteRepository) {
         }
     }
 
+    // Read from Compose state so the hints below update when quotes or types change.
+    fun countOf(category: Category) =
+        if (category == Category.CUSTOM) custom.size else repo.count(category)
+    val poolEmpty = Category.entries.none { it in categories && countOf(it) > 0 }
+
     fun nextQuote() {
-        val quote = repo.advance()
+        val quote = repo.advance() ?: return
         current = quote
-        if (enabled) quote?.let { QuoteNotifier.show(context, it) }
+        if (enabled) QuoteNotifier.show(context, quote)
+    }
+
+    fun toggleCategory(category: Category, on: Boolean) {
+        categories = if (on) categories + category else categories - category
+        prefs.enabledCategories = categories
+        // Swap out a quote that no longer belongs to a selected category.
+        val shown = current
+        if (shown == null || repo.pool().none { it.text == shown.text }) nextQuote()
     }
 
     Scaffold { innerPadding ->
@@ -166,8 +179,8 @@ private fun QuotesScreen(prefs: QuotePrefs, repo: QuoteRepository) {
                         val quote = current
                         if (quote == null) {
                             Text(
-                                if (repo.pool().isEmpty()) {
-                                    "No quotes available. Add your own below or turn built-in quotes on."
+                                if (poolEmpty) {
+                                    "No quotes available. Turn on a quote type or add your own below."
                                 } else {
                                     "Press \"Next quote\" to pick one."
                                 }
@@ -206,18 +219,34 @@ private fun QuotesScreen(prefs: QuotePrefs, repo: QuoteRepository) {
             }
 
             item {
+                Column {
+                    Text("Quote types", style = MaterialTheme.typography.titleMedium)
+                    if (poolEmpty) {
+                        Text(
+                            "Turn on at least one type to get quotes.",
+                            style = MaterialTheme.typography.bodySmall,
+                            color = MaterialTheme.colorScheme.error,
+                        )
+                    }
+                }
+            }
+
+            items(Category.entries, key = { it.key }) { category ->
                 Row(
                     modifier = Modifier.fillMaxWidth(),
                     horizontalArrangement = Arrangement.SpaceBetween,
                     verticalAlignment = Alignment.CenterVertically,
                 ) {
-                    Text("Include built-in quotes", style = MaterialTheme.typography.titleMedium)
+                    Column(Modifier.weight(1f)) {
+                        Text(category.label)
+                        Text(
+                            "${countOf(category)} quotes",
+                            style = MaterialTheme.typography.bodySmall,
+                        )
+                    }
                     Switch(
-                        checked = includeBundled,
-                        onCheckedChange = {
-                            includeBundled = it
-                            prefs.includeBundled = it
-                        },
+                        checked = category in categories,
+                        onCheckedChange = { toggleCategory(category, it) },
                     )
                 }
             }
