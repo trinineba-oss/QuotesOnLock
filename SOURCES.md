@@ -16,11 +16,14 @@ editions below, or a translation made for this app and labelled `(tr. Claude)`.
 | Friedrich Nietzsche | Beyond Good and Evil | Helen Zimmern | Project Gutenberg #4363 |
 | Friedrich Nietzsche | Twilight of the Idols, The Antichrist, notes on Eternal Recurrence | Anthony M. Ludovici | Project Gutenberg #52263 |
 | Friedrich Nietzsche | Ecce Homo | Paul V. Cohn | Project Gutenberg #52190 |
+| Friedrich Nietzsche | The Joyful Wisdom (Thomas Common); The Genealogy of Morals (Horace B. Samuel); The Birth of Tragedy (William A. Haussmann); The Will to Power (Anthony M. Ludovici); Human, All-Too-Human (Helen Zimmern; Paul V. Cohn); Thoughts Out of Season / Untimely Meditations (Adrian Collins); Early Greek Philosophy & Other Essays (Maximilian A. Mügge) | as listed | Project Gutenberg #52881, #52319, #51356, #52914, #52915, #38145, #37841, #38226, #51548 |
 | Friedrich Nietzsche | The Dawn of Day | J. M. Kennedy | Project Gutenberg #39955 |
 | Fyodor Dostoevsky | The Brothers Karamazov; Crime and Punishment; Notes from Underground; The Idiot; The Possessed; The House of the Dead; White Nights and other tales | Constance Garnett and others | Project Gutenberg #28054, #2554, #600, #2638, #8117 |
 | Leo Tolstoy | Anna Karenina | Constance Garnett | Project Gutenberg #1399 |
 | Leo Tolstoy | War and Peace; Three Questions (in What Men Live By); What Is Art? | Aylmer Maude | Project Gutenberg #2600, #6157, #64908 |
 | Leo Tolstoy | The Kingdom of God Is Within You | Constance Garnett | Project Gutenberg #43302 |
+| Leo Tolstoy | Resurrection; The Kreutzer Sonata and Other Stories; Master and Man; The Cossacks; Sevastopol; Boyhood; Youth; What Men Live By and Other Tales; The Forged Coupon and Other Stories; A Russian Proprietor and Other Stories; The Invaders and Other Stories; My Religion; The Journal of Leo Tolstoi (1895–99) | Louise Maude, Aylmer Maude, Constance Garnett and others | Project Gutenberg #1938, #689, #986, #4761, #47197, #2450, #2637, #6157, #243, #41119, #56797, #43794, #46272 |
+| Leo Tolstoy | A Confession (Aylmer Maude); The Death of Ivan Ilyitch (Constance Garnett); On Life (Free Age Press translation); Walk in the Light While Ye Have Light; Hadji Murad; The Slavery of Our Times; Twenty-Three Tales (Louise and Aylmer Maude) | as listed | Project Gutenberg #2142; Internet Archive scans |
 | Marcus Aurelius | Meditations | George W. Chrystal (1902) | Project Gutenberg #55317 |
 | Epictetus | Enchiridion; Golden Sayings | Thomas Wentworth Higginson; Hastings Crossley | Project Gutenberg #45109, #871 |
 | Seneca | Minor Dialogues | Aubrey Stewart (1889) | Project Gutenberg #64576 |
@@ -32,6 +35,7 @@ editions below, or a translation made for this app and labelled `(tr. Claude)`.
 | Franz Kafka | The Trial; The Metamorphosis | David Wyllie | Project Gutenberg #7849, #5200 |
 | Franz Kafka | Betrachtungen über Sünde, Leid, Hoffnung und den wahren Weg (the Zürau Aphorisms, 1917–18) | German original, **translated for this app** | German Wikisource |
 | Franz Kafka | Betrachtung (Contemplation) | German original, **translated for this app** | Project Gutenberg #23532 |
+| Franz Kafka | Additional passages from the Zürau notes, the Octavo Notebooks, the Diaries, "He" notes, The Trial, The Castle, parables ("On Parables", "Before the Law", "The Next Village", "A Little Fable", "The Silence of the Sirens"), A Country Doctor, A Report to an Academy, A Hunger Artist, In the Penal Colony and the Letter to His Father | German original, **translated for this app** (`(tr. Claude)`) | Project Gutenberg-DE #69327 (Der Prozess), #21989, #30655, #25791, #23532; de.wikisource.org; projekt-gutenberg.org (Oktavhefte, Tagebücher). Kafka died in 1924; the later Brod editions are only used for his own words. |
 | Plato | Apology; Phaedo; Symposium; Phaedrus; Republic; Meno; Theaetetus; Gorgias; Timaeus; Laws; Protagoras and others | Benjamin Jowett | Project Gutenberg #1656, #1658, #1600, #1636, #1497, #1643, #1726, #1672, #1572, #1750, #1591 |
 | Lao Tzu | Tao Teh King | James Legge (1891) | Project Gutenberg #216 |
 | Søren Kierkegaard | Selections from the Writings of Kierkegaard | Lee M. Hollander (1923) | Project Gutenberg #60333 |
@@ -82,6 +86,8 @@ are short excerpts; if you spot a mistake, please open an issue.
 ### Jung (later writings)
 
 About fifteen Jung lines come from later work still in copyright (*Memories, Dreams, Reflections*, the Collected Works in R. F. C. Hull's translation, his letters). They were taken from the most-liked entries on Goodreads (author page 38285) and kept only where they match passages that can be placed in Jung's writings; the many apocryphal "Jung quotes" online (e.g. "I am not what happened to me") were left out. They are short excerpts; the rest of Jung's entries are cut verbatim from the public-domain texts above.
+
+The *Red Book / Liber Novus* lines (label "Carl Jung, The Red Book") are short excerpts (1–4 sentences) of Sonu Shamdasani's 2009 English edition, which is still in copyright; they were taken from Goodreads' work quotes page (6644707) and hand-filtered to lines that are clearly from that book.
 
 ### Einstein
 
