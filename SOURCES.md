@@ -57,6 +57,8 @@ editions below, or a translation made for this app and labelled `(tr. Claude)`.
 | Ivan Turgenev | Fathers and Children; Dream Tales and Prose Poems; A Sportsman's Sketches; Rudin; On the Eve; Smoke and others | Constance Garnett | Project Gutenberg #30723, #8935, #8597, #8744, #6900, #6902, #9911, #9615 |
 | Anton Chekhov | The Lady with the Dog and Other Stories; The Black Monk and Other Stories; The Wife and Other Stories; The Schoolmistress; Uncle Vanya and other plays | Constance Garnett and others | Project Gutenberg #1883, #13415, #13409, #13505, #13414, #55307, #7986, #1756 |
 | Dante Alighieri | The Divine Comedy (Inferno, Purgatorio, Paradiso) | Henry Wadsworth Longfellow (1867) | Project Gutenberg #1004 |
+| Sigmund Freud | Civilization and Its Discontents (Joan Riviere, 1930); Reflections on War and Death (Brill & Kuttner, 1918); The Future of an Illusion (W. D. Robson-Scott, 1928); The Interpretation of Dreams (A. A. Brill, 1913); A General Introduction to Psychoanalysis (G. Stanley Hall); Group Psychology and the Analysis of the Ego (James Strachey); Beyond the Pleasure Principle (C. J. M. Hubback, 1922); Leonardo da Vinci (Brill, 1916) | as listed | Project Gutenberg #78221, #35875, #76774, #66048, #38219, #35877, #76031, #34300 |
+| Carl Jung | Collected Papers on Analytical Psychology (Constance Long, 1920); Psychology of the Unconscious (Beatrice Hinkle, 1916); Two Essays on Analytical Psychology (H. G. and C. F. Baynes, 1928); Psychological Types (H. G. Baynes, 1923) | as listed | Project Gutenberg #48225, #65903; Internet Archive (`in.ernet.dli.2015.218694`, `psychological_types`) |
 | Rumi | The Persian Mystics: Jalálu'd-dín Rúmí (selections from the Dīvān and the Masnavi) | R. A. Nicholson (Dīvān) and E. H. Whinfield (Masnavi), as printed in F. Hadland Davis's 1907 anthology | Project Gutenberg #45159 |
 
 The themed quotes (Motivation, Thought-provoking, Stoic & ancient wisdom, Kindness & hope) are short, widely
@@ -76,6 +78,10 @@ recognise as really being theirs (poets are limited to short excerpts of one to 
 mangled; many of the top "Camus" and "Hesse" quotes there were dropped for that reason). The wording is that of
 whichever published English translation the reader copied from, so it can differ slightly from your edition. These
 are short excerpts; if you spot a mistake, please open an issue.
+
+### Jung (later writings)
+
+About fifteen Jung lines come from later work still in copyright (*Memories, Dreams, Reflections*, the Collected Works in R. F. C. Hull's translation, his letters). They were taken from the most-liked entries on Goodreads (author page 38285) and kept only where they match passages that can be placed in Jung's writings; the many apocryphal "Jung quotes" online (e.g. "I am not what happened to me") were left out. They are short excerpts; the rest of Jung's entries are cut verbatim from the public-domain texts above.
 
 ### Einstein
 
