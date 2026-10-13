@@ -85,6 +85,44 @@ class QuoteRepository(
 
     fun current(): Quote? = prefs.currentText?.let { Quote(it, prefs.currentAuthor) }
 
+    private fun history(): List<Quote> {
+        val raw = prefs.historyJson ?: return emptyList()
+        return try {
+            val array = JSONArray(raw)
+            (0 until array.length()).map { i ->
+                val obj = array.getJSONObject(i)
+                Quote(obj.getString("text"), obj.optString("author").ifBlank { null })
+            }
+        } catch (e: JSONException) {
+            emptyList()
+        }
+    }
+
+    private fun saveHistory(quotes: List<Quote>) {
+        val array = JSONArray()
+        quotes.takeLast(HISTORY_SIZE).forEach { q ->
+            array.put(
+                JSONObject().apply {
+                    put("text", q.text)
+                    if (q.author != null) put("author", q.author)
+                }
+            )
+        }
+        prefs.historyJson = array.toString()
+    }
+
+    fun hasPrevious(): Boolean = history().isNotEmpty()
+
+    /** Goes back to the quote shown before the current one, if there is one. */
+    fun previous(): Quote? {
+        val past = history()
+        val last = past.lastOrNull() ?: return null
+        saveHistory(past.dropLast(1))
+        prefs.currentText = last.text
+        prefs.currentAuthor = last.author
+        return last
+    }
+
     /**
      * Picks a random quote that hasn't been shown yet in this pass through the pool and stores it.
      * Once every quote in the pool has been shown, the pass starts over, so nothing repeats until
@@ -101,6 +139,7 @@ class QuoteRepository(
             candidates = pool.filter { it.text != currentText }.ifEmpty { pool }
         }
         val next = candidates.random()
+        current()?.let { saveHistory(history() + it) }
         prefs.seen = seen + next.key()
         prefs.currentText = next.text
         prefs.currentAuthor = next.author
@@ -110,6 +149,8 @@ class QuoteRepository(
     private fun Quote.key() = "$text|$author".hashCode().toString()
 
     private companion object {
+        const val HISTORY_SIZE = 50
+
         @Volatile
         var bundledCache: List<Quote>? = null
     }

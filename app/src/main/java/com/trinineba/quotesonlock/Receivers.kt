@@ -13,6 +13,15 @@ class NextQuoteReceiver : BroadcastReceiver() {
     }
 }
 
+/** Handles the "Previous" button on the notification. */
+class PreviousQuoteReceiver : BroadcastReceiver() {
+    override fun onReceive(context: Context, intent: Intent) {
+        val prefs = QuotePrefs(context)
+        if (!prefs.enabled) return
+        QuoteRepository(context, prefs).previous()?.let { QuoteNotifier.show(context, it) }
+    }
+}
+
 /** Notifications don't survive a reboot, so put the current quote back. */
 class BootReceiver : BroadcastReceiver() {
     override fun onReceive(context: Context, intent: Intent) {

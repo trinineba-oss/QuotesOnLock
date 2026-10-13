@@ -36,8 +36,16 @@ object QuoteNotifier {
             PendingIntent.FLAG_IMMUTABLE or PendingIntent.FLAG_UPDATE_CURRENT,
         )
 
-        val style = QuotePrefs(appContext).style
-        val notification = NotificationCompat.Builder(appContext, CHANNEL_ID)
+        val previous = PendingIntent.getBroadcast(
+            appContext,
+            2,
+            Intent(appContext, PreviousQuoteReceiver::class.java),
+            PendingIntent.FLAG_IMMUTABLE or PendingIntent.FLAG_UPDATE_CURRENT,
+        )
+
+        val prefs = QuotePrefs(appContext)
+        val style = prefs.style
+        val builder = NotificationCompat.Builder(appContext, CHANNEL_ID)
             .setSmallIcon(R.drawable.ic_quote)
             .setContentTitle(quote.author ?: appContext.getString(R.string.app_name))
             .setContentText(quote.text)
@@ -45,14 +53,16 @@ object QuoteNotifier {
             .setCustomContentView(quoteView(appContext, quote, style, expanded = false))
             .setCustomBigContentView(quoteView(appContext, quote, style, expanded = true))
             .setContentIntent(openApp)
-            .addAction(0, appContext.getString(R.string.action_next), next)
             .setOngoing(true)
             .setOnlyAlertOnce(true)
             .setShowWhen(false)
             .setPriority(NotificationCompat.PRIORITY_LOW)
             .setVisibility(NotificationCompat.VISIBILITY_PUBLIC)
-            .build()
-        manager.notify(NOTIFICATION_ID, notification)
+        if (QuoteRepository(appContext, prefs).hasPrevious()) {
+            builder.addAction(0, appContext.getString(R.string.action_previous), previous)
+        }
+        builder.addAction(0, appContext.getString(R.string.action_next), next)
+        manager.notify(NOTIFICATION_ID, builder.build())
     }
 
     /** Custom layout so the user's font, size and color apply; the system still draws the background. */

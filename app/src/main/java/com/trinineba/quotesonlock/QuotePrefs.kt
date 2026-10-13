@@ -60,6 +60,11 @@ class QuotePrefs(context: Context) {
         get() = prefs.getString("current_author", null)
         set(value) = prefs.edit().putString("current_author", value).apply()
 
+    /** Quotes shown before the current one (oldest first, as JSON), for the "Previous" button. */
+    var historyJson: String?
+        get() = prefs.getString("history", null)
+        set(value) = prefs.edit().putString("history", value).apply()
+
     var customJson: String?
         get() = prefs.getString("custom", null)
         set(value) = prefs.edit().putString("custom", value).apply()

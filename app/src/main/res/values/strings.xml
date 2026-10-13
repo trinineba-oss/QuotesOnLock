@@ -3,4 +3,5 @@
     <string name="channel_name">Quote</string>
     <string name="channel_description">The current quote, shown on the lock screen</string>
     <string name="action_next">Next quote</string>
+    <string name="action_previous">Previous</string>
 </resources>

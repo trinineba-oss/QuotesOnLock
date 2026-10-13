@@ -111,12 +111,16 @@ private fun QuotesScreen(prefs: QuotePrefs, repo: QuoteRepository) {
     var query by rememberSaveable { mutableStateOf("") }
     var expandedGroups by rememberSaveable(stateSaver = androidx.compose.runtime.saveable.listSaver<Set<String>, String>(save = { it.toList() }, restore = { it.toSet() })) { mutableStateOf(setOf(QuoteGroup.THEME.name)) }
     var current by remember { mutableStateOf(repo.current()) }
+    var canGoBack by remember { mutableStateOf(repo.hasPrevious()) }
     var custom by remember { mutableStateOf(repo.custom()) }
     var newText by rememberSaveable { mutableStateOf("") }
     var newAuthor by rememberSaveable { mutableStateOf("") }
 
     // The notification's "Next quote" button changes the quote while the app is in the background.
-    LifecycleEventEffect(Lifecycle.Event.ON_RESUME) { current = repo.current() }
+    LifecycleEventEffect(Lifecycle.Event.ON_RESUME) {
+        current = repo.current()
+        canGoBack = repo.hasPrevious()
+    }
 
     fun turnOn() {
         prefs.enabled = true
@@ -180,6 +184,14 @@ private fun QuotesScreen(prefs: QuotePrefs, repo: QuoteRepository) {
     fun nextQuote() {
         val quote = repo.advance() ?: return
         current = quote
+        canGoBack = repo.hasPrevious()
+        if (enabled) QuoteNotifier.show(context, quote)
+    }
+
+    fun previousQuote() {
+        val quote = repo.previous() ?: return
+        current = quote
+        canGoBack = repo.hasPrevious()
         if (enabled) QuoteNotifier.show(context, quote)
     }
 
@@ -249,7 +261,10 @@ private fun QuotesScreen(prefs: QuotePrefs, repo: QuoteRepository) {
                                 )
                             }
                         }
-                        Button(onClick = { nextQuote() }) { Text("Next quote") }
+                        Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                            OutlinedButton(onClick = { previousQuote() }, enabled = canGoBack) { Text("Previous") }
+                            Button(onClick = { nextQuote() }) { Text("Next quote") }
+                        }
                     }
                 }
             }
