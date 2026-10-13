@@ -49,6 +49,12 @@ enum class Category(val key: String, val label: String, val group: QuoteGroup) {
     SZYMBORSKA("szymborska", "Wisława Szymborska", QuoteGroup.AUTHOR),
     KUNDERA("kundera", "Milan Kundera", QuoteGroup.AUTHOR),
     SARTRE("sartre", "Jean-Paul Sartre", QuoteGroup.AUTHOR),
+    KABIR("kabir", "Kabir", QuoteGroup.AUTHOR),
+    ECCLESIASTES("ecclesiastes", "Ecclesiastes & Job", QuoteGroup.AUTHOR),
+    ZHUANGZI("zhuangzi", "Zhuangzi", QuoteGroup.AUTHOR),
+    MELVILLE("melville", "Herman Melville", QuoteGroup.AUTHOR),
+    TURGENEV("turgenev", "Ivan Turgenev", QuoteGroup.AUTHOR),
+    CHEKHOV("chekhov", "Anton Chekhov", QuoteGroup.AUTHOR),
     CUSTOM("custom", "My own quotes", QuoteGroup.MINE);
 
     companion object {

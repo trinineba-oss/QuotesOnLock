@@ -49,6 +49,12 @@ editions below, or a translation made for this app and labelled `(tr. Claude)`.
 | Charles Baudelaire | The Flowers of Evil; The Poems and Prose Poems of Charles Baudelaire | public-domain English translations (Cyril Scott; James Huneker's anthology) | Project Gutenberg #36098, #36287 |
 | The Bhagavad Gita | The Song Celestial | Sir Edwin Arnold (1885) | Project Gutenberg #2388 |
 | The Upanishads | The Upanishads, Parts 1 and 2 | F. Max Müller (Sacred Books of the East, 1879 and 1884) | archive.org scans of the SBE volumes |
+| Kabir | Songs of Kabir | Rabindranath Tagore (1915) | Project Gutenberg #6519 |
+| Ecclesiastes and Job | King James Version | 1611 text | Project Gutenberg #10 |
+| Zhuangzi | Chuang Tzu: Mystic, Moralist, and Social Reformer | Herbert A. Giles (1889) | Project Gutenberg #59709 |
+| Herman Melville | Moby-Dick | original English | Project Gutenberg #2701 |
+| Ivan Turgenev | Fathers and Children; Dream Tales and Prose Poems | Constance Garnett | Project Gutenberg #30723, #8935 |
+| Anton Chekhov | The Lady with the Dog and Other Stories; The Black Monk and Other Stories; Uncle Vanya | Constance Garnett and others | Project Gutenberg #13415, #55307, #1756 |
 | Rumi | The Persian Mystics: Jalálu'd-dín Rúmí (selections from the Dīvān and the Masnavi) | R. A. Nicholson (Dīvān) and E. H. Whinfield (Masnavi), as printed in F. Hadland Davis's 1907 anthology | Project Gutenberg #45159 |
 
 The themed quotes (Motivation, Thought-provoking, Stoic & ancient wisdom, Kindness & hope) are short, widely

@@ -1,5 +1,5 @@
 # One quote per line: category|text|author   (a literal \n in the text is a line break)
-# Categories: motivation, thought, stoic, kindness, gibran, rilke, nietzsche, dostoevsky, tolstoy, kafka, plato, laotzu, kierkegaard, camus, hesse, confucius, dhammapada, rumi, khayyam, suntzu, tagore, einstein, murakami, shakespeare, whitman, dickinson, blake, leopardi, baudelaire, gita, upanishads, frankl, pessoa, borges, cioran, weil, neruda, oliver, szymborska, kundera, sartre
+# Categories: motivation, thought, stoic, kindness, gibran, rilke, nietzsche, dostoevsky, tolstoy, kafka, plato, laotzu, kierkegaard, camus, hesse, confucius, dhammapada, rumi, khayyam, suntzu, tagore, einstein, murakami, shakespeare, whitman, dickinson, blake, leopardi, baudelaire, gita, upanishads, frankl, pessoa, borges, cioran, weil, neruda, oliver, szymborska, kundera, sartre, kabir, ecclesiastes, zhuangzi, melville, turgenev, chekhov
 motivation|A journey of a thousand miles begins with a single step.|Lao Tzu
 motivation|It does not matter how slowly you go as long as you do not stop.|Confucius
 motivation|Nothing great was ever achieved without enthusiasm.|Ralph Waldo Emerson
@@ -2435,3 +2435,136 @@ sartre|I suppose it is out of laziness that the world is the same day after day.
 sartre|I had found my religion: nothing seemed more important to me than a book. I saw the library as a temple.|Jean-Paul Sartre
 sartre|Anything, anything would be better than this agony of mind, this creeping pain that gnaws and fumbles and caresses one and never hurts quite enough.|Jean-Paul Sartre
 sartre|Man is nothing else but his plan; he exists only to the extent that he fulfils himself; he is therefore nothing else but the ensemble of his acts, nothing else but his life.|Jean-Paul Sartre
+kabir|O servant, where dost thou seek Me?\nLo! I am beside thee.\nI am neither in temple nor in mosque: I am neither in Kaaba nor in Kailash:\nNeither am I in rites and ceremonies, nor in Yoga and renunciation.\nIf thou art a true seeker, thou shalt at once see Me: thou shalt meet Me in a moment of time.\nKabîr says, "O Sadhu! God is the breath of all breath."|Kabir
+kabir|It is needless to ask of a saint the caste to which he belongs;\nThe barber has sought God, the washerwoman, and the carpenter—\nHindus and Moslems alike have achieved that End, where remains no mark of distinction.|Kabir
+kabir|O friend! hope for Him whilst you live, know whilst you live, understand whilst you live: for in life deliverance abides.\nIf your bonds be not broken whilst living, what hope of deliverance in death?|Kabir
+kabir|Do not go to the garden of flowers!\nO Friend! go not there;\nIn your body is the garden of flowers.\nTake your seat on the thousand petals of the lotus, and there gaze on the Infinite Beauty.|Kabir
+kabir|The moon shines in my body, but my blind eyes cannot see it:\nThe moon is within me, and so is the sun.\nThe unstruck drum of Eternity is sounded within me; but my deaf ears cannot hear it.|Kabir
+kabir|The flower blooms for the fruit: when the fruit comes, the flower withers.\nThe musk is in the deer, but it seeks it not within itself: it wanders in quest of grass.|Kabir
+kabir|Within this earthen vessel are bowers and groves, and within it is the Creator:\nWithin this vessel are the seven oceans and the unnumbered stars.\nThe touchstone and the jewel-appraiser are within;\nAnd within this vessel the Eternal soundeth, and the spring wells up.|Kabir
+kabir|O How may I ever express that secret word?\nO how can I say He is not like this, and He is like that?\nIf I say that He is within me, the universe is ashamed:\nIf I say that He is without me, it is falsehood.\nHe makes the inner and the outer worlds to be indivisibly one.|Kabir
+kabir|There are no words to tell that which He is.|Kabir
+kabir|Tell me, O Swan, your ancient tale.\nFrom what land do you come, O Swan? to what shore will you fly?\nWhere would you take your rest, O Swan, and what do you seek?|Kabir
+kabir|The river and its waves are one surf: where is the difference between the river and its waves?\nWhen the wave rises, it is the water; and when it falls, it is the same water again.|Kabir
+kabir|Between the poles of the conscious and the unconscious, there has the mind made a swing:\nThereon hang all beings and all worlds, and that swing never ceases its sway.\nMillions of ages pass, and the swing goes on.|Kabir
+kabir|Lamps burn in every house, O blind one! and you cannot see them.\nOne day your eyes shall suddenly be opened, and you shall see: and the fetters of death will fall from you.|Kabir
+kabir|More than all else do I cherish at heart that love which makes me to live a limitless life in this world.\nIt is like the lotus, which lives in the water and blooms in the water: yet the water cannot touch its petals, they open beyond its reach.|Kabir
+kabir|To what shore would you cross, O my heart? there is no traveller before you, there is no road.|Kabir
+kabir|Be strong, and enter into your own body: for there your foothold is firm.|Kabir
+kabir|Kabîr says: "Put all imaginations away, and stand fast in that which you are."|Kabir
+kabir|On this tree is a bird: it dances in the joy of life.\nNone knows where it is: and who knows what the burden of its music may be?|Kabir
+kabir|Dance, my heart! dance to-day with joy.\nThe strains of love fill the days and the nights with music, and the world is listening to its melodies:\nMad with joy, life and death dance to the rhythm of this music. The hills and the sea and the earth dance. The world of man dances in laughter and tears.\nWhy put on the robe of the monk, and live aloof from the world in lonely pride?|Kabir
+kabir|Where is the need of words, when love has made drunken the heart?\nI have wrapped the diamond in my cloak; why open it again and again?|Kabir
+kabir|The swan has taken its flight to the lake beyond the mountains;\nwhy should it search for the pools and ditches any more?\nYour Lord dwells within you: why need your outward eyes be opened?|Kabir
+kabir|How could the love between Thee and me sever?\nAs the leaf of the lotus abides on the water: so thou art my Lord, and I am Thy servant.|Kabir
+kabir|O friend, awake, and sleep no more!\nThe night is over and gone, would you lose your day also?|Kabir
+kabir|He is dear to me indeed who can call back the wanderer to his home. In the home is the true union, in the home is enjoyment of life: why should I forsake my home and wander in the forest?|Kabir
+kabir|Kabîr says: "The home is the abiding place; in the home is reality; the home helps to attain Him Who is real. So stay where you are, and all things shall come to you in time."|Kabir
+kabir|O sadhu! the simple union is the best. Since the day when I met with my Lord, there has been no end to the sport of our love.\nI shut not my eyes, I close not my ears, I do not mortify my body;\nI see with eyes open and smile, and behold His beauty everywhere.|Kabir
+kabir|The rising and the setting are one to me; all contradictions are solved.\nWherever I go, I move round Him,\nAll I achieve is His service:\nWhen I lie down, I lie prostrate at His feet.|Kabir
+kabir|There is nothing but water at the holy bathing places; and I know that they are useless, for I have bathed in them.\nThe images are all lifeless, they cannot speak; I know, for I have cried aloud to them.\nThe Purana and the Koran are mere words; lifting up the curtain, I have seen.|Kabir
+kabir|I laugh when I hear that the fish in the water is thirsty:\nYou do not see that the Real is in your home, and you wander from forest to forest listlessly!|Kabir
+kabir|Here is the truth! Go where you will, to Benares or to Mathura; if you do not find your soul, the world is unreal to you.|Kabir
+kabir|O sadhu! purify your body in the simple way.\nAs the seed is within the banyan tree, and within the seed are the flowers, the fruits, and the shade:\nSo the germ is within the body, and within that germ is the body again.|Kabir
+kabir|O, Kazi, O Pundit, consider it well: what is there that is not in the soul?|Kabir
+kabir|That which you see is not: and for that which is, you have no words.|Kabir
+kabir|Subtle is the path of love!\nTherein there is no asking and no not-asking,\nThere one loses one's self at His feet.|Kabir
+kabir|The flute of the Infinite is played without ceasing, and its sound is love:\nWhen love renounces all limits, it reaches truth.|Kabir
+kabir|When at last you are come to the ocean of happiness, do not go back thirsty.\nWake, foolish man! for Death stalks you. Here is pure water before you; drink it at every breath.|Kabir
+kabir|Who has ever taught the widowed wife to burn herself on the pyre of her dead husband?\nAnd who has ever taught love to find bliss in renunciation?|Kabir
+kabir|Why so impatient, my heart?\nHe who watches over birds, beasts, and insects,\nHe who cared for you whilst you were yet in your mother's womb,\nShall He not care for you now that you are come forth?|Kabir
+kabir|I do not know what manner of God is mine.\nThe Mullah cries aloud to Him: and why? Is your Lord deaf?|Kabir
+kabir|If God be within the mosque, then to whom does this world belong?\nIf Ram be within the image which you find upon your pilgrimage, then who is there to know what happens without?\nHari is in the East: Allah is in the West. Look within your heart, for there you will find both Karim and Ram;\nAll the men and women of the world are His living forms.|Kabir
+kabir|The jewel is lost in the mud, and all are seeking for it;\nSome look for it in the east, and some in the west; some in the water and some amongst stones.|Kabir
+kabir|The palanquin came to take me away to my husband's home, and it sent through my heart a thrill of joy.|Kabir
+kabir|O my heart! you have not known all the secrets of this city of love: in ignorance you came, and in ignorance you return.|Kabir
+kabir|We can reach the goal without crossing the road, such is the sport unending.|Kabir
+kabir|I am neither pious nor ungodly, I live neither by law nor by sense,\nI am neither a speaker nor hearer, I am neither a servant nor master, I am neither bond nor free,\nI am neither detached nor attached.\nI am far from none: I am near to none.\nI shall go neither to hell nor to heaven.|Kabir
+kabir|I have learned the Sanskrit language, so let all men call me wise:\nBut where is the use of this, when I am floating adrift, and parched with thirst, and burning with the heat of desire?|Kabir
+kabir|Kabîr says: "As you never may find the forest if you ignore the tree, so He may never be found in abstractions."|Kabir
+kabir|The Lord is in me, the Lord is in you, as life is in every seed.|Kabir
+kabir|Hark to the unstruck bells and drums! Take your delight in love!\nRains pour down without water, and the rivers are streams of light.|Kabir
+kabir|They are blind who hope to see it by the light of reason, that reason which is the cause of separation—|Kabir
+kabir|Look upon life and death; there is no separation between them,\nThe right hand and the left hand are one and the same.|Kabir
+kabir|Kabîr says: "Dive thou into that Ocean of sweetness: thus let all errors of life and of death flee away."|Kabir
+kabir|I speak truth, for I have accepted truth in life; I am now attached to truth, I have swept all tinsel away.|Kabir
+kabir|Where knowledge is, can ignorance endure?\nIf there be ignorance, then knowledge must die.\nIf there be lust, how can love be there? Where there is love, there is no lust.|Kabir
+kabir|Kabîr says: "The Guru is great beyond words, and great is the good fortune of the disciple."|Kabir
+kabir|Behold how the thirst of the five senses is quenched there!|Kabir
+kabir|There the sky is filled with music:\nThere it rains nectar.|Kabir
+kabir|There is a land where no doubt nor sorrow have rule: where the terror of Death is no more.|Kabir
+kabir|Mine eyes must perform the ceremony of the lamps of love.|Kabir
+kabir|He is the Mind within my mind: He is the Eye within mine eye.|Kabir
+ecclesiastes|Vanity of vanities, saith the Preacher, vanity of vanities; all is vanity.|Ecclesiastes
+ecclesiastes|What profit hath a man of all his labour which he taketh under the sun?|Ecclesiastes
+ecclesiastes|One generation passeth away, and another generation cometh: but the earth abideth for ever.|Ecclesiastes
+ecclesiastes|The thing that hath been, it is that which shall be; and that which is done is that which shall be done: and there is no new thing under the sun.|Ecclesiastes
+ecclesiastes|For in much wisdom is much grief: and he that increaseth knowledge increaseth sorrow.|Ecclesiastes
+ecclesiastes|To every thing there is a season, and a time to every purpose under the heaven.|Ecclesiastes
+ecclesiastes|A time to be born, and a time to die; a time to plant, and a time to pluck up that which is planted.|Ecclesiastes
+ecclesiastes|A time to weep, and a time to laugh; a time to mourn, and a time to dance.|Ecclesiastes
+ecclesiastes|A time to love, and a time to hate; a time of war, and a time of peace.|Ecclesiastes
+ecclesiastes|He hath made every thing beautiful in his time: also he hath set the world in their heart, so that no man can find out the work that God maketh from the beginning to the end.|Ecclesiastes
+ecclesiastes|For that which befalleth the sons of men befalleth beasts; even one thing befalleth them: as the one dieth, so dieth the other; yea, they have all one breath; so that a man hath no preeminence above a beast: for all is vanity.|Ecclesiastes
+ecclesiastes|All go unto one place; all are of the dust, and all turn to dust again.|Ecclesiastes
+ecclesiastes|Two are better than one; because they have a good reward for their labour.|Ecclesiastes
+ecclesiastes|For if they fall, the one will lift up his fellow: but woe to him that is alone when he falleth; for he hath not another to help him up.|Ecclesiastes
+ecclesiastes|Better is the end of a thing than the beginning thereof: and the patient in spirit is better than the proud in spirit.|Ecclesiastes
+ecclesiastes|Say not thou, What is the cause that the former days were better than these? for thou dost not enquire wisely concerning this.|Ecclesiastes
+ecclesiastes|It is better to go to the house of mourning, than to go to the house of feasting: for that is the end of all men; and the living will lay it to his heart.|Ecclesiastes
+ecclesiastes|Sorrow is better than laughter: for by the sadness of the countenance the heart is made better.|Ecclesiastes
+ecclesiastes|Be not righteous over much; neither make thyself over wise: why shouldest thou destroy thyself?|Ecclesiastes
+ecclesiastes|Whatsoever thy hand findeth to do, do it with thy might; for there is no work, nor device, nor knowledge, nor wisdom, in the grave, whither thou goest.|Ecclesiastes
+ecclesiastes|Cast thy bread upon the waters: for thou shalt find it after many days.|Ecclesiastes
+ecclesiastes|He that observeth the wind shall not sow; and he that regardeth the clouds shall not reap.|Ecclesiastes
+ecclesiastes|In the morning sow thy seed, and in the evening withhold not thine hand: for thou knowest not whether shall prosper, either this or that, or whether they both shall be alike good.|Ecclesiastes
+ecclesiastes|Truly the light is sweet, and a pleasant thing it is for the eyes to behold the sun.|Ecclesiastes
+ecclesiastes|Remember now thy Creator in the days of thy youth, while the evil days come not, nor the years draw nigh, when thou shalt say, I have no pleasure in them.|Ecclesiastes
+ecclesiastes|Then shall the dust return to the earth as it was: and the spirit shall return unto God who gave it.|Ecclesiastes
+ecclesiastes|He cometh forth like a flower, and is cut down: he fleeth also as a shadow, and continueth not.|Book of Job
+ecclesiastes|For there is hope of a tree, if it be cut down, that it will sprout again, and that the tender branch thereof will not cease.|Book of Job
+ecclesiastes|If a man die, shall he live again? all the days of my appointed time will I wait, till my change come.|Book of Job
+ecclesiastes|Where wast thou when I laid the foundations of the earth? declare, if thou hast understanding.|Book of Job
+ecclesiastes|When the morning stars sang together, and all the sons of God shouted for joy?|Book of Job
+ecclesiastes|Hast thou entered into the springs of the sea? or hast thou walked in the search of the depth?|Book of Job
+ecclesiastes|But where shall wisdom be found? and where is the place of understanding?|Book of Job
+ecclesiastes|I know that my redeemer liveth, and that he shall stand at the latter day upon the earth.|Book of Job
+ecclesiastes|Great men are not always wise: neither do the aged understand judgment.|Book of Job
+zhuangzi|Once upon a time, I, Chuang Tzŭ, dreamt I was a butterfly, fluttering hither and thither, to all intents and purposes a butterfly. I was conscious only of following my fancies as a butterfly, and was unconscious of my individuality as a man. Suddenly, I awaked, and there I lay, myself again. Now I do not know whether I was then a man dreaming I was a butterfly, or whether I am now a butterfly dreaming I am a man.|Zhuangzi
+zhuangzi|While they dream, they do not know that they dream. Some will even interpret the very dream they are dreaming; and only when they awake do they know it was a dream. By and by comes the Great Awakening, and then we find out that this life is really a great dream.|Zhuangzi
+zhuangzi|The Master came, because it was his time to be born; he went, because it was his time to die. For those who accept the phenomenon of birth and death in this sense, lamentation and sorrow have no place.|Zhuangzi
+zhuangzi|Fulness and decay are the inevitable precursors of each other. He who clearly apprehends the scheme of existence, does not rejoice over life, nor repine at death; for he knows that terms are not final. Life and death are but links in an endless chain.|Zhuangzi
+zhuangzi|The foot treads the ground in walking; nevertheless it is the ground not trodden on which makes up the good walk. A man's knowledge is limited; but it is upon what he does not know that he depends to extend his knowledge to the apprehension of God.|Zhuangzi
+zhuangzi|To serve one's own heart so as to permit neither joy nor sorrow within, but to cultivate resignation to the inevitable,—this is the climax of Virtue.|Zhuangzi
+zhuangzi|Small knowledge has not the compass of great knowledge any more than a short year has the length of a long year.|Zhuangzi
+zhuangzi|Therefore that knowledge which stops at what it does not know, is the highest knowledge.|Zhuangzi
+zhuangzi|Who can say whether what we call death may not after all be life, and life death?|Zhuangzi
+zhuangzi|Let there be absolute repose and absolute purity; do not weary your body nor disturb your vitality,—and you will live for ever.|Zhuangzi
+melville|Call me Ishmael.|Herman Melville
+melville|Whenever I find myself growing grim about the mouth; whenever it is a damp, drizzly November in my soul; whenever I find myself involuntarily pausing before coffin warehouses, and bringing up the rear of every funeral I meet; and especially whenever my hypos get such an upper hand of me, that it requires a strong moral principle to prevent me from deliberately stepping into the street, and methodically knocking people's hats off—then, I account it high time to get to sea as soon as I can.|Herman Melville
+melville|To produce a mighty book, you must choose a mighty theme.|Herman Melville
+melville|Better sleep with a sober cannibal than a drunken Christian.|Herman Melville
+melville|There is a wisdom that is woe; but there is a woe that is madness.|Herman Melville
+melville|Talk not to me of blasphemy, man; I'd strike the sun if it insulted me.|Herman Melville
+melville|All visible objects, man, are but as pasteboard masks.|Herman Melville
+melville|Consider the subtleness of the sea; how its most dreaded creatures glide under water, unapparent for the most part, and treacherously hidden beneath the loveliest tints of azure.|Herman Melville
+melville|Who ain't a slave? Tell me that.|Herman Melville
+melville|Though in many of its aspects this visible world seems formed in love, the invisible spheres were formed in fright.|Herman Melville
+melville|We cannibals must help these Christians.|Herman Melville
+melville|Heaven have mercy on us all—Presbyterians and Pagans alike—for we are all somehow dreadfully cracked about the head, and sadly need mending.|Herman Melville
+melville|It is not down in any map; true places never are.|Herman Melville
+melville|Yes, as every one knows, meditation and water are wedded for ever.|Herman Melville
+melville|It's a mutual, joint-stock world, in all meridians. We cannibals must help these Christians.|Herman Melville
+melville|Towards thee I roll, thou all-destroying but unconquering whale; to the last I grapple with thee; from hell's heart I stab at thee; for hate's sake I spit my last breath at thee.|Herman Melville
+turgenev|How empty, dull, and useless is almost every day when it is spent! How few the traces it leaves behind it! How meaningless, how foolish those hours as they coursed by one after another! And yet it is man's wish to exist; he prizes life, he rests hopes on it, on himself, on the future... Oh, what blessings he looks for from the future! But why does he imagine that other coming days will not be like this day he has just lived through? Nay, he does not even imagine it. He likes not to think at all, and he does well. 'Ah, to-morrow, to-morrow!' he comforts himself, till 'to-morrow' pitches him into the grave. Well, and once in the grave, thou hast no choice, thou doest no more thinking.|Ivan Turgenev
+turgenev|‘What of it, brother?’ he mumbled; ‘thanks for this, too. That is a gift too, brother.’ I knew that I too had received a gift from my brother.|Ivan Turgenev
+turgenev|I understand that at this instant there is living in him and in me the same feeling, that there is no difference between us. We are the same; in each of us there burns and shines the same trembling spark.|Ivan Turgenev
+turgenev|No! We are not beast and man that glance at one another.... They are the eyes of equals, those eyes riveted on one another.|Ivan Turgenev
+turgenev|‘Beat me! but listen!’ said the Athenian leader to the Spartan. ‘Beat me! but be healthy and fed!’ we ought to say.|Ivan Turgenev
+turgenev|Let us try only that what we bring should be really good food.|Ivan Turgenev
+turgenev|Nature's not a temple, but a workshop, and man's the workman in it.|Ivan Turgenev
+chekhov|The higher a man has climbed in mental and moral development the freer he is, the greater satisfaction he draws from life.|Anton Chekhov
+chekhov|It is possible for a man to live his own life, to keep silent for ten years, to be reticent with his own wife and friends, and then some day suddenly he meets a cadet in a railway carriage, and reveals to him his whole soul.|Anton Chekhov
+chekhov|Think more, and you will realise how trifling are all the things which now excite you.|Anton Chekhov
+chekhov|We shall live through the long procession of days before us, and through the long evenings; we shall patiently bear the trials that fate imposes on us; we shall work for others without rest, both now and when we are old; and when our last hour comes we shall meet it humbly, and there, beyond the grave, we shall say that we have suffered and wept, that our life was bitter, and God will have pity on us.|Anton Chekhov
+chekhov|We shall hear the angels. We shall see heaven shining like a jewel. We shall see all evil and all our pain sink away in the great compassion that shall enfold the world. Our life will be as peaceful and tender and sweet as a caress.|Anton Chekhov
