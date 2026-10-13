@@ -108,6 +108,8 @@ private fun QuotesScreen(prefs: QuotePrefs, repo: QuoteRepository) {
     var quoteColor by remember { mutableStateOf(prefs.textColor) }
     var hex by rememberSaveable { mutableStateOf("") }
     var categories by remember { mutableStateOf(prefs.enabledCategories) }
+    var query by rememberSaveable { mutableStateOf("") }
+    var expandedGroups by rememberSaveable(stateSaver = androidx.compose.runtime.saveable.listSaver<Set<String>, String>(save = { it.toList() }, restore = { it.toSet() })) { mutableStateOf(setOf(QuoteGroup.THEME.name)) }
     var current by remember { mutableStateOf(repo.current()) }
     var custom by remember { mutableStateOf(repo.custom()) }
     var newText by rememberSaveable { mutableStateOf("") }
@@ -185,6 +187,13 @@ private fun QuotesScreen(prefs: QuotePrefs, repo: QuoteRepository) {
         categories = if (on) categories + category else categories - category
         prefs.enabledCategories = categories
         // Swap out a quote that no longer belongs to a selected category.
+        val shown = current
+        if (shown == null || repo.pool().none { it.text == shown.text }) nextQuote()
+    }
+
+    fun setCategories(list: List<Category>, on: Boolean) {
+        categories = if (on) categories + list else categories - list.toSet()
+        prefs.enabledCategories = categories
         val shown = current
         if (shown == null || repo.pool().none { it.text == shown.text }) nextQuote()
     }
@@ -280,31 +289,70 @@ private fun QuotesScreen(prefs: QuotePrefs, repo: QuoteRepository) {
                 }
             }
 
+            item(key = "type-search") {
+                OutlinedTextField(
+                    value = query,
+                    onValueChange = { query = it },
+                    modifier = Modifier.fillMaxWidth(),
+                    singleLine = true,
+                    label = { Text("Search authors and types") },
+                )
+            }
+
             QuoteGroup.entries.forEach { group ->
+                val inGroup = Category.entries.filter { it.group == group }
+                val shown = inGroup.filter { query.isBlank() || it.label.contains(query.trim(), ignoreCase = true) }
+                if (shown.isEmpty()) return@forEach
+                val open = query.isNotBlank() || group == QuoteGroup.MINE || group.name in expandedGroups
+                val onCount = inGroup.count { it in categories }
                 item(key = "group-${group.name}") {
-                    Text(
-                        group.title,
-                        style = MaterialTheme.typography.labelLarge,
-                        modifier = Modifier.padding(top = 8.dp),
-                    )
-                }
-                items(Category.entries.filter { it.group == group }, key = { it.key }) { category ->
                     Row(
-                        modifier = Modifier.fillMaxWidth(),
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .clickable(enabled = query.isBlank() && group != QuoteGroup.MINE) {
+                                expandedGroups = if (group.name in expandedGroups) expandedGroups - group.name else expandedGroups + group.name
+                            }
+                            .padding(top = 8.dp),
                         horizontalArrangement = Arrangement.SpaceBetween,
                         verticalAlignment = Alignment.CenterVertically,
                     ) {
                         Column(Modifier.weight(1f)) {
-                            Text(category.label)
+                            Text(group.title, style = MaterialTheme.typography.labelLarge)
                             Text(
-                                "${countOf(category)} quotes",
+                                "$onCount of ${inGroup.size} on",
                                 style = MaterialTheme.typography.bodySmall,
                             )
                         }
-                        Switch(
-                            checked = category in categories,
-                            onCheckedChange = { toggleCategory(category, it) },
-                        )
+                        if (group != QuoteGroup.MINE) Text(if (open) "\u25BE" else "\u25B8")
+                    }
+                }
+                if (open) {
+                    if (group != QuoteGroup.MINE) {
+                        item(key = "bulk-${group.name}") {
+                            Row(horizontalArrangement = Arrangement.spacedBy(4.dp)) {
+                                TextButton(onClick = { setCategories(shown, true) }) { Text("All on") }
+                                TextButton(onClick = { setCategories(shown, false) }) { Text("All off") }
+                            }
+                        }
+                    }
+                    items(shown, key = { it.key }) { category ->
+                        Row(
+                            modifier = Modifier.fillMaxWidth(),
+                            horizontalArrangement = Arrangement.SpaceBetween,
+                            verticalAlignment = Alignment.CenterVertically,
+                        ) {
+                            Column(Modifier.weight(1f)) {
+                                Text(category.label)
+                                Text(
+                                    "${countOf(category)} quotes",
+                                    style = MaterialTheme.typography.bodySmall,
+                                )
+                            }
+                            Switch(
+                                checked = category in categories,
+                                onCheckedChange = { toggleCategory(category, it) },
+                            )
+                        }
                     }
                 }
             }

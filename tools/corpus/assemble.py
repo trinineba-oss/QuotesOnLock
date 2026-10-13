@@ -23,10 +23,10 @@ for c,t,a in rows:
     k=re.sub(r'\W+','',t.lower())
     if k in seen: print('DUP',t[:50]); continue
     seen.add(k); final.append((c,t,a))
-order=['motivation','thought','stoic','kindness','gibran','rilke','nietzsche','dostoevsky','tolstoy','kafka','plato','laotzu','kierkegaard','camus','hesse','confucius','dhammapada','rumi','khayyam','suntzu','tagore','einstein','murakami','shakespeare','whitman','dickinson','blake','leopardi','baudelaire','gita','upanishads','frankl','pessoa','borges','cioran','weil','neruda','oliver','szymborska','kundera','sartre','kabir','ecclesiastes','zhuangzi','melville','turgenev','chekhov']
+order=['motivation','thought','stoic','kindness','gibran','rilke','nietzsche','dostoevsky','tolstoy','kafka','plato','laotzu','kierkegaard','camus','hesse','confucius','dhammapada','rumi','khayyam','suntzu','tagore','einstein','murakami','shakespeare','whitman','dickinson','blake','leopardi','baudelaire','gita','upanishads','frankl','pessoa','borges','cioran','weil','neruda','oliver','szymborska','kundera','sartre','kabir','ecclesiastes','zhuangzi','melville','turgenev','chekhov','quran']
 final.sort(key=lambda r:order.index(r[0]))
 cnt=collections.Counter(c for c,_,_ in final); print(cnt,sum(cnt.values()))
 with open(BASE+'out/quotes_final.txt','w',encoding='utf-8') as f:
     f.write("# One quote per line: category|text|author   (a literal \\n in the text is a line break)\n")
-    f.write("# Categories: motivation, thought, stoic, kindness, gibran, rilke, nietzsche, dostoevsky, tolstoy, kafka, plato, laotzu, kierkegaard, camus, hesse, confucius, dhammapada, rumi, khayyam, suntzu, tagore, einstein, murakami, shakespeare, whitman, dickinson, blake, leopardi, baudelaire, gita, upanishads, frankl, pessoa, borges, cioran, weil, neruda, oliver, szymborska, kundera, sartre, kabir, ecclesiastes, zhuangzi, melville, turgenev, chekhov\n")
+    f.write("# Categories: motivation, thought, stoic, kindness, gibran, rilke, nietzsche, dostoevsky, tolstoy, kafka, plato, laotzu, kierkegaard, camus, hesse, confucius, dhammapada, rumi, khayyam, suntzu, tagore, einstein, murakami, shakespeare, whitman, dickinson, blake, leopardi, baudelaire, gita, upanishads, frankl, pessoa, borges, cioran, weil, neruda, oliver, szymborska, kundera, sartre, kabir, ecclesiastes, zhuangzi, melville, turgenev, chekhov, quran\n")
     for c,t,a in final: f.write(f"{c}|{t}|{a}\n")

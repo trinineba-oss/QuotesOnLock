@@ -51,6 +51,7 @@ editions below, or a translation made for this app and labelled `(tr. Claude)`.
 | The Upanishads | The Upanishads, Parts 1 and 2 | F. Max Müller (Sacred Books of the East, 1879 and 1884) | archive.org scans of the SBE volumes |
 | Kabir | Songs of Kabir | Rabindranath Tagore (1915) | Project Gutenberg #6519 |
 | Ecclesiastes and Job | King James Version | 1611 text | Project Gutenberg #10 |
+| The Qur'an | The Meaning of the Glorious Koran | Marmaduke Pickthall (1930), text from Tanzil.net (Tanzil's terms: the translation text is reproduced unmodified and credited) | tanzil.net/trans/en.pickthall |
 | Zhuangzi | Chuang Tzu: Mystic, Moralist, and Social Reformer | Herbert A. Giles (1889) | Project Gutenberg #59709 |
 | Herman Melville | Moby-Dick | original English | Project Gutenberg #2701 |
 | Ivan Turgenev | Fathers and Children; Dream Tales and Prose Poems | Constance Garnett | Project Gutenberg #30723, #8935 |
@@ -78,6 +79,10 @@ are short excerpts; if you spot a mistake, please open an issue.
 ### Einstein
 
 Einstein's own writings are still in copyright, and many "Einstein quotes" online are misattributed. The ones included here are lines with a documented source (his essays, letters and interviews, e.g. *The World As I See It*, the 1929 *Saturday Evening Post* interview, his 1950 letter on the "circle of compassion", his letter to Born), taken from the most-liked Goodreads entries where those match the documented wording and written out from the standard published wording otherwise. Translated passages follow the commonly cited English renderings; they may differ slightly from your edition.
+
+### The Qur'an
+
+Verses are quoted whole and unaltered from Pickthall's 1930 English translation, each labelled with its sura and verse number. Pickthall's English is formal and archaic ("ye", "Thee"); words in parentheses are his own interpolations. I chose verses on patience, justice, mercy, remembrance, hardship and ease, death, and humility; they are given as literature and wisdom in the same spirit as the other scriptures here, not as religious instruction.
 
 Legge's (Tao Teh King, Analects), Müller's and Giles's parentheses mark words the translators supplied; the app drops those marks and otherwise keeps their wording. FitzGerald's *Rubaiyat* is a free English re-creation rather than a literal translation, and Hastie's Rumi poems are free versions made via Rückert's German, so they are looser than the originals.
 
