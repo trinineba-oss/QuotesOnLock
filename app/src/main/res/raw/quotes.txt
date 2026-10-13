@@ -1,5 +1,5 @@
 # One quote per line: category|text|author   (a literal \n in the text is a line break)
-# Categories: motivation, thought, stoic, kindness, gibran, rilke, nietzsche, dostoevsky, tolstoy, kafka, plato, laotzu, kierkegaard, camus, hesse, confucius, dhammapada, rumi, khayyam, suntzu, tagore, einstein
+# Categories: motivation, thought, stoic, kindness, gibran, rilke, nietzsche, dostoevsky, tolstoy, kafka, plato, laotzu, kierkegaard, camus, hesse, confucius, dhammapada, rumi, khayyam, suntzu, tagore, einstein, murakami
 motivation|A journey of a thousand miles begins with a single step.|Lao Tzu
 motivation|It does not matter how slowly you go as long as you do not stop.|Confucius
 motivation|Nothing great was ever achieved without enthusiasm.|Ralph Waldo Emerson
@@ -1879,3 +1879,33 @@ einstein|For us believing physicists, the distinction between past, present and 
 einstein|The man who regards his own life and that of his fellow-creatures as meaningless is not merely unfortunate but almost disqualified for life.|Albert Einstein
 einstein|Strange is our situation here upon earth. Each of us comes for a short visit, not knowing why, yet sometimes seeming to divine a purpose.|Albert Einstein
 einstein|Quantum mechanics is very impressive. But an inner voice tells me that it is not yet the real thing. I, at any rate, am convinced that He does not throw dice.|Albert Einstein
+murakami|If you only read the books that everyone else is reading, you can only think what everyone else is thinking.|Haruki Murakami
+murakami|Memories warm you up from the inside. But they also tear you apart.|Haruki Murakami
+murakami|Pain is inevitable. Suffering is optional.|Haruki Murakami
+murakami|Why do people have to be this lonely? What's the point of it all? Millions of people in this world, all of them yearning, looking to others to satisfy them, yet isolating themselves. Why? Was the earth put here just to nourish human loneliness?|Haruki Murakami
+murakami|Sometimes when I look at you, I feel I'm gazing at a distant star. It's dazzling, but the light is from tens of thousands of years ago.Maybe the star doesn't even exist any more. Yet sometimes that light seems more real to me than anything.|Haruki Murakami
+murakami|It's like Tolstoy said. Happiness is an allegory, unhappiness a story.|Haruki Murakami
+murakami|Anyone who falls in love is searching for the missing pieces of themselves. So anyone who's in love gets sad when they think of their lover. It's like stepping back inside a room you have fond memories of, one you haven't seen in a long time.|Haruki Murakami
+murakami|Silence, I discover, is something you can actually hear.|Haruki Murakami
+murakami|Unfortunately, the clock is ticking, the hours are going by. The past increases, the future recedes. Possibilities decreasing, regrets mounting.|Haruki Murakami
+murakami|Every one of us is losing something precious to us. Lost opportunities, lost possibilities, feelings we can never get back again. That's part of what it means to be alive.|Haruki Murakami
+murakami|Death is not the opposite of life, but a part of it.|Haruki Murakami
+murakami|I sometimes think that people's hearts are like deep wells. Nobody knows what's at the bottom. All you can do is imagine by what comes floating to the surface every once in a while.|Haruki Murakami
+murakami|In everybody's life there's a point of no return. And in a very few cases, a point where you can't go forward anymore. And when we reach that point, all we can do is quietly accept the fact. That's how we survive.|Haruki Murakami
+murakami|I can bear any pain as long as it has meaning.|Haruki Murakami
+murakami|In this world, there are things you can only do alone, and things you can only do with somebody else. It's important to combine the two in just the right amount.|Haruki Murakami
+murakami|No truth can cure the sorrow we feel from losing a loved one. No truth, no sincerity, no strength, no kindness can cure that sorrow. All we can do is see it through to the end and learn something from it, but what we learn will be no help in facing the next sorrow that comes to us without warning.|Haruki Murakami
+murakami|Burn them, and what stays in your heart will stay; keep them, and what vanishes will vanish.|Haruki Murakami
+murakami|As time goes on, you'll understand. What lasts, lasts; what doesn't, doesn't. Time solves most things. And what time can't solve, you have to solve yourself.|Haruki Murakami
+murakami|The most important thing we learn at school is the fact that the most important things can't be learned at school.|Haruki Murakami
+murakami|Narrow minds devoid of imagination. Intolerance, theories cut off from reality, empty terminology, usurped ideals, inflexible systems. Those are the things that really frighten me. What I absolutely fear and loathe.|Haruki Murakami
+murakami|That's what the world is, after all: an endless battle of contrasting memories.|Haruki Murakami
+murakami|A certain type of perfection can only be realized through a limitless accumulation of the imperfect.|Haruki Murakami
+murakami|It is not that the meaning cannot be explained. But there are certain meanings that are lost forever the moment they are explained in words.|Haruki Murakami
+murakami|Memories and thoughts age, just as people do. But certain thoughts can never age, and certain memories can never fade.|Haruki Murakami
+murakami|Time weighs down on you like an old, ambiguous dream. You keep on moving, trying to sleep through it. But even if you go to the ends of the earth, you won't be able to escape it. Still, you have to go there- to the edge of the world. There's something you can't do unless you get there.|Haruki Murakami
+murakami|You can hide memories, but you can't erase the history that produced them.|Haruki Murakami
+murakami|If you can't understand it without an explanation, you can't understand it with an explanation.|Haruki Murakami
+murakami|People leave strange little memories of themselves behind when they die.|Haruki Murakami
+murakami|Taking crazy things seriously is a serious waste of time.|Haruki Murakami
+murakami|Despite your best efforts, people are going to be hurt when it's time for them to be hurt.|Haruki Murakami

@@ -30,6 +30,7 @@ enum class Category(val key: String, val label: String, val group: QuoteGroup) {
     SUN_TZU("suntzu", "Sun Tzu", QuoteGroup.AUTHOR),
     TAGORE("tagore", "Rabindranath Tagore", QuoteGroup.AUTHOR),
     EINSTEIN("einstein", "Albert Einstein", QuoteGroup.AUTHOR),
+    MURAKAMI("murakami", "Haruki Murakami", QuoteGroup.AUTHOR),
     CUSTOM("custom", "My own quotes", QuoteGroup.MINE);
 
     companion object {
