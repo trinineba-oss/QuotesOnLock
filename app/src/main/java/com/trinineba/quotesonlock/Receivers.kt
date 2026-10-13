@@ -22,6 +22,14 @@ class PreviousQuoteReceiver : BroadcastReceiver() {
     }
 }
 
+/** Handles the "Copy" button on the notification. */
+class CopyQuoteReceiver : BroadcastReceiver() {
+    override fun onReceive(context: Context, intent: Intent) {
+        val quote = QuoteRepository(context, QuotePrefs(context)).current() ?: return
+        QuoteClipboard.copy(context, quote)
+    }
+}
+
 /** Notifications don't survive a reboot, so put the current quote back. */
 class BootReceiver : BroadcastReceiver() {
     override fun onReceive(context: Context, intent: Intent) {

@@ -58,6 +58,7 @@ enum class Category(val key: String, val label: String, val group: QuoteGroup) {
     MELVILLE("melville", "Herman Melville", QuoteGroup.WRITERS),
     TURGENEV("turgenev", "Ivan Turgenev", QuoteGroup.WRITERS),
     CHEKHOV("chekhov", "Anton Chekhov", QuoteGroup.WRITERS),
+    DANTE("dante", "Dante Alighieri", QuoteGroup.POETS),
     QURAN("quran", "The Qur'an", QuoteGroup.SCRIPTURE),
     CUSTOM("custom", "My own quotes", QuoteGroup.MINE);
 

@@ -265,6 +265,7 @@ private fun QuotesScreen(prefs: QuotePrefs, repo: QuoteRepository) {
                             OutlinedButton(onClick = { previousQuote() }, enabled = canGoBack) { Text("Previous") }
                             Button(onClick = { nextQuote() }) { Text("Next quote") }
                         }
+                        OutlinedButton(onClick = { quote?.let { QuoteClipboard.copy(context, it) } }, enabled = quote != null) { Text("Copy quote") }
                     }
                 }
             }

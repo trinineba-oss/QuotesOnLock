@@ -17,7 +17,7 @@ editions below, or a translation made for this app and labelled `(tr. Claude)`.
 | Friedrich Nietzsche | Twilight of the Idols, The Antichrist, notes on Eternal Recurrence | Anthony M. Ludovici | Project Gutenberg #52263 |
 | Friedrich Nietzsche | Ecce Homo | Paul V. Cohn | Project Gutenberg #52190 |
 | Friedrich Nietzsche | The Dawn of Day | J. M. Kennedy | Project Gutenberg #39955 |
-| Fyodor Dostoevsky | The Brothers Karamazov; Crime and Punishment; Notes from Underground | Constance Garnett | Project Gutenberg #28054, #2554, #600 |
+| Fyodor Dostoevsky | The Brothers Karamazov; Crime and Punishment; Notes from Underground; The Idiot; The Possessed; The House of the Dead; White Nights and other tales | Constance Garnett and others | Project Gutenberg #28054, #2554, #600, #2638, #8117 |
 | Leo Tolstoy | Anna Karenina | Constance Garnett | Project Gutenberg #1399 |
 | Leo Tolstoy | War and Peace; Three Questions (in What Men Live By); What Is Art? | Aylmer Maude | Project Gutenberg #2600, #6157, #64908 |
 | Leo Tolstoy | The Kingdom of God Is Within You | Constance Garnett | Project Gutenberg #43302 |
@@ -32,7 +32,7 @@ editions below, or a translation made for this app and labelled `(tr. Claude)`.
 | Franz Kafka | The Trial; The Metamorphosis | David Wyllie | Project Gutenberg #7849, #5200 |
 | Franz Kafka | Betrachtungen über Sünde, Leid, Hoffnung und den wahren Weg (the Zürau Aphorisms, 1917–18) | German original, **translated for this app** | German Wikisource |
 | Franz Kafka | Betrachtung (Contemplation) | German original, **translated for this app** | Project Gutenberg #23532 |
-| Plato | Apology; Phaedo; Symposium; Phaedrus; Republic; Meno; Theaetetus; Gorgias | Benjamin Jowett | Project Gutenberg #1656, #1658, #1600, #1636, #1497, #1643, #1726, #1672 |
+| Plato | Apology; Phaedo; Symposium; Phaedrus; Republic; Meno; Theaetetus; Gorgias; Timaeus; Laws; Protagoras and others | Benjamin Jowett | Project Gutenberg #1656, #1658, #1600, #1636, #1497, #1643, #1726, #1672, #1572, #1750, #1591 |
 | Lao Tzu | Tao Teh King | James Legge (1891) | Project Gutenberg #216 |
 | Søren Kierkegaard | Selections from the Writings of Kierkegaard | Lee M. Hollander (1923) | Project Gutenberg #60333 |
 | Confucius | The Analects | James Legge | Project Gutenberg #3330 |
@@ -52,10 +52,11 @@ editions below, or a translation made for this app and labelled `(tr. Claude)`.
 | Kabir | Songs of Kabir | Rabindranath Tagore (1915) | Project Gutenberg #6519 |
 | Ecclesiastes and Job | King James Version | 1611 text | Project Gutenberg #10 |
 | The Qur'an | The Meaning of the Glorious Koran | Marmaduke Pickthall (1930), text from Tanzil.net (Tanzil's terms: the translation text is reproduced unmodified and credited) | tanzil.net/trans/en.pickthall |
-| Zhuangzi | Chuang Tzu: Mystic, Moralist, and Social Reformer | Herbert A. Giles (1889) | Project Gutenberg #59709 |
-| Herman Melville | Moby-Dick | original English | Project Gutenberg #2701 |
-| Ivan Turgenev | Fathers and Children; Dream Tales and Prose Poems | Constance Garnett | Project Gutenberg #30723, #8935 |
-| Anton Chekhov | The Lady with the Dog and Other Stories; The Black Monk and Other Stories; Uncle Vanya | Constance Garnett and others | Project Gutenberg #13415, #55307, #1756 |
+| Zhuangzi | Chuang Tzu: Mystic, Moralist, and Social Reformer (Giles, 1889); The Writings of Kwang-dze, Sacred Books of the East vols. 39–40 (James Legge, 1891) | Herbert A. Giles; James Legge | Project Gutenberg #59709; archive.org (wg939, wg940) |
+| Herman Melville | Moby-Dick; Pierre; Bartleby and other tales; Mardi; The Confidence-Man | original English | Project Gutenberg #2701, #11231, #76513, #15859, #12841 |
+| Ivan Turgenev | Fathers and Children; Dream Tales and Prose Poems; A Sportsman's Sketches; Rudin; On the Eve; Smoke and others | Constance Garnett | Project Gutenberg #30723, #8935, #8597, #8744, #6900, #6902, #9911, #9615 |
+| Anton Chekhov | The Lady with the Dog and Other Stories; The Black Monk and Other Stories; The Wife and Other Stories; The Schoolmistress; Uncle Vanya and other plays | Constance Garnett and others | Project Gutenberg #1883, #13415, #13409, #13505, #13414, #55307, #7986, #1756 |
+| Dante Alighieri | The Divine Comedy (Inferno, Purgatorio, Paradiso) | Henry Wadsworth Longfellow (1867) | Project Gutenberg #1004 |
 | Rumi | The Persian Mystics: Jalálu'd-dín Rúmí (selections from the Dīvān and the Masnavi) | R. A. Nicholson (Dīvān) and E. H. Whinfield (Masnavi), as printed in F. Hadland Davis's 1907 anthology | Project Gutenberg #45159 |
 
 The themed quotes (Motivation, Thought-provoking, Stoic & ancient wisdom, Kindness & hope) are short, widely

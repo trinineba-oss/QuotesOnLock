@@ -43,6 +43,13 @@ object QuoteNotifier {
             PendingIntent.FLAG_IMMUTABLE or PendingIntent.FLAG_UPDATE_CURRENT,
         )
 
+        val copy = PendingIntent.getBroadcast(
+            appContext,
+            3,
+            Intent(appContext, CopyQuoteReceiver::class.java),
+            PendingIntent.FLAG_IMMUTABLE or PendingIntent.FLAG_UPDATE_CURRENT,
+        )
+
         val prefs = QuotePrefs(appContext)
         val style = prefs.style
         val builder = NotificationCompat.Builder(appContext, CHANNEL_ID)
@@ -61,6 +68,7 @@ object QuoteNotifier {
         if (QuoteRepository(appContext, prefs).hasPrevious()) {
             builder.addAction(0, appContext.getString(R.string.action_previous), previous)
         }
+        builder.addAction(0, appContext.getString(R.string.action_copy), copy)
         builder.addAction(0, appContext.getString(R.string.action_next), next)
         manager.notify(NOTIFICATION_ID, builder.build())
     }
