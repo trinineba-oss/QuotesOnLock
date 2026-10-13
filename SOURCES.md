@@ -41,6 +41,7 @@ editions below, or a translation made for this app and labelled `(tr. Claude)`.
 | Omar Khayyam | Rubaiyat (fifth edition) | Edward FitzGerald (1859) | Project Gutenberg #246 |
 | Rumi | The Festival of Spring, from the Díván of Jeláleddín | William Hastie (1903), English renderings after Friedrich Rückert's German versions | Project Gutenberg #57068 |
 | Rabindranath Tagore | Stray Birds; Gitanjali; The Gardener; Fruit-Gathering; Sadhana | the author's own English versions (1912–1916) | Project Gutenberg #6524, #7164, #6686, #6522, #6842 |
+| William Shakespeare | Plays (Hamlet, Macbeth, The Tempest, A Midsummer Night's Dream, As You Like It, The Merchant of Venice, Romeo and Juliet, Twelfth Night, King Lear, Othello, Julius Caesar, Henry V, Cymbeline, Antony and Cleopatra, Measure for Measure) and the Sonnets | original English, as in the Project Gutenberg Complete Works | Project Gutenberg #100 |
 | Rumi | The Persian Mystics: Jalálu'd-dín Rúmí (selections from the Dīvān and the Masnavi) | R. A. Nicholson (Dīvān) and E. H. Whinfield (Masnavi), as printed in F. Hadland Davis's 1907 anthology | Project Gutenberg #45159 |
 
 The themed quotes (Motivation, Thought-provoking, Stoic & ancient wisdom, Kindness & hope) are short, widely
