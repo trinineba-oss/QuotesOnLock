@@ -2,7 +2,7 @@
 
 An Android app that keeps a quotation on your lock screen.
 
-Android doesn't let normal apps draw on the lock screen, so the app posts the quote as a silent, ongoing notification with public lock-screen visibility. It rotates on a schedule you choose, and the notification has a **Next quote** button.
+Android doesn't let normal apps draw on the lock screen, so the app posts the quote as a silent, ongoing notification with public lock-screen visibility. It rotates on a schedule you choose, and the notification has **Previous** and **Next quote** buttons (Previous steps back through the last 50 quotes shown).
 
 ## Features
 
