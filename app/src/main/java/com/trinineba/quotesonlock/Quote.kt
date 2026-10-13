@@ -28,6 +28,8 @@ enum class Category(val key: String, val label: String, val group: QuoteGroup) {
     RUMI("rumi", "Rumi", QuoteGroup.AUTHOR),
     KHAYYAM("khayyam", "Omar Khayyam", QuoteGroup.AUTHOR),
     SUN_TZU("suntzu", "Sun Tzu", QuoteGroup.AUTHOR),
+    TAGORE("tagore", "Rabindranath Tagore", QuoteGroup.AUTHOR),
+    EINSTEIN("einstein", "Albert Einstein", QuoteGroup.AUTHOR),
     CUSTOM("custom", "My own quotes", QuoteGroup.MINE);
 
     companion object {

@@ -40,6 +40,7 @@ editions below, or a translation made for this app and labelled `(tr. Claude)`.
 | Sun Tzu | The Art of War | Lionel Giles (1910) | Project Gutenberg #17405 |
 | Omar Khayyam | Rubaiyat (fifth edition) | Edward FitzGerald (1859) | Project Gutenberg #246 |
 | Rumi | The Festival of Spring, from the Díván of Jeláleddín | William Hastie (1903), English renderings after Friedrich Rückert's German versions | Project Gutenberg #57068 |
+| Rabindranath Tagore | Stray Birds; Gitanjali; The Gardener; Fruit-Gathering; Sadhana | the author's own English versions (1912–1916) | Project Gutenberg #6524, #7164, #6686, #6522, #6842 |
 | Rumi | The Persian Mystics: Jalálu'd-dín Rúmí (selections from the Dīvān and the Masnavi) | R. A. Nicholson (Dīvān) and E. H. Whinfield (Masnavi), as printed in F. Hadland Davis's 1907 anthology | Project Gutenberg #45159 |
 
 The themed quotes (Motivation, Thought-provoking, Stoic & ancient wisdom, Kindness & hope) are short, widely
@@ -59,6 +60,10 @@ recognise as really being theirs (Goodreads quotes are typed in by readers and a
 mangled; many of the top "Camus" and "Hesse" quotes there were dropped for that reason). The wording is that of
 whichever published English translation the reader copied from, so it can differ slightly from your edition. These
 are short excerpts; if you spot a mistake, please open an issue.
+
+### Einstein
+
+Einstein's own writings are still in copyright, and many "Einstein quotes" online are misattributed. The ones included here are lines with a documented source (his essays, letters and interviews, e.g. *The World As I See It*, the 1929 *Saturday Evening Post* interview, his 1950 letter on the "circle of compassion", his letter to Born), taken from the most-liked Goodreads entries where those match the documented wording and written out from the standard published wording otherwise. Translated passages follow the commonly cited English renderings; they may differ slightly from your edition.
 
 Legge's (Tao Teh King, Analects), Müller's and Giles's parentheses mark words the translators supplied; the app drops those marks and otherwise keeps their wording. FitzGerald's *Rubaiyat* is a free English re-creation rather than a literal translation, and Hastie's Rumi poems are free versions made via Rückert's German, so they are looser than the originals.
 
