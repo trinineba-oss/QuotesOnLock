@@ -32,6 +32,23 @@ enum class Category(val key: String, val label: String, val group: QuoteGroup) {
     EINSTEIN("einstein", "Albert Einstein", QuoteGroup.AUTHOR),
     MURAKAMI("murakami", "Haruki Murakami", QuoteGroup.AUTHOR),
     SHAKESPEARE("shakespeare", "William Shakespeare", QuoteGroup.AUTHOR),
+    WHITMAN("whitman", "Walt Whitman", QuoteGroup.AUTHOR),
+    DICKINSON("dickinson", "Emily Dickinson", QuoteGroup.AUTHOR),
+    BLAKE("blake", "William Blake", QuoteGroup.AUTHOR),
+    LEOPARDI("leopardi", "Giacomo Leopardi", QuoteGroup.AUTHOR),
+    BAUDELAIRE("baudelaire", "Charles Baudelaire", QuoteGroup.AUTHOR),
+    GITA("gita", "The Bhagavad Gita", QuoteGroup.AUTHOR),
+    UPANISHADS("upanishads", "The Upanishads", QuoteGroup.AUTHOR),
+    FRANKL("frankl", "Viktor Frankl", QuoteGroup.AUTHOR),
+    PESSOA("pessoa", "Fernando Pessoa", QuoteGroup.AUTHOR),
+    BORGES("borges", "Jorge Luis Borges", QuoteGroup.AUTHOR),
+    CIORAN("cioran", "E. M. Cioran", QuoteGroup.AUTHOR),
+    WEIL("weil", "Simone Weil", QuoteGroup.AUTHOR),
+    NERUDA("neruda", "Pablo Neruda", QuoteGroup.AUTHOR),
+    OLIVER("oliver", "Mary Oliver", QuoteGroup.AUTHOR),
+    SZYMBORSKA("szymborska", "Wisława Szymborska", QuoteGroup.AUTHOR),
+    KUNDERA("kundera", "Milan Kundera", QuoteGroup.AUTHOR),
+    SARTRE("sartre", "Jean-Paul Sartre", QuoteGroup.AUTHOR),
     CUSTOM("custom", "My own quotes", QuoteGroup.MINE);
 
     companion object {

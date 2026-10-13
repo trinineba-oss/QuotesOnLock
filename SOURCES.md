@@ -42,6 +42,13 @@ editions below, or a translation made for this app and labelled `(tr. Claude)`.
 | Rumi | The Festival of Spring, from the Díván of Jeláleddín | William Hastie (1903), English renderings after Friedrich Rückert's German versions | Project Gutenberg #57068 |
 | Rabindranath Tagore | Stray Birds; Gitanjali; The Gardener; Fruit-Gathering; Sadhana | the author's own English versions (1912–1916) | Project Gutenberg #6524, #7164, #6686, #6522, #6842 |
 | William Shakespeare | Plays (Hamlet, Macbeth, The Tempest, A Midsummer Night's Dream, As You Like It, The Merchant of Venice, Romeo and Juliet, Twelfth Night, King Lear, Othello, Julius Caesar, Henry V, Cymbeline, Antony and Cleopatra, Measure for Measure) and the Sonnets | original English, as in the Project Gutenberg Complete Works | Project Gutenberg #100 |
+| Walt Whitman | Leaves of Grass | original English | Project Gutenberg #1322 |
+| Emily Dickinson | Poems, Series One to Three | original English (1890s editions) | Project Gutenberg #12242 |
+| William Blake | Songs of Innocence and of Experience; Poems of William Blake (incl. The Marriage of Heaven and Hell) | original English | Project Gutenberg #1934, #574 |
+| Giacomo Leopardi | Essays and Dialogues | Charles Edwardes and Patrick Maxwell (1893) | Project Gutenberg #52356 |
+| Charles Baudelaire | The Flowers of Evil; The Poems and Prose Poems of Charles Baudelaire | public-domain English translations (Cyril Scott; James Huneker's anthology) | Project Gutenberg #36098, #36287 |
+| The Bhagavad Gita | The Song Celestial | Sir Edwin Arnold (1885) | Project Gutenberg #2388 |
+| The Upanishads | The Upanishads, Parts 1 and 2 | F. Max Müller (Sacred Books of the East, 1879 and 1884) | archive.org scans of the SBE volumes |
 | Rumi | The Persian Mystics: Jalálu'd-dín Rúmí (selections from the Dīvān and the Masnavi) | R. A. Nicholson (Dīvān) and E. H. Whinfield (Masnavi), as printed in F. Hadland Davis's 1907 anthology | Project Gutenberg #45159 |
 
 The themed quotes (Motivation, Thought-provoking, Stoic & ancient wisdom, Kindness & hope) are short, widely
@@ -53,11 +60,11 @@ Most English translations of Rilke and Kafka are still under copyright, so the q
 translations made for this app from the public-domain German text. They aim to be faithful rather than poetic, and
 they are not the well-known published versions. If you spot an error or have a better rendering, open an issue.
 
-### Camus, Hesse and Murakami (Goodreads)
+### Camus, Hesse, Murakami, Frankl, Pessoa, Borges, Cioran, Weil, Neruda, Mary Oliver, Szymborska, Kundera and Sartre (Goodreads)
 
-Camus, Hesse and Murakami are still in copyright, so no book texts could be checked. Their quotes were picked from the
-most-liked entries on Goodreads' community quote pages for each author (for Murakami, from the English translations by Jay Rubin, Philip Gabriel, Alfred Birnbaum and others), then filtered by hand to lines I could
-recognise as really being theirs (Goodreads quotes are typed in by readers and are often misattributed or
+These authors are still in copyright, so no book texts could be checked. Their quotes were picked from the
+most-liked entries on Goodreads' community quote pages for each author (for Murakami, from the English translations by Jay Rubin, Philip Gabriel, Alfred Birnbaum and others; Pessoa mostly from Richard Zenith's *Book of Disquiet*; the translators of the others vary by line), then filtered by hand to lines I could
+recognise as really being theirs (poets are limited to short excerpts of one to four lines) (Goodreads quotes are typed in by readers and are often misattributed or
 mangled; many of the top "Camus" and "Hesse" quotes there were dropped for that reason). The wording is that of
 whichever published English translation the reader copied from, so it can differ slightly from your edition. These
 are short excerpts; if you spot a mistake, please open an issue.

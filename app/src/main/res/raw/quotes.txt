@@ -1,5 +1,5 @@
 # One quote per line: category|text|author   (a literal \n in the text is a line break)
-# Categories: motivation, thought, stoic, kindness, gibran, rilke, nietzsche, dostoevsky, tolstoy, kafka, plato, laotzu, kierkegaard, camus, hesse, confucius, dhammapada, rumi, khayyam, suntzu, tagore, einstein, murakami, shakespeare
+# Categories: motivation, thought, stoic, kindness, gibran, rilke, nietzsche, dostoevsky, tolstoy, kafka, plato, laotzu, kierkegaard, camus, hesse, confucius, dhammapada, rumi, khayyam, suntzu, tagore, einstein, murakami, shakespeare, whitman, dickinson, blake, leopardi, baudelaire, gita, upanishads, frankl, pessoa, borges, cioran, weil, neruda, oliver, szymborska, kundera, sartre
 motivation|A journey of a thousand miles begins with a single step.|Lao Tzu
 motivation|It does not matter how slowly you go as long as you do not stop.|Confucius
 motivation|Nothing great was ever achieved without enthusiasm.|Ralph Waldo Emerson
@@ -1959,3 +1959,479 @@ shakespeare|That time of year thou mayst in me behold,\nWhen yellow leaves, or n
 shakespeare|Let me not to the marriage of true minds\nAdmit impediments, love is not love\nWhich alters when it alteration finds,\nOr bends with the remover to remove.\nO no, it is an ever-fixed mark\nThat looks on tempests and is never shaken;\nIt is the star to every wand'ring bark,\nWhose worth's unknown, although his height be taken.\nLove's not Time's fool, though rosy lips and cheeks\nWithin his bending sickle's compass come,\nLove alters not with his brief hours and weeks,\nBut bears it out even to the edge of doom:\nIf this be error and upon me proved,\nI never writ, nor no man ever loved.|William Shakespeare
 shakespeare|My mistress' eyes are nothing like the sun,\nCoral is far more red, than her lips red,\nIf snow be white, why then her breasts are dun:\nIf hairs be wires, black wires grow on her head:\nI have seen roses damasked, red and white,\nBut no such roses see I in her cheeks,\nAnd in some perfumes is there more delight,\nThan in the breath that from my mistress reeks.\nI love to hear her speak, yet well I know,\nThat music hath a far more pleasing sound:\nI grant I never saw a goddess go;\nMy mistress when she walks treads on the ground.\nAnd yet by heaven I think my love as rare,\nAs any she belied with false compare.|William Shakespeare
 shakespeare|Poor soul the centre of my sinful earth,\nMy sinful earth these rebel powers array,\nWhy dost thou pine within and suffer dearth\nPainting thy outward walls so costly gay?\nWhy so large cost having so short a lease,\nDost thou upon thy fading mansion spend?\nShall worms inheritors of this excess\nEat up thy charge? is this thy body's end?\nThen soul live thou upon thy servant's loss,\nAnd let that pine to aggravate thy store;\nBuy terms divine in selling hours of dross;\nWithin be fed, without be rich no more,\nSo shall thou feed on death, that feeds on men,\nAnd death once dead, there's no more dying then.|William Shakespeare
+whitman|I celebrate myself, and sing myself,\nAnd what I assume you shall assume,\nFor every atom belonging to me as good belongs to you.|Walt Whitman
+whitman|I loafe and invite my soul,\nI lean and loafe at my ease observing a spear of summer grass.|Walt Whitman
+whitman|Stop this day and night with me and you shall possess the origin of all poems,\nYou shall possess the good of the earth and sun, there are millions of suns left,\nYou shall no longer take things at second or third hand, nor look through the eyes of the dead, nor feed on the spectres in books,\nYou shall not look through my eyes either, nor take things from me,\nYou shall listen to all sides and filter them from your self.|Walt Whitman
+whitman|There was never any more inception than there is now,\nNor any more youth or age than there is now,\nAnd will never be any more perfection than there is now,\nNor any more heaven or hell than there is now.|Walt Whitman
+whitman|Apart from the pulling and hauling stands what I am,\nStands amused, complacent, compassionating, idle, unitary,\nLooks down, is erect, or bends an arm on an impalpable certain rest,\nLooking with side-curved head curious what will come next,\nBoth in and out of the game and watching and wondering at it.|Walt Whitman
+whitman|And I know that the hand of God is the promise of my own,\nAnd I know that the spirit of God is the brother of my own,\nAnd that all the men ever born are also my brothers, and the women my sisters and lovers,\nAnd that a kelson of the creation is love,|Walt Whitman
+whitman|A child said What is the grass? fetching it to me with full hands;\nHow could I answer the child? I do not know what it is any more than he.|Walt Whitman
+whitman|They are alive and well somewhere,\nThe smallest sprout shows there is really no death,\nAnd if ever there was it led forward life, and does not wait at the end to arrest it,\nAnd ceas’d the moment life appear’d.|Walt Whitman
+whitman|All goes onward and outward, nothing collapses,\nAnd to die is different from what any one supposed, and luckier.|Walt Whitman
+whitman|Has any one supposed it lucky to be born?\nI hasten to inform him or her it is just as lucky to die, and I know it.|Walt Whitman
+whitman|Walt Whitman, a kosmos, of Manhattan the son,\nTurbulent, fleshy, sensual, eating, drinking and breeding,\nNo sentimentalist, no stander above men and women or apart from them,\nNo more modest than immodest.|Walt Whitman
+whitman|I know I am deathless,\nI know this orbit of mine cannot be swept by a carpenter’s compass,\nI know I shall not pass like a child’s carlacue cut with a burnt stick at night.|Walt Whitman
+whitman|I exist as I am, that is enough,\nIf no other in the world be aware I sit content,\nAnd if each and all be aware I sit content.|Walt Whitman
+whitman|I am the poet of the Body and I am the poet of the Soul,\nThe pleasures of heaven are with me and the pains of hell are with me,\nThe first I graft and increase upon myself, the latter I translate into new tongue.|Walt Whitman
+whitman|A morning-glory at my window satisfies me more than the metaphysics of books.|Walt Whitman
+whitman|I believe a leaf of grass is no less than the journey work of the stars,\nAnd the pismire is equally perfect, and a grain of sand, and the egg of the wren,\nAnd the tree-toad is a chef-d’œuvre for the highest,\nAnd the running blackberry would adorn the parlors of heaven,\nAnd the narrowest hinge in my hand puts to scorn all machinery,\nAnd the cow crunching with depress’d head surpasses any statue,\nAnd a mouse is miracle enough to stagger sextillions of infidels.|Walt Whitman
+whitman|I think I could turn and live with animals, they are so placid and self-contain’d,\nI stand and look at them long and long.|Walt Whitman
+whitman|They do not sweat and whine about their condition,\nThey do not lie awake in the dark and weep for their sins,\nThey do not make me sick discussing their duty to God,\nNot one is dissatisfied, not one is demented with the mania of owning things,\nNot one kneels to another, nor to his kind that lived thousands of years ago,\nNot one is respectable or unhappy over the whole earth.|Walt Whitman
+whitman|And as to you Life I reckon you are the leavings of many deaths,\nNo doubt I have died myself ten thousand times before.|Walt Whitman
+whitman|There is that in me—I do not know what it is—but I know it is in me.|Walt Whitman
+whitman|Do I contradict myself?\nVery well then I contradict myself,\nI am large, I contain multitudes.|Walt Whitman
+whitman|I too am not a bit tamed, I too am untranslatable,\nI sound my barbaric yawp over the roofs of the world.|Walt Whitman
+whitman|I bequeath myself to the dirt to grow from the grass I love,\nIf you want me again look for me under your boot-soles.|Walt Whitman
+whitman|You will hardly know who I am or what I mean,\nBut I shall be good health to you nevertheless,\nAnd filter and fibre your blood.|Walt Whitman
+whitman|Failing to fetch me at first keep encouraged,\nMissing me one place search another,\nI stop somewhere waiting for you.|Walt Whitman
+whitman|Not I, not any one else can travel that road for you,\nYou must travel it for yourself.|Walt Whitman
+whitman|Long have you timidly waded holding a plank by the shore,\nNow I will you to be a bold swimmer,\nTo jump off in the midst of the sea, rise again, nod to me, shout, and laughingly dash with your hair.|Walt Whitman
+whitman|And I say to mankind, Be not curious about God,\nFor I who am curious about each am not curious about God,\nNo array of terms can say how much I am at peace about God and about death.|Walt Whitman
+whitman|Why should I wish to see God better than this day?\nI see something of God each hour of the twenty-four, and each moment then,\nIn the faces of men and women I see God, and in my own face in the glass,|Walt Whitman
+whitman|Wider and wider they spread, expanding, always expanding,\nOutward and outward and forever outward.|Walt Whitman
+whitman|Afoot and light-hearted I take to the open road,\nHealthy, free, the world before me,\nThe long brown path before me leading wherever I choose.|Walt Whitman
+whitman|Henceforth I ask not good-fortune, I myself am good-fortune,\nHenceforth I whimper no more, postpone no more, need nothing,\nDone with indoor complaints, libraries, querulous criticisms,\nStrong and content I travel the open road.|Walt Whitman
+whitman|O public road, I say back I am not afraid to leave you, yet I love you,\nYou express me better than I can express myself,\nYou shall be more to me than my poem.|Walt Whitman
+whitman|Now I re-examine philosophies and religions,\nThey may prove well in lecture-rooms, yet not prove at all under the spacious clouds and along the landscape and flowing currents.|Walt Whitman
+whitman|Wisdom is not finally tested in schools,\nWisdom cannot be pass’d from one having it to another not having it,\nWisdom is of the soul, is not susceptible of proof, is its own proof,|Walt Whitman
+whitman|Allons! whoever you are come travel with me!\nTraveling with me you find what never tires.|Walt Whitman
+whitman|Camerado, I give you my hand!\nI give you my love more precious than money,\nI give you myself before preaching or law;\nWill you give me yourself? will you come travel with me?|Walt Whitman
+whitman|It avails not, time nor place—distance avails not,\nI am with you, you men and women of a generation, or ever so many generations hence,|Walt Whitman
+whitman|It is not upon you alone the dark patches fall,\nThe dark threw its patches down upon me also,\nThe best I had done seem’d to me blank and suspicious,\nMy great thoughts as I supposed them, were they not in reality meagre?|Walt Whitman
+whitman|Out of the cradle endlessly rocking,\nOut of the mocking-bird’s throat, the musical shuttle,\nOut of the Ninth-month midnight,|Walt Whitman
+whitman|Now in a moment I know what I am for, I awake,\nAnd already a thousand singers, a thousand songs, clearer, louder and more sorrowful than yours,\nA thousand warbling echoes have started to life within me, never to die.|Walt Whitman
+whitman|When lilacs last in the dooryard bloom’d,\nAnd the great star early droop’d in the western sky in the night,\nI mourn’d, and yet shall mourn with ever-returning spring.|Walt Whitman
+whitman|Come lovely and soothing death,\nUndulate round the world, serenely arriving, arriving,\nIn the day, in the night, to all, to each,\nSooner or later delicate death.|Walt Whitman
+whitman|Prais’d be the fathomless universe,\nFor life and joy, and for objects and knowledge curious,\nAnd for love, sweet love—but praise! praise! praise!\nFor the sure-enwinding arms of cool-enfolding death.|Walt Whitman
+whitman|A noiseless patient spider,\nI mark’d where on a little promontory it stood isolated,\nMark’d how to explore the vacant vast surrounding,\nIt launch’d forth filament, filament, filament out of itself,\nEver unreeling them, ever tirelessly speeding them.|Walt Whitman
+whitman|And you O my soul where you stand,\nSurrounded, detached, in measureless oceans of space,\nCeaselessly musing, venturing, throwing, seeking the spheres to connect them,\nTill the bridge you will need be form’d, till the ductile anchor hold,\nTill the gossamer thread you fling catch somewhere, O my soul.|Walt Whitman
+whitman|When I heard the learn’d astronomer,\nWhen the proofs, the figures, were ranged in columns before me,\nWhen I was shown the charts and diagrams, to add, divide, and measure them,\nWhen I sitting heard the astronomer where he lectured with much applause in the lecture-room,\nHow soon unaccountable I became tired and sick,\nTill rising and gliding out I wander’d off by myself,\nIn the mystical moist night-air, and from time to time,\nLook’d up in perfect silence at the stars.|Walt Whitman
+whitman|The question, O me! so sad, recurring—What good amid these, O me, O life?\nAnswer.\nThat you are here—that life exists and identity,\nThat the powerful play goes on, and you may contribute a verse.|Walt Whitman
+whitman|Why, who makes much of a miracle?\nAs to me I know of nothing else but miracles,\nWhether I walk the streets of Manhattan,\nOr dart my sight over the roofs of houses toward the sky,\nOr wade with naked feet along the beach just in the edge of the water,\nOr stand under trees in the woods,|Walt Whitman
+whitman|To me every hour of the light and dark is a miracle,\nEvery cubic inch of space is a miracle,\nEvery square yard of the surface of the earth is spread with the same,\nEvery foot of the interior swarms with the same.|Walt Whitman
+whitman|This is thy hour O Soul, thy free flight into the wordless,\nAway from books, away from art, the day erased, the lesson done,\nThee fully forth emerging, silent, gazing, pondering the themes thou lovest best,\nNight, sleep, death and the stars.|Walt Whitman
+whitman|Whoever you are, now I place my hand upon you, that you be my poem,\nI whisper with my lips close to your ear.\nI have loved many women and men, but I love none better than you.|Walt Whitman
+whitman|Poets to come! orators, singers, musicians to come!\nNot to-day is to justify me and answer what I am for,\nBut you, a new brood, native, athletic, continental, greater than before known,\nArouse! for you must justify me.|Walt Whitman
+dickinson|Success is counted sweetest\nBy those who ne'er succeed.\nTo comprehend a nectar\nRequires sorest need.|Emily Dickinson
+dickinson|If I can stop one heart from breaking,\nI shall not live in vain;\nIf I can ease one life the aching,\nOr cool one pain,\nOr help one fainting robin\nUnto his nest again,\nI shall not live in vain.|Emily Dickinson
+dickinson|Much madness is divinest sense\nTo a discerning eye;\nMuch sense the starkest madness.\n'T is the majority\nIn this, as all, prevails.\nAssent, and you are sane;\nDemur, — you're straightway dangerous,\nAnd handled with a chain.|Emily Dickinson
+dickinson|The soul selects her own society,\nThen shuts the door;\nOn her divine majority\nObtrude no more.\nUnmoved, she notes the chariot's pausing\nAt her low gate;\nUnmoved, an emperor is kneeling\nUpon her mat.|Emily Dickinson
+dickinson|I taste a liquor never brewed,\nFrom tankards scooped in pearl;\nNot all the vats upon the Rhine\nYield such an alcohol!|Emily Dickinson
+dickinson|I had no time to hate, because\nThe grave would hinder me,\nAnd life was not so ample I\nCould finish enmity.|Emily Dickinson
+dickinson|Alter? When the hills do.\nFalter? When the sun\nQuestion if his glory\nBe the perfect one.|Emily Dickinson
+dickinson|Some keep the Sabbath going to church;\nI keep it staying at home,\nWith a bobolink for a chorister,\nAnd an orchard for a dome.|Emily Dickinson
+dickinson|There's a certain slant of light,\nOn winter afternoons,\nThat oppresses, like the weight\nOf cathedral tunes.\nHeavenly hurt it gives us;\nWe can find no scar,\nBut internal difference\nWhere the meanings are.|Emily Dickinson
+dickinson|I died for beauty, but was scarce\nAdjusted in the tomb,\nWhen one who died for truth was lain\nIn an adjoining room.\nHe questioned softly why I failed?\n"For beauty," I replied.\n"And I for truth, — the two are one;\nWe brethren are," he said.|Emily Dickinson
+dickinson|I never saw a moor,\nI never saw the sea;\nYet know I how the heather looks,\nAnd what a wave must be.\nI never spoke with God,\nNor visited in heaven;\nYet certain am I of the spot\nAs if the chart were given.|Emily Dickinson
+dickinson|The bustle in a house\nThe morning after death\nIs solemnest of industries\nEnacted upon earth, —\nThe sweeping up the heart,\nAnd putting love away\nWe shall not want to use again\nUntil eternity.|Emily Dickinson
+dickinson|Afraid? Of whom am I afraid?\nNot death; for who is he?\nThe porter of my father's lodge\nAs much abasheth me.|Emily Dickinson
+dickinson|Because I could not stop for Death,\nHe kindly stopped for me;\nThe carriage held but just ourselves\nAnd Immortality.\nWe slowly drove, he knew no haste,\nAnd I had put away\nMy labor, and my leisure too,\nFor his civility.|Emily Dickinson
+dickinson|I lost a world the other day.\nHas anybody found?\nYou'll know it by the row of stars\nAround its forehead bound.|Emily Dickinson
+dickinson|I'm nobody! Who are you?\nAre you nobody, too?\nThen there 's a pair of us — don't tell!\nThey 'd banish us, you know.\nHow dreary to be somebody!\nHow public, like a frog\nTo tell your name the livelong day\nTo an admiring bog!|Emily Dickinson
+dickinson|The soul unto itself\nIs an imperial friend, —\nOr the most agonizing spy\nAn enemy could send.|Emily Dickinson
+dickinson|Surgeons must be very careful\nWhen they take the knife!\nUnderneath their fine incisions\nStirs the culprit, — Life!|Emily Dickinson
+dickinson|Faith is a fine invention\nFor gentlemen who see;\nBut microscopes are prudent\nIn an emergency!|Emily Dickinson
+dickinson|I took my power in my hand.\nAnd went against the world;\n'T was not so much as David had,\nBut I was twice as bold.\nI aimed my pebble, but myself\nWas all the one that fell.\nWas it Goliath was too large,\nOr only I too small?|Emily Dickinson
+dickinson|Wild nights! Wild nights!\nWere I with thee,\nWild nights should be\nOur luxury!\nFutile the winds\nTo a heart in port, —\nDone with the compass,\nDone with the chart.|Emily Dickinson
+dickinson|The way I read a letter 's this:\n'T is first I lock the door,\nAnd push it with my fingers next,\nFor transport it be sure.|Emily Dickinson
+dickinson|A narrow fellow in the grass\nOccasionally rides;\nYou may have met him, — did you not,\nHis notice sudden is.\nThe grass divides as with a comb,\nA spotted shaft is seen;\nAnd then it closes at your feet\nAnd opens further on.|Emily Dickinson
+dickinson|As imperceptibly as grief\nThe summer lapsed away, —\nToo imperceptible, at last,\nTo seem like perfidy.|Emily Dickinson
+dickinson|I have not told my garden yet,\nLest that should conquer me;\nI have not quite the strength now\nTo break it to the bee.|Emily Dickinson
+dickinson|I made my soul familiar\nWith her extremity,\nThat at the last it should not be\nA novel agony,\nBut she and Death, acquainted,\nMeet tranquilly as friends,\nSalute and pass without a hint —\nAnd there the matter ends.|Emily Dickinson
+dickinson|It was not death, for I stood up,\nAnd all the dead lie down;\nIt was not night, for all the bells\nPut out their tongues, for noon.|Emily Dickinson
+dickinson|Hope is a subtle glutton;\nHe feeds upon the fair;\nAnd yet, inspected closely,\nWhat abstinence is there!|Emily Dickinson
+dickinson|A word is dead\nWhen it is said,\nSome say.\nI say it just\nBegins to live\nThat day.|Emily Dickinson
+dickinson|Parting is all we know of heaven,\nAnd all we need of hell.|Emily Dickinson
+dickinson|We never know how high we are\nTill we are called to rise;\nAnd then, if we are true to plan,\nOur statures touch the skies.|Emily Dickinson
+dickinson|There is no frigate like a book\nTo take us lands away,\nNor any coursers like a page\nOf prancing poetry.\nThis traverse may the poorest take\nWithout oppress of toll;\nHow frugal is the chariot\nThat bears a human soul!|Emily Dickinson
+dickinson|We outgrow love like other things\nAnd put it in the drawer,\nTill it an antique fashion shows\nLike costumes grandsires wore.|Emily Dickinson
+dickinson|This world is not conclusion;\nA sequel stands beyond,\nInvisible, as music,\nBut positive, as sound.|Emily Dickinson
+dickinson|They say that 'time assuages,' —\nTime never did assuage;\nAn actual suffering strengthens,\nAs sinews do, with age.|Emily Dickinson
+dickinson|The soul should always stand ajar,\nThat if the heaven inquire,\nHe will not be obliged to wait,\nOr shy of troubling her.|Emily Dickinson
+dickinson|Water is taught by thirst;\nLand, by the oceans passed;\nTransport, by throe;\nPeace, by its battles told;\nLove, by memorial mould;\nBirds, by the snow.|Emily Dickinson
+dickinson|We never know we go, — when we are going\nWe jest and shut the door;\nFate following behind us bolts it,\nAnd we accost no more.|Emily Dickinson
+dickinson|I felt a funeral in my brain,\nAnd mourners, to and fro,\nKept treading, treading, till it seemed\nThat sense was breaking through.|Emily Dickinson
+dickinson|Pain has an element of blank;\nIt cannot recollect\nWhen it began, or if there were\nA day when it was not.|Emily Dickinson
+dickinson|Hope is the thing with feathers\nThat perches in the soul,\nAnd sings the tune without the words,\nAnd never stops at all,\nAnd sweetest in the gale is heard;\nAnd sore must be the storm\nThat could abash the little bird\nThat kept so many warm.\nI 've heard it in the chillest land,\nAnd on the strangest sea;\nYet, never, in extremity,\nIt asked a crumb of me.|Emily Dickinson
+blake|The road of excess leads to the palace of wisdom.|William Blake
+blake|Without contraries is no progression. Attraction and repulsion, reason and energy, love and hate, are necessary to human existence.|William Blake
+blake|If the doors of perception were cleansed everything would appear to man as it is, infinite.|William Blake
+blake|For everything that lives is holy.|William Blake
+blake|Prudence is a rich ugly old maid courted by Incapacity.|William Blake
+blake|He whose face gives no light shall never become a star.|William Blake
+blake|Eternity is in love with the productions of time.|William Blake
+blake|The hours of folly are measured by the clock, but of wisdom no clock can measure.|William Blake
+blake|Prisons are built with stones of law, brothels with bricks of religion.|William Blake
+blake|Excess of sorrow laughs, excess of joy weeps.|William Blake
+blake|The tigers of wrath are wiser than the horses of instruction.|William Blake
+blake|You never know what is enough unless you know what is more than enough.|William Blake
+blake|Truth can never be told so as to be understood and not to be believed.|William Blake
+blake|How do you know but every bird\nthat cuts the airy way\nIs an immense world of delight,\nclosed by your senses five?|William Blake
+blake|To see a World in a grain of sand,\nAnd a Heaven in a wild flower,\nHold Infinity in the palm of your hand,\nAnd Eternity in an hour.|William Blake
+blake|A robin redbreast in a cage\nPuts all Heaven in a rage.|William Blake
+blake|A dog starved at his master's gate\nPredicts the ruin of the state.|William Blake
+blake|Kill not the moth nor butterfly,\nFor the Last Judgment draweth nigh.|William Blake
+blake|The poor man's farthing is worth more\nThan all the gold on Afric's shore.|William Blake
+blake|He who mocks the infant's faith\nShall be mocked in age and death.|William Blake
+blake|Tiger, tiger, burning bright\nIn the forests of the night,\nWhat immortal hand or eye\nCould frame thy fearful symmetry?|William Blake
+blake|When the stars threw down their spears,\nAnd watered heaven with their tears,\nDid He smile His work to see?\nDid He who made the lamb make thee?|William Blake
+blake|I was angry with my friend:\nI told my wrath, my wrath did end.\nI was angry with my foe:\nI told it not, my wrath did grow.|William Blake
+blake|I wander through each chartered street,\nNear where the chartered Thames does flow,\nA mark in every face I meet,\nMarks of weakness, marks of woe.|William Blake
+blake|‘Love seeketh not itself to please,\nNor for itself hath any care,\nBut for another gives its ease,\nAnd builds a heaven in hell’s despair.’|William Blake
+blake|I went to the Garden of Love,\nAnd saw what I never had seen;\nA Chapel was built in the midst,\nWhere I used to play on the green.|William Blake
+blake|O rose, thou art sick!\nThe invisible worm,\nThat flies in the night,\nIn the howling storm,\nHas found out thy bed\nOf crimson joy,\nAnd his dark secret love\nDoes thy life destroy.|William Blake
+blake|Am not I\nA fly like thee?\nOr art not thou\nA man like me?|William Blake
+blake|Then cherish pity, lest you drive an angel from your door.|William Blake
+blake|To Mercy, Pity, Peace, and Love,\nAll pray in their distress,\nAnd to these virtues of delight\nReturn their thankfulness.|William Blake
+blake|‘I have no name;\nI am but two days old.’\nWhat shall I call thee?\n‘I happy am,\nJoy is my name.’\nSweet joy befall thee!|William Blake
+blake|My mother groaned, my father wept:\nInto the dangerous world I leapt,\nHelpless, naked, piping loud,\nLike a fiend hid in a cloud.|William Blake
+leopardi|I believe ennui is really nothing but the desire of happiness, without the illusion of pleasure and the suffering of pain.|Giacomo Leopardi
+leopardi|So that human life may be said to be interwoven with pain and ennui, and one of these sentiments disappears only to give place to the other.|Giacomo Leopardi
+leopardi|Sleep, opium, and pain. The last is the best of the three, because he who suffers never experiences ennui.|Giacomo Leopardi
+leopardi|Nothing is more rational than ennui. Pleasures are all unreal. Pain itself, at least mental pain, is equally false, because on examination it is seen to have scarcely any foundation, or none at all. The same may be said of fear and hope. Ennui alone, which is born from the vanity of things, is genuine, and never deceives.|Giacomo Leopardi
+leopardi|If, then, all else be vain, the reality of life is summed up in ennui.|Giacomo Leopardi
+leopardi|Let us live, dear Porphyrius, and console each other. Let us not refuse our share of the sufferings of humanity, apportioned to us by destiny. Let us cling to each other with mutual encouragement, and hand in hand strengthen one another better to bear the troubles of life.|Giacomo Leopardi
+leopardi|Thinkest thou then that the world was made for thee? It is time thou knewest that in my designs, operations, and decrees, I never gave a thought to the happiness or unhappiness of man.|Giacomo Leopardi
+leopardi|If I cause you to suffer, I am unaware of the fact; nor do I perceive that I can in any way give you pleasure.|Giacomo Leopardi
+leopardi|I conclude therefore that we are destined to suffer much in proportion as we enjoy little, and that it is as impossible to live peacefully as happily.|Giacomo Leopardi
+leopardi|In short, I cannot recollect a single day during which I have not suffered in some way; whereas, on the other hand, the days that have gone by without a shadow of enjoyment are countless.|Giacomo Leopardi
+leopardi|Thou forgettest that the life of the world is a perpetual cycle of production and destruction, so combined that the one works for the good of the other.|Giacomo Leopardi
+leopardi|The final cause of existence is not happiness, for nothing is happy.|Giacomo Leopardi
+leopardi|It seems as though death were the essential aim of all things.|Giacomo Leopardi
+leopardi|Youth, if indeed it be the best of life, is a very wretched thing.|Giacomo Leopardi
+leopardi|Thus, in all her works, Nature turns and points towards death: for old age reigns universally.|Giacomo Leopardi
+leopardi|This life, which is such a fine thing, is not the life we are acquainted with, but that of which we know nothing; it is not the past life, but the future.|Giacomo Leopardi
+leopardi|Gradually my mind is becoming accustomed to its own society; I derive more and more pleasure from my solitude, and by practice I am acquiring so great a readiness in conversation, or rather chattering to myself, that I seem to have in my head a company of talkative people, and the most trifling object is now sufficient to give rise to endless discourse.|Giacomo Leopardi
+leopardi|Every pleasurable fancy, every thought of the future that comes to me in my solitude, and with which I pass away the time, is allied with the thought of death, from which it is inseparable.|Giacomo Leopardi
+leopardi|Now, I envy neither fools, nor the wise, the great, the small, the weak, the powerful. I envy the dead, and with them alone would I exchange my lot.|Giacomo Leopardi
+leopardi|I believe you and every one else to be happy. As for myself, however, with your permission, and that of the century, I am very unhappy, and all the journals of both worlds cannot persuade me to the contrary.|Giacomo Leopardi
+leopardi|For nature does not advance by leaps; and when forced, no durable result is obtained.|Giacomo Leopardi
+leopardi|Often, also, the pangs of yesterday are remembered with contempt, and are ridiculed as follies and vain fancies.|Giacomo Leopardi
+leopardi|It is a characteristic of writings approaching perfection that they usually please more when read a second time, than they pleased at first.|Giacomo Leopardi
+leopardi|The human race, which has believed, and will continue to put faith in so many absurdities, will never acknowledge that it knows nothing, that it is nothing, and that it has nothing to hope.|Giacomo Leopardi
+leopardi|Ennui is a state only experienced by the intelligent. The greater the mind, the more constant, painful, and terrible is the ennui it suffers.|Giacomo Leopardi
+leopardi|Misfortune may indeed be compared in its effect to the frenzy of lyric poets, who at a glance, as if situated in a lofty place, take in as much of the domain of human knowledge as requires many centuries before it be discerned by philosophers.|Giacomo Leopardi
+baudelaire|Be always drunken. Nothing else matters: that is the only question. If you would not feel the horrible burden of Time weighing on your shoulders and crushing you to the earth, be drunken continually.|Charles Baudelaire
+baudelaire|Drunken with what? With wine, with poetry, or with virtue, as you will. But be drunken.|Charles Baudelaire
+baudelaire|Life is a hospital, in which every patient is possessed by the desire of changing his bed. One would prefer to suffer near the fire, and another is certain that he would get well if he were by the window. It seems to me that I should always be happy if I were somewhere else, and this question of moving house is one that I am continually talking over with my soul.|Charles Baudelaire
+baudelaire|At last my soul bursts into speech, and wisely she cries to me: "Anywhere, anywhere, out of the world!"|Charles Baudelaire
+baudelaire|He who looks in through an open window never sees so many things as he who looks at a shut window. There is nothing more profound, more mysterious, more fertile, more gloomy, or more dazzling, than a window lighted by a candle. What we can see in the sunlight is always less interesting than what goes on behind the panes of a window. In that dark or luminous hollow, life lives, life dreams, life suffers.|Charles Baudelaire
+baudelaire|What does it matter, what does any reality outside of myself matter, if it has helped me to live, to feel that I am, and what I am?|Charles Baudelaire
+baudelaire|Multitude, solitude: equal terms mutually convertible by the active and begetting poet. He who does not know how to people his solitude, does not know either how to be alone in a busy crowd.|Charles Baudelaire
+baudelaire|The poet enjoys this incomparable privilege, to be at once himself and others.|Charles Baudelaire
+baudelaire|Dreams, dreams ever! and the more delicate and ambitious the soul, the further do dreams estrange it from possible things. Every man carries within himself his natural dose of opium, ceaselessly secreted and renewed, and, from birth to death, how many hours can we reckon of positive pleasure, of successful and decided action?|Charles Baudelaire
+baudelaire|Yes, it is in this atmosphere that it would be good to live; far off, where slower hours contain more thoughts where clocks strike happiness with a deeper and more significant solemnity.|Charles Baudelaire
+baudelaire|So hard is it to understand one another, dearest, and so incommunicable is thought, even between people who are in love!|Charles Baudelaire
+baudelaire|Twilight, how gentle you are and how tender!|Charles Baudelaire
+baudelaire|O night! O refreshing dark! for me you are the summons to an inner feast, you are the deliverer from anguish!|Charles Baudelaire
+baudelaire|Fancioulle proved to me, in a peremptory, an irrefutable way, that the intoxication of Art is surer than all others to veil the terrors of the gulf; that genius can act a comedy on the threshold of the grave with a joy that binders it from seeing the grave, lost, as it is, in a Paradise shutting out all thought, of the grave and of destruction.|Charles Baudelaire
+baudelaire|The Chinese tell the time in the eyes of cats.|Charles Baudelaire
+baudelaire|Yes, I see the time, it is Eternity!|Charles Baudelaire
+baudelaire|But it is possible that solitude is dangerous only to the idle, rambling soul, who peoples it with his passions and his chimeras.|Charles Baudelaire
+baudelaire|"The great misfortune of not being able to be alone," La Bruyère says somewhere, as though to shame those who rush to forget themselves in the crowd, fearing, doubtless, that they will be unable to endure themselves.|Charles Baudelaire
+baudelaire|A harbor is a charming abode for a soul weary of the struggles of life. The amplitude of the sky, the mobile architecture of the clouds, the changing colorations of the sea, the scintillating of the beacon-lights, form a prism marvellously adapted to entertain the eyes without tiring them.|Charles Baudelaire
+baudelaire|Beneath a broad grey sky, upon a vast and dusty plain devoid of grass, and where not even a nettle or a thistle was to be seen, I met several men who walked bowed down to the ground. Each one carried upon his back an enormous Chimæra as heavy as a sack of flour or coal, or as the equipment of a Roman foot-soldier.|Charles Baudelaire
+baudelaire|Beneath the splenetic cupola of the heavens, their feet trudging through the dust of an earth as desolate as the sky, they journeyed onwards with the resigned faces of men condemned to hope for ever.|Charles Baudelaire
+baudelaire|Alone at last! Nothing is to be heard but the rattle of a few tardy and tired-out cabs. There will be silence now, if not repose, for several hours at least. At last the tyranny of the human face has disappeared—I shall not suffer except alone.|Charles Baudelaire
+baudelaire|Souls of those whom I have loved, whom I have sung, fortify me; sustain me; drive away the lies and the corrupting vapours of this world; and Thou, Lord my God, accord me so much grace as shall produce some beautiful verse to prove to myself that I am not the last of men, that I am not inferior to those I despise.|Charles Baudelaire
+baudelaire|How penetrating is the end of an autumn day! Ah, yes, penetrating enough to be painful even; for there are certain delicious sensations whose vagueness does not prevent them from being intense; and none more keen than the perception of the Infinite.|Charles Baudelaire
+baudelaire|Ah, must one eternally suffer, for ever be a fugitive from Beauty?|Charles Baudelaire
+baudelaire|In Nature's temple living pillars rise,\nAnd words are murmured none have understood,\nAnd man must wander through a tangled wood\nOf symbols watching him with friendly eyes.|Charles Baudelaire
+baudelaire|As long-drawn echoes heard far-off and dim\nMingle to one deep sound and fade away;\nVast as the night and brilliant as the day,\nColour and sound and perfume speak to him.|Charles Baudelaire
+baudelaire|But the true voyagers are they who part\nFrom all they love because a wandering heart\nDrives them to fly the Fate they cannot fly;\nWhose call is ever "On!"—they know not why.|Charles Baudelaire
+baudelaire|Our souls are wandering ships outweariëd;\nAnd one upon the bridge asks: "What's ahead?"\nThe topman's voice with an exultant sound\nCries: "Love and Glory!"—then we run aground.|Charles Baudelaire
+baudelaire|We have seen waves and stars,\nAnd lost sea-beaches, and known many wars,\nAnd notwithstanding war and hope and fear,\nWe were as weary there as we are here.|Charles Baudelaire
+baudelaire|O Death, old Captain, it is time, put forth!\nWe have grown weary of the gloomy north;\nThough sea and sky are black as ink, lift sail!\nOur hearts are full of light and will not fail.|Charles Baudelaire
+baudelaire|O pour thy sleepy poison in the cup!\nThe fire within the heart so burns us up\nThat we would wander Hell and Heaven through,\nDeep in the Unknown seeking something new!|Charles Baudelaire
+baudelaire|Paris may change; my melancholy is fixed.|Charles Baudelaire
+baudelaire|Be thou from Hell upsprung or Heaven descended,\nBeauty! thy look demoniac and divine\nPours good and evil things confusedly blended,\nAnd therefore art thou likened unto wine.|Charles Baudelaire
+baudelaire|What if from Heaven or Hell thou com'st, immortal\nBeauty? O sphinx-like monster, since alone\nThine eye, thy smile, thy hand opens the portal\nOf the Infinite I love and have not known.|Charles Baudelaire
+baudelaire|I'm like some king in whose corrupted veins\nFlows agèd blood; who rules a land of rains;\nWho, young in years, is old in all distress;\nWho flees good counsel to find weariness|Charles Baudelaire
+gita|Never the spirit was born; the spirit shall cease to be never;\nNever was time it was not; End and Beginning are dreams!\nBirthless and deathless and changeless remaineth the spirit for ever;\nDeath hath not touched it at all, dead though the house of it seems!|The Bhagavad Gita
+gita|Nay, but as when one layeth\nHis worn-out robes away,\nAnd taking new ones, sayeth,\n"These will I wear to-day!"\nSo putteth by the spirit\nLightly its garb of flesh,\nAnd passeth to inherit\nA residence afresh.|The Bhagavad Gita
+gita|I say to thee weapons reach not the Life;\nFlame burns it not, waters cannot o'erwhelm,\nNor dry winds wither it. Impenetrable,\nUnentered, unassailed, unharmed, untouched,|The Bhagavad Gita
+gita|He who shall say, "Lo! I have slain a man!"\nHe who shall think, "Lo! I am slain!" those both\nKnow naught! Life cannot slay. Life is not slain!|The Bhagavad Gita
+gita|All, that doth live, lives always! To man's frame\nAs there come infancy and youth and age,\nSo come there raisings-up and layings-down\nOf other and of other life-abodes,|The Bhagavad Gita
+gita|But thou, want not! ask not! Find full reward\nOf doing right in right! Let right deeds be\nThy motive, not the fruit which comes from them.\nAnd live in action! Labour! Make thine acts\nThy piety, casting all self aside,\nContemning gain and merit; equable\nIn good or evil: equability\nIs Yog, is piety!|The Bhagavad Gita
+gita|Yet, the right act\nIs less, far less, than the right-thinking mind.\nSeek refuge in thy soul; have there thy heaven!|The Bhagavad Gita
+gita|In sorrows not dejected, and in joys\nNot overjoyed; dwelling outside the stress\nOf passion, fear, and anger; fixed in calms\nOf lofty contemplation;—such an one\nIs Muni, is the Sage, the true Recluse!|The Bhagavad Gita
+gita|If one\nPonders on objects of the sense, there springs\nAttraction; from attraction grows desire,\nDesire flames to fierce passion, passion breeds\nRecklessness; then the memory—all betrayed—\nLets noble purpose go, and saps the mind,\nTill purpose, mind, and man are all undone.|The Bhagavad Gita
+gita|And like the ocean, day by day receiving\nFloods from all lands, which never overflows\nIts boundary-line not leaping, and not leaving,\nFed by the rivers, but unswelled by those;—\nSo is the perfect one! to his soul's ocean\nThe world of sense pours streams of witchery;\nThey leave him as they find, without commotion,\nTaking their tribute, but remaining sea.|The Bhagavad Gita
+gita|What is midnight-gloom\nTo unenlightened souls shines wakeful day\nTo his clear gaze; what seems as wakeful day\nIs known for night, thick night of ignorance,\nTo his true-seeing eyes. Such is the Saint!|The Bhagavad Gita
+gita|The mind\nThat gives itself to follow shows of sense\nSeeth its helm of wisdom rent away,\nAnd, like a ship in waves of whirlwind, drives\nTo wreck and death.|The Bhagavad Gita
+gita|Nay, and no jot of time, at any time,\nRests any actionless; his nature's law\nCompels him, even unwilling, into act;|The Bhagavad Gita
+gita|Finally, this is better, that one do\nHis own task as he may, even though he fail,\nThan take tasks not his own, though they seem good.\nTo die performing duty is no ill;\nBut who seeks other roads shall wander still.|The Bhagavad Gita
+gita|As smoke blots the white fire, as clinging rust\nMars the bright mirror, as the womb surrounds\nThe babe unborn, so is the world of things\nFoiled, soiled, enclosed in this desire of flesh.|The Bhagavad Gita
+gita|What the wise choose\nThe unwise people take; what best men do\nThe multitude will follow.|The Bhagavad Gita
+gita|I come, and go, and come. When Righteousness\nDeclines, O Bharata! when Wickedness\nIs strong, I rise, from age to age, and take\nVisible shape, and move a man with men,\nSuccouring the good, thrusting the evil back,\nAnd setting Virtue on her seat again.|The Bhagavad Gita
+gita|As the kindled flame\nFeeds on the fuel till it sinks to ash,\nSo unto ash, Arjuna! unto nought\nThe flame of Knowledge wastes works' dross away!\nThere is no purifier like thereto\nIn all this world, and he who seeketh it\nShall find it—being grown perfect—in himself.|The Bhagavad Gita
+gita|Be not over-glad\nAttaining joy, and be not over-sad\nEncountering grief, but, stayed on Brahma, still\nConstant let each abide!|The Bhagavad Gita
+gita|But if a man shall learn,\nEven while he lives and bears his body's chain,\nTo master lust and anger, he is blest!|The Bhagavad Gita
+gita|Steadfast a lamp burns sheltered from the wind;\nSuch is the likeness of the Yogi's mind\nShut from sense-storms and burning bright to Heaven.|The Bhagavad Gita
+gita|Steadfastly the will\nMust toil thereto, till efforts end in ease,\nAnd thought has passed from thinking.|The Bhagavad Gita
+gita|Arjuna! if a man sees everywhere—\nTaught by his own similitude—one Life,\nOne Essence in the Evil and the Good,\nHold him a Yogi, yea! well-perfected!|The Bhagavad Gita
+gita|Of many thousand mortals, one, perchance,\nStriveth for Truth; and of those few that strive—\nNay, and rise high—one only—here and there—\nKnoweth Me, as I am, the very Truth.|The Bhagavad Gita
+gita|Whoso shall offer Me in faith and love\nA leaf, a flower, a fruit, water poured forth,\nThat offering I accept, lovingly made\nWith pious will.|The Bhagavad Gita
+gita|I am alike for all! I know not hate,\nI know not favour! What is made is Mine!\nBut them that worship Me with love, I love;\nThey are in Me, and I in them!|The Bhagavad Gita
+gita|Richer than holy fruit on Vedas growing,\nGreater than gifts, better than prayer or fast,\nSuch wisdom is! The Yogi, this way knowing,\nComes to the Utmost Perfect Peace at last.|The Bhagavad Gita
+gita|If there should rise\nSuddenly within the skies\nSunburst of a thousand suns\nFlooding earth with beams undeemed-of,\nThen might be that Holy One's\nMajesty and radiance dreamed of!|The Bhagavad Gita
+gita|Thou seest Me as Time who kills,\nTime who brings all to doom,\nThe Slayer Time, Ancient of Days, come hither to consume;|The Bhagavad Gita
+gita|Who hateth nought\nOf all which lives, living himself benign,\nCompassionate, from arrogance exempt,\nExempt from love of self, unchangeable\nBy good or ill; patient, contented, firm\nIn faith, mastering himself, true to his word,\nSeeking Me, heart and soul; vowed unto Me,—\nThat man I love!|The Bhagavad Gita
+gita|Who, unto friend and foe\nKeeping an equal heart, with equal mind\nBears shame and glory; with an equal peace\nTakes heat and cold, pleasure and pain; abides\nQuit of desires, hears praise or calumny\nIn passionless restraint, unmoved by each;\nLinked by no ties to earth, steadfast in Me,\nThat man I love!|The Bhagavad Gita
+gita|So shalt thou come; for, though to know is more\nThan diligence, yet worship better is\nThan knowing, and renouncing better still.\nNear to renunciation—very near—\nDwelleth Eternal Peace!|The Bhagavad Gita
+gita|Fearlessness, singleness of soul, the will\nAlways to strive for wisdom; opened hand\nAnd governed appetites; and piety,\nAnd love of lonely study; humbleness,\nUprightness, heed to injure nought which lives,\nTruthfulness, slowness unto wrath, a mind\nThat lightly letteth go what others prize;|The Bhagavad Gita
+gita|Better thine own work is, though done with fault,\nThan doing others' work, ev'n excellently.\nHe shall not fall in sin who fronts the task\nSet him by Nature's hand! Let no man leave\nHis natural duty, Prince! though it bear blame!\nFor every work hath blame, as every flame\nIs wrapped in smoke!|The Bhagavad Gita
+gita|Give Me thy heart! adore Me! serve Me! cling\nIn faith and love and reverence to Me!\nSo shalt thou come to Me! I promise true,\nFor thou art sweet to Me!\nAnd let go those—\nRites and writ duties! Fly to Me alone!\nMake Me thy single refuge! I will free\nThy soul from all its sins! Be of good cheer!|The Bhagavad Gita
+upanishads|The good is one thing, the pleasant another; these two, having different objects, chain a man. It is well with him who clings to the good; he who chooses the pleasant, misses his end.|The Upanishads
+upanishads|The good and the pleasant approach man: the wise goes round about them and distinguishes them. Yea, the wise prefers the good to the pleasant, but the fool chooses the pleasant through greed and avarice.|The Upanishads
+upanishads|Fools dwelling in darkness, wise in their own conceit, and puffed up with vain knowledge, go round and round, staggering to and fro, like blind men led by the blind.|The Upanishads
+upanishads|The Hereafter never rises before the eyes of the careless child, deluded by the delusion of wealth. "This is the world," he thinks, "there is no other;" — thus he falls again and again under my sway.|The Upanishads
+upanishads|Look back how it was with those who came before, look forward how it will be with those who come hereafter. A mortal ripens like corn, like corn he springs up again.|The Upanishads
+upanishads|The knowing Self is not born, it dies not; it sprang from nothing, nothing sprang from it.|The Upanishads
+upanishads|If the killer thinks that he kills, if the killed thinks that he is killed, they do not understand; for this one does not kill, nor is that one killed.|The Upanishads
+upanishads|The Self, smaller than small, greater than great, is hidden in the heart of that creature. A man who is free from desires and free from grief, sees the majesty of the Self by the grace of the Creator.|The Upanishads
+upanishads|That Self cannot be gained by the Veda, nor by understanding, nor by much learning. He whom the Self chooses, by him the Self can be gained.|The Upanishads
+upanishads|The wise who knows the Self as bodiless within the bodies, as unchanging among changing things, as great and omnipresent, does never grieve.|The Upanishads
+upanishads|Know the Self to be sitting in the chariot, the body to be the chariot, the intellect buddhi the charioteer, and the mind the reins.|The Upanishads
+upanishads|The senses they call the horses, the objects of the senses their roads.|The Upanishads
+upanishads|Beyond the senses there are the objects, beyond the objects there is the mind, beyond the mind there is the intellect, the Great Self is beyond the intellect.|The Upanishads
+upanishads|That Self is hidden in all beings and does not shine forth, but it is seen by subtle seers through their sharp and subtle intellect.|The Upanishads
+upanishads|The sharp edge of a razor is difficult to pass over; thus the wise say the path to the Self is hard.|The Upanishads
+upanishads|Children follow after outward pleasures, and fall into the snare of wide-spread death. Wise men only, knowing the nature of what is immortal, do not look for anything stable here among things unstable.|The Upanishads
+upanishads|The Self-existent pierced the openings of the senses so that they turn forward: therefore man looks forward, not backward into himself. Some wise man, however, with his eyes closed and wishing for immortality, saw the Self behind.|The Upanishads
+upanishads|The sun does not shine there, nor the moon and the stars, nor these lightnings, and much less this fire. When he shines, everything shines after him; by his light all this is lighted.|The Upanishads
+upanishads|Two birds, inseparable friends, cling to the same tree. One of them eats the sweet fruit, the other looks on without eating.|The Upanishads
+upanishads|As the spider sends forth and draws in its thread, as plants grow on the earth, as from every man hairs spring forth on the head and the body, thus does everything arise here from the Indestructible.|The Upanishads
+upanishads|And he who beholds all beings in the Self, and the Self in all beings, he never turns away from It.|The Upanishads
+upanishads|When to a man who understands, the Self has become all things, what sorrow, what trouble can there be to him who once beheld that unity?|The Upanishads
+upanishads|He who knows at the same time both knowledge and not-knowledge, overcomes death through not-knowledge, and obtains immortality through knowledge.|The Upanishads
+upanishads|Believe it, my son. That which is the subtile essence, in it all that exists has its self. It is the True. It is the Self, and thou, O Svetaketu, art it.|The Upanishads
+upanishads|Now man is a creature of will. According to what his will is in this world, so will he be when he has departed this life.|The Upanishads
+upanishads|He is my self within the heart, smaller than a corn of rice, smaller than a corn of barley, smaller than a mustard seed, smaller than a canary seed or the kernel of a canary seed. He also is my self within the heart, greater than the earth, greater than the sky, greater than heaven, greater than all these worlds.|The Upanishads
+upanishads|But, Sir, with all this I know the Mantras only, the sacred books, I do not know the Self. I have heard from men like you, that he who knows the Self overcomes grief.|The Upanishads
+upanishads|Now as a man is like this or like that, according as he acts and according as he behaves, so will he be: — a man of good acts will become good, a man of bad acts, bad. He becomes pure by pure deeds, bad by bad deeds.|The Upanishads
+upanishads|And here they say that a person consists of desires. And as is his desire, so is his will; and as is his will, so is his deed; and whatever deed he does, that he will reap.|The Upanishads
+upanishads|Verily, a husband is not dear, that you may love the husband; but that you may love the Self, therefore a husband is dear.|The Upanishads
+upanishads|And as a caterpillar, after having reached the end of a blade of grass, and after having made another approach to another blade, draws itself together towards it, thus does this Self, after having thrown off this body and dispelled all ignorance, and after making another approach to another body, draw himself together towards it.|The Upanishads
+upanishads|Say what is true! Do thy duty!|The Upanishads
+upanishads|Lead me from the unreal to the real! Lead me from darkness to light! Lead me from death to immortality!|The Upanishads
+upanishads|By truthfulness, indeed, by penance, right knowledge, and abstinence must that Self be gained; the Self whom spotless anchorites gain is pure, and like a light within the body.|The Upanishads
+frankl|Everything can be taken from a man but one thing: the last of the human freedoms—to choose one's attitude in any given set of circumstances, to choose one's own way.|Viktor Frankl
+frankl|When we are no longer able to change a situation, we are challenged to change ourselves.|Viktor Frankl
+frankl|Those who have a 'why' to live, can bear with almost any 'how'.|Viktor Frankl
+frankl|But there was no need to be ashamed of tears, for tears bore witness that a man had the greatest of courage, the courage to suffer.|Viktor Frankl
+frankl|An abnormal reaction to an abnormal situation is normal behavior.|Viktor Frankl
+frankl|Ultimately, man should not ask what the meaning of his life is, but rather must recognize that it is he who is asked. In a word, each man is questioned by life; and he can only answer to life by answering for his own life; to life he can only respond by being responsible.|Viktor Frankl
+frankl|In some ways suffering ceases to be suffering at the moment it finds a meaning, such as the meaning of a sacrifice.|Viktor Frankl
+frankl|So live as if you were living already for the second time and as if you had acted the first time as wrongly as you are about to act now!|Viktor Frankl
+frankl|No man should judge unless he asks himself in absolute honesty whether in a similar situation he might not have done the same.|Viktor Frankl
+frankl|Love goes very far beyond the physical person of the beloved. It finds its deepest meaning in his spiritual being, his inner self. Whether or not he is actually present, whether or not he is still alive at all, ceases somehow to be of importance.|Viktor Frankl
+frankl|A man who becomes conscious of the responsibility he bears toward a human being who affectionately waits for him, or to an unfinished work, will never be able to throw away his life. He knows the "why" for his existence, and will be able to bear almost any "how".|Viktor Frankl
+frankl|Man does not simply exist but always decides what his existence will be, what he will become the next moment. By the same token, every human being has the freedom to change at any instant.|Viktor Frankl
+frankl|It is not freedom from conditions, but it is freedom to take a stand toward the conditions.|Viktor Frankl
+frankl|For the world is in a bad state, but everything will become still worse unless each of us does his best.|Viktor Frankl
+frankl|Everyone has his own specific vocation or mission in life; everyone must carry out a concrete assignment that demands fulfillment. Therein he cannot be replaced, nor can his life be repeated. Thus, everyone's task is unique as is his specific opportunity to implement it.|Viktor Frankl
+frankl|If there is meaning in life at all, then there must be a meaning in suffering. Suffering is an ineradicable part of life, even as fate and death. Without suffering and death human life cannot be complete.|Viktor Frankl
+frankl|We cannot, after all, judge a biography by its length, by the number of pages in it; we must judge by the richness of the contents...Sometimes the 'unfinisheds' are among the most beautiful symphonies.|Viktor Frankl
+frankl|What man actually needs is not a tensionless state but rather the striving and struggling for some goal worthy of him. What he needs is not the discharge of tension at any cost, but the call of a potential meaning waiting to be fulfilled by him.|Viktor Frankl
+frankl|Man is originally characterized by his "search for meaning" rather than his "search for himself." The more he forgets himself—giving himself to a cause or another person—the more human he is. And the more he is immersed and absorbed in something or someone other than himself the more he really becomes himself.|Viktor Frankl
+frankl|For success, like happiness, cannot be pursued; it must ensue, and it only does so as the unintended side-effect of one's personal dedication to a cause greater than oneself or as the by-product of one's surrender to a person other than oneself. Happiness must happen, and the same holds for success: you have to let it happen by not caring about it.|Viktor Frankl
+frankl|Since Auschwitz we know what man is capable of. And since Hiroshima we know what is at stake.|Viktor Frankl
+frankl|Our generation is realistic, for we have come to know man as he really is. After all, man is that being who invented the gas chambers of Auschwitz; however, he is also that being who entered those gas chambers upright, with the Lord's Prayer or the Shema Yisrael on his lips.|Viktor Frankl
+frankl|To suffer unnecessarily is masochistic rather than heroic.|Viktor Frankl
+frankl|The crowning experience of all, for the homecoming man, is the wonderful feeling that, after all he has suffered, there is nothing he need fear anymore—except his God.|Viktor Frankl
+frankl|For what then matters is to bear witness to the uniquely human potential at its best, which is to transform a personal tragedy into a triumph, to turn one's predicament into a human achievement.|Viktor Frankl
+frankl|It is a peculiarity of man that he can only live by looking to the future.|Viktor Frankl
+frankl|A life of short duration...could be so rich in joy and love that it could contain more meaning than a life lasting eighty years.|Viktor Frankl
+frankl|It is well known that humor, more than anything else in the human make-up, can afford an aloofness and an ability to rise above any situation, even if only for a few seconds.|Viktor Frankl
+pessoa|Literature is the most agreeable way of ignoring life.|Fernando Pessoa
+pessoa|My past is everything I failed to be.|Fernando Pessoa
+pessoa|We never love anyone. What we love is the idea we have of someone. It's our own concept—our own selves—that we love.|Fernando Pessoa
+pessoa|I've always rejected being understood. To be understood is to prostitute oneself. I prefer to be taken seriously for what I'm not, remaining humanly unknown, with naturalness and all due respect|Fernando Pessoa
+pessoa|I wasn't meant for reality, but life came and found me.|Fernando Pessoa
+pessoa|My soul is a hidden orchestra; I know not what instruments, what fiddlestrings and harps, drums and tamboura I sound and clash inside myself. All I hear is the symphony.|Fernando Pessoa
+pessoa|I feel as if I'm always on the verge of waking up.|Fernando Pessoa
+pessoa|I bear the wounds of all the battles I avoided.|Fernando Pessoa
+pessoa|I've never done anything but dream. This, and this alone, has been the meaning of my life. My only real concern has been my inner life.|Fernando Pessoa
+pessoa|I've dreamed a lot. I'm tired now from dreaming but not tired of dreaming. No one tires of dreaming, because to dream is to forget, and forgetting does not weigh on us, it is a dreamless sleep throughout which we remain awake. In dreams I have achieved everything.|Fernando Pessoa
+pessoa|Man shouldn't be able to see his own face—there's nothing more sinister. Nature gave him the gift of not being able to see it, and of not being able to stare into his own eyes. Only in the water of rivers and ponds could he look at his face. And the very posture he had to assume was symbolic. He had to bend over, stoop down, to commit the ignominy of beholding himself. The inventor of the mirror poisoned the human heart.|Fernando Pessoa
+pessoa|If I write what I feel, it's to reduce the fever of feeling. What I confess is unimportant, because everything is unimportant.|Fernando Pessoa
+pessoa|To know nothing about yourself is to live. To know yourself badly is to think.|Fernando Pessoa
+pessoa|Life is an experimental journey undertaken involuntarily. It is a journey of the spirit through the material world and, since it is the spirit that travels, it is the spirit that is experienced. That is why there exist contemplative souls who have lived more intensely, more widely, more tumultuously than others who have lived their lives purely externally.|Fernando Pessoa
+pessoa|The essence of what I desire is simply this: to sleep away life.|Fernando Pessoa
+pessoa|Life is what we make of it. Travel is the traveler. What we see isn't what we see but what we are.|Fernando Pessoa
+pessoa|I carry my awareness of defeat like a banner of victory.|Fernando Pessoa
+pessoa|We are two abysses — a well staring at the sky.|Fernando Pessoa
+pessoa|To live is to be someone else. Feeling is impossible if we feel today as we felt yesterday: to feel today the same thing we felt yesterday is not to feel at all—it's merely to remember today what we felt yesterday, since today we are the living cadaver of yesterday's lost life.|Fernando Pessoa
+pessoa|Blessed are those who entrust their lives to no one.|Fernando Pessoa
+pessoa|There are ships sailing to many ports, but not a single one goes to where life is not painful; nor is there a port of call where it is possible to forget.|Fernando Pessoa
+pessoa|Could it think, the heart would stop beating.|Fernando Pessoa
+pessoa|My soul is a black maelstrom, a great madness spinning about a vacuum, the swirling of a vast ocean around a hole in the void, and in the waters, more like whirlwinds than waters, float images of all I ever saw or heard in the world: houses, faces, books, boxes, snatches of music and fragments of voices, all caught up in a sinister, bottomless whirlpool.|Fernando Pessoa
+pessoa|I am nothing.\nI'll never be anything.\nI couldn't want to be something.\nApart from that, I have in me all the dreams in the world.|Fernando Pessoa (as Álvaro de Campos)
+pessoa|Look, there's no metaphysics on earth like chocolates.|Fernando Pessoa (as Álvaro de Campos)
+pessoa|To be great, be whole;\nExclude nothing, exaggerate nothing that is not you.\nBe whole in everything. Put all you are\nInto the smallest thing you do.\nSo, in each lake, the moon shines with splendor\nBecause it blooms up above.|Fernando Pessoa (as Ricardo Reis)
+borges|I have always imagined that Paradise will be a kind of library.|Jorge Luis Borges
+borges|I am not sure that I exist, actually. I am all the writers that I have read, all the people that I have met, all the women that I have loved; all the cities I have visited.|Jorge Luis Borges
+borges|Let others pride themselves about how many pages they have written; I'd rather boast about the ones I've read.|Jorge Luis Borges
+borges|A writer — and, I believe, generally all persons — must think that whatever happens to him or her is a resource. All things have been given to us for a purpose, and an artist must feel this more intensely. All that happens to us, including our humiliations, our misfortunes, our embarrassments, all is given to us as raw material, as clay, so that we may shape our art.|Jorge Luis Borges
+borges|Time is the substance I am made of. Time is a river which sweeps me along, but I am the river; it is a tiger which destroys me, but I am the tiger; it is a fire which consumes me, but I am the fire.|Jorge Luis Borges
+borges|When writers die they become books, which is, after all, not too bad an incarnation.|Jorge Luis Borges
+borges|A book is more than a verbal structure or series of verbal structures; it is the dialogue it establishes with its reader and the intonation it imposes upon his voice and the changing and durable images it leaves in his memory. A book is not an isolated being: it is a relationship, an axis of innumerable relationships.|Jorge Luis Borges
+borges|Heaven and hell seem out of proportion to me: the actions of men do not deserve so much.|Jorge Luis Borges
+borges|Personally, I am a hedonistic reader; I have never read a book merely because it was ancient. I read books for the aesthetic emotions they offer me, and I ignore the commentaries and criticism.|Jorge Luis Borges
+borges|A man sets out to draw the world. As the years go by, he peoples a space with images of provinces, kingdoms, mountains, bays, ships, islands, fishes, rooms, instruments, stars, horses, and individuals. A short time before he dies, he discovers that the patient labyrinth of lines traces the lineaments of his own face.|Jorge Luis Borges
+borges|The original is unfaithful to the translation.|Jorge Luis Borges
+borges|Truly fine poetry must be read aloud. A good poem does not allow itself to be read in a low voice or silently. If we can read it silently, it is not a valid poem: a poem demands pronunciation. Poetry always remembers that it was an oral art before it was a written art. It remembers that it was first song.|Jorge Luis Borges
+borges|No one is anyone, one single immortal man is all men. Like Cornelius Agrippa, I am god, I am hero, I am philosopher, I am demon and I am world, which is a tedious way of saying that I do not exist.|Jorge Luis Borges
+borges|Music, feelings of happiness, mythology, faces worn by time, certain twilights and certain places, want to tell us something, or they told us something that we should not have missed, or they are about to tell us something; this imminence of a revelation that is not produced is, perhaps, 'the aesthetic event'.|Jorge Luis Borges
+borges|Writing long books is a laborious and impoverishing act of foolishness: expanding in five hundred pages an idea that could be perfectly explained in a few minutes. A better procedure is to pretend that those books already exist and to offer a summary, a commentary.|Jorge Luis Borges
+borges|Being an agnostic means all things are possible, even God, even the Holy Trinity. This world is so strange that anything may happen, or may not happen. Being an agnostic makes me live in a larger, a more fantastic kind of world, almost uncanny. It makes me more tolerant.|Jorge Luis Borges
+borges|Of all man's instruments, the most wondrous, no doubt, is the book. The other instruments are extensions of his body. The microscope, the telescope, are extensions of his sight; the telephone is the extension of his voice; then we have the plow and the sword, extensions of the arm. But the book is something else altogether: the book is an extension of memory and imagination.|Jorge Luis Borges
+borges|We accept reality so readily — perhaps because we sense that nothing is real.|Jorge Luis Borges
+borges|Whatever one man does, it is as if all men did it. For that reason, it is not unfair that one disobedience in a garden should contaminate all humanity; for that reason it is not unjust that the crucifixion of a single Jew should be sufficient to save it.|Jorge Luis Borges
+borges|Like all those possessing a library, Aurelian was aware that he was guilty of not knowing his in its entirety.|Jorge Luis Borges
+borges|I thought that a man can be an enemy of other men, of the moments of other men, but not of a country: not of fireflies, words, gardens, streams of water, sunsets.|Jorge Luis Borges
+borges|Mirrors and copulation are abominable, since they both multiply the numbers of men.|Jorge Luis Borges
+borges|The dictionary is based on the hypothesis—obviously an unproven one—that languages are made up of equivalent synonyms.|Jorge Luis Borges
+borges|To think, analyze and invent are not anomalous acts, but the normal respiration of the intelligence.|Jorge Luis Borges
+borges|A book is a physical object in a world of physical objects. It is a set of dead symbols. And then the right reader comes along, and the words—or rather the poetry behind the words, for the words themselves are mere symbols—spring to life, and we have a resurrection of the word.|Jorge Luis Borges
+cioran|It is not worth the bother of killing yourself, since you always kill yourself too late.|E. M. Cioran
+cioran|A book is a suicide postponed.|E. M. Cioran
+cioran|Man starts over again everyday, in spite of all he knows, against all he knows.|E. M. Cioran
+cioran|Write books only if you are going to say in them the things you would never dare confide to anyone.|E. M. Cioran
+cioran|The fact that life has no meaning is a reason to live—moreover, the only one.|E. M. Cioran
+cioran|Sometimes I wish I were a cannibal — less for the pleasure of eating someone than for the pleasure of vomiting him.|E. M. Cioran
+cioran|To have committed every crime but that of being a father.|E. M. Cioran
+cioran|What I know at sixty, I knew as well at twenty. Forty years of a long, a superfluous, labor of verification.|E. M. Cioran
+cioran|The multiplication of our kind borders on the obscene; the duty to love them, on the preposterous.|E. M. Cioran
+cioran|Tell me how you want to die, and I'll tell you who you are.|E. M. Cioran
+cioran|I get along quite well with someone only when he is at his lowest point and has neither the desire nor the strength to restore his habitual illusions.|E. M. Cioran
+cioran|Having always lived in fear of being surprised by the worst, I have tried in every circumstance to get a head start, flinging myself into misfortune long before it occurred.|E. M. Cioran
+cioran|Each time I fail to think about death, I have the impression of cheating, of deceiving someone in me.|E. M. Cioran
+cioran|Shame on the man who goes to his grave escorted by the miserable hopes that have kept him alive.|E. M. Cioran
+cioran|We have lost, being born, as much as we shall lose dying: Everything!|E. M. Cioran
+cioran|As the years pass, the number of those we can communicate with diminishes. When there is no longer anyone to talk to, at last we will be as we were before stooping to a name.|E. M. Cioran
+cioran|No one recovers from the disease of being born, a deadly wound if there ever was one.|E. M. Cioran
+cioran|We dread the future only when we are not sure we can kill ourselves when we want to.|E. M. Cioran
+cioran|I have all the defects of other people and yet everything they do seems to me inconceivable.|E. M. Cioran
+cioran|There is no other world. Nor even this one. What, then, is there? The inner smile provoked in us by the patent nonexistence of both.|E. M. Cioran
+cioran|The same feeling of not belonging, of futility, wherever I go: I pretend interest in what matters nothing to me, I bestir myself mechanically or out of charity, without ever being caught up, without ever being somewhere. What attracts me is elsewhere, and I don't know where that elsewhere is.|E. M. Cioran
+weil|Attention is the rarest and purest form of generosity.|Simone Weil
+weil|Imaginary evil is romantic and varied; real evil is gloomy, monotonous, barren, boring. Imaginary good is boring; real good is always new, marvelous, intoxicating.|Simone Weil
+weil|All sins are attempts to fill voids.|Simone Weil
+weil|Attachment is the great fabricator of illusions; reality can be obtained only by someone who is detached.|Simone Weil
+weil|Love is not consolation. It is light.|Simone Weil
+weil|To be rooted is perhaps the most important and least recognized need of the human soul.|Simone Weil
+weil|The sea is not less beautiful in our eyes because we know that sometimes ships are wrecked by it.|Simone Weil
+weil|Love of God is pure when joy and suffering inspire an equal degree of gratitude.|Simone Weil
+weil|We have to endure the discordance between imagination and fact. It is better to say, "I am suffering," than to say, "This landscape is ugly."|Simone Weil
+weil|We must not wish for the disappearance of our troubles but for the grace to transform them.|Simone Weil
+weil|The intelligent man who is proud of his intelligence is like the condemned man who is proud of his large cell.|Simone Weil
+weil|The capacity to pay attention to an afflicted person is something very rare, very difficult; it is nearly a miracle. It is a miracle. Nearly all those who believe they have this capacity do not. Warmth, movements of the heart, and pity are not sufficient.|Simone Weil
+weil|You could not be born at a better period than the present, when we have lost everything.|Simone Weil
+weil|Attention, taken to its highest degree, is the same thing as prayer. It presupposes faith and love. Absolutely unmixed attention is prayer.|Simone Weil
+weil|Stars and blossoming fruit trees: Utter permanence and extreme fragility give an equal sense of eternity.|Simone Weil
+weil|Even if our efforts of attention seem for years to be producing no result, one day a light that is in exact proportion to them will flood the soul.|Simone Weil
+weil|To love purely is to consent to distance, it is to adore the distance between ourselves and that which we love.|Simone Weil
+weil|We cannot take a step toward the heavens. God crosses the universe and comes to us.|Simone Weil
+weil|Time's violence rends the soul; by the rent eternity enters.|Simone Weil
+weil|Friendship is not to be sought, not to be dreamed, not to be desired; it is to be exercised (it is a virtue).|Simone Weil
+weil|The danger is not that the soul should doubt whether there is any bread, but that, by a lie, it should persuade itself that it is not hungry.|Simone Weil
+weil|Distance is the soul of the beautiful.|Simone Weil
+weil|Let us love this distance, which is thoroughly woven with friendship, since those who do not love each other are not separated.|Simone Weil
+weil|The beauty of this world is Christ's tender smile coming to us through matter.|Simone Weil
+weil|Nearly everywhere — often even when dealing with purely technical problems — instead of thinking, one merely takes sides: for or against. Such a choice replaces the activity of the mind. This is an intellectual leprosy; it originated in the political world and then spread through the land, contaminating all forms of thinking. This leprosy is killing us; it is doubtful whether it can be cured without first starting with the abolition of all political parties.|Simone Weil
+weil|The world is the closed door. It is a barrier. And at the same time it is the way through.|Simone Weil
+neruda|I love you as certain dark things are to be loved,\nin secret, between the shadow and the soul.|Pablo Neruda
+neruda|I love you without knowing how, or when, or from where,\nI love you simply, without problems or pride:\nI love you in this way because I don't know any other way of loving.|Pablo Neruda
+neruda|I no longer love her, that's certain, but maybe I love her.\nLove is so short, forgetting is so long.|Pablo Neruda
+neruda|I want\nto do with you what spring does with the cherry trees.|Pablo Neruda
+neruda|I can write the saddest poem of all tonight.\nI loved her, and sometimes she loved me too.|Pablo Neruda
+neruda|I crave your mouth, your voice, your hair.\nSilent and starving, I prowl through the streets.\nBread does not nourish me, dawn disrupts me,\nall day I hunt for the liquid measure of your steps.|Pablo Neruda
+neruda|so I wait for you like a lonely house\ntill you will see me again and live in me.\nTill then my windows ache.|Pablo Neruda
+neruda|But I love your feet only because\nthey walked upon the earth and upon the wind\nand upon the waters, until they found me.|Pablo Neruda
+neruda|Well, now,\nif little by little you stop loving me\nI shall stop loving you\nlittle by little.|Pablo Neruda
+neruda|Don't go far off, not even for a day,\nbecause I don't know how to say it—a day is long\nand I will be waiting for you,\nas in an empty station when the trains are parked off somewhere else, asleep.|Pablo Neruda
+neruda|Take bread away from me, if you wish,\ntake air away, but\ndo not take from me your laughter.|Pablo Neruda
+neruda|At night I dream that you and I are two plants\nthat grew together, roots entwined,\nand that you know the earth and the rain like my mouth,\nsince we are made of earth and rain.|Pablo Neruda
+neruda|In what language does rain fall\nover tormented cities?|Pablo Neruda
+neruda|Do tears not yet spilled wait in small lakes?|Pablo Neruda
+neruda|I like on the table,\nwhen we're speaking,\nthe light of a bottle\nof intelligent wine.|Pablo Neruda
+neruda|By night, Love, tie your heart to mine,\nand the two together in their sleep will defeat the darkness.|Pablo Neruda
+neruda|If suddenly you do not exist,\nif suddenly you are not living,\nI shall go on living.|Pablo Neruda
+oliver|Tell me about despair, yours, and I will tell you mine.\nMeanwhile the world goes on.|Mary Oliver
+oliver|the world offers itself to your imagination,\ncalls to you like the wild geese, harsh and exciting—\nover and over announcing your place\nin the family of things.|Mary Oliver
+oliver|Instructions for living a life.\nPay attention.\nBe astonished.\nTell about it.|Mary Oliver
+oliver|Someone I loved once gave me\na box full of darkness.\nIt took me years to understand\nthat this, too, was a gift.|Mary Oliver
+oliver|determined to do\nthe only thing you could do—\ndetermined to save\nthe only life you could save.|Mary Oliver
+oliver|When it's over, I want to say: all my life\nI was a bride married to amazement.\nI was the bridegroom, taking the world into my arms.|Mary Oliver
+oliver|I don't want to find myself sighing and frightened,\nor full of argument.\nI don't want to end up simply having visited this world.|Mary Oliver
+oliver|Hello, sun in my face.\nHello, you who made the morning\nand spread it over the fields\nand into the faces of the tulips.|Mary Oliver
+oliver|Sometimes I need\nonly to stand\nwherever I am\nto be blessed.|Mary Oliver
+oliver|To pay attention, this is our endless and proper work.|Mary Oliver
+oliver|It is a serious thing\njust to be alive\non this fresh morning\nin this broken world.|Mary Oliver
+oliver|My work is loving the world.\nHere the sunflower, there the hummingbird—\nequal seekers of sweetness.|Mary Oliver
+oliver|Snow was falling, so much like stars\nfilling the dark trees\nthat one could easily imagine\nits reason for being was nothing more than prettiness.|Mary Oliver
+oliver|Tell me, what else should I have done?\nDoesn't everything die at last, and too soon?\nTell me, what is it you plan to do\nwith your one wild and precious life?|Mary Oliver
+oliver|You want to cry aloud for your mistakes.\nBut to tell the truth the world\ndoesn't need any more of that sound.|Mary Oliver
+oliver|Said the river: imagine everything you can imagine, then keep on going.|Mary Oliver
+szymborska|When I pronounce the word Future,\nthe first syllable already belongs to the past.\nWhen I pronounce the word Silence,\nI destroy it.|Wisława Szymborska
+szymborska|I prefer the absurdity of writing poems\nto the absurdity of not writing poems.|Wisława Szymborska
+szymborska|They're both convinced\nthat a sudden passion joined them.\nSuch certainty is beautiful,\nbut uncertainty is more beautiful still.|Wisława Szymborska
+szymborska|Every beginning is only a sequel, after all,\nand the book of events\nis always open halfway through.|Wisława Szymborska
+szymborska|Life While-You-Wait.\nPerformance without rehearsal.\nBody without alterations.\nHead without premeditation.|Wisława Szymborska
+szymborska|Nothing can ever happen twice.\nIn consequence, the sorry fact is\nthat we arrive here improvised\nand leave without the chance to practice.|Wisława Szymborska
+szymborska|No day copies yesterday,\nno two nights will teach what bliss is\nin precisely the same way,\nwith precisely the same kisses.|Wisława Szymborska
+szymborska|My apologies to chance for calling it necessity.\nMy apologies to necessity if I'm mistaken, after all.\nPlease, don't be angry, happiness, that I take you as my due.\nMay my dead be patient with the way my memories fade.|Wisława Szymborska
+szymborska|Dying—you can't do that to a cat.\nFor what can a cat do\nin an empty apartment?|Wisława Szymborska
+szymborska|True love. Is it normal,\nis it serious, is it practical?\nWhat does the world get from two people\nwho exist in a world of their own?|Wisława Szymborska
+szymborska|Let the people who never find true love\nkeep saying that there's no such thing.\nTheir faith will make it easier for them to live and die.|Wisława Szymborska
+szymborska|The joy of writing.\nThe power of preserving.\nRevenge of a mortal hand.|Wisława Szymborska
+szymborska|You were saved because you were the first.\nYou were saved because you were the last.\nAlone. With others.\nOn the right. The left.|Wisława Szymborska
+szymborska|I prefer movies.\nI prefer cats.\nI prefer the oaks along the Warta.\nI prefer Dickens to Dostoyevsky.|Wisława Szymborska
+szymborska|Four billion people on this earth,\nbut my imagination is the way it's always been:\nbad with large numbers.\nIt is still moved by particularity.|Wisława Szymborska
+szymborska|I'm old-fashioned and think that reading books is the most glorious pastime that humankind has yet devised.|Wisława Szymborska
+szymborska|That is why I value that little phrase "I don't know" so highly. It's small, but it flies on mighty wings.|Wisława Szymborska
+szymborska|But any knowledge that doesn't lead to new questions quickly dies out: it fails to maintain the temperature required for sustaining life.|Wisława Szymborska
+kundera|Anyone whose goal is 'something higher' must expect someday to suffer vertigo. What is vertigo? Fear of falling? No, Vertigo is something other than fear of falling. It is the voice of the emptiness below us which tempts and lures us, it is the desire to fall, against which, terrified, we defend ourselves.|Milan Kundera
+kundera|When the heart speaks, the mind finds it indecent to object.|Milan Kundera
+kundera|For there is nothing heavier than compassion. Not even one's own pain weighs so heavy as the pain one feels with someone, for someone, a pain intensified by the imagination and prolonged by a hundred echoes.|Milan Kundera
+kundera|Making love with a woman and sleeping with a woman are two separate passions, not merely different but opposite. Love does not make itself felt in the desire for copulation (a desire that extends to an infinite number of women) but in the desire for shared sleep (a desire limited to one woman).|Milan Kundera
+kundera|Love is the longing for the half of ourselves we have lost.|Milan Kundera
+kundera|But when the strong were too weak to hurt the weak, the weak had to be strong enough to leave.|Milan Kundera
+kundera|The Greek word for "return" is nostos. Algos means "suffering." So nostalgia is the suffering caused by an unappeased yearning to return.|Milan Kundera
+kundera|In the sunset of dissolution, everything is illuminated by the aura of nostalgia, even the guillotine.|Milan Kundera
+kundera|We can never know what to want, because, living only one life, we can neither compare it with our previous lives nor perfect it in our lives to come.|Milan Kundera
+kundera|People are always shouting they want to create a better future. It's not true. The future is an apathetic void of no interest to anyone. The past is full of life, eager to irritate us, provoke and insult us, tempt us to destroy or repaint it. The only reason people want to be masters of the future is to change the past.|Milan Kundera
+kundera|Tomas did not realize at the time that metaphors are dangerous. Metaphors are not to be trifled with. A single metaphor can give birth to love.|Milan Kundera
+kundera|There is no means of testing which decision is better, because there is no basis for comparison. We live everything as it comes, without warning, like an actor going on cold. And what can life be worth if the first rehearsal for life is life itself?|Milan Kundera
+kundera|And therein lies the whole of man's plight. Human time does not turn in a circle; it runs ahead in a straight line. That is why man cannot be happy: happiness is the longing for repetition.|Milan Kundera
+kundera|The struggle of man against power is the struggle of memory against forgetting.|Milan Kundera
+kundera|Chance and chance alone has a message for us. Everything that occurs out of necessity, everything expected, repeated day in and day out, is mute. Only chance can speak to us.|Milan Kundera
+kundera|Indeed, the only truly serious questions are ones that even a child can formulate. Only the most naive of questions are truly serious. They are the questions with no answers. A question with no answer is a barrier that cannot be breached. In other words, it is questions with no answers that set the limit of human possibilities, describe the boundaries of human existence.|Milan Kundera
+kundera|Einmal ist keinmal, says Tomas to himself. What happens but once, says the German adage, might as well not have happened at all. If we have only one life to live, we might as well not have lived at all.|Milan Kundera
+kundera|True human goodness, in all its purity and freedom, can come to the fore only when its recipient has no power. Mankind's true moral test, its fundamental test (which is deeply buried from view), consists of its attitude towards those who are at its mercy: animals.|Milan Kundera
+kundera|For Sabina, living in truth, lying neither to ourselves nor to others, was possible only away from the public: the moment someone keeps an eye on what we do, we involuntarily make allowances for that eye, and nothing we do is truthful. Having a public, keeping a public in mind, means living in lies.|Milan Kundera
+kundera|Without realizing it, the individual composes his life according to the laws of beauty even in times of greatest distress.|Milan Kundera
+kundera|There is a secret bond between slowness and memory, between speed and forgetting.|Milan Kundera
+kundera|Tereza knew what happens during the moment love is born: the woman cannot resist the voice calling forth her terrified soul; the man cannot resist the woman whose soul thus responds to his voice.|Milan Kundera
+kundera|The stupidity of people comes from having an answer for everything. The wisdom of the novel comes from having a question for everything. When Don Quixote went out into the world, that world turned into a mystery before his eyes. That is the legacy of the first European novel to the entire subsequent history of the novel. The novelist teaches the reader to comprehend the world as a question. There is wisdom and tolerance in that attitude.|Milan Kundera
+sartre|So this is hell. I'd never have believed it. You remember all we were told about the torture-chambers, the fire and brimstone, the "burning marl." Old wives' tales! There's no need for red-hot pokers. Hell is—other people!|Jean-Paul Sartre
+sartre|Man is condemned to be free. Condemned because he did not create himself, yet is nevertheless at liberty, and from the moment he is thrown into this world he is responsible for everything he does.|Jean-Paul Sartre
+sartre|Man is nothing else but what he makes of himself.|Jean-Paul Sartre
+sartre|Man can will nothing unless he has first understood that he must count on no one but himself; that he is alone, abandoned on earth in the midst of his infinite responsibilities, without help, with no other aim than the one he sets himself, with no other destiny than the one he forges for himself on this earth.|Jean-Paul Sartre
+sartre|What is meant here by saying that existence precedes essence? It means first of all, man exists, turns up, appears on the scene, and, only afterwards, defines himself. If man, as the existentialist conceives him, is indefinable, it is because at first he is nothing. Only afterward will he be something, and he himself will have made what he will be.|Jean-Paul Sartre
+sartre|In life man commits himself and draws his own portrait, outside of which there is nothing. No doubt this thought may seem harsh to someone who has not made a success of his life. But on the other hand, it helps people to understand that reality alone counts, and that dreams, expectations and hopes only serve to define a man as a broken dream, aborted hopes, and futile expectations.|Jean-Paul Sartre
+sartre|Nothingness lies coiled in the heart of being - like a worm.|Jean-Paul Sartre
+sartre|Every existing thing is born without reason, prolongs itself out of weakness, and dies by chance.|Jean-Paul Sartre
+sartre|It is therefore senseless to think of complaining since nothing foreign has decided what we feel, what we live, or what we are.|Jean-Paul Sartre
+sartre|My thought is me: that's why I can't stop. I exist because I think... and I can't stop myself from thinking. At this very moment - it's frightful - if I exist, it is because I am horrified at existing. I am the one who pulls myself from the nothingness to which I aspire.|Jean-Paul Sartre
+sartre|Nothing happens while you live. The scenery changes, people come in and go out, that's all. There are no beginnings. Days are tacked on to days without rhyme or reason, an interminable, monotonous addition.|Jean-Paul Sartre
+sartre|This is what I thought: for the most banal even to become an adventure, you must (and this is enough) begin to recount it. This is what fools people: a man is always a teller of tales, he sees everything that happens to him through them; and he tries to live his own life as if he were telling a story. But you have to choose: live or tell.|Jean-Paul Sartre
+sartre|Three o'clock is always too late or too early for anything you want to do.|Jean-Paul Sartre
+sartre|I am alone in the midst of these happy, reasonable voices. All these creatures spend their time explaining, realizing happily that they agree with each other. In Heaven's name, why is it so important to think the same things all together?|Jean-Paul Sartre
+sartre|People who live in society have learnt how to see themselves, in mirrors, as they appear to their friends. I have no friends: is that why my flesh is so naked?|Jean-Paul Sartre
+sartre|I suppose it is out of laziness that the world is the same day after day. Today it seemed to want to change. And then anything, anything could happen.|Jean-Paul Sartre
+sartre|I had found my religion: nothing seemed more important to me than a book. I saw the library as a temple.|Jean-Paul Sartre
+sartre|Anything, anything would be better than this agony of mind, this creeping pain that gnaws and fumbles and caresses one and never hurts quite enough.|Jean-Paul Sartre
+sartre|Man is nothing else but his plan; he exists only to the extent that he fulfils himself; he is therefore nothing else but the ensemble of his acts, nothing else but his life.|Jean-Paul Sartre
