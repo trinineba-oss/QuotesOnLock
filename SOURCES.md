@@ -27,6 +27,9 @@ editions below, or a translation made for this app and labelled `(tr. Claude)`.
 | Marcus Aurelius | Meditations | George W. Chrystal (1902) | Project Gutenberg #55317 |
 | Epictetus | Enchiridion; Golden Sayings | Thomas Wentworth Higginson; Hastings Crossley | Project Gutenberg #45109, #871 |
 | Seneca | Minor Dialogues | Aubrey Stewart (1889) | Project Gutenberg #64576 |
+| Seneca | Letters to Lucilius (Epistulae Morales), letters 1–124 | Richard M. Gummere (Loeb, 1917–25) | Wikisource transcription |
+| Seneca | On Benefits | Aubrey Stewart (Bohn, 1887) | Project Gutenberg #3794 |
+| Seneca | Natural Questions | John Clarke (1910, *Physical Science in the Time of Nero*) | Internet Archive `physicalsciencei00seneuoft` |
 | Arthur Schopenhauer | Counsels and Maxims; The Wisdom of Life | T. Bailey Saunders | Project Gutenberg #10715, #10741 |
 | Ralph Waldo Emerson; Henry David Thoreau | Essays: First Series; Walden | original English | Project Gutenberg #2944, #205 |
 | Blaise Pascal | Pensées | W. F. Trotter | Project Gutenberg #18269 |
