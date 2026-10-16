@@ -15,6 +15,7 @@ enum class Category(val key: String, val label: String, val group: QuoteGroup) {
     THOUGHT_PROVOKING("thought", "Thought-provoking", QuoteGroup.THEME),
     STOIC("stoic", "Stoic & ancient wisdom", QuoteGroup.THEME),
     KINDNESS("kindness", "Kindness & hope", QuoteGroup.THEME),
+    CREATIVE("creative", "Creative inspiration", QuoteGroup.THEME),
     GIBRAN("gibran", "Kahlil Gibran", QuoteGroup.POETS),
     RILKE("rilke", "Rainer Maria Rilke", QuoteGroup.POETS),
     NIETZSCHE("nietzsche", "Friedrich Nietzsche", QuoteGroup.THINKERS),
@@ -61,11 +62,46 @@ enum class Category(val key: String, val label: String, val group: QuoteGroup) {
     DANTE("dante", "Dante Alighieri", QuoteGroup.POETS),
     FREUD("freud", "Sigmund Freud", QuoteGroup.THINKERS),
     JUNG("jung", "Carl Jung", QuoteGroup.THINKERS),
+    LUCRETIUS("lucretius", "Lucretius", QuoteGroup.THINKERS),
+    SCHOPENHAUER("schopenhauer", "Arthur Schopenhauer", QuoteGroup.THINKERS),
+    HERACLITUS("heraclitus", "Presocratics & Epicurus", QuoteGroup.THINKERS),
+    MONTAIGNE("montaigne", "Michel de Montaigne", QuoteGroup.THINKERS),
+    PASCAL("pascal", "Blaise Pascal", QuoteGroup.THINKERS),
+    HUME("hume", "David Hume", QuoteGroup.THINKERS),
+    AUGUSTINE("augustine", "Augustine", QuoteGroup.THINKERS),
+    GOETHE("goethe", "Johann Wolfgang von Goethe", QuoteGroup.POETS),
+    TRAGEDIANS("tragedians", "Greek tragedians", QuoteGroup.POETS),
+    YEATS("yeats", "W. B. Yeats", QuoteGroup.POETS),
+    KEATS("keats", "John Keats", QuoteGroup.POETS),
+    WORDSWORTH("wordsworth", "William Wordsworth", QuoteGroup.POETS),
+    MILTON("milton", "John Milton", QuoteGroup.POETS),
+    ELIOT("eliot", "T. S. Eliot", QuoteGroup.POETS),
+    HOLDERLIN("holderlin", "Friedrich Hölderlin", QuoteGroup.POETS),
+    HARDY("hardy", "Thomas Hardy", QuoteGroup.POETS),
+    CONRAD("conrad", "Joseph Conrad", QuoteGroup.WRITERS),
+    BRONTE("bronte", "The Brontë sisters", QuoteGroup.WRITERS),
+    WOOLF("woolf", "Virginia Woolf", QuoteGroup.WRITERS),
+    WILDE("wilde", "Oscar Wilde", QuoteGroup.WRITERS),
+    WITTGENSTEIN("wittgenstein", "Ludwig Wittgenstein", QuoteGroup.THINKERS),
+    WATTS("watts", "Alan Watts", QuoteGroup.THINKERS),
+    KRISHNAMURTI("krishnamurti", "J. Krishnamurti", QuoteGroup.THINKERS),
+    MURDOCH("murdoch", "Iris Murdoch", QuoteGroup.THINKERS),
+    BECKER("becker", "Ernest Becker", QuoteGroup.THINKERS),
+    HAFIZ("hafiz", "Hafiz & the Sufi poets", QuoteGroup.POETS),
+    HAIKU("haiku", "Haiku (Bashō, Issa, Buson)", QuoteGroup.POETS),
+    SUTTANIPATA("suttanipata", "Early Buddhist texts", QuoteGroup.SCRIPTURE),
+    PSALMS("psalms", "Psalms, Proverbs & Wisdom", QuoteGroup.SCRIPTURE),
+    ECKHART("eckhart", "Christian mystics", QuoteGroup.SCRIPTURE),
     QURAN("quran", "The Qur'an", QuoteGroup.SCRIPTURE),
     CUSTOM("custom", "My own quotes", QuoteGroup.MINE);
 
     companion object {
         fun fromKey(key: String): Category? = entries.firstOrNull { it.key == key }
+
+        /** Authors still in copyright, whose quotes are short excerpts, so they can be switched off together. */
+        val MODERN: List<Category> by lazy {
+            listOf(CAMUS, HESSE, MURAKAMI, EINSTEIN, FRANKL, PESSOA, BORGES, CIORAN, WEIL, NERUDA, OLIVER, SZYMBORSKA, KUNDERA, SARTRE, WATTS, KRISHNAMURTI, MURDOCH, BECKER)
+        }
     }
 }
 

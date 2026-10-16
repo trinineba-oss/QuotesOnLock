@@ -66,6 +66,32 @@ editions below, or a translation made for this app and labelled `(tr. Claude)`.
 | Dante Alighieri | The Divine Comedy (Inferno, Purgatorio, Paradiso) | Henry Wadsworth Longfellow (1867) | Project Gutenberg #1004 |
 | Sigmund Freud | Civilization and Its Discontents (Joan Riviere, 1930); Reflections on War and Death (Brill & Kuttner, 1918); The Future of an Illusion (W. D. Robson-Scott, 1928); The Interpretation of Dreams (A. A. Brill, 1913); A General Introduction to Psychoanalysis (G. Stanley Hall); Group Psychology and the Analysis of the Ego (James Strachey); Beyond the Pleasure Principle (C. J. M. Hubback, 1922); Leonardo da Vinci (Brill, 1916) | as listed | Project Gutenberg #78221, #35875, #76774, #66048, #38219, #35877, #76031, #34300 |
 | Carl Jung | Collected Papers on Analytical Psychology (Constance Long, 1920); Psychology of the Unconscious (Beatrice Hinkle, 1916); Two Essays on Analytical Psychology (H. G. and C. F. Baynes, 1928); Psychological Types (H. G. Baynes, 1923) | as listed | Project Gutenberg #48225, #65903; Internet Archive (`in.ernet.dli.2015.218694`, `psychological_types`) |
+| Lucretius | On the Nature of Things | William Ellery Leonard (1916) | Project Gutenberg #785 |
+| Arthur Schopenhauer | Studies in Pessimism; The Art of Literature; Religion: A Dialogue (T. Bailey Saunders); The World as Will and Idea (Haldane & Kemp) | as listed | Project Gutenberg #10732, #10714, #10833, #38427 |
+| Presocratics & Epicurus | Early Greek Philosophy (John Burnet, 2nd ed.); Epicurus: Letter to Menoeceus and Principal Doctrines (R. D. Hicks, 1925); Vatican Sayings (Cyril Bailey, 1926) | as listed | Project Gutenberg #67097; Internet Archive `livesofeminentph02dioguoft`, `EpicurusTheExtantRemainsBaileyOxford1926_201309` |
+| Michel de Montaigne | Essays | Charles Cotton (Hazlitt ed.) | Project Gutenberg #3600 |
+| Blaise Pascal | Pensées | W. F. Trotter | Project Gutenberg #18269 (Pensées proper only) |
+| David Hume | A Treatise of Human Nature; An Enquiry Concerning Human Understanding; Dialogues Concerning Natural Religion; Essays | original English | Project Gutenberg #4705, #9662, #4583, #36120 |
+| Augustine | Confessions | E. B. Pusey (1838) | Project Gutenberg #3296 |
+| Goethe | Maxims and Reflections (T. Bailey Saunders); Faust I (Bayard Taylor); Poems (E. A. Bowring); Conversations with Eckermann (John Oxenford) | as listed | Project Gutenberg #33670, #14591, #1287; Internet Archive `conversationsofg00goetrich` |
+| Greek tragedians | Sophocles, Aeschylus, Euripides | F. Storr, E. D. A. Morshead, Gilbert Murray, Lewis Campbell | Project Gutenberg #31, #14484, #27673, #8604, #14417, #8714, #35173, #35451, #35171, #10523, #8418, #14322 |
+| Christian mystics | Meister Eckhart (C. de B. Evans, 1924); Julian of Norwich (Grace Warrack); Thomas à Kempis, The Imitation of Christ (William Benham); Brother Lawrence; Thomas Traherne; William Law | as listed | Project Gutenberg #52958, #1653, #13871; Internet Archive `meistereckhart0001eckh`, `centuriesofmedit00trah`, `seriouscalltodev0lawwuoft` |
+| W. B. Yeats | The Tower, Michael Robartes and the Dancer, Responsibilities, The Wild Swans at Coole, The Wind Among the Reeds | original English | Project Gutenberg #72985, #72987, #36865, #32491, #32233, #49608 |
+| John Keats | Poems (1817, 1820); Endymion; Letters to His Family and Friends (Sidney Colvin) | original English | Project Gutenberg #23684, #8209, #24280, #35698, #31682 |
+| William Wordsworth | The Prelude (1850); Intimations Ode; Poems in Two Volumes | original English | Project Gutenberg #12383, #12145, #10219, #52836, #8774, #8824 |
+| John Milton | Paradise Lost; Paradise Regained; Samson Agonistes; sonnets; Areopagitica | original English (modern spelling) | Project Gutenberg #26, #58, #44733, #32373, #608 |
+| T. S. Eliot | Prufrock and Other Observations; Poems (1920); The Waste Land; The Sacred Wood | original English | Project Gutenberg #1459, #1567, #72472, #1321, #57795 |
+| Friedrich Hölderlin | Poems and *Hyperion* | German original, **translated for this app** (`(tr. Claude)`) | de.wikisource.org; holderlinpoems.com |
+| Thomas Hardy | Wessex Poems; Poems of the Past and the Present; Time's Laughingstocks; Satires of Circumstance; Moments of Vision | original English | Project Gutenberg #3167, #3168, #2863, #3255, #2997 |
+| Joseph Conrad | Heart of Darkness; Lord Jim; Youth; Nostromo; The Secret Agent; Typhoon; The Shadow-Line; A Personal Record; Notes on Life and Letters; Under Western Eyes; Notes on My Books; preface to *The Nigger of the "Narcissus"* (labelled by its US title, *The Children of the Sea*) | original English | Project Gutenberg #219, #5658, #525, #2021, #974, #1142, #451, #687, #1143, #2480, #20150, #17731 |
+| The Brontë sisters | Wuthering Heights; Jane Eyre; The Tenant of Wildfell Hall; Villette; Poems by Currer, Ellis, and Acton Bell | original English | Project Gutenberg #768, #1260, #969, #9182, #1019 |
+| Virginia Woolf | A Room of One's Own; To the Lighthouse; Orlando; Mrs Dalloway; The Common Reader; Jacob's Room; Monday or Tuesday; The Voyage Out; Night and Day (all published before 1931) | original English | Project Gutenberg #71865, #64457, #5670, #29220, #144, #1245; Project Gutenberg Australia |
+| Oscar Wilde | De Profundis; The Picture of Dorian Gray; Intentions; The Soul of Man under Socialism; The Ballad of Reading Gaol; plays and tales | original English | Project Gutenberg #921, #174, #887, #1017, #301, #902, #885, #854, #790, #844 |
+| Early Buddhist texts | Sutta Nipata (V. Fausböll, SBE 10, 1881); Psalms of the Early Buddhists I & II — Therigatha / Theragatha (Mrs Rhys Davids, 1909/1913) | as listed | Internet Archive `mlbd.dhammapadasuttni0000fmax`, `psalmsofearlybud01davi`, `psalmsofearlybud02davi` |
+| Hafiz & the Sufi poets | Hafiz (Gertrude Bell, 1897); al-Ghazali, Alchemy of Happiness (Claud Field); Sa'di, Gulistan (E. B. Eastwick) and Bustan; Jami (F. Hadland Davis); Ibn 'Arabi (R. A. Nicholson) | as listed | Internet Archive (`poemsfromdivanof00hafiiala` and others); Project Gutenberg #45158 |
+| Psalms, Proverbs & Wisdom | King James Bible and Apocrypha | King James Version | Project Gutenberg #10, #124 |
+| Haiku | Bashō, Buson, Chiyo, Kokinshū tanka and other hokku | W. G. Aston (1899), B. H. Chamberlain, Yone Noguchi (1914), Lafcadio Hearn (1915) | Internet Archive (`historyjapanese00asto`, `spiritofjapanese00noguuoft`, `japaneselyrics00hearuoft`) |
+| Ludwig Wittgenstein | Tractatus Logico-Philosophicus | C. K. Ogden (1922) | Project Gutenberg #5740 |
 | Rumi | The Persian Mystics: Jalálu'd-dín Rúmí (selections from the Dīvān and the Masnavi) | R. A. Nicholson (Dīvān) and E. H. Whinfield (Masnavi), as printed in F. Hadland Davis's 1907 anthology | Project Gutenberg #45159 |
 
 The themed quotes (Motivation, Thought-provoking, Stoic & ancient wisdom, Kindness & hope) are short, widely
@@ -91,6 +117,14 @@ are short excerpts; if you spot a mistake, please open an issue.
 About fifteen Jung lines come from later work still in copyright (*Memories, Dreams, Reflections*, the Collected Works in R. F. C. Hull's translation, his letters). They were taken from the most-liked entries on Goodreads (author page 38285) and kept only where they match passages that can be placed in Jung's writings; the many apocryphal "Jung quotes" online (e.g. "I am not what happened to me") were left out. They are short excerpts; the rest of Jung's entries are cut verbatim from the public-domain texts above.
 
 The *Red Book / Liber Novus* lines (label "Carl Jung, The Red Book") are short excerpts (1–4 sentences) of Sonu Shamdasani's 2009 English edition, which is still in copyright; they were taken from Goodreads' work quotes page (6644707) and hand-filtered to lines that are clearly from that book.
+
+### Creative inspiration
+
+The *Creative inspiration* theme mixes two kinds of sources. Public-domain artists and writers on making art are cut verbatim from their texts: Vincent van Gogh's letters (Mrs J. van Gogh-Bonger, 1927; Anthony Ludovici, 1913; Gutenberg #40393), Rodin's *Art* (#59799), Leonardo's *Notebooks* (#5000), Shelley's *Defence of Poetry* (#5428), Wilde's *Intentions*, *De Profundis* and the preface to *Dorian Gray*, Henry James's *The Art of Fiction* (#58471), Kandinsky's *Concerning the Spiritual in Art* (#5321), Emerson's *The Poet* (#2945), Whistler's *Ten O'Clock* (#24650), Pater (#2398), Coleridge (#6081), Stevenson (#492), Poe (#55749), Beethoven's letters (#13065, #13272), Goethe's *Maxims* and others. The modern creators (Stephen King, Ray Bradbury, Anne Lamott, Annie Dillard, Ursula K. Le Guin, Neil Gaiman, Toni Morrison, Joan Didion, Georgia O'Keeffe, John Cage and others) are still in copyright; their lines are short excerpts taken from Goodreads' most-liked quotes and kept only where the book or essay is recognisable.
+
+### Wittgenstein, Watts, Krishnamurti, Murdoch and Becker
+
+The *Tractatus* lines are cut verbatim from Ogden's public-domain translation. Wittgenstein's *Culture and Value*, and all of Alan Watts, J. Krishnamurti, Iris Murdoch and Ernest Becker, are still in copyright: they are short excerpts from Goodreads, hand-filtered and limited to lines that are recognisably theirs. Because several authors are in this situation, the settings have a single switch ("Modern authors still in copyright") that turns them all off.
 
 ### Einstein
 

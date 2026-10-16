@@ -305,6 +305,26 @@ private fun QuotesScreen(prefs: QuotePrefs, repo: QuoteRepository) {
                 }
             }
 
+            item(key = "modern-authors") {
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.SpaceBetween,
+                    verticalAlignment = Alignment.CenterVertically,
+                ) {
+                    Column(Modifier.weight(1f)) {
+                        Text("Modern authors still in copyright", style = MaterialTheme.typography.bodyLarge)
+                        Text(
+                            "Short excerpts from Camus, Hesse, Murakami and others. Switch off to use only public-domain texts.",
+                            style = MaterialTheme.typography.bodySmall,
+                        )
+                    }
+                    Switch(
+                        checked = Category.MODERN.all { it in categories },
+                        onCheckedChange = { setCategories(Category.MODERN, it) },
+                    )
+                }
+            }
+
             item(key = "type-search") {
                 OutlinedTextField(
                     value = query,
