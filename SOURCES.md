@@ -92,6 +92,8 @@ editions below, or a translation made for this app and labelled `(tr. Claude)`.
 | Psalms, Proverbs & Wisdom | King James Bible and Apocrypha | King James Version | Project Gutenberg #10, #124 |
 | Haiku | Bashō, Buson, Chiyo, Kokinshū tanka and other hokku | W. G. Aston (1899), B. H. Chamberlain, Yone Noguchi (1914), Lafcadio Hearn (1915) | Internet Archive (`historyjapanese00asto`, `spiritofjapanese00noguuoft`, `japaneselyrics00hearuoft`) |
 | Ludwig Wittgenstein | Tractatus Logico-Philosophicus | C. K. Ogden (1922) | Project Gutenberg #5740 |
+| Charles Bukowski | Selected lines (Goodreads author quotes, hand-filtered) | as listed | Goodreads author 13275 |
+| Anaïs Nin | Selected lines from *The Diary of Anaïs Nin* and related works (Goodreads author quotes, hand-filtered) | as listed | Goodreads author 7190 |
 | Rumi | The Persian Mystics: Jalálu'd-dín Rúmí (selections from the Dīvān and the Masnavi) | R. A. Nicholson (Dīvān) and E. H. Whinfield (Masnavi), as printed in F. Hadland Davis's 1907 anthology | Project Gutenberg #45159 |
 
 The themed quotes (Motivation, Thought-provoking, Stoic & ancient wisdom, Kindness & hope) are short, widely
