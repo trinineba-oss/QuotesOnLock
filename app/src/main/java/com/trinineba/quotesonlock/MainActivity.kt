@@ -357,7 +357,7 @@ private fun QuotesScreen(prefs: QuotePrefs, repo: QuoteRepository) {
             }
 
             QuoteGroup.entries.forEach { group ->
-                val inGroup = Category.entries.filter { it.group == group }
+                val inGroup = Category.entries.filter { it.group == group && (it == Category.CUSTOM || countOf(it) > 0) }
                 val shown = inGroup.filter { query.isBlank() || it.label.contains(query.trim(), ignoreCase = true) }
                 if (shown.isEmpty()) return@forEach
                 val open = query.isNotBlank() || group == QuoteGroup.MINE || group.name in expandedGroups

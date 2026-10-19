@@ -94,6 +94,38 @@ enum class Category(val key: String, val label: String, val group: QuoteGroup) {
     ECKHART("eckhart", "Christian mystics", QuoteGroup.SCRIPTURE),
     BUKOWSKI("bukowski", "Charles Bukowski", QuoteGroup.WRITERS),
     NIN("nin", "Anaïs Nin", QuoteGroup.WRITERS),
+    APHORISTS("aphorists", "The French aphorists", QuoteGroup.THINKERS),
+    LICHTENBERG("lichtenberg", "Georg Christoph Lichtenberg", QuoteGroup.THINKERS),
+    BROWNE("browne", "Sir Thomas Browne", QuoteGroup.THINKERS),
+    UNAMUNO("unamuno", "Miguel de Unamuno", QuoteGroup.THINKERS),
+    WJAMES("wjames", "William James", QuoteGroup.THINKERS),
+    PROUST("proust", "Marcel Proust", QuoteGroup.WRITERS),
+    CAVAFY("cavafy", "C. P. Cavafy", QuoteGroup.POETS),
+    METAPHYSICAL("metaphysical", "Donne & the metaphysical poets", QuoteGroup.POETS),
+    HOPKINS("hopkins", "Gerard Manley Hopkins", QuoteGroup.POETS),
+    VICTORIANS("victorians", "Tennyson, Arnold & the Victorians", QuoteGroup.POETS),
+    ROMANTICS("romantics", "Shelley, Coleridge & Byron", QuoteGroup.POETS),
+    SYMBOLISTS("symbolists", "Rimbaud, Verlaine & the Symbolists", QuoteGroup.POETS),
+    TANGPOETS("tangpoets", "Li Po, Tu Fu & the Tang poets", QuoteGroup.POETS),
+    RUSSIANPOETS("russianpoets", "Pushkin & Lermontov", QuoteGroup.POETS),
+    GEORGEELIOT("georgeeliot", "George Eliot", QuoteGroup.WRITERS),
+    HUGO("hugo", "Victor Hugo", QuoteGroup.WRITERS),
+    JOYCE("joyce", "James Joyce", QuoteGroup.WRITERS),
+    MANN("mann", "Thomas Mann", QuoteGroup.WRITERS),
+    SPINOZA("spinoza", "Baruch Spinoza", QuoteGroup.THINKERS),
+    EMERSON("emerson", "Ralph Waldo Emerson", QuoteGroup.THINKERS),
+    THOREAU("thoreau", "Henry David Thoreau", QuoteGroup.THINKERS),
+    EPICTETUS("epictetus", "Epictetus", QuoteGroup.THINKERS),
+    KAZANTZAKIS("kazantzakis", "Nikos Kazantzakis", QuoteGroup.WRITERS),
+    BUBER("buber", "Martin Buber", QuoteGroup.THINKERS),
+    ARENDT("arendt", "Hannah Arendt", QuoteGroup.THINKERS),
+    BEAUVOIR("beauvoir", "Simone de Beauvoir", QuoteGroup.THINKERS),
+    BECKETT("beckett", "Samuel Beckett", QuoteGroup.WRITERS),
+    FROMM("fromm", "Erich Fromm", QuoteGroup.THINKERS),
+    MAY("may", "Rollo May", QuoteGroup.THINKERS),
+    MERTON("merton", "Thomas Merton", QuoteGroup.THINKERS),
+    NHATHANH("nhathanh", "Thich Nhat Hanh", QuoteGroup.THINKERS),
+    YALOM("yalom", "Irvin Yalom", QuoteGroup.THINKERS),
     QURAN("quran", "The Qur'an", QuoteGroup.SCRIPTURE),
     CUSTOM("custom", "My own quotes", QuoteGroup.MINE);
 
@@ -102,7 +134,7 @@ enum class Category(val key: String, val label: String, val group: QuoteGroup) {
 
         /** Authors still in copyright, whose quotes are short excerpts, so they can be switched off together. */
         val MODERN: List<Category> by lazy {
-            listOf(CAMUS, HESSE, MURAKAMI, EINSTEIN, FRANKL, PESSOA, BORGES, CIORAN, WEIL, NERUDA, OLIVER, SZYMBORSKA, KUNDERA, SARTRE, WATTS, KRISHNAMURTI, MURDOCH, BECKER, BUKOWSKI, NIN)
+            listOf(CAMUS, HESSE, MURAKAMI, EINSTEIN, FRANKL, PESSOA, BORGES, CIORAN, WEIL, NERUDA, OLIVER, SZYMBORSKA, KUNDERA, SARTRE, WATTS, KRISHNAMURTI, MURDOCH, BECKER, BUKOWSKI, NIN, KAZANTZAKIS, BUBER, ARENDT, BEAUVOIR, BECKETT, FROMM, MAY, MERTON, NHATHANH, YALOM)
         }
     }
 }
