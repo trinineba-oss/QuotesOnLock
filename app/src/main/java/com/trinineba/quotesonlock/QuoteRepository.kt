@@ -146,6 +146,16 @@ class QuoteRepository(
         return next
     }
 
+    /** Makes [quote] the current quote (e.g. picked from the quote browser), keeping it in history. */
+    fun show(quote: Quote): Quote {
+        if (prefs.currentText == quote.text) return quote
+        current()?.let { saveHistory(history() + it) }
+        prefs.seen = prefs.seen + quote.key()
+        prefs.currentText = quote.text
+        prefs.currentAuthor = quote.author
+        return quote
+    }
+
     private fun Quote.key() = "$text|$author".hashCode().toString()
 
     private companion object {

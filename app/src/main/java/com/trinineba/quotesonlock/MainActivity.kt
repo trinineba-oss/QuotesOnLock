@@ -115,6 +115,8 @@ private fun QuotesScreen(prefs: QuotePrefs, repo: QuoteRepository) {
     var custom by remember { mutableStateOf(repo.custom()) }
     var newText by rememberSaveable { mutableStateOf("") }
     var newAuthor by rememberSaveable { mutableStateOf("") }
+    // Open pages of the quote browser, innermost last; empty means the main screen.
+    var browse by rememberSaveable(stateSaver = androidx.compose.runtime.saveable.listSaver<List<String>, String>(save = { it }, restore = { it })) { mutableStateOf(emptyList<String>()) }
 
     // The notification's "Next quote" button changes the quote while the app is in the background.
     LifecycleEventEffect(Lifecycle.Event.ON_RESUME) {
@@ -210,6 +212,22 @@ private fun QuotesScreen(prefs: QuotePrefs, repo: QuoteRepository) {
         if (shown == null || repo.pool().none { it.text == shown.text }) nextQuote()
     }
 
+    browse.lastOrNull()?.let { page ->
+        QuoteBrowser(
+            page = page,
+            repo = repo,
+            onBack = { browse = browse.dropLast(1) },
+            onShow = { quote ->
+                current = repo.show(quote)
+                canGoBack = repo.hasPrevious()
+                if (enabled) QuoteNotifier.show(context, quote)
+                browse = emptyList()
+            },
+            onOpenAuthor = { browse = browse + BrowsePage.author(it) },
+        )
+        return
+    }
+
     Scaffold { innerPadding ->
         LazyColumn(
             modifier = Modifier.fillMaxSize().padding(innerPadding),
@@ -253,11 +271,14 @@ private fun QuotesScreen(prefs: QuotePrefs, repo: QuoteRepository) {
                                 color = textColor,
                             )
                             quote.author?.let {
+                                val name = authorName(it)
                                 Text(
                                     "— $it",
                                     fontFamily = family,
                                     fontSize = (quoteSize.sizeSp * 0.85f).sp,
                                     color = textColor,
+                                    // Tap the author to see all of their quotes.
+                                    modifier = if (name != null) Modifier.clickable { browse = listOf(BrowsePage.author(name)) } else Modifier,
                                 )
                             }
                         }
@@ -377,11 +398,18 @@ private fun QuotesScreen(prefs: QuotePrefs, repo: QuoteRepository) {
                             horizontalArrangement = Arrangement.SpaceBetween,
                             verticalAlignment = Alignment.CenterVertically,
                         ) {
-                            Column(Modifier.weight(1f)) {
+                            // Tap the name to browse the quotes of this type.
+                            Column(
+                                Modifier
+                                    .weight(1f)
+                                    .clickable(enabled = countOf(category) > 0) { browse = listOf(BrowsePage.category(category)) }
+                                    .padding(vertical = 4.dp),
+                            ) {
                                 Text(category.label)
                                 Text(
-                                    "${countOf(category)} quotes",
+                                    "${countOf(category)} quotes \u00B7 View \u203A",
                                     style = MaterialTheme.typography.bodySmall,
+                                    color = MaterialTheme.colorScheme.primary,
                                 )
                             }
                             Switch(
