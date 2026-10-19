@@ -93,6 +93,28 @@ editions below, or a translation made for this app and labelled `(tr. Claude)`.
 | Haiku | Bashō, Buson, Chiyo, Kokinshū tanka and other hokku | W. G. Aston (1899), B. H. Chamberlain, Yone Noguchi (1914), Lafcadio Hearn (1915) | Internet Archive (`historyjapanese00asto`, `spiritofjapanese00noguuoft`, `japaneselyrics00hearuoft`) |
 | Ludwig Wittgenstein | Tractatus Logico-Philosophicus | C. K. Ogden (1922) | Project Gutenberg #5740 |
 | Charles Bukowski | Selected lines (Goodreads author quotes, hand-filtered) | as listed | Goodreads author 13275 |
+| The French aphorists | La Rochefoucauld, *Maxims* (Bund & Friswell, 1871); Chamfort, *The Cynic's Breviary* (W. G. Hutchison, 1902); Joubert, *Pensées* (Katharine Lyttelton, 1899) | as listed | Project Gutenberg #9105, #69632; Internet Archive `joubertaselecti00lyttgoog` |
+| Georg Christoph Lichtenberg | Aphorisms (*Sudelbücher*) | German original, **translated for this app** (`(tr. Claude)`) | Projekt Gutenberg-DE |
+| Sir Thomas Browne | Religio Medici; Hydriotaphia; Letter to a Friend; Christian Morals | original English | Project Gutenberg #586, #39962 |
+| Miguel de Unamuno | The Tragic Sense of Life (1921); Essays and Soliloquies (1925) | J. E. Crawford Flitch | Internet Archive `thetragicsenseof00unamuoft`, `essayssoliloquie0000unam` |
+| William James | Varieties of Religious Experience; Principles of Psychology; The Will to Believe; Pragmatism; Talks to Teachers | original English | Project Gutenberg #621, #57628, #57634, #26659, #5116, #16287 |
+| Marcel Proust | Swann's Way; Within a Budding Grove; The Guermantes Way; The Captive; Cities of the Plain | C. K. Scott Moncrieff (1922–30) | Project Gutenberg #7178, #63532, #73425; Internet Archive `captiveprou00prou`, `citiesofplaincap0002marc` |
+| C. P. Cavafy | Poems published before 1931 | Greek original, **translated for this app** (`(tr. Claude)`) | el.wikisource.org |
+| Donne, Herbert & the metaphysical poets | Donne (Grierson ed.; *Devotions*), Herbert (*The Temple*), Marvell, Vaughan | original English | Project Gutenberg #48688, #23772, #2619–2622, #34331; Internet Archive `temple00herb_0` |
+| Gerard Manley Hopkins | Poems (ed. Robert Bridges, 1918) | original English | Project Gutenberg #22403 |
+| Tennyson, Arnold & the Victorians | Tennyson, Matthew Arnold, Robert Browning, Christina Rossetti, A. H. Clough, Swinburne | original English | Project Gutenberg #70950, #8601, #1358, #27739, #28041, #16376, #16950, #66689, #35402 |
+| Shelley, Coleridge & Byron | Collected poems | original English | Project Gutenberg #4800, #8208, #29090, #5131, #20158 |
+| Rimbaud, Verlaine & the Symbolists | Verlaine (Gertrude Hall, 1895); Mallarmé and Verlaine (Arthur Symons); Rimbaud (own plain translations from the French, `(tr. Claude)`) | as listed | Project Gutenberg #8426, #53849, #29302, #56668 |
+| Li Po, Tu Fu & the Tang poets | Arthur Waley, *A Hundred and Seventy Chinese Poems* and *More Translations from the Chinese*; Herbert Giles; Cranmer-Byng | as listed | Project Gutenberg #42290, #16500, #43711, #390 |
+| Pushkin & Lermontov | Pollen, Bianchi, Panin, Spalding | as listed | Project Gutenberg #71595, #11985, #54991, #23997 |
+| George Eliot | Middlemarch; Adam Bede; The Mill on the Floss; Silas Marner; Daniel Deronda; Romola; Theophrastus Such | original English | Project Gutenberg #145, #507, #6688, #550, #7469, #24020, #10762 |
+| Victor Hugo | Les Misérables (Isabel Hapgood); Notre-Dame de Paris; The Toilers of the Sea; William Shakespeare; The Man Who Laughs | as listed | Project Gutenberg #135, #2610, #32338, #53490, #12587 |
+| James Joyce | A Portrait of the Artist; Dubliners; Ulysses (1922) | original English | Project Gutenberg #4217, #2814, #4300 |
+| Thomas Mann | The Magic Mountain; Buddenbrooks; Death in Venice | H. T. Lowe-Porter; Kenneth Burke (1924–27) | Internet Archive `magicmountaintra0000thom`, `buddenbrooks0000thom_l8z9`, `deathinvenice0000thom_f0m3` |
+| Baruch Spinoza | Ethics; Theologico-Political Treatise; On the Improvement of the Understanding | R. H. M. Elwes (1883) | Project Gutenberg #3800, #989, #990, #1016 |
+| Ralph Waldo Emerson | Essays (both series); Nature and addresses; Representative Men; Conduct of Life; Society and Solitude | original English | Project Gutenberg #2944, #2945, #71683, #6312, #39827, #69258 |
+| Henry David Thoreau | Walden; Civil Disobedience; A Week on the Concord and Merrimack Rivers; Walking; Life Without Principle; Cape Cod; The Maine Woods | original English | Project Gutenberg #205, #4232, #1022, #70123, #34392, #42500 |
+| Epictetus | Golden Sayings (Hastings Crossley); Discourses (George Long); The Teaching of Epictetus (T. W. Rolleston) | as listed | Project Gutenberg #871, #10661, #39855 |
 | Anaïs Nin | Selected lines from *The Diary of Anaïs Nin* and related works (Goodreads author quotes, hand-filtered) | as listed | Goodreads author 7190 |
 | Rumi | The Persian Mystics: Jalálu'd-dín Rúmí (selections from the Dīvān and the Masnavi) | R. A. Nicholson (Dīvān) and E. H. Whinfield (Masnavi), as printed in F. Hadland Davis's 1907 anthology | Project Gutenberg #45159 |
 
@@ -127,6 +149,10 @@ The *Creative inspiration* theme mixes two kinds of sources. Public-domain artis
 ### Wittgenstein, Watts, Krishnamurti, Murdoch and Becker
 
 The *Tractatus* lines are cut verbatim from Ogden's public-domain translation. Wittgenstein's *Culture and Value*, and all of Alan Watts, J. Krishnamurti, Iris Murdoch and Ernest Becker, are still in copyright: they are short excerpts from Goodreads, hand-filtered and limited to lines that are recognisably theirs. Because several authors are in this situation, the settings have a single switch ("Modern authors still in copyright") that turns them all off.
+
+### More modern authors (Goodreads excerpts)
+
+Bukowski, Anaïs Nin, Nikos Kazantzakis, Martin Buber, Hannah Arendt, Simone de Beauvoir, Samuel Beckett, Erich Fromm, Rollo May, Thomas Merton, Thich Nhat Hanh and Irvin Yalom are still in copyright, so each appears as a short excerpt (one to four sentences) taken from Goodreads' most-liked quotes for that author and hand-filtered. Where a line could not be placed in a specific book, the label is the author's name alone. Goodreads texts are typed in by readers; if you spot a wrong attribution, please open an issue. Authors in this group are covered by the "Modern authors still in copyright" switch in settings.
 
 ### Einstein
 
