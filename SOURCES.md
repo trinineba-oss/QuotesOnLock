@@ -26,6 +26,8 @@ editions below, or a translation made for this app and labelled `(tr. Claude)`.
 | Leo Tolstoy | A Confession (Aylmer Maude); The Death of Ivan Ilyitch (Constance Garnett); On Life (Free Age Press translation); Walk in the Light While Ye Have Light; Hadji Murad; The Slavery of Our Times; Twenty-Three Tales (Louise and Aylmer Maude) | as listed | Project Gutenberg #2142; Internet Archive scans |
 | Marcus Aurelius | Meditations | George W. Chrystal (1902) | Project Gutenberg #55317 |
 | Epictetus | Enchiridion; Golden Sayings | Thomas Wentworth Higginson; Hastings Crossley | Project Gutenberg #45109, #871 |
+| Vincent van Gogh | Letters to His Brother, 1872–1886 (Mrs J. van Gogh-Bonger, 1927); The Letters of a Post-Impressionist (Anthony M. Ludovici, 1913) | as listed | Internet Archive `bwb_C0-BNZ-746_1`, `bwb_C0-BNZ-755_2`; Project Gutenberg #40393 |
+| Rumi (additional) | Selected Poems from the Divani Shamsi Tabriz (R. A. Nicholson, 1898); Masnavi i Ma'navi (E. H. Whinfield, 1898); The Mathnawi, vols. II and IV (R. A. Nicholson, 1926, 1930) | as listed | Internet Archive `india.history.resource.111025`, `masnaviimanavisp00jala_0`, `in.ernet.dli.2015.70297`, `in.ernet.dli.2015.70298` |
 | Seneca | Minor Dialogues | Aubrey Stewart (1889) | Project Gutenberg #64576 |
 | Seneca | Letters to Lucilius (Epistulae Morales), letters 1–124 | Richard M. Gummere (Loeb, 1917–25) | Wikisource transcription |
 | Seneca | On Benefits | Aubrey Stewart (Bohn, 1887) | Project Gutenberg #3794 |
@@ -152,7 +154,7 @@ The *Tractatus* lines are cut verbatim from Ogden's public-domain translation. W
 
 ### More modern authors (Goodreads excerpts)
 
-Bukowski, Anaïs Nin, Nikos Kazantzakis, Martin Buber, Hannah Arendt, Simone de Beauvoir, Samuel Beckett, Erich Fromm, Rollo May, Thomas Merton, Thich Nhat Hanh and Irvin Yalom are still in copyright, so each appears as a short excerpt (one to four sentences) taken from Goodreads' most-liked quotes for that author and hand-filtered. Where a line could not be placed in a specific book, the label is the author's name alone. Goodreads texts are typed in by readers; if you spot a wrong attribution, please open an issue. Authors in this group are covered by the "Modern authors still in copyright" switch in settings.
+Bukowski, Anaïs Nin, Joseph Campbell, Miyamoto Musashi (in common English renderings of the *Dokkōdō* and *The Book of Five Rings*), Susan Sontag, Nikos Kazantzakis, Martin Buber, Hannah Arendt, Simone de Beauvoir, Samuel Beckett, Erich Fromm, Rollo May, Thomas Merton, Thich Nhat Hanh and Irvin Yalom are still in copyright, so each appears as a short excerpt (one to four sentences) taken from Goodreads' most-liked quotes for that author and hand-filtered. Where a line could not be placed in a specific book, the label is the author's name alone. Goodreads texts are typed in by readers; if you spot a wrong attribution, please open an issue. Authors in this group are covered by the "Modern authors still in copyright" switch in settings.
 
 ### Einstein
 
