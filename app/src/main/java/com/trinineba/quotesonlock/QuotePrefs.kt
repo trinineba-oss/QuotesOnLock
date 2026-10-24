@@ -49,6 +49,15 @@ class QuotePrefs(context: Context) {
         get() = AppTheme.fromKey(prefs.getString("theme", null))
         set(value) = prefs.edit().putString("theme", value.key).apply()
 
+    /** Theme of the lock-screen card, or null to follow the app's theme. */
+    var lockTheme: AppTheme?
+        get() = prefs.getString("lock_theme", null)?.let { AppTheme.fromKey(it) }
+        set(value) {
+            val editor = prefs.edit()
+            if (value == null) editor.remove("lock_theme") else editor.putString("lock_theme", value.key)
+            editor.apply()
+        }
+
     /** Whether the Starry Night swirls / northern lights move while the app is open. */
     var animateBackground: Boolean
         get() = prefs.getBoolean("animate_background", true)

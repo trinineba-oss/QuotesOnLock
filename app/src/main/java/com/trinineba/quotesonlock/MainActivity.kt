@@ -129,6 +129,7 @@ private fun QuotesScreen(
     var quoteFont by remember { mutableStateOf(prefs.font) }
     var quoteSize by remember { mutableStateOf(prefs.size) }
     var quoteColor by remember { mutableStateOf(prefs.textColor) }
+    var lockTheme by remember { mutableStateOf(prefs.lockTheme) }
     var hex by rememberSaveable { mutableStateOf("") }
     var categories by remember { mutableStateOf(prefs.enabledCategories) }
     var query by rememberSaveable { mutableStateOf("") }
@@ -497,6 +498,28 @@ private fun QuotesScreen(
                         }
                     }
 
+
+                    Text("Lock screen theme", style = MaterialTheme.typography.labelLarge)
+                    Text(
+                        "The frame shows when the lock-screen notification is expanded.",
+                        style = MaterialTheme.typography.bodySmall,
+                    )
+                    Row(
+                        modifier = Modifier.horizontalScroll(rememberScrollState()),
+                        horizontalArrangement = Arrangement.spacedBy(8.dp),
+                    ) {
+                        (listOf<AppTheme?>(null) + AppTheme.entries).forEach { option ->
+                            FilterChip(
+                                selected = lockTheme == option,
+                                onClick = {
+                                    prefs.lockTheme = option
+                                    lockTheme = option
+                                    refreshNotification()
+                                },
+                                label = { Text(option?.label ?: "Same as app") },
+                            )
+                        }
+                    }
 
                     Text("Font", style = MaterialTheme.typography.labelLarge)
                     Row(

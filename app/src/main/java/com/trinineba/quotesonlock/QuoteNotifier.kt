@@ -52,13 +52,14 @@ object QuoteNotifier {
 
         val prefs = QuotePrefs(appContext)
         val style = prefs.style
+        val lockTheme = prefs.lockTheme ?: prefs.theme
         val builder = NotificationCompat.Builder(appContext, CHANNEL_ID)
             .setSmallIcon(R.drawable.ic_quote)
             .setContentTitle(quote.author ?: appContext.getString(R.string.app_name))
             .setContentText(quote.text)
             .setStyle(NotificationCompat.DecoratedCustomViewStyle())
-            .setCustomContentView(quoteView(appContext, quote, style, prefs.theme, expanded = false))
-            .setCustomBigContentView(quoteView(appContext, quote, style, prefs.theme, expanded = true))
+            .setCustomContentView(quoteView(appContext, quote, style, lockTheme, expanded = false))
+            .setCustomBigContentView(quoteView(appContext, quote, style, lockTheme, expanded = true))
             .setContentIntent(openApp)
             .setOngoing(true)
             .setOnlyAlertOnce(true)
