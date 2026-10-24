@@ -126,6 +126,10 @@ enum class Category(val key: String, val label: String, val group: QuoteGroup) {
     MERTON("merton", "Thomas Merton", QuoteGroup.THINKERS),
     NHATHANH("nhathanh", "Thich Nhat Hanh", QuoteGroup.THINKERS),
     YALOM("yalom", "Irvin Yalom", QuoteGroup.THINKERS),
+    VANGOGH("vangogh", "Vincent van Gogh", QuoteGroup.WRITERS),
+    CAMPBELL("campbell", "Joseph Campbell", QuoteGroup.THINKERS),
+    MUSASHI("musashi", "Miyamoto Musashi", QuoteGroup.THINKERS),
+    SONTAG("sontag", "Susan Sontag", QuoteGroup.WRITERS),
     QURAN("quran", "The Qur'an", QuoteGroup.SCRIPTURE),
     CUSTOM("custom", "My own quotes", QuoteGroup.MINE);
 
@@ -134,7 +138,7 @@ enum class Category(val key: String, val label: String, val group: QuoteGroup) {
 
         /** Authors still in copyright, whose quotes are short excerpts, so they can be switched off together. */
         val MODERN: List<Category> by lazy {
-            listOf(CAMUS, HESSE, MURAKAMI, EINSTEIN, FRANKL, PESSOA, BORGES, CIORAN, WEIL, NERUDA, OLIVER, SZYMBORSKA, KUNDERA, SARTRE, WATTS, KRISHNAMURTI, MURDOCH, BECKER, BUKOWSKI, NIN, KAZANTZAKIS, BUBER, ARENDT, BEAUVOIR, BECKETT, FROMM, MAY, MERTON, NHATHANH, YALOM)
+            listOf(CAMUS, HESSE, MURAKAMI, EINSTEIN, FRANKL, PESSOA, BORGES, CIORAN, WEIL, NERUDA, OLIVER, SZYMBORSKA, KUNDERA, SARTRE, WATTS, KRISHNAMURTI, MURDOCH, BECKER, BUKOWSKI, NIN, KAZANTZAKIS, BUBER, ARENDT, BEAUVOIR, BECKETT, FROMM, MAY, MERTON, NHATHANH, YALOM, CAMPBELL, MUSASHI, SONTAG)
         }
     }
 }
