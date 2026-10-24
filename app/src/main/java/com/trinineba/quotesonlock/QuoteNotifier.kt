@@ -57,8 +57,8 @@ object QuoteNotifier {
             .setContentTitle(quote.author ?: appContext.getString(R.string.app_name))
             .setContentText(quote.text)
             .setStyle(NotificationCompat.DecoratedCustomViewStyle())
-            .setCustomContentView(quoteView(appContext, quote, style, expanded = false))
-            .setCustomBigContentView(quoteView(appContext, quote, style, expanded = true))
+            .setCustomContentView(quoteView(appContext, quote, style, prefs.theme, expanded = false))
+            .setCustomBigContentView(quoteView(appContext, quote, style, prefs.theme, expanded = true))
             .setContentIntent(openApp)
             .setOngoing(true)
             .setOnlyAlertOnce(true)
@@ -78,6 +78,7 @@ object QuoteNotifier {
         context: Context,
         quote: Quote,
         style: QuoteStyle,
+        theme: AppTheme,
         expanded: Boolean,
     ): RemoteViews {
         val views = RemoteViews(context.packageName, style.font.layout)
@@ -103,10 +104,16 @@ object QuoteNotifier {
         val sp = if (expanded) style.size.sizeSp else minOf(style.size.sizeSp, 16f)
         views.setTextViewTextSize(R.id.quote_text, TypedValue.COMPLEX_UNIT_SP, sp)
         views.setTextViewTextSize(R.id.quote_author, TypedValue.COMPLEX_UNIT_SP, sp * 0.85f)
-        style.color?.let {
-            views.setTextColor(R.id.quote_text, it)
-            views.setTextColor(R.id.quote_author, it)
+        // Themes frame the quote in their own artwork; the user's own text colour still wins.
+        theme.notificationBackground?.let { background ->
+            views.setInt(R.id.quote_root, "setBackgroundResource", background)
+            val pad = (14 * context.resources.displayMetrics.density).toInt()
+            views.setViewPadding(R.id.quote_root, pad, pad, pad, pad)
         }
+        val textColor = style.color ?: theme.notificationText
+        val authorColor = style.color ?: theme.notificationAuthor
+        textColor?.let { views.setTextColor(R.id.quote_text, it) }
+        authorColor?.let { views.setTextColor(R.id.quote_author, it) }
         return views
     }
 

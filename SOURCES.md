@@ -167,3 +167,7 @@ Verses are quoted whole and unaltered from Pickthall's 1930 English translation,
 Legge's (Tao Teh King, Analects), Müller's and Giles's parentheses mark words the translators supplied; the app drops those marks and otherwise keeps their wording. FitzGerald's *Rubaiyat* is a free English re-creation rather than a literal translation, and Hastie's Rumi poems are free versions made via Rückert's German, so they are looser than the originals.
 
 Legge's Tao Teh King marks words he supplied with parentheses; the app drops those parentheses and otherwise keeps his wording.
+
+### Artwork
+
+The Starry Night theme uses Vincent van Gogh's *The Starry Night* (1889), public domain, from the Google Art Project scan on Wikimedia Commons. The northern-lights frame and the old-paper texture are generated for this app.

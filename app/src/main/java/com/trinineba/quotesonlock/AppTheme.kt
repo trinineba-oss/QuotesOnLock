@@ -1,0 +1,362 @@
+package com.trinineba.quotesonlock
+
+import android.graphics.BitmapShader
+import android.graphics.Matrix
+import android.graphics.RuntimeShader
+import android.graphics.Shader
+import android.os.Build
+import androidx.annotation.DrawableRes
+import androidx.annotation.RequiresApi
+import androidx.compose.animation.core.LinearEasing
+import androidx.compose.animation.core.animateFloat
+import androidx.compose.animation.core.infiniteRepeatable
+import androidx.compose.animation.core.rememberInfiniteTransition
+import androidx.compose.animation.core.tween
+import androidx.compose.foundation.Canvas
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.material3.ColorScheme
+import androidx.compose.material3.Typography
+import androidx.compose.material3.darkColorScheme
+import androidx.compose.material3.lightColorScheme
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.State
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableFloatStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.blur
+import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.graphics.Brush
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.ImageBitmap
+import androidx.compose.ui.graphics.Path
+import androidx.compose.ui.graphics.Shadow
+import androidx.compose.ui.graphics.ShaderBrush
+import androidx.compose.ui.graphics.asAndroidBitmap
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.imageResource
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.unit.dp
+import kotlin.math.PI
+import kotlin.math.max
+import kotlin.math.sin
+import kotlin.random.Random
+
+/** The look of the app (and of the lock-screen card). */
+enum class AppTheme(
+    val key: String,
+    val label: String,
+    /** Label of the "make it move" switch, or null if the theme doesn't move. */
+    val motionLabel: String?,
+    /** Background of the notification's quote area, or null for the system's own. */
+    @DrawableRes val notificationBackground: Int?,
+    /** Default notification text and author colours when the user hasn't picked a colour. */
+    val notificationText: Int?,
+    val notificationAuthor: Int?,
+) {
+    CLASSIC("classic", "Classic", null, null, null, null),
+    STARRY(
+        "starry", "Starry Night", "Moving swirls", R.drawable.notif_bg_starry,
+        0xFFFFFFFF.toInt(), 0xFFF4C94A.toInt(),
+    ),
+    AURORA(
+        "aurora", "Northern lights", "Moving lights", R.drawable.notif_bg_aurora,
+        0xFFFFFFFF.toInt(), 0xFF6CF5C8.toInt(),
+    ),
+    BOOK(
+        "book", "Old book", null, R.drawable.notif_bg_book,
+        0xFF3B2A1A.toInt(), 0xFF7A2E1F.toInt(),
+    );
+
+    companion object {
+        fun fromKey(key: String?): AppTheme = entries.firstOrNull { it.key == key } ?: CLASSIC
+    }
+}
+
+private val Night = Color(0xFF0B1A3D)
+private val AuroraNight = Color(0xFF040915)
+
+fun AppTheme.colorScheme(): ColorScheme? = when (this) {
+    AppTheme.CLASSIC -> null
+    AppTheme.STARRY -> darkColorScheme(
+        primary = Color(0xFFF4C94A),
+        onPrimary = Color(0xFF1A1300),
+        primaryContainer = Color(0xFF3A64B0),
+        onPrimaryContainer = Color.White,
+        secondary = Color(0xFF8FB3E0),
+        onSecondary = Night,
+        secondaryContainer = Color(0xFF3A64B0),
+        onSecondaryContainer = Color.White,
+        background = Color.Transparent,
+        onBackground = Color(0xFFEEF3FF),
+        surface = Night,
+        onSurface = Color(0xFFEEF3FF),
+        onSurfaceVariant = Color(0xFFC9D6EE),
+        surfaceContainerHighest = Color(0xB3102A66),
+        surfaceVariant = Color(0xFF22305A),
+        outline = Color(0xFF8FB3E0),
+        outlineVariant = Color(0x663A64B0),
+    )
+    AppTheme.AURORA -> darkColorScheme(
+        primary = Color(0xFF6CF5C8),
+        onPrimary = Color(0xFF002A1D),
+        primaryContainer = Color(0xFF1F6E6A),
+        onPrimaryContainer = Color.White,
+        secondary = Color(0xFFB79CFF),
+        onSecondary = Color(0xFF1C0F3D),
+        secondaryContainer = Color(0xFF2B5F6E),
+        onSecondaryContainer = Color.White,
+        background = Color.Transparent,
+        onBackground = Color(0xFFEAF7F4),
+        surface = AuroraNight,
+        onSurface = Color(0xFFEAF7F4),
+        onSurfaceVariant = Color(0xFFB4D2CC),
+        surfaceContainerHighest = Color(0xB30A1A2A),
+        surfaceVariant = Color(0xFF1C2E3A),
+        outline = Color(0xFF6CF5C8),
+        outlineVariant = Color(0x662B5F6E),
+    )
+    AppTheme.BOOK -> lightColorScheme(
+        primary = Color(0xFF7A2E1F),
+        onPrimary = Color(0xFFF7EEDB),
+        primaryContainer = Color(0xFFD9C29A),
+        onPrimaryContainer = Color(0xFF2E2012),
+        secondary = Color(0xFF6B4F2A),
+        onSecondary = Color(0xFFF7EEDB),
+        secondaryContainer = Color(0xFFD9C29A),
+        onSecondaryContainer = Color(0xFF2E2012),
+        background = Color.Transparent,
+        onBackground = Color(0xFF3B2A1A),
+        surface = Color(0xFFF1E4C6),
+        onSurface = Color(0xFF3B2A1A),
+        onSurfaceVariant = Color(0xFF5E4A30),
+        surfaceContainerHighest = Color(0xB3F7EDD5),
+        surfaceVariant = Color(0xFFE2D0A8),
+        outline = Color(0xFF8B6B45),
+        outlineVariant = Color(0x668B6B45),
+    )
+}
+
+/** Night themes get a soft shadow under all text so it reads over the painting; the book page gets serif type. */
+fun AppTheme.typography(base: Typography): Typography = when (this) {
+    AppTheme.CLASSIC -> base
+    AppTheme.STARRY, AppTheme.AURORA -> base.map(
+        headings = { it.copy(fontFamily = FontFamily.Serif) },
+        all = { it.copy(shadow = Shadow(Color(0xE6000000), Offset(0f, 2f), 8f)) },
+    )
+    AppTheme.BOOK -> base.map(headings = { it }, all = { it.copy(fontFamily = FontFamily.Serif) })
+}
+
+private fun Typography.map(headings: (TextStyle) -> TextStyle, all: (TextStyle) -> TextStyle) = Typography(
+    displayLarge = all(headings(displayLarge)),
+    displayMedium = all(headings(displayMedium)),
+    displaySmall = all(headings(displaySmall)),
+    headlineLarge = all(headings(headlineLarge)),
+    headlineMedium = all(headings(headlineMedium)),
+    headlineSmall = all(headings(headlineSmall)),
+    titleLarge = all(headings(titleLarge)),
+    titleMedium = all(headings(titleMedium)),
+    titleSmall = all(titleSmall),
+    bodyLarge = all(bodyLarge),
+    bodyMedium = all(bodyMedium),
+    bodySmall = all(bodySmall),
+    labelLarge = all(labelLarge),
+    labelMedium = all(labelMedium),
+    labelSmall = all(labelSmall),
+)
+
+/** Draws the theme's background behind the whole app. */
+@Composable
+fun ThemedBackground(theme: AppTheme, animate: Boolean) {
+    when (theme) {
+        AppTheme.CLASSIC -> Unit
+        AppTheme.STARRY -> StarryBackground(animate)
+        AppTheme.AURORA -> AuroraBackground(animate)
+        AppTheme.BOOK -> Image(
+            painter = painterResource(R.drawable.paper),
+            contentDescription = null,
+            modifier = Modifier.fillMaxSize(),
+            contentScale = ContentScale.Crop,
+        )
+    }
+}
+
+@Composable
+private fun StarryBackground(animate: Boolean) {
+    Box(Modifier.fillMaxSize().background(Night)) {
+        if (animate && Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            SwirlingStarryNight()
+        } else {
+            Image(
+                painter = painterResource(R.drawable.starry_night),
+                contentDescription = null,
+                modifier = Modifier.fillMaxSize(),
+                contentScale = ContentScale.Crop,
+                alignment = Alignment.TopCenter,
+            )
+        }
+        // The painting shows at the top and fades into night blue so the lists stay readable.
+        Box(
+            Modifier.fillMaxSize().background(
+                Brush.verticalGradient(
+                    0f to Night.copy(alpha = 0.13f),
+                    0.32f to Night.copy(alpha = 0.6f),
+                    0.52f to Night.copy(alpha = 0.95f),
+                    0.7f to Night,
+                )
+            )
+        )
+    }
+}
+
+/**
+ * Turns the big vortex and two of the stars gently back and forth and lets the brushstrokes
+ * shimmer. Runs on the GPU and only while the app is on screen.
+ */
+private const val SWIRL_SHADER = """
+uniform shader image;
+uniform float time;
+uniform float k;
+uniform float4 c0;
+uniform float4 c1;
+uniform float4 c2;
+
+float2 swirl(float2 p, float4 c, float t) {
+    float2 d = p - c.xy;
+    float r = length(d) / c.z;
+    float a = c.w * sin(t) * exp(-r * r);
+    float ca = cos(a);
+    float sa = sin(a);
+    return c.xy + float2(ca * d.x - sa * d.y, sa * d.x + ca * d.y);
+}
+
+half4 main(float2 p) {
+    float2 q = swirl(p, c0, time);
+    q = swirl(q, c1, time + 1.3);
+    q = swirl(q, c2, time + 2.6);
+    q += float2(sin(p.y * k / 37.0 + time), cos(p.x * k / 41.0 + time)) * (2.2 / k);
+    return image.eval(q);
+}
+"""
+
+@RequiresApi(Build.VERSION_CODES.TIRAMISU)
+@Composable
+private fun SwirlingStarryNight() {
+    val image = ImageBitmap.imageResource(R.drawable.starry_night)
+    val shader = remember { RuntimeShader(SWIRL_SHADER) }
+    val bitmapShader = remember(image) {
+        BitmapShader(image.asAndroidBitmap(), Shader.TileMode.CLAMP, Shader.TileMode.CLAMP)
+    }
+    val time by rememberInfiniteTransition(label = "swirl").animateFloat(
+        initialValue = 0f,
+        targetValue = (2 * PI).toFloat(),
+        animationSpec = infiniteRepeatable(tween(8000, easing = LinearEasing)),
+        label = "swirlTime",
+    )
+    val brush = remember(shader) { ShaderBrush(shader) }
+    Canvas(Modifier.fillMaxSize()) {
+        val bw = image.width.toFloat()
+        val bh = image.height.toFloat()
+        // Same framing as the still image: cover the screen, anchored at the top.
+        val s = max(size.width / bw, size.height / bh)
+        val tx = (size.width - bw * s) / 2f
+        bitmapShader.setLocalMatrix(Matrix().apply { setScale(s, s); postTranslate(tx, 0f) })
+        shader.setInputShader("image", bitmapShader)
+        val iw = bw * s
+        val ih = bh * s
+        shader.setFloatUniform("time", time)
+        shader.setFloatUniform("k", 900f / ih)
+        shader.setFloatUniform("c0", tx + 0.47f * iw, 0.36f * ih, 0.167f * ih, 0.28f)
+        shader.setFloatUniform("c1", tx + 0.30f * iw, 0.20f * ih, 0.067f * ih, 0.35f)
+        shader.setFloatUniform("c2", tx + 0.62f * iw, 0.12f * ih, 0.061f * ih, 0.35f)
+        drawRect(brush)
+    }
+}
+
+private class Star(val x: Float, val y: Float, val r: Float, val a: Float, val phase: Float)
+
+@Composable
+private fun AuroraBackground(animate: Boolean) {
+    val time: State<Float> = if (animate) {
+        rememberInfiniteTransition(label = "aurora").animateFloat(
+            initialValue = 0f,
+            targetValue = (2 * PI).toFloat(),
+            animationSpec = infiniteRepeatable(tween(16000, easing = LinearEasing)),
+            label = "auroraTime",
+        )
+    } else {
+        remember { mutableFloatStateOf(1.2f) }
+    }
+    val stars = remember {
+        val rnd = Random(11)
+        List(140) { Star(rnd.nextFloat(), rnd.nextFloat() * 0.75f, 0.6f + rnd.nextFloat() * 1.4f, 0.3f + rnd.nextFloat() * 0.7f, rnd.nextFloat() * 6.28f) }
+    }
+    Box(Modifier.fillMaxSize()) {
+        Canvas(Modifier.fillMaxSize()) {
+            drawRect(Brush.verticalGradient(listOf(Color(0xFF02040C), Color(0xFF061024), Color(0xFF0A1A2C))))
+            val t = time.value
+            stars.forEach { st ->
+                val twinkle = if (animate) 0.75f + 0.25f * sin(t * 6 + st.phase) else 1f
+                drawCircle(Color.White.copy(alpha = st.a * twinkle), st.r * density, Offset(st.x * size.width, st.y * size.height))
+            }
+        }
+        // The curtains of light: bright lower edges fading upwards, softened by blur.
+        Canvas(Modifier.fillMaxSize().blur(18.dp)) {
+            val t = time.value
+            val w = size.width
+            val h = size.height
+            val ribbons = listOf(
+                Triple(Color(0xFF46FFAA), 0.30f, 0f),
+                Triple(Color(0xFF28D2DC), 0.38f, 1.7f),
+                Triple(Color(0xFF965AFF), 0.22f, 3.1f),
+            )
+            ribbons.forEachIndexed { i, (color, base, phase) ->
+                val amp = h * (0.05f - 0.01f * i)
+                val tail = h * (0.22f - 0.04f * i)
+                val steps = 48
+                val path = Path()
+                for (j in 0..steps) {
+                    val x = w * j / steps
+                    val u = x / w * 2f * PI.toFloat()
+                    val y = h * base + amp * sin(u * (1.1f + 0.5f * i) + phase + t * (1f + 0.3f * i)) +
+                        amp * 0.4f * sin(u * 4.3f - t * 0.8f + phase)
+                    if (j == 0) path.moveTo(x, y - tail) else path.lineTo(x, y - tail)
+                }
+                for (j in steps downTo 0) {
+                    val x = w * j / steps
+                    val u = x / w * 2f * PI.toFloat()
+                    val y = h * base + amp * sin(u * (1.1f + 0.5f * i) + phase + t * (1f + 0.3f * i)) +
+                        amp * 0.4f * sin(u * 4.3f - t * 0.8f + phase)
+                    path.lineTo(x, y)
+                }
+                drawPath(
+                    path,
+                    Brush.verticalGradient(
+                        0f to Color.Transparent,
+                        0.75f to color.copy(alpha = 0.35f),
+                        1f to color.copy(alpha = 0.75f),
+                        startY = h * base - amp - tail,
+                        endY = h * base + amp,
+                    ),
+                )
+            }
+        }
+        // Darken the lower part so the settings below stay readable.
+        Box(
+            Modifier.fillMaxSize().background(
+                Brush.verticalGradient(
+                    0f to Color.Transparent,
+                    0.4f to AuroraNight.copy(alpha = 0.55f),
+                    0.62f to AuroraNight.copy(alpha = 0.92f),
+                    1f to AuroraNight,
+                )
+            )
+        )
+    }
+}

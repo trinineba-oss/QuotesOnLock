@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Lock-screen card: an old book page with a thin ink rule. -->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <bitmap android:gravity="fill" android:src="@drawable/paper" />
+    </item>
+    <item android:bottom="4dp" android:left="4dp" android:right="4dp" android:top="4dp">
+        <shape android:shape="rectangle">
+            <corners android:radius="6dp" />
+            <stroke android:width="1dp" android:color="#998B6B45" />
+        </shape>
+    </item>
+</layer-list>

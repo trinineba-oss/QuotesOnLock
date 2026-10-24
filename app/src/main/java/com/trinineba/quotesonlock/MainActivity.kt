@@ -30,6 +30,8 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.Card
+import androidx.compose.material3.Typography
+import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.FilterChip
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.MaterialTheme
@@ -68,24 +70,38 @@ class MainActivity : ComponentActivity() {
         val prefs = QuotePrefs(this)
         if (prefs.enabled) QuoteScheduler.ensureScheduled(this, prefs.intervalMinutes)
         setContent {
-            QuotesTheme {
-                QuotesScreen(prefs, QuoteRepository(this, prefs))
+            var theme by remember { mutableStateOf(prefs.theme) }
+            var animate by remember { mutableStateOf(prefs.animateBackground) }
+            QuotesTheme(theme, animate) {
+                QuotesScreen(
+                    prefs = prefs,
+                    repo = QuoteRepository(this, prefs),
+                    theme = theme,
+                    animate = animate,
+                    onTheme = { theme = it },
+                    onAnimate = { animate = it },
+                )
             }
         }
     }
 }
 
 @Composable
-private fun QuotesTheme(content: @Composable () -> Unit) {
+private fun QuotesTheme(theme: AppTheme, animate: Boolean, content: @Composable () -> Unit) {
     val dark = isSystemInDarkTheme()
     val context = LocalContext.current
-    val colors = when {
+    val colors = theme.colorScheme() ?: when {
         Build.VERSION.SDK_INT >= Build.VERSION_CODES.S ->
             if (dark) dynamicDarkColorScheme(context) else dynamicLightColorScheme(context)
         dark -> darkColorScheme()
         else -> lightColorScheme()
     }
-    MaterialTheme(colorScheme = colors, content = content)
+    MaterialTheme(colorScheme = colors, typography = theme.typography(Typography())) {
+        Box(Modifier.fillMaxSize()) {
+            ThemedBackground(theme, animate)
+            content()
+        }
+    }
 }
 
 private val INTERVALS = listOf(
@@ -99,7 +115,14 @@ private val INTERVALS = listOf(
 )
 
 @Composable
-private fun QuotesScreen(prefs: QuotePrefs, repo: QuoteRepository) {
+private fun QuotesScreen(
+    prefs: QuotePrefs,
+    repo: QuoteRepository,
+    theme: AppTheme,
+    animate: Boolean,
+    onTheme: (AppTheme) -> Unit,
+    onAnimate: (Boolean) -> Unit,
+) {
     val context = LocalContext.current
     var enabled by remember { mutableStateOf(prefs.enabled) }
     var interval by remember { mutableStateOf(prefs.intervalMinutes) }
@@ -250,7 +273,12 @@ private fun QuotesScreen(prefs: QuotePrefs, repo: QuoteRepository) {
             }
 
             item {
-                Card(modifier = Modifier.fillMaxWidth()) {
+                Card(
+                    modifier = Modifier.fillMaxWidth().then(
+                        if (theme == AppTheme.CLASSIC) Modifier
+                        else Modifier.border(1.dp, MaterialTheme.colorScheme.primary.copy(alpha = 0.4f), CardDefaults.shape)
+                    ),
+                ) {
                     Column(Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
                         val quote = current
                         if (quote == null) {
@@ -276,7 +304,7 @@ private fun QuotesScreen(prefs: QuotePrefs, repo: QuoteRepository) {
                                     "— $it",
                                     fontFamily = family,
                                     fontSize = (quoteSize.sizeSp * 0.85f).sp,
-                                    color = textColor,
+                                    color = if (quoteColor == null && theme != AppTheme.CLASSIC) MaterialTheme.colorScheme.primary else textColor,
                                     // Tap the author to see all of their quotes.
                                     modifier = if (name != null) Modifier.clickable { browse = listOf(BrowsePage.author(name)) } else Modifier,
                                 )
@@ -424,6 +452,51 @@ private fun QuotesScreen(prefs: QuotePrefs, repo: QuoteRepository) {
             item {
                 Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
                     Text("Appearance", style = MaterialTheme.typography.titleMedium)
+
+                    Text("Theme", style = MaterialTheme.typography.labelLarge)
+                    Row(
+                        modifier = Modifier.horizontalScroll(rememberScrollState()),
+                        horizontalArrangement = Arrangement.spacedBy(8.dp),
+                    ) {
+                        AppTheme.entries.forEach { option ->
+                            FilterChip(
+                                selected = theme == option,
+                                onClick = {
+                                    prefs.theme = option
+                                    onTheme(option)
+                                    refreshNotification()
+                                },
+                                label = { Text(option.label) },
+                            )
+                        }
+                    }
+                    theme.motionLabel?.let { label ->
+                        Row(
+                            modifier = Modifier.fillMaxWidth(),
+                            horizontalArrangement = Arrangement.SpaceBetween,
+                            verticalAlignment = Alignment.CenterVertically,
+                        ) {
+                            Column(Modifier.weight(1f)) {
+                                Text(label)
+                                Text(
+                                    if (theme == AppTheme.STARRY && Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU) {
+                                        "Needs Android 13 or newer; this phone shows the still painting."
+                                    } else {
+                                        "Only moves while the app is open, so it doesn't use battery in the background."
+                                    },
+                                    style = MaterialTheme.typography.bodySmall,
+                                )
+                            }
+                            Switch(
+                                checked = animate,
+                                onCheckedChange = {
+                                    prefs.animateBackground = it
+                                    onAnimate(it)
+                                },
+                            )
+                        }
+                    }
+
 
                     Text("Font", style = MaterialTheme.typography.labelLarge)
                     Row(

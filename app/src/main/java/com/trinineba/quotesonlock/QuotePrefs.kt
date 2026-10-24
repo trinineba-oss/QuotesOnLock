@@ -45,6 +45,15 @@ class QuotePrefs(context: Context) {
             editor.apply()
         }
 
+    var theme: AppTheme
+        get() = AppTheme.fromKey(prefs.getString("theme", null))
+        set(value) = prefs.edit().putString("theme", value.key).apply()
+
+    /** Whether the Starry Night swirls / northern lights move while the app is open. */
+    var animateBackground: Boolean
+        get() = prefs.getBoolean("animate_background", false)
+        set(value) = prefs.edit().putBoolean("animate_background", value).apply()
+
     val style: QuoteStyle get() = QuoteStyle(font, size, textColor)
 
     /** Keys of quotes already shown in this pass through the pool, so nothing repeats until all are seen. */
