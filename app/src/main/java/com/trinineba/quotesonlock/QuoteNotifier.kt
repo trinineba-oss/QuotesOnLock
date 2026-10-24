@@ -6,6 +6,8 @@ import android.app.NotificationManager
 import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
+import android.os.Build
+import android.content.res.ColorStateList
 import android.util.TypedValue
 import android.view.View
 import android.widget.RemoteViews
@@ -115,13 +117,25 @@ object QuoteNotifier {
         views.setTextViewTextSize(R.id.quote_author, TypedValue.COMPLEX_UNIT_SP, sp * 0.85f)
         // Themes frame the expanded quote in their own artwork. The collapsed view is too short for a
         // frame, so it keeps the system background (and the system text colour unless one is chosen).
-        val framed = expanded && theme.notificationBackground != null
+        val framed = expanded && theme.notificationFrame != null
         if (framed) {
-            views.setInt(R.id.quote_root, "setBackgroundResource", theme.notificationBackground!!)
             val density = context.resources.displayMetrics.density
-            val h = (12 * density).toInt()
-            val v = (10 * density).toInt()
-            views.setViewPadding(R.id.quote_root, h, v, h, v)
+            // Outer view shows the artwork as a frame; the inner card is the theme colour at the
+            // user's chosen opacity.
+            views.setInt(R.id.quote_root, "setBackgroundResource", theme.notificationFrame!!)
+            val frame = (6 * density).toInt()
+            views.setViewPadding(R.id.quote_root, frame, frame, frame, frame)
+            val alpha = (QuotePrefs(context).cardOpacity * 255).toInt().coerceIn(0, 255)
+            val card = (alpha shl 24) or (theme.cardColor!! and 0x00FFFFFF)
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+                views.setInt(R.id.quote_inner, "setBackgroundResource", R.drawable.notif_inner)
+                views.setColorStateList(R.id.quote_inner, "setBackgroundTintList", ColorStateList.valueOf(card))
+            } else {
+                views.setInt(R.id.quote_inner, "setBackgroundColor", card)
+            }
+            val h = (10 * density).toInt()
+            val v = (8 * density).toInt()
+            views.setViewPadding(R.id.quote_inner, h, v, h, v)
         }
         val textColor = style.color ?: if (framed) theme.notificationText else null
         val authorColor = style.color ?: if (framed) theme.notificationAuthor else null

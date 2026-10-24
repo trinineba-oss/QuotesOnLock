@@ -49,6 +49,11 @@ class QuotePrefs(context: Context) {
         get() = AppTheme.fromKey(prefs.getString("theme", null))
         set(value) = prefs.edit().putString("theme", value.key).apply()
 
+    /** How solid (0–1) the cards behind quotes are in the themed looks, in the app and on the lock screen. */
+    var cardOpacity: Float
+        get() = prefs.getFloat("card_opacity", 0.8f)
+        set(value) = prefs.edit().putFloat("card_opacity", value.coerceIn(0f, 1f)).apply()
+
     /** Theme of the lock-screen card, or null to follow the app's theme. */
     var lockTheme: AppTheme?
         get() = prefs.getString("lock_theme", null)?.let { AppTheme.fromKey(it) }

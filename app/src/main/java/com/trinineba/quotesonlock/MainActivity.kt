@@ -38,6 +38,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Slider
 import androidx.compose.material3.Switch
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
@@ -72,7 +73,8 @@ class MainActivity : ComponentActivity() {
         setContent {
             var theme by remember { mutableStateOf(prefs.theme) }
             var animate by remember { mutableStateOf(prefs.animateBackground) }
-            QuotesTheme(theme, animate) {
+            var cardOpacity by remember { mutableStateOf(prefs.cardOpacity) }
+            QuotesTheme(theme, animate, cardOpacity) {
                 QuotesScreen(
                     prefs = prefs,
                     repo = QuoteRepository(this, prefs),
@@ -80,6 +82,8 @@ class MainActivity : ComponentActivity() {
                     animate = animate,
                     onTheme = { theme = it },
                     onAnimate = { animate = it },
+                    cardOpacity = cardOpacity,
+                    onCardOpacity = { cardOpacity = it },
                 )
             }
         }
@@ -87,10 +91,10 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-private fun QuotesTheme(theme: AppTheme, animate: Boolean, content: @Composable () -> Unit) {
+private fun QuotesTheme(theme: AppTheme, animate: Boolean, cardOpacity: Float, content: @Composable () -> Unit) {
     val dark = isSystemInDarkTheme()
     val context = LocalContext.current
-    val colors = theme.colorScheme() ?: when {
+    val colors = theme.colorScheme(cardOpacity) ?: when {
         Build.VERSION.SDK_INT >= Build.VERSION_CODES.S ->
             if (dark) dynamicDarkColorScheme(context) else dynamicLightColorScheme(context)
         dark -> darkColorScheme()
@@ -122,6 +126,8 @@ private fun QuotesScreen(
     animate: Boolean,
     onTheme: (AppTheme) -> Unit,
     onAnimate: (Boolean) -> Unit,
+    cardOpacity: Float,
+    onCardOpacity: (Float) -> Unit,
 ) {
     val context = LocalContext.current
     var enabled by remember { mutableStateOf(prefs.enabled) }
@@ -518,6 +524,28 @@ private fun QuotesScreen(
                                 },
                                 label = { Text(option?.label ?: "Same as app") },
                             )
+                        }
+                    }
+
+                    if (theme != AppTheme.CLASSIC || (lockTheme ?: theme) != AppTheme.CLASSIC) {
+                        Text("Card opacity", style = MaterialTheme.typography.labelLarge)
+                        Text(
+                            "How solid the card behind the quote is, in the app and on the lock screen. " +
+                                "Lower shows more of the painting, sky or page.",
+                            style = MaterialTheme.typography.bodySmall,
+                        )
+                        Row(verticalAlignment = Alignment.CenterVertically) {
+                            Slider(
+                                value = cardOpacity,
+                                onValueChange = onCardOpacity,
+                                onValueChangeFinished = {
+                                    prefs.cardOpacity = cardOpacity
+                                    refreshNotification()
+                                },
+                                valueRange = 0f..1f,
+                                modifier = Modifier.weight(1f),
+                            )
+                            Text("${(cardOpacity * 100).toInt()}%", modifier = Modifier.padding(start = 12.dp))
                         }
                     }
 

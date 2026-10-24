@@ -56,23 +56,25 @@ enum class AppTheme(
     val label: String,
     /** Label of the "make it move" switch, or null if the theme doesn't move. */
     val motionLabel: String?,
-    /** Background of the notification's quote area, or null for the system's own. */
-    @DrawableRes val notificationBackground: Int?,
+    /** Artwork framing the expanded lock-screen card, or null for the system's plain background. */
+    @DrawableRes val notificationFrame: Int?,
+    /** Colour of the card behind the quote (inside the frame); its opacity is the user's choice. */
+    val cardColor: Int?,
     /** Default notification text and author colours when the user hasn't picked a colour. */
     val notificationText: Int?,
     val notificationAuthor: Int?,
 ) {
-    CLASSIC("classic", "Classic", null, null, null, null),
+    CLASSIC("classic", "Classic", null, null, null, null, null),
     STARRY(
-        "starry", "Starry Night", "Moving swirls", R.drawable.notif_bg_starry,
+        "starry", "Starry Night", "Moving swirls", R.drawable.notif_frame_starry, 0xFF0B1A3D.toInt(),
         0xFFFFFFFF.toInt(), 0xFFF4C94A.toInt(),
     ),
     AURORA(
-        "aurora", "Northern lights", "Moving lights", R.drawable.notif_bg_aurora,
+        "aurora", "Northern lights", "Moving lights", R.drawable.notif_frame_aurora, 0xFF040915.toInt(),
         0xFFFFFFFF.toInt(), 0xFF6CF5C8.toInt(),
     ),
     BOOK(
-        "book", "Old book", null, R.drawable.notif_bg_book,
+        "book", "Old book", null, R.drawable.notif_frame_book, 0xFFF1E4C6.toInt(),
         0xFF3B2A1A.toInt(), 0xFF7A2E1F.toInt(),
     );
 
@@ -84,7 +86,8 @@ enum class AppTheme(
 private val Night = Color(0xFF0B1A3D)
 private val AuroraNight = Color(0xFF040915)
 
-fun AppTheme.colorScheme(): ColorScheme? = when (this) {
+/** [cardOpacity] (0–1) is how solid the cards behind the text are over the theme's artwork. */
+fun AppTheme.colorScheme(cardOpacity: Float): ColorScheme? = when (this) {
     AppTheme.CLASSIC -> null
     AppTheme.STARRY -> darkColorScheme(
         primary = Color(0xFFF4C94A),
@@ -100,7 +103,7 @@ fun AppTheme.colorScheme(): ColorScheme? = when (this) {
         surface = Night,
         onSurface = Color(0xFFEEF3FF),
         onSurfaceVariant = Color(0xFFC9D6EE),
-        surfaceContainerHighest = Color(0xB3102A66),
+        surfaceContainerHighest = Color(0xFF102A66).copy(alpha = cardOpacity),
         surfaceVariant = Color(0xFF22305A),
         outline = Color(0xFF8FB3E0),
         outlineVariant = Color(0x663A64B0),
@@ -119,7 +122,7 @@ fun AppTheme.colorScheme(): ColorScheme? = when (this) {
         surface = AuroraNight,
         onSurface = Color(0xFFEAF7F4),
         onSurfaceVariant = Color(0xFFB4D2CC),
-        surfaceContainerHighest = Color(0xB30A1A2A),
+        surfaceContainerHighest = Color(0xFF0A1A2A).copy(alpha = cardOpacity),
         surfaceVariant = Color(0xFF1C2E3A),
         outline = Color(0xFF6CF5C8),
         outlineVariant = Color(0x662B5F6E),
@@ -138,7 +141,7 @@ fun AppTheme.colorScheme(): ColorScheme? = when (this) {
         surface = Color(0xFFF1E4C6),
         onSurface = Color(0xFF3B2A1A),
         onSurfaceVariant = Color(0xFF5E4A30),
-        surfaceContainerHighest = Color(0xB3F7EDD5),
+        surfaceContainerHighest = Color(0xFFF7EDD5).copy(alpha = cardOpacity),
         surfaceVariant = Color(0xFFE2D0A8),
         outline = Color(0xFF8B6B45),
         outlineVariant = Color(0x668B6B45),
