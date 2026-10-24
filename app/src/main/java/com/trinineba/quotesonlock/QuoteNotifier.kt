@@ -101,17 +101,29 @@ object QuoteNotifier {
             views.setViewVisibility(R.id.quote_author, View.GONE)
         }
 
-        val sp = if (expanded) style.size.sizeSp else minOf(style.size.sizeSp, 16f)
+        // The expanded notification is at most ~256dp tall, so long quotes get slightly smaller type.
+        val fit = when {
+            !expanded -> 1f
+            quote.text.length > 450 -> 0.72f
+            quote.text.length > 300 -> 0.82f
+            quote.text.length > 200 -> 0.92f
+            else -> 1f
+        }
+        val sp = if (expanded) style.size.sizeSp * fit else minOf(style.size.sizeSp, 16f)
         views.setTextViewTextSize(R.id.quote_text, TypedValue.COMPLEX_UNIT_SP, sp)
         views.setTextViewTextSize(R.id.quote_author, TypedValue.COMPLEX_UNIT_SP, sp * 0.85f)
-        // Themes frame the quote in their own artwork; the user's own text colour still wins.
-        theme.notificationBackground?.let { background ->
-            views.setInt(R.id.quote_root, "setBackgroundResource", background)
-            val pad = (14 * context.resources.displayMetrics.density).toInt()
-            views.setViewPadding(R.id.quote_root, pad, pad, pad, pad)
+        // Themes frame the expanded quote in their own artwork. The collapsed view is too short for a
+        // frame, so it keeps the system background (and the system text colour unless one is chosen).
+        val framed = expanded && theme.notificationBackground != null
+        if (framed) {
+            views.setInt(R.id.quote_root, "setBackgroundResource", theme.notificationBackground!!)
+            val density = context.resources.displayMetrics.density
+            val h = (12 * density).toInt()
+            val v = (10 * density).toInt()
+            views.setViewPadding(R.id.quote_root, h, v, h, v)
         }
-        val textColor = style.color ?: theme.notificationText
-        val authorColor = style.color ?: theme.notificationAuthor
+        val textColor = style.color ?: if (framed) theme.notificationText else null
+        val authorColor = style.color ?: if (framed) theme.notificationAuthor else null
         textColor?.let { views.setTextColor(R.id.quote_text, it) }
         authorColor?.let { views.setTextColor(R.id.quote_author, it) }
         return views

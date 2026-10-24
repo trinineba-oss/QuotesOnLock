@@ -51,7 +51,7 @@ class QuotePrefs(context: Context) {
 
     /** Whether the Starry Night swirls / northern lights move while the app is open. */
     var animateBackground: Boolean
-        get() = prefs.getBoolean("animate_background", false)
+        get() = prefs.getBoolean("animate_background", true)
         set(value) = prefs.edit().putBoolean("animate_background", value).apply()
 
     val style: QuoteStyle get() = QuoteStyle(font, size, textColor)

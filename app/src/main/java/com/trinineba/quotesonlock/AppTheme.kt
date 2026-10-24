@@ -23,6 +23,8 @@ import androidx.compose.material3.darkColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.State
+import androidx.compose.runtime.withFrameNanos
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableFloatStateOf
 import androidx.compose.runtime.remember
@@ -240,7 +242,7 @@ half4 main(float2 p) {
     float2 q = swirl(p, c0, time);
     q = swirl(q, c1, time + 1.3);
     q = swirl(q, c2, time + 2.6);
-    q += float2(sin(p.y * k / 37.0 + time), cos(p.x * k / 41.0 + time)) * (2.2 / k);
+    q += float2(sin(p.y * k / 37.0 + time), cos(p.x * k / 41.0 + time)) * (3.0 / k);
     return image.eval(q);
 }
 """
@@ -253,12 +255,7 @@ private fun SwirlingStarryNight() {
     val bitmapShader = remember(image) {
         BitmapShader(image.asAndroidBitmap(), Shader.TileMode.CLAMP, Shader.TileMode.CLAMP)
     }
-    val time by rememberInfiniteTransition(label = "swirl").animateFloat(
-        initialValue = 0f,
-        targetValue = (2 * PI).toFloat(),
-        animationSpec = infiniteRepeatable(tween(8000, easing = LinearEasing)),
-        label = "swirlTime",
-    )
+    val time by rememberLoopAngle(6000f)
     val brush = remember(shader) { ShaderBrush(shader) }
     Canvas(Modifier.fillMaxSize()) {
         val bw = image.width.toFloat()
@@ -272,27 +269,35 @@ private fun SwirlingStarryNight() {
         val ih = bh * s
         shader.setFloatUniform("time", time)
         shader.setFloatUniform("k", 900f / ih)
-        shader.setFloatUniform("c0", tx + 0.47f * iw, 0.36f * ih, 0.167f * ih, 0.28f)
-        shader.setFloatUniform("c1", tx + 0.30f * iw, 0.20f * ih, 0.067f * ih, 0.35f)
-        shader.setFloatUniform("c2", tx + 0.62f * iw, 0.12f * ih, 0.061f * ih, 0.35f)
+        shader.setFloatUniform("c0", tx + 0.47f * iw, 0.36f * ih, 0.167f * ih, 0.38f)
+        shader.setFloatUniform("c1", tx + 0.30f * iw, 0.20f * ih, 0.067f * ih, 0.5f)
+        shader.setFloatUniform("c2", tx + 0.62f * iw, 0.12f * ih, 0.061f * ih, 0.5f)
         drawRect(brush)
     }
+}
+
+/**
+ * Seconds-based clock driven by the screen's frame clock. Unlike Compose's animation specs it keeps
+ * running when battery saver or "Remove animations" sets the system animation scale to zero.
+ * Returns an ever-growing angle (radians) that completes one cycle per [periodMs].
+ */
+@Composable
+private fun rememberLoopAngle(periodMs: Float): State<Float> {
+    val angle = remember { mutableFloatStateOf(0f) }
+    LaunchedEffect(periodMs) {
+        val start = withFrameNanos { it }
+        while (true) {
+            withFrameNanos { now -> angle.floatValue = (now - start) / 1_000_000f / periodMs * 2f * PI.toFloat() }
+        }
+    }
+    return angle
 }
 
 private class Star(val x: Float, val y: Float, val r: Float, val a: Float, val phase: Float)
 
 @Composable
 private fun AuroraBackground(animate: Boolean) {
-    val time: State<Float> = if (animate) {
-        rememberInfiniteTransition(label = "aurora").animateFloat(
-            initialValue = 0f,
-            targetValue = (2 * PI).toFloat(),
-            animationSpec = infiniteRepeatable(tween(16000, easing = LinearEasing)),
-            label = "auroraTime",
-        )
-    } else {
-        remember { mutableFloatStateOf(1.2f) }
-    }
+    val time: State<Float> = if (animate) rememberLoopAngle(10000f) else remember { mutableFloatStateOf(1.2f) }
     val stars = remember {
         val rnd = Random(11)
         List(140) { Star(rnd.nextFloat(), rnd.nextFloat() * 0.75f, 0.6f + rnd.nextFloat() * 1.4f, 0.3f + rnd.nextFloat() * 0.7f, rnd.nextFloat() * 6.28f) }
