@@ -148,6 +148,26 @@ enum class Category(val key: String, val label: String, val group: QuoteGroup) {
     LISPECTOR("lispector", "Clarice Lispector", QuoteGroup.WRITERS),
     HAMMARSKJOLD("hammarskjold", "Dag Hammarskjöld", QuoteGroup.THINKERS),
     MARQUEZ("marquez", "Gabriel García Márquez", QuoteGroup.WRITERS),
+    ROUSSEAU("rousseau", "Jean-Jacques Rousseau", QuoteGroup.THINKERS),
+    TRAHERNE("traherne", "Thomas Traherne", QuoteGroup.POETS),
+    ATTAR("attar", "Attar", QuoteGroup.POETS),
+    LEONARDO("leonardo", "Leonardo da Vinci", QuoteGroup.THINKERS),
+    PETRARCH("petrarch", "Petrarch", QuoteGroup.POETS),
+    MICHELANGELO("michelangelo", "Michelangelo", QuoteGroup.POETS),
+    FLAUBERT("flaubert", "Gustave Flaubert", QuoteGroup.WRITERS),
+    LORCA("lorca", "Federico García Lorca", QuoteGroup.POETS),
+    PAZ("paz", "Octavio Paz", QuoteGroup.POETS),
+    CALVINO("calvino", "Italo Calvino", QuoteGroup.WRITERS),
+    SARAMAGO("saramago", "José Saramago", QuoteGroup.WRITERS),
+    AKHMATOVA("akhmatova", "Anna Akhmatova", QuoteGroup.POETS),
+    TSVETAEVA("tsvetaeva", "Marina Tsvetaeva", QuoteGroup.POETS),
+    MILOSZ("milosz", "Czesław Miłosz", QuoteGroup.POETS),
+    TRANSTROMER("transtromer", "Tomas Tranströmer", QuoteGroup.POETS),
+    CELAN("celan", "Paul Celan", QuoteGroup.POETS),
+    SEBALD("sebald", "W. G. Sebald", QuoteGroup.WRITERS),
+    BACHELARD("bachelard", "Gaston Bachelard", QuoteGroup.THINKERS),
+    TEILHARD("teilhard", "Pierre Teilhard de Chardin", QuoteGroup.THINKERS),
+    BULGAKOV("bulgakov", "Mikhail Bulgakov", QuoteGroup.WRITERS),
     QURAN("quran", "The Qur'an", QuoteGroup.SCRIPTURE),
     CUSTOM("custom", "My own quotes", QuoteGroup.MINE);
 
@@ -156,7 +176,7 @@ enum class Category(val key: String, val label: String, val group: QuoteGroup) {
 
         /** Authors still in copyright, whose quotes are short excerpts, so they can be switched off together. */
         val MODERN: List<Category> by lazy {
-            listOf(CAMUS, HESSE, MURAKAMI, EINSTEIN, FRANKL, PESSOA, BORGES, CIORAN, WEIL, NERUDA, OLIVER, SZYMBORSKA, KUNDERA, SARTRE, WATTS, KRISHNAMURTI, MURDOCH, BECKER, BUKOWSKI, NIN, KAZANTZAKIS, BUBER, ARENDT, BEAUVOIR, BECKETT, FROMM, MAY, MERTON, NHATHANH, YALOM, CAMPBELL, MUSASHI, SONTAG, BALDWIN, SAINTEXUPERY, CSLEWIS, ZWEIG, LISPECTOR, HAMMARSKJOLD, MARQUEZ)
+            listOf(CAMUS, HESSE, MURAKAMI, EINSTEIN, FRANKL, PESSOA, BORGES, CIORAN, WEIL, NERUDA, OLIVER, SZYMBORSKA, KUNDERA, SARTRE, WATTS, KRISHNAMURTI, MURDOCH, BECKER, BUKOWSKI, NIN, KAZANTZAKIS, BUBER, ARENDT, BEAUVOIR, BECKETT, FROMM, MAY, MERTON, NHATHANH, YALOM, CAMPBELL, MUSASHI, SONTAG, BALDWIN, SAINTEXUPERY, CSLEWIS, ZWEIG, LISPECTOR, HAMMARSKJOLD, MARQUEZ, PAZ, CALVINO, SARAMAGO, AKHMATOVA, TSVETAEVA, MILOSZ, TRANSTROMER, CELAN, SEBALD, BACHELARD, TEILHARD, BULGAKOV)
         }
     }
 }
