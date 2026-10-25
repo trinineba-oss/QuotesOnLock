@@ -169,6 +169,8 @@ enum class Category(val key: String, val label: String, val group: QuoteGroup) {
     TEILHARD("teilhard", "Pierre Teilhard de Chardin", QuoteGroup.THINKERS),
     BULGAKOV("bulgakov", "Mikhail Bulgakov", QuoteGroup.WRITERS),
     HAMSUN("hamsun", "Knut Hamsun", QuoteGroup.WRITERS),
+    NAIPAUL("naipaul", "V. S. Naipaul", QuoteGroup.WRITERS),
+    WALCOTT("walcott", "Derek Walcott", QuoteGroup.POETS),
     QURAN("quran", "The Qur'an", QuoteGroup.SCRIPTURE),
     CUSTOM("custom", "My own quotes", QuoteGroup.MINE);
 
@@ -177,7 +179,7 @@ enum class Category(val key: String, val label: String, val group: QuoteGroup) {
 
         /** Authors still in copyright, whose quotes are short excerpts, so they can be switched off together. */
         val MODERN: List<Category> by lazy {
-            listOf(CAMUS, HESSE, MURAKAMI, EINSTEIN, FRANKL, PESSOA, BORGES, CIORAN, WEIL, NERUDA, OLIVER, SZYMBORSKA, KUNDERA, SARTRE, WATTS, KRISHNAMURTI, MURDOCH, BECKER, BUKOWSKI, NIN, KAZANTZAKIS, BUBER, ARENDT, BEAUVOIR, BECKETT, FROMM, MAY, MERTON, NHATHANH, YALOM, CAMPBELL, MUSASHI, SONTAG, BALDWIN, SAINTEXUPERY, CSLEWIS, ZWEIG, LISPECTOR, HAMMARSKJOLD, MARQUEZ, PAZ, CALVINO, SARAMAGO, AKHMATOVA, TSVETAEVA, MILOSZ, TRANSTROMER, CELAN, SEBALD, BACHELARD, TEILHARD, BULGAKOV)
+            listOf(CAMUS, HESSE, MURAKAMI, EINSTEIN, FRANKL, PESSOA, BORGES, CIORAN, WEIL, NERUDA, OLIVER, SZYMBORSKA, KUNDERA, SARTRE, WATTS, KRISHNAMURTI, MURDOCH, BECKER, BUKOWSKI, NIN, KAZANTZAKIS, BUBER, ARENDT, BEAUVOIR, BECKETT, FROMM, MAY, MERTON, NHATHANH, YALOM, CAMPBELL, MUSASHI, SONTAG, BALDWIN, SAINTEXUPERY, CSLEWIS, ZWEIG, LISPECTOR, HAMMARSKJOLD, MARQUEZ, PAZ, CALVINO, SARAMAGO, AKHMATOVA, TSVETAEVA, MILOSZ, TRANSTROMER, CELAN, SEBALD, BACHELARD, TEILHARD, BULGAKOV, NAIPAUL, WALCOTT)
         }
     }
 }
