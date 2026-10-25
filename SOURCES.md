@@ -54,6 +54,15 @@ editions below, or a translation made for this app and labelled `(tr. Claude)`.
 | Walt Whitman | Leaves of Grass | original English | Project Gutenberg #1322 |
 | Max Ehrmann | Desiderata (1927), in stanza-length passages | original English | Wikisource ("Desiderata"); public domain in the US |
 | Rudyard Kipling | Poems (If—, The Thousandth Man, The Way Through the Woods, L'Envoi, Cities and Thrones and Powers, The Children's Song, Epitaphs, and others) and prose from Kim, The Jungle Books and Plain Tales from the Hills | original English | Project Gutenberg #2334, #323, #556, #15529, #27870, #60260, #21777, #2226, #236, #1937, #1858 |
+| Henri-Frédéric Amiel | Journal Intime | Mrs. Humphry Ward | Project Gutenberg #8545 |
+| Boethius | The Consolation of Philosophy | H. R. James | Project Gutenberg #14328 |
+| Novalis | Hymns to the Night and Spiritual Songs; aphorisms; Hymns and Thoughts on Religion | George MacDonald; Frederic H. Hedge (in The German Classics, vol. 4, 1913); W. Hastie (1888) | Project Gutenberg #8949, #12060; Internet Archive hymnsthr00nova |
+| Antonio Machado | Soledades, Galerías y otros poemas; Campos de Castilla | new translations (tr. Claude) | Spanish text from Poesías completas (1917), Project Gutenberg #68525 |
+| G. K. Chesterton | Orthodoxy, Heretics, Tremendous Trifles, The Defendant, All Things Considered | original English | Project Gutenberg #130, #470, #8092, #12245, #11505 |
+| Samuel Johnson | Rasselas, The Rambler, The Idler, The Adventurer, The Vanity of Human Wishes; sayings in Boswell's Life of Johnson | original English | Project Gutenberg #652, #43656, #11397, #12050, #13350, #1564 |
+| Francis Bacon | The Essays or Counsels, Civil and Moral | original English | Project Gutenberg #575 |
+| Homer | The Iliad; The Odyssey | Samuel Butler (prose) | Project Gutenberg #2199, #1727 |
+| Sappho | Fragments | H. T. Wharton (literal prose) | Project Gutenberg #57390 |
 | Emily Dickinson | Poems, Series One to Three | original English (1890s editions) | Project Gutenberg #12242 |
 | William Blake | Songs of Innocence and of Experience; Poems of William Blake (incl. The Marriage of Heaven and Hell) | original English | Project Gutenberg #1934, #574 |
 | Giacomo Leopardi | Essays and Dialogues | Charles Edwardes and Patrick Maxwell (1893) | Project Gutenberg #52356 |
@@ -156,7 +165,7 @@ The *Tractatus* lines are cut verbatim from Ogden's public-domain translation. W
 
 ### More modern authors (Goodreads excerpts)
 
-Bukowski, Anaïs Nin, Joseph Campbell, Miyamoto Musashi (in common English renderings of the *Dokkōdō* and *The Book of Five Rings*), Susan Sontag, Nikos Kazantzakis, Martin Buber, Hannah Arendt, Simone de Beauvoir, Samuel Beckett, Erich Fromm, Rollo May, Thomas Merton, Thich Nhat Hanh and Irvin Yalom are still in copyright, so each appears as a short excerpt (one to four sentences) taken from Goodreads' most-liked quotes for that author and hand-filtered. Where a line could not be placed in a specific book, the label is the author's name alone. Goodreads texts are typed in by readers; if you spot a wrong attribution, please open an issue. Authors in this group are covered by the "Modern authors still in copyright" switch in settings.
+Bukowski, Anaïs Nin, Joseph Campbell, Miyamoto Musashi (in common English renderings of the *Dokkōdō* and *The Book of Five Rings*), Susan Sontag, James Baldwin, Antoine de Saint-Exupéry, C. S. Lewis, Stefan Zweig, Clarice Lispector, Dag Hammarskjöld (Markings, tr. W. H. Auden and Leif Sjöberg), Nikos Kazantzakis, Martin Buber, Hannah Arendt, Simone de Beauvoir, Samuel Beckett, Erich Fromm, Rollo May, Thomas Merton, Thich Nhat Hanh and Irvin Yalom are still in copyright, so each appears as a short excerpt (one to four sentences) taken from Goodreads' most-liked quotes for that author and hand-filtered. Where a line could not be placed in a specific book, the label is the author's name alone. Goodreads texts are typed in by readers; if you spot a wrong attribution, please open an issue. Authors in this group are covered by the "Modern authors still in copyright" switch in settings.
 
 ### Einstein
 
