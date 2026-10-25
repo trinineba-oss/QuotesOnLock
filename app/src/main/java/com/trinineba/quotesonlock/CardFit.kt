@@ -19,7 +19,8 @@ object CardFit {
     private const val CARD_HEIGHT_DP = 200f
     /** Lock-screen margins plus the notification's own side padding. */
     private const val SIDE_DP = 64f
-    private const val MIN_SP = 11.5f
+    /** Never shrink below this (or 80% of the chosen size); longer quotes are split into parts instead. */
+    private const val MIN_SP = 13f
     const val INNER_H_DP = 10
     const val INNER_V_DP = 8
 
@@ -28,7 +29,8 @@ object CardFit {
         val frames = if (framed) listOf(6, 3) else listOf(0)
         val quoted = "“$text”"
         var sp = style.size.sizeSp
-        while (sp >= MIN_SP) {
+        val minSp = maxOf(MIN_SP, style.size.sizeSp * 0.8f)
+        while (sp >= minSp) {
             for (frame in frames) {
                 val (width, budget) = space(context, paint, sp, frame, framed, author != null)
                 if (height(quoted, paint, width) <= budget) return CardLayout(sp, frame, listOf(text))
@@ -37,9 +39,9 @@ object CardFit {
         }
         // Too long even at the smallest size: split it, keeping a line spare for the "…" marks.
         val frame = frames.last()
-        val (width, budget) = space(context, paint, MIN_SP, frame, framed, author != null)
+        val (width, budget) = space(context, paint, minSp, frame, framed, author != null)
         val spare = paint.fontMetricsInt.let { it.descent - it.ascent }
-        return CardLayout(MIN_SP, frame, split(text, paint, width, budget - spare))
+        return CardLayout(minSp, frame, split(text, paint, width, budget - spare))
     }
 
     /** Text width and height available at [sp]; sets the paint's size. */
