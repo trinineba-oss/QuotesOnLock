@@ -132,6 +132,21 @@ enum class Category(val key: String, val label: String, val group: QuoteGroup) {
     SONTAG("sontag", "Susan Sontag", QuoteGroup.WRITERS),
     DESIDERATA("desiderata", "Desiderata (Max Ehrmann)", QuoteGroup.POETS),
     KIPLING("kipling", "Rudyard Kipling", QuoteGroup.POETS),
+    AMIEL("amiel", "Henri-Frédéric Amiel", QuoteGroup.WRITERS),
+    BOETHIUS("boethius", "Boethius", QuoteGroup.THINKERS),
+    NOVALIS("novalis", "Novalis", QuoteGroup.POETS),
+    MACHADO("machado", "Antonio Machado", QuoteGroup.POETS),
+    CHESTERTON("chesterton", "G. K. Chesterton", QuoteGroup.WRITERS),
+    JOHNSON("johnson", "Samuel Johnson", QuoteGroup.WRITERS),
+    BACON("bacon", "Francis Bacon", QuoteGroup.THINKERS),
+    HOMER("homer", "Homer", QuoteGroup.POETS),
+    SAPPHO("sappho", "Sappho", QuoteGroup.POETS),
+    BALDWIN("baldwin", "James Baldwin", QuoteGroup.WRITERS),
+    SAINTEXUPERY("saintexupery", "Antoine de Saint-Exupéry", QuoteGroup.WRITERS),
+    CSLEWIS("cslewis", "C. S. Lewis", QuoteGroup.WRITERS),
+    ZWEIG("zweig", "Stefan Zweig", QuoteGroup.WRITERS),
+    LISPECTOR("lispector", "Clarice Lispector", QuoteGroup.WRITERS),
+    HAMMARSKJOLD("hammarskjold", "Dag Hammarskjöld", QuoteGroup.THINKERS),
     QURAN("quran", "The Qur'an", QuoteGroup.SCRIPTURE),
     CUSTOM("custom", "My own quotes", QuoteGroup.MINE);
 
@@ -140,7 +155,7 @@ enum class Category(val key: String, val label: String, val group: QuoteGroup) {
 
         /** Authors still in copyright, whose quotes are short excerpts, so they can be switched off together. */
         val MODERN: List<Category> by lazy {
-            listOf(CAMUS, HESSE, MURAKAMI, EINSTEIN, FRANKL, PESSOA, BORGES, CIORAN, WEIL, NERUDA, OLIVER, SZYMBORSKA, KUNDERA, SARTRE, WATTS, KRISHNAMURTI, MURDOCH, BECKER, BUKOWSKI, NIN, KAZANTZAKIS, BUBER, ARENDT, BEAUVOIR, BECKETT, FROMM, MAY, MERTON, NHATHANH, YALOM, CAMPBELL, MUSASHI, SONTAG)
+            listOf(CAMUS, HESSE, MURAKAMI, EINSTEIN, FRANKL, PESSOA, BORGES, CIORAN, WEIL, NERUDA, OLIVER, SZYMBORSKA, KUNDERA, SARTRE, WATTS, KRISHNAMURTI, MURDOCH, BECKER, BUKOWSKI, NIN, KAZANTZAKIS, BUBER, ARENDT, BEAUVOIR, BECKETT, FROMM, MAY, MERTON, NHATHANH, YALOM, CAMPBELL, MUSASHI, SONTAG, BALDWIN, SAINTEXUPERY, CSLEWIS, ZWEIG, LISPECTOR, HAMMARSKJOLD)
         }
     }
 }
