@@ -199,8 +199,8 @@ private fun QuotesScreen(
 
     fun failureText(e: Exception, what: String): String = when (e) {
         is java.net.UnknownHostException ->
-            "Your phone couldn't look up github.com for this app. Check that mobile data and Wi-Fi are allowed " +
-                "for Quotes on Lock (Settings > Apps > Quotes on Lock > Mobile data), and that Private DNS or an " +
+            "Your phone couldn't reach github.com for this app. Turn on network access for it in Settings > Apps > " +
+                "Quotes on Lock (\"Allow network usage\", or Mobile data and Wi-Fi), and check that Private DNS or an " +
                 "ad blocker isn't blocking GitHub. Or download it in your browser below."
         is java.net.SocketTimeoutException -> "GitHub took too long to answer. Try again, or download it in your browser below."
         else -> "Couldn't $what: ${e.message ?: e.javaClass.simpleName}"
