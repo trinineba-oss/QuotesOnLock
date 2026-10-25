@@ -224,7 +224,7 @@ private fun StarryBackground(animate: Boolean) {
  * Turns the big vortex and two of the stars gently back and forth and lets the brushstrokes
  * shimmer. Runs on the GPU and only while the app is on screen.
  */
-private const val SWIRL_SHADER = """
+internal const val SWIRL_SHADER = """
 uniform shader image;
 uniform float time;
 uniform float k;

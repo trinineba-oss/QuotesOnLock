@@ -1,6 +1,25 @@
 package com.trinineba.quotesonlock
 
 import android.Manifest
+import android.app.WallpaperManager
+import android.content.ActivityNotFoundException
+import android.content.ComponentName
+import android.content.Context
+import android.widget.Toast
+import androidx.activity.compose.BackHandler
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.layout.ColumnScope
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.heightIn
+import androidx.compose.foundation.lazy.LazyListScope
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.ui.graphics.Brush
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.text.style.TextOverflow
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Typeface
@@ -145,6 +164,10 @@ private fun QuotesScreen(
     var custom by remember { mutableStateOf(repo.custom()) }
     var newText by rememberSaveable { mutableStateOf("") }
     var newAuthor by rememberSaveable { mutableStateOf("") }
+    var page by rememberSaveable { mutableStateOf(Page.HOME) }
+    var wallpaperQuote by remember { mutableStateOf(prefs.wallpaperShowQuote) }
+    var wallpaperPosition by remember { mutableStateOf(prefs.wallpaperQuotePosition) }
+    val sources = remember { readSources(context) }
     // Open pages of the quote browser, innermost last; empty means the main screen.
     var browse by rememberSaveable(stateSaver = androidx.compose.runtime.saveable.listSaver<List<String>, String>(save = { it }, restore = { it })) { mutableStateOf(emptyList<String>()) }
 
@@ -242,9 +265,9 @@ private fun QuotesScreen(
         if (shown == null || repo.pool().none { it.text == shown.text }) nextQuote()
     }
 
-    browse.lastOrNull()?.let { page ->
+    browse.lastOrNull()?.let { bp ->
         QuoteBrowser(
-            page = page,
+            page = bp,
             repo = repo,
             onBack = { browse = browse.dropLast(1) },
             onShow = { quote ->
@@ -252,123 +275,146 @@ private fun QuotesScreen(
                 canGoBack = repo.hasPrevious()
                 if (enabled) QuoteNotifier.show(context, quote)
                 browse = emptyList()
+                page = Page.HOME
             },
             onOpenAuthor = { browse = browse + BrowsePage.author(it) },
         )
         return
     }
 
-    Scaffold { innerPadding ->
-        LazyColumn(
-            modifier = Modifier.fillMaxSize().padding(innerPadding),
-            contentPadding = PaddingValues(16.dp),
-            verticalArrangement = Arrangement.spacedBy(12.dp),
-        ) {
-            item {
-                Text("Quotes on Lock", style = MaterialTheme.typography.headlineMedium)
-            }
+    BackHandler(enabled = page != Page.HOME) { page = Page.HOME }
 
-            item {
-                Row(
-                    modifier = Modifier.fillMaxWidth(),
-                    horizontalArrangement = Arrangement.SpaceBetween,
-                    verticalAlignment = Alignment.CenterVertically,
-                ) {
-                    Text("Show quote on lock screen", style = MaterialTheme.typography.titleMedium)
-                    Switch(checked = enabled, onCheckedChange = { onToggle(it) })
-                }
+    fun LazyListScope.header() {
+        item(key = "header-${page.name}") {
+            Row(verticalAlignment = Alignment.CenterVertically) {
+                Box(
+                    modifier = Modifier
+                        .size(48.dp)
+                        .clip(CircleShape)
+                        .background(MaterialTheme.colorScheme.surfaceContainerHighest)
+                        .clickable(onClickLabel = "Back") { page = Page.HOME },
+                    contentAlignment = Alignment.Center,
+                ) { Text("←", style = MaterialTheme.typography.titleLarge) }
+                Text(
+                    page.title,
+                    style = MaterialTheme.typography.headlineMedium,
+                    modifier = Modifier.padding(start = 14.dp),
+                )
             }
+        }
+    }
 
-            item {
-                Card(
-                    modifier = Modifier.fillMaxWidth().then(
-                        if (theme == AppTheme.CLASSIC) Modifier
-                        else Modifier.border(1.dp, MaterialTheme.colorScheme.primary.copy(alpha = 0.4f), CardDefaults.shape)
-                    ),
-                ) {
-                    Column(Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
-                        val quote = current
-                        if (quote == null) {
-                            Text(
-                                if (poolEmpty) {
-                                    "No quotes available. Turn on a quote type or add your own below."
-                                } else {
-                                    "Press \"Next quote\" to pick one."
-                                }
-                            )
-                        } else {
-                            val family = fontFamilyOf(quoteFont)
-                            val textColor = quoteColor?.let { Color(it) } ?: Color.Unspecified
-                            Text(
-                                "“${quote.text}”",
-                                fontFamily = family,
-                                fontSize = quoteSize.sizeSp.sp,
-                                color = textColor,
-                            )
-                            quote.author?.let {
-                                val name = authorName(it)
-                                Text(
-                                    "— $it",
-                                    fontFamily = family,
-                                    fontSize = (quoteSize.sizeSp * 0.85f).sp,
-                                    color = if (quoteColor == null && theme != AppTheme.CLASSIC) MaterialTheme.colorScheme.primary else textColor,
-                                    // Tap the author to see all of their quotes.
-                                    modifier = if (name != null) Modifier.clickable { browse = listOf(BrowsePage.author(name)) } else Modifier,
-                                )
-                            }
-                        }
-                        Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-                            OutlinedButton(onClick = { previousQuote() }, enabled = canGoBack) { Text("Previous") }
-                            Button(onClick = { nextQuote() }) { Text("Next quote") }
-                        }
-                        OutlinedButton(onClick = { quote?.let { QuoteClipboard.copy(context, it) } }, enabled = quote != null) { Text("Copy quote") }
-                    }
-                }
+    fun LazyListScope.homePage() {
+        item(key = "home-title") {
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.SpaceBetween,
+                verticalAlignment = Alignment.CenterVertically,
+            ) {
+                Text("Quotes on Lock", style = MaterialTheme.typography.headlineMedium, modifier = Modifier.weight(1f))
+                Text("On lock screen", style = MaterialTheme.typography.bodySmall, modifier = Modifier.padding(end = 8.dp))
+                Switch(checked = enabled, onCheckedChange = { onToggle(it) })
             }
-
-            item {
-                Column {
-                    Text("Change quote every", style = MaterialTheme.typography.titleMedium)
-                    Row(
-                        modifier = Modifier.horizontalScroll(rememberScrollState()).padding(top = 8.dp),
-                        horizontalArrangement = Arrangement.spacedBy(8.dp),
-                    ) {
-                        INTERVALS.forEach { (minutes, label) ->
-                            FilterChip(
-                                selected = interval == minutes,
-                                onClick = {
-                                    interval = minutes
-                                    prefs.intervalMinutes = minutes
-                                    if (enabled) QuoteScheduler.schedule(context, minutes)
-                                },
-                                label = { Text(label) },
-                            )
-                        }
-                    }
-                }
-            }
-
-            item {
-                Column {
-                    Text("Quote types", style = MaterialTheme.typography.titleMedium)
-                    if (poolEmpty) {
+        }
+        item(key = "home-quote") {
+            Card(
+                modifier = Modifier.fillMaxWidth().then(
+                    if (theme == AppTheme.CLASSIC) Modifier
+                    else Modifier.border(1.dp, MaterialTheme.colorScheme.primary.copy(alpha = 0.4f), CardDefaults.shape)
+                ),
+            ) {
+                Column(Modifier.padding(18.dp), verticalArrangement = Arrangement.spacedBy(10.dp)) {
+                    val quote = current
+                    if (quote == null) {
                         Text(
-                            "Turn on at least one type to get quotes.",
-                            style = MaterialTheme.typography.bodySmall,
-                            color = MaterialTheme.colorScheme.error,
+                            if (poolEmpty) {
+                                "No quotes available. Turn on a quote type in Quotes & authors, or add your own."
+                            } else {
+                                "Press \"Next\" to pick a quote."
+                            }
                         )
+                    } else {
+                        val family = fontFamilyOf(quoteFont)
+                        val textColor = quoteColor?.let { Color(it) } ?: Color.Unspecified
+                        Text(
+                            "“${quote.text}”",
+                            fontFamily = family,
+                            fontSize = (quoteSize.sizeSp + 2).sp,
+                            color = textColor,
+                        )
+                        quote.author?.let {
+                            val name = authorName(it)
+                            Text(
+                                if (name != null) "— $it ›" else "— $it",
+                                fontFamily = family,
+                                fontSize = (quoteSize.sizeSp * 0.9f).sp,
+                                color = if (quoteColor == null && theme != AppTheme.CLASSIC) MaterialTheme.colorScheme.primary else textColor,
+                                // Tap the author to see all of their quotes.
+                                modifier = if (name != null) {
+                                    Modifier.clickable(onClickLabel = "All quotes by $name") { browse = listOf(BrowsePage.author(name)) }
+                                } else Modifier,
+                            )
+                        }
+                    }
+                    Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                        OutlinedButton(onClick = { previousQuote() }, enabled = canGoBack, modifier = Modifier.weight(1f)) { Text("Previous") }
+                        Button(onClick = { nextQuote() }, modifier = Modifier.weight(1f)) { Text("Next") }
+                        OutlinedButton(
+                            onClick = { quote?.let { QuoteClipboard.copy(context, it) } },
+                            enabled = quote != null,
+                            modifier = Modifier.weight(1f),
+                        ) { Text("Copy") }
                     }
                 }
             }
+        }
+        val typeCount = Category.entries.count { it != Category.CUSTOM && countOf(it) > 0 }
+        val onCount = Category.entries.count { it in categories && countOf(it) > 0 }
+        val tiles = listOf(
+            Tile("❝", "Quotes & authors", "$onCount of $typeCount types on") { page = Page.QUOTES },
+            Tile("⌕", "Browse & search", "Find any line or author") { browse = listOf(BrowsePage.SEARCH) },
+            Tile("✦", "Themes", theme.label + if (theme.motionLabel != null && animate) " · moving" else "") { page = Page.THEMES },
+            Tile("Aa", "Text style", "${quoteFont.label} · ${quoteSize.label}") { page = Page.STYLE },
+            Tile("◷", "Schedule", "Every " + (INTERVALS.firstOrNull { it.first == interval }?.second?.lowercase() ?: "$interval min")) { page = Page.SCHEDULE },
+            Tile("♡", "My quotes", if (custom.isEmpty()) "Add your own" else "${custom.size} saved") { page = Page.MINE },
+        )
+        tiles.chunked(2).forEachIndexed { i, pair ->
+            item(key = "tiles-$i") {
+                Row(horizontalArrangement = Arrangement.spacedBy(12.dp)) {
+                    pair.forEach { TileCard(it, Modifier.weight(1f)) }
+                }
+            }
+        }
+        item(key = "tile-about") {
+            TileCard(
+                Tile("ⓘ", "About & sources", "Where each quote comes from, and the translations") { page = Page.ABOUT },
+                Modifier.fillMaxWidth(),
+                wide = true,
+            )
+        }
+    }
 
-            item(key = "modern-authors") {
-                Row(
-                    modifier = Modifier.fillMaxWidth(),
-                    horizontalArrangement = Arrangement.SpaceBetween,
-                    verticalAlignment = Alignment.CenterVertically,
-                ) {
+    fun LazyListScope.quotesPage() {
+        item(key = "q-intro") {
+            Column {
+                Text(
+                    "Choose which authors and themes appear. Tap a name to read its quotes.",
+                    style = MaterialTheme.typography.bodyMedium,
+                )
+                if (poolEmpty) {
+                    Text(
+                        "Turn on at least one type to get quotes.",
+                        style = MaterialTheme.typography.bodySmall,
+                        color = MaterialTheme.colorScheme.error,
+                    )
+                }
+            }
+        }
+        item(key = "modern-authors") {
+            SettingsCard("Modern authors") {
+                Row(verticalAlignment = Alignment.CenterVertically) {
                     Column(Modifier.weight(1f)) {
-                        Text("Modern authors still in copyright", style = MaterialTheme.typography.bodyLarge)
+                        Text("Authors still in copyright")
                         Text(
                             "Short excerpts from Camus, Hesse, Murakami and others. Switch off to use only public-domain texts.",
                             style = MaterialTheme.typography.bodySmall,
@@ -380,312 +426,573 @@ private fun QuotesScreen(
                     )
                 }
             }
-
-            item(key = "type-search") {
-                OutlinedTextField(
-                    value = query,
-                    onValueChange = { query = it },
-                    modifier = Modifier.fillMaxWidth(),
-                    singleLine = true,
-                    label = { Text("Search authors and types") },
-                )
+        }
+        item(key = "type-search") {
+            OutlinedTextField(
+                value = query,
+                onValueChange = { query = it },
+                modifier = Modifier.fillMaxWidth(),
+                singleLine = true,
+                label = { Text("Search authors and types") },
+            )
+        }
+        QuoteGroup.entries.forEach { group ->
+            val inGroup = Category.entries.filter { it.group == group && (it == Category.CUSTOM || countOf(it) > 0) }
+            val shown = inGroup.filter { query.isBlank() || it.label.contains(query.trim(), ignoreCase = true) }
+            if (shown.isEmpty()) return@forEach
+            val open = query.isNotBlank() || group == QuoteGroup.MINE || group.name in expandedGroups
+            val groupOn = inGroup.count { it in categories }
+            item(key = "group-${group.name}") {
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .heightIn(min = 48.dp)
+                        .clickable(enabled = query.isBlank() && group != QuoteGroup.MINE, onClickLabel = if (open) "Collapse" else "Expand") {
+                            expandedGroups = if (group.name in expandedGroups) expandedGroups - group.name else expandedGroups + group.name
+                        }
+                        .padding(top = 8.dp),
+                    horizontalArrangement = Arrangement.SpaceBetween,
+                    verticalAlignment = Alignment.CenterVertically,
+                ) {
+                    Column(Modifier.weight(1f)) {
+                        Text(group.title, style = MaterialTheme.typography.titleMedium)
+                        Text("$groupOn of ${inGroup.size} on", style = MaterialTheme.typography.bodySmall)
+                    }
+                    if (group != QuoteGroup.MINE) Text(if (open) "▾" else "▸", style = MaterialTheme.typography.titleLarge)
+                }
             }
-
-            QuoteGroup.entries.forEach { group ->
-                val inGroup = Category.entries.filter { it.group == group && (it == Category.CUSTOM || countOf(it) > 0) }
-                val shown = inGroup.filter { query.isBlank() || it.label.contains(query.trim(), ignoreCase = true) }
-                if (shown.isEmpty()) return@forEach
-                val open = query.isNotBlank() || group == QuoteGroup.MINE || group.name in expandedGroups
-                val onCount = inGroup.count { it in categories }
-                item(key = "group-${group.name}") {
+            if (open) {
+                if (group != QuoteGroup.MINE) {
+                    item(key = "bulk-${group.name}") {
+                        Row(horizontalArrangement = Arrangement.spacedBy(4.dp)) {
+                            TextButton(onClick = { setCategories(shown, true) }) { Text("All on") }
+                            TextButton(onClick = { setCategories(shown, false) }) { Text("All off") }
+                        }
+                    }
+                }
+                items(shown, key = { it.key }) { category ->
                     Row(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .clickable(enabled = query.isBlank() && group != QuoteGroup.MINE) {
-                                expandedGroups = if (group.name in expandedGroups) expandedGroups - group.name else expandedGroups + group.name
-                            }
-                            .padding(top = 8.dp),
+                        modifier = Modifier.fillMaxWidth(),
                         horizontalArrangement = Arrangement.SpaceBetween,
                         verticalAlignment = Alignment.CenterVertically,
                     ) {
-                        Column(Modifier.weight(1f)) {
-                            Text(group.title, style = MaterialTheme.typography.labelLarge)
+                        Column(
+                            Modifier
+                                .weight(1f)
+                                .clickable(enabled = countOf(category) > 0, onClickLabel = "Read ${category.label}") {
+                                    browse = listOf(BrowsePage.category(category))
+                                }
+                                .padding(vertical = 6.dp),
+                        ) {
+                            Text(category.label)
                             Text(
-                                "$onCount of ${inGroup.size} on",
+                                "${countOf(category)} quotes · View ›",
                                 style = MaterialTheme.typography.bodySmall,
+                                color = MaterialTheme.colorScheme.primary,
                             )
                         }
-                        if (group != QuoteGroup.MINE) Text(if (open) "\u25BE" else "\u25B8")
-                    }
-                }
-                if (open) {
-                    if (group != QuoteGroup.MINE) {
-                        item(key = "bulk-${group.name}") {
-                            Row(horizontalArrangement = Arrangement.spacedBy(4.dp)) {
-                                TextButton(onClick = { setCategories(shown, true) }) { Text("All on") }
-                                TextButton(onClick = { setCategories(shown, false) }) { Text("All off") }
-                            }
-                        }
-                    }
-                    items(shown, key = { it.key }) { category ->
-                        Row(
-                            modifier = Modifier.fillMaxWidth(),
-                            horizontalArrangement = Arrangement.SpaceBetween,
-                            verticalAlignment = Alignment.CenterVertically,
-                        ) {
-                            // Tap the name to browse the quotes of this type.
-                            Column(
-                                Modifier
-                                    .weight(1f)
-                                    .clickable(enabled = countOf(category) > 0) { browse = listOf(BrowsePage.category(category)) }
-                                    .padding(vertical = 4.dp),
-                            ) {
-                                Text(category.label)
-                                Text(
-                                    "${countOf(category)} quotes \u00B7 View \u203A",
-                                    style = MaterialTheme.typography.bodySmall,
-                                    color = MaterialTheme.colorScheme.primary,
-                                )
-                            }
-                            Switch(
-                                checked = category in categories,
-                                onCheckedChange = { toggleCategory(category, it) },
-                            )
-                        }
-                    }
-                }
-            }
-
-            item {
-                Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
-                    Text("Appearance", style = MaterialTheme.typography.titleMedium)
-
-                    Text("Theme", style = MaterialTheme.typography.labelLarge)
-                    Row(
-                        modifier = Modifier.horizontalScroll(rememberScrollState()),
-                        horizontalArrangement = Arrangement.spacedBy(8.dp),
-                    ) {
-                        AppTheme.entries.forEach { option ->
-                            FilterChip(
-                                selected = theme == option,
-                                onClick = {
-                                    prefs.theme = option
-                                    onTheme(option)
-                                    refreshNotification()
-                                },
-                                label = { Text(option.label) },
-                            )
-                        }
-                    }
-                    theme.motionLabel?.let { label ->
-                        Row(
-                            modifier = Modifier.fillMaxWidth(),
-                            horizontalArrangement = Arrangement.SpaceBetween,
-                            verticalAlignment = Alignment.CenterVertically,
-                        ) {
-                            Column(Modifier.weight(1f)) {
-                                Text(label)
-                                Text(
-                                    if (theme == AppTheme.STARRY && Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU) {
-                                        "Needs Android 13 or newer; this phone shows the still painting."
-                                    } else {
-                                        "Only moves while the app is open, so it doesn't use battery in the background."
-                                    },
-                                    style = MaterialTheme.typography.bodySmall,
-                                )
-                            }
-                            Switch(
-                                checked = animate,
-                                onCheckedChange = {
-                                    prefs.animateBackground = it
-                                    onAnimate(it)
-                                },
-                            )
-                        }
-                    }
-
-
-                    Text("Lock screen theme", style = MaterialTheme.typography.labelLarge)
-                    Text(
-                        "The frame shows when the lock-screen notification is expanded.",
-                        style = MaterialTheme.typography.bodySmall,
-                    )
-                    Row(
-                        modifier = Modifier.horizontalScroll(rememberScrollState()),
-                        horizontalArrangement = Arrangement.spacedBy(8.dp),
-                    ) {
-                        (listOf<AppTheme?>(null) + AppTheme.entries).forEach { option ->
-                            FilterChip(
-                                selected = lockTheme == option,
-                                onClick = {
-                                    prefs.lockTheme = option
-                                    lockTheme = option
-                                    refreshNotification()
-                                },
-                                label = { Text(option?.label ?: "Same as app") },
-                            )
-                        }
-                    }
-
-                    if (theme != AppTheme.CLASSIC || (lockTheme ?: theme) != AppTheme.CLASSIC) {
-                        Text("Card opacity", style = MaterialTheme.typography.labelLarge)
-                        Text(
-                            "How solid the card behind the quote is, in the app and on the lock screen. " +
-                                "Lower shows more of the painting, sky or page.",
-                            style = MaterialTheme.typography.bodySmall,
+                        Switch(
+                            checked = category in categories,
+                            onCheckedChange = { toggleCategory(category, it) },
                         )
-                        Row(verticalAlignment = Alignment.CenterVertically) {
-                            Slider(
-                                value = cardOpacity,
-                                onValueChange = onCardOpacity,
-                                onValueChangeFinished = {
-                                    prefs.cardOpacity = cardOpacity
-                                    refreshNotification()
-                                },
-                                valueRange = 0f..1f,
-                                modifier = Modifier.weight(1f),
-                            )
-                            Text("${(cardOpacity * 100).toInt()}%", modifier = Modifier.padding(start = 12.dp))
-                        }
-                    }
-
-                    Text("Font", style = MaterialTheme.typography.labelLarge)
-                    Row(
-                        modifier = Modifier.horizontalScroll(rememberScrollState()),
-                        horizontalArrangement = Arrangement.spacedBy(8.dp),
-                    ) {
-                        QuoteFont.entries.forEach { font ->
-                            FilterChip(
-                                selected = quoteFont == font,
-                                onClick = { chooseFont(font) },
-                                label = { Text(font.label, fontFamily = fontFamilyOf(font)) },
-                            )
-                        }
-                    }
-
-                    Text("Size", style = MaterialTheme.typography.labelLarge)
-                    Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-                        QuoteSize.entries.forEach { size ->
-                            FilterChip(
-                                selected = quoteSize == size,
-                                onClick = { chooseSize(size) },
-                                label = { Text(size.label) },
-                            )
-                        }
-                    }
-
-                    Text("Color", style = MaterialTheme.typography.labelLarge)
-                    Row(
-                        modifier = Modifier.horizontalScroll(rememberScrollState()),
-                        horizontalArrangement = Arrangement.spacedBy(10.dp),
-                        verticalAlignment = Alignment.CenterVertically,
-                    ) {
-                        ColorSwatch("System default", null, quoteColor == null) {
-                            hex = ""
-                            chooseColor(null)
-                        }
-                        COLOR_PRESETS.forEach { (name, argb) ->
-                            ColorSwatch(name, Color(argb), quoteColor == argb) {
-                                hex = ""
-                                chooseColor(argb)
-                            }
-                        }
-                    }
-                    OutlinedTextField(
-                        value = hex,
-                        onValueChange = { input ->
-                            hex = input.trim().removePrefix("#").take(6)
-                            if (HEX_COLOR.matches(hex)) chooseColor(0xFF000000.toInt() or hex.toInt(16))
-                        },
-                        label = { Text("Custom color (hex, e.g. FFC107)") },
-                        isError = hex.isNotEmpty() && !HEX_COLOR.matches(hex),
-                        singleLine = true,
-                        modifier = Modifier.fillMaxWidth(),
-                    )
-                    Text(
-                        "Android draws the notification background itself and it follows your light " +
-                            "or dark theme, so pick a color that stands out against it. " +
-                            "\"System default\" always stays readable.",
-                        style = MaterialTheme.typography.bodySmall,
-                    )
-                }
-            }
-
-            item {
-                Column {
-                    OutlinedButton(onClick = {
-                        context.startActivity(
-                            Intent(Settings.ACTION_APP_NOTIFICATION_SETTINGS)
-                                .putExtra(Settings.EXTRA_APP_PACKAGE, context.packageName)
-                        )
-                    }) { Text("Notification settings") }
-                    Text(
-                        "The quote is an ongoing notification. For it to appear on the lock screen, " +
-                            "set Settings > Notifications > Notifications on lock screen to show " +
-                            "content and keep silent notifications enabled. Pull the notification " +
-                            "down to read long quotes in full.",
-                        style = MaterialTheme.typography.bodySmall,
-                        modifier = Modifier.padding(top = 8.dp),
-                    )
-                }
-            }
-
-            item { HorizontalDivider() }
-
-            item {
-                Column {
-                    Text("Add your own quote", style = MaterialTheme.typography.titleMedium)
-                    OutlinedTextField(
-                        value = newText,
-                        onValueChange = { newText = it },
-                        label = { Text("Quote") },
-                        modifier = Modifier.fillMaxWidth().padding(top = 8.dp),
-                    )
-                    OutlinedTextField(
-                        value = newAuthor,
-                        onValueChange = { newAuthor = it },
-                        label = { Text("Author (optional)") },
-                        singleLine = true,
-                        modifier = Modifier.fillMaxWidth().padding(top = 8.dp),
-                    )
-                    Button(
-                        enabled = newText.isNotBlank(),
-                        onClick = {
-                            repo.addCustom(newText.trim(), newAuthor.trim().ifBlank { null })
-                            custom = repo.custom()
-                            newText = ""
-                            newAuthor = ""
-                        },
-                        modifier = Modifier.padding(top = 8.dp),
-                    ) { Text("Add") }
-                }
-            }
-
-            if (custom.isNotEmpty()) {
-                item {
-                    Text("Your quotes", style = MaterialTheme.typography.titleMedium)
-                }
-                items(custom, key = { it.id }) { quote ->
-                    Row(
-                        modifier = Modifier.fillMaxWidth(),
-                        horizontalArrangement = Arrangement.SpaceBetween,
-                        verticalAlignment = Alignment.CenterVertically,
-                    ) {
-                        Column(Modifier.weight(1f)) {
-                            Text(quote.text)
-                            quote.author?.let {
-                                Text("— $it", style = MaterialTheme.typography.bodySmall)
-                            }
-                        }
-                        TextButton(onClick = {
-                            repo.removeCustom(quote.id)
-                            custom = repo.custom()
-                        }) { Text("Delete") }
                     }
                 }
             }
         }
     }
+
+    fun LazyListScope.themesPage() {
+        item(key = "t-app") {
+            SettingsCard("App theme") {
+                Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                    AppTheme.entries.forEach { option ->
+                        ThemePreview(option, selected = theme == option, modifier = Modifier.weight(1f)) {
+                            prefs.theme = option
+                            onTheme(option)
+                            refreshNotification()
+                        }
+                    }
+                }
+                theme.motionLabel?.let { label ->
+                    Row(verticalAlignment = Alignment.CenterVertically) {
+                        Column(Modifier.weight(1f)) {
+                            Text(label)
+                            Text(
+                                if (theme == AppTheme.STARRY && Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU) {
+                                    "Needs Android 13 or newer; this phone shows the still painting."
+                                } else {
+                                    "Only moves while it's on screen, so it doesn't use battery in the background."
+                                },
+                                style = MaterialTheme.typography.bodySmall,
+                            )
+                        }
+                        Switch(
+                            checked = animate,
+                            onCheckedChange = {
+                                prefs.animateBackground = it
+                                onAnimate(it)
+                            },
+                        )
+                    }
+                }
+            }
+        }
+        item(key = "t-lock") {
+            SettingsCard("Lock screen theme") {
+                Text(
+                    "The frame shows when the lock-screen notification is expanded.",
+                    style = MaterialTheme.typography.bodySmall,
+                )
+                Row(
+                    modifier = Modifier.horizontalScroll(rememberScrollState()),
+                    horizontalArrangement = Arrangement.spacedBy(8.dp),
+                ) {
+                    (listOf<AppTheme?>(null) + AppTheme.entries).forEach { option ->
+                        FilterChip(
+                            selected = lockTheme == option,
+                            onClick = {
+                                prefs.lockTheme = option
+                                lockTheme = option
+                                refreshNotification()
+                            },
+                            label = { Text(option?.label ?: "Same as app") },
+                        )
+                    }
+                }
+            }
+        }
+        item(key = "t-opacity") {
+            SettingsCard("Card opacity") {
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    Text(
+                        "How solid the card behind the quote is. Lower shows more of the painting, sky or page.",
+                        style = MaterialTheme.typography.bodySmall,
+                        modifier = Modifier.weight(1f),
+                    )
+                    Text("${(cardOpacity * 100).toInt()}%", modifier = Modifier.padding(start = 12.dp))
+                }
+                Slider(
+                    value = cardOpacity,
+                    onValueChange = onCardOpacity,
+                    onValueChangeFinished = {
+                        prefs.cardOpacity = cardOpacity
+                        refreshNotification()
+                    },
+                    valueRange = 0f..1f,
+                )
+            }
+        }
+        item(key = "t-wallpaper") {
+            SettingsCard("Live wallpaper") {
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    Column(Modifier.weight(1f)) {
+                        Text("Set as wallpaper")
+                        Text(
+                            "The lock-screen theme's artwork with today's quote, on your lock and home screen. " +
+                                "Classic uses Starry Night. Moving follows the switch above.",
+                            style = MaterialTheme.typography.bodySmall,
+                        )
+                    }
+                    Button(onClick = { openWallpaperPicker(context) }, modifier = Modifier.padding(start = 12.dp)) { Text("Set") }
+                }
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    Text("Show the quote on the wallpaper", modifier = Modifier.weight(1f))
+                    Switch(
+                        checked = wallpaperQuote,
+                        onCheckedChange = {
+                            wallpaperQuote = it
+                            prefs.wallpaperShowQuote = it
+                        },
+                    )
+                }
+                if (wallpaperQuote) {
+                    Text("Quote position", style = MaterialTheme.typography.labelLarge)
+                    Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                        listOf(0.4f to "Higher", 0.55f to "Middle", 0.72f to "Lower").forEach { (pos, label) ->
+                            FilterChip(
+                                selected = kotlin.math.abs(wallpaperPosition - pos) < 0.01f,
+                                onClick = {
+                                    wallpaperPosition = pos
+                                    prefs.wallpaperQuotePosition = pos
+                                },
+                                label = { Text(label) },
+                            )
+                        }
+                    }
+                    Text(
+                        "Move it if it overlaps your lock-screen clock or notifications.",
+                        style = MaterialTheme.typography.bodySmall,
+                    )
+                }
+            }
+        }
+    }
+
+    fun LazyListScope.stylePage() {
+        item(key = "s-preview") {
+            Card(Modifier.fillMaxWidth()) {
+                Column(Modifier.padding(18.dp), verticalArrangement = Arrangement.spacedBy(6.dp)) {
+                    val family = fontFamilyOf(quoteFont)
+                    val textColor = quoteColor?.let { Color(it) } ?: Color.Unspecified
+                    Text(
+                        "“${current?.text ?: "The unexamined life is not worth living."}”",
+                        fontFamily = family,
+                        fontSize = quoteSize.sizeSp.sp,
+                        color = textColor,
+                        maxLines = 5,
+                        overflow = TextOverflow.Ellipsis,
+                    )
+                    Text(
+                        "— ${current?.author ?: "Socrates"}",
+                        fontFamily = family,
+                        fontSize = (quoteSize.sizeSp * 0.85f).sp,
+                        color = textColor,
+                    )
+                }
+            }
+        }
+        item(key = "s-font") {
+            SettingsCard("Font") {
+                Row(
+                    modifier = Modifier.horizontalScroll(rememberScrollState()),
+                    horizontalArrangement = Arrangement.spacedBy(8.dp),
+                ) {
+                    QuoteFont.entries.forEach { font ->
+                        FilterChip(
+                            selected = quoteFont == font,
+                            onClick = { chooseFont(font) },
+                            label = { Text(font.label, fontFamily = fontFamilyOf(font)) },
+                        )
+                    }
+                }
+            }
+        }
+        item(key = "s-size") {
+            SettingsCard("Size") {
+                Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                    QuoteSize.entries.forEach { size ->
+                        FilterChip(
+                            selected = quoteSize == size,
+                            onClick = { chooseSize(size) },
+                            label = { Text(size.label) },
+                        )
+                    }
+                }
+            }
+        }
+        item(key = "s-color") {
+            SettingsCard("Colour") {
+                Row(
+                    modifier = Modifier.horizontalScroll(rememberScrollState()),
+                    horizontalArrangement = Arrangement.spacedBy(10.dp),
+                    verticalAlignment = Alignment.CenterVertically,
+                ) {
+                    ColorSwatch("System default", null, quoteColor == null) {
+                        hex = ""
+                        chooseColor(null)
+                    }
+                    COLOR_PRESETS.forEach { (name, argb) ->
+                        ColorSwatch(name, Color(argb), quoteColor == argb) {
+                            hex = ""
+                            chooseColor(argb)
+                        }
+                    }
+                }
+                OutlinedTextField(
+                    value = hex,
+                    onValueChange = { input ->
+                        hex = input.trim().removePrefix("#").take(6)
+                        if (HEX_COLOR.matches(hex)) chooseColor(0xFF000000.toInt() or hex.toInt(16))
+                    },
+                    label = { Text("Custom colour (hex, e.g. FFC107)") },
+                    isError = hex.isNotEmpty() && !HEX_COLOR.matches(hex),
+                    singleLine = true,
+                    modifier = Modifier.fillMaxWidth(),
+                )
+                Text(
+                    "With the Classic lock-screen theme Android draws the notification background itself, " +
+                        "following your light or dark mode, so pick a colour that stands out against it. " +
+                        "\"System default\" always stays readable; themed lock screens use their own colours.",
+                    style = MaterialTheme.typography.bodySmall,
+                )
+            }
+        }
+    }
+
+    fun LazyListScope.schedulePage() {
+        item(key = "sch-interval") {
+            SettingsCard("Change the quote every") {
+                Row(
+                    modifier = Modifier.horizontalScroll(rememberScrollState()),
+                    horizontalArrangement = Arrangement.spacedBy(8.dp),
+                ) {
+                    INTERVALS.forEach { (minutes, label) ->
+                        FilterChip(
+                            selected = interval == minutes,
+                            onClick = {
+                                interval = minutes
+                                prefs.intervalMinutes = minutes
+                                if (enabled) QuoteScheduler.schedule(context, minutes)
+                            },
+                            label = { Text(label) },
+                        )
+                    }
+                }
+                Text(
+                    "Quotes never repeat until every enabled quote has been shown.",
+                    style = MaterialTheme.typography.bodySmall,
+                )
+            }
+        }
+        item(key = "sch-notif") {
+            SettingsCard("Lock screen") {
+                Text(
+                    "The quote is an ongoing notification. For it to appear on the lock screen, " +
+                        "set Settings > Notifications > Notifications on lock screen to show " +
+                        "content and keep silent notifications enabled. Pull the notification " +
+                        "down to read long quotes in full.",
+                    style = MaterialTheme.typography.bodySmall,
+                )
+                OutlinedButton(onClick = {
+                    context.startActivity(
+                        Intent(Settings.ACTION_APP_NOTIFICATION_SETTINGS)
+                            .putExtra(Settings.EXTRA_APP_PACKAGE, context.packageName)
+                    )
+                }) { Text("Notification settings") }
+            }
+        }
+    }
+
+    fun LazyListScope.minePage() {
+        item(key = "m-add") {
+            SettingsCard("Add your own quote") {
+                OutlinedTextField(
+                    value = newText,
+                    onValueChange = { newText = it },
+                    label = { Text("Quote") },
+                    modifier = Modifier.fillMaxWidth(),
+                )
+                OutlinedTextField(
+                    value = newAuthor,
+                    onValueChange = { newAuthor = it },
+                    label = { Text("Author (optional)") },
+                    singleLine = true,
+                    modifier = Modifier.fillMaxWidth(),
+                )
+                Button(
+                    enabled = newText.isNotBlank(),
+                    onClick = {
+                        repo.addCustom(newText.trim(), newAuthor.trim().ifBlank { null })
+                        custom = repo.custom()
+                        newText = ""
+                        newAuthor = ""
+                    },
+                ) { Text("Add") }
+                Text(
+                    "Your quotes join the rotation while \"My own quotes\" is on in Quotes & authors.",
+                    style = MaterialTheme.typography.bodySmall,
+                )
+            }
+        }
+        if (custom.isEmpty()) {
+            item(key = "m-empty") { Text("You haven't added any quotes yet.", style = MaterialTheme.typography.bodyMedium) }
+        }
+        items(custom, key = { it.id }) { quote ->
+            Card(Modifier.fillMaxWidth()) {
+                Row(
+                    modifier = Modifier.padding(start = 16.dp, top = 8.dp, bottom = 8.dp, end = 4.dp),
+                    verticalAlignment = Alignment.CenterVertically,
+                ) {
+                    Column(Modifier.weight(1f)) {
+                        Text(quote.text)
+                        quote.author?.let { Text("— $it", style = MaterialTheme.typography.bodySmall) }
+                    }
+                    TextButton(onClick = {
+                        repo.removeCustom(quote.id)
+                        custom = repo.custom()
+                    }) { Text("Delete") }
+                }
+            }
+        }
+    }
+
+    fun LazyListScope.aboutPage() {
+        item(key = "a-intro") {
+            SettingsCard("How the quotes are chosen") {
+                Text(
+                    "Public-domain authors are cut word for word from the editions listed below, mostly from " +
+                        "Project Gutenberg and the Internet Archive. Lines marked \"(tr. Claude)\" are new, plain " +
+                        "translations from the original language. Authors still in copyright appear as short " +
+                        "excerpts gathered from Goodreads and checked by hand; they can be switched off together " +
+                        "in Quotes & authors.",
+                    style = MaterialTheme.typography.bodyMedium,
+                )
+            }
+        }
+        items(sources.size, key = { "src-$it" }) { i ->
+            val (kind, text) = sources[i]
+            when (kind) {
+                0 -> Text(text, style = MaterialTheme.typography.titleMedium, modifier = Modifier.padding(top = 12.dp))
+                2 -> Text(text, style = MaterialTheme.typography.bodySmall)
+                else -> Text(text, style = MaterialTheme.typography.bodyMedium)
+            }
+        }
+    }
+
+    Scaffold { innerPadding ->
+        LazyColumn(
+            modifier = Modifier.fillMaxSize().padding(innerPadding),
+            contentPadding = PaddingValues(16.dp),
+            verticalArrangement = Arrangement.spacedBy(12.dp),
+        ) {
+            if (page != Page.HOME) header()
+            when (page) {
+                Page.HOME -> homePage()
+                Page.QUOTES -> quotesPage()
+                Page.THEMES -> themesPage()
+                Page.STYLE -> stylePage()
+                Page.SCHEDULE -> schedulePage()
+                Page.MINE -> minePage()
+                Page.ABOUT -> aboutPage()
+            }
+        }
+    }
+}
+
+/** The pages reachable from the home screen's tiles. */
+private enum class Page(val title: String) {
+    HOME(""),
+    QUOTES("Quotes & authors"),
+    THEMES("Themes"),
+    STYLE("Text style"),
+    SCHEDULE("Schedule"),
+    MINE("My quotes"),
+    ABOUT("About & sources"),
+}
+
+private class Tile(val symbol: String, val title: String, val subtitle: String, val onClick: () -> Unit)
+
+@Composable
+private fun TileCard(tile: Tile, modifier: Modifier, wide: Boolean = false) {
+    Card(onClick = tile.onClick, modifier = modifier.heightIn(min = if (wide) 64.dp else 104.dp)) {
+        if (wide) {
+            Row(Modifier.padding(16.dp), verticalAlignment = Alignment.CenterVertically) {
+                Text(tile.symbol, style = MaterialTheme.typography.titleLarge, color = MaterialTheme.colorScheme.primary)
+                Column(Modifier.padding(start = 14.dp)) {
+                    Text(tile.title, style = MaterialTheme.typography.titleSmall, fontWeight = FontWeight.SemiBold)
+                    Text(tile.subtitle, style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
+                }
+            }
+        } else {
+            Column(Modifier.padding(16.dp)) {
+                Text(tile.symbol, style = MaterialTheme.typography.titleLarge, color = MaterialTheme.colorScheme.primary)
+                Spacer(Modifier.height(10.dp))
+                Text(tile.title, style = MaterialTheme.typography.titleSmall, fontWeight = FontWeight.SemiBold)
+                Text(
+                    tile.subtitle,
+                    style = MaterialTheme.typography.bodySmall,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    maxLines = 2,
+                    overflow = TextOverflow.Ellipsis,
+                )
+            }
+        }
+    }
+}
+
+@Composable
+private fun SettingsCard(title: String, content: @Composable ColumnScope.() -> Unit) {
+    Card(Modifier.fillMaxWidth()) {
+        Column(Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(10.dp)) {
+            Text(
+                title.uppercase(),
+                style = MaterialTheme.typography.labelLarge,
+                color = MaterialTheme.colorScheme.primary,
+            )
+            content()
+        }
+    }
+}
+
+/** A small picture of each theme to tap. */
+@Composable
+private fun ThemePreview(option: AppTheme, selected: Boolean, modifier: Modifier, onClick: () -> Unit) {
+    val shape = RoundedCornerShape(12.dp)
+    Box(
+        modifier = modifier
+            .height(88.dp)
+            .clip(shape)
+            .border(if (selected) 3.dp else 1.dp, if (selected) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.outlineVariant, shape)
+            .clickable(onClickLabel = "Use ${option.label}", onClick = onClick),
+        contentAlignment = Alignment.BottomCenter,
+    ) {
+        val image = when (option) {
+            AppTheme.STARRY -> R.drawable.starry_frame
+            AppTheme.AURORA -> R.drawable.aurora_frame
+            AppTheme.BOOK -> R.drawable.paper
+            AppTheme.CLASSIC -> null
+        }
+        if (image != null) {
+            Image(painterResource(image), contentDescription = null, contentScale = ContentScale.Crop, modifier = Modifier.fillMaxSize())
+        } else {
+            Box(Modifier.fillMaxSize().background(Brush.verticalGradient(listOf(Color(0xFFE8E4F4), Color(0xFFCFD6EE)))))
+        }
+        Text(
+            option.label,
+            style = MaterialTheme.typography.labelSmall.copy(shadow = null),
+            color = if (option == AppTheme.CLASSIC || option == AppTheme.BOOK) Color(0xFF2E2012) else Color.White,
+            fontWeight = FontWeight.SemiBold,
+            modifier = Modifier
+                .fillMaxWidth()
+                .background(
+                    if (option == AppTheme.CLASSIC || option == AppTheme.BOOK) Color(0x66FFFFFF) else Color(0x88000000)
+                )
+                .padding(vertical = 4.dp),
+            textAlign = TextAlign.Center,
+        )
+    }
+}
+
+/** Opens Android's live-wallpaper preview with ours selected; the user confirms with "Set wallpaper". */
+private fun openWallpaperPicker(context: Context) {
+    val component = ComponentName(context, QuoteWallpaperService::class.java)
+    val direct = Intent(WallpaperManager.ACTION_CHANGE_LIVE_WALLPAPER)
+        .putExtra(WallpaperManager.EXTRA_LIVE_WALLPAPER_COMPONENT, component)
+    try {
+        context.startActivity(direct)
+    } catch (e: ActivityNotFoundException) {
+        try {
+            context.startActivity(Intent(WallpaperManager.ACTION_LIVE_WALLPAPER_CHOOSER))
+        } catch (e: ActivityNotFoundException) {
+            Toast.makeText(context, "This phone doesn't support live wallpapers.", Toast.LENGTH_LONG).show()
+        }
+    }
+}
+
+/** SOURCES.md, flattened for the About page: 0 = heading, 1 = text, 2 = list entry. */
+private fun readSources(context: Context): List<Pair<Int, String>> {
+    fun clean(s: String) = s.replace("**", "").replace("`", "").replace("*", "").replace("_", " ").trim()
+    val out = mutableListOf<Pair<Int, String>>()
+    context.resources.openRawResource(R.raw.sources).bufferedReader().useLines { lines ->
+        lines.map { it.trim() }.forEach { l ->
+            when {
+                l.isEmpty() -> out.add(-1 to "")
+                l.matches(Regex("^\\|[\\s:|-]+\\|$")) -> Unit
+                l.startsWith("#") -> out.add(0 to clean(l.trimStart('#')))
+                l.startsWith("|") -> {
+                    val cells = l.trim('|').split("|").map { clean(it) }.filter { it.isNotEmpty() }
+                    if (cells.firstOrNull() != "Author") out.add(2 to cells.joinToString(" · "))
+                }
+                else -> {
+                    // Join wrapped paragraph lines.
+                    val last = out.lastOrNull()
+                    if (last != null && last.first == 1) out[out.size - 1] = 1 to (last.second + " " + clean(l))
+                    else out.add(1 to clean(l))
+                }
+            }
+        }
+    }
+    return out.filter { it.first >= 0 }
 }
 
 private val HEX_COLOR = Regex("[0-9A-Fa-f]{6}")

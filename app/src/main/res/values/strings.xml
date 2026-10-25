@@ -6,4 +6,6 @@
     <string name="action_previous">Previous</string>
     <string name="action_copy">Copy</string>
     <string name="quote_copied">Quote copied</string>
+    <string name="wallpaper_name">Quotes on Lock</string>
+    <string name="wallpaper_description">Starry Night, northern lights or an old book page, with today's quote.</string>
 </resources>

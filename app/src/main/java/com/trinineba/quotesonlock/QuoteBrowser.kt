@@ -34,6 +34,9 @@ import androidx.compose.ui.unit.dp
 object BrowsePage {
     fun category(category: Category) = "c:${category.key}"
     fun author(name: String) = "a:$name"
+
+    /** Every quote, searchable; lists all authors A–Z until you type. */
+    const val SEARCH = "s:"
 }
 
 /** The person behind a label such as "Leo Tolstoy, War and Peace", "Hafiz (tr. Gertrude Bell)" or "The Qur'an (2:255)". */
@@ -53,8 +56,10 @@ fun QuoteBrowser(
 
     val category = if (page.startsWith("c:")) Category.fromKey(page.removePrefix("c:")) else null
     val author = if (page.startsWith("a:")) page.removePrefix("a:") else null
+    val searching = page == BrowsePage.SEARCH
     val all = remember(page) {
         when {
+            searching -> repo.custom() + repo.bundled()
             category == Category.CUSTOM -> repo.custom()
             category != null -> repo.bundled().filter { it.category == category }
             else -> (repo.custom() + repo.bundled()).filter { authorName(it.author) == author }
@@ -63,9 +68,22 @@ fun QuoteBrowser(
     var query by rememberSaveable(page) { mutableStateOf("") }
     val shown = remember(all, query) {
         val q = query.trim()
-        if (q.isEmpty()) all else all.filter {
-            it.text.contains(q, ignoreCase = true) || it.author?.contains(q, ignoreCase = true) == true
+        when {
+            q.isEmpty() && searching -> emptyList()
+            q.isEmpty() -> all
+            else -> all.filter {
+                it.text.contains(q, ignoreCase = true) || it.author?.contains(q, ignoreCase = true) == true
+            }
         }
+    }
+    // Authors (with how many quotes each) for the search page.
+    val authors = remember(all, searching) {
+        if (!searching) emptyList()
+        else all.mapNotNull { authorName(it.author) }.groupingBy { it }.eachCount().toList().sortedBy { it.first.lowercase() }
+    }
+    val matchingAuthors = remember(authors, query) {
+        val q = query.trim()
+        if (q.isEmpty()) authors else authors.filter { it.first.contains(q, ignoreCase = true) }
     }
 
     Scaffold { innerPadding ->
@@ -77,9 +95,16 @@ fun QuoteBrowser(
             item { TextButton(onClick = onBack) { Text("← Back") } }
             item {
                 Column {
-                    Text(category?.label ?: author.orEmpty(), style = MaterialTheme.typography.headlineSmall)
                     Text(
-                        if (query.isBlank()) "${all.size} quotes" else "${shown.size} of ${all.size} quotes",
+                        if (searching) "Browse & search" else category?.label ?: author.orEmpty(),
+                        style = MaterialTheme.typography.headlineSmall,
+                    )
+                    Text(
+                        when {
+                            searching && query.isBlank() -> "${all.size} quotes by ${authors.size} authors. Type a word, a phrase or a name."
+                            query.isBlank() -> "${all.size} quotes"
+                            else -> "${shown.size} of ${all.size} quotes"
+                        },
                         style = MaterialTheme.typography.bodySmall,
                     )
                 }
@@ -90,8 +115,28 @@ fun QuoteBrowser(
                     onValueChange = { query = it },
                     modifier = Modifier.fillMaxWidth(),
                     singleLine = true,
-                    label = { Text("Search these quotes") },
+                    label = { Text(if (searching) "Search all quotes and authors" else "Search these quotes") },
                 )
+            }
+            if (searching) {
+                // Authors first: all of them A–Z before typing, then the ones whose name matches.
+                items(if (query.isBlank()) matchingAuthors else matchingAuthors.take(12)) { (name, count) ->
+                    Row(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .clickable(onClickLabel = "Open $name") { onOpenAuthor(name) }
+                            .padding(vertical = 10.dp),
+                    ) {
+                        Column {
+                            Text(name, style = MaterialTheme.typography.titleMedium)
+                            Text(
+                                "$count quotes \u00B7 View \u203A",
+                                style = MaterialTheme.typography.bodySmall,
+                                color = MaterialTheme.colorScheme.primary,
+                            )
+                        }
+                    }
+                }
             }
             items(shown) { quote ->
                 Card(modifier = Modifier.fillMaxWidth()) {

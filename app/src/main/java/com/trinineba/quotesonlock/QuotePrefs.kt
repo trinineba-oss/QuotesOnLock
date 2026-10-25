@@ -68,6 +68,22 @@ class QuotePrefs(context: Context) {
         get() = prefs.getBoolean("animate_background", true)
         set(value) = prefs.edit().putBoolean("animate_background", value).apply()
 
+    /** Whether the live wallpaper draws today's quote on top of the artwork. */
+    var wallpaperShowQuote: Boolean
+        get() = prefs.getBoolean("wallpaper_show_quote", true)
+        set(value) = prefs.edit().putBoolean("wallpaper_show_quote", value).apply()
+
+    /** Vertical position of the quote on the live wallpaper, as a fraction of the screen height (0–1). */
+    var wallpaperQuotePosition: Float
+        get() = prefs.getFloat("wallpaper_quote_position", 0.55f)
+        set(value) = prefs.edit().putFloat("wallpaper_quote_position", value).apply()
+
+    fun registerListener(listener: android.content.SharedPreferences.OnSharedPreferenceChangeListener) =
+        prefs.registerOnSharedPreferenceChangeListener(listener)
+
+    fun unregisterListener(listener: android.content.SharedPreferences.OnSharedPreferenceChangeListener) =
+        prefs.unregisterOnSharedPreferenceChangeListener(listener)
+
     val style: QuoteStyle get() = QuoteStyle(font, size, textColor)
 
     /** Keys of quotes already shown in this pass through the pool, so nothing repeats until all are seen. */
