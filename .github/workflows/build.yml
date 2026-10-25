@@ -35,4 +35,5 @@ jobs:
             --target "$GITHUB_SHA" \
             --prerelease \
             --title "Latest build" \
-            --notes "Debug build of ${GITHUB_SHA::7} from branch $GITHUB_REF_NAME."
+            --notes "Build ${GITHUB_RUN_NUMBER} ($(git log -1 --format=%h))
+          $(git log -1 --format=%s)"

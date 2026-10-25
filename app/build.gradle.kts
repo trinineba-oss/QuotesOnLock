@@ -12,8 +12,10 @@ android {
         applicationId = "com.trinineba.quotesonlock"
         minSdk = 26
         targetSdk = 35
-        versionCode = 1
-        versionName = "1.0"
+        // CI numbers each build; the in-app updater compares this with the release's "Build N".
+        val build = System.getenv("GITHUB_RUN_NUMBER")?.toIntOrNull() ?: 1
+        versionCode = build
+        versionName = "1.0.$build"
     }
 
     signingConfigs {

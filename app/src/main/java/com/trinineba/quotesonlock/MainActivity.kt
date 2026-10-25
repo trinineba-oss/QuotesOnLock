@@ -66,6 +66,11 @@ import androidx.compose.material3.dynamicDarkColorScheme
 import androidx.compose.material3.dynamicLightColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.material3.LinearProgressIndicator
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -85,10 +90,17 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.compose.LifecycleEventEffect
 
 class MainActivity : ComponentActivity() {
+    companion object {
+        /** Opens About & sources, where the update card is (from the "update available" notification). */
+        const val EXTRA_OPEN_UPDATES = "open_updates"
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val prefs = QuotePrefs(this)
         if (prefs.enabled) QuoteScheduler.ensureScheduled(this, prefs.intervalMinutes)
+        Updater.schedule(this, prefs.updateCheck)
+        val openUpdates = intent.getBooleanExtra(EXTRA_OPEN_UPDATES, false)
         setContent {
             var theme by remember { mutableStateOf(prefs.theme) }
             var animate by remember { mutableStateOf(prefs.animateBackground) }
@@ -106,6 +118,7 @@ class MainActivity : ComponentActivity() {
                     onCardOpacity = { cardOpacity = it },
                     auroraIntensity = auroraIntensity,
                     onAuroraIntensity = { auroraIntensity = it },
+                    openUpdates = openUpdates,
                 )
             }
         }
@@ -152,6 +165,7 @@ private fun QuotesScreen(
     onCardOpacity: (Float) -> Unit,
     auroraIntensity: Float,
     onAuroraIntensity: (Float) -> Unit,
+    openUpdates: Boolean = false,
 ) {
     val context = LocalContext.current
     var enabled by remember { mutableStateOf(prefs.enabled) }
@@ -171,7 +185,15 @@ private fun QuotesScreen(
     var favoritesOnly by remember { mutableStateOf(prefs.favoritesOnly) }
     var newText by rememberSaveable { mutableStateOf("") }
     var newAuthor by rememberSaveable { mutableStateOf("") }
-    var page by rememberSaveable { mutableStateOf(Page.HOME) }
+    var page by rememberSaveable { mutableStateOf(if (openUpdates) Page.ABOUT else Page.HOME) }
+    val scope = rememberCoroutineScope()
+    val currentBuild = remember { Updater.currentBuild(context) }
+    var updateCheck by remember { mutableStateOf(prefs.updateCheck) }
+    var latest by remember { mutableStateOf<Release?>(null) }
+    var updateStatus by remember { mutableStateOf<String?>(null) }
+    var updateBusy by remember { mutableStateOf(false) }
+    var downloadProgress by remember { mutableStateOf<Float?>(null) }
+    var downloaded by remember { mutableStateOf<java.io.File?>(null) }
     var wallpaperQuote by remember { mutableStateOf(prefs.wallpaperShowQuote) }
     var wallpaperPosition by remember { mutableStateOf(prefs.wallpaperQuotePosition) }
     val sources = remember { readSources(context) }
@@ -248,6 +270,54 @@ private fun QuotesScreen(
         current = quote
         canGoBack = repo.hasPrevious()
         if (enabled) QuoteNotifier.show(context, quote)
+    }
+
+    fun checkForUpdate() {
+        updateBusy = true
+        updateStatus = "Checking GitHub…"
+        scope.launch {
+            try {
+                val release = withContext(Dispatchers.IO) { Updater.fetchLatest() }
+                latest = release
+                updateStatus = if (release.build > currentBuild) {
+                    "Build ${release.build} is available."
+                } else {
+                    "You have the latest build."
+                }
+            } catch (e: Exception) {
+                updateStatus = "Couldn't reach GitHub. Check your connection and try again."
+            }
+            updateBusy = false
+        }
+    }
+
+    fun installUpdate(release: Release) {
+        downloaded?.let { apk ->
+            if (Updater.canInstall(context)) Updater.install(context, apk) else Updater.openInstallPermission(context)
+            return
+        }
+        updateBusy = true
+        downloadProgress = 0f
+        updateStatus = "Downloading build ${release.build}…"
+        scope.launch {
+            try {
+                val apk = withContext(Dispatchers.IO) {
+                    Updater.download(context, release) { downloadProgress = it }
+                }
+                downloaded = apk
+                if (Updater.canInstall(context)) {
+                    updateStatus = "Downloaded. Confirm the install when Android asks."
+                    Updater.install(context, apk)
+                } else {
+                    updateStatus = "Downloaded. Allow \"Install unknown apps\" for Quotes on Lock, then come back and tap Install."
+                    Updater.openInstallPermission(context)
+                }
+            } catch (e: Exception) {
+                updateStatus = "The download failed. Try again, or get it from the releases page."
+            }
+            downloadProgress = null
+            updateBusy = false
+        }
     }
 
     fun previousQuote() {
@@ -432,7 +502,12 @@ private fun QuotesScreen(
         }
         item(key = "tile-about") {
             TileCard(
-                Tile("ⓘ", "About & sources", "Where each quote comes from, and the translations") { page = Page.ABOUT },
+                Tile(
+                    "ⓘ",
+                    "About, sources & updates",
+                    latest?.takeIf { it.build > currentBuild }?.let { "Update available: build ${it.build}" }
+                        ?: "Where each quote comes from, and app updates",
+                ) { page = Page.ABOUT },
                 Modifier.fillMaxWidth(),
                 wide = true,
             )
@@ -942,6 +1017,40 @@ private fun QuotesScreen(
     }
 
     fun LazyListScope.aboutPage() {
+        item(key = "a-update") {
+            SettingsCard("App updates") {
+                Text("You have build $currentBuild.", style = MaterialTheme.typography.bodyMedium)
+                val release = latest
+                updateStatus?.let { Text(it, style = MaterialTheme.typography.bodyMedium, fontWeight = FontWeight.SemiBold) }
+                if (release != null && release.build > currentBuild) {
+                    val notes = release.notes.lines().drop(1).joinToString("\n").trim()
+                    if (notes.isNotEmpty()) Text(notes, style = MaterialTheme.typography.bodySmall)
+                }
+                downloadProgress?.let { LinearProgressIndicator(progress = { it }, modifier = Modifier.fillMaxWidth()) }
+                Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                    if (release != null && release.build > currentBuild) {
+                        Button(onClick = { installUpdate(release) }, enabled = !updateBusy) {
+                            Text(if (downloaded != null) "Install" else "Download & install")
+                        }
+                    }
+                    OutlinedButton(onClick = { checkForUpdate() }, enabled = !updateBusy) { Text("Check for updates") }
+                }
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    Column(Modifier.weight(1f)) {
+                        Text("Check weekly")
+                        Text(
+                            "Sends a notification when a new build is on GitHub. Android always asks you to confirm an install.",
+                            style = MaterialTheme.typography.bodySmall,
+                        )
+                    }
+                    Switch(checked = updateCheck, onCheckedChange = {
+                        updateCheck = it
+                        prefs.updateCheck = it
+                        Updater.schedule(context, it)
+                    })
+                }
+            }
+        }
         item(key = "a-intro") {
             SettingsCard("How the quotes are chosen") {
                 Text(
@@ -994,7 +1103,7 @@ private enum class Page(val title: String) {
     SCHEDULE("Schedule"),
     FAVORITES("Favourites"),
     MINE("My quotes"),
-    ABOUT("About & sources"),
+    ABOUT("About & updates"),
 }
 
 private class Tile(val symbol: String, val title: String, val subtitle: String, val onClick: () -> Unit)

@@ -50,6 +50,16 @@ class QuotePrefs(context: Context) {
         set(value) = prefs.edit().putString("theme", value.key).apply()
 
     /** How solid (0–1) the cards behind quotes are in the themed looks, in the app and on the lock screen. */
+    /** Check GitHub weekly for a new build. */
+    var updateCheck: Boolean
+        get() = prefs.getBoolean("update_check", true)
+        set(value) = prefs.edit().putBoolean("update_check", value).apply()
+
+    /** The newest build already announced in an "update available" notification. */
+    var notifiedBuild: Long
+        get() = prefs.getLong("notified_build", 0L)
+        set(value) = prefs.edit().putLong("notified_build", value).apply()
+
     /** Brightness of the northern lights, 0.5–2 (1 = normal). */
     var auroraIntensity: Float
         get() = prefs.getFloat("aurora_intensity", 1f)
