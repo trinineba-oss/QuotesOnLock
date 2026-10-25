@@ -168,6 +168,7 @@ enum class Category(val key: String, val label: String, val group: QuoteGroup) {
     BACHELARD("bachelard", "Gaston Bachelard", QuoteGroup.THINKERS),
     TEILHARD("teilhard", "Pierre Teilhard de Chardin", QuoteGroup.THINKERS),
     BULGAKOV("bulgakov", "Mikhail Bulgakov", QuoteGroup.WRITERS),
+    HAMSUN("hamsun", "Knut Hamsun", QuoteGroup.WRITERS),
     QURAN("quran", "The Qur'an", QuoteGroup.SCRIPTURE),
     CUSTOM("custom", "My own quotes", QuoteGroup.MINE);
 
