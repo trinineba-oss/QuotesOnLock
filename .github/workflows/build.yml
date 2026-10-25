@@ -30,8 +30,11 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           cp app/build/outputs/apk/debug/app-debug.apk quotes-on-lock.apk
+          # version.json is what the in-app updater reads (build number, change summary, APK size).
+          python3 -c 'import json,os,subprocess; print(json.dumps({"build": int(os.environ["GITHUB_RUN_NUMBER"]), "notes": subprocess.check_output(["git","log","-1","--format=%s"], text=True).strip(), "size": os.path.getsize("quotes-on-lock.apk")}))' > version.json
+          cat version.json
           gh release delete latest --cleanup-tag --yes || true
-          gh release create latest quotes-on-lock.apk \
+          gh release create latest quotes-on-lock.apk version.json \
             --target "$GITHUB_SHA" \
             --prerelease \
             --title "Latest build" \

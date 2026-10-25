@@ -285,7 +285,7 @@ private fun QuotesScreen(
                     "You have the latest build."
                 }
             } catch (e: Exception) {
-                updateStatus = "Couldn't reach GitHub. Check your connection and try again."
+                updateStatus = "Couldn't check GitHub: ${e.message ?: e.javaClass.simpleName}"
             }
             updateBusy = false
         }
@@ -313,7 +313,7 @@ private fun QuotesScreen(
                     Updater.openInstallPermission(context)
                 }
             } catch (e: Exception) {
-                updateStatus = "The download failed. Try again, or get it from the releases page."
+                updateStatus = "The download failed (${e.message ?: e.javaClass.simpleName}). Try again, or get it from the releases page."
             }
             downloadProgress = null
             updateBusy = false
@@ -1023,7 +1023,7 @@ private fun QuotesScreen(
                 val release = latest
                 updateStatus?.let { Text(it, style = MaterialTheme.typography.bodyMedium, fontWeight = FontWeight.SemiBold) }
                 if (release != null && release.build > currentBuild) {
-                    val notes = release.notes.lines().drop(1).joinToString("\n").trim()
+                    val notes = release.notes
                     if (notes.isNotEmpty()) Text(notes, style = MaterialTheme.typography.bodySmall)
                 }
                 downloadProgress?.let { LinearProgressIndicator(progress = { it }, modifier = Modifier.fillMaxWidth()) }

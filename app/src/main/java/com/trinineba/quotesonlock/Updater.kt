@@ -34,7 +34,11 @@ data class Release(val build: Long, val notes: String, val apkUrl: String, val a
  * user to confirm the install.
  */
 object Updater {
-    private const val RELEASE_URL = "https://api.github.com/repos/trinineba-oss/QuotesOnLock/releases/tags/latest"
+    // Plain release downloads, not api.github.com: the API allows only 60 anonymous requests an hour
+    // per IP address, which phones sharing a mobile network's address use up quickly.
+    private const val DOWNLOAD_BASE = "https://github.com/trinineba-oss/QuotesOnLock/releases/download/latest"
+    private const val VERSION_URL = "$DOWNLOAD_BASE/version.json"
+    private const val APK_URL = "$DOWNLOAD_BASE/quotes-on-lock.apk"
     const val RELEASES_PAGE = "https://github.com/trinineba-oss/QuotesOnLock/releases/tag/latest"
     private const val CHANNEL_ID = "updates"
     private const val NOTIFICATION_ID = 2
@@ -43,22 +47,26 @@ object Updater {
     fun currentBuild(context: Context): Long =
         PackageInfoCompat.getLongVersionCode(context.packageManager.getPackageInfo(context.packageName, 0))
 
-    /** Fetches the latest release. Blocking; call off the main thread. */
-    fun fetchLatest(): Release {
-        val connection = (URL(RELEASE_URL).openConnection() as HttpURLConnection).apply {
+    private fun open(url: String, readTimeout: Int): HttpURLConnection =
+        (URL(url).openConnection() as HttpURLConnection).apply {
             connectTimeout = 15_000
-            readTimeout = 15_000
-            setRequestProperty("Accept", "application/vnd.github+json")
+            this.readTimeout = readTimeout
+            instanceFollowRedirects = true
+            useCaches = false
+            setRequestProperty("User-Agent", "QuotesOnLock-Android")
         }
+
+    /** Reads version.json ({build, notes}) published next to the APK. Blocking; call off the main thread. */
+    fun fetchLatest(): Release {
+        val connection = open(VERSION_URL, 15_000)
         try {
-            if (connection.responseCode != 200) error("GitHub answered ${connection.responseCode}")
+            when (val code = connection.responseCode) {
+                200 -> Unit
+                404 -> error("GitHub has no version file yet (a new build may be publishing; try again in a few minutes)")
+                else -> error("GitHub answered $code")
+            }
             val json = JSONObject(connection.inputStream.bufferedReader().use { it.readText() })
-            val notes = json.optString("body")
-            val build = Regex("""Build (\d+)""").find(notes)?.groupValues?.get(1)?.toLong() ?: 0L
-            val assets = json.getJSONArray("assets")
-            val apk = (0 until assets.length()).map { assets.getJSONObject(it) }
-                .firstOrNull { it.getString("name").endsWith(".apk") } ?: error("The release has no APK")
-            return Release(build, notes.trim(), apk.getString("browser_download_url"), apk.optLong("size"))
+            return Release(json.getLong("build"), json.optString("notes").trim(), APK_URL, json.optLong("size"))
         } finally {
             connection.disconnect()
         }
@@ -68,11 +76,7 @@ object Updater {
     fun download(context: Context, release: Release, onProgress: (Float) -> Unit): File {
         val dir = File(context.cacheDir, "updates").apply { mkdirs() }
         val file = File(dir, "quotes-on-lock.apk")
-        val connection = (URL(release.apkUrl).openConnection() as HttpURLConnection).apply {
-            connectTimeout = 15_000
-            readTimeout = 30_000
-            instanceFollowRedirects = true
-        }
+        val connection = open(release.apkUrl, 30_000)
         try {
             if (connection.responseCode != 200) error("Download failed (${connection.responseCode})")
             val total = connection.contentLengthLong.takeIf { it > 0 } ?: release.apkSize
