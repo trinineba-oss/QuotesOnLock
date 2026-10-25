@@ -39,6 +39,8 @@ import androidx.compose.ui.graphics.Path
 import androidx.compose.ui.graphics.Shadow
 import androidx.compose.ui.graphics.ShaderBrush
 import androidx.compose.ui.graphics.asAndroidBitmap
+import androidx.compose.ui.graphics.drawscope.drawIntoCanvas
+import androidx.compose.ui.graphics.nativeCanvas
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.imageResource
 import androidx.compose.ui.res.painterResource
@@ -76,7 +78,14 @@ enum class AppTheme(
     BOOK(
         "book", "Old book", null, R.drawable.notif_frame_book, 0xFFF1E4C6.toInt(),
         0xFF3B2A1A.toInt(), 0xFF7A2E1F.toInt(),
+    ),
+    BUTTERFLY(
+        "butterfly", "Butterflies", "Flying butterflies", R.drawable.notif_frame_butterfly, 0xFFFFF1F7.toInt(),
+        0xFF4A1C33.toInt(), 0xFFC2185B.toInt(),
     );
+
+    /** Light themes use dark text. */
+    val isLight: Boolean get() = this == BOOK || this == BUTTERFLY
 
     companion object {
         fun fromKey(key: String?): AppTheme = entries.firstOrNull { it.key == key } ?: CLASSIC
@@ -146,6 +155,25 @@ fun AppTheme.colorScheme(cardOpacity: Float): ColorScheme? = when (this) {
         outline = Color(0xFF8B6B45),
         outlineVariant = Color(0x668B6B45),
     )
+    AppTheme.BUTTERFLY -> lightColorScheme(
+        primary = Color(0xFFC2185B),
+        onPrimary = Color.White,
+        primaryContainer = Color(0xFFF8BBD9),
+        onPrimaryContainer = Color(0xFF4A1C33),
+        secondary = Color(0xFF8E3A8C),
+        onSecondary = Color.White,
+        secondaryContainer = Color(0xFFF3C6EC),
+        onSecondaryContainer = Color(0xFF4A1C33),
+        background = Color.Transparent,
+        onBackground = Color(0xFF4A1C33),
+        surface = Color(0xFFFFE4F0),
+        onSurface = Color(0xFF4A1C33),
+        onSurfaceVariant = Color(0xFF7A3E5C),
+        surfaceContainerHighest = Color(0xFFFFF1F7).copy(alpha = cardOpacity),
+        surfaceVariant = Color(0xFFF8D3E4),
+        outline = Color(0xFFC2185B),
+        outlineVariant = Color(0x66C2185B),
+    )
 }
 
 /** Night themes get a soft shadow under all text so it reads over the painting; the book page gets serif type. */
@@ -156,6 +184,7 @@ fun AppTheme.typography(base: Typography): Typography = when (this) {
         all = { it.copy(shadow = Shadow(Color(0xE6000000), Offset(0f, 2f), 8f)) },
     )
     AppTheme.BOOK -> base.map(headings = { it }, all = { it.copy(fontFamily = FontFamily.Serif) })
+    AppTheme.BUTTERFLY -> base.map(headings = { it.copy(fontFamily = FontFamily.Serif) }, all = { it })
 }
 
 private fun Typography.map(headings: (TextStyle) -> TextStyle, all: (TextStyle) -> TextStyle) = Typography(
@@ -189,6 +218,17 @@ fun ThemedBackground(theme: AppTheme, animate: Boolean) {
             modifier = Modifier.fillMaxSize(),
             contentScale = ContentScale.Crop,
         )
+        AppTheme.BUTTERFLY -> ButterflyBackground(animate)
+    }
+}
+
+@Composable
+private fun ButterflyBackground(animate: Boolean) {
+    // A loop of 2π·1000 ms makes the value plain seconds.
+    val time: State<Float> = if (animate) rememberLoopAngle(2000f * PI.toFloat()) else remember { mutableFloatStateOf(3f) }
+    Canvas(Modifier.fillMaxSize()) {
+        val t = time.value
+        drawIntoCanvas { ButterflyArt.draw(it.nativeCanvas, size.width, size.height, t, density) }
     }
 }
 

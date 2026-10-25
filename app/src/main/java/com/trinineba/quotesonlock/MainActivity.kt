@@ -544,13 +544,16 @@ private fun QuotesScreen(
     fun LazyListScope.themesPage() {
         item(key = "t-app") {
             SettingsCard("App theme") {
-                Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-                    AppTheme.entries.forEach { option ->
-                        ThemePreview(option, selected = theme == option, modifier = Modifier.weight(1f)) {
-                            prefs.theme = option
-                            onTheme(option)
-                            refreshNotification()
+                AppTheme.entries.chunked(3).forEach { row ->
+                    Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                        row.forEach { option ->
+                            ThemePreview(option, selected = theme == option, modifier = Modifier.weight(1f)) {
+                                prefs.theme = option
+                                onTheme(option)
+                                refreshNotification()
+                            }
                         }
+                        repeat(3 - row.size) { Spacer(Modifier.weight(1f)) }
                     }
                 }
                 theme.motionLabel?.let { label ->
@@ -1029,6 +1032,7 @@ private fun ThemePreview(option: AppTheme, selected: Boolean, modifier: Modifier
             AppTheme.STARRY -> R.drawable.starry_frame
             AppTheme.AURORA -> R.drawable.aurora_frame
             AppTheme.BOOK -> R.drawable.paper
+            AppTheme.BUTTERFLY -> R.drawable.butterfly_frame
             AppTheme.CLASSIC -> null
         }
         if (image != null) {
@@ -1039,12 +1043,12 @@ private fun ThemePreview(option: AppTheme, selected: Boolean, modifier: Modifier
         Text(
             option.label,
             style = MaterialTheme.typography.labelSmall.copy(shadow = null),
-            color = if (option == AppTheme.CLASSIC || option == AppTheme.BOOK) Color(0xFF2E2012) else Color.White,
+            color = if (option == AppTheme.CLASSIC || option.isLight) Color(0xFF2E2012) else Color.White,
             fontWeight = FontWeight.SemiBold,
             modifier = Modifier
                 .fillMaxWidth()
                 .background(
-                    if (option == AppTheme.CLASSIC || option == AppTheme.BOOK) Color(0x66FFFFFF) else Color(0x88000000)
+                    if (option == AppTheme.CLASSIC || option.isLight) Color(0x66FFFFFF) else Color(0x88000000)
                 )
                 .padding(vertical = 4.dp),
             textAlign = TextAlign.Center,

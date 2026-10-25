@@ -102,6 +102,7 @@ class QuoteWallpaperService : WallpaperService() {
                 when (theme) {
                     AppTheme.AURORA -> drawAurora(canvas, if (moving()) t * 2f * PI.toFloat() / 10f else 1.2f)
                     AppTheme.BOOK -> drawCover(canvas, bitmap(R.drawable.paper))
+                    AppTheme.BUTTERFLY -> ButterflyArt.draw(canvas, width.toFloat(), height.toFloat(), if (moving()) t else 3f, resources.displayMetrics.density)
                     else -> drawStarry(canvas, t * 2f * PI.toFloat() / 6f)
                 }
                 if (prefs.wallpaperShowQuote) drawQuote(canvas)
@@ -201,7 +202,7 @@ class QuoteWallpaperService : WallpaperService() {
             val theme = theme
             val style = prefs.style
             val density = resources.displayMetrics.scaledDensity
-            val dark = theme != AppTheme.BOOK
+            val dark = !theme.isLight
             val textColor = style.color ?: theme.notificationText ?: Color.WHITE
             val authorColor = style.color ?: theme.notificationAuthor ?: Color.WHITE
 
