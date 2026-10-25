@@ -63,6 +63,15 @@ editions below, or a translation made for this app and labelled `(tr. Claude)`.
 | Francis Bacon | The Essays or Counsels, Civil and Moral | original English | Project Gutenberg #575 |
 | Homer | The Iliad; The Odyssey | Samuel Butler (prose) | Project Gutenberg #2199, #1727 |
 | Sappho | Fragments | H. T. Wharton (literal prose) | Project Gutenberg #57390 |
+| Jean-Jacques Rousseau | The Reveries of a Solitary; Confessions | John Gould Fletcher (1927); Confessions translator not named in the edition | Internet Archive dli.ministry.22007; Project Gutenberg #3913 |
+| Thomas Traherne | Centuries of Meditations; poems | original English (ed. Bertram Dobell) | Internet Archive centuriesofmedit00trahuoft; Project Gutenberg #61586 |
+| Attar | The Conference of the Birds ("Bird-Parliament") | free verse version by Edward FitzGerald | Letters and Literary Remains of Edward FitzGerald, vol. 7 (1903), Internet Archive lettersandlitera07fitzuoft |
+| Leonardo da Vinci | Notebooks | J. P. Richter (1888) | Project Gutenberg #5000 |
+| Petrarch | Canzoniere (sonnets) | T. W. Higginson, John Nott, R. G. Macgregor, Lady Dacre, Lord Charlemont, Francis Wrangham and others | Project Gutenberg #17650, #50307 |
+| Michelangelo | Sonnets | John Addington Symonds (1878) | Project Gutenberg #10314 |
+| Gustave Flaubert | Letters to George Sand; Madame Bovary | Aimée L. McKenzie (1921); Eleanor Marx-Aveling | Project Gutenberg #5115, #2413 |
+| Federico García Lorca | Libro de poemas (1921), Canciones (1927), Primer romancero gitano (1928) | new translations (tr. Claude) | Spanish first editions on the Internet Archive (garcialorcalibrodepoemas1921, canciones_202401, romancerogitano_202401) and Spanish Wikisource |
+| Knut Hamsun | Pan, Growth of the Soil, Wanderers, Hunger, Victoria, Mothwise (Dreamers) | W. W. Worster; George Egerton (1899); Arthur G. Chater (1923) | Project Gutenberg #7214, #10984, #7762, #8387, #74458, #46220 |
 | Emily Dickinson | Poems, Series One to Three | original English (1890s editions) | Project Gutenberg #12242 |
 | William Blake | Songs of Innocence and of Experience; Poems of William Blake (incl. The Marriage of Heaven and Hell) | original English | Project Gutenberg #1934, #574 |
 | Giacomo Leopardi | Essays and Dialogues | Charles Edwardes and Patrick Maxwell (1893) | Project Gutenberg #52356 |
@@ -165,7 +174,7 @@ The *Tractatus* lines are cut verbatim from Ogden's public-domain translation. W
 
 ### More modern authors (Goodreads excerpts)
 
-Bukowski, Anaïs Nin, Joseph Campbell, Miyamoto Musashi (in common English renderings of the *Dokkōdō* and *The Book of Five Rings*), Susan Sontag, James Baldwin, Antoine de Saint-Exupéry, C. S. Lewis, Stefan Zweig, Clarice Lispector, Dag Hammarskjöld (Markings, tr. W. H. Auden and Leif Sjöberg), Gabriel García Márquez (English translations by Gregory Rabassa, Edith Grossman and others), Nikos Kazantzakis, Martin Buber, Hannah Arendt, Simone de Beauvoir, Samuel Beckett, Erich Fromm, Rollo May, Thomas Merton, Thich Nhat Hanh and Irvin Yalom are still in copyright, so each appears as a short excerpt (one to four sentences) taken from Goodreads' most-liked quotes for that author and hand-filtered. Where a line could not be placed in a specific book, the label is the author's name alone. Goodreads texts are typed in by readers; if you spot a wrong attribution, please open an issue. Authors in this group are covered by the "Modern authors still in copyright" switch in settings.
+Bukowski, Anaïs Nin, Joseph Campbell, Miyamoto Musashi (in common English renderings of the *Dokkōdō* and *The Book of Five Rings*), Susan Sontag, James Baldwin, Antoine de Saint-Exupéry, C. S. Lewis, Stefan Zweig, Clarice Lispector, Dag Hammarskjöld (Markings, tr. W. H. Auden and Leif Sjöberg), Gabriel García Márquez (English translations by Gregory Rabassa, Edith Grossman and others), Octavio Paz, Italo Calvino, José Saramago, Anna Akhmatova, Marina Tsvetaeva, Czesław Miłosz, Tomas Tranströmer, Paul Celan, W. G. Sebald, Gaston Bachelard, Pierre Teilhard de Chardin, Mikhail Bulgakov, V. S. Naipaul, Derek Walcott, Nikos Kazantzakis, Martin Buber, Hannah Arendt, Simone de Beauvoir, Samuel Beckett, Erich Fromm, Rollo May, Thomas Merton, Thich Nhat Hanh and Irvin Yalom are still in copyright, so each appears as a short excerpt (one to four sentences) taken from Goodreads' most-liked quotes for that author and hand-filtered. Where a line could not be placed in a specific book, the label is the author's name alone. Goodreads texts are typed in by readers; if you spot a wrong attribution, please open an issue. Authors in this group are covered by the "Modern authors still in copyright" switch in settings.
 
 ### Einstein
 
