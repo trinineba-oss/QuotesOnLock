@@ -167,9 +167,11 @@ class QuoteWallpaperService : WallpaperService() {
                 Triple(0xFF965AFF.toInt(), 0.22f, 3.1f),
             )
             val fill = Paint(Paint.ANTI_ALIAS_FLAG)
+            val k = prefs.auroraIntensity
+            fun alpha(a: Float) = ((a * k).coerceAtMost(1f) * 255).toInt() shl 24
             ribbons.forEachIndexed { i, (color, base, phase) ->
-                val amp = h * (0.05f - 0.01f * i)
-                val tail = h * (0.22f - 0.04f * i)
+                val amp = h * (0.05f - 0.01f * i) * (0.8f + 0.2f * k)
+                val tail = h * (0.22f - 0.04f * i) * (0.6f + 0.4f * k)
                 val steps = 48
                 fun edge(x: Float): Float {
                     val u = x / w * 2f * PI.toFloat()
@@ -188,7 +190,7 @@ class QuoteWallpaperService : WallpaperService() {
                 path.close()
                 fill.shader = LinearGradient(
                     0f, h * base - amp - tail, 0f, h * base + amp,
-                    intArrayOf(Color.TRANSPARENT, (color and 0x00FFFFFF) or (0x59 shl 24), (color and 0x00FFFFFF) or (0xBF shl 24)),
+                    intArrayOf(Color.TRANSPARENT, (color and 0x00FFFFFF) or alpha(0.35f), (color and 0x00FFFFFF) or alpha(0.75f)),
                     floatArrayOf(0f, 0.75f, 1f),
                     Shader.TileMode.CLAMP,
                 )

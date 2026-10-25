@@ -93,7 +93,8 @@ class MainActivity : ComponentActivity() {
             var theme by remember { mutableStateOf(prefs.theme) }
             var animate by remember { mutableStateOf(prefs.animateBackground) }
             var cardOpacity by remember { mutableStateOf(prefs.cardOpacity) }
-            QuotesTheme(theme, animate, cardOpacity) {
+            var auroraIntensity by remember { mutableStateOf(prefs.auroraIntensity) }
+            QuotesTheme(theme, animate, cardOpacity, auroraIntensity) {
                 QuotesScreen(
                     prefs = prefs,
                     repo = QuoteRepository(this, prefs),
@@ -103,6 +104,8 @@ class MainActivity : ComponentActivity() {
                     onAnimate = { animate = it },
                     cardOpacity = cardOpacity,
                     onCardOpacity = { cardOpacity = it },
+                    auroraIntensity = auroraIntensity,
+                    onAuroraIntensity = { auroraIntensity = it },
                 )
             }
         }
@@ -110,7 +113,7 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-private fun QuotesTheme(theme: AppTheme, animate: Boolean, cardOpacity: Float, content: @Composable () -> Unit) {
+private fun QuotesTheme(theme: AppTheme, animate: Boolean, cardOpacity: Float, auroraIntensity: Float, content: @Composable () -> Unit) {
     val dark = isSystemInDarkTheme()
     val context = LocalContext.current
     val colors = theme.colorScheme(cardOpacity) ?: when {
@@ -121,7 +124,7 @@ private fun QuotesTheme(theme: AppTheme, animate: Boolean, cardOpacity: Float, c
     }
     MaterialTheme(colorScheme = colors, typography = theme.typography(Typography())) {
         Box(Modifier.fillMaxSize()) {
-            ThemedBackground(theme, animate)
+            ThemedBackground(theme, animate, auroraIntensity)
             content()
         }
     }
@@ -147,6 +150,8 @@ private fun QuotesScreen(
     onAnimate: (Boolean) -> Unit,
     cardOpacity: Float,
     onCardOpacity: (Float) -> Unit,
+    auroraIntensity: Float,
+    onAuroraIntensity: (Float) -> Unit,
 ) {
     val context = LocalContext.current
     var enabled by remember { mutableStateOf(prefs.enabled) }
@@ -601,6 +606,26 @@ private fun QuotesScreen(
                             label = { Text(option?.label ?: "Same as app") },
                         )
                     }
+                }
+            }
+        }
+        if (theme == AppTheme.AURORA || lockTheme == AppTheme.AURORA) {
+            item(key = "t-aurora") {
+                SettingsCard("Northern lights intensity") {
+                    Row(verticalAlignment = Alignment.CenterVertically) {
+                        Text(
+                            "How bright and tall the curtains of light are, in the app and the live wallpaper.",
+                            style = MaterialTheme.typography.bodySmall,
+                            modifier = Modifier.weight(1f),
+                        )
+                        Text("${(auroraIntensity * 100).toInt()}%", modifier = Modifier.padding(start = 12.dp))
+                    }
+                    Slider(
+                        value = auroraIntensity,
+                        onValueChange = onAuroraIntensity,
+                        onValueChangeFinished = { prefs.auroraIntensity = auroraIntensity },
+                        valueRange = 0.5f..2f,
+                    )
                 }
             }
         }

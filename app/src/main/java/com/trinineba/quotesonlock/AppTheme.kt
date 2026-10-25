@@ -207,11 +207,11 @@ private fun Typography.map(headings: (TextStyle) -> TextStyle, all: (TextStyle) 
 
 /** Draws the theme's background behind the whole app. */
 @Composable
-fun ThemedBackground(theme: AppTheme, animate: Boolean) {
+fun ThemedBackground(theme: AppTheme, animate: Boolean, auroraIntensity: Float = 1f) {
     when (theme) {
         AppTheme.CLASSIC -> Unit
         AppTheme.STARRY -> StarryBackground(animate)
-        AppTheme.AURORA -> AuroraBackground(animate)
+        AppTheme.AURORA -> AuroraBackground(animate, auroraIntensity)
         AppTheme.BOOK -> Image(
             painter = painterResource(R.drawable.paper),
             contentDescription = null,
@@ -339,7 +339,7 @@ private fun rememberLoopAngle(periodMs: Float): State<Float> {
 private class Star(val x: Float, val y: Float, val r: Float, val a: Float, val phase: Float)
 
 @Composable
-private fun AuroraBackground(animate: Boolean) {
+private fun AuroraBackground(animate: Boolean, intensity: Float) {
     val time: State<Float> = if (animate) rememberLoopAngle(10000f) else remember { mutableFloatStateOf(1.2f) }
     val stars = remember {
         val rnd = Random(11)
@@ -365,8 +365,9 @@ private fun AuroraBackground(animate: Boolean) {
                 Triple(Color(0xFF965AFF), 0.22f, 3.1f),
             )
             ribbons.forEachIndexed { i, (color, base, phase) ->
-                val amp = h * (0.05f - 0.01f * i)
-                val tail = h * (0.22f - 0.04f * i)
+                // Stronger lights are taller, wave more and glow brighter.
+                val amp = h * (0.05f - 0.01f * i) * (0.8f + 0.2f * intensity)
+                val tail = h * (0.22f - 0.04f * i) * (0.6f + 0.4f * intensity)
                 val steps = 48
                 val path = Path()
                 for (j in 0..steps) {
@@ -387,21 +388,22 @@ private fun AuroraBackground(animate: Boolean) {
                     path,
                     Brush.verticalGradient(
                         0f to Color.Transparent,
-                        0.75f to color.copy(alpha = 0.35f),
-                        1f to color.copy(alpha = 0.75f),
+                        0.75f to color.copy(alpha = (0.35f * intensity).coerceAtMost(0.8f)),
+                        1f to color.copy(alpha = (0.75f * intensity).coerceAtMost(1f)),
                         startY = h * base - amp - tail,
                         endY = h * base + amp,
                     ),
                 )
             }
         }
-        // Darken the lower part so the settings below stay readable.
+        // Darken the lower part so the settings below stay readable (less so for stronger lights).
+        val shade = (1.25f - 0.25f * intensity).coerceIn(0.75f, 1.1f)
         Box(
             Modifier.fillMaxSize().background(
                 Brush.verticalGradient(
                     0f to Color.Transparent,
-                    0.4f to AuroraNight.copy(alpha = 0.55f),
-                    0.62f to AuroraNight.copy(alpha = 0.92f),
+                    0.4f to AuroraNight.copy(alpha = (0.55f * shade).coerceAtMost(1f)),
+                    0.62f to AuroraNight.copy(alpha = (0.92f * shade).coerceAtMost(1f)),
                     1f to AuroraNight,
                 )
             )

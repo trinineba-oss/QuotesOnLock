@@ -50,6 +50,11 @@ class QuotePrefs(context: Context) {
         set(value) = prefs.edit().putString("theme", value.key).apply()
 
     /** How solid (0–1) the cards behind quotes are in the themed looks, in the app and on the lock screen. */
+    /** Brightness of the northern lights, 0.5–2 (1 = normal). */
+    var auroraIntensity: Float
+        get() = prefs.getFloat("aurora_intensity", 1f)
+        set(value) = prefs.edit().putFloat("aurora_intensity", value.coerceIn(0.5f, 2f)).apply()
+
     var cardOpacity: Float
         get() = prefs.getFloat("card_opacity", 0.8f)
         set(value) = prefs.edit().putFloat("card_opacity", value.coerceIn(0f, 1f)).apply()
