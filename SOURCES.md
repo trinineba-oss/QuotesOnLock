@@ -72,6 +72,16 @@ editions below, or a translation made for this app and labelled `(tr. Claude)`.
 | Gustave Flaubert | Letters to George Sand; Madame Bovary | Aimée L. McKenzie (1921); Eleanor Marx-Aveling | Project Gutenberg #5115, #2413 |
 | Federico García Lorca | Libro de poemas (1921), Canciones (1927), Primer romancero gitano (1928) | new translations (tr. Claude) | Spanish first editions on the Internet Archive (garcialorcalibrodepoemas1921, canciones_202401, romancerogitano_202401) and Spanish Wikisource |
 | Knut Hamsun | Pan, Growth of the Soil, Wanderers, Hunger, Victoria, Mothwise (Dreamers) | W. W. Worster; George Egerton (1899); Arthur G. Chater (1923) | Project Gutenberg #7214, #10984, #7762, #8387, #74458, #46220 |
+| Dante Alighieri (more) | Divine Comedy; La Vita Nuova | H. W. Longfellow; D. G. Rossetti | Project Gutenberg #1004, #41085 |
+| C. P. Cavafy (more) | Poems published 1897–1924 | new translations (tr. Claude) | Greek texts from Greek Wikisource and scans of Grammata (1911) and Alexandriní Téchni |
+| Friedrich Hölderlin (more) | Hyperion; poems | new translations (tr. Claude) | German first printings via German Wikisource |
+| Hermann Hesse (more) | Siddhartha, Demian, Der Steppenwolf, Knulp, Unterm Rad, Klingsors letzter Sommer, Märchen, Unterwegs | new translations (tr. Claude) | German texts: Project Gutenberg #2499, #41907, #75802, #17622, #49908, #42338, #64522; Internet Archive unterwegsgedicht00hessuoft |
+| Thomas Mann (more) | Royal Highness; Death in Venice; Tonio Kröger | A. Cecil Curtis (1916); Kenneth Burke (1924); new translation (tr. Claude) | Project Gutenberg #36028, #66073, #38692 |
+| Japanese poetry (more) | hokku and short poems | Lafcadio Hearn; Yone Noguchi (1914) | Project Gutenberg #8128, #34215, #42735; Internet Archive (The Spirit of Japanese Poetry) |
+| T. S. Eliot | Prufrock and Other Observations, Poems (1920), The Waste Land, The Hollow Men, The Sacred Wood | original English (published before 1929) | Project Gutenberg #1459, #1567, #1321, #57795; English Wikisource (Poems, 1926) |
+| Thomas Hardy (more) | Poems; Tess, Far from the Madding Crowd, The Return of the Native, Jude the Obscure | original English | Project Gutenberg #3168, #2863, #2997, #3255, #110, #107, #122, #153 |
+| William Blake (more) | The Marriage of Heaven and Hell; Poems; Songs of Innocence and of Experience; letter to Trusler | original English | Project Gutenberg #45315, #79363, #1934, #60448 |
+| Charles Baudelaire (more) | Intimate Papers; Les Fleurs du mal; Paris Spleen | Joseph T. Shipley, F. P. Sturm, W. J. Robertson | Project Gutenberg #47032, #36287 |
 | Emily Dickinson | Poems, Series One to Three | original English (1890s editions) | Project Gutenberg #12242 |
 | William Blake | Songs of Innocence and of Experience; Poems of William Blake (incl. The Marriage of Heaven and Hell) | original English | Project Gutenberg #1934, #574 |
 | Giacomo Leopardi | Essays and Dialogues | Charles Edwardes and Patrick Maxwell (1893) | Project Gutenberg #52356 |
