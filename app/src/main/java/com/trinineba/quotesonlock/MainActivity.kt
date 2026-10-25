@@ -21,6 +21,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import android.content.Intent
+import android.net.Uri
 import android.content.pm.PackageManager
 import android.graphics.Typeface
 import android.os.Build
@@ -194,6 +195,16 @@ private fun QuotesScreen(
     var updateBusy by remember { mutableStateOf(false) }
     var downloadProgress by remember { mutableStateOf<Float?>(null) }
     var downloaded by remember { mutableStateOf<java.io.File?>(null) }
+    var updateFailed by remember { mutableStateOf(false) }
+
+    fun failureText(e: Exception, what: String): String = when (e) {
+        is java.net.UnknownHostException ->
+            "Your phone couldn't look up github.com for this app. Check that mobile data and Wi-Fi are allowed " +
+                "for Quotes on Lock (Settings > Apps > Quotes on Lock > Mobile data), and that Private DNS or an " +
+                "ad blocker isn't blocking GitHub. Or download it in your browser below."
+        is java.net.SocketTimeoutException -> "GitHub took too long to answer. Try again, or download it in your browser below."
+        else -> "Couldn't $what: ${e.message ?: e.javaClass.simpleName}"
+    }
     var wallpaperQuote by remember { mutableStateOf(prefs.wallpaperShowQuote) }
     var wallpaperPosition by remember { mutableStateOf(prefs.wallpaperQuotePosition) }
     val sources = remember { readSources(context) }
@@ -274,6 +285,7 @@ private fun QuotesScreen(
 
     fun checkForUpdate() {
         updateBusy = true
+        updateFailed = false
         updateStatus = "Checking GitHub…"
         scope.launch {
             try {
@@ -285,7 +297,8 @@ private fun QuotesScreen(
                     "You have the latest build."
                 }
             } catch (e: Exception) {
-                updateStatus = "Couldn't check GitHub: ${e.message ?: e.javaClass.simpleName}"
+                updateStatus = failureText(e, "check GitHub")
+                updateFailed = true
             }
             updateBusy = false
         }
@@ -313,7 +326,8 @@ private fun QuotesScreen(
                     Updater.openInstallPermission(context)
                 }
             } catch (e: Exception) {
-                updateStatus = "The download failed (${e.message ?: e.javaClass.simpleName}). Try again, or get it from the releases page."
+                updateStatus = failureText(e, "download the update")
+                updateFailed = true
             }
             downloadProgress = null
             updateBusy = false
@@ -1034,6 +1048,12 @@ private fun QuotesScreen(
                         }
                     }
                     OutlinedButton(onClick = { checkForUpdate() }, enabled = !updateBusy) { Text("Check for updates") }
+                }
+                if (updateFailed) {
+                    // The browser can often reach GitHub when the app can't (it may use its own secure DNS).
+                    TextButton(onClick = {
+                        context.startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(Updater.APK_DOWNLOAD)))
+                    }) { Text("Download in browser") }
                 }
                 Row(verticalAlignment = Alignment.CenterVertically) {
                     Column(Modifier.weight(1f)) {

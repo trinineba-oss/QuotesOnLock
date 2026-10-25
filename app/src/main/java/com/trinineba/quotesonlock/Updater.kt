@@ -38,7 +38,8 @@ object Updater {
     // per IP address, which phones sharing a mobile network's address use up quickly.
     private const val DOWNLOAD_BASE = "https://github.com/trinineba-oss/QuotesOnLock/releases/download/latest"
     private const val VERSION_URL = "$DOWNLOAD_BASE/version.json"
-    private const val APK_URL = "$DOWNLOAD_BASE/quotes-on-lock.apk"
+    const val APK_DOWNLOAD = "$DOWNLOAD_BASE/quotes-on-lock.apk"
+    private const val APK_URL = APK_DOWNLOAD
     const val RELEASES_PAGE = "https://github.com/trinineba-oss/QuotesOnLock/releases/tag/latest"
     private const val CHANNEL_ID = "updates"
     private const val NOTIFICATION_ID = 2
