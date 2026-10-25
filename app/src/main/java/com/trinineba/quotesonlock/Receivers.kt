@@ -22,6 +22,19 @@ class PreviousQuoteReceiver : BroadcastReceiver() {
     }
 }
 
+/** Tapping a long quote on the lock-screen card shows its next part. */
+class NextPartReceiver : BroadcastReceiver() {
+    override fun onReceive(context: Context, intent: Intent) {
+        val prefs = QuotePrefs(context)
+        if (!prefs.enabled) return
+        val quote = QuoteRepository(context, prefs).current() ?: return
+        val key = quote.text.hashCode()
+        prefs.cardPart = if (prefs.cardPartKey == key) prefs.cardPart + 1 else 1
+        prefs.cardPartKey = key
+        QuoteNotifier.show(context, quote)
+    }
+}
+
 /** Handles the "Copy" button on the notification. */
 class CopyQuoteReceiver : BroadcastReceiver() {
     override fun onReceive(context: Context, intent: Intent) {

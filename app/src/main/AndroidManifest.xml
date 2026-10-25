@@ -38,6 +38,10 @@
             android:name=".CopyQuoteReceiver"
             android:exported="false" />
 
+        <receiver
+            android:name=".NextPartReceiver"
+            android:exported="false" />
+
         <service
             android:name=".QuoteWallpaperService"
             android:exported="true"

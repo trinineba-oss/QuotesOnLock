@@ -50,6 +50,15 @@ class QuotePrefs(context: Context) {
         set(value) = prefs.edit().putString("theme", value.key).apply()
 
     /** How solid (0–1) the cards behind quotes are in the themed looks, in the app and on the lock screen. */
+    /** Which part of a long quote the lock-screen card shows, for the quote with this text hash. */
+    var cardPartKey: Int
+        get() = prefs.getInt("card_part_key", 0)
+        set(value) = prefs.edit().putInt("card_part_key", value).apply()
+
+    var cardPart: Int
+        get() = prefs.getInt("card_part", 0)
+        set(value) = prefs.edit().putInt("card_part", value).apply()
+
     /** Check GitHub weekly for a new build. */
     var updateCheck: Boolean
         get() = prefs.getBoolean("update_check", true)

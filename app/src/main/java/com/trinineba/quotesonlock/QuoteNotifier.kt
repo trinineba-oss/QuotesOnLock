@@ -55,13 +55,27 @@ object QuoteNotifier {
         val prefs = QuotePrefs(appContext)
         val style = prefs.style
         val lockTheme = prefs.lockTheme ?: prefs.theme
+        val card = CardFit.fit(appContext, quote.text, quote.author, style, lockTheme.notificationFrame != null)
+        // A new quote starts at its first part; tapping moves on and wraps round.
+        val key = quote.text.hashCode()
+        if (prefs.cardPartKey != key) {
+            prefs.cardPartKey = key
+            prefs.cardPart = 0
+        }
+        val part = prefs.cardPart.mod(card.parts.size)
+        val nextPart = PendingIntent.getBroadcast(
+            appContext,
+            4,
+            Intent(appContext, NextPartReceiver::class.java),
+            PendingIntent.FLAG_IMMUTABLE or PendingIntent.FLAG_UPDATE_CURRENT,
+        )
         val builder = NotificationCompat.Builder(appContext, CHANNEL_ID)
             .setSmallIcon(R.drawable.ic_quote)
             .setContentTitle(quote.author ?: appContext.getString(R.string.app_name))
             .setContentText(quote.text)
             .setStyle(NotificationCompat.DecoratedCustomViewStyle())
-            .setCustomContentView(quoteView(appContext, quote, style, lockTheme, expanded = false))
-            .setCustomBigContentView(quoteView(appContext, quote, style, lockTheme, expanded = true))
+            .setCustomContentView(quoteView(appContext, quote, style, lockTheme, card, part, nextPart, expanded = false))
+            .setCustomBigContentView(quoteView(appContext, quote, style, lockTheme, card, part, nextPart, expanded = true))
             .setContentIntent(openApp)
             .setOngoing(true)
             .setOnlyAlertOnce(true)
@@ -82,6 +96,9 @@ object QuoteNotifier {
         quote: Quote,
         style: QuoteStyle,
         theme: AppTheme,
+        card: CardLayout,
+        part: Int,
+        nextPart: PendingIntent,
         expanded: Boolean,
     ): RemoteViews {
         val views = RemoteViews(context.packageName, style.font.layout)
@@ -89,14 +106,26 @@ object QuoteNotifier {
         val author = quote.author?.let { "\u2014 $it" }
 
         if (expanded) {
-            views.setTextViewText(R.id.quote_text, text)
-            views.setInt(R.id.quote_text, "setMaxLines", 16)
-            if (author != null) {
-                views.setTextViewText(R.id.quote_author, author)
+            val parts = card.parts
+            val last = part == parts.lastIndex
+            // Long quotes come in parts: "…" marks where a part continues, and tapping shows the next.
+            val shown = (if (part == 0) "\u201C" else "\u2026") + parts[part] + (if (last) "\u201D" else "\u2026")
+            views.setTextViewText(R.id.quote_text, if (parts.size == 1) text else shown)
+            views.setInt(R.id.quote_text, "setMaxLines", 60)
+            val counter = "${part + 1}/${parts.size}"
+            val authorLine = when {
+                parts.size == 1 -> author
+                !last -> "Tap for more  \u00B7  $counter \u203A"
+                author != null -> "$counter  $author"
+                else -> counter
+            }
+            if (authorLine != null) {
+                views.setTextViewText(R.id.quote_author, authorLine)
                 views.setViewVisibility(R.id.quote_author, View.VISIBLE)
             } else {
                 views.setViewVisibility(R.id.quote_author, View.GONE)
             }
+            if (parts.size > 1) views.setOnClickPendingIntent(R.id.quote_inner, nextPart)
         } else {
             // The collapsed area is short, so the author shares the text and the size is capped.
             views.setTextViewText(R.id.quote_text, if (author != null) "$text $author" else text)
@@ -104,15 +133,8 @@ object QuoteNotifier {
             views.setViewVisibility(R.id.quote_author, View.GONE)
         }
 
-        // The expanded notification is at most ~256dp tall, so long quotes get slightly smaller type.
-        val fit = when {
-            !expanded -> 1f
-            quote.text.length > 450 -> 0.72f
-            quote.text.length > 300 -> 0.82f
-            quote.text.length > 200 -> 0.92f
-            else -> 1f
-        }
-        val sp = if (expanded) style.size.sizeSp * fit else minOf(style.size.sizeSp, 16f)
+        // The expanded size is measured to fit the card (see CardFit).
+        val sp = if (expanded) card.sp else minOf(style.size.sizeSp, 16f)
         views.setTextViewTextSize(R.id.quote_text, TypedValue.COMPLEX_UNIT_SP, sp)
         views.setTextViewTextSize(R.id.quote_author, TypedValue.COMPLEX_UNIT_SP, sp * 0.85f)
         // Themes frame the expanded quote in their own artwork. The collapsed view is too short for a
@@ -123,7 +145,7 @@ object QuoteNotifier {
             // Outer view shows the artwork as a frame; the inner card is the theme colour at the
             // user's chosen opacity.
             views.setInt(R.id.quote_root, "setBackgroundResource", theme.notificationFrame!!)
-            val frame = (6 * density).toInt()
+            val frame = (card.frameDp * density).toInt()
             views.setViewPadding(R.id.quote_root, frame, frame, frame, frame)
             val alpha = (QuotePrefs(context).cardOpacity * 255).toInt().coerceIn(0, 255)
             val card = (alpha shl 24) or (theme.cardColor!! and 0x00FFFFFF)
@@ -133,8 +155,8 @@ object QuoteNotifier {
             } else {
                 views.setInt(R.id.quote_inner, "setBackgroundColor", card)
             }
-            val h = (10 * density).toInt()
-            val v = (8 * density).toInt()
+            val h = (CardFit.INNER_H_DP * density).toInt()
+            val v = (CardFit.INNER_V_DP * density).toInt()
             views.setViewPadding(R.id.quote_inner, h, v, h, v)
         }
         val textColor = style.color ?: if (framed) theme.notificationText else null
