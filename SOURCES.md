@@ -52,6 +52,7 @@ editions below, or a translation made for this app and labelled `(tr. Claude)`.
 | Rabindranath Tagore | Stray Birds; Gitanjali; The Gardener; Fruit-Gathering; Sadhana | the author's own English versions (1912–1916) | Project Gutenberg #6524, #7164, #6686, #6522, #6842 |
 | William Shakespeare | Plays (Hamlet, Macbeth, The Tempest, A Midsummer Night's Dream, As You Like It, The Merchant of Venice, Romeo and Juliet, Twelfth Night, King Lear, Othello, Julius Caesar, Henry V, Cymbeline, Antony and Cleopatra, Measure for Measure) and the Sonnets | original English, as in the Project Gutenberg Complete Works | Project Gutenberg #100 |
 | Walt Whitman | Leaves of Grass | original English | Project Gutenberg #1322 |
+| Max Ehrmann | Desiderata (1927), in stanza-length passages | original English | Wikisource ("Desiderata"); public domain in the US |
 | Emily Dickinson | Poems, Series One to Three | original English (1890s editions) | Project Gutenberg #12242 |
 | William Blake | Songs of Innocence and of Experience; Poems of William Blake (incl. The Marriage of Heaven and Hell) | original English | Project Gutenberg #1934, #574 |
 | Giacomo Leopardi | Essays and Dialogues | Charles Edwardes and Patrick Maxwell (1893) | Project Gutenberg #52356 |

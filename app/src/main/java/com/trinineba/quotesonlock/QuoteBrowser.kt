@@ -66,6 +66,7 @@ fun QuoteBrowser(
         }
     }
     var query by rememberSaveable(page) { mutableStateOf("") }
+    var favorites by remember { mutableStateOf(repo.favorites().map { it.text }.toSet()) }
     val shown = remember(all, query) {
         val q = query.trim()
         when {
@@ -156,6 +157,11 @@ fun QuoteBrowser(
                         Row {
                             TextButton(onClick = { onShow(quote) }) { Text("Show now") }
                             TextButton(onClick = { QuoteClipboard.copy(context, quote) }) { Text("Copy") }
+                            val favorite = quote.text in favorites
+                            TextButton(onClick = {
+                                repo.toggleFavorite(quote)
+                                favorites = repo.favorites().map { it.text }.toSet()
+                            }) { Text(if (favorite) "♥ Favourite" else "♡ Favourite") }
                         }
                     }
                 }

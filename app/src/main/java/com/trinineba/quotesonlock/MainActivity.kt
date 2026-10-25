@@ -162,6 +162,8 @@ private fun QuotesScreen(
     var current by remember { mutableStateOf(repo.current()) }
     var canGoBack by remember { mutableStateOf(repo.hasPrevious()) }
     var custom by remember { mutableStateOf(repo.custom()) }
+    var favorites by remember { mutableStateOf(repo.favorites()) }
+    var favoritesOnly by remember { mutableStateOf(prefs.favoritesOnly) }
     var newText by rememberSaveable { mutableStateOf("") }
     var newAuthor by rememberSaveable { mutableStateOf("") }
     var page by rememberSaveable { mutableStateOf(Page.HOME) }
@@ -265,16 +267,32 @@ private fun QuotesScreen(
         if (shown == null || repo.pool().none { it.text == shown.text }) nextQuote()
     }
 
+    fun toggleFavorite(quote: Quote) {
+        repo.toggleFavorite(quote)
+        favorites = repo.favorites()
+    }
+
+    fun setFavoritesOnly(on: Boolean) {
+        favoritesOnly = on
+        prefs.favoritesOnly = on
+        val shown = current
+        if (on && (shown == null || favorites.none { it.text == shown.text })) nextQuote()
+    }
+
     browse.lastOrNull()?.let { bp ->
         QuoteBrowser(
             page = bp,
             repo = repo,
-            onBack = { browse = browse.dropLast(1) },
+            onBack = {
+                browse = browse.dropLast(1)
+                favorites = repo.favorites()
+            },
             onShow = { quote ->
                 current = repo.show(quote)
                 canGoBack = repo.hasPrevious()
                 if (enabled) QuoteNotifier.show(context, quote)
                 browse = emptyList()
+                favorites = repo.favorites()
                 page = Page.HOME
             },
             onOpenAuthor = { browse = browse + BrowsePage.author(it) },
@@ -342,18 +360,39 @@ private fun QuotesScreen(
                             fontSize = (quoteSize.sizeSp + 2).sp,
                             color = textColor,
                         )
-                        quote.author?.let {
-                            val name = authorName(it)
-                            Text(
-                                if (name != null) "— $it ›" else "— $it",
-                                fontFamily = family,
-                                fontSize = (quoteSize.sizeSp * 0.9f).sp,
-                                color = if (quoteColor == null && theme != AppTheme.CLASSIC) MaterialTheme.colorScheme.primary else textColor,
-                                // Tap the author to see all of their quotes.
-                                modifier = if (name != null) {
-                                    Modifier.clickable(onClickLabel = "All quotes by $name") { browse = listOf(BrowsePage.author(name)) }
-                                } else Modifier,
-                            )
+                        Row(verticalAlignment = Alignment.CenterVertically) {
+                            val author = quote.author
+                            if (author != null) {
+                                val name = authorName(author)
+                                Text(
+                                    if (name != null) "— $author ›" else "— $author",
+                                    fontFamily = family,
+                                    fontSize = (quoteSize.sizeSp * 0.9f).sp,
+                                    color = if (quoteColor == null && theme != AppTheme.CLASSIC) MaterialTheme.colorScheme.primary else textColor,
+                                    // Tap the author to see all of their quotes.
+                                    modifier = Modifier.weight(1f).then(
+                                        if (name != null) {
+                                            Modifier.clickable(onClickLabel = "All quotes by $name") { browse = listOf(BrowsePage.author(name)) }
+                                        } else Modifier
+                                    ),
+                                )
+                            } else {
+                                Spacer(Modifier.weight(1f))
+                            }
+                            val favorite = favorites.any { it.text == quote.text }
+                            Box(
+                                modifier = Modifier
+                                    .size(44.dp)
+                                    .clip(CircleShape)
+                                    .clickable(onClickLabel = if (favorite) "Remove from favourites" else "Add to favourites") { toggleFavorite(quote) },
+                                contentAlignment = Alignment.Center,
+                            ) {
+                                Text(
+                                    if (favorite) "♥" else "♡",
+                                    style = MaterialTheme.typography.headlineSmall,
+                                    color = if (favorite) Color(0xFFE0566B) else MaterialTheme.colorScheme.onSurfaceVariant,
+                                )
+                            }
                         }
                     }
                     Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
@@ -376,7 +415,8 @@ private fun QuotesScreen(
             Tile("✦", "Themes", theme.label + if (theme.motionLabel != null && animate) " · moving" else "") { page = Page.THEMES },
             Tile("Aa", "Text style", "${quoteFont.label} · ${quoteSize.label}") { page = Page.STYLE },
             Tile("◷", "Schedule", "Every " + (INTERVALS.firstOrNull { it.first == interval }?.second?.lowercase() ?: "$interval min")) { page = Page.SCHEDULE },
-            Tile("♡", "My quotes", if (custom.isEmpty()) "Add your own" else "${custom.size} saved") { page = Page.MINE },
+            Tile("♥", "Favourites", if (favorites.isEmpty()) "Tap ♡ on a quote to save it" else "${favorites.size} saved" + if (favoritesOnly) " · only these" else "") { page = Page.FAVORITES },
+            Tile("✎", "My quotes", if (custom.isEmpty()) "Add your own" else "${custom.size} added") { page = Page.MINE },
         )
         tiles.chunked(2).forEachIndexed { i, pair ->
             item(key = "tiles-$i") {
@@ -816,6 +856,63 @@ private fun QuotesScreen(
         }
     }
 
+    fun LazyListScope.favoritesPage() {
+        item(key = "f-only") {
+            SettingsCard("Lock screen") {
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    Text(
+                        "Only show favourites",
+                        style = MaterialTheme.typography.bodyLarge,
+                        modifier = Modifier.weight(1f),
+                    )
+                    Switch(checked = favoritesOnly, onCheckedChange = { setFavoritesOnly(it) })
+                }
+                Text(
+                    if (favoritesOnly && favorites.isEmpty()) {
+                        "You have no favourites yet, so every enabled quote type is used for now."
+                    } else {
+                        "When on, the lock screen rotates only through the quotes saved here."
+                    },
+                    style = MaterialTheme.typography.bodySmall,
+                )
+            }
+        }
+        if (favorites.isEmpty()) {
+            item(key = "f-empty") {
+                Text(
+                    "No favourites yet. Tap ♡ next to a quote on the home screen, or \"♡ Favourite\" in Browse & search.",
+                    style = MaterialTheme.typography.bodyMedium,
+                )
+            }
+        }
+        items(favorites.asReversed(), key = { "fav-" + it.text.hashCode() + it.author }) { quote ->
+            Card(Modifier.fillMaxWidth()) {
+                Column(Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(4.dp)) {
+                    Text("“${quote.text}”")
+                    quote.author?.let { label ->
+                        val name = authorName(label)
+                        Text(
+                            "— $label",
+                            style = MaterialTheme.typography.bodySmall,
+                            color = if (name != null) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onSurfaceVariant,
+                            modifier = if (name != null) Modifier.clickable { browse = listOf(BrowsePage.author(name)) } else Modifier,
+                        )
+                    }
+                    Row {
+                        TextButton(onClick = {
+                            current = repo.show(quote)
+                            canGoBack = repo.hasPrevious()
+                            if (enabled) QuoteNotifier.show(context, quote)
+                            page = Page.HOME
+                        }) { Text("Show now") }
+                        TextButton(onClick = { QuoteClipboard.copy(context, quote) }) { Text("Copy") }
+                        TextButton(onClick = { toggleFavorite(quote) }) { Text("Remove") }
+                    }
+                }
+            }
+        }
+    }
+
     fun LazyListScope.aboutPage() {
         item(key = "a-intro") {
             SettingsCard("How the quotes are chosen") {
@@ -852,6 +949,7 @@ private fun QuotesScreen(
                 Page.THEMES -> themesPage()
                 Page.STYLE -> stylePage()
                 Page.SCHEDULE -> schedulePage()
+                Page.FAVORITES -> favoritesPage()
                 Page.MINE -> minePage()
                 Page.ABOUT -> aboutPage()
             }
@@ -866,6 +964,7 @@ private enum class Page(val title: String) {
     THEMES("Themes"),
     STYLE("Text style"),
     SCHEDULE("Schedule"),
+    FAVORITES("Favourites"),
     MINE("My quotes"),
     ABOUT("About & sources"),
 }

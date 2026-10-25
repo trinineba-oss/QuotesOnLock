@@ -72,8 +72,40 @@ class QuoteRepository(
         prefs.customJson = array.toString()
     }
 
+    fun favorites(): List<Quote> {
+        val raw = prefs.favoritesJson ?: return emptyList()
+        return try {
+            val array = JSONArray(raw)
+            (0 until array.length()).map { i ->
+                val obj = array.getJSONObject(i)
+                Quote(obj.getString("text"), obj.optString("author").ifBlank { null })
+            }
+        } catch (e: JSONException) {
+            emptyList()
+        }
+    }
+
+    fun isFavorite(quote: Quote): Boolean = favorites().any { it.text == quote.text }
+
+    /** Adds or removes [quote]; returns whether it is now a favourite. */
+    fun toggleFavorite(quote: Quote): Boolean {
+        val current = favorites()
+        val nowFavorite = current.none { it.text == quote.text }
+        val updated = if (nowFavorite) current + Quote(quote.text, quote.author) else current.filterNot { it.text == quote.text }
+        val array = JSONArray()
+        updated.forEach { q ->
+            array.put(JSONObject().apply {
+                put("text", q.text)
+                if (q.author != null) put("author", q.author)
+            })
+        }
+        prefs.favoritesJson = array.toString()
+        return nowFavorite
+    }
+
     /** The quotes eligible for rotation, based on the categories the user turned on. */
     fun pool(): List<Quote> {
+        if (prefs.favoritesOnly) favorites().takeIf { it.isNotEmpty() }?.let { return it }
         val enabled = prefs.enabledCategories
         val mine = if (Category.CUSTOM in enabled) custom() else emptyList()
         return mine + bundled().filter { q -> q.category?.let { it in enabled } == true }

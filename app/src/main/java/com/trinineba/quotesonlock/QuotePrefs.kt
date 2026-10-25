@@ -104,6 +104,16 @@ class QuotePrefs(context: Context) {
         get() = prefs.getString("history", null)
         set(value) = prefs.edit().putString("history", value).apply()
 
+    /** Favourite quotes as JSON ({text, author}), newest last. */
+    var favoritesJson: String?
+        get() = prefs.getString("favorites", null)
+        set(value) = prefs.edit().putString("favorites", value).apply()
+
+    /** Rotate only through favourites (when there are any). */
+    var favoritesOnly: Boolean
+        get() = prefs.getBoolean("favorites_only", false)
+        set(value) = prefs.edit().putBoolean("favorites_only", value).apply()
+
     var customJson: String?
         get() = prefs.getString("custom", null)
         set(value) = prefs.edit().putString("custom", value).apply()

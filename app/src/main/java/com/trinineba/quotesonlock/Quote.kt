@@ -130,6 +130,8 @@ enum class Category(val key: String, val label: String, val group: QuoteGroup) {
     CAMPBELL("campbell", "Joseph Campbell", QuoteGroup.THINKERS),
     MUSASHI("musashi", "Miyamoto Musashi", QuoteGroup.THINKERS),
     SONTAG("sontag", "Susan Sontag", QuoteGroup.WRITERS),
+    DESIDERATA("desiderata", "Desiderata (Max Ehrmann)", QuoteGroup.POETS),
+    KIPLING("kipling", "Rudyard Kipling", QuoteGroup.POETS),
     QURAN("quran", "The Qur'an", QuoteGroup.SCRIPTURE),
     CUSTOM("custom", "My own quotes", QuoteGroup.MINE);
 
