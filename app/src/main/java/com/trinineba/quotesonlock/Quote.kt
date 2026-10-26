@@ -171,6 +171,46 @@ enum class Category(val key: String, val label: String, val group: QuoteGroup) {
     HAMSUN("hamsun", "Knut Hamsun", QuoteGroup.WRITERS),
     NAIPAUL("naipaul", "V. S. Naipaul", QuoteGroup.WRITERS),
     WALCOTT("walcott", "Derek Walcott", QuoteGroup.POETS),
+    ARISTOTLE("aristotle", "Aristotle", QuoteGroup.THINKERS),
+    CICERO("cicero", "Cicero", QuoteGroup.THINKERS),
+    PLUTARCH("plutarch", "Plutarch", QuoteGroup.THINKERS),
+    VIRGIL("virgil", "Virgil", QuoteGroup.POETS),
+    OVID("ovid", "Ovid", QuoteGroup.POETS),
+    THUCYDIDES("thucydides", "Thucydides", QuoteGroup.WRITERS),
+    TERESA("teresa", "Teresa of Ávila", QuoteGroup.SCRIPTURE),
+    JOHNCROSS("johncross", "John of the Cross", QuoteGroup.SCRIPTURE),
+    HILDEGARD("hildegard", "Hildegard of Bingen", QuoteGroup.SCRIPTURE),
+    MENCIUS("mencius", "Mencius", QuoteGroup.THINKERS),
+    ZENPOETS("zenpoets", "Ryōkan & Ikkyū", QuoteGroup.POETS),
+    CERVANTES("cervantes", "Miguel de Cervantes", QuoteGroup.WRITERS),
+    MARYSHELLEY("maryshelley", "Mary Shelley", QuoteGroup.WRITERS),
+    AUSTEN("austen", "Jane Austen", QuoteGroup.WRITERS),
+    DICKENS("dickens", "Charles Dickens", QuoteGroup.WRITERS),
+    STENDHAL("stendhal", "Stendhal", QuoteGroup.WRITERS),
+    BALZAC("balzac", "Honoré de Balzac", QuoteGroup.WRITERS),
+    GOGOL("gogol", "Nikolai Gogol", QuoteGroup.WRITERS),
+    TWAIN("twain", "Mark Twain", QuoteGroup.WRITERS),
+    HENRYJAMES("henryjames", "Henry James", QuoteGroup.WRITERS),
+    VOLTAIRE("voltaire", "Voltaire", QuoteGroup.THINKERS),
+    KANT("kant", "Immanuel Kant", QuoteGroup.THINKERS),
+    BERGSON("bergson", "Henri Bergson", QuoteGroup.THINKERS),
+    MANDELSTAM("mandelstam", "Osip Mandelstam", QuoteGroup.POETS),
+    PASTERNAK("pasternak", "Boris Pasternak", QuoteGroup.POETS),
+    BRODSKY("brodsky", "Joseph Brodsky", QuoteGroup.POETS),
+    HEANEY("heaney", "Seamus Heaney", QuoteGroup.POETS),
+    JACKGILBERT("jackgilbert", "Jack Gilbert", QuoteGroup.POETS),
+    SEFERIS("seferis", "George Seferis", QuoteGroup.POETS),
+    WENDELLBERRY("wendellberry", "Wendell Berry", QuoteGroup.POETS),
+    COHEN("cohen", "Leonard Cohen", QuoteGroup.POETS),
+    DILLARD("dillard", "Annie Dillard", QuoteGroup.WRITERS),
+    LEGUIN("leguin", "Ursula K. Le Guin", QuoteGroup.WRITERS),
+    MORRISON("morrison", "Toni Morrison", QuoteGroup.WRITERS),
+    SOLNIT("solnit", "Rebecca Solnit", QuoteGroup.WRITERS),
+    ECO("eco", "Umberto Eco", QuoteGroup.WRITERS),
+    HUXLEY("huxley", "Aldous Huxley", QuoteGroup.WRITERS),
+    SOLZHENITSYN("solzhenitsyn", "Aleksandr Solzhenitsyn", QuoteGroup.WRITERS),
+    VUONG("vuong", "Ocean Vuong", QuoteGroup.POETS),
+    HADOT("hadot", "Pierre Hadot", QuoteGroup.THINKERS),
     QURAN("quran", "The Qur'an", QuoteGroup.SCRIPTURE),
     CUSTOM("custom", "My own quotes", QuoteGroup.MINE);
 
@@ -179,7 +219,7 @@ enum class Category(val key: String, val label: String, val group: QuoteGroup) {
 
         /** Authors still in copyright, whose quotes are short excerpts, so they can be switched off together. */
         val MODERN: List<Category> by lazy {
-            listOf(CAMUS, HESSE, MURAKAMI, EINSTEIN, FRANKL, PESSOA, BORGES, CIORAN, WEIL, NERUDA, OLIVER, SZYMBORSKA, KUNDERA, SARTRE, WATTS, KRISHNAMURTI, MURDOCH, BECKER, BUKOWSKI, NIN, KAZANTZAKIS, BUBER, ARENDT, BEAUVOIR, BECKETT, FROMM, MAY, MERTON, NHATHANH, YALOM, CAMPBELL, MUSASHI, SONTAG, BALDWIN, SAINTEXUPERY, CSLEWIS, ZWEIG, LISPECTOR, HAMMARSKJOLD, MARQUEZ, PAZ, CALVINO, SARAMAGO, AKHMATOVA, TSVETAEVA, MILOSZ, TRANSTROMER, CELAN, SEBALD, BACHELARD, TEILHARD, BULGAKOV, NAIPAUL, WALCOTT)
+            listOf(CAMUS, HESSE, MURAKAMI, EINSTEIN, FRANKL, PESSOA, BORGES, CIORAN, WEIL, NERUDA, OLIVER, SZYMBORSKA, KUNDERA, SARTRE, WATTS, KRISHNAMURTI, MURDOCH, BECKER, BUKOWSKI, NIN, KAZANTZAKIS, BUBER, ARENDT, BEAUVOIR, BECKETT, FROMM, MAY, MERTON, NHATHANH, YALOM, CAMPBELL, MUSASHI, SONTAG, BALDWIN, SAINTEXUPERY, CSLEWIS, ZWEIG, LISPECTOR, HAMMARSKJOLD, MARQUEZ, PAZ, CALVINO, SARAMAGO, AKHMATOVA, TSVETAEVA, MILOSZ, TRANSTROMER, CELAN, SEBALD, BACHELARD, TEILHARD, BULGAKOV, NAIPAUL, WALCOTT, ZENPOETS, MANDELSTAM, PASTERNAK, BRODSKY, HEANEY, JACKGILBERT, SEFERIS, WENDELLBERRY, COHEN, DILLARD, LEGUIN, MORRISON, SOLNIT, ECO, HUXLEY, SOLZHENITSYN, VUONG, HADOT)
         }
     }
 }
