@@ -82,6 +82,21 @@ editions below, or a translation made for this app and labelled `(tr. Claude)`.
 | Thomas Hardy (more) | Poems; Tess, Far from the Madding Crowd, The Return of the Native, Jude the Obscure | original English | Project Gutenberg #3168, #2863, #2997, #3255, #110, #107, #122, #153 |
 | William Blake (more) | The Marriage of Heaven and Hell; Poems; Songs of Innocence and of Experience; letter to Trusler | original English | Project Gutenberg #45315, #79363, #1934, #60448 |
 | Charles Baudelaire (more) | Intimate Papers; Les Fleurs du mal; Paris Spleen | Joseph T. Shipley, F. P. Sturm, W. J. Robertson | Project Gutenberg #47032, #36287 |
+| Aristotle | Nicomachean Ethics; Poetics; Politics | D. P. Chase; S. H. Butcher; William Ellis | Project Gutenberg #8438, #1974, #6762 |
+| Cicero | On Friendship; On Old Age; Tusculan Disputations; On Duties | E. S. Shuckburgh; C. D. Yonge; Walter Miller | Project Gutenberg #2808, #14988, #47001 |
+| Plutarch | Moral essays | A. R. Shilleto | Project Gutenberg #23639 |
+| Virgil | Aeneid; Georgics; Eclogues | John Dryden; J. W. Mackail; James Rhoades | Project Gutenberg #228, #22456, #232, #230 |
+| Ovid | Metamorphoses; Ars Amatoria; Tristia | Henry T. Riley | Project Gutenberg #26073, #47677; Internet Archive |
+| Thucydides | History of the Peloponnesian War | Benjamin Jowett | Internet Archive |
+| Teresa of Ávila | Interior Castle; The Way of Perfection; Life | Benedictines of Stanbrook; David Lewis | CCEL; Internet Archive |
+| John of the Cross | Dark Night; Ascent of Mount Carmel; Spiritual Canticle; Living Flame; Maxims | David Lewis | Internet Archive |
+| Mencius | Works | James Legge (1875) | Internet Archive |
+| Cervantes, Mary Shelley, Austen, Dickens, Twain, Henry James | novels and sayings | original English / John Ormsby | Project Gutenberg |
+| Stendhal, Balzac, Gogol | On Love, The Red and the Black; Father Goriot, The Magic Skin, Eugénie Grandet; Dead Souls, The Mantle, tales | Woolf & Woolf, Horace B. Samuel; Ellen Marriage, K. P. Wormeley; D. J. Hogarth, Claud Field, Everyman 1918 | Project Gutenberg |
+| Voltaire | Philosophical Dictionary; Candide; Letters on England; Zadig | William F. Fleming; anonymous | Project Gutenberg |
+| Immanuel Kant | Critiques; Groundwork; Perpetual Peace; On Education | T. K. Abbott; J. H. Bernard; J. M. D. Meiklejohn; M. Campbell Smith; Annette Churton; W. Hastie | Project Gutenberg; Internet Archive |
+| Henri Bergson | Creative Evolution; Time and Free Will; Laughter; Mind-Energy; Matter and Memory | Arthur Mitchell; F. L. Pogson; Brereton & Rothwell; H. Wildon Carr; Paul & Palmer | Project Gutenberg; Internet Archive |
+| Kindness & hope (more) | Marcus Aurelius, George Eliot, the Dhammapada, Dickens, Shakespeare, Whitman, Emerson | Meric Casaubon; F. Max Müller | Project Gutenberg |
 | Emily Dickinson | Poems, Series One to Three | original English (1890s editions) | Project Gutenberg #12242 |
 | William Blake | Songs of Innocence and of Experience; Poems of William Blake (incl. The Marriage of Heaven and Hell) | original English | Project Gutenberg #1934, #574 |
 | Giacomo Leopardi | Essays and Dialogues | Charles Edwardes and Patrick Maxwell (1893) | Project Gutenberg #52356 |
@@ -184,7 +199,7 @@ The *Tractatus* lines are cut verbatim from Ogden's public-domain translation. W
 
 ### More modern authors (Goodreads excerpts)
 
-Bukowski, Anaïs Nin, Joseph Campbell, Miyamoto Musashi (in common English renderings of the *Dokkōdō* and *The Book of Five Rings*), Susan Sontag, James Baldwin, Antoine de Saint-Exupéry, C. S. Lewis, Stefan Zweig, Clarice Lispector, Dag Hammarskjöld (Markings, tr. W. H. Auden and Leif Sjöberg), Gabriel García Márquez (English translations by Gregory Rabassa, Edith Grossman and others), Octavio Paz, Italo Calvino, José Saramago, Anna Akhmatova, Marina Tsvetaeva, Czesław Miłosz, Tomas Tranströmer, Paul Celan, W. G. Sebald, Gaston Bachelard, Pierre Teilhard de Chardin, Mikhail Bulgakov, V. S. Naipaul, Derek Walcott, Nikos Kazantzakis, Martin Buber, Hannah Arendt, Simone de Beauvoir, Samuel Beckett, Erich Fromm, Rollo May, Thomas Merton, Thich Nhat Hanh and Irvin Yalom are still in copyright, so each appears as a short excerpt (one to four sentences) taken from Goodreads' most-liked quotes for that author and hand-filtered. Where a line could not be placed in a specific book, the label is the author's name alone. Goodreads texts are typed in by readers; if you spot a wrong attribution, please open an issue. Authors in this group are covered by the "Modern authors still in copyright" switch in settings.
+Bukowski, Anaïs Nin, Joseph Campbell, Miyamoto Musashi (in common English renderings of the *Dokkōdō* and *The Book of Five Rings*), Susan Sontag, James Baldwin, Antoine de Saint-Exupéry, C. S. Lewis, Stefan Zweig, Clarice Lispector, Dag Hammarskjöld (Markings, tr. W. H. Auden and Leif Sjöberg), Gabriel García Márquez (English translations by Gregory Rabassa, Edith Grossman and others), Octavio Paz, Italo Calvino, José Saramago, Anna Akhmatova, Marina Tsvetaeva, Czesław Miłosz, Tomas Tranströmer, Paul Celan, W. G. Sebald, Gaston Bachelard, Pierre Teilhard de Chardin, Mikhail Bulgakov, V. S. Naipaul, Derek Walcott, Ryōkan, Ikkyū, Osip Mandelstam, Boris Pasternak, Joseph Brodsky, Seamus Heaney, Jack Gilbert, George Seferis, Wendell Berry, Leonard Cohen, Annie Dillard, Ursula K. Le Guin, Toni Morrison, Rebecca Solnit, Umberto Eco, Aldous Huxley, Aleksandr Solzhenitsyn, Ocean Vuong, Pierre Hadot, Carl Sagan, Nikos Kazantzakis, Martin Buber, Hannah Arendt, Simone de Beauvoir, Samuel Beckett, Erich Fromm, Rollo May, Thomas Merton, Thich Nhat Hanh and Irvin Yalom are still in copyright, so each appears as a short excerpt (one to four sentences) taken from Goodreads' most-liked quotes for that author and hand-filtered. Where a line could not be placed in a specific book, the label is the author's name alone. Goodreads texts are typed in by readers; if you spot a wrong attribution, please open an issue. Authors in this group are covered by the "Modern authors still in copyright" switch in settings.
 
 ### Einstein
 
