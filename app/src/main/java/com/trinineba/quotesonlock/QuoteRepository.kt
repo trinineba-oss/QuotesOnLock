@@ -158,14 +158,19 @@ class QuoteRepository(
     /**
      * Picks a random quote that hasn't been shown yet in this pass through the pool and stores it.
      * Once every quote in the pool has been shown, the pass starts over, so nothing repeats until
-     * the whole pool has been seen (and never twice in a row).
+     * the whole pool has been seen (and never twice in a row). With repeats allowed, any quote but
+     * the current one can come up.
      */
     fun advance(): Quote? {
         val pool = pool()
         if (pool.isEmpty()) return null
         val currentText = prefs.currentText
         var seen = prefs.seen
-        var candidates = pool.filter { it.key() !in seen && it.text != currentText }
+        var candidates = if (prefs.allowRepeats) {
+            pool.filter { it.text != currentText }
+        } else {
+            pool.filter { it.key() !in seen && it.text != currentText }
+        }
         if (candidates.isEmpty()) {
             seen = emptySet()
             candidates = pool.filter { it.text != currentText }.ifEmpty { pool }

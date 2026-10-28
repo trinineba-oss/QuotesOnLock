@@ -171,6 +171,7 @@ private fun QuotesScreen(
     val context = LocalContext.current
     var enabled by remember { mutableStateOf(prefs.enabled) }
     var interval by remember { mutableStateOf(prefs.intervalMinutes) }
+    var allowRepeats by remember { mutableStateOf(prefs.allowRepeats) }
     var quoteFont by remember { mutableStateOf(prefs.font) }
     var quoteSize by remember { mutableStateOf(prefs.size) }
     var quoteColor by remember { mutableStateOf(prefs.textColor) }
@@ -895,10 +896,23 @@ private fun QuotesScreen(
                         )
                     }
                 }
-                Text(
-                    "Quotes never repeat until every enabled quote has been shown.",
-                    style = MaterialTheme.typography.bodySmall,
-                )
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    Column(Modifier.weight(1f)) {
+                        Text("Allow repeats")
+                        Text(
+                            if (allowRepeats) {
+                                "Any quote can come up again at any time (never twice in a row)."
+                            } else {
+                                "Quotes never repeat until every enabled quote has been shown."
+                            },
+                            style = MaterialTheme.typography.bodySmall,
+                        )
+                    }
+                    Switch(checked = allowRepeats, onCheckedChange = {
+                        allowRepeats = it
+                        prefs.allowRepeats = it
+                    })
+                }
             }
         }
         item(key = "sch-notif") {

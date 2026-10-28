@@ -59,6 +59,11 @@ class QuotePrefs(context: Context) {
         get() = prefs.getInt("card_part", 0)
         set(value) = prefs.edit().putInt("card_part", value).apply()
 
+    /** Pick freely each time instead of going through every quote before any repeats. */
+    var allowRepeats: Boolean
+        get() = prefs.getBoolean("allow_repeats", false)
+        set(value) = prefs.edit().putBoolean("allow_repeats", value).apply()
+
     /** Check GitHub weekly for a new build. */
     var updateCheck: Boolean
         get() = prefs.getBoolean("update_check", true)
