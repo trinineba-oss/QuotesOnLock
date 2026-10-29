@@ -231,4 +231,6 @@ data class Quote(
     /** Null for a quote restored from storage for display only. */
     val category: Category? = null,
     val id: String = "",
+    /** Subject keys (see [Subject]); empty when the tagger found none. */
+    val subjects: List<String> = emptyList(),
 )

@@ -209,6 +209,7 @@ private fun QuotesScreen(
     var wallpaperQuote by remember { mutableStateOf(prefs.wallpaperShowQuote) }
     var wallpaperPosition by remember { mutableStateOf(prefs.wallpaperQuotePosition) }
     val sources = remember { readSources(context) }
+    val subjectCounts = remember { repo.bundled().flatMap { it.subjects }.groupingBy { it }.eachCount() }
     // Open pages of the quote browser, innermost last; empty means the main screen.
     var browse by rememberSaveable(stateSaver = androidx.compose.runtime.saveable.listSaver<List<String>, String>(save = { it }, restore = { it })) { mutableStateOf(emptyList<String>()) }
 
@@ -494,6 +495,11 @@ private fun QuotesScreen(
                             modifier = Modifier.weight(1f),
                         ) { Text("Copy") }
                     }
+                    OutlinedButton(
+                        onClick = { quote?.let { QuoteShare.share(context, it) } },
+                        enabled = quote != null,
+                        modifier = Modifier.fillMaxWidth(),
+                    ) { Text("Share as image") }
                 }
             }
         }
@@ -502,6 +508,7 @@ private fun QuotesScreen(
         val tiles = listOf(
             Tile("❝", "Quotes & authors", "$onCount of $typeCount types on") { page = Page.QUOTES },
             Tile("⌕", "Browse & search", "Find any line or author") { browse = listOf(BrowsePage.SEARCH) },
+            Tile("◈", "Subjects", "Love, time, solitude\u2026 across all authors") { page = Page.SUBJECTS },
             Tile("✦", "Themes", theme.label + if (theme.motionLabel != null && animate) " · moving" else "") { page = Page.THEMES },
             Tile("Aa", "Text style", "${quoteFont.label} · ${quoteSize.label}") { page = Page.STYLE },
             Tile("◷", "Schedule", "Every " + (INTERVALS.firstOrNull { it.first == interval }?.second?.lowercase() ?: "$interval min")) { page = Page.SCHEDULE },
@@ -987,6 +994,29 @@ private fun QuotesScreen(
         }
     }
 
+    fun LazyListScope.subjectsPage() {
+        item(key = "s-intro") {
+            Text(
+                "Browse by what a quote is about, across every author. Each quote is tagged automatically from its " +
+                    "words, so a few may sit under a subject loosely and some are untagged; every quote is still under " +
+                    "its author.",
+                style = MaterialTheme.typography.bodyMedium,
+            )
+        }
+        items(Subject.entries.filter { (subjectCounts[it.key] ?: 0) > 0 }, key = { "subject-" + it.key }) { subject ->
+            Card(onClick = { browse = listOf(BrowsePage.subject(subject)) }, modifier = Modifier.fillMaxWidth()) {
+                Row(Modifier.padding(16.dp), verticalAlignment = Alignment.CenterVertically) {
+                    Text(subject.label, style = MaterialTheme.typography.titleMedium, modifier = Modifier.weight(1f))
+                    Text(
+                        "${subjectCounts[subject.key]} \u203A",
+                        style = MaterialTheme.typography.bodyMedium,
+                        color = MaterialTheme.colorScheme.primary,
+                    )
+                }
+            }
+        }
+    }
+
     fun LazyListScope.favoritesPage() {
         item(key = "f-only") {
             SettingsCard("Lock screen") {
@@ -1030,14 +1060,16 @@ private fun QuotesScreen(
                         )
                     }
                     Row {
+                        val compact = PaddingValues(horizontal = 10.dp, vertical = 8.dp)
                         TextButton(onClick = {
                             current = repo.show(quote)
                             canGoBack = repo.hasPrevious()
                             if (enabled) QuoteNotifier.show(context, quote)
                             page = Page.HOME
-                        }) { Text("Show now") }
-                        TextButton(onClick = { QuoteClipboard.copy(context, quote) }) { Text("Copy") }
-                        TextButton(onClick = { toggleFavorite(quote) }) { Text("Remove") }
+                        }, contentPadding = compact) { Text("Show now") }
+                        TextButton(onClick = { QuoteClipboard.copy(context, quote) }, contentPadding = compact) { Text("Copy") }
+                        TextButton(onClick = { QuoteShare.share(context, quote) }, contentPadding = compact) { Text("Share") }
+                        TextButton(onClick = { toggleFavorite(quote) }, contentPadding = compact) { Text("Remove") }
                     }
                 }
             }
@@ -1121,6 +1153,7 @@ private fun QuotesScreen(
                 Page.STYLE -> stylePage()
                 Page.SCHEDULE -> schedulePage()
                 Page.FAVORITES -> favoritesPage()
+                Page.SUBJECTS -> subjectsPage()
                 Page.MINE -> minePage()
                 Page.ABOUT -> aboutPage()
             }
@@ -1136,6 +1169,7 @@ private enum class Page(val title: String) {
     STYLE("Text style"),
     SCHEDULE("Schedule"),
     FAVORITES("Favourites"),
+    SUBJECTS("Subjects"),
     MINE("My quotes"),
     ABOUT("About & updates"),
 }

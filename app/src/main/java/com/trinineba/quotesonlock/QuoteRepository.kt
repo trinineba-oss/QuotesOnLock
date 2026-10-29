@@ -14,20 +14,22 @@ class QuoteRepository(
 
     fun bundled(): List<Quote> = bundledCache ?: loadBundled().also { bundledCache = it }
 
-    /** Lines look like `category|text|author`; a literal `\n` in the text is a line break. */
+    /** Lines look like `category|text|author|subjects`; a literal `\n` in the text is a line break. */
     private fun loadBundled(): List<Quote> =
         appContext.resources.openRawResource(R.raw.quotes).bufferedReader().useLines { lines ->
             lines
                 .map { it.trim() }
                 .filter { it.isNotEmpty() && !it.startsWith("#") }
                 .mapNotNull { line ->
-                    val category = Category.fromKey(line.substringBefore('|').trim())
-                    val rest = line.substringAfter('|', "")
-                    if (category == null || !rest.contains('|')) return@mapNotNull null
+                    // Quotes never contain '|', so the fields split cleanly; subjects are optional.
+                    val parts = line.split('|')
+                    val category = Category.fromKey(parts[0].trim())
+                    if (category == null || parts.size < 3) return@mapNotNull null
                     Quote(
-                        text = rest.substringBeforeLast('|').trim().replace("\\n", "\n"),
-                        author = rest.substringAfterLast('|').trim().ifBlank { null },
+                        text = parts[1].trim().replace("\\n", "\n"),
+                        author = parts[2].trim().ifBlank { null },
                         category = category,
+                        subjects = parts.getOrNull(3)?.split(',')?.map { it.trim() }?.filter { it.isNotEmpty() } ?: emptyList(),
                     )
                 }
                 .toList()

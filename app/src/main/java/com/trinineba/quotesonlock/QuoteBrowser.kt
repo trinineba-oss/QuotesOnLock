@@ -34,6 +34,7 @@ import androidx.compose.ui.unit.dp
 object BrowsePage {
     fun category(category: Category) = "c:${category.key}"
     fun author(name: String) = "a:$name"
+    fun subject(subject: Subject) = "t:${subject.key}"
 
     /** Every quote, searchable; lists all authors A–Z until you type. */
     const val SEARCH = "s:"
@@ -56,12 +57,14 @@ fun QuoteBrowser(
 
     val category = if (page.startsWith("c:")) Category.fromKey(page.removePrefix("c:")) else null
     val author = if (page.startsWith("a:")) page.removePrefix("a:") else null
+    val subject = if (page.startsWith("t:")) Subject.fromKey(page.removePrefix("t:")) else null
     val searching = page == BrowsePage.SEARCH
     val all = remember(page) {
         when {
             searching -> repo.custom() + repo.bundled()
             category == Category.CUSTOM -> repo.custom()
             category != null -> repo.bundled().filter { it.category == category }
+            subject != null -> repo.bundled().filter { subject.key in it.subjects }
             else -> (repo.custom() + repo.bundled()).filter { authorName(it.author) == author }
         }
     }
@@ -97,7 +100,7 @@ fun QuoteBrowser(
             item {
                 Column {
                     Text(
-                        if (searching) "Browse & search" else category?.label ?: author.orEmpty(),
+                        if (searching) "Browse & search" else category?.label ?: subject?.label ?: author.orEmpty(),
                         style = MaterialTheme.typography.headlineSmall,
                     )
                     Text(
@@ -155,13 +158,18 @@ fun QuoteBrowser(
                             )
                         }
                         Row {
-                            TextButton(onClick = { onShow(quote) }) { Text("Show now") }
-                            TextButton(onClick = { QuoteClipboard.copy(context, quote) }) { Text("Copy") }
+                            val compact = PaddingValues(horizontal = 10.dp, vertical = 8.dp)
+                            TextButton(onClick = { onShow(quote) }, contentPadding = compact) { Text("Show now") }
+                            TextButton(onClick = { QuoteClipboard.copy(context, quote) }, contentPadding = compact) { Text("Copy") }
+                            TextButton(onClick = { QuoteShare.share(context, quote) }, contentPadding = compact) { Text("Share") }
                             val favorite = quote.text in favorites
-                            TextButton(onClick = {
-                                repo.toggleFavorite(quote)
-                                favorites = repo.favorites().map { it.text }.toSet()
-                            }) { Text(if (favorite) "♥ Favourite" else "♡ Favourite") }
+                            TextButton(
+                                onClick = {
+                                    repo.toggleFavorite(quote)
+                                    favorites = repo.favorites().map { it.text }.toSet()
+                                },
+                                contentPadding = compact,
+                            ) { Text(if (favorite) "♥" else "♡", style = MaterialTheme.typography.titleMedium) }
                         }
                     }
                 }
