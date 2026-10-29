@@ -434,7 +434,8 @@ private fun QuotesScreen(
         item(key = "home-quote") {
             SoftCard(
                 modifier = Modifier.fillMaxWidth().then(
-                    if (theme == AppTheme.CLASSIC) Modifier
+                    // The thin outline suits a solid card; a soft edge fades out, so it has none.
+                if (theme == AppTheme.CLASSIC || cardSoftness >= 0.03f) Modifier
                     else Modifier.border(1.dp, MaterialTheme.colorScheme.primary.copy(alpha = 0.4f), CardDefaults.shape)
                 ),
             ) {
