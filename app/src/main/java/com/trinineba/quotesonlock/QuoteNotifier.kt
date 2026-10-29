@@ -55,7 +55,9 @@ object QuoteNotifier {
         val prefs = QuotePrefs(appContext)
         val style = prefs.style
         val lockTheme = prefs.lockTheme ?: prefs.theme
-        val card = CardFit.fit(appContext, quote.text, quote.author, style, lockTheme.notificationFrame != null)
+        // A soft-edged card needs a tintable layer-list, which RemoteViews can only tint on Android 12+.
+        val featherDp = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) CardFit.feather(prefs.cardSoftness) else 0
+        val card = CardFit.fit(appContext, quote.text, quote.author, style, lockTheme.notificationFrame != null, featherDp)
         // A new quote starts at its first part; tapping moves on and wraps round.
         val key = quote.text.hashCode()
         if (prefs.cardPartKey != key) {
@@ -147,16 +149,23 @@ object QuoteNotifier {
             views.setInt(R.id.quote_root, "setBackgroundResource", theme.notificationFrame!!)
             val frame = (card.frameDp * density).toInt()
             views.setViewPadding(R.id.quote_root, frame, frame, frame, frame)
-            val alpha = (QuotePrefs(context).cardOpacity * 255).toInt().coerceIn(0, 255)
-            val card = (alpha shl 24) or (theme.cardColor!! and 0x00FFFFFF)
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
-                views.setInt(R.id.quote_inner, "setBackgroundResource", R.drawable.notif_inner)
-                views.setColorStateList(R.id.quote_inner, "setBackgroundTintList", ColorStateList.valueOf(card))
-            } else {
-                views.setInt(R.id.quote_inner, "setBackgroundColor", card)
+            val opacity = QuotePrefs(context).cardOpacity
+            val soft = when (card.featherDp) {
+                8 -> R.drawable.notif_inner_soft1
+                16 -> R.drawable.notif_inner_soft2
+                28 -> R.drawable.notif_inner_soft3
+                else -> null
             }
-            val h = (CardFit.INNER_H_DP * density).toInt()
-            val v = (CardFit.INNER_V_DP * density).toInt()
+            val alpha = ((if (soft != null) CardFit.softTint(opacity) else opacity) * 255).toInt().coerceIn(0, 255)
+            val tint = (alpha shl 24) or (theme.cardColor!! and 0x00FFFFFF)
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+                views.setInt(R.id.quote_inner, "setBackgroundResource", soft ?: R.drawable.notif_inner)
+                views.setColorStateList(R.id.quote_inner, "setBackgroundTintList", ColorStateList.valueOf(tint))
+            } else {
+                views.setInt(R.id.quote_inner, "setBackgroundColor", tint)
+            }
+            val h = (CardFit.innerH(card.featherDp) * density).toInt()
+            val v = (CardFit.innerV(card.featherDp) * density).toInt()
             views.setViewPadding(R.id.quote_inner, h, v, h, v)
         }
         val textColor = style.color ?: if (framed) theme.notificationText else null

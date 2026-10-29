@@ -172,6 +172,7 @@ private fun QuotesScreen(
     var enabled by remember { mutableStateOf(prefs.enabled) }
     var interval by remember { mutableStateOf(prefs.intervalMinutes) }
     var allowRepeats by remember { mutableStateOf(prefs.allowRepeats) }
+    var cardSoftness by remember { mutableStateOf(prefs.cardSoftness) }
     var quoteFont by remember { mutableStateOf(prefs.font) }
     var quoteSize by remember { mutableStateOf(prefs.size) }
     var quoteColor by remember { mutableStateOf(prefs.textColor) }
@@ -730,7 +731,8 @@ private fun QuotesScreen(
             SettingsCard("Card opacity") {
                 Row(verticalAlignment = Alignment.CenterVertically) {
                     Text(
-                        "How solid the card behind the quote is. Lower shows more of the painting, sky or page.",
+                        "How strong the card behind the quote is. Lower shows more of the painting, sky or page; " +
+                            "0% leaves just the text.",
                         style = MaterialTheme.typography.bodySmall,
                         modifier = Modifier.weight(1f),
                     )
@@ -741,6 +743,29 @@ private fun QuotesScreen(
                     onValueChange = onCardOpacity,
                     onValueChangeFinished = {
                         prefs.cardOpacity = cardOpacity
+                        refreshNotification()
+                    },
+                    valueRange = 0f..1f,
+                )
+            }
+        }
+        item(key = "t-softness") {
+            SettingsCard("Soft edge") {
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    Text(
+                        "0% is a solid card with a clean edge. Higher fades the edges into the artwork, like a vignette. " +
+                            "Applies to the lock-screen card (Android 12+), the live wallpaper and shared pictures. " +
+                            "The lock-screen card has three steps of softness.",
+                        style = MaterialTheme.typography.bodySmall,
+                        modifier = Modifier.weight(1f),
+                    )
+                    Text("${(cardSoftness * 100).toInt()}%", modifier = Modifier.padding(start = 12.dp))
+                }
+                Slider(
+                    value = cardSoftness,
+                    onValueChange = { cardSoftness = it },
+                    onValueChangeFinished = {
+                        prefs.cardSoftness = cardSoftness
                         refreshNotification()
                     },
                     valueRange = 0f..1f,

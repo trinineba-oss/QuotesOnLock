@@ -144,7 +144,7 @@ class QuoteWallpaperService : WallpaperService() {
             val metrics = resources.displayMetrics
             QuoteArt.drawQuoteCard(
                 canvas, width, height, metrics.density, metrics.scaledDensity, theme, prefs.style,
-                text, prefs.currentAuthor, prefs.cardOpacity, prefs.wallpaperQuotePosition,
+                text, prefs.currentAuthor, prefs.cardOpacity, prefs.wallpaperQuotePosition, prefs.cardSoftness,
             )
         }
     }

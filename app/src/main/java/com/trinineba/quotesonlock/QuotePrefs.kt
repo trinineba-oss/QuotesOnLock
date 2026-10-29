@@ -74,6 +74,11 @@ class QuotePrefs(context: Context) {
         get() = prefs.getLong("notified_build", 0L)
         set(value) = prefs.edit().putLong("notified_build", value).apply()
 
+    /** How far the card's edges fade into the artwork: 0 = a solid card, 1 = a full vignette. */
+    var cardSoftness: Float
+        get() = prefs.getFloat("card_softness", 0f)
+        set(value) = prefs.edit().putFloat("card_softness", value.coerceIn(0f, 1f)).apply()
+
     /** Brightness of the northern lights, 0.5–2 (1 = normal). */
     var auroraIntensity: Float
         get() = prefs.getFloat("aurora_intensity", 1f)

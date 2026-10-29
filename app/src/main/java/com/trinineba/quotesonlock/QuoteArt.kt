@@ -90,6 +90,7 @@ internal object QuoteArt {
         author: String?,
         cardOpacity: Float,
         position: Float,
+        softness: Float = 0f,
     ) {
         val dark = !theme.isLight
         val textColor = style.color ?: theme.notificationText ?: Color.WHITE
@@ -97,7 +98,9 @@ internal object QuoteArt {
         val typeface = Typeface.create(style.font.family, Typeface.NORMAL)
         val base = style.size.sizeSp + 4f
         val margin = w * 0.09f
-        val pad = 18f * density
+        // A soft edge fades over this distance; the text is padded further in so it sits on solid colour.
+        val feather = softness.coerceIn(0f, 1f) * 36f * density
+        val pad = 18f * density + feather * 0.55f
         val textWidth = (w - 2 * margin - 2 * pad).toInt().coerceAtLeast(1)
         val gap = 10f * density
 
@@ -137,7 +140,11 @@ internal object QuoteArt {
             color = ((cardOpacity * 255).toInt().coerceIn(0, 255) shl 24) or (cardBase and 0x00FFFFFF)
         }
         val radius = 18f * density
-        canvas.drawRoundRect(card, radius, radius, cardPaint)
+        if (feather < 1f) {
+            canvas.drawRoundRect(card, radius, radius, cardPaint)
+        } else {
+            drawSoftCard(canvas, card, radius, feather, theme.cardColor ?: 0xFF000000.toInt(), cardOpacity)
+        }
 
         canvas.save()
         canvas.translate(margin + pad, top)
@@ -147,6 +154,30 @@ internal object QuoteArt {
             it.draw(canvas)
         }
         canvas.restore()
+    }
+
+    /**
+     * A card whose edge fades out: nested rounded rectangles, the outermost [feather] beyond [card]
+     * and the innermost [feather] inside it, each drawn so the layers add up to a smooth ramp from
+     * transparent to [opacity]. Plain alpha layering, so it works on any canvas.
+     */
+    private fun drawSoftCard(canvas: Canvas, card: RectF, radius: Float, feather: Float, color: Int, opacity: Float) {
+        val layers = 20
+        val paint = Paint(Paint.ANTI_ALIAS_FLAG)
+        val rect = RectF()
+        var covered = 0f
+        for (i in 0 until layers) {
+            val x = (i + 1f) / layers
+            val target = opacity.coerceIn(0f, 1f) * (x * x * (3f - 2f * x))
+            val a = if (covered >= 1f) 0f else (1f - (1f - target) / (1f - covered)).coerceIn(0f, 1f)
+            covered = target
+            if (a <= 0f) continue
+            val inset = -feather + 2f * feather * i / (layers - 1)
+            rect.set(card.left + inset, card.top + inset, card.right - inset, card.bottom - inset)
+            val r = (radius - inset).coerceAtLeast(2f)
+            paint.color = ((a * 255).toInt().coerceIn(0, 255) shl 24) or (color and 0x00FFFFFF)
+            canvas.drawRoundRect(rect, r, r, paint)
+        }
     }
 
     private fun layout(text: String, paint: TextPaint, width: Int): StaticLayout =

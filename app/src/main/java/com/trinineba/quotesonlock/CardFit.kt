@@ -7,7 +7,7 @@ import android.text.TextPaint
 import android.util.TypedValue
 
 /** How the expanded lock-screen card shows a quote: type size, frame width, and the parts to tap through. */
-class CardLayout(val sp: Float, val frameDp: Int, val parts: List<String>)
+class CardLayout(val sp: Float, val frameDp: Int, val parts: List<String>, val featherDp: Int = 0)
 
 /**
  * Notifications can't scroll and the expanded card is only about 256dp tall, so the quote is
@@ -21,10 +21,34 @@ object CardFit {
     private const val SIDE_DP = 64f
     /** Never shrink below this (or 80% of the chosen size); longer quotes are split into parts instead. */
     private const val MIN_SP = 13f
-    const val INNER_H_DP = 10
-    const val INNER_V_DP = 8
+    private const val INNER_H_DP = 10
+    private const val INNER_V_DP = 8
+    /** Layers in each notif_inner_soft drawable and the alpha of each (see [softTint]). */
+    private const val SOFT_LAYERS = 8
+    private const val SOFT_LAYER_ALPHA = 0.353f
 
-    fun fit(context: Context, text: String, author: String?, style: QuoteStyle, framed: Boolean): CardLayout {
+    /** Fade width (dp) of the soft-card drawable closest to [softness]; 0 means a solid card. */
+    fun feather(softness: Float): Int = when {
+        softness < 0.1f -> 0
+        softness < 0.4f -> 8
+        softness < 0.75f -> 16
+        else -> 28
+    }
+
+    fun innerH(featherDp: Int): Int = INNER_H_DP + (featherDp * 0.55f).toInt()
+    fun innerV(featherDp: Int): Int = INNER_V_DP + (featherDp * 0.5f).toInt()
+
+    /**
+     * Tint opacity for a soft card so that its solid middle ends up at [opacity]: the layers of the
+     * drawable each take a share of the tint, and together they add up to a plateau of [opacity].
+     */
+    fun softTint(opacity: Float): Float {
+        val o = opacity.coerceIn(0f, 1f)
+        val perLayer = 1f - Math.pow((1f - o).toDouble(), 1.0 / SOFT_LAYERS).toFloat()
+        return (perLayer / SOFT_LAYER_ALPHA).coerceAtMost(1f)
+    }
+
+    fun fit(context: Context, text: String, author: String?, style: QuoteStyle, framed: Boolean, featherDp: Int = 0): CardLayout {
         val paint = TextPaint(TextPaint.ANTI_ALIAS_FLAG).apply { typeface = Typeface.create(style.font.family, Typeface.NORMAL) }
         val frames = if (framed) listOf(6, 3) else listOf(0)
         val quoted = "“$text”"
@@ -32,24 +56,24 @@ object CardFit {
         val minSp = maxOf(MIN_SP, style.size.sizeSp * 0.8f)
         while (sp >= minSp) {
             for (frame in frames) {
-                val (width, budget) = space(context, paint, sp, frame, framed, author != null)
-                if (height(quoted, paint, width) <= budget) return CardLayout(sp, frame, listOf(text))
+                val (width, budget) = space(context, paint, sp, frame, framed, featherDp)
+                if (height(quoted, paint, width) <= budget) return CardLayout(sp, frame, listOf(text), featherDp)
             }
             sp -= 0.5f
         }
         // Too long even at the smallest size: split it, keeping a line spare for the "…" marks.
         val frame = frames.last()
-        val (width, budget) = space(context, paint, minSp, frame, framed, author != null)
+        val (width, budget) = space(context, paint, minSp, frame, framed, featherDp)
         val spare = paint.fontMetricsInt.let { it.descent - it.ascent }
-        return CardLayout(minSp, frame, split(text, paint, width, budget - spare))
+        return CardLayout(minSp, frame, split(text, paint, width, budget - spare), featherDp)
     }
 
     /** Text width and height available at [sp]; sets the paint's size. */
-    private fun space(context: Context, paint: TextPaint, sp: Float, frame: Int, framed: Boolean, hasAuthor: Boolean): Pair<Int, Int> {
+    private fun space(context: Context, paint: TextPaint, sp: Float, frame: Int, framed: Boolean, featherDp: Int): Pair<Int, Int> {
         val dm = context.resources.displayMetrics
         fun dp(v: Float) = v * dm.density
-        val innerH = if (framed) INNER_H_DP else 0
-        val innerV = if (framed) INNER_V_DP else 0
+        val innerH = if (framed) innerH(featherDp) else 0
+        val innerV = if (framed) innerV(featherDp) else 0
         // The author line (also used for "1/3") is one line of slightly smaller type.
         paint.textSize = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, sp * 0.85f, dm)
         val authorLine = paint.fontMetricsInt.let { it.bottom - it.top } + dp(2f).toInt()

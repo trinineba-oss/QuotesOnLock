@@ -58,7 +58,7 @@ object QuoteShare {
         }
         QuoteArt.drawQuoteCard(
             canvas, WIDTH, HEIGHT, density, density, theme, prefs.style,
-            quote.text, quote.author, prefs.cardOpacity.coerceAtLeast(0.55f), 0.5f,
+            quote.text, quote.author, prefs.cardOpacity.coerceAtLeast(0.55f), 0.5f, prefs.cardSoftness,
         )
         val credit = Paint(Paint.ANTI_ALIAS_FLAG).apply {
             textSize = 11f * density
