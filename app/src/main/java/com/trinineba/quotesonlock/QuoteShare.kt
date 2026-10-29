@@ -33,8 +33,8 @@ object QuoteShare {
             .setType("image/png")
             .putExtra(Intent.EXTRA_STREAM, uri)
             .putExtra(Intent.EXTRA_TEXT, text)
-            .setClipData(ClipData.newRawUri("", uri))
             .addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
+        send.clipData = ClipData.newRawUri("", uri)
         context.startActivity(Intent.createChooser(send, "Share quote").addFlags(Intent.FLAG_ACTIVITY_NEW_TASK))
     }
 
