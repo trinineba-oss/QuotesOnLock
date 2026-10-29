@@ -67,6 +67,7 @@ import androidx.compose.material3.dynamicDarkColorScheme
 import androidx.compose.material3.dynamicLightColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.material3.LinearProgressIndicator
 import kotlinx.coroutines.Dispatchers
@@ -106,8 +107,9 @@ class MainActivity : ComponentActivity() {
             var theme by remember { mutableStateOf(prefs.theme) }
             var animate by remember { mutableStateOf(prefs.animateBackground) }
             var cardOpacity by remember { mutableStateOf(prefs.cardOpacity) }
+            var cardSoftness by remember { mutableStateOf(prefs.cardSoftness) }
             var auroraIntensity by remember { mutableStateOf(prefs.auroraIntensity) }
-            QuotesTheme(theme, animate, cardOpacity, auroraIntensity) {
+            QuotesTheme(theme, animate, cardOpacity, auroraIntensity, cardSoftness) {
                 QuotesScreen(
                     prefs = prefs,
                     repo = QuoteRepository(this, prefs),
@@ -117,6 +119,8 @@ class MainActivity : ComponentActivity() {
                     onAnimate = { animate = it },
                     cardOpacity = cardOpacity,
                     onCardOpacity = { cardOpacity = it },
+                    cardSoftness = cardSoftness,
+                    onCardSoftness = { cardSoftness = it },
                     auroraIntensity = auroraIntensity,
                     onAuroraIntensity = { auroraIntensity = it },
                     openUpdates = openUpdates,
@@ -127,7 +131,7 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-private fun QuotesTheme(theme: AppTheme, animate: Boolean, cardOpacity: Float, auroraIntensity: Float, content: @Composable () -> Unit) {
+private fun QuotesTheme(theme: AppTheme, animate: Boolean, cardOpacity: Float, auroraIntensity: Float, cardSoftness: Float, content: @Composable () -> Unit) {
     val dark = isSystemInDarkTheme()
     val context = LocalContext.current
     val colors = theme.colorScheme(cardOpacity) ?: when {
@@ -139,7 +143,7 @@ private fun QuotesTheme(theme: AppTheme, animate: Boolean, cardOpacity: Float, a
     MaterialTheme(colorScheme = colors, typography = theme.typography(Typography())) {
         Box(Modifier.fillMaxSize()) {
             ThemedBackground(theme, animate, auroraIntensity)
-            content()
+            CompositionLocalProvider(LocalCardSoftness provides cardSoftness) { content() }
         }
     }
 }
@@ -164,6 +168,8 @@ private fun QuotesScreen(
     onAnimate: (Boolean) -> Unit,
     cardOpacity: Float,
     onCardOpacity: (Float) -> Unit,
+    cardSoftness: Float,
+    onCardSoftness: (Float) -> Unit,
     auroraIntensity: Float,
     onAuroraIntensity: (Float) -> Unit,
     openUpdates: Boolean = false,
@@ -172,7 +178,6 @@ private fun QuotesScreen(
     var enabled by remember { mutableStateOf(prefs.enabled) }
     var interval by remember { mutableStateOf(prefs.intervalMinutes) }
     var allowRepeats by remember { mutableStateOf(prefs.allowRepeats) }
-    var cardSoftness by remember { mutableStateOf(prefs.cardSoftness) }
     var quoteFont by remember { mutableStateOf(prefs.font) }
     var quoteSize by remember { mutableStateOf(prefs.size) }
     var quoteColor by remember { mutableStateOf(prefs.textColor) }
@@ -427,7 +432,7 @@ private fun QuotesScreen(
             }
         }
         item(key = "home-quote") {
-            Card(
+            SoftCard(
                 modifier = Modifier.fillMaxWidth().then(
                     if (theme == AppTheme.CLASSIC) Modifier
                     else Modifier.border(1.dp, MaterialTheme.colorScheme.primary.copy(alpha = 0.4f), CardDefaults.shape)
@@ -754,8 +759,8 @@ private fun QuotesScreen(
                 Row(verticalAlignment = Alignment.CenterVertically) {
                     Text(
                         "0% is a solid card with a clean edge. Higher fades the edges into the artwork, like a vignette. " +
-                            "Applies to the lock-screen card (Android 12+), the live wallpaper and shared pictures. " +
-                            "The lock-screen card has three steps of softness.",
+                            "Applies to the cards in the app, the lock-screen card (Android 12+), the live wallpaper and " +
+                            "shared pictures. The lock-screen card has three steps of softness.",
                         style = MaterialTheme.typography.bodySmall,
                         modifier = Modifier.weight(1f),
                     )
@@ -763,7 +768,7 @@ private fun QuotesScreen(
                 }
                 Slider(
                     value = cardSoftness,
-                    onValueChange = { cardSoftness = it },
+                    onValueChange = onCardSoftness,
                     onValueChangeFinished = {
                         prefs.cardSoftness = cardSoftness
                         refreshNotification()
@@ -820,7 +825,7 @@ private fun QuotesScreen(
 
     fun LazyListScope.stylePage() {
         item(key = "s-preview") {
-            Card(Modifier.fillMaxWidth()) {
+            SoftCard(Modifier.fillMaxWidth()) {
                 Column(Modifier.padding(18.dp), verticalArrangement = Arrangement.spacedBy(6.dp)) {
                     val family = fontFamilyOf(quoteFont)
                     val textColor = quoteColor?.let { Color(it) } ?: Color.Unspecified
@@ -1001,7 +1006,7 @@ private fun QuotesScreen(
             item(key = "m-empty") { Text("You haven't added any quotes yet.", style = MaterialTheme.typography.bodyMedium) }
         }
         items(custom, key = { it.id }) { quote ->
-            Card(Modifier.fillMaxWidth()) {
+            SoftCard(Modifier.fillMaxWidth()) {
                 Row(
                     modifier = Modifier.padding(start = 16.dp, top = 8.dp, bottom = 8.dp, end = 4.dp),
                     verticalAlignment = Alignment.CenterVertically,
@@ -1029,7 +1034,7 @@ private fun QuotesScreen(
             )
         }
         items(Subject.entries.filter { (subjectCounts[it.key] ?: 0) > 0 }, key = { "subject-" + it.key }) { subject ->
-            Card(onClick = { browse = listOf(BrowsePage.subject(subject)) }, modifier = Modifier.fillMaxWidth()) {
+            SoftCard(onClick = { browse = listOf(BrowsePage.subject(subject)) }, modifier = Modifier.fillMaxWidth()) {
                 Row(Modifier.padding(16.dp), verticalAlignment = Alignment.CenterVertically) {
                     Text(subject.label, style = MaterialTheme.typography.titleMedium, modifier = Modifier.weight(1f))
                     Text(
@@ -1072,7 +1077,7 @@ private fun QuotesScreen(
             }
         }
         items(favorites.asReversed(), key = { "fav-" + it.text.hashCode() + it.author }) { quote ->
-            Card(Modifier.fillMaxWidth()) {
+            SoftCard(Modifier.fillMaxWidth()) {
                 Column(Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(4.dp)) {
                     Text("“${quote.text}”")
                     quote.author?.let { label ->
@@ -1203,7 +1208,7 @@ private class Tile(val symbol: String, val title: String, val subtitle: String, 
 
 @Composable
 private fun TileCard(tile: Tile, modifier: Modifier, wide: Boolean = false) {
-    Card(onClick = tile.onClick, modifier = modifier.heightIn(min = if (wide) 64.dp else 104.dp)) {
+    SoftCard(onClick = tile.onClick, modifier = modifier.heightIn(min = if (wide) 64.dp else 104.dp)) {
         if (wide) {
             Row(Modifier.padding(16.dp), verticalAlignment = Alignment.CenterVertically) {
                 Text(tile.symbol, style = MaterialTheme.typography.titleLarge, color = MaterialTheme.colorScheme.primary)
@@ -1231,7 +1236,7 @@ private fun TileCard(tile: Tile, modifier: Modifier, wide: Boolean = false) {
 
 @Composable
 private fun SettingsCard(title: String, content: @Composable ColumnScope.() -> Unit) {
-    Card(Modifier.fillMaxWidth()) {
+    SoftCard(Modifier.fillMaxWidth()) {
         Column(Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(10.dp)) {
             Text(
                 title.uppercase(),

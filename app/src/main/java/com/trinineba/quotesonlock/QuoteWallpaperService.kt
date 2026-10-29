@@ -137,7 +137,10 @@ class QuoteWallpaperService : WallpaperService() {
         }
 
         private fun drawAurora(canvas: Canvas, t: Float) =
-            QuoteArt.drawAurora(canvas, width.toFloat(), height.toFloat(), t, moving(), prefs.auroraIntensity, resources.displayMetrics.density)
+            QuoteArt.drawAurora(
+                canvas, width.toFloat(), height.toFloat(), t, moving(), prefs.auroraIntensity,
+                resources.displayMetrics.density, blur = canvas.isHardwareAccelerated,
+            )
 
         private fun drawQuote(canvas: Canvas) {
             val text = prefs.currentText ?: return

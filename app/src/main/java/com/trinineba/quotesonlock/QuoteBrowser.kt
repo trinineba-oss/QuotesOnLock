@@ -143,7 +143,7 @@ fun QuoteBrowser(
                 }
             }
             items(shown) { quote ->
-                Card(modifier = Modifier.fillMaxWidth()) {
+                SoftCard(modifier = Modifier.fillMaxWidth()) {
                     Column(Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(4.dp)) {
                         Text("“${quote.text}”")
                         quote.author?.let { label ->

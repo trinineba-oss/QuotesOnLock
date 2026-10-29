@@ -1,5 +1,6 @@
 package com.trinineba.quotesonlock
 
+import android.graphics.BlurMaskFilter
 import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.LinearGradient
@@ -22,8 +23,12 @@ internal object QuoteArt {
         List(160) { floatArrayOf(rnd.nextFloat(), rnd.nextFloat() * 0.7f, 0.6f + rnd.nextFloat() * 1.4f, 0.3f + rnd.nextFloat() * 0.7f) }
     }
 
-    /** The northern lights; [t] is the animation phase, and [twinkle] makes the stars flicker. */
-    fun drawAurora(canvas: Canvas, w: Float, h: Float, t: Float, twinkle: Boolean, intensity: Float, density: Float) {
+    /**
+     * The northern lights as the app draws them: soft blurred ribbons and a shade that deepens toward
+     * the bottom. [t] is the animation phase, [twinkle] makes the stars flicker, and [blur] softens
+     * the ribbons (skip it on a software canvas, where blurring every frame would be slow).
+     */
+    fun drawAurora(canvas: Canvas, w: Float, h: Float, t: Float, twinkle: Boolean, intensity: Float, density: Float, blur: Boolean = true) {
         val sky = Paint().apply {
             shader = LinearGradient(0f, 0f, 0f, h, intArrayOf(0xFF02040C.toInt(), 0xFF061024.toInt(), 0xFF0A1A2C.toInt()), null, Shader.TileMode.CLAMP)
         }
@@ -40,6 +45,10 @@ internal object QuoteArt {
             Triple(0xFF965AFF.toInt(), 0.22f, 3.1f),
         )
         val fill = Paint(Paint.ANTI_ALIAS_FLAG)
+        val blurRadius = 14f * density
+        if (blur) fill.maskFilter = BlurMaskFilter(blurRadius, BlurMaskFilter.Blur.NORMAL)
+        // Run the ribbons past both edges so the blur doesn't fade them out at the sides.
+        val overshoot = if (blur) blurRadius * 2f else 0f
         val k = intensity
         fun alpha(a: Float) = ((a * k).coerceAtMost(1f) * 255).toInt() shl 24
         ribbons.forEachIndexed { i, (color, base, phase) ->
@@ -53,11 +62,11 @@ internal object QuoteArt {
             }
             val path = Path()
             for (j in 0..steps) {
-                val x = w * j / steps
+                val x = -overshoot + (w + 2 * overshoot) * j / steps
                 if (j == 0) path.moveTo(x, edge(x) - tail) else path.lineTo(x, edge(x) - tail)
             }
             for (j in steps downTo 0) {
-                val x = w * j / steps
+                val x = -overshoot + (w + 2 * overshoot) * j / steps
                 path.lineTo(x, edge(x))
             }
             path.close()
@@ -69,6 +78,19 @@ internal object QuoteArt {
             )
             canvas.drawPath(path, fill)
         }
+        // Darken the lower part, as the app does, so the lights sit in the top of the sky.
+        val night = 0xFF040915.toInt()
+        val shade = (1.25f - 0.25f * intensity).coerceIn(0.75f, 1.1f)
+        fun nightAlpha(a: Float) = ((a * shade).coerceIn(0f, 1f) * 255).toInt() shl 24 or (night and 0x00FFFFFF)
+        val shadePaint = Paint().apply {
+            shader = LinearGradient(
+                0f, 0f, 0f, h,
+                intArrayOf(Color.TRANSPARENT, nightAlpha(0.55f), nightAlpha(0.92f), night),
+                floatArrayOf(0f, 0.4f, 0.62f, 1f),
+                Shader.TileMode.CLAMP,
+            )
+        }
+        canvas.drawRect(0f, 0f, w, h, shadePaint)
     }
 
     private class Block(val quote: StaticLayout, val author: StaticLayout?, val height: Float)
