@@ -93,6 +93,7 @@ class QuoteWallpaperService : WallpaperService() {
                     AppTheme.BOOK -> drawCover(canvas, bitmap(R.drawable.paper))
                     AppTheme.BUTTERFLY -> ButterflyArt.draw(canvas, width.toFloat(), height.toFloat(), if (moving()) t else 3f, resources.displayMetrics.density)
                     AppTheme.WATER -> drawWater(canvas, t)
+                    AppTheme.RAIN -> drawRain(canvas, t)
                     AppTheme.SPACE -> SpaceArt.draw(canvas, width.toFloat(), height.toFloat(), if (moving()) t else 20f, resources.displayMetrics.density, bitmap(R.drawable.nebula))
                     else -> drawStarry(canvas, t * 2f * PI.toFloat() / 6f)
                 }
@@ -135,6 +136,32 @@ class QuoteWallpaperService : WallpaperService() {
                 canvas.drawRect(0f, 0f, width.toFloat(), height.toFloat(), p)
             } else {
                 drawCover(canvas, b)
+            }
+        }
+
+        private var rainShader: RuntimeShader? = null
+        private var rainShaderFailed = false
+        private var rainScene: BitmapShader? = null
+        private var rainFog: BitmapShader? = null
+
+        /** Rain on the glass on the GPU (Android 13+, hardware canvas); otherwise the still picture. */
+        private fun drawRain(canvas: Canvas, t: Float) {
+            val shader = if (moving() && !rainShaderFailed && Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU && canvas.isHardwareAccelerated) {
+                rainShader ?: runCatching { RuntimeShader(RainArt.SHADER) }.getOrNull().also {
+                    rainShader = it
+                    rainShaderFailed = it == null
+                }
+            } else {
+                null
+            }
+            if (shader != null && Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+                val scene = bitmap(R.drawable.rain_scene)
+                val sceneShader = rainScene ?: BitmapShader(scene, Shader.TileMode.CLAMP, Shader.TileMode.CLAMP).also { rainScene = it }
+                val fogShader = rainFog ?: BitmapShader(bitmap(R.drawable.rain_fog), Shader.TileMode.CLAMP, Shader.TileMode.CLAMP).also { rainFog = it }
+                RainArt.bind(shader, sceneShader, fogShader, scene.width, scene.height, width.toFloat(), height.toFloat(), t)
+                canvas.drawRect(0f, 0f, width.toFloat(), height.toFloat(), Paint().apply { this.shader = shader })
+            } else {
+                drawCover(canvas, bitmap(R.drawable.rain_still))
             }
         }
 

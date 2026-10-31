@@ -1268,6 +1268,7 @@ private fun ThemePreview(option: AppTheme, selected: Boolean, modifier: Modifier
             AppTheme.BUTTERFLY -> R.drawable.butterfly_frame
             AppTheme.SPACE -> R.drawable.space_frame
             AppTheme.WATER -> R.drawable.water_frame
+            AppTheme.RAIN -> R.drawable.rain_frame
             AppTheme.CLASSIC -> null
         }
         if (image != null) {
