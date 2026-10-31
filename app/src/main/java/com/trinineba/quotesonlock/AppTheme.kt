@@ -28,6 +28,8 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableFloatStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberUpdatedState
+import androidx.compose.runtime.compositionLocalOf
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.blur
@@ -506,14 +508,23 @@ private fun SwirlingStarryNight() {
 @Composable
 private fun rememberLoopAngle(periodMs: Float): State<Float> {
     val angle = remember { mutableFloatStateOf(0f) }
+    // Read the speed each frame and add up small steps, so changing it never makes the scene jump.
+    val speed by rememberUpdatedState(LocalMotionSpeed.current)
     LaunchedEffect(periodMs) {
-        val start = withFrameNanos { it }
+        var last = withFrameNanos { it }
         while (true) {
-            withFrameNanos { now -> angle.floatValue = (now - start) / 1_000_000f / periodMs * 2f * PI.toFloat() }
+            withFrameNanos { now ->
+                val ms = ((now - last) / 1_000_000f).coerceAtMost(100f)
+                last = now
+                angle.floatValue += ms * speed / periodMs * 2f * PI.toFloat()
+            }
         }
     }
     return angle
 }
+
+/** The "Motion speed" setting (0.25–2), read by every moving background. */
+val LocalMotionSpeed = compositionLocalOf { 1f }
 
 private class Star(val x: Float, val y: Float, val r: Float, val a: Float, val phase: Float)
 

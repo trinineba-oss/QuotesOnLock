@@ -108,8 +108,9 @@ class MainActivity : ComponentActivity() {
             var animate by remember { mutableStateOf(prefs.animateBackground) }
             var cardOpacity by remember { mutableStateOf(prefs.cardOpacity) }
             var cardSoftness by remember { mutableStateOf(prefs.cardSoftness) }
+            var motionSpeed by remember { mutableStateOf(prefs.motionSpeed) }
             var auroraIntensity by remember { mutableStateOf(prefs.auroraIntensity) }
-            QuotesTheme(theme, animate, cardOpacity, auroraIntensity, cardSoftness) {
+            QuotesTheme(theme, animate, cardOpacity, auroraIntensity, cardSoftness, motionSpeed) {
                 QuotesScreen(
                     prefs = prefs,
                     repo = QuoteRepository(this, prefs),
@@ -121,6 +122,8 @@ class MainActivity : ComponentActivity() {
                     onCardOpacity = { cardOpacity = it },
                     cardSoftness = cardSoftness,
                     onCardSoftness = { cardSoftness = it },
+                    motionSpeed = motionSpeed,
+                    onMotionSpeed = { motionSpeed = it },
                     auroraIntensity = auroraIntensity,
                     onAuroraIntensity = { auroraIntensity = it },
                     openUpdates = openUpdates,
@@ -131,7 +134,15 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-private fun QuotesTheme(theme: AppTheme, animate: Boolean, cardOpacity: Float, auroraIntensity: Float, cardSoftness: Float, content: @Composable () -> Unit) {
+private fun QuotesTheme(
+    theme: AppTheme,
+    animate: Boolean,
+    cardOpacity: Float,
+    auroraIntensity: Float,
+    cardSoftness: Float,
+    motionSpeed: Float,
+    content: @Composable () -> Unit,
+) {
     val dark = isSystemInDarkTheme()
     val context = LocalContext.current
     val colors = theme.colorScheme(cardOpacity) ?: when {
@@ -141,9 +152,11 @@ private fun QuotesTheme(theme: AppTheme, animate: Boolean, cardOpacity: Float, a
         else -> lightColorScheme()
     }
     MaterialTheme(colorScheme = colors, typography = theme.typography(Typography())) {
-        Box(Modifier.fillMaxSize()) {
-            ThemedBackground(theme, animate, auroraIntensity)
-            CompositionLocalProvider(LocalCardSoftness provides cardSoftness) { content() }
+        CompositionLocalProvider(LocalMotionSpeed provides motionSpeed, LocalCardSoftness provides cardSoftness) {
+            Box(Modifier.fillMaxSize()) {
+                ThemedBackground(theme, animate, auroraIntensity)
+                content()
+            }
         }
     }
 }
@@ -170,6 +183,8 @@ private fun QuotesScreen(
     onCardOpacity: (Float) -> Unit,
     cardSoftness: Float,
     onCardSoftness: (Float) -> Unit,
+    motionSpeed: Float,
+    onMotionSpeed: (Float) -> Unit,
     auroraIntensity: Float,
     onAuroraIntensity: (Float) -> Unit,
     openUpdates: Boolean = false,
@@ -670,8 +685,10 @@ private fun QuotesScreen(
                         Column(Modifier.weight(1f)) {
                             Text(label)
                             Text(
-                                if (theme == AppTheme.STARRY && Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU) {
-                                    "Needs Android 13 or newer; this phone shows the still painting."
+                                if (theme in listOf(AppTheme.STARRY, AppTheme.WATER, AppTheme.RAIN, AppTheme.RAIN_NIGHT) &&
+                                    Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU
+                                ) {
+                                    "Needs Android 13 or newer; this phone shows a still picture."
                                 } else {
                                     "Only moves while it's on screen, so it doesn't use battery in the background."
                                 },
@@ -684,6 +701,22 @@ private fun QuotesScreen(
                                 prefs.animateBackground = it
                                 onAnimate(it)
                             },
+                        )
+                    }
+                    if (animate) {
+                        Row(verticalAlignment = Alignment.CenterVertically) {
+                            Text("Motion speed", modifier = Modifier.weight(1f))
+                            Text(String.format(java.util.Locale.US, "%.2f", motionSpeed).trimEnd('0').trimEnd('.') + "\u00D7")
+                        }
+                        Slider(
+                            value = motionSpeed,
+                            onValueChange = onMotionSpeed,
+                            onValueChangeFinished = { prefs.motionSpeed = motionSpeed },
+                            valueRange = 0.25f..2f,
+                        )
+                        Text(
+                            "Also sets the speed on the live wallpaper. It doesn't change how hard the phone works.",
+                            style = MaterialTheme.typography.bodySmall,
                         )
                     }
                 }

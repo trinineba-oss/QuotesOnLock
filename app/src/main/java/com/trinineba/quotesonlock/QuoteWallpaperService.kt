@@ -28,7 +28,9 @@ class QuoteWallpaperService : WallpaperService() {
     private inner class QuoteEngine : Engine(), SharedPreferences.OnSharedPreferenceChangeListener {
         private val prefs = QuotePrefs(this@QuoteWallpaperService)
         private val handler = Handler(Looper.getMainLooper())
-        private val start = SystemClock.elapsedRealtime()
+        // Animation clock: adds up time at the chosen motion speed, so a speed change never jumps.
+        private var clock = 0f
+        private var lastFrame = SystemClock.elapsedRealtime()
         private var visible = false
         private var width = 0
         private var height = 0
@@ -87,7 +89,10 @@ class QuoteWallpaperService : WallpaperService() {
                 ?: runCatching { holder.lockCanvas() }.getOrNull()
                 ?: return
             try {
-                val t = (SystemClock.elapsedRealtime() - start) / 1000f
+                val now = SystemClock.elapsedRealtime()
+                clock += ((now - lastFrame) / 1000f).coerceAtMost(0.1f) * prefs.motionSpeed
+                lastFrame = now
+                val t = clock
                 when (theme) {
                     AppTheme.AURORA -> drawAurora(canvas, if (moving()) t * 2f * PI.toFloat() / 10f else 1.2f)
                     AppTheme.BOOK -> drawCover(canvas, bitmap(R.drawable.paper))

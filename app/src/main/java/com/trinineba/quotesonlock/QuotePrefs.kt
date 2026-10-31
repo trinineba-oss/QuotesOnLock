@@ -79,6 +79,11 @@ class QuotePrefs(context: Context) {
         get() = prefs.getFloat("card_softness", 0f)
         set(value) = prefs.edit().putFloat("card_softness", value.coerceIn(0f, 1f)).apply()
 
+    /** How fast the moving themes move, 0.25–2 (1 = normal). */
+    var motionSpeed: Float
+        get() = prefs.getFloat("motion_speed", 1f)
+        set(value) = prefs.edit().putFloat("motion_speed", value.coerceIn(0.25f, 2f)).apply()
+
     /** Brightness of the northern lights, 0.5–2 (1 = normal). */
     var auroraIntensity: Float
         get() = prefs.getFloat("aurora_intensity", 1f)
