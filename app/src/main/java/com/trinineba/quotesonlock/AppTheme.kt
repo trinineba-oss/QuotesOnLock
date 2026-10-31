@@ -272,8 +272,14 @@ fun ThemedBackground(theme: AppTheme, animate: Boolean, auroraIntensity: Float =
 
 @Composable
 private fun WaterBackground(animate: Boolean) {
-    if (animate && Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-        RipplingWater()
+    // If the GPU can't build the shader, show the still water rather than fail.
+    val shader = if (animate && Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+        remember { runCatching { RuntimeShader(WaterArt.SHADER) }.getOrNull() }
+    } else {
+        null
+    }
+    if (shader != null && Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+        RipplingWater(shader)
     } else {
         Image(
             painter = painterResource(R.drawable.water),
@@ -286,8 +292,7 @@ private fun WaterBackground(animate: Boolean) {
 
 @RequiresApi(Build.VERSION_CODES.TIRAMISU)
 @Composable
-private fun RipplingWater() {
-    val shader = remember { RuntimeShader(WaterArt.SHADER) }
+private fun RipplingWater(shader: RuntimeShader) {
     val brush = remember(shader) { ShaderBrush(shader) }
     // A loop of 2π·1000 ms makes the value plain seconds; every wave repeats in LOOP_SECONDS.
     val time by rememberLoopAngle(2000f * PI.toFloat())

@@ -139,11 +139,19 @@ class QuoteWallpaperService : WallpaperService() {
         }
 
         private var waterShader: RuntimeShader? = null
+        private var waterShaderFailed = false
 
         /** Moving water on the GPU (Android 13+, hardware canvas); otherwise the still picture. */
         private fun drawWater(canvas: Canvas, t: Float) {
-            if (moving() && Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU && canvas.isHardwareAccelerated) {
-                val shader = waterShader ?: RuntimeShader(WaterArt.SHADER).also { waterShader = it }
+            val shader = if (moving() && !waterShaderFailed && Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU && canvas.isHardwareAccelerated) {
+                waterShader ?: runCatching { RuntimeShader(WaterArt.SHADER) }.getOrNull().also {
+                    waterShader = it
+                    waterShaderFailed = it == null
+                }
+            } else {
+                null
+            }
+            if (shader != null && Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
                 shader.setFloatUniform("res", width.toFloat(), height.toFloat())
                 shader.setFloatUniform("time", t % WaterArt.LOOP_SECONDS)
                 canvas.drawRect(0f, 0f, width.toFloat(), height.toFloat(), Paint().apply { this.shader = shader })
