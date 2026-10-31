@@ -73,6 +73,7 @@ editions below, or a translation made for this app and labelled `(tr. Claude)`.
 | Federico García Lorca | Libro de poemas (1921), Canciones (1927), Primer romancero gitano (1928) | new translations (tr. Claude) | Spanish first editions on the Internet Archive (garcialorcalibrodepoemas1921, canciones_202401, romancerogitano_202401) and Spanish Wikisource |
 | Knut Hamsun | Pan, Growth of the Soil, Wanderers, Hunger, Victoria, Mothwise (Dreamers) | W. W. Worster; George Egerton (1899); Arthur G. Chater (1923) | Project Gutenberg #7214, #10984, #7762, #8387, #74458, #46220 |
 | Dante Alighieri (more) | Divine Comedy; La Vita Nuova | H. W. Longfellow; D. G. Rossetti | Project Gutenberg #1004, #41085 |
+| Edgar Allan Poe | poems; The Fall of the House of Usher, Ligeia, Eleonora, The Masque of the Red Death and other tales; The Poetic Principle; Eureka | original English | Project Gutenberg #2148, #2149, #2150, #2151, #32037 |
 | C. P. Cavafy (more) | Poems published 1897–1924 | new translations (tr. Claude) | Greek texts from Greek Wikisource and scans of Grammata (1911) and Alexandriní Téchni |
 | Friedrich Hölderlin (more) | Hyperion; poems | new translations (tr. Claude) | German first printings via German Wikisource |
 | Hermann Hesse (more) | Siddhartha, Demian, Der Steppenwolf, Knulp, Unterm Rad, Klingsors letzter Sommer, Märchen, Unterwegs | new translations (tr. Claude) | German texts: Project Gutenberg #2499, #41907, #75802, #17622, #49908, #42338, #64522; Internet Archive unterwegsgedicht00hessuoft |
