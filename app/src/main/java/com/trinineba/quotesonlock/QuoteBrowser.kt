@@ -3,6 +3,9 @@ package com.trinineba.quotesonlock
 import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.material3.SuggestionChip
+import androidx.compose.foundation.layout.FlowRow
+import androidx.compose.foundation.layout.ExperimentalLayoutApi
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
@@ -44,6 +47,7 @@ object BrowsePage {
 fun authorName(label: String?): String? =
     label?.substringBefore(", ")?.substringBefore(" (")?.trim()?.ifBlank { null }
 
+@OptIn(ExperimentalLayoutApi::class)
 @Composable
 fun QuoteBrowser(
     page: String,
@@ -51,6 +55,7 @@ fun QuoteBrowser(
     onBack: () -> Unit,
     onShow: (Quote) -> Unit,
     onOpenAuthor: (String) -> Unit,
+    onOpenSubject: (Subject) -> Unit = {},
 ) {
     val context = LocalContext.current
     BackHandler(onBack = onBack)
@@ -85,6 +90,9 @@ fun QuoteBrowser(
         if (!searching) emptyList()
         else all.mapNotNull { authorName(it.author) }.groupingBy { it }.eachCount().toList().sortedBy { it.first.lowercase() }
     }
+    val subjectCounts = remember(all, searching) {
+        if (!searching) emptyMap() else all.flatMap { it.subjects }.groupingBy { it }.eachCount()
+    }
     val matchingAuthors = remember(authors, query) {
         val q = query.trim()
         if (q.isEmpty()) authors else authors.filter { it.first.contains(q, ignoreCase = true) }
@@ -100,7 +108,7 @@ fun QuoteBrowser(
             item {
                 Column {
                     Text(
-                        if (searching) "Browse & search" else category?.label ?: subject?.label ?: author.orEmpty(),
+                        if (searching) "Explore" else category?.label ?: subject?.label ?: author.orEmpty(),
                         style = MaterialTheme.typography.headlineSmall,
                     )
                     Text(
@@ -122,8 +130,25 @@ fun QuoteBrowser(
                     label = { Text(if (searching) "Search all quotes and authors" else "Search these quotes") },
                 )
             }
+            if (searching && query.isBlank()) {
+                // Before typing: every subject, then every author A–Z.
+                item {
+                    Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
+                        Text("Subjects", style = MaterialTheme.typography.titleMedium)
+                        FlowRow(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                            Subject.entries.filter { (subjectCounts[it.key] ?: 0) > 0 }.forEach { s ->
+                                SuggestionChip(
+                                    onClick = { onOpenSubject(s) },
+                                    label = { Text("${s.label} \u00B7 ${subjectCounts[s.key]}") },
+                                )
+                            }
+                        }
+                        Text("Authors A–Z", style = MaterialTheme.typography.titleMedium, modifier = Modifier.padding(top = 8.dp))
+                    }
+                }
+            }
             if (searching) {
-                // Authors first: all of them A–Z before typing, then the ones whose name matches.
+                // Authors: all of them A–Z before typing, then the ones whose name matches.
                 items(if (query.isBlank()) matchingAuthors else matchingAuthors.take(12)) { (name, count) ->
                     Row(
                         modifier = Modifier

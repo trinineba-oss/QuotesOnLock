@@ -10,10 +10,13 @@ import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.lazy.LazyListScope
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.Icon
+import androidx.annotation.DrawableRes
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
@@ -230,7 +233,6 @@ private fun QuotesScreen(
     var wallpaperQuote by remember { mutableStateOf(prefs.wallpaperShowQuote) }
     var wallpaperPosition by remember { mutableStateOf(prefs.wallpaperQuotePosition) }
     val sources = remember { readSources(context) }
-    val subjectCounts = remember { repo.bundled().flatMap { it.subjects }.groupingBy { it }.eachCount() }
     // Open pages of the quote browser, innermost last; empty means the main screen.
     var browse by rememberSaveable(stateSaver = androidx.compose.runtime.saveable.listSaver<List<String>, String>(save = { it }, restore = { it })) { mutableStateOf(emptyList<String>()) }
 
@@ -408,6 +410,7 @@ private fun QuotesScreen(
                 page = Page.HOME
             },
             onOpenAuthor = { browse = browse + BrowsePage.author(it) },
+            onOpenSubject = { browse = browse + BrowsePage.subject(it) },
         )
         return
     }
@@ -424,7 +427,7 @@ private fun QuotesScreen(
                         .background(MaterialTheme.colorScheme.surfaceContainerHighest)
                         .clickable(onClickLabel = "Back") { page = Page.HOME },
                     contentAlignment = Alignment.Center,
-                ) { Text("←", style = MaterialTheme.typography.titleLarge) }
+                ) { Icon(painterResource(R.drawable.ic_arrow_back), contentDescription = null) }
                 Text(
                     page.title,
                     style = MaterialTheme.typography.headlineMedium,
@@ -436,13 +439,23 @@ private fun QuotesScreen(
 
     fun LazyListScope.homePage() {
         item(key = "home-title") {
+            Text("Quotes on Lock", style = MaterialTheme.typography.headlineMedium)
+        }
+        item(key = "home-lock") {
             Row(
-                modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.SpaceBetween,
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .clip(RoundedCornerShape(28.dp))
+                    .background(MaterialTheme.colorScheme.surfaceContainerHighest)
+                    .padding(start = 16.dp, end = 10.dp, top = 4.dp, bottom = 4.dp),
                 verticalAlignment = Alignment.CenterVertically,
             ) {
-                Text("Quotes on Lock", style = MaterialTheme.typography.headlineMedium, modifier = Modifier.weight(1f))
-                Text("On lock screen", style = MaterialTheme.typography.bodySmall, modifier = Modifier.padding(end = 8.dp))
+                Icon(painterResource(R.drawable.ic_lock), contentDescription = null, tint = MaterialTheme.colorScheme.primary, modifier = Modifier.size(20.dp))
+                Text(
+                    if (enabled) "Showing on the lock screen" else "Not on the lock screen",
+                    style = MaterialTheme.typography.bodyMedium,
+                    modifier = Modifier.weight(1f).padding(start = 12.dp),
+                )
                 Switch(checked = enabled, onCheckedChange = { onToggle(it) })
             }
         }
@@ -473,69 +486,45 @@ private fun QuotesScreen(
                             fontSize = (quoteSize.sizeSp + 2).sp,
                             color = textColor,
                         )
-                        Row(verticalAlignment = Alignment.CenterVertically) {
-                            val author = quote.author
-                            if (author != null) {
-                                val name = authorName(author)
-                                Text(
-                                    if (name != null) "— $author ›" else "— $author",
-                                    fontFamily = family,
-                                    fontSize = (quoteSize.sizeSp * 0.9f).sp,
-                                    color = if (quoteColor == null && theme != AppTheme.CLASSIC) MaterialTheme.colorScheme.primary else textColor,
-                                    // Tap the author to see all of their quotes.
-                                    modifier = Modifier.weight(1f).then(
-                                        if (name != null) {
-                                            Modifier.clickable(onClickLabel = "All quotes by $name") { browse = listOf(BrowsePage.author(name)) }
-                                        } else Modifier
-                                    ),
-                                )
-                            } else {
-                                Spacer(Modifier.weight(1f))
-                            }
-                            val favorite = favorites.any { it.text == quote.text }
-                            Box(
-                                modifier = Modifier
-                                    .size(44.dp)
-                                    .clip(CircleShape)
-                                    .clickable(onClickLabel = if (favorite) "Remove from favourites" else "Add to favourites") { toggleFavorite(quote) },
-                                contentAlignment = Alignment.Center,
-                            ) {
-                                Text(
-                                    if (favorite) "♥" else "♡",
-                                    style = MaterialTheme.typography.headlineSmall,
-                                    color = if (favorite) Color(0xFFE0566B) else MaterialTheme.colorScheme.onSurfaceVariant,
-                                )
-                            }
+                        quote.author?.let { author ->
+                            val name = authorName(author)
+                            Text(
+                                if (name != null) "— $author ›" else "— $author",
+                                fontFamily = family,
+                                fontSize = (quoteSize.sizeSp * 0.9f).sp,
+                                color = if (quoteColor == null && theme != AppTheme.CLASSIC) MaterialTheme.colorScheme.primary else textColor,
+                                // Tap the author to see all of their quotes.
+                                modifier = if (name != null) {
+                                    Modifier.clickable(onClickLabel = "All quotes by $name") { browse = listOf(BrowsePage.author(name)) }
+                                } else Modifier,
+                            )
                         }
                     }
-                    Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-                        OutlinedButton(onClick = { previousQuote() }, enabled = canGoBack, modifier = Modifier.weight(1f)) { Text("Previous") }
-                        Button(onClick = { nextQuote() }, modifier = Modifier.weight(1f)) { Text("Next") }
-                        OutlinedButton(
-                            onClick = { quote?.let { QuoteClipboard.copy(context, it) } },
+                    val favorite = quote != null && favorites.any { it.text == quote.text }
+                    Row(Modifier.fillMaxWidth().padding(top = 4.dp), horizontalArrangement = Arrangement.SpaceAround) {
+                        QuoteAction(R.drawable.ic_arrow_back, "Previous", enabled = canGoBack) { previousQuote() }
+                        QuoteAction(R.drawable.ic_arrow_forward, "Next") { nextQuote() }
+                        QuoteAction(R.drawable.ic_content_copy, "Copy", enabled = quote != null) { quote?.let { QuoteClipboard.copy(context, it) } }
+                        QuoteAction(R.drawable.ic_share, "Share", enabled = quote != null) { quote?.let { QuoteShare.share(context, it) } }
+                        QuoteAction(
+                            if (favorite) R.drawable.ic_favorite else R.drawable.ic_favorite_border,
+                            if (favorite) "Saved" else "Save",
                             enabled = quote != null,
-                            modifier = Modifier.weight(1f),
-                        ) { Text("Copy") }
+                            tint = if (favorite) Color(0xFFE0566B) else null,
+                        ) { quote?.let { toggleFavorite(it) } }
                     }
-                    OutlinedButton(
-                        onClick = { quote?.let { QuoteShare.share(context, it) } },
-                        enabled = quote != null,
-                        modifier = Modifier.fillMaxWidth(),
-                    ) { Text("Share as image") }
                 }
             }
         }
         val typeCount = Category.entries.count { it != Category.CUSTOM && countOf(it) > 0 }
         val onCount = Category.entries.count { it in categories && countOf(it) > 0 }
         val tiles = listOf(
-            Tile("❝", "Quotes & authors", "$onCount of $typeCount types on") { page = Page.QUOTES },
-            Tile("⌕", "Browse & search", "Find any line or author") { browse = listOf(BrowsePage.SEARCH) },
-            Tile("◈", "Subjects", "Love, time, solitude\u2026 across all authors") { page = Page.SUBJECTS },
-            Tile("✦", "Themes", theme.label + if (theme.motionLabel != null && animate) " · moving" else "") { page = Page.THEMES },
-            Tile("Aa", "Text style", "${quoteFont.label} · ${quoteSize.label}") { page = Page.STYLE },
-            Tile("◷", "Schedule", "Every " + (INTERVALS.firstOrNull { it.first == interval }?.second?.lowercase() ?: "$interval min")) { page = Page.SCHEDULE },
-            Tile("♥", "Favourites", if (favorites.isEmpty()) "Tap ♡ on a quote to save it" else "${favorites.size} saved" + if (favoritesOnly) " · only these" else "") { page = Page.FAVORITES },
-            Tile("✎", "My quotes", if (custom.isEmpty()) "Add your own" else "${custom.size} added") { page = Page.MINE },
+            Tile(R.drawable.ic_format_quote, "Quotes & authors", "$onCount of $typeCount on") { page = Page.QUOTES },
+            Tile(R.drawable.ic_explore, "Explore", "Search, subjects, authors A–Z") { browse = listOf(BrowsePage.SEARCH) },
+            Tile(R.drawable.ic_palette, "Appearance", theme.label + " · " + quoteFont.label) { page = Page.THEMES },
+            Tile(R.drawable.ic_schedule, "Schedule", "Every " + (INTERVALS.firstOrNull { it.first == interval }?.second?.lowercase() ?: "$interval min")) { page = Page.SCHEDULE },
+            Tile(R.drawable.ic_favorite_border, "Favourites", if (favorites.isEmpty()) "Tap the heart on a quote" else "${favorites.size} saved" + if (favoritesOnly) " · only these" else "") { page = Page.FAVORITES },
+            Tile(R.drawable.ic_edit, "My quotes", if (custom.isEmpty()) "Add your own" else "${custom.size} added") { page = Page.MINE },
         )
         tiles.chunked(2).forEachIndexed { i, pair ->
             item(key = "tiles-$i") {
@@ -547,7 +536,7 @@ private fun QuotesScreen(
         item(key = "tile-about") {
             TileCard(
                 Tile(
-                    "ⓘ",
+                    R.drawable.ic_info,
                     "About, sources & updates",
                     latest?.takeIf { it.build > currentBuild }?.let { "Update available: build ${it.build}" }
                         ?: "Where each quote comes from, and app updates",
@@ -665,9 +654,40 @@ private fun QuotesScreen(
         }
     }
 
+    /** Appearance: a live preview, then theme, card, text, lock screen and wallpaper. */
     fun LazyListScope.themesPage() {
-        item(key = "t-app") {
-            SettingsCard("App theme") {
+        item(key = "ap-preview") {
+            // Every card in the app follows these settings; this one shows the effect right away.
+            SoftCard(Modifier.fillMaxWidth()) {
+                Column(
+                    Modifier.fillMaxWidth().padding(20.dp),
+                    horizontalAlignment = Alignment.CenterHorizontally,
+                    verticalArrangement = Arrangement.spacedBy(6.dp),
+                ) {
+                    val family = fontFamilyOf(quoteFont)
+                    val textColor = quoteColor?.let { Color(it) } ?: Color.Unspecified
+                    Text("Preview", style = MaterialTheme.typography.labelSmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
+                    Text(
+                        "“${current?.text ?: "The unexamined life is not worth living."}”",
+                        fontFamily = family,
+                        fontSize = quoteSize.sizeSp.sp,
+                        color = textColor,
+                        textAlign = TextAlign.Center,
+                        maxLines = 5,
+                        overflow = TextOverflow.Ellipsis,
+                    )
+                    Text(
+                        "— ${current?.author ?: "Socrates"}",
+                        fontFamily = family,
+                        fontSize = (quoteSize.sizeSp * 0.85f).sp,
+                        color = if (quoteColor == null && theme != AppTheme.CLASSIC) MaterialTheme.colorScheme.primary else textColor,
+                        textAlign = TextAlign.Center,
+                    )
+                }
+            }
+        }
+        item(key = "ap-theme") {
+            SettingsCard("Theme") {
                 AppTheme.entries.chunked(3).forEach { row ->
                     Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
                         row.forEach { option ->
@@ -690,7 +710,7 @@ private fun QuotesScreen(
                                 ) {
                                     "Needs Android 13 or newer; this phone shows a still picture."
                                 } else {
-                                    "Only moves while it's on screen, so it doesn't use battery in the background."
+                                    "Only moves while it's on screen."
                                 },
                                 style = MaterialTheme.typography.bodySmall,
                             )
@@ -704,110 +724,117 @@ private fun QuotesScreen(
                         )
                     }
                     if (animate) {
-                        Row(verticalAlignment = Alignment.CenterVertically) {
-                            Text("Motion speed", modifier = Modifier.weight(1f))
-                            Text(String.format(java.util.Locale.US, "%.2f", motionSpeed).trimEnd('0').trimEnd('.') + "\u00D7")
-                        }
-                        Slider(
-                            value = motionSpeed,
-                            onValueChange = onMotionSpeed,
-                            onValueChangeFinished = { prefs.motionSpeed = motionSpeed },
-                            valueRange = 0.25f..2f,
-                        )
-                        Text(
-                            "Also sets the speed on the live wallpaper. It doesn't change how hard the phone works.",
-                            style = MaterialTheme.typography.bodySmall,
-                        )
+                        LabeledSlider(
+                            "Speed",
+                            String.format(java.util.Locale.US, "%.2f", motionSpeed).trimEnd('0').trimEnd('.') + "\u00D7",
+                            motionSpeed, 0.25f..2f, onMotionSpeed,
+                        ) { prefs.motionSpeed = motionSpeed }
+                    }
+                }
+                if (theme == AppTheme.AURORA || lockTheme == AppTheme.AURORA) {
+                    LabeledSlider("Lights", "${(auroraIntensity * 100).toInt()}%", auroraIntensity, 0.5f..2f, onAuroraIntensity) {
+                        prefs.auroraIntensity = auroraIntensity
                     }
                 }
             }
         }
-        item(key = "t-lock") {
-            SettingsCard("Lock screen theme") {
+        item(key = "ap-card") {
+            SettingsCard("Card") {
+                LabeledSlider("Opacity", "${(cardOpacity * 100).toInt()}%", cardOpacity, 0f..1f, onCardOpacity) {
+                    prefs.cardOpacity = cardOpacity
+                    refreshNotification()
+                }
+                LabeledSlider("Soft edge", "${(cardSoftness * 100).toInt()}%", cardSoftness, 0f..1f, onCardSoftness) {
+                    prefs.cardSoftness = cardSoftness
+                    refreshNotification()
+                }
                 Text(
-                    "The frame shows when the lock-screen notification is expanded.",
+                    "Opacity is how strong the card behind the text is; soft edge fades its edges into the artwork. " +
+                        "They apply in the app, on the lock-screen card (soft edge on Android 12+, in three steps), " +
+                        "the live wallpaper and shared pictures.",
                     style = MaterialTheme.typography.bodySmall,
                 )
+            }
+        }
+        item(key = "ap-text") {
+            SettingsCard("Text") {
                 Row(
                     modifier = Modifier.horizontalScroll(rememberScrollState()),
                     horizontalArrangement = Arrangement.spacedBy(8.dp),
                 ) {
-                    (listOf<AppTheme?>(null) + AppTheme.entries).forEach { option ->
+                    QuoteFont.entries.forEach { font ->
                         FilterChip(
-                            selected = lockTheme == option,
-                            onClick = {
-                                prefs.lockTheme = option
-                                lockTheme = option
-                                refreshNotification()
-                            },
-                            label = { Text(option?.label ?: "Same as app") },
+                            selected = quoteFont == font,
+                            onClick = { chooseFont(font) },
+                            label = { Text(font.label, fontFamily = fontFamilyOf(font)) },
                         )
                     }
                 }
-            }
-        }
-        if (theme == AppTheme.AURORA || lockTheme == AppTheme.AURORA) {
-            item(key = "t-aurora") {
-                SettingsCard("Northern lights intensity") {
-                    Row(verticalAlignment = Alignment.CenterVertically) {
-                        Text(
-                            "How bright and tall the curtains of light are, in the app and the live wallpaper.",
-                            style = MaterialTheme.typography.bodySmall,
-                            modifier = Modifier.weight(1f),
+                Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                    QuoteSize.entries.forEach { size ->
+                        FilterChip(
+                            selected = quoteSize == size,
+                            onClick = { chooseSize(size) },
+                            label = { Text(size.label) },
                         )
-                        Text("${(auroraIntensity * 100).toInt()}%", modifier = Modifier.padding(start = 12.dp))
                     }
-                    Slider(
-                        value = auroraIntensity,
-                        onValueChange = onAuroraIntensity,
-                        onValueChangeFinished = { prefs.auroraIntensity = auroraIntensity },
-                        valueRange = 0.5f..2f,
-                    )
                 }
-            }
-        }
-        item(key = "t-opacity") {
-            SettingsCard("Card opacity") {
-                Row(verticalAlignment = Alignment.CenterVertically) {
-                    Text(
-                        "How strong the card behind the quote is. Lower shows more of the painting, sky or page; " +
-                            "0% leaves just the text.",
-                        style = MaterialTheme.typography.bodySmall,
-                        modifier = Modifier.weight(1f),
-                    )
-                    Text("${(cardOpacity * 100).toInt()}%", modifier = Modifier.padding(start = 12.dp))
+                Row(
+                    modifier = Modifier.horizontalScroll(rememberScrollState()),
+                    horizontalArrangement = Arrangement.spacedBy(10.dp),
+                    verticalAlignment = Alignment.CenterVertically,
+                ) {
+                    ColorSwatch("System default", null, quoteColor == null) {
+                        hex = ""
+                        chooseColor(null)
+                    }
+                    COLOR_PRESETS.forEach { (name, argb) ->
+                        ColorSwatch(name, Color(argb), quoteColor == argb) {
+                            hex = ""
+                            chooseColor(argb)
+                        }
+                    }
                 }
-                Slider(
-                    value = cardOpacity,
-                    onValueChange = onCardOpacity,
-                    onValueChangeFinished = {
-                        prefs.cardOpacity = cardOpacity
-                        refreshNotification()
+                OutlinedTextField(
+                    value = hex,
+                    onValueChange = { input ->
+                        hex = input.trim().removePrefix("#").take(6)
+                        if (HEX_COLOR.matches(hex)) chooseColor(0xFF000000.toInt() or hex.toInt(16))
                     },
-                    valueRange = 0f..1f,
+                    label = { Text("Custom colour (hex, e.g. FFC107)") },
+                    isError = hex.isNotEmpty() && !HEX_COLOR.matches(hex),
+                    singleLine = true,
+                    modifier = Modifier.fillMaxWidth(),
+                )
+                Text(
+                    "With the Classic lock-screen theme Android draws the notification background itself, so pick a " +
+                        "colour that stands out against it; \"System default\" always stays readable.",
+                    style = MaterialTheme.typography.bodySmall,
                 )
             }
         }
-        item(key = "t-softness") {
-            SettingsCard("Soft edge") {
-                Row(verticalAlignment = Alignment.CenterVertically) {
-                    Text(
-                        "0% is a solid card with a clean edge. Higher fades the edges into the artwork, like a vignette. " +
-                            "Applies to the cards in the app, the lock-screen card (Android 12+), the live wallpaper and " +
-                            "shared pictures. The lock-screen card has three steps of softness.",
-                        style = MaterialTheme.typography.bodySmall,
-                        modifier = Modifier.weight(1f),
-                    )
-                    Text("${(cardSoftness * 100).toInt()}%", modifier = Modifier.padding(start = 12.dp))
+        item(key = "ap-lock") {
+            SettingsCard("Lock screen") {
+                Text(
+                    "The theme for the lock-screen card (its frame shows when the notification is expanded) and the live wallpaper.",
+                    style = MaterialTheme.typography.bodySmall,
+                )
+                (listOf<AppTheme?>(null) + AppTheme.entries).chunked(5).forEach { row ->
+                    Row(horizontalArrangement = Arrangement.spacedBy(6.dp)) {
+                        row.forEach { option ->
+                            LockThemeTile(option, selected = lockTheme == option, modifier = Modifier.weight(1f)) {
+                                prefs.lockTheme = option
+                                lockTheme = option
+                                refreshNotification()
+                            }
+                        }
+                        repeat(5 - row.size) { Spacer(Modifier.weight(1f)) }
+                    }
                 }
-                Slider(
-                    value = cardSoftness,
-                    onValueChange = onCardSoftness,
-                    onValueChangeFinished = {
-                        prefs.cardSoftness = cardSoftness
-                        refreshNotification()
-                    },
-                    valueRange = 0f..1f,
+                Text(
+                    "Now: " + (lockTheme?.label ?: "same as the app (${theme.label})"),
+                    style = MaterialTheme.typography.bodySmall,
+                    color = MaterialTheme.colorScheme.primary,
                 )
             }
         }
@@ -853,97 +880,6 @@ private fun QuotesScreen(
                         style = MaterialTheme.typography.bodySmall,
                     )
                 }
-            }
-        }
-    }
-
-    fun LazyListScope.stylePage() {
-        item(key = "s-preview") {
-            SoftCard(Modifier.fillMaxWidth()) {
-                Column(Modifier.padding(18.dp), verticalArrangement = Arrangement.spacedBy(6.dp)) {
-                    val family = fontFamilyOf(quoteFont)
-                    val textColor = quoteColor?.let { Color(it) } ?: Color.Unspecified
-                    Text(
-                        "“${current?.text ?: "The unexamined life is not worth living."}”",
-                        fontFamily = family,
-                        fontSize = quoteSize.sizeSp.sp,
-                        color = textColor,
-                        maxLines = 5,
-                        overflow = TextOverflow.Ellipsis,
-                    )
-                    Text(
-                        "— ${current?.author ?: "Socrates"}",
-                        fontFamily = family,
-                        fontSize = (quoteSize.sizeSp * 0.85f).sp,
-                        color = textColor,
-                    )
-                }
-            }
-        }
-        item(key = "s-font") {
-            SettingsCard("Font") {
-                Row(
-                    modifier = Modifier.horizontalScroll(rememberScrollState()),
-                    horizontalArrangement = Arrangement.spacedBy(8.dp),
-                ) {
-                    QuoteFont.entries.forEach { font ->
-                        FilterChip(
-                            selected = quoteFont == font,
-                            onClick = { chooseFont(font) },
-                            label = { Text(font.label, fontFamily = fontFamilyOf(font)) },
-                        )
-                    }
-                }
-            }
-        }
-        item(key = "s-size") {
-            SettingsCard("Size") {
-                Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-                    QuoteSize.entries.forEach { size ->
-                        FilterChip(
-                            selected = quoteSize == size,
-                            onClick = { chooseSize(size) },
-                            label = { Text(size.label) },
-                        )
-                    }
-                }
-            }
-        }
-        item(key = "s-color") {
-            SettingsCard("Colour") {
-                Row(
-                    modifier = Modifier.horizontalScroll(rememberScrollState()),
-                    horizontalArrangement = Arrangement.spacedBy(10.dp),
-                    verticalAlignment = Alignment.CenterVertically,
-                ) {
-                    ColorSwatch("System default", null, quoteColor == null) {
-                        hex = ""
-                        chooseColor(null)
-                    }
-                    COLOR_PRESETS.forEach { (name, argb) ->
-                        ColorSwatch(name, Color(argb), quoteColor == argb) {
-                            hex = ""
-                            chooseColor(argb)
-                        }
-                    }
-                }
-                OutlinedTextField(
-                    value = hex,
-                    onValueChange = { input ->
-                        hex = input.trim().removePrefix("#").take(6)
-                        if (HEX_COLOR.matches(hex)) chooseColor(0xFF000000.toInt() or hex.toInt(16))
-                    },
-                    label = { Text("Custom colour (hex, e.g. FFC107)") },
-                    isError = hex.isNotEmpty() && !HEX_COLOR.matches(hex),
-                    singleLine = true,
-                    modifier = Modifier.fillMaxWidth(),
-                )
-                Text(
-                    "With the Classic lock-screen theme Android draws the notification background itself, " +
-                        "following your light or dark mode, so pick a colour that stands out against it. " +
-                        "\"System default\" always stays readable; themed lock screens use their own colours.",
-                    style = MaterialTheme.typography.bodySmall,
-                )
             }
         }
     }
@@ -1053,29 +989,6 @@ private fun QuotesScreen(
                         repo.removeCustom(quote.id)
                         custom = repo.custom()
                     }) { Text("Delete") }
-                }
-            }
-        }
-    }
-
-    fun LazyListScope.subjectsPage() {
-        item(key = "s-intro") {
-            Text(
-                "Browse by what a quote is about, across every author. Each quote is tagged automatically from its " +
-                    "words, so a few may sit under a subject loosely and some are untagged; every quote is still under " +
-                    "its author.",
-                style = MaterialTheme.typography.bodyMedium,
-            )
-        }
-        items(Subject.entries.filter { (subjectCounts[it.key] ?: 0) > 0 }, key = { "subject-" + it.key }) { subject ->
-            SoftCard(onClick = { browse = listOf(BrowsePage.subject(subject)) }, modifier = Modifier.fillMaxWidth()) {
-                Row(Modifier.padding(16.dp), verticalAlignment = Alignment.CenterVertically) {
-                    Text(subject.label, style = MaterialTheme.typography.titleMedium, modifier = Modifier.weight(1f))
-                    Text(
-                        "${subjectCounts[subject.key]} \u203A",
-                        style = MaterialTheme.typography.bodyMedium,
-                        color = MaterialTheme.colorScheme.primary,
-                    )
                 }
             }
         }
@@ -1214,10 +1127,8 @@ private fun QuotesScreen(
                 Page.HOME -> homePage()
                 Page.QUOTES -> quotesPage()
                 Page.THEMES -> themesPage()
-                Page.STYLE -> stylePage()
                 Page.SCHEDULE -> schedulePage()
                 Page.FAVORITES -> favoritesPage()
-                Page.SUBJECTS -> subjectsPage()
                 Page.MINE -> minePage()
                 Page.ABOUT -> aboutPage()
             }
@@ -1229,23 +1140,49 @@ private fun QuotesScreen(
 private enum class Page(val title: String) {
     HOME(""),
     QUOTES("Quotes & authors"),
-    THEMES("Themes"),
-    STYLE("Text style"),
+    THEMES("Appearance"),
     SCHEDULE("Schedule"),
     FAVORITES("Favourites"),
-    SUBJECTS("Subjects"),
     MINE("My quotes"),
     ABOUT("About & updates"),
 }
 
-private class Tile(val symbol: String, val title: String, val subtitle: String, val onClick: () -> Unit)
+private class Tile(@DrawableRes val icon: Int, val title: String, val subtitle: String, val onClick: () -> Unit)
+
+/** A round icon button with a small label underneath, for the actions under the home quote. */
+@Composable
+private fun QuoteAction(
+    @DrawableRes icon: Int,
+    label: String,
+    enabled: Boolean = true,
+    tint: Color? = null,
+    onClick: () -> Unit,
+) {
+    val color = (tint ?: MaterialTheme.colorScheme.primary).copy(alpha = if (enabled) 1f else 0.38f)
+    Column(horizontalAlignment = Alignment.CenterHorizontally) {
+        Box(
+            modifier = Modifier
+                .size(46.dp)
+                .clip(CircleShape)
+                .background(MaterialTheme.colorScheme.primary.copy(alpha = 0.12f))
+                .clickable(enabled = enabled, onClickLabel = label, onClick = onClick),
+            contentAlignment = Alignment.Center,
+        ) { Icon(painterResource(icon), contentDescription = label, tint = color, modifier = Modifier.size(22.dp)) }
+        Text(
+            label,
+            style = MaterialTheme.typography.labelSmall,
+            color = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = if (enabled) 1f else 0.5f),
+            modifier = Modifier.padding(top = 4.dp),
+        )
+    }
+}
 
 @Composable
 private fun TileCard(tile: Tile, modifier: Modifier, wide: Boolean = false) {
     SoftCard(onClick = tile.onClick, modifier = modifier.heightIn(min = if (wide) 64.dp else 104.dp)) {
         if (wide) {
             Row(Modifier.padding(16.dp), verticalAlignment = Alignment.CenterVertically) {
-                Text(tile.symbol, style = MaterialTheme.typography.titleLarge, color = MaterialTheme.colorScheme.primary)
+                Icon(painterResource(tile.icon), contentDescription = null, tint = MaterialTheme.colorScheme.primary, modifier = Modifier.size(26.dp))
                 Column(Modifier.padding(start = 14.dp)) {
                     Text(tile.title, style = MaterialTheme.typography.titleSmall, fontWeight = FontWeight.SemiBold)
                     Text(tile.subtitle, style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
@@ -1253,7 +1190,7 @@ private fun TileCard(tile: Tile, modifier: Modifier, wide: Boolean = false) {
             }
         } else {
             Column(Modifier.padding(16.dp)) {
-                Text(tile.symbol, style = MaterialTheme.typography.titleLarge, color = MaterialTheme.colorScheme.primary)
+                Icon(painterResource(tile.icon), contentDescription = null, tint = MaterialTheme.colorScheme.primary, modifier = Modifier.size(26.dp))
                 Spacer(Modifier.height(10.dp))
                 Text(tile.title, style = MaterialTheme.typography.titleSmall, fontWeight = FontWeight.SemiBold)
                 Text(
@@ -1282,29 +1219,73 @@ private fun SettingsCard(title: String, content: @Composable ColumnScope.() -> U
     }
 }
 
+/** The picture used for a theme's preview tile and lock-screen frame (null: Classic, drawn as a gradient). */
+@DrawableRes
+private fun themePicture(option: AppTheme): Int? = when (option) {
+    AppTheme.STARRY -> R.drawable.starry_frame
+    AppTheme.AURORA -> R.drawable.aurora_frame
+    AppTheme.BOOK -> R.drawable.paper
+    AppTheme.BUTTERFLY -> R.drawable.butterfly_frame
+    AppTheme.SPACE -> R.drawable.space_frame
+    AppTheme.WATER -> R.drawable.water_frame
+    AppTheme.RAIN -> R.drawable.rain_frame
+    AppTheme.RAIN_NIGHT -> R.drawable.rain_night_frame
+    AppTheme.CLASSIC -> null
+}
+
+/** A small lock-screen theme tile; [option] null means "same as the app". */
+@Composable
+private fun LockThemeTile(option: AppTheme?, selected: Boolean, modifier: Modifier, onClick: () -> Unit) {
+    val shape = RoundedCornerShape(10.dp)
+    Box(
+        modifier = modifier
+            .height(44.dp)
+            .clip(shape)
+            .border(if (selected) 3.dp else 1.dp, if (selected) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.outlineVariant, shape)
+            .clickable(onClickLabel = "Lock screen: ${option?.label ?: "same as app"}", onClick = onClick),
+        contentAlignment = Alignment.Center,
+    ) {
+        val image = option?.let { themePicture(it) }
+        when {
+            image != null -> Image(painterResource(image), contentDescription = option.label, contentScale = ContentScale.Crop, modifier = Modifier.fillMaxSize())
+            option == AppTheme.CLASSIC -> Box(Modifier.fillMaxSize().background(Brush.verticalGradient(listOf(Color(0xFFE8E4F4), Color(0xFFCFD6EE)))))
+            else -> Box(Modifier.fillMaxSize().background(MaterialTheme.colorScheme.surfaceVariant), contentAlignment = Alignment.Center) {
+                Text("Same", style = MaterialTheme.typography.labelSmall.copy(shadow = null), color = MaterialTheme.colorScheme.onSurface)
+            }
+        }
+    }
+}
+
+/** A slider with its label on the left and the current value on the right. */
+@Composable
+private fun LabeledSlider(
+    label: String,
+    value: String,
+    current: Float,
+    range: ClosedFloatingPointRange<Float>,
+    onChange: (Float) -> Unit,
+    onDone: () -> Unit,
+) {
+    Row(verticalAlignment = Alignment.CenterVertically) {
+        Text(label, style = MaterialTheme.typography.bodyMedium, modifier = Modifier.width(78.dp))
+        Slider(value = current, onValueChange = onChange, onValueChangeFinished = onDone, valueRange = range, modifier = Modifier.weight(1f))
+        Text(value, style = MaterialTheme.typography.bodyMedium, modifier = Modifier.width(48.dp), textAlign = TextAlign.End)
+    }
+}
+
 /** A small picture of each theme to tap. */
 @Composable
 private fun ThemePreview(option: AppTheme, selected: Boolean, modifier: Modifier, onClick: () -> Unit) {
     val shape = RoundedCornerShape(12.dp)
     Box(
         modifier = modifier
-            .height(88.dp)
+            .height(76.dp)
             .clip(shape)
             .border(if (selected) 3.dp else 1.dp, if (selected) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.outlineVariant, shape)
             .clickable(onClickLabel = "Use ${option.label}", onClick = onClick),
         contentAlignment = Alignment.BottomCenter,
     ) {
-        val image = when (option) {
-            AppTheme.STARRY -> R.drawable.starry_frame
-            AppTheme.AURORA -> R.drawable.aurora_frame
-            AppTheme.BOOK -> R.drawable.paper
-            AppTheme.BUTTERFLY -> R.drawable.butterfly_frame
-            AppTheme.SPACE -> R.drawable.space_frame
-            AppTheme.WATER -> R.drawable.water_frame
-            AppTheme.RAIN -> R.drawable.rain_frame
-            AppTheme.RAIN_NIGHT -> R.drawable.rain_night_frame
-            AppTheme.CLASSIC -> null
-        }
+        val image = themePicture(option)
         if (image != null) {
             Image(painterResource(image), contentDescription = null, contentScale = ContentScale.Crop, modifier = Modifier.fillMaxSize())
         } else {
