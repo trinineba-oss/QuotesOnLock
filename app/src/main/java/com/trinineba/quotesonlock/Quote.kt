@@ -215,6 +215,24 @@ enum class Category(val key: String, val label: String, val group: QuoteGroup) {
     KAFKALETTERS("kafkaletters", "Kafka's love letters", QuoteGroup.WRITERS),
     VANGOGHLATE("vangoghlate", "Van Gogh's later letters", QuoteGroup.WRITERS),
     POE("poe", "Edgar Allan Poe", QuoteGroup.POETS),
+    GONCHAROV("goncharov", "Ivan Goncharov", QuoteGroup.WRITERS),
+    SHESTOV("shestov", "Lev Shestov", QuoteGroup.THINKERS),
+    ROZANOV("rozanov", "Vasily Rozanov", QuoteGroup.THINKERS),
+    BUCHNER("buchner", "Georg Büchner", QuoteGroup.WRITERS),
+    PIRANDELLO("pirandello", "Luigi Pirandello", QuoteGroup.WRITERS),
+    SVEVO("svevo", "Italo Svevo", QuoteGroup.WRITERS),
+    STRINDBERG("strindberg", "August Strindberg", QuoteGroup.WRITERS),
+    JASPERS("jaspers", "Karl Jaspers", QuoteGroup.THINKERS),
+    HEIDEGGER("heidegger", "Martin Heidegger", QuoteGroup.THINKERS),
+    MARCEL("marcel", "Gabriel Marcel", QuoteGroup.THINKERS),
+    BERDYAEV("berdyaev", "Nikolai Berdyaev", QuoteGroup.THINKERS),
+    ORTEGA("ortega", "José Ortega y Gasset", QuoteGroup.THINKERS),
+    TILLICH("tillich", "Paul Tillich", QuoteGroup.THINKERS),
+    PERCY("percy", "Walker Percy", QuoteGroup.WRITERS),
+    ELLISON("ellison", "Ralph Ellison", QuoteGroup.WRITERS),
+    MUSIL("musil", "Robert Musil", QuoteGroup.WRITERS),
+    MALRAUX("malraux", "André Malraux", QuoteGroup.WRITERS),
+    IONESCO("ionesco", "Eugène Ionesco", QuoteGroup.WRITERS),
     QURAN("quran", "The Qur'an", QuoteGroup.SCRIPTURE),
     CUSTOM("custom", "My own quotes", QuoteGroup.MINE);
 
@@ -223,7 +241,7 @@ enum class Category(val key: String, val label: String, val group: QuoteGroup) {
 
         /** Authors still in copyright, whose quotes are short excerpts, so they can be switched off together. */
         val MODERN: List<Category> by lazy {
-            listOf(CAMUS, HESSE, MURAKAMI, EINSTEIN, FRANKL, PESSOA, BORGES, CIORAN, WEIL, NERUDA, OLIVER, SZYMBORSKA, KUNDERA, SARTRE, WATTS, KRISHNAMURTI, MURDOCH, BECKER, BUKOWSKI, NIN, KAZANTZAKIS, BUBER, ARENDT, BEAUVOIR, BECKETT, FROMM, MAY, MERTON, NHATHANH, YALOM, CAMPBELL, MUSASHI, SONTAG, BALDWIN, SAINTEXUPERY, CSLEWIS, ZWEIG, LISPECTOR, HAMMARSKJOLD, MARQUEZ, PAZ, CALVINO, SARAMAGO, AKHMATOVA, TSVETAEVA, MILOSZ, TRANSTROMER, CELAN, SEBALD, BACHELARD, TEILHARD, BULGAKOV, NAIPAUL, WALCOTT, ZENPOETS, MANDELSTAM, PASTERNAK, BRODSKY, HEANEY, JACKGILBERT, SEFERIS, WENDELLBERRY, COHEN, DILLARD, LEGUIN, MORRISON, SOLNIT, ECO, HUXLEY, SOLZHENITSYN, VUONG, HADOT, SAGAN, KAFKALETTERS, VANGOGHLATE)
+            listOf(CAMUS, HESSE, MURAKAMI, EINSTEIN, FRANKL, PESSOA, BORGES, CIORAN, WEIL, NERUDA, OLIVER, SZYMBORSKA, KUNDERA, SARTRE, WATTS, KRISHNAMURTI, MURDOCH, BECKER, BUKOWSKI, NIN, KAZANTZAKIS, BUBER, ARENDT, BEAUVOIR, BECKETT, FROMM, MAY, MERTON, NHATHANH, YALOM, CAMPBELL, MUSASHI, SONTAG, BALDWIN, SAINTEXUPERY, CSLEWIS, ZWEIG, LISPECTOR, HAMMARSKJOLD, MARQUEZ, PAZ, CALVINO, SARAMAGO, AKHMATOVA, TSVETAEVA, MILOSZ, TRANSTROMER, CELAN, SEBALD, BACHELARD, TEILHARD, BULGAKOV, NAIPAUL, WALCOTT, ZENPOETS, MANDELSTAM, PASTERNAK, BRODSKY, HEANEY, JACKGILBERT, SEFERIS, WENDELLBERRY, COHEN, DILLARD, LEGUIN, MORRISON, SOLNIT, ECO, HUXLEY, SOLZHENITSYN, VUONG, HADOT, SAGAN, KAFKALETTERS, VANGOGHLATE, JASPERS, HEIDEGGER, MARCEL, BERDYAEV, ORTEGA, TILLICH, PERCY, ELLISON, MUSIL, MALRAUX, IONESCO)
         }
     }
 }
