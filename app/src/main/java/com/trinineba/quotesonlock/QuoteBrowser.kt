@@ -3,6 +3,12 @@ package com.trinineba.quotesonlock
 import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.ui.graphics.Color
+import androidx.compose.foundation.layout.size
+import androidx.annotation.DrawableRes
+import androidx.compose.ui.res.painterResource
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.SuggestionChip
 import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.ExperimentalLayoutApi
@@ -41,6 +47,19 @@ object BrowsePage {
 
     /** Every quote, searchable; lists all authors A–Z until you type. */
     const val SEARCH = "s:"
+}
+
+/** A small round icon button for a quote in a list. */
+@Composable
+internal fun ListAction(@DrawableRes icon: Int, description: String, tint: Color? = null, onClick: () -> Unit) {
+    IconButton(onClick = onClick, modifier = Modifier.size(42.dp)) {
+        Icon(
+            painterResource(icon),
+            contentDescription = description,
+            tint = tint ?: MaterialTheme.colorScheme.primary,
+            modifier = Modifier.size(20.dp),
+        )
+    }
 }
 
 /** The person behind a label such as "Leo Tolstoy, War and Peace", "Hafiz (tr. Gertrude Bell)" or "The Qur'an (2:255)". */
@@ -182,19 +201,19 @@ fun QuoteBrowser(
                                 modifier = if (linked) Modifier.clickable { onOpenAuthor(name!!) } else Modifier,
                             )
                         }
-                        Row {
-                            val compact = PaddingValues(horizontal = 10.dp, vertical = 8.dp)
-                            TextButton(onClick = { onShow(quote) }, contentPadding = compact) { Text("Show now") }
-                            TextButton(onClick = { QuoteClipboard.copy(context, quote) }, contentPadding = compact) { Text("Copy") }
-                            TextButton(onClick = { QuoteShare.share(context, quote) }, contentPadding = compact) { Text("Share") }
+                        Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.End) {
+                            ListAction(R.drawable.ic_lock, "Show on the lock screen now") { onShow(quote) }
+                            ListAction(R.drawable.ic_content_copy, "Copy") { QuoteClipboard.copy(context, quote) }
+                            ListAction(R.drawable.ic_share, "Share as image") { QuoteShare.share(context, quote) }
                             val favorite = quote.text in favorites
-                            TextButton(
-                                onClick = {
-                                    repo.toggleFavorite(quote)
-                                    favorites = repo.favorites().map { it.text }.toSet()
-                                },
-                                contentPadding = compact,
-                            ) { Text(if (favorite) "♥" else "♡", style = MaterialTheme.typography.titleMedium) }
+                            ListAction(
+                                if (favorite) R.drawable.ic_favorite else R.drawable.ic_favorite_border,
+                                if (favorite) "Remove from favourites" else "Add to favourites",
+                                tint = if (favorite) Color(0xFFE0566B) else null,
+                            ) {
+                                repo.toggleFavorite(quote)
+                                favorites = repo.favorites().map { it.text }.toSet()
+                            }
                         }
                     }
                 }

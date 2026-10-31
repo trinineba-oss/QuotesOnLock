@@ -203,6 +203,9 @@ private fun QuotesScreen(
     var hex by rememberSaveable { mutableStateOf("") }
     var categories by remember { mutableStateOf(prefs.enabledCategories) }
     var query by rememberSaveable { mutableStateOf("") }
+    var onlyOn by rememberSaveable { mutableStateOf(false) }
+    var sourceQuery by rememberSaveable { mutableStateOf("") }
+    var openSources by rememberSaveable(stateSaver = androidx.compose.runtime.saveable.listSaver<Set<String>, String>(save = { it.toList() }, restore = { it.toSet() })) { mutableStateOf(emptySet<String>()) }
     var expandedGroups by rememberSaveable(stateSaver = androidx.compose.runtime.saveable.listSaver<Set<String>, String>(save = { it.toList() }, restore = { it.toSet() })) { mutableStateOf(setOf(QuoteGroup.THEME.name)) }
     var current by remember { mutableStateOf(repo.current()) }
     var canGoBack by remember { mutableStateOf(repo.hasPrevious()) }
@@ -233,6 +236,19 @@ private fun QuotesScreen(
     var wallpaperQuote by remember { mutableStateOf(prefs.wallpaperShowQuote) }
     var wallpaperPosition by remember { mutableStateOf(prefs.wallpaperQuotePosition) }
     val sources = remember { readSources(context) }
+    // The sources split at their headings: (heading, its lines).
+    val sourceSections = remember(sources) {
+        val out = mutableListOf<Pair<String, MutableList<Pair<Int, String>>>>()
+        sources.forEach { (kind, text) ->
+            if (kind == 0) out.add(text to mutableListOf()) else {
+                if (out.isEmpty()) out.add("Sources" to mutableListOf())
+                out.last().second.add(kind to text)
+            }
+        }
+        out.filter { it.second.isNotEmpty() }.map { (title, lines) ->
+            (if (title == "Sources") "Public-domain texts and translations" else title) to lines.toList()
+        }
+    }
     // Open pages of the quote browser, innermost last; empty means the main screen.
     var browse by rememberSaveable(stateSaver = androidx.compose.runtime.saveable.listSaver<List<String>, String>(save = { it }, restore = { it })) { mutableStateOf(emptyList<String>()) }
 
@@ -581,26 +597,38 @@ private fun QuotesScreen(
             }
         }
         item(key = "type-search") {
-            OutlinedTextField(
-                value = query,
-                onValueChange = { query = it },
-                modifier = Modifier.fillMaxWidth(),
-                singleLine = true,
-                label = { Text("Search authors and types") },
-            )
+            Column(verticalArrangement = Arrangement.spacedBy(6.dp)) {
+                OutlinedTextField(
+                    value = query,
+                    onValueChange = { query = it },
+                    modifier = Modifier.fillMaxWidth(),
+                    singleLine = true,
+                    label = { Text("Search authors and types") },
+                )
+                FilterChip(
+                    selected = onlyOn,
+                    onClick = { onlyOn = !onlyOn },
+                    label = { Text("Only the ones that are on") },
+                )
+            }
         }
         QuoteGroup.entries.forEach { group ->
-            val inGroup = Category.entries.filter { it.group == group && (it == Category.CUSTOM || countOf(it) > 0) }
-            val shown = inGroup.filter { query.isBlank() || it.label.contains(query.trim(), ignoreCase = true) }
+            // Authors A–Z (ignoring a leading "The"); the themes keep their own order.
+            val inGroup = Category.entries
+                .filter { it.group == group && (it == Category.CUSTOM || countOf(it) > 0) }
+                .let { list -> if (group == QuoteGroup.THEME || group == QuoteGroup.MINE) list else list.sortedBy { it.label.removePrefix("The ").lowercase() } }
+            val shown = inGroup.filter {
+                (query.isBlank() || it.label.contains(query.trim(), ignoreCase = true)) && (!onlyOn || it in categories)
+            }
             if (shown.isEmpty()) return@forEach
-            val open = query.isNotBlank() || group == QuoteGroup.MINE || group.name in expandedGroups
+            val open = query.isNotBlank() || onlyOn || group == QuoteGroup.MINE || group.name in expandedGroups
             val groupOn = inGroup.count { it in categories }
             item(key = "group-${group.name}") {
                 Row(
                     modifier = Modifier
                         .fillMaxWidth()
                         .heightIn(min = 48.dp)
-                        .clickable(enabled = query.isBlank() && group != QuoteGroup.MINE, onClickLabel = if (open) "Collapse" else "Expand") {
+                        .clickable(enabled = query.isBlank() && !onlyOn && group != QuoteGroup.MINE, onClickLabel = if (open) "Collapse" else "Expand") {
                             expandedGroups = if (group.name in expandedGroups) expandedGroups - group.name else expandedGroups + group.name
                         }
                         .padding(top = 8.dp),
@@ -1036,17 +1064,16 @@ private fun QuotesScreen(
                             modifier = if (name != null) Modifier.clickable { browse = listOf(BrowsePage.author(name)) } else Modifier,
                         )
                     }
-                    Row {
-                        val compact = PaddingValues(horizontal = 10.dp, vertical = 8.dp)
-                        TextButton(onClick = {
+                    Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.End) {
+                        ListAction(R.drawable.ic_lock, "Show on the lock screen now") {
                             current = repo.show(quote)
                             canGoBack = repo.hasPrevious()
                             if (enabled) QuoteNotifier.show(context, quote)
                             page = Page.HOME
-                        }, contentPadding = compact) { Text("Show now") }
-                        TextButton(onClick = { QuoteClipboard.copy(context, quote) }, contentPadding = compact) { Text("Copy") }
-                        TextButton(onClick = { QuoteShare.share(context, quote) }, contentPadding = compact) { Text("Share") }
-                        TextButton(onClick = { toggleFavorite(quote) }, contentPadding = compact) { Text("Remove") }
+                        }
+                        ListAction(R.drawable.ic_content_copy, "Copy") { QuoteClipboard.copy(context, quote) }
+                        ListAction(R.drawable.ic_share, "Share as image") { QuoteShare.share(context, quote) }
+                        ListAction(R.drawable.ic_favorite, "Remove from favourites", tint = Color(0xFFE0566B)) { toggleFavorite(quote) }
                     }
                 }
             }
@@ -1106,12 +1133,46 @@ private fun QuotesScreen(
                 )
             }
         }
-        items(sources.size, key = { "src-$it" }) { i ->
-            val (kind, text) = sources[i]
-            when (kind) {
-                0 -> Text(text, style = MaterialTheme.typography.titleMedium, modifier = Modifier.padding(top = 12.dp))
-                2 -> Text(text, style = MaterialTheme.typography.bodySmall)
-                else -> Text(text, style = MaterialTheme.typography.bodyMedium)
+        item(key = "src-search") {
+            OutlinedTextField(
+                value = sourceQuery,
+                onValueChange = { sourceQuery = it },
+                modifier = Modifier.fillMaxWidth(),
+                singleLine = true,
+                label = { Text("Search the sources (an author, a book, a translator)") },
+            )
+        }
+        val q = sourceQuery.trim()
+        sourceSections.forEachIndexed { si, (title, entries) ->
+            val matching = if (q.isEmpty()) entries else entries.filter { it.second.contains(q, ignoreCase = true) }
+            if (matching.isEmpty()) return@forEachIndexed
+            val open = q.isNotEmpty() || title in openSources
+            item(key = "src-h-$si") {
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .heightIn(min = 48.dp)
+                        .clickable(enabled = q.isEmpty(), onClickLabel = if (open) "Collapse" else "Expand") {
+                            openSources = if (title in openSources) openSources - title else openSources + title
+                        },
+                    verticalAlignment = Alignment.CenterVertically,
+                ) {
+                    Column(Modifier.weight(1f)) {
+                        Text(title, style = MaterialTheme.typography.titleMedium)
+                        Text("${matching.size} " + if (matching.size == 1) "entry" else "entries", style = MaterialTheme.typography.bodySmall)
+                    }
+                    if (q.isEmpty()) Text(if (open) "▾" else "▸", style = MaterialTheme.typography.titleLarge)
+                }
+            }
+            if (open) {
+                items(matching.size, key = { "src-$si-$it" }) { i ->
+                    val (kind, text) = matching[i]
+                    Text(
+                        text,
+                        style = if (kind == 2) MaterialTheme.typography.bodySmall else MaterialTheme.typography.bodyMedium,
+                        modifier = Modifier.padding(bottom = 4.dp),
+                    )
+                }
             }
         }
     }
