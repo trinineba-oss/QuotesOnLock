@@ -92,6 +92,7 @@ class QuoteWallpaperService : WallpaperService() {
                     AppTheme.AURORA -> drawAurora(canvas, if (moving()) t * 2f * PI.toFloat() / 10f else 1.2f)
                     AppTheme.BOOK -> drawCover(canvas, bitmap(R.drawable.paper))
                     AppTheme.BUTTERFLY -> ButterflyArt.draw(canvas, width.toFloat(), height.toFloat(), if (moving()) t else 3f, resources.displayMetrics.density)
+                    AppTheme.SPACE -> SpaceArt.draw(canvas, width.toFloat(), height.toFloat(), if (moving()) t else 20f, resources.displayMetrics.density, bitmap(R.drawable.nebula))
                     else -> drawStarry(canvas, t * 2f * PI.toFloat() / 6f)
                 }
                 if (prefs.wallpaperShowQuote) drawQuote(canvas)

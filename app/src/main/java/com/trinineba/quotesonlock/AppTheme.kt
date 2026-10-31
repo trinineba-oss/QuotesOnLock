@@ -82,6 +82,10 @@ enum class AppTheme(
     BUTTERFLY(
         "butterfly", "Butterflies", "Flying butterflies", R.drawable.notif_frame_butterfly, 0xFFFFF1F7.toInt(),
         0xFF4A1C33.toInt(), 0xFFC2185B.toInt(),
+    ),
+    SPACE(
+        "space", "Deep space", "Drifting stars", R.drawable.notif_frame_space, 0xFF0A0B22.toInt(),
+        0xFFFFFFFF.toInt(), 0xFFC8B8FF.toInt(),
     );
 
     /** Light themes use dark text. */
@@ -155,6 +159,25 @@ fun AppTheme.colorScheme(cardOpacity: Float): ColorScheme? = when (this) {
         outline = Color(0xFF8B6B45),
         outlineVariant = Color(0x668B6B45),
     )
+    AppTheme.SPACE -> darkColorScheme(
+        primary = Color(0xFFC8B8FF),
+        onPrimary = Color(0xFF1C1240),
+        primaryContainer = Color(0xFF4B3A9C),
+        onPrimaryContainer = Color.White,
+        secondary = Color(0xFF8FD3E8),
+        onSecondary = Color(0xFF06222C),
+        secondaryContainer = Color(0xFF2B4C6E),
+        onSecondaryContainer = Color.White,
+        background = Color.Transparent,
+        onBackground = Color(0xFFEDEBFF),
+        surface = Color(0xFF05061A),
+        onSurface = Color(0xFFEDEBFF),
+        onSurfaceVariant = Color(0xFFC9C3EA),
+        surfaceContainerHighest = Color(0xFF0A0B22).copy(alpha = cardOpacity),
+        surfaceVariant = Color(0xFF1E1B3E),
+        outline = Color(0xFFC8B8FF),
+        outlineVariant = Color(0x664B3A9C),
+    )
     AppTheme.BUTTERFLY -> lightColorScheme(
         primary = Color(0xFFC2185B),
         onPrimary = Color.White,
@@ -179,7 +202,7 @@ fun AppTheme.colorScheme(cardOpacity: Float): ColorScheme? = when (this) {
 /** Night themes get a soft shadow under all text so it reads over the painting; the book page gets serif type. */
 fun AppTheme.typography(base: Typography): Typography = when (this) {
     AppTheme.CLASSIC -> base
-    AppTheme.STARRY, AppTheme.AURORA -> base.map(
+    AppTheme.STARRY, AppTheme.AURORA, AppTheme.SPACE -> base.map(
         headings = { it.copy(fontFamily = FontFamily.Serif) },
         all = { it.copy(shadow = Shadow(Color(0xE6000000), Offset(0f, 2f), 8f)) },
     )
@@ -219,6 +242,18 @@ fun ThemedBackground(theme: AppTheme, animate: Boolean, auroraIntensity: Float =
             contentScale = ContentScale.Crop,
         )
         AppTheme.BUTTERFLY -> ButterflyBackground(animate)
+        AppTheme.SPACE -> SpaceBackground(animate)
+    }
+}
+
+@Composable
+private fun SpaceBackground(animate: Boolean) {
+    val nebula = ImageBitmap.imageResource(R.drawable.nebula).asAndroidBitmap()
+    // A loop of 2π·1000 ms makes the value plain seconds.
+    val time: State<Float> = if (animate) rememberLoopAngle(2000f * PI.toFloat()) else remember { mutableFloatStateOf(20f) }
+    Canvas(Modifier.fillMaxSize()) {
+        val t = time.value
+        drawIntoCanvas { SpaceArt.draw(it.nativeCanvas, size.width, size.height, t, density, nebula) }
     }
 }
 

@@ -51,6 +51,11 @@ object QuoteShare {
             AppTheme.AURORA -> QuoteArt.drawAurora(canvas, w, h, 1.2f, false, prefs.auroraIntensity, density)
             AppTheme.BOOK -> cover(canvas, BitmapFactory.decodeResource(context.resources, R.drawable.paper))
             AppTheme.BUTTERFLY -> ButterflyArt.draw(canvas, w, h, 3f, density)
+            AppTheme.SPACE -> {
+                val nebula = BitmapFactory.decodeResource(context.resources, R.drawable.nebula)
+                SpaceArt.draw(canvas, w, h, 20f, density, nebula)
+                nebula.recycle()
+            }
             AppTheme.CLASSIC -> canvas.drawRect(
                 0f, 0f, w, h,
                 Paint().apply { shader = LinearGradient(0f, 0f, 0f, h, 0xFF1B2440.toInt(), 0xFF0B0F1E.toInt(), Shader.TileMode.CLAMP) },
