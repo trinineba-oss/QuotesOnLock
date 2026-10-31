@@ -93,7 +93,8 @@ class QuoteWallpaperService : WallpaperService() {
                     AppTheme.BOOK -> drawCover(canvas, bitmap(R.drawable.paper))
                     AppTheme.BUTTERFLY -> ButterflyArt.draw(canvas, width.toFloat(), height.toFloat(), if (moving()) t else 3f, resources.displayMetrics.density)
                     AppTheme.WATER -> drawWater(canvas, t)
-                    AppTheme.RAIN -> drawRain(canvas, t)
+                    AppTheme.RAIN -> drawRain(canvas, t, night = false)
+                    AppTheme.RAIN_NIGHT -> drawRain(canvas, t, night = true)
                     AppTheme.SPACE -> SpaceArt.draw(canvas, width.toFloat(), height.toFloat(), if (moving()) t else 20f, resources.displayMetrics.density, bitmap(R.drawable.nebula))
                     else -> drawStarry(canvas, t * 2f * PI.toFloat() / 6f)
                 }
@@ -143,9 +144,10 @@ class QuoteWallpaperService : WallpaperService() {
         private var rainShaderFailed = false
         private var rainScene: BitmapShader? = null
         private var rainFog: BitmapShader? = null
+        private var rainNight: Boolean? = null
 
         /** Rain on the glass on the GPU (Android 13+, hardware canvas); otherwise the still picture. */
-        private fun drawRain(canvas: Canvas, t: Float) {
+        private fun drawRain(canvas: Canvas, t: Float, night: Boolean) {
             val shader = if (moving() && !rainShaderFailed && Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU && canvas.isHardwareAccelerated) {
                 rainShader ?: runCatching { RuntimeShader(RainArt.SHADER) }.getOrNull().also {
                     rainShader = it
@@ -155,13 +157,23 @@ class QuoteWallpaperService : WallpaperService() {
                 null
             }
             if (shader != null && Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-                val scene = bitmap(R.drawable.rain_scene)
+                if (rainNight != night) {
+                    rainScene = null
+                    rainFog = null
+                    rainNight = night
+                }
+                val scene = bitmap(if (night) R.drawable.rain_night_scene else R.drawable.rain_scene)
                 val sceneShader = rainScene ?: BitmapShader(scene, Shader.TileMode.CLAMP, Shader.TileMode.CLAMP).also { rainScene = it }
-                val fogShader = rainFog ?: BitmapShader(bitmap(R.drawable.rain_fog), Shader.TileMode.CLAMP, Shader.TileMode.CLAMP).also { rainFog = it }
-                RainArt.bind(shader, sceneShader, fogShader, scene.width, scene.height, width.toFloat(), height.toFloat(), t)
+                val fogShader = rainFog ?: BitmapShader(
+                    bitmap(if (night) R.drawable.rain_night_fog else R.drawable.rain_fog), Shader.TileMode.CLAMP, Shader.TileMode.CLAMP,
+                ).also { rainFog = it }
+                RainArt.bind(
+                    shader, sceneShader, fogShader, scene.width, scene.height, width.toFloat(), height.toFloat(), t,
+                    streaks = if (night) 0f else 1f, lensLift = if (night) 0.6f else 0f,
+                )
                 canvas.drawRect(0f, 0f, width.toFloat(), height.toFloat(), Paint().apply { this.shader = shader })
             } else {
-                drawCover(canvas, bitmap(R.drawable.rain_still))
+                drawCover(canvas, bitmap(if (night) R.drawable.rain_night_still else R.drawable.rain_still))
             }
         }
 

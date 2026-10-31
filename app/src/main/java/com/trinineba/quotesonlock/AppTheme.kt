@@ -94,6 +94,10 @@ enum class AppTheme(
     RAIN(
         "rain", "Rainy day", "Rain on the glass", R.drawable.notif_frame_rain, 0xFF263038.toInt(),
         0xFFFFFFFF.toInt(), 0xFFC9DCEB.toInt(),
+    ),
+    RAIN_NIGHT(
+        "rainnight", "Rainy night", "Rain on the glass", R.drawable.notif_frame_rain_night, 0xFF141A2A.toInt(),
+        0xFFFFFFFF.toInt(), 0xFFFFC27A.toInt(),
     );
 
     /** Light themes use dark text. */
@@ -224,6 +228,25 @@ fun AppTheme.colorScheme(cardOpacity: Float): ColorScheme? = when (this) {
         outline = Color(0xFFC9DCEB),
         outlineVariant = Color(0x663E5566),
     )
+    AppTheme.RAIN_NIGHT -> darkColorScheme(
+        primary = Color(0xFFFFC27A),
+        onPrimary = Color(0xFF2B1A05),
+        primaryContainer = Color(0xFF5A4030),
+        onPrimaryContainer = Color.White,
+        secondary = Color(0xFF9CC8EC),
+        onSecondary = Color(0xFF0C1D2C),
+        secondaryContainer = Color(0xFF2A3A55),
+        onSecondaryContainer = Color.White,
+        background = Color.Transparent,
+        onBackground = Color(0xFFF2EEF0),
+        surface = Color(0xFF141A2A),
+        onSurface = Color(0xFFF2EEF0),
+        onSurfaceVariant = Color(0xFFD2CCD6),
+        surfaceContainerHighest = Color(0xFF141A2A).copy(alpha = cardOpacity),
+        surfaceVariant = Color(0xFF242C40),
+        outline = Color(0xFFFFC27A),
+        outlineVariant = Color(0x665A4030),
+    )
     AppTheme.BUTTERFLY -> lightColorScheme(
         primary = Color(0xFFC2185B),
         onPrimary = Color.White,
@@ -248,7 +271,7 @@ fun AppTheme.colorScheme(cardOpacity: Float): ColorScheme? = when (this) {
 /** Night themes get a soft shadow under all text so it reads over the painting; the book page gets serif type. */
 fun AppTheme.typography(base: Typography): Typography = when (this) {
     AppTheme.CLASSIC -> base
-    AppTheme.STARRY, AppTheme.AURORA, AppTheme.SPACE, AppTheme.WATER, AppTheme.RAIN -> base.map(
+    AppTheme.STARRY, AppTheme.AURORA, AppTheme.SPACE, AppTheme.WATER, AppTheme.RAIN, AppTheme.RAIN_NIGHT -> base.map(
         headings = { it.copy(fontFamily = FontFamily.Serif) },
         all = { it.copy(shadow = Shadow(Color(0xE6000000), Offset(0f, 2f), 8f)) },
     )
@@ -290,12 +313,13 @@ fun ThemedBackground(theme: AppTheme, animate: Boolean, auroraIntensity: Float =
         AppTheme.BUTTERFLY -> ButterflyBackground(animate)
         AppTheme.SPACE -> SpaceBackground(animate)
         AppTheme.WATER -> WaterBackground(animate)
-        AppTheme.RAIN -> RainBackground(animate)
+        AppTheme.RAIN -> RainBackground(animate, night = false)
+        AppTheme.RAIN_NIGHT -> RainBackground(animate, night = true)
     }
 }
 
 @Composable
-private fun RainBackground(animate: Boolean) {
+private fun RainBackground(animate: Boolean, night: Boolean) {
     // If the GPU can't build the shader, show the still rain rather than fail.
     val shader = if (animate && Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
         remember { runCatching { RuntimeShader(RainArt.SHADER) }.getOrNull() }
@@ -303,10 +327,10 @@ private fun RainBackground(animate: Boolean) {
         null
     }
     if (shader != null && Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-        RainOnGlass(shader)
+        RainOnGlass(shader, night)
     } else {
         Image(
-            painter = painterResource(R.drawable.rain_still),
+            painter = painterResource(if (night) R.drawable.rain_night_still else R.drawable.rain_still),
             contentDescription = null,
             modifier = Modifier.fillMaxSize(),
             contentScale = ContentScale.Crop,
@@ -316,16 +340,19 @@ private fun RainBackground(animate: Boolean) {
 
 @RequiresApi(Build.VERSION_CODES.TIRAMISU)
 @Composable
-private fun RainOnGlass(shader: RuntimeShader) {
-    val scene = ImageBitmap.imageResource(R.drawable.rain_scene)
-    val fog = ImageBitmap.imageResource(R.drawable.rain_fog)
+private fun RainOnGlass(shader: RuntimeShader, night: Boolean) {
+    val scene = ImageBitmap.imageResource(if (night) R.drawable.rain_night_scene else R.drawable.rain_scene)
+    val fog = ImageBitmap.imageResource(if (night) R.drawable.rain_night_fog else R.drawable.rain_fog)
     val sceneShader = remember(scene) { BitmapShader(scene.asAndroidBitmap(), Shader.TileMode.CLAMP, Shader.TileMode.CLAMP) }
     val fogShader = remember(fog) { BitmapShader(fog.asAndroidBitmap(), Shader.TileMode.CLAMP, Shader.TileMode.CLAMP) }
     val brush = remember(shader) { ShaderBrush(shader) }
     // A loop of 2π·1000 ms makes the value plain seconds.
     val time by rememberLoopAngle(2000f * PI.toFloat())
     Canvas(Modifier.fillMaxSize()) {
-        RainArt.bind(shader, sceneShader, fogShader, scene.width, scene.height, size.width, size.height, time)
+        RainArt.bind(
+            shader, sceneShader, fogShader, scene.width, scene.height, size.width, size.height, time,
+            streaks = if (night) 0f else 1f, lensLift = if (night) 0.6f else 0f,
+        )
         drawRect(brush)
     }
 }

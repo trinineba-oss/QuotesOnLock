@@ -1269,6 +1269,7 @@ private fun ThemePreview(option: AppTheme, selected: Boolean, modifier: Modifier
             AppTheme.SPACE -> R.drawable.space_frame
             AppTheme.WATER -> R.drawable.water_frame
             AppTheme.RAIN -> R.drawable.rain_frame
+            AppTheme.RAIN_NIGHT -> R.drawable.rain_night_frame
             AppTheme.CLASSIC -> null
         }
         if (image != null) {
