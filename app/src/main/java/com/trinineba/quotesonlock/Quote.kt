@@ -214,6 +214,7 @@ enum class Category(val key: String, val label: String, val group: QuoteGroup) {
     SAGAN("sagan", "Carl Sagan", QuoteGroup.THINKERS),
     KAFKALETTERS("kafkaletters", "Kafka's love letters", QuoteGroup.WRITERS),
     VANGOGHLATE("vangoghlate", "Van Gogh's later letters", QuoteGroup.WRITERS),
+    POE("poe", "Edgar Allan Poe", QuoteGroup.POETS),
     QURAN("quran", "The Qur'an", QuoteGroup.SCRIPTURE),
     CUSTOM("custom", "My own quotes", QuoteGroup.MINE);
 
