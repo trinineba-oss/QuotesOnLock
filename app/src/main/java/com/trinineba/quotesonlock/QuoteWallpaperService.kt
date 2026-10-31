@@ -92,6 +92,7 @@ class QuoteWallpaperService : WallpaperService() {
                     AppTheme.AURORA -> drawAurora(canvas, if (moving()) t * 2f * PI.toFloat() / 10f else 1.2f)
                     AppTheme.BOOK -> drawCover(canvas, bitmap(R.drawable.paper))
                     AppTheme.BUTTERFLY -> ButterflyArt.draw(canvas, width.toFloat(), height.toFloat(), if (moving()) t else 3f, resources.displayMetrics.density)
+                    AppTheme.WATER -> drawWater(canvas, t)
                     AppTheme.SPACE -> SpaceArt.draw(canvas, width.toFloat(), height.toFloat(), if (moving()) t else 20f, resources.displayMetrics.density, bitmap(R.drawable.nebula))
                     else -> drawStarry(canvas, t * 2f * PI.toFloat() / 6f)
                 }
@@ -134,6 +135,20 @@ class QuoteWallpaperService : WallpaperService() {
                 canvas.drawRect(0f, 0f, width.toFloat(), height.toFloat(), p)
             } else {
                 drawCover(canvas, b)
+            }
+        }
+
+        private var waterShader: RuntimeShader? = null
+
+        /** Moving water on the GPU (Android 13+, hardware canvas); otherwise the still picture. */
+        private fun drawWater(canvas: Canvas, t: Float) {
+            if (moving() && Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU && canvas.isHardwareAccelerated) {
+                val shader = waterShader ?: RuntimeShader(WaterArt.SHADER).also { waterShader = it }
+                shader.setFloatUniform("res", width.toFloat(), height.toFloat())
+                shader.setFloatUniform("time", t % WaterArt.LOOP_SECONDS)
+                canvas.drawRect(0f, 0f, width.toFloat(), height.toFloat(), Paint().apply { this.shader = shader })
+            } else {
+                drawCover(canvas, bitmap(R.drawable.water))
             }
         }
 

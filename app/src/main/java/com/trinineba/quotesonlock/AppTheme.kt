@@ -86,6 +86,10 @@ enum class AppTheme(
     SPACE(
         "space", "Deep space", "Drifting stars", R.drawable.notif_frame_space, 0xFF0A0B22.toInt(),
         0xFFFFFFFF.toInt(), 0xFFC8B8FF.toInt(),
+    ),
+    WATER(
+        "water", "Calm water", "Gentle ripples", R.drawable.notif_frame_water, 0xFF0B1A30.toInt(),
+        0xFFFFFFFF.toInt(), 0xFFFFD39A.toInt(),
     );
 
     /** Light themes use dark text. */
@@ -178,6 +182,25 @@ fun AppTheme.colorScheme(cardOpacity: Float): ColorScheme? = when (this) {
         outline = Color(0xFFC8B8FF),
         outlineVariant = Color(0x664B3A9C),
     )
+    AppTheme.WATER -> darkColorScheme(
+        primary = Color(0xFFFFD39A),
+        onPrimary = Color(0xFF2B1A05),
+        primaryContainer = Color(0xFF7A4E2A),
+        onPrimaryContainer = Color.White,
+        secondary = Color(0xFFE6A6B0),
+        onSecondary = Color(0xFF2E1218),
+        secondaryContainer = Color(0xFF26405E),
+        onSecondaryContainer = Color.White,
+        background = Color.Transparent,
+        onBackground = Color(0xFFF4EEE8),
+        surface = Color(0xFF0B1A30),
+        onSurface = Color(0xFFF4EEE8),
+        onSurfaceVariant = Color(0xFFD9CFC8),
+        surfaceContainerHighest = Color(0xFF0B1A30).copy(alpha = cardOpacity),
+        surfaceVariant = Color(0xFF1C2C44),
+        outline = Color(0xFFFFD39A),
+        outlineVariant = Color(0x667A4E2A),
+    )
     AppTheme.BUTTERFLY -> lightColorScheme(
         primary = Color(0xFFC2185B),
         onPrimary = Color.White,
@@ -202,7 +225,7 @@ fun AppTheme.colorScheme(cardOpacity: Float): ColorScheme? = when (this) {
 /** Night themes get a soft shadow under all text so it reads over the painting; the book page gets serif type. */
 fun AppTheme.typography(base: Typography): Typography = when (this) {
     AppTheme.CLASSIC -> base
-    AppTheme.STARRY, AppTheme.AURORA, AppTheme.SPACE -> base.map(
+    AppTheme.STARRY, AppTheme.AURORA, AppTheme.SPACE, AppTheme.WATER -> base.map(
         headings = { it.copy(fontFamily = FontFamily.Serif) },
         all = { it.copy(shadow = Shadow(Color(0xE6000000), Offset(0f, 2f), 8f)) },
     )
@@ -243,6 +266,35 @@ fun ThemedBackground(theme: AppTheme, animate: Boolean, auroraIntensity: Float =
         )
         AppTheme.BUTTERFLY -> ButterflyBackground(animate)
         AppTheme.SPACE -> SpaceBackground(animate)
+        AppTheme.WATER -> WaterBackground(animate)
+    }
+}
+
+@Composable
+private fun WaterBackground(animate: Boolean) {
+    if (animate && Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+        RipplingWater()
+    } else {
+        Image(
+            painter = painterResource(R.drawable.water),
+            contentDescription = null,
+            modifier = Modifier.fillMaxSize(),
+            contentScale = ContentScale.Crop,
+        )
+    }
+}
+
+@RequiresApi(Build.VERSION_CODES.TIRAMISU)
+@Composable
+private fun RipplingWater() {
+    val shader = remember { RuntimeShader(WaterArt.SHADER) }
+    val brush = remember(shader) { ShaderBrush(shader) }
+    // A loop of 2π·1000 ms makes the value plain seconds; every wave repeats in LOOP_SECONDS.
+    val time by rememberLoopAngle(2000f * PI.toFloat())
+    Canvas(Modifier.fillMaxSize()) {
+        shader.setFloatUniform("res", size.width, size.height)
+        shader.setFloatUniform("time", time % WaterArt.LOOP_SECONDS)
+        drawRect(brush)
     }
 }
 

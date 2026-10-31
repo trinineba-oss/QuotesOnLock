@@ -51,6 +51,7 @@ object QuoteShare {
             AppTheme.AURORA -> QuoteArt.drawAurora(canvas, w, h, 1.2f, false, prefs.auroraIntensity, density)
             AppTheme.BOOK -> cover(canvas, BitmapFactory.decodeResource(context.resources, R.drawable.paper))
             AppTheme.BUTTERFLY -> ButterflyArt.draw(canvas, w, h, 3f, density)
+            AppTheme.WATER -> cover(canvas, BitmapFactory.decodeResource(context.resources, R.drawable.water))
             AppTheme.SPACE -> {
                 val nebula = BitmapFactory.decodeResource(context.resources, R.drawable.nebula)
                 SpaceArt.draw(canvas, w, h, 20f, density, nebula)
