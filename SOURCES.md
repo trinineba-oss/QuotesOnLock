@@ -192,6 +192,7 @@ editions below, or a translation made for this app and labelled `(tr. Claude)`.
 | Robert Frost | A Boy's Will; North of Boston; Mountain Interval; New Hampshire; West-Running Brook (poems published before 1929) | original English | Project Gutenberg #29345, #58611, #78327 |
 | Gustavo Adolfo Bécquer | Rimas | own translations `(tr. Claude)` from the Spanish | Project Gutenberg #53552 (Obras escogidas) |
 | Fyodor Tyutchev | Lyrics | Babette Deutsch and Avrahm Yarmolinsky, *Modern Russian Poetry* (1921), where marked; the rest own translations `(tr. Claude)` from the Russian | English Wikisource (*Modern Russian Poetry*); Russian Wikisource |
+| Motivation (classic sources) | James Allen, *As a Man Thinketh*; Samuel Smiles, *Self-Help*; Helen Keller, *Optimism*; Booker T. Washington, *Up from Slavery*; Theodore Roosevelt, *The Strenuous Life*, "Citizenship in a Republic" (*African and European Addresses*) and *An Autobiography*; Benjamin Franklin, *The Way to Wealth*; W. E. Henley, "Invictus" (*Poems*); Longfellow, "A Psalm of Life"; Tennyson, "Ulysses" | original English | Project Gutenberg #4507, #935, #31622, #2376, #58821, #13930, #3335, #43855, #1568, #1365, #8601 |
 
 The themed quotes (Motivation, Thought-provoking, Stoic & ancient wisdom, Kindness & hope) are short, widely
 published sayings and aphorisms by ancient and 19th-century authors, attributed to the person traditionally credited.

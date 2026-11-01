@@ -1,14 +1,14 @@
 # One quote per line: category|text|author|subjects   (a literal \n in the text is a line break)
 # Categories: motivation, thought, stoic, kindness, gibran, rilke, nietzsche, dostoevsky, tolstoy, kafka, plato, laotzu, kierkegaard, camus, hesse, confucius, dhammapada, rumi, khayyam, suntzu, tagore, einstein, murakami, shakespeare, whitman, dickinson, blake, leopardi, baudelaire, gita, upanishads, frankl, pessoa, borges, cioran, weil, neruda, oliver, szymborska, kundera, sartre, kabir, ecclesiastes, zhuangzi, melville, turgenev, chekhov, dante, freud, jung, creative, lucretius, schopenhauer, heraclitus, montaigne, pascal, hume, augustine, goethe, tragedians, yeats, keats, wordsworth, milton, eliot, holderlin, hardy, eckhart, conrad, bronte, woolf, wilde, wittgenstein, watts, krishnamurti, murdoch, becker, hafiz, haiku, suttanipata, psalms, bukowski, nin, aphorists, lichtenberg, browne, unamuno, wjames, proust, cavafy, metaphysical, hopkins, victorians, romantics, symbolists, tangpoets, russianpoets, georgeeliot, hugo, joyce, mann, spinoza, emerson, thoreau, epictetus, kazantzakis, buber, arendt, beauvoir, beckett, fromm, may, merton, nhathanh, yalom, vangogh, campbell, musashi, sontag, desiderata, kipling, amiel, boethius, novalis, machado, chesterton, johnson, bacon, homer, sappho, baldwin, saintexupery, cslewis, zweig, lispector, hammarskjold, marquez, rousseau, traherne, attar, leonardo, petrarch, michelangelo, flaubert, lorca, paz, calvino, saramago, akhmatova, tsvetaeva, milosz, transtromer, celan, sebald, bachelard, teilhard, bulgakov, hamsun, naipaul, walcott, aristotle, cicero, plutarch, virgil, ovid, thucydides, teresa, johncross, hildegard, mencius, zenpoets, cervantes, maryshelley, austen, dickens, stendhal, balzac, gogol, twain, henryjames, voltaire, kant, bergson, mandelstam, pasternak, brodsky, heaney, jackgilbert, seferis, wendellberry, cohen, dillard, leguin, morrison, solnit, eco, huxley, solzhenitsyn, vuong, hadot, sagan, kafkaletters, vangoghlate, poe, goncharov, shestov, rozanov, buchner, pirandello, svevo, strindberg, jaspers, heidegger, marcel, berdyaev, ortega, tillich, percy, ellison, musil, malraux, ionesco, burton, ruskin, hazlitt, chomei, kenko, hanshan, saadi, gracian, ghalib, horace, abelard, cloud, silesius, ebrowning, frost, becquer, tyutchev, quran
 motivation|A journey of a thousand miles begins with a single step.|Lao Tzu|journey
-motivation|It does not matter how slowly you go as long as you do not stop.|Confucius|
 motivation|Nothing great was ever achieved without enthusiasm.|Ralph Waldo Emerson|
 motivation|Well done is better than well said.|Benjamin Franklin|
 motivation|Lost time is never found again.|Benjamin Franklin|
 motivation|Well begun is half done.|Aristotle|
 motivation|Life is either a daring adventure or nothing at all.|Helen Keller|
 motivation|You must do the thing you think you cannot do.|Eleanor Roosevelt|
-motivation|Do what you can, with what you have, where you are.|Theodore Roosevelt|
+motivation|Do what you can, with what you've got, where you are.|Squire Bill Widener, quoted by Theodore Roosevelt in his Autobiography|
+motivation|The greatest happiness is the happiness that comes as a by-product of striving to do what must be done, even though sorrow is met in the doing.|Theodore Roosevelt, An Autobiography|joy,suffering
 motivation|Nothing in the world is worth having or worth doing unless it means effort, pain, difficulty.|Theodore Roosevelt|meaning,suffering,work
 motivation|Fortune favors the bold.|Virgil|courage
 motivation|Nothing will ever be attempted if all possible objections must first be overcome.|Samuel Johnson|
@@ -20,6 +20,79 @@ motivation|Two roads diverged in a wood, and I took the one less traveled by, an
 motivation|If I am not for myself, who will be for me? If not now, when?|Hillel the Elder|self
 motivation|Courage is resistance to fear, mastery of fear, not absence of fear.|Mark Twain|courage
 motivation|The only thing we have to fear is fear itself.|Franklin D. Roosevelt|courage
+motivation|Man is made or unmade by himself; in the armoury of thought he forges the weapons by which he destroys himself; he also fashions the tools with which he builds for himself heavenly mansions of joy and strength and peace.|James Allen, As a Man Thinketh|sacred,joy,society
+motivation|Men are anxious to improve their circumstances, but are unwilling to improve themselves; they therefore remain bound.|James Allen, As a Man Thinketh|
+motivation|Men imagine that thought can be kept secret, but it cannot; it rapidly crystallizes into habit, and habit solidifies into circumstance.|James Allen, As a Man Thinketh|dreams
+motivation|Thought is the fount of action, life, and manifestation; make the fountain pure, and all will be pure.|James Allen, As a Man Thinketh|
+motivation|To live continually in thoughts of ill will, cynicism, suspicion, and envy, is to be confined in a self made prison-hole.|James Allen, As a Man Thinketh|freedom,self
+motivation|A man should conceive of a legitimate purpose in his heart, and set out to accomplish it.|James Allen, As a Man Thinketh|meaning
+motivation|Thoughts of doubt and fear never accomplished anything, and never can.|James Allen, As a Man Thinketh|courage
+motivation|He who has conquered doubt and fear has conquered failure.|James Allen, As a Man Thinketh|courage
+motivation|Achievement, of whatever kind, is the crown of effort, the diadem of thought.|James Allen, As a Man Thinketh|friendship,work
+motivation|He who would accomplish little must sacrifice little; he who would achieve much must sacrifice much; he who would attain highly must sacrifice greatly.|James Allen, As a Man Thinketh|
+motivation|He who cherishes a beautiful vision, a lofty ideal in his heart, will one day realize it.|James Allen, As a Man Thinketh|art,dreams
+motivation|Dream lofty dreams, and as you dream, so shall you become.|James Allen, As a Man Thinketh|dreams
+motivation|The greatest achievement was at first and for a time a dream.|James Allen, As a Man Thinketh|dreams
+motivation|Your circumstances may be uncongenial, but they shall not long remain so if you but perceive an Ideal and strive to reach it.|James Allen, As a Man Thinketh|
+motivation|Whatever your present environment may be, you will fall, remain, or rise with your thoughts, your Vision, your Ideal.|James Allen, As a Man Thinketh|dreams
+motivation|The Vision that you glorify in your mind, the Ideal that you enthrone in your heart—this you will build your life by, this you will become.|James Allen, As a Man Thinketh|dreams
+motivation|Calmness of mind is one of the beautiful jewels of wisdom. It is the result of long and patient effort in self-control.|James Allen, As a Man Thinketh|art,wisdom,self
+motivation|Keep your hand firmly upon the helm of thought.|James Allen, As a Man Thinketh|
+motivation|Self-control is strength; Right Thought is mastery; Calmness is power.|James Allen, As a Man Thinketh|self,society
+motivation|Victories attained by right thought can only be maintained by watchfulness.|James Allen, As a Man Thinketh|
+motivation|As the physically weak man can make himself strong by careful and patient training, so the man of weak thoughts can make them strong by exercising himself in right thinking.|James Allen, As a Man Thinketh|
+motivation|I can say with conviction that the struggle which evil necessitates is one of the greatest blessings. It makes us strong, patient, helpful men and women. It lets us into the soul of things and teaches us that although the world is full of suffering, it is full also of the overcoming of it.|Helen Keller, Optimism|suffering
+motivation|The world is sown with good; but unless I turn my glad thoughts into practical living and till my own field, I cannot reap a kernel of the good.|Helen Keller, Optimism|
+motivation|Doubt and mistrust are the mere panic of timid imagination, which the steadfast heart will conquer, and the large mind transcend.|Helen Keller, Optimism|art,dreams
+motivation|My share in the work of the world may be limited; but the fact that it is work makes it precious. Nay, the desire and will to work is optimism itself.|Helen Keller, Optimism|work
+motivation|I long to accomplish a great and noble task; but it is my chief duty and joy to accomplish humble tasks as though they were great and noble.|Helen Keller, Optimism|joy
+motivation|Though with my hand I grasp only a small part of the universe, with my spirit I see the whole, and in my thought I can compass the beneficent laws by which it is governed.|Helen Keller, Optimism|
+motivation|Life is a fair field, and the right will prosper if we stand by our guns.|Helen Keller, Optimism|
+motivation|He will take the iron claws of circumstance in his hand and use them as tools to break away the obstacles that block his path.|Helen Keller, Optimism|
+motivation|Optimism is the faith that leads to achievement; nothing can be done without hope.|Helen Keller, Optimism|hope
+motivation|I have had a glimpse of the shore, and can now live by the hope of reaching it.|Helen Keller, Optimism|hope
+motivation|With the first word I used intelligently, I learned to live, to think, to hope.|Helen Keller, Optimism|hope
+motivation|The spirit of self-help is the root of all genuine growth in the individual; and, exhibited in the lives of many, it constitutes the true source of national vigour and strength.|Samuel Smiles, Self-Help|self
+motivation|Failure in any good cause is, however, honourable, whilst success in any bad cause is merely infamous.|Samuel Smiles, Self-Help|
+motivation|Patience lies at the root of all pleasures, as well as of all powers.|Samuel Smiles, Self-Help|truth,joy,work
+motivation|We must repeat and again repeat; facility will come with labour.|Samuel Smiles, Self-Help|work
+motivation|We must sow before we can reap, and often have to wait long, content meanwhile to look patiently forward in hope; the fruit best worth waiting for often ripening the slowest.|Samuel Smiles, Self-Help|hope
+motivation|Necessity, oftener than facility, has been the mother of invention; and the most prolific school of all has been the school of difficulty.|Samuel Smiles, Self-Help|
+motivation|With perseverance, the very odds and ends of time may be worked up into results of the greatest value.|Samuel Smiles, Self-Help|courage,work
+motivation|Time should not be allowed to pass without yielding fruits, in the form of something learnt worthy of being known, some good principle cultivated, or some good habit strengthened.|Samuel Smiles, Self-Help|wisdom
+motivation|Nothing that is of real worth can be achieved without courageous working.|Samuel Smiles, Self-Help|courage,work
+motivation|The habit of application becomes easy in time, like every other habit.|Samuel Smiles, Self-Help|
+motivation|Fifteen minutes a day devoted to self-improvement, will be felt at the end of the year.|Samuel Smiles, Self-Help|self
+motivation|Lost wealth may be replaced by industry, lost knowledge by study, lost health by temperance or medicine, but lost time is gone for ever.|Samuel Smiles, Self-Help|truth,wisdom,work
+motivation|That which is put into us by others is always far less ours than that which we acquire by our own diligent and persevering effort. Knowledge conquered by labour becomes a possession—a property entirely our own.|Samuel Smiles, Self-Help|work,truth
+motivation|Genius is known by its works; genius without works is a blind faith, a dumb oracle.|Samuel Smiles, Self-Help|work
+motivation|We learn wisdom from failure much more than from success. We often discover what will do, by finding out what will not do; and probably he who never made a mistake never made a discovery.|Samuel Smiles, Self-Help|wisdom
+motivation|The good purpose once formed must be carried out with alacrity and without swerving.|Samuel Smiles, Self-Help|meaning
+motivation|I have learned that success is to be measured not so much by the position that one has reached in life as by the obstacles which he has overcome while trying to succeed.|Booker T. Washington, Up from Slavery|
+motivation|No race can prosper till it learns that there is as much dignity in tilling a field as in writing a poem. It is at the bottom of life we must begin, and not at the top.|Booker T. Washington, Up from Slavery|books
+motivation|I learned the lesson that great men cultivate love, and that only little men cherish a spirit of hatred. I learned that assistance given to the weak makes the one who gives it strong; and that oppression of the unfortunate makes one weak.|Booker T. Washington, Up from Slavery|love
+motivation|I resolved to let no obstacle prevent me from putting forth the highest effort to fit myself to accomplish the most good in the world.|Booker T. Washington, Up from Slavery|self,work
+motivation|I do not recall that I ever became discouraged over anything that I set out to accomplish.|Booker T. Washington, Up from Slavery|
+motivation|Far better it is to dare mighty things, to win glorious triumphs, even though checkered by failure, than to take rank with those poor spirits who neither enjoy much nor suffer much, because they live in the gray twilight that knows not victory nor defeat.|Theodore Roosevelt, The Strenuous Life|suffering,courage
+motivation|It is hard to fail, but it is worse never to have tried to succeed.|Theodore Roosevelt, The Strenuous Life|
+motivation|Freedom from effort in the present merely means that there has been stored up effort in the past.|Theodore Roosevelt, The Strenuous Life|work,freedom
+motivation|Bodily vigor is good, and vigor of intellect is even better, but far above both is character.|Theodore Roosevelt, The Strenuous Life|
+motivation|Perhaps there is no more important component of character than steadfast resolution.|Theodore Roosevelt, The Strenuous Life|
+motivation|It is not the critic who counts; not the man who points out how the strong man stumbles, or where the doer of deeds could have done them better.|Theodore Roosevelt, Citizenship in a Republic|
+motivation|The credit belongs to the man who is actually in the arena, whose face is marred by dust and sweat and blood; who strives valiantly; who errs, and comes short again and again, because there is no effort without error and shortcoming; but who does actually strive to do the deeds; who knows the great enthusiasms, the great devotions; who spends himself in a worthy cause; who at the best knows in the end the triumph of high achievement, and who at the worst, if he fails, at least fails while daring greatly, so that his place shall never be with those cold and timid souls who know neither victory nor defeat.|Theodore Roosevelt, Citizenship in a Republic|truth,love,work
+motivation|Out of the night that covers me,\nBlack as the Pit from pole to pole,\nI thank whatever gods may be\nFor my unconquerable soul.\nIn the fell clutch of circumstance\nI have not winced nor cried aloud.\nUnder the bludgeonings of chance\nMy head is bloody, but unbowed.|William Ernest Henley, Invictus|sacred
+motivation|It matters not how strait the gate,\nHow charged with punishments the scroll,\nI am the master of my fate:\nI am the captain of my soul.|William Ernest Henley, Invictus|
+motivation|Not enjoyment, and not sorrow,\nIs our destined end or way;\nBut to act, that each to-morrow\nFind us farther than to-day.|Henry Wadsworth Longfellow, A Psalm of Life|suffering
+motivation|Lives of great men all remind us\nWe can make our lives sublime,\nAnd, departing, leave behind us\nFootprints on the sands of time.|Henry Wadsworth Longfellow, A Psalm of Life|
+motivation|Let us, then, be up and doing,\nWith a heart for any fate;\nStill achieving, still pursuing,\nLearn to labor and to wait.|Henry Wadsworth Longfellow, A Psalm of Life|work
+motivation|Trust no Future, howe’er pleasant!\nLet the dead Past bury its dead!\nAct,—act in the living Present!\nHeart within, and God o’erhead!|Henry Wadsworth Longfellow, A Psalm of Life|death,sacred
+motivation|Come, my friends,\n’Tis not too late to seek a newer world.|Alfred, Lord Tennyson, Ulysses|friendship
+motivation|Tho’ much is taken, much abides; and tho’\nWe are not now that strength which in old days\nMoved earth and heaven; that which we are, we are;\nOne equal temper of heroic hearts,\nMade weak by time and fate, but strong in will\nTo strive, to seek, to find, and not to yield.|Alfred, Lord Tennyson, Ulysses|courage,sacred
+motivation|Sloth, like rust, consumes faster than labour wears, while the used key is always bright.|Benjamin Franklin, The Way to Wealth|work
+motivation|Work while it is called to-day, for you know not how much you may be hindered to-morrow.|Benjamin Franklin, The Way to Wealth|work
+motivation|Never leave that till to-morrow, which you can do to-day.|Benjamin Franklin, The Way to Wealth|
+motivation|Constant dropping wears away stones; and by diligence and patience the mouse ate in two the cable; and little strokes fell great oaks.|Benjamin Franklin, The Way to Wealth|work
+motivation|God helps them that help themselves.|Benjamin Franklin, The Way to Wealth|sacred
 thought|The unexamined life is not worth living.|Socrates|
 thought|You cannot step twice into the same river.|Heraclitus|nature
 thought|Imagination is more important than knowledge.|Albert Einstein|art,truth,dreams
@@ -6953,8 +7026,6 @@ victorians|That God, which ever lives and loves,\nOne God, one law, one element,
 victorians|I cannot rest from travel: I will drink\nLife to the lees: all times I have enjoy'd\nGreatly, have suffer'd greatly, both with those\nThat love me, and alone,|Alfred, Lord Tennyson, Ulysses|love,suffering,journey
 victorians|I am a part of all that I have met;\nYet all experience is an arch wherethro'\nGleams that untravell'd world whose margin fades\nFor ever and for ever when I move.\nHow dull it is to pause, to make an end,\nTo rust unburnish'd, not to shine in use!\nAs tho' to breathe were life.|Alfred, Lord Tennyson, Ulysses|
 victorians|And this gray spirit yearning in desire\nTo follow knowledge like a sinking star,\nBeyond the utmost bound of human thought.|Alfred, Lord Tennyson, Ulysses|truth
-victorians|Come, my friends,\n'Tis not too late to seek a newer world.|Alfred, Lord Tennyson, Ulysses|friendship
-victorians|Tho' much is taken, much abides; and tho'\nWe are not now that strength which in old days\nMoved earth and heaven, that which we are, we are;\nOne equal temper of heroic hearts,\nMade weak by time and fate, but strong in will\nTo strive, to seek, to find, and not to yield.|Alfred, Lord Tennyson, Ulysses|courage,sacred
 victorians|The woods decay, the woods decay and fall,\nThe vapours weep their burthen to the ground,\nMan comes and tills the field and lies beneath,\nAnd after many a summer dies the swan.|Alfred, Lord Tennyson, Tithonus|death,nature,suffering
 victorians|Me only cruel immortality\nConsumes: I wither slowly in thine arms,\nHere at the quiet limit of the world,|Alfred, Lord Tennyson, Tithonus|
 victorians|Sunset and evening star,\nAnd one clear call for me!\nAnd may there be no moaning of the bar,\nWhen I put out to sea,|Alfred, Lord Tennyson, Crossing the Bar|nature
