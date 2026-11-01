@@ -12,7 +12,41 @@ class QuoteRepository(
 ) {
     private val appContext = context.applicationContext
 
-    fun bundled(): List<Quote> = bundledCache ?: loadBundled().also { bundledCache = it }
+    fun bundled(): List<Quote> = bundledCache ?: (loadBundled() + loadIdeas()).also { bundledCache = it }
+
+    /**
+     * Great ideas: `category|title|text|author|brief|kind|era`, where kind `q` is the idea in its originator's
+     * words (with a brief explanation) and `e` is an explanation only (text is the explanation).
+     */
+    private fun loadIdeas(): List<Quote> =
+        appContext.resources.openRawResource(R.raw.ideas).bufferedReader().useLines { lines ->
+            lines
+                .map { it.trim() }
+                .filter { it.isNotEmpty() && !it.startsWith("#") }
+                .mapNotNull { line ->
+                    val f = line.split('|')
+                    val category = Category.fromKey(f[0].trim())
+                    if (category == null || f.size < 7) return@mapNotNull null
+                    val explained = f[5].trim() == "e"
+                    Quote(
+                        text = f[2].trim().replace("\\n", "\n"),
+                        author = f[3].trim().ifBlank { null },
+                        category = category,
+                        title = f[1].trim(),
+                        brief = f[4].trim().ifBlank { null },
+                        explained = explained,
+                        era = f[6].trim().ifBlank { null },
+                    )
+                }
+                .toList()
+        }
+
+    /** Quotes kept in storage only as text and author get back their idea title and explanation. */
+    private fun full(quote: Quote): Quote {
+        if (quote.isIdea) return quote
+        val index = ideaIndex ?: bundled().filter { it.isIdea }.associateBy { it.text }.also { ideaIndex = it }
+        return index[quote.text] ?: quote
+    }
 
     /** Lines look like `category|text|author|subjects`; a literal `\n` in the text is a line break. */
     private fun loadBundled(): List<Quote> =
@@ -80,7 +114,7 @@ class QuoteRepository(
             val array = JSONArray(raw)
             (0 until array.length()).map { i ->
                 val obj = array.getJSONObject(i)
-                Quote(obj.getString("text"), obj.optString("author").ifBlank { null })
+                full(Quote(obj.getString("text"), obj.optString("author").ifBlank { null }))
             }
         } catch (e: JSONException) {
             emptyList()
@@ -118,7 +152,7 @@ class QuoteRepository(
     fun count(category: Category): Int =
         if (category == Category.CUSTOM) custom().size else bundled().count { it.category == category }
 
-    fun current(): Quote? = prefs.currentText?.let { Quote(it, prefs.currentAuthor) }
+    fun current(): Quote? = prefs.currentText?.let { full(Quote(it, prefs.currentAuthor)) }
 
     private fun history(): List<Quote> {
         val raw = prefs.historyJson ?: return emptyList()
@@ -156,7 +190,7 @@ class QuoteRepository(
         prefs.currentText = last.text
         prefs.currentAuthor = last.author
         QuoteWidgets.refresh(appContext)
-        return last
+        return full(last)
     }
 
     /**
@@ -206,5 +240,8 @@ class QuoteRepository(
 
         @Volatile
         var bundledCache: List<Quote>? = null
+
+        @Volatile
+        var ideaIndex: Map<String, Quote>? = null
     }
 }

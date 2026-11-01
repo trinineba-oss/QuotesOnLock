@@ -113,6 +113,8 @@ internal object QuoteArt {
         cardOpacity: Float,
         position: Float,
         softness: Float = 0f,
+        /** The text as shown, if not just [text] in quotation marks (a great idea brings its title and explanation). */
+        body: String? = null,
     ) {
         val dark = !theme.isLight
         val textColor = style.color ?: theme.notificationText ?: Color.WHITE
@@ -137,15 +139,15 @@ internal object QuoteArt {
                 color = authorColor
                 textSize = quotePaint.textSize * 0.82f
             }
-            val q = layout("“$text”", quotePaint, textWidth)
+            val q = layout(body ?: "“$text”", quotePaint, textWidth)
             val a = author?.let { layout("— $it", authorPaint, textWidth) }
             return Block(q, a, q.height + (a?.let { it.height + gap } ?: 0f))
         }
 
         var fit = when {
-            text.length > 450 -> 0.7f
-            text.length > 300 -> 0.8f
-            text.length > 180 -> 0.9f
+            (body ?: text).length > 450 -> 0.7f
+            (body ?: text).length > 300 -> 0.8f
+            (body ?: text).length > 180 -> 0.9f
             else -> 1f
         }
         var block = build(fit)

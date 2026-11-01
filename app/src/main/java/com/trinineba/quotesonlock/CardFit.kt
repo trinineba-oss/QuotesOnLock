@@ -48,16 +48,17 @@ object CardFit {
         return (perLayer / SOFT_LAYER_ALPHA).coerceAtMost(1f)
     }
 
-    fun fit(context: Context, text: String, author: String?, style: QuoteStyle, framed: Boolean, featherDp: Int = 0): CardLayout {
+    /** [body] is the card's text as shown, quotation marks included (see [Quote.fullText]). */
+    fun fit(context: Context, body: String, author: String?, style: QuoteStyle, framed: Boolean, featherDp: Int = 0): CardLayout {
         val paint = TextPaint(TextPaint.ANTI_ALIAS_FLAG).apply { typeface = Typeface.create(style.font.family, Typeface.NORMAL) }
         val frames = if (framed) listOf(6, 3) else listOf(0)
-        val quoted = "“$text”"
+        val quoted = body
         var sp = style.size.sizeSp
         val minSp = maxOf(MIN_SP, style.size.sizeSp * 0.8f)
         while (sp >= minSp) {
             for (frame in frames) {
                 val (width, budget) = space(context, paint, sp, frame, framed, featherDp)
-                if (height(quoted, paint, width) <= budget) return CardLayout(sp, frame, listOf(text), featherDp)
+                if (height(quoted, paint, width) <= budget) return CardLayout(sp, frame, listOf(body), featherDp)
             }
             sp -= 0.5f
         }
@@ -65,7 +66,7 @@ object CardFit {
         val frame = frames.last()
         val (width, budget) = space(context, paint, minSp, frame, framed, featherDp)
         val spare = paint.fontMetricsInt.let { it.descent - it.ascent }
-        return CardLayout(minSp, frame, split(text, paint, width, budget - spare), featherDp)
+        return CardLayout(minSp, frame, split(body, paint, width, budget - spare), featherDp)
     }
 
     /** Text width and height available at [sp]; sets the paint's size. */

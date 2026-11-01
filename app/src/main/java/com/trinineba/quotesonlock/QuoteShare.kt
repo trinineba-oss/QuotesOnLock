@@ -28,7 +28,7 @@ object QuoteShare {
         file.outputStream().use { bitmap.compress(Bitmap.CompressFormat.PNG, 100, it) }
         bitmap.recycle()
         val uri = FileProvider.getUriForFile(appContext, "${appContext.packageName}.updates", file)
-        val text = "“${quote.text}”" + (quote.author?.let { "\n— $it" } ?: "")
+        val text = quote.fullText()
         val send = Intent(Intent.ACTION_SEND)
             .setType("image/png")
             .putExtra(Intent.EXTRA_STREAM, uri)
@@ -66,7 +66,8 @@ object QuoteShare {
         }
         QuoteArt.drawQuoteCard(
             canvas, WIDTH, HEIGHT, density, density, theme, prefs.style,
-            quote.text, quote.author, prefs.cardOpacity.coerceAtLeast(0.55f), 0.5f, prefs.cardSoftness,
+            quote.text, quote.byline, prefs.cardOpacity.coerceAtLeast(0.55f), 0.5f, prefs.cardSoftness,
+            body = if (quote.isIdea) quote.fullText(withByline = false) else null,
         )
         val credit = Paint(Paint.ANTI_ALIAS_FLAG).apply {
             textSize = 11f * density

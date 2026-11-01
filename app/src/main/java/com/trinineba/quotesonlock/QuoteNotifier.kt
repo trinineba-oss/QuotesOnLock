@@ -57,7 +57,7 @@ object QuoteNotifier {
         val lockTheme = prefs.lockTheme ?: prefs.theme
         // A soft-edged card needs a tintable layer-list, which RemoteViews can only tint on Android 12+.
         val featherDp = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) CardFit.feather(prefs.cardSoftness) else 0
-        val card = CardFit.fit(appContext, quote.text, quote.author, style, lockTheme.notificationFrame != null, featherDp)
+        val card = CardFit.fit(appContext, quote.fullText(withByline = false), quote.byline, style, lockTheme.notificationFrame != null, featherDp)
         // A new quote starts at its first part; tapping moves on and wraps round.
         val key = quote.text.hashCode()
         if (prefs.cardPartKey != key) {
@@ -73,7 +73,7 @@ object QuoteNotifier {
         )
         val builder = NotificationCompat.Builder(appContext, CHANNEL_ID)
             .setSmallIcon(R.drawable.ic_quote)
-            .setContentTitle(quote.author ?: appContext.getString(R.string.app_name))
+            .setContentTitle(quote.title ?: quote.author ?: appContext.getString(R.string.app_name))
             .setContentText(quote.text)
             .setStyle(NotificationCompat.DecoratedCustomViewStyle())
             .setCustomContentView(quoteView(appContext, quote, style, lockTheme, card, part, nextPart, expanded = false))
@@ -104,15 +104,15 @@ object QuoteNotifier {
         expanded: Boolean,
     ): RemoteViews {
         val views = RemoteViews(context.packageName, style.font.layout)
-        val text = "\u201C${quote.text}\u201D"
-        val author = quote.author?.let { "\u2014 $it" }
+        val text = quote.fullText(withByline = false)
+        val author = quote.byline?.let { "\u2014 $it" }
 
         if (expanded) {
             val parts = card.parts
             val last = part == parts.lastIndex
             // Long quotes come in parts: "…" marks where a part continues, and tapping shows the next.
-            val shown = (if (part == 0) "\u201C" else "\u2026") + parts[part] + (if (last) "\u201D" else "\u2026")
-            views.setTextViewText(R.id.quote_text, if (parts.size == 1) text else shown)
+            val shown = (if (part == 0) "" else "\u2026") + parts[part] + (if (last) "" else "\u2026")
+            views.setTextViewText(R.id.quote_text, boldTitle(if (parts.size == 1) text else shown, quote.title, part == 0))
             views.setInt(R.id.quote_text, "setMaxLines", 60)
             val counter = "${part + 1}/${parts.size}"
             val authorLine = when {
@@ -130,7 +130,8 @@ object QuoteNotifier {
             if (parts.size > 1) views.setOnClickPendingIntent(R.id.quote_inner, nextPart)
         } else {
             // The collapsed area is short, so the author shares the text and the size is capped.
-            views.setTextViewText(R.id.quote_text, if (author != null) "$text $author" else text)
+            val short = quote.title?.let { "$it: ${quote.shownText}" } ?: quote.shownText
+            views.setTextViewText(R.id.quote_text, if (author != null) "$short $author" else short)
             views.setInt(R.id.quote_text, "setMaxLines", 2)
             views.setViewVisibility(R.id.quote_author, View.GONE)
         }
@@ -173,6 +174,14 @@ object QuoteNotifier {
         textColor?.let { views.setTextColor(R.id.quote_text, it) }
         authorColor?.let { views.setTextColor(R.id.quote_author, it) }
         return views
+    }
+
+    /** The idea's name in bold at the top of its first part. */
+    private fun boldTitle(text: String, title: String?, first: Boolean): CharSequence {
+        if (title == null || !first || !text.startsWith(title)) return text
+        return android.text.SpannableString(text).apply {
+            setSpan(android.text.style.StyleSpan(android.graphics.Typeface.BOLD), 0, title.length, 0)
+        }
     }
 
     fun cancel(context: Context) {

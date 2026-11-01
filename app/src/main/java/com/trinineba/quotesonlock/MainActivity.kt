@@ -716,13 +716,24 @@ private fun QuotesScreen(
                     } else {
                         val family = fontFamilyOf(quoteFont)
                         val textColor = quoteColor?.let { Color(it) } ?: Color.Unspecified
+                        quote.title?.let { title ->
+                            Column {
+                                Text(
+                                    ("Great ideas · " + (quote.category?.label ?: "")).uppercase(),
+                                    style = MaterialTheme.typography.labelSmall,
+                                    color = MaterialTheme.colorScheme.primary,
+                                    letterSpacing = 1.2.sp,
+                                )
+                                Text(title, fontFamily = family, fontWeight = FontWeight.SemiBold, fontSize = (quoteSize.sizeSp + 5).sp, color = textColor)
+                            }
+                        }
                         Text(
-                            "“${quote.text}”",
-                            fontFamily = family,
-                            fontSize = (quoteSize.sizeSp + 2).sp,
+                            quote.shownText,
+                            fontFamily = if (quote.explained) null else family,
+                            fontSize = (quoteSize.sizeSp + if (quote.explained) 0 else 2).sp,
                             color = textColor,
                         )
-                        quote.author?.let { author ->
+                        quote.byline?.let { author ->
                             val name = authorName(author)
                             Text(
                                 if (name != null) "— $author ›" else "— $author",
@@ -733,6 +744,18 @@ private fun QuotesScreen(
                                 modifier = if (name != null) {
                                     Modifier.clickable(onClickLabel = "All quotes by $name") { browse = listOf(BrowsePage.author(name)) }
                                 } else Modifier,
+                            )
+                        }
+                        quote.brief?.let { brief ->
+                            HorizontalDivider(color = MaterialTheme.colorScheme.primary.copy(alpha = 0.3f))
+                            Text("IN BRIEF", style = MaterialTheme.typography.labelSmall, color = MaterialTheme.colorScheme.primary, letterSpacing = 1.2.sp)
+                            Text(brief, style = MaterialTheme.typography.bodyMedium, color = textColor)
+                        }
+                        if (quote.isIdea) {
+                            Text(
+                                "Explanation written for the app",
+                                style = MaterialTheme.typography.labelSmall,
+                                color = MaterialTheme.colorScheme.onSurfaceVariant,
                             )
                         }
                     }
@@ -1326,8 +1349,9 @@ private fun QuotesScreen(
         items(favorites.asReversed(), key = { "fav-" + it.text.hashCode() + it.author }) { quote ->
             SoftCard(Modifier.fillMaxWidth()) {
                 Column(Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(4.dp)) {
-                    Text("“${quote.text}”")
-                    quote.author?.let { label ->
+                    quote.title?.let { Text(it, fontWeight = FontWeight.SemiBold) }
+                    Text(quote.shownText)
+                    quote.byline?.let { label ->
                         val name = authorName(label)
                         Text(
                             "— $label",

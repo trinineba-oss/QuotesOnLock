@@ -147,8 +147,8 @@ object QuoteWidgets {
             views.setTextViewTextSize(R.id.widget_text, TypedValue.COMPLEX_UNIT_SP, 15f)
             views.setViewVisibility(R.id.widget_author, View.GONE)
         } else {
-            val text = "“${quote.text}”"
-            val author = quote.author?.let { "— $it" }
+            val text = quote.title?.let { "$it\n${quote.shownText}" } ?: quote.shownText
+            val author = quote.byline?.let { "\u2014 $it" }
             val (sp, lines) = fit(context, manager, id, text, small)
             views.setTextViewText(R.id.widget_text, text)
             views.setTextViewTextSize(R.id.widget_text, TypedValue.COMPLEX_UNIT_SP, sp)

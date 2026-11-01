@@ -3,6 +3,7 @@ package com.trinineba.quotesonlock
 /** How the category toggles are grouped in settings. */
 enum class QuoteGroup(val title: String) {
     THEME("Themes"),
+    IDEAS("Great ideas"),
     POETS("Poets"),
     THINKERS("Philosophers & sages"),
     WRITERS("Novelists & essayists"),
@@ -250,6 +251,12 @@ enum class Category(val key: String, val label: String, val group: QuoteGroup) {
     FROST("frost", "Robert Frost", QuoteGroup.POETS),
     BECQUER("becquer", "Gustavo Adolfo Bécquer", QuoteGroup.POETS),
     TYUTCHEV("tyutchev", "Fyodor Tyutchev", QuoteGroup.POETS),
+    TOLKIEN("tolkien", "J. R. R. Tolkien", QuoteGroup.WRITERS),
+    IDEA_PHILOSOPHY("ideaphil", "Philosophy", QuoteGroup.IDEAS),
+    IDEA_SCIENCE("ideasci", "Science", QuoteGroup.IDEAS),
+    IDEA_MIND("ideamind", "Mind & psychology", QuoteGroup.IDEAS),
+    IDEA_SOCIETY("ideasoc", "Society & economics", QuoteGroup.IDEAS),
+    IDEA_MATH("ideamath", "Mathematics & logic", QuoteGroup.IDEAS),
     QURAN("quran", "The Qur'an", QuoteGroup.SCRIPTURE),
     CUSTOM("custom", "My own quotes", QuoteGroup.MINE);
 
@@ -258,7 +265,7 @@ enum class Category(val key: String, val label: String, val group: QuoteGroup) {
 
         /** Authors still in copyright, whose quotes are short excerpts, so they can be switched off together. */
         val MODERN: List<Category> by lazy {
-            listOf(CAMUS, HESSE, MURAKAMI, EINSTEIN, FRANKL, PESSOA, BORGES, CIORAN, WEIL, NERUDA, OLIVER, SZYMBORSKA, KUNDERA, SARTRE, WATTS, KRISHNAMURTI, MURDOCH, BECKER, BUKOWSKI, NIN, KAZANTZAKIS, BUBER, ARENDT, BEAUVOIR, BECKETT, FROMM, MAY, MERTON, NHATHANH, YALOM, CAMPBELL, MUSASHI, SONTAG, BALDWIN, SAINTEXUPERY, CSLEWIS, ZWEIG, LISPECTOR, HAMMARSKJOLD, MARQUEZ, PAZ, CALVINO, SARAMAGO, AKHMATOVA, TSVETAEVA, MILOSZ, TRANSTROMER, CELAN, SEBALD, BACHELARD, TEILHARD, BULGAKOV, NAIPAUL, WALCOTT, ZENPOETS, MANDELSTAM, PASTERNAK, BRODSKY, HEANEY, JACKGILBERT, SEFERIS, WENDELLBERRY, COHEN, DILLARD, LEGUIN, MORRISON, SOLNIT, ECO, HUXLEY, SOLZHENITSYN, VUONG, HADOT, SAGAN, KAFKALETTERS, VANGOGHLATE, JASPERS, HEIDEGGER, MARCEL, BERDYAEV, ORTEGA, TILLICH, PERCY, ELLISON, MUSIL, MALRAUX, IONESCO)
+            listOf(CAMUS, HESSE, MURAKAMI, EINSTEIN, FRANKL, PESSOA, BORGES, CIORAN, WEIL, NERUDA, OLIVER, SZYMBORSKA, KUNDERA, SARTRE, WATTS, KRISHNAMURTI, MURDOCH, BECKER, BUKOWSKI, NIN, KAZANTZAKIS, BUBER, ARENDT, BEAUVOIR, BECKETT, FROMM, MAY, MERTON, NHATHANH, YALOM, CAMPBELL, MUSASHI, SONTAG, BALDWIN, SAINTEXUPERY, CSLEWIS, ZWEIG, LISPECTOR, HAMMARSKJOLD, MARQUEZ, PAZ, CALVINO, SARAMAGO, AKHMATOVA, TSVETAEVA, MILOSZ, TRANSTROMER, CELAN, SEBALD, BACHELARD, TEILHARD, BULGAKOV, NAIPAUL, WALCOTT, ZENPOETS, MANDELSTAM, PASTERNAK, BRODSKY, HEANEY, JACKGILBERT, SEFERIS, WENDELLBERRY, COHEN, DILLARD, LEGUIN, MORRISON, SOLNIT, ECO, HUXLEY, SOLZHENITSYN, VUONG, HADOT, SAGAN, KAFKALETTERS, VANGOGHLATE, JASPERS, HEIDEGGER, MARCEL, BERDYAEV, ORTEGA, TILLICH, PERCY, ELLISON, MUSIL, MALRAUX, IONESCO, TOLKIEN)
         }
     }
 }
@@ -271,4 +278,29 @@ data class Quote(
     val id: String = "",
     /** Subject keys (see [Subject]); empty when the tagger found none. */
     val subjects: List<String> = emptyList(),
-)
+    /** For a great idea: its name, e.g. "Plato's Cave". Null for an ordinary quote. */
+    val title: String? = null,
+    /** For a great idea quoted in its originator's words: a plain one-line explanation written for the app. */
+    val brief: String? = null,
+    /** A great idea told only in an explanation written for the app ([text]), because the original is in copyright. */
+    val explained: Boolean = false,
+    /** When an explained idea was put forward, e.g. "1927". */
+    val era: String? = null,
+) {
+    val isIdea: Boolean get() = title != null
+
+    /** The text as shown: in quotation marks, except an explanation, which is not a quote. */
+    val shownText: String get() = if (explained) text else "\u201C$text\u201D"
+
+    /** The line under the text: the source, and for an explanation who put the idea forward and when. */
+    val byline: String?
+        get() = if (explained) listOfNotNull(author, era).joinToString(", ").ifBlank { null } else author
+
+    /** The whole card as plain text (lock screen, copying, sharing): title, text and the explanation. */
+    fun fullText(withByline: Boolean = true): String = buildString {
+        title?.let { append(it).append("\n\n") }
+        append(shownText)
+        if (withByline) byline?.let { append("\n\u2014 ").append(it) }
+        brief?.let { append("\n\nIn brief: ").append(it) }
+    }
+}

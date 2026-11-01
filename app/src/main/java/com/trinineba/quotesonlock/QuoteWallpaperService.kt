@@ -211,11 +211,14 @@ class QuoteWallpaperService : WallpaperService() {
             )
 
         private fun drawQuote(canvas: Canvas) {
-            val text = prefs.currentText ?: return
+            val quote = QuoteRepository(this@QuoteWallpaperService, prefs).current() ?: return
             val metrics = resources.displayMetrics
+            // On the wallpaper an idea shows its name and text; the explanation would crowd the screen.
+            val body = quote.title?.let { "$it\n\n${quote.shownText}" }
             QuoteArt.drawQuoteCard(
                 canvas, width, height, metrics.density, metrics.scaledDensity, theme, prefs.style,
-                text, prefs.currentAuthor, prefs.cardOpacity, prefs.wallpaperQuotePosition, prefs.cardSoftness,
+                quote.text, quote.byline, prefs.cardOpacity, prefs.wallpaperQuotePosition, prefs.cardSoftness,
+                body = body,
             )
         }
     }

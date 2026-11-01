@@ -100,7 +100,8 @@ fun QuoteBrowser(
             q.isEmpty() && searching -> emptyList()
             q.isEmpty() -> all
             else -> all.filter {
-                it.text.contains(q, ignoreCase = true) || it.author?.contains(q, ignoreCase = true) == true
+                it.text.contains(q, ignoreCase = true) || it.author?.contains(q, ignoreCase = true) == true ||
+                    it.title?.contains(q, ignoreCase = true) == true
             }
         }
     }
@@ -189,8 +190,10 @@ fun QuoteBrowser(
             items(shown) { quote ->
                 SoftCard(modifier = Modifier.fillMaxWidth()) {
                     Column(Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(4.dp)) {
-                        Text("“${quote.text}”")
-                        quote.author?.let { label ->
+                        quote.title?.let { Text(it, fontWeight = androidx.compose.ui.text.font.FontWeight.SemiBold) }
+                        Text(quote.shownText)
+                        quote.brief?.let { Text("In brief: $it", style = MaterialTheme.typography.bodySmall) }
+                        quote.byline?.let { label ->
                             val name = authorName(label)
                             // In a quote type's list, tapping the author opens everything by them.
                             val linked = author == null && name != null
