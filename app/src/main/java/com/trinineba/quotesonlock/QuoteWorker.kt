@@ -11,9 +11,10 @@ import java.util.concurrent.TimeUnit
 class QuoteWorker(context: Context, params: WorkerParameters) : Worker(context, params) {
     override fun doWork(): Result {
         val prefs = QuotePrefs(applicationContext)
-        if (!prefs.enabled) return Result.success()
+        // Rotation runs for the lock-screen card and for home-screen widgets.
+        if (!prefs.enabled && !QuoteWidgets.hasAny(applicationContext)) return Result.success()
         QuoteRepository(applicationContext, prefs).advance()?.let {
-            QuoteNotifier.show(applicationContext, it)
+            if (prefs.enabled) QuoteNotifier.show(applicationContext, it)
         }
         return Result.success()
     }

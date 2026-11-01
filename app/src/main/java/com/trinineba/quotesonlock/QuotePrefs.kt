@@ -117,6 +117,28 @@ class QuotePrefs(context: Context) {
         get() = prefs.getFloat("wallpaper_quote_position", 0.55f)
         set(value) = prefs.edit().putFloat("wallpaper_quote_position", value).apply()
 
+    /** Theme of the home-screen widgets, or null to follow the app's theme. */
+    var widgetTheme: AppTheme?
+        get() = prefs.getString("widget_theme", null)?.let { AppTheme.fromKey(it) }
+        set(value) {
+            val editor = prefs.edit()
+            if (value == null) editor.remove("widget_theme") else editor.putString("widget_theme", value.key)
+            editor.apply()
+        }
+
+    /** Whether the first-launch welcome has been seen. Installs from before it existed count as seen. */
+    var welcomeDone: Boolean
+        get() = prefs.getBoolean("welcome_done", prefs.contains("current_text") || prefs.contains("enabled"))
+        set(value) = prefs.edit().putBoolean("welcome_done", value).apply()
+
+    /** When a backup file was last saved (milliseconds), or 0. */
+    var lastBackup: Long
+        get() = prefs.getLong("last_backup", 0L)
+        set(value) = prefs.edit().putLong("last_backup", value).apply()
+
+    /** The underlying preferences, for backup and restore. */
+    internal val raw: android.content.SharedPreferences get() = prefs
+
     fun registerListener(listener: android.content.SharedPreferences.OnSharedPreferenceChangeListener) =
         prefs.registerOnSharedPreferenceChangeListener(listener)
 

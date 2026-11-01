@@ -102,6 +102,7 @@ class QuoteRepository(
             })
         }
         prefs.favoritesJson = array.toString()
+        QuoteWidgets.refresh(appContext)
         return nowFavorite
     }
 
@@ -154,6 +155,7 @@ class QuoteRepository(
         saveHistory(past.dropLast(1))
         prefs.currentText = last.text
         prefs.currentAuthor = last.author
+        QuoteWidgets.refresh(appContext)
         return last
     }
 
@@ -182,6 +184,7 @@ class QuoteRepository(
         prefs.seen = seen + next.key()
         prefs.currentText = next.text
         prefs.currentAuthor = next.author
+        QuoteWidgets.refresh(appContext)
         return next
     }
 
@@ -192,6 +195,7 @@ class QuoteRepository(
         prefs.seen = prefs.seen + quote.key()
         prefs.currentText = quote.text
         prefs.currentAuthor = quote.author
+        QuoteWidgets.refresh(appContext)
         return quote
     }
 

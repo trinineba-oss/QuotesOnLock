@@ -16,6 +16,7 @@ import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.lazy.LazyListScope
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Icon
+import androidx.compose.material3.AlertDialog
 import androidx.annotation.DrawableRes
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.layout.ContentScale
@@ -103,7 +104,7 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val prefs = QuotePrefs(this)
-        if (prefs.enabled) QuoteScheduler.ensureScheduled(this, prefs.intervalMinutes)
+        if (prefs.enabled || QuoteWidgets.hasAny(this)) QuoteScheduler.ensureScheduled(this, prefs.intervalMinutes)
         Updater.schedule(this, prefs.updateCheck)
         val openUpdates = intent.getBooleanExtra(EXTRA_OPEN_UPDATES, false)
         setContent {
@@ -256,6 +257,53 @@ private fun QuotesScreen(
     LifecycleEventEffect(Lifecycle.Event.ON_RESUME) {
         current = repo.current()
         canGoBack = repo.hasPrevious()
+        favorites = repo.favorites()
+    }
+    // Leaving the app: draw any look changes onto the home-screen widgets.
+    LifecycleEventEffect(Lifecycle.Event.ON_STOP) { QuoteWidgets.refresh(context) }
+
+    var welcome by rememberSaveable { mutableStateOf(!prefs.welcomeDone) }
+    var widgetTheme by remember { mutableStateOf(prefs.widgetTheme) }
+    var lastBackup by remember { mutableStateOf(prefs.lastBackup) }
+    var backupStatus by remember { mutableStateOf<String?>(null) }
+    // The text of a backup whose quotes were restored, while asking whether to restore its settings too.
+    var pendingSettings by remember { mutableStateOf<String?>(null) }
+
+    val saveBackup = rememberLauncherForActivityResult(ActivityResultContracts.CreateDocument("application/json")) { uri ->
+        if (uri == null) return@rememberLauncherForActivityResult
+        scope.launch {
+            backupStatus = try {
+                withContext(Dispatchers.IO) {
+                    val text = Backup.export(context)
+                    context.contentResolver.openOutputStream(uri, "wt")!!.use { it.write(text.toByteArray()) }
+                }
+                prefs.lastBackup = System.currentTimeMillis()
+                lastBackup = prefs.lastBackup
+                "Backup saved."
+            } catch (e: Exception) {
+                "Couldn't save the backup: ${e.message ?: e.javaClass.simpleName}"
+            }
+        }
+    }
+
+    val openBackup = rememberLauncherForActivityResult(ActivityResultContracts.OpenDocument()) { uri ->
+        if (uri == null) return@rememberLauncherForActivityResult
+        scope.launch {
+            try {
+                val text = withContext(Dispatchers.IO) {
+                    context.contentResolver.openInputStream(uri)!!.use { it.readBytes().toString(Charsets.UTF_8) }
+                }
+                val result = Backup.restoreQuotes(context, text)
+                favorites = repo.favorites()
+                custom = repo.custom()
+                backupStatus = "Restored ${result.favoritesAdded} favourite" + (if (result.favoritesAdded == 1) "" else "s") +
+                    " and ${result.customAdded} of your own quote" + (if (result.customAdded == 1) "" else "s") +
+                    " (ones you already had were kept as they are)."
+                if (result.hasSettings) pendingSettings = text
+            } catch (e: Exception) {
+                backupStatus = e.message ?: "Couldn't read that file."
+            }
+        }
     }
 
     fun turnOn() {
@@ -270,7 +318,8 @@ private fun QuotesScreen(
     fun turnOff() {
         prefs.enabled = false
         enabled = false
-        QuoteScheduler.cancel(context)
+        // Home-screen widgets keep changing on the schedule even with the lock screen off.
+        if (!QuoteWidgets.hasAny(context)) QuoteScheduler.cancel(context)
         QuoteNotifier.cancel(context)
     }
 
@@ -407,6 +456,118 @@ private fun QuotesScreen(
         prefs.favoritesOnly = on
         val shown = current
         if (on && (shown == null || favorites.none { it.text == shown.text })) nextQuote()
+    }
+
+    pendingSettings?.let { text ->
+        AlertDialog(
+            onDismissRequest = { pendingSettings = null },
+            title = { Text("Restore settings too?") },
+            text = {
+                Text(
+                    "The backup also has settings: which authors are on, the theme and lock-screen look, the schedule " +
+                        "and text style. Replace your current settings with them?"
+                )
+            },
+            confirmButton = {
+                TextButton(onClick = {
+                    pendingSettings = null
+                    Backup.restoreSettings(context, text)
+                    // Reload every screen from the restored settings.
+                    (context as? android.app.Activity)?.recreate()
+                }) { Text("Replace settings") }
+            },
+            dismissButton = { TextButton(onClick = { pendingSettings = null }) { Text("Keep mine") } },
+        )
+    }
+
+    if (welcome) {
+        Scaffold { innerPadding ->
+            LazyColumn(
+                modifier = Modifier.fillMaxSize().padding(innerPadding),
+                contentPadding = PaddingValues(16.dp),
+                verticalArrangement = Arrangement.spacedBy(12.dp),
+            ) {
+                item(key = "w-title") {
+                    Text("Welcome to Quotes on Lock", style = MaterialTheme.typography.headlineMedium, modifier = Modifier.padding(top = 8.dp))
+                }
+                item(key = "w-quote") {
+                    SoftCard(Modifier.fillMaxWidth()) {
+                        Column(Modifier.padding(18.dp)) {
+                            Text("“Life is indeed a strange gift, and its privileges are most mysterious.”", fontFamily = fontFamilyOf(quoteFont), fontSize = (quoteSize.sizeSp + 1).sp)
+                            Text(
+                                "— William Hazlitt",
+                                fontFamily = fontFamilyOf(quoteFont),
+                                fontSize = (quoteSize.sizeSp * 0.85f).sp,
+                                color = MaterialTheme.colorScheme.primary,
+                                modifier = Modifier.padding(top = 8.dp),
+                            )
+                        }
+                    }
+                }
+                item(key = "w-lock") {
+                    WelcomeStep(R.drawable.ic_lock, "Quotes on your lock screen", "A quiet card that changes on your schedule. Android needs your permission to show it.") {
+                        if (enabled) {
+                            Text("✓ Showing on your lock screen", style = MaterialTheme.typography.bodyMedium, color = Color(0xFF7FD69B))
+                        } else {
+                            OutlinedButton(onClick = { onToggle(true) }) { Text("Allow") }
+                        }
+                    }
+                }
+                item(key = "w-who") {
+                    val quoteCount = remember { repo.bundled().size }
+                    val modernOn = Category.MODERN.all { it in categories }
+                    WelcomeStep(
+                        R.drawable.ic_format_quote,
+                        "Choose who you read",
+                        "%,d quotes from writers, poets, thinkers and scriptures. Turn any of them on or off later in Quotes & authors.".format(quoteCount),
+                    ) {
+                        Row(verticalAlignment = Alignment.CenterVertically) {
+                            Column(Modifier.weight(1f)) {
+                                Text("Modern authors", style = MaterialTheme.typography.bodyMedium)
+                                Text("Short excerpts from writers still in copyright", style = MaterialTheme.typography.bodySmall)
+                            }
+                            Switch(checked = modernOn, onCheckedChange = { setCategories(Category.MODERN, it) })
+                        }
+                    }
+                }
+                item(key = "w-look") {
+                    WelcomeStep(R.drawable.ic_palette, "Pick a look", "For the app, the lock-screen card and the widgets. More choices in Appearance.") {
+                        AppTheme.entries.chunked(5).forEach { row ->
+                            Row(horizontalArrangement = Arrangement.spacedBy(6.dp)) {
+                                row.forEach { option ->
+                                    LockThemeTile(option, selected = theme == option, modifier = Modifier.weight(1f)) {
+                                        prefs.theme = option
+                                        onTheme(option)
+                                        refreshNotification()
+                                    }
+                                }
+                                repeat(5 - row.size) { Spacer(Modifier.weight(1f)) }
+                            }
+                        }
+                        Text(theme.label, style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.primary)
+                    }
+                }
+                item(key = "w-updates") {
+                    WelcomeStep(
+                        R.drawable.ic_info,
+                        "Updates come from GitHub",
+                        "About & updates finds new builds. The first time you install one, Android will ask you to allow " +
+                            "\"Install unknown apps\" for Quotes on Lock.",
+                    ) {}
+                }
+                item(key = "w-start") {
+                    Button(
+                        onClick = {
+                            prefs.welcomeDone = true
+                            welcome = false
+                            if (current == null) nextQuote()
+                        },
+                        modifier = Modifier.fillMaxWidth().height(52.dp),
+                    ) { Text("Start reading") }
+                }
+            }
+        }
+        return
     }
 
     browse.lastOrNull()?.let { bp ->
@@ -866,6 +1027,45 @@ private fun QuotesScreen(
                 )
             }
         }
+        item(key = "ap-widget") {
+            SettingsCard("Home-screen widget") {
+                Text(
+                    "Today's quote on your home screen: large (with a heart and next) or small (one or two lines). " +
+                        "Tap a widget's quote to open the app.",
+                    style = MaterialTheme.typography.bodySmall,
+                )
+                (listOf<AppTheme?>(null) + AppTheme.entries).chunked(5).forEach { row ->
+                    Row(horizontalArrangement = Arrangement.spacedBy(6.dp)) {
+                        row.forEach { option ->
+                            LockThemeTile(option, selected = widgetTheme == option, modifier = Modifier.weight(1f)) {
+                                prefs.widgetTheme = option
+                                widgetTheme = option
+                                QuoteWidgets.refresh(context)
+                            }
+                        }
+                        repeat(5 - row.size) { Spacer(Modifier.weight(1f)) }
+                    }
+                }
+                Text(
+                    "Now: " + (widgetTheme?.label ?: "same as the app (${theme.label})") + ". Moving themes show a still picture.",
+                    style = MaterialTheme.typography.bodySmall,
+                    color = MaterialTheme.colorScheme.primary,
+                )
+                Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                    listOf(false to "Add large", true to "Add small").forEach { (small, label) ->
+                        OutlinedButton(onClick = {
+                            if (!QuoteWidgets.requestPin(context, small)) {
+                                Toast.makeText(
+                                    context,
+                                    "Long-press an empty spot on your home screen, tap Widgets, and find Quotes on Lock.",
+                                    Toast.LENGTH_LONG,
+                                ).show()
+                            }
+                        }) { Text(label) }
+                    }
+                }
+            }
+        }
         item(key = "t-wallpaper") {
             SettingsCard("Live wallpaper") {
                 Row(verticalAlignment = Alignment.CenterVertically) {
@@ -925,7 +1125,7 @@ private fun QuotesScreen(
                             onClick = {
                                 interval = minutes
                                 prefs.intervalMinutes = minutes
-                                if (enabled) QuoteScheduler.schedule(context, minutes)
+                                if (enabled || QuoteWidgets.hasAny(context)) QuoteScheduler.schedule(context, minutes)
                             },
                             label = { Text(label) },
                         )
@@ -1121,6 +1321,51 @@ private fun QuotesScreen(
                 }
             }
         }
+        item(key = "a-backup") {
+            SettingsCard("Backup & restore") {
+                Text(
+                    "${favorites.size} favourite" + (if (favorites.size == 1) "" else "s") + ", ${custom.size} of your own quote" +
+                        (if (custom.size == 1) "" else "s") + ", and your settings (authors, theme, schedule, text style).",
+                    style = MaterialTheme.typography.bodyMedium,
+                )
+                Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                    Button(onClick = {
+                        val day = java.text.SimpleDateFormat("yyyy-MM-dd", java.util.Locale.US).format(java.util.Date())
+                        saveBackup.launch("quotes-on-lock-backup-$day.json")
+                    }) { Text("Save backup file") }
+                    OutlinedButton(onClick = { openBackup.launch(arrayOf("*/*")) }) { Text("Restore…") }
+                }
+                backupStatus?.let { Text(it, style = MaterialTheme.typography.bodyMedium, fontWeight = FontWeight.SemiBold) }
+                Text(
+                    "Saves one small file wherever you choose (Downloads, Drive…). Restoring adds favourites and your " +
+                        "quotes you don't already have, then asks before replacing settings.",
+                    style = MaterialTheme.typography.bodySmall,
+                )
+                if (lastBackup > 0) {
+                    Text(
+                        "Last backup: " + android.text.format.DateUtils.getRelativeTimeSpanString(
+                            lastBackup, System.currentTimeMillis(), android.text.format.DateUtils.MINUTE_IN_MILLIS,
+                        ),
+                        style = MaterialTheme.typography.bodySmall,
+                        color = MaterialTheme.colorScheme.primary,
+                    )
+                }
+            }
+        }
+        item(key = "a-feedback") {
+            SettingsCard("Feedback") {
+                Text("Found a typo in a quote, or have an idea?", style = MaterialTheme.typography.bodyMedium)
+                Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                    OutlinedButton(onClick = {
+                        context.startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(FEEDBACK_URL)))
+                    }) { Text("Send feedback") }
+                    TextButton(onClick = {
+                        prefs.welcomeDone = false
+                        welcome = true
+                    }) { Text("Show the welcome") }
+                }
+            }
+        }
         item(key = "a-intro") {
             SettingsCard("How the quotes are chosen") {
                 Text(
@@ -1206,6 +1451,29 @@ private enum class Page(val title: String) {
     FAVORITES("Favourites"),
     MINE("My quotes"),
     ABOUT("About & updates"),
+}
+
+private const val FEEDBACK_URL = "https://github.com/trinineba-oss/QuotesOnLock/issues/new"
+
+/** One step of the first-launch welcome: an icon, a title, a line of explanation and its controls. */
+@Composable
+private fun WelcomeStep(@DrawableRes icon: Int, title: String, body: String, content: @Composable ColumnScope.() -> Unit) {
+    SoftCard(Modifier.fillMaxWidth()) {
+        Row(Modifier.padding(16.dp)) {
+            Box(
+                modifier = Modifier
+                    .size(36.dp)
+                    .clip(CircleShape)
+                    .background(MaterialTheme.colorScheme.primary.copy(alpha = 0.15f)),
+                contentAlignment = Alignment.Center,
+            ) { Icon(painterResource(icon), contentDescription = null, tint = MaterialTheme.colorScheme.primary, modifier = Modifier.size(20.dp)) }
+            Column(Modifier.padding(start = 14.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
+                Text(title, style = MaterialTheme.typography.titleSmall, fontWeight = FontWeight.SemiBold)
+                Text(body, style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
+                content()
+            }
+        }
+    }
 }
 
 private class Tile(@DrawableRes val icon: Int, val title: String, val subtitle: String, val onClick: () -> Unit)

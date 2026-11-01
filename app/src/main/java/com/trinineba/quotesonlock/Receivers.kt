@@ -4,12 +4,20 @@ import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 
-/** Handles the "Next quote" button on the notification. */
+/** Handles the "Next quote" button on the notification and on the home-screen widget. */
 class NextQuoteReceiver : BroadcastReceiver() {
     override fun onReceive(context: Context, intent: Intent) {
         val prefs = QuotePrefs(context)
-        if (!prefs.enabled) return
-        QuoteRepository(context, prefs).advance()?.let { QuoteNotifier.show(context, it) }
+        val quote = QuoteRepository(context, prefs).advance() ?: return
+        if (prefs.enabled) QuoteNotifier.show(context, quote)
+    }
+}
+
+/** The heart on the home-screen widget: saves or unsaves the current quote. */
+class WidgetFavoriteReceiver : BroadcastReceiver() {
+    override fun onReceive(context: Context, intent: Intent) {
+        val repo = QuoteRepository(context, QuotePrefs(context))
+        repo.current()?.let { repo.toggleFavorite(it) }
     }
 }
 
