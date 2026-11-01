@@ -117,6 +117,11 @@ class QuotePrefs(context: Context) {
         get() = prefs.getFloat("wallpaper_quote_position", 0.55f)
         set(value) = prefs.edit().putFloat("wallpaper_quote_position", value).apply()
 
+    /** Swiping the home-screen card in the app changes the quote (left: next, right: previous). */
+    var swipeCard: Boolean
+        get() = prefs.getBoolean("swipe_card", true)
+        set(value) = prefs.edit().putBoolean("swipe_card", value).apply()
+
     /** Theme of the home-screen widgets, or null to follow the app's theme. */
     var widgetTheme: AppTheme?
         get() = prefs.getString("widget_theme", null)?.let { AppTheme.fromKey(it) }

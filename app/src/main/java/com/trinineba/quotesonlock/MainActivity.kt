@@ -90,6 +90,13 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.unit.dp
+import androidx.compose.animation.core.Animatable
+import androidx.compose.animation.core.spring
+import androidx.compose.animation.core.tween
+import androidx.compose.foundation.gestures.detectHorizontalDragGestures
+import androidx.compose.ui.graphics.graphicsLayer
+import androidx.compose.ui.input.pointer.pointerInput
+import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.unit.sp
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.Lifecycle
@@ -197,6 +204,7 @@ private fun QuotesScreen(
     var enabled by remember { mutableStateOf(prefs.enabled) }
     var interval by remember { mutableStateOf(prefs.intervalMinutes) }
     var allowRepeats by remember { mutableStateOf(prefs.allowRepeats) }
+    var swipeCard by remember { mutableStateOf(prefs.swipeCard) }
     var quoteFont by remember { mutableStateOf(prefs.font) }
     var quoteSize by remember { mutableStateOf(prefs.size) }
     var quoteColor by remember { mutableStateOf(prefs.textColor) }
@@ -637,8 +645,50 @@ private fun QuotesScreen(
             }
         }
         item(key = "home-quote") {
+            // Swiping the card: it follows the finger, and past the threshold flies off and the next
+            // (left) or previous (right) quote slides in from the other side.
+            val swipe = remember { Animatable(0f) }
+            val threshold = with(LocalDensity.current) { 72.dp.toPx() }
+            val swipeModifier = if (!swipeCard) Modifier else Modifier.pointerInput(Unit) {
+                detectHorizontalDragGestures(
+                    onHorizontalDrag = { change, amount ->
+                        change.consume()
+                        // Nothing to go back to: the card only gives a little, then springs back.
+                        val step = if (amount > 0 && swipe.value >= 0f && !canGoBack) amount * 0.25f else amount
+                        scope.launch { swipe.snapTo(swipe.value + step) }
+                    },
+                    onDragEnd = {
+                        val width = size.width.toFloat()
+                        scope.launch {
+                            val offset = swipe.value
+                            when {
+                                offset < -threshold -> {
+                                    swipe.animateTo(-width, tween(150))
+                                    nextQuote()
+                                    swipe.snapTo(width * 0.5f)
+                                    swipe.animateTo(0f, tween(220))
+                                }
+                                offset > threshold && canGoBack -> {
+                                    swipe.animateTo(width, tween(150))
+                                    previousQuote()
+                                    swipe.snapTo(-width * 0.5f)
+                                    swipe.animateTo(0f, tween(220))
+                                }
+                                else -> swipe.animateTo(0f, spring())
+                            }
+                        }
+                    },
+                    onDragCancel = { scope.launch { swipe.animateTo(0f, spring()) } },
+                )
+            }
             SoftCard(
-                modifier = Modifier.fillMaxWidth().then(
+                modifier = Modifier.fillMaxWidth()
+                    .then(swipeModifier)
+                    .graphicsLayer {
+                        translationX = swipe.value
+                        alpha = 1f - (kotlin.math.abs(swipe.value) / size.width.coerceAtLeast(1f)).coerceIn(0f, 0.7f)
+                    }
+                    .then(
                     // The thin outline suits a solid card; a soft edge fades out, so it has none.
                 if (theme == AppTheme.CLASSIC || cardSoftness >= 0.03f) Modifier
                     else Modifier.border(1.dp, MaterialTheme.colorScheme.primary.copy(alpha = 0.4f), CardDefaults.shape)
@@ -936,6 +986,19 @@ private fun QuotesScreen(
                 LabeledSlider("Soft edge", "${(cardSoftness * 100).toInt()}%", cardSoftness, 0f..1f, onCardSoftness) {
                     prefs.cardSoftness = cardSoftness
                     refreshNotification()
+                }
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    Column(Modifier.weight(1f)) {
+                        Text("Swipe the card to change quotes")
+                        Text(
+                            "On the home screen of the app: swipe left for the next quote, right for the previous one. The buttons stay.",
+                            style = MaterialTheme.typography.bodySmall,
+                        )
+                    }
+                    Switch(checked = swipeCard, onCheckedChange = {
+                        swipeCard = it
+                        prefs.swipeCard = it
+                    })
                 }
                 Text(
                     "Opacity is how strong the card behind the text is; soft edge fades its edges into the artwork. " +
