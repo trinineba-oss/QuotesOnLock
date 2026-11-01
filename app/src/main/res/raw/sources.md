@@ -176,6 +176,22 @@ editions below, or a translation made for this app and labelled `(tr. Claude)`.
 | Epictetus | Golden Sayings (Hastings Crossley); Discourses (George Long); The Teaching of Epictetus (T. W. Rolleston) | as listed | Project Gutenberg #871, #10661, #39855 |
 | Anaïs Nin | Selected lines from *The Diary of Anaïs Nin* and related works (Goodreads author quotes, hand-filtered) | as listed | Goodreads author 7190 |
 | Rumi | The Persian Mystics: Jalálu'd-dín Rúmí (selections from the Dīvān and the Masnavi) | R. A. Nicholson (Dīvān) and E. H. Whinfield (Masnavi), as printed in F. Hadland Davis's 1907 anthology | Project Gutenberg #45159 |
+| Horace | Odes, Epodes, Satires, Epistles and Ars Poetica | John Conington | Project Gutenberg #5432, #5419 |
+| Abelard & Héloïse | The Letters of Abelard and Heloise; Historia Calamitatum | C. K. Scott Moncrieff (1926); Henry Adams Bellows (1922) | Internet Archive `lettersofabelard0000abel`; Project Gutenberg #14268 |
+| The Cloud of Unknowing | A Book of Contemplation the which is called The Cloud of Unknowing | ed. Evelyn Underhill (1912) | Internet Archive `abookofcontemplationunderhill` |
+| Angelus Silesius | The Cherubinic Wanderer (selections) | Paul Carus (1909) | Internet Archive `AngelusSilesius` |
+| Saadi | The Gulistan; The Bustan | James Ross; A. Hart Edwards (1911) | Project Gutenberg #13060, #60471 |
+| Baltasar Gracián | The Art of Worldly Wisdom | Joseph Jacobs (1892) | Internet Archive `the-art-of-worldly-wisdom-baltasar-gracian`, checked against 1904 scans |
+| Robert Burton | The Anatomy of Melancholy | original English | Project Gutenberg #10800 |
+| John Ruskin | Sesame and Lilies; Modern Painters; The Stones of Venice; The Seven Lamps of Architecture; Unto This Last; The Crown of Wild Olive; and other lectures | original English | Project Gutenberg #1293, #38923, #29907, #31623, #30754, #30755, #26716, #36541, #35898 |
+| William Hazlitt | Table-Talk; The Plain Speaker; essays (On the Feeling of Immortality in Youth, On the Fear of Death, On Going a Journey and others) | original English | Project Gutenberg #3020, #39269, #58408, #59256 |
+| Kamo no Chōmei | Hōjōki (An Account of My Hut) | Minakata Kumagusu and F. Victor Dickins (JRAS 1905) | Internet Archive `in.ernet.dli.2015.70554` |
+| Yoshida Kenkō | Essays in Idleness (Tsurezuregusa) | G. B. Sansom (1911) | Internet Archive `in.ernet.dli.2015.69047` |
+| Han Shan | Cold Mountain poems | own translations `(tr. Claude)` from the Chinese | Chinese Wikisource, 全唐詩 卷806 |
+| Elizabeth Barrett Browning | Sonnets from the Portuguese; Aurora Leigh; shorter poems | original English | Project Gutenberg #56621, #31015, #33363 |
+| Robert Frost | A Boy's Will; North of Boston; Mountain Interval; New Hampshire; West-Running Brook (poems published before 1929) | original English | Project Gutenberg #29345, #58611, #78327 |
+| Gustavo Adolfo Bécquer | Rimas | own translations `(tr. Claude)` from the Spanish | Project Gutenberg #53552 (Obras escogidas) |
+| Fyodor Tyutchev | Lyrics | Babette Deutsch and Avrahm Yarmolinsky, *Modern Russian Poetry* (1921), where marked; the rest own translations `(tr. Claude)` from the Russian | English Wikisource (*Modern Russian Poetry*); Russian Wikisource |
 
 The themed quotes (Motivation, Thought-provoking, Stoic & ancient wisdom, Kindness & hope) are short, widely
 published sayings and aphorisms by ancient and 19th-century authors, attributed to the person traditionally credited.
