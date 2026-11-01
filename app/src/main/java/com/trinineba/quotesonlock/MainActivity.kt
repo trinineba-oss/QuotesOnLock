@@ -96,6 +96,7 @@ import androidx.compose.animation.core.tween
 import androidx.compose.foundation.gestures.detectHorizontalDragGestures
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.input.pointer.pointerInput
+import androidx.compose.ui.input.pointer.util.VelocityTracker
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.unit.sp
 import androidx.core.content.ContextCompat
@@ -648,27 +649,35 @@ private fun QuotesScreen(
             // Swiping the card: it follows the finger, and past the threshold flies off and the next
             // (left) or previous (right) quote slides in from the other side.
             val swipe = remember { Animatable(0f) }
-            val threshold = with(LocalDensity.current) { 72.dp.toPx() }
+            // A short drag (about a fingertip) or a quick flick of any length changes the quote.
+            val threshold = with(LocalDensity.current) { 36.dp.toPx() }
+            val flick = with(LocalDensity.current) { 350.dp.toPx() } // per second
             val swipeModifier = if (!swipeCard) Modifier else Modifier.pointerInput(Unit) {
+                val tracker = VelocityTracker()
                 detectHorizontalDragGestures(
+                    onDragStart = { tracker.resetTracking() },
                     onHorizontalDrag = { change, amount ->
                         change.consume()
+                        tracker.addPosition(change.uptimeMillis, change.position)
                         // Nothing to go back to: the card only gives a little, then springs back.
                         val step = if (amount > 0 && swipe.value >= 0f && !canGoBack) amount * 0.25f else amount
                         scope.launch { swipe.snapTo(swipe.value + step) }
                     },
                     onDragEnd = {
                         val width = size.width.toFloat()
+                        val velocity = tracker.calculateVelocity().x
                         scope.launch {
                             val offset = swipe.value
+                            val left = offset < -threshold || (velocity < -flick && offset < 0f)
+                            val right = offset > threshold || (velocity > flick && offset > 0f)
                             when {
-                                offset < -threshold -> {
+                                left -> {
                                     swipe.animateTo(-width, tween(150))
                                     nextQuote()
                                     swipe.snapTo(width * 0.5f)
                                     swipe.animateTo(0f, tween(220))
                                 }
-                                offset > threshold && canGoBack -> {
+                                right && canGoBack -> {
                                     swipe.animateTo(width, tween(150))
                                     previousQuote()
                                     swipe.snapTo(-width * 0.5f)
