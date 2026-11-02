@@ -4,6 +4,7 @@ package com.trinineba.quotesonlock
 enum class QuoteGroup(val title: String) {
     THEME("Themes"),
     IDEAS("Great ideas"),
+    MYTHS("Mythology"),
     POETS("Poets"),
     THINKERS("Philosophers & sages"),
     WRITERS("Novelists & essayists"),
@@ -257,6 +258,17 @@ enum class Category(val key: String, val label: String, val group: QuoteGroup) {
     IDEA_MIND("ideamind", "Mind & psychology", QuoteGroup.IDEAS),
     IDEA_SOCIETY("ideasoc", "Society & economics", QuoteGroup.IDEAS),
     IDEA_MATH("ideamath", "Mathematics & logic", QuoteGroup.IDEAS),
+    IDEA_EAST("ideaeast", "Eastern thought", QuoteGroup.IDEAS),
+    IDEA_ART("ideaart", "Art & aesthetics", QuoteGroup.IDEAS),
+    MYTH_GREEK("mythgreek", "Greek & Roman", QuoteGroup.MYTHS),
+    MYTH_NORSE("mythnorse", "Norse", QuoteGroup.MYTHS),
+    MYTH_ANCIENT("mythancient", "Egypt & Mesopotamia", QuoteGroup.MYTHS),
+    MYTH_WORLD("mythworld", "Myths of the world", QuoteGroup.MYTHS),
+    JEFFERIES("jefferies", "Richard Jefferies", QuoteGroup.WRITERS),
+    MAETERLINCK("maeterlinck", "Maurice Maeterlinck", QuoteGroup.WRITERS),
+    MUIR("muir", "John Muir", QuoteGroup.WRITERS),
+    HOUSMAN("housman", "A. E. Housman", QuoteGroup.POETS),
+    EDWARD_THOMAS("edwardthomas", "Edward Thomas", QuoteGroup.POETS),
     QURAN("quran", "The Qur'an", QuoteGroup.SCRIPTURE),
     CUSTOM("custom", "My own quotes", QuoteGroup.MINE);
 

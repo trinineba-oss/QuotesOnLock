@@ -719,7 +719,7 @@ private fun QuotesScreen(
                         quote.title?.let { title ->
                             Column {
                                 Text(
-                                    ("Great ideas · " + (quote.category?.label ?: "")).uppercase(),
+                                    ((quote.category?.group?.title ?: "Great ideas") + " · " + (quote.category?.label ?: "")).uppercase(),
                                     style = MaterialTheme.typography.labelSmall,
                                     color = MaterialTheme.colorScheme.primary,
                                     letterSpacing = 1.2.sp,
@@ -753,7 +753,7 @@ private fun QuotesScreen(
                         }
                         if (quote.isIdea) {
                             Text(
-                                "Explanation written for the app",
+                                if (quote.explained) "Written for the app" else "Explanation written for the app",
                                 style = MaterialTheme.typography.labelSmall,
                                 color = MaterialTheme.colorScheme.onSurfaceVariant,
                             )
