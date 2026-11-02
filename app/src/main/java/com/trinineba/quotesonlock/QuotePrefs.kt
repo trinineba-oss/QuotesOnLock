@@ -122,6 +122,16 @@ class QuotePrefs(context: Context) {
         get() = prefs.getBoolean("swipe_card", true)
         set(value) = prefs.edit().putBoolean("swipe_card", value).apply()
 
+    /** How often a great idea comes up: 0 = by its share of everything switched on, n = about 1 in n. */
+    var ideasMix: Int
+        get() = prefs.getInt("ideas_mix", 0)
+        set(value) = prefs.edit().putInt("ideas_mix", value).apply()
+
+    /** How often a myth comes up: 0 = by its share, n = about 1 in n. */
+    var mythsMix: Int
+        get() = prefs.getInt("myths_mix", 0)
+        set(value) = prefs.edit().putInt("myths_mix", value).apply()
+
     /** Theme of the home-screen widgets, or null to follow the app's theme. */
     var widgetTheme: AppTheme?
         get() = prefs.getString("widget_theme", null)?.let { AppTheme.fromKey(it) }

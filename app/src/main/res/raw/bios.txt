@@ -1,0 +1,442 @@
+# Short biographies shown on author pages: name|bio (written for the app)
+Lao Tzu|Legendary Chinese sage of the 6th century BC (his dates and even existence are uncertain), traditionally the author of the Tao Te Ching, the founding text of Daoism.
+Ralph Waldo Emerson|American essayist and poet (1803–1882), leader of Transcendentalism. His essays, such as "Self-Reliance" and "Nature", urged trust in one's own intuition and in the divine in nature.
+Benjamin Franklin|American printer, writer, scientist and statesman (1706–1790). His Poor Richard's Almanack and Autobiography made thrift, industry and self-improvement into American proverbs.
+Aristotle|Greek philosopher (384–322 BC), pupil of Plato and tutor of Alexander the Great. He wrote on nearly everything, from ethics and politics to biology and poetry, and shaped Western thought for two thousand years.
+Helen Keller|American author and activist (1880–1968). Deaf and blind from infancy, she learned to read, write and speak with her teacher Anne Sullivan and became a world-famous voice for optimism and social justice.
+Eleanor Roosevelt|American diplomat and activist (1884–1962), First Lady from 1933 to 1945, who chaired the drafting of the Universal Declaration of Human Rights.
+Squire Bill Widener|A Virginia countryman whose saying "Do what you can, with what you've got, where you are" Theodore Roosevelt quoted in his Autobiography.
+Theodore Roosevelt|26th President of the United States (1858–1919), naturalist, soldier and prolific writer, who preached "the strenuous life" of effort and courage.
+Virgil|Roman poet (70–19 BC), author of the Aeneid, the epic of Rome's founding, and of the pastoral Eclogues and Georgics. Dante chose him as his guide through the underworld.
+Samuel Johnson|English writer and critic (1709–1784), compiler of the great Dictionary of the English Language, essayist of The Rambler, and subject of Boswell's famous Life.
+Voltaire|French writer and philosopher (1694–1778) of the Enlightenment, champion of tolerance and free thought, best known for the satire Candide.
+Frederick Douglass|American writer, orator and statesman (c. 1818–1895). He escaped slavery and became the most powerful voice of the abolitionist movement.
+Louis Pasteur|French chemist and microbiologist (1822–1895) who showed that germs cause disease and fermentation, and developed vaccines and pasteurisation.
+Henry Wadsworth Longfellow|American poet (1807–1882), the most popular poet of his age, author of "A Psalm of Life", Evangeline and The Song of Hiawatha.
+Robert Frost|American poet (1874–1963) of rural New England, whose plain-spoken poems such as "The Road Not Taken" and "Stopping by Woods on a Snowy Evening" hide deep uncertainty.
+Hillel the Elder|Jewish sage and scholar in Jerusalem (c. 110 BC–10 AD), remembered for his gentleness and for summing up the Torah as "What is hateful to you, do not do to your neighbour."
+Mark Twain|American writer and humorist (1835–1910), author of Tom Sawyer and Huckleberry Finn, whose wit hid a sharp eye for human folly.
+Franklin D. Roosevelt|32nd President of the United States (1882–1945), who led the country through the Great Depression and the Second World War.
+James Allen|British writer (1864–1912) whose little book As a Man Thinketh (1903) taught that our thoughts shape our character and our lives.
+Samuel Smiles|Scottish writer and reformer (1812–1904) whose Self-Help (1859), full of stories of perseverance, became one of the best-selling books of the Victorian age.
+Booker T. Washington|American educator and writer (1856–1915), born into slavery, who founded the Tuskegee Institute and wrote the autobiography Up from Slavery.
+William Ernest Henley|English poet and editor (1849–1903). He wrote "Invictus" in hospital after losing a leg to tuberculosis.
+Alfred, Lord Tennyson|English poet (1809–1892), Poet Laureate for over forty years, author of In Memoriam, "Ulysses" and "Crossing the Bar".
+Socrates|Athenian philosopher (c. 470–399 BC) who wrote nothing but questioned everyone. Sentenced to death for corrupting the young, he is known to us through Plato's dialogues.
+Heraclitus|Greek philosopher of Ephesus (c. 535–475 BC), known as "the Obscure", who taught that everything flows and that opposites are bound together. Only fragments of his book survive.
+Albert Einstein|German-born physicist (1879–1955) whose theories of relativity changed our understanding of space, time and gravity. He also wrote widely on peace, religion and freedom.
+Friedrich Nietzsche|German philosopher (1844–1900) who declared the death of God and asked how we might create new values. His books include Thus Spake Zarathustra and Beyond Good and Evil.
+Søren Kierkegaard|Danish philosopher and theologian (1813–1855), often called the father of existentialism. He wrote about anxiety, despair, faith and the single individual.
+William Shakespeare|English playwright and poet (1564–1616), author of Hamlet, King Lear, The Tempest and the Sonnets, widely held to be the greatest writer in the English language.
+Oscar Wilde|Irish writer and wit (1854–1900), author of The Picture of Dorian Gray and The Importance of Being Earnest. Imprisoned for homosexuality, he wrote De Profundis in his cell.
+Isaac Newton|English mathematician and physicist (1643–1727) who discovered the laws of motion and universal gravitation and co-invented calculus.
+Henry David Thoreau|American essayist and naturalist (1817–1862) who lived two years in a cabin by Walden Pond and wrote Walden and "Civil Disobedience".
+Plato|Athenian philosopher (c. 428–348 BC), student of Socrates and teacher of Aristotle, whose dialogues, among them the Republic, Symposium and Phaedo, founded Western philosophy.
+René Descartes|French philosopher and mathematician (1596–1650), father of modern philosophy, who started from doubt and arrived at "I think, therefore I am".
+Protagoras|Greek Sophist (c. 490–420 BC) famous for saying "Man is the measure of all things".
+Inscription at the Temple of Apollo at Delphi|The maxims carved at the oracle of Apollo at Delphi, among them "Know thyself" and "Nothing in excess", which the Greeks treated as the core of wisdom.
+Jean-Jacques Rousseau|Geneva-born philosopher and writer (1712–1778) whose Social Contract, Emile and Confessions shaped modern politics, education and the idea of the self.
+Miguel de Cervantes|Spanish novelist (1547–1616), author of Don Quixote, often called the first modern novel.
+Francis Bacon|English philosopher and statesman (1561–1626), pioneer of the scientific method and author of the Essays and the Novum Organum.
+Arthur Schopenhauer|German philosopher (1788–1860) who saw the world as driven by a blind, restless will, and found consolation in art, compassion and Eastern thought.
+Marcus Aurelius|Roman emperor (121–180) and Stoic philosopher. His private notebook, the Meditations, written on campaign, is one of the most loved books of practical wisdom.
+Seneca|Roman Stoic philosopher, statesman and dramatist (c. 4 BC–65 AD), tutor to Nero. His Letters to Lucilius are a guide to living well and facing death.
+Epictetus|Greek Stoic philosopher (c. 50–135) who was born a slave. His teachings, recorded by his student Arrian, centre on what is and isn't in our power.
+Epicurus|Greek philosopher (341–270 BC) who taught that happiness comes from simple pleasures, friendship and freedom from fear, especially the fear of death.
+Cicero|Roman statesman, orator and philosopher (106–43 BC) whose essays on friendship, old age and duty brought Greek philosophy to Rome.
+The Dhammapada|A collection of 423 verses of the Buddha's teaching in Pali, one of the best-loved texts of early Buddhism.
+Emily Dickinson|American poet (1830–1886) who lived quietly in Amherst and wrote nearly 1,800 short, startling poems about death, nature and the inner life, almost none published in her lifetime.
+Jane Austen|English novelist (1775–1817), author of Pride and Prejudice and Emma, whose ironic comedies of manners are also studies of judgement and feeling.
+Charles Dickens|English novelist (1812–1870), author of Great Expectations, David Copperfield and A Christmas Carol, champion of the poor and the greatest storyteller of his age.
+Aesop|Greek storyteller (c. 620–564 BC), said to have been a slave, to whom hundreds of animal fables with morals are attributed.
+George Eliot|Pen name of Mary Ann Evans (1819–1880), English novelist of Middlemarch and The Mill on the Floss, famed for her moral depth and sympathy.
+Walt Whitman|American poet (1819–1892) whose Leaves of Grass, in free verse, celebrated the self, the body, democracy and the common people.
+Kahlil Gibran|Lebanese-American poet, writer and painter (1883–1931) whose book The Prophet, a series of poetic sermons on love, work, joy and death, has been read by millions.
+Rainer Maria Rilke|Bohemian-Austrian poet (1875–1926) of the Duino Elegies and Sonnets to Orpheus, whose Letters to a Young Poet are a guide to solitude and inner life.
+Fyodor Dostoevsky|Russian novelist (1821–1881) of Crime and Punishment and The Brothers Karamazov, who explored faith, freedom, guilt and suffering.
+Leo Tolstoy|Russian novelist (1828–1910) of War and Peace and Anna Karenina, who later turned to a radical Christian ethic of nonviolence and simplicity.
+Franz Kafka|Prague-born German-language writer (1883–1924) of The Trial and The Metamorphosis, whose stories of anxiety and absurd authority gave us the word "Kafkaesque".
+Albert Camus|French-Algerian writer and philosopher (1913–1960) of The Stranger, The Plague and The Myth of Sisyphus, who answered the absurd with revolt and solidarity. Nobel Prize 1957.
+Hermann Hesse|German-Swiss novelist and poet (1877–1962) of Siddhartha, Steppenwolf and The Glass Bead Game, about the search for the self. Nobel Prize 1946.
+Confucius|Chinese teacher and philosopher (551–479 BC) whose sayings, collected in the Analects, made virtue, learning, ritual and family duty the foundation of Chinese culture.
+Rumi|Persian poet and Sufi mystic (1207–1273). His Masnavi and lyric poems of longing for the divine Beloved are among the most widely read poetry in the world.
+Omar Khayyam|Persian mathematician, astronomer and poet (1048–1131). The quatrains attributed to him, made famous in English by Edward FitzGerald, celebrate the fleeting moment.
+Sun Tzu|Chinese general and strategist (traditionally 6th century BC), author of The Art of War.
+Rabindranath Tagore|Bengali poet, philosopher, composer and painter (1861–1941), author of Gitanjali, and the first non-European to win the Nobel Prize in Literature (1913).
+Haruki Murakami|Japanese novelist (born 1949) of Norwegian Wood, Kafka on the Shore and 1Q84, whose dreamlike stories mix loneliness, music and the uncanny.
+William Blake|English poet, painter and visionary (1757–1827) of the Songs of Innocence and of Experience, who saw "a world in a grain of sand".
+Giacomo Leopardi|Italian poet and philosopher (1798–1837) of the Canti and the Zibaldone, whose lucid pessimism is matched by the beauty of his verse.
+Charles Baudelaire|French poet (1821–1867) of Les Fleurs du mal, who found beauty in the city, decay and melancholy and opened the way to modern poetry.
+The Bhagavad Gita|A dialogue in 700 verses from the Mahabharata (c. 2nd century BC) in which the god Krishna teaches the warrior Arjuna about duty, action and the eternal self.
+The Upanishads|Ancient Indian philosophical texts (c. 800–200 BC) that explore the nature of the self (Atman) and ultimate reality (Brahman), the foundation of Vedanta.
+Viktor Frankl|Austrian psychiatrist (1905–1997) who survived the Nazi camps and wrote Man's Search for Meaning, arguing that the will to meaning sustains us even in suffering.
+Fernando Pessoa|Portuguese poet (1888–1935) who wrote under dozens of invented personas, or heteronyms. His Book of Disquiet was published after his death.
+Jorge Luis Borges|Argentine writer (1899–1986) of labyrinths, mirrors and infinite libraries, whose short stories in Ficciones and The Aleph are puzzles about time and reality.
+E. M. Cioran|Romanian-born French philosopher and aphorist (1911–1995) whose brilliant, despairing fragments are written with dark humour and lyricism.
+Simone Weil|French philosopher, mystic and activist (1909–1943) who wrote on attention, affliction and grace in Gravity and Grace.
+Pablo Neruda|Chilean poet and diplomat (1904–1973), author of Twenty Love Poems and a Song of Despair and the Odes to common things. Nobel Prize 1971.
+Mary Oliver|American poet (1935–2019) of close attention to the natural world, who asked "what is it you plan to do with your one wild and precious life?"
+Wisława Szymborska|Polish poet (1923–2012) whose witty, wondering poems look at ordinary things with fresh eyes. Nobel Prize 1996.
+Milan Kundera|Czech-born French novelist (1929–2023) of The Unbearable Lightness of Being, who mixed love stories with reflections on history and fate.
+Jean-Paul Sartre|French philosopher, novelist and playwright (1905–1980), leading voice of existentialism, who held that we are condemned to be free.
+Kabir|Indian mystic poet and weaver (15th century) whose songs, loved by Hindus and Muslims alike, mock empty ritual and seek God within.
+Ecclesiastes|A book of the Hebrew Bible in which "the Preacher" reflects on the vanity of all things under the sun and the gift of simple joys.
+Book of Job|A book of the Hebrew Bible, a poetic drama about a good man's suffering and his argument with God.
+Zhuangzi|Chinese Daoist philosopher (c. 369–286 BC) whose playful, paradoxical stories, like the butterfly dream, question every fixed point of view.
+Herman Melville|American novelist and poet (1819–1891), author of Moby-Dick, whose voyages became meditations on obsession, evil and the unknowable.
+Ivan Turgenev|Russian novelist and storyteller (1818–1883) of Fathers and Sons and A Sportsman's Sketches, known for his gentle realism and melancholy.
+Anton Chekhov|Russian playwright, short-story writer and doctor (1860–1904) of The Seagull and The Cherry Orchard, master of quiet tragedy and compassion.
+Dante Alighieri|Italian poet (1265–1321), author of the Divine Comedy, a journey through Hell, Purgatory and Paradise guided by Virgil and Beatrice.
+Sigmund Freud|Austrian neurologist (1856–1939), founder of psychoanalysis, who explored the unconscious, dreams and desire.
+Carl Jung|Swiss psychiatrist (1875–1961), founder of analytical psychology, who wrote about archetypes, the collective unconscious and the journey to wholeness.
+Stephen King|American novelist (born 1947) of horror and suspense, whose memoir On Writing is a classic guide to the craft.
+Ray Bradbury|American writer (1920–2012) of Fahrenheit 451 and The Martian Chronicles, a lifelong champion of imagination and libraries.
+Anne Lamott|American writer (born 1954) whose Bird by Bird is a warm, funny guide to writing and to life.
+Annie Dillard|American writer (born 1945) of Pilgrim at Tinker Creek and The Writing Life, whose prose looks at nature with fierce attention.
+Steven Pressfield|American novelist (born 1943) whose The War of Art is about overcoming resistance to creative work.
+Madeleine L'Engle|American writer (1918–2007) of A Wrinkle in Time, who also wrote on faith and art in Walking on Water.
+Austin Kleon|American writer and artist (born 1983), author of Steal Like an Artist.
+Julia Cameron|American teacher and writer (born 1948) whose The Artist's Way introduced "morning pages" to millions.
+Elizabeth Gilbert|American writer (born 1969) of Eat, Pray, Love and Big Magic, on creativity and courage.
+Ursula K. Le Guin|American writer (1929–2018) of the Earthsea books and The Left Hand of Darkness, whose fantasy and science fiction carry Daoist wisdom.
+Neil Gaiman|English writer (born 1960) of The Sandman, American Gods and Coraline.
+Maya Angelou|American poet and memoirist (1928–2014), author of I Know Why the Caged Bird Sings.
+Toni Morrison|American novelist (1931–2019) of Beloved and Song of Solomon, who wrote the inner lives of Black Americans with mythic power. Nobel Prize 1993.
+Kurt Vonnegut|American novelist (1922–2007) of Slaughterhouse-Five, whose dark comedy is full of tenderness.
+James Baldwin|American novelist and essayist (1924–1987) of Go Tell It on the Mountain and The Fire Next Time, who wrote about race, love and identity with prophetic force.
+Joan Didion|American essayist and novelist (1934–2021) of Slouching Towards Bethlehem and The Year of Magical Thinking.
+George Orwell|English writer (1903–1950) of Animal Farm and Nineteen Eighty-Four, and essays defending plain truth against propaganda.
+E. B. White|American writer (1899–1985) of Charlotte's Web and co-author of The Elements of Style.
+Pablo Picasso|Spanish painter and sculptor (1881–1973), co-founder of Cubism and one of the most influential artists of the 20th century.
+Henri Matisse|French painter (1869–1954), master of colour and of the paper cut-outs of his last years.
+Georgia O'Keeffe|American painter (1887–1986) of enlarged flowers, bones and New Mexico landscapes.
+Frida Kahlo|Mexican painter (1907–1954) whose vivid self-portraits turned pain and identity into art.
+Leonard Cohen|Canadian poet, novelist and songwriter (1934–2016) of "Suzanne" and "Hallelujah", whose songs mix the sacred and the sensual.
+John Cage|American composer (1912–1992) who brought chance, silence and Zen into music, most famously in 4′33″.
+Twyla Tharp|American choreographer (born 1941), author of The Creative Habit.
+Raymond Carver|American short-story writer and poet (1938–1988), master of spare, quiet fiction about ordinary lives.
+Virginia Woolf|English novelist and essayist (1882–1941) of Mrs Dalloway, To the Lighthouse and A Room of One's Own, who caught the flow of consciousness in prose.
+Italo Calvino|Italian writer (1923–1985) of Invisible Cities and If on a Winter's Night a Traveller, whose playful fables are full of lightness and wonder.
+Igor Stravinsky|Russian-born composer (1882–1971) of The Rite of Spring, who also wrote on music and discipline.
+John Keats|English Romantic poet (1795–1821) of the great odes, who died of tuberculosis at 25. His letters are as loved as his poems.
+Percy Bysshe Shelley|English Romantic poet (1792–1822) of "Ozymandias" and Prometheus Unbound, radical and idealist, who drowned at 29.
+Samuel Taylor Coleridge|English poet and critic (1772–1834) of "The Rime of the Ancient Mariner" and "Kubla Khan", co-founder of English Romanticism.
+William Wordsworth|English Romantic poet (1770–1850) of The Prelude and "Tintern Abbey", who found the divine in nature and memory.
+Edgar Allan Poe|American poet and writer (1809–1849) of "The Raven" and macabre tales, inventor of the detective story.
+James McNeill Whistler|American painter (1834–1903) in London, champion of "art for art's sake".
+Wassily Kandinsky|Russian painter and theorist (1866–1944), a pioneer of abstract art, author of Concerning the Spiritual in Art.
+Walter Pater|English critic and essayist (1839–1894) whose Studies in the History of the Renaissance urged us "to burn always with this hard, gem-like flame".
+Auguste Rodin|French sculptor (1840–1917) of The Thinker and The Kiss.
+Leonardo da Vinci|Italian painter, inventor and scientist (1452–1519) of the Mona Lisa and The Last Supper, whose notebooks are full of observation and wonder.
+Ludwig van Beethoven|German composer (1770–1827) who kept writing music after going deaf, from the Moonlight Sonata to the Ninth Symphony.
+Johann Wolfgang von Goethe|German poet, novelist, scientist and statesman (1749–1832), author of Faust and The Sorrows of Young Werther, the giant of German literature.
+Goethe|Johann Wolfgang von Goethe (1749–1832), German poet, novelist, scientist and statesman, author of Faust and The Sorrows of Young Werther.
+Joseph Conrad|Polish-born British novelist (1857–1924) of Heart of Darkness and Lord Jim, who wrote in his third language about the sea and moral darkness.
+Henry James|American-British novelist (1843–1916) of The Portrait of a Lady and The Ambassadors, master of psychological subtlety.
+Robert Louis Stevenson|Scottish writer (1850–1894) of Treasure Island and Dr Jekyll and Mr Hyde, and of fine essays on life and travel.
+Vincent van Gogh|Dutch painter (1853–1890). In about ten years he made more than 2,000 works, and his letters to his brother Theo are among the most moving ever written.
+Lucretius|Roman poet and Epicurean philosopher (c. 99–55 BC) whose On the Nature of Things explains the world as atoms and void, and death as nothing to fear.
+Anaximander|Greek philosopher of Miletus (c. 610–546 BC) who taught that all things come from the boundless, the apeiron.
+Xenophanes|Greek poet and philosopher (c. 570–478 BC) who mocked gods made in human image.
+Parmenides|Greek philosopher of Elea (5th century BC) who argued that being is one and unchanging and that change is illusion.
+Empedocles|Greek philosopher of Sicily (c. 494–434 BC) who taught that the world is made of four elements moved by Love and Strife.
+Anaxagoras|Greek philosopher (c. 500–428 BC) who taught that Mind sets the universe in order.
+Michel de Montaigne|French writer (1533–1592) who invented the essay, examining himself with honesty and humour to understand the human condition.
+Blaise Pascal|French mathematician, physicist and religious thinker (1623–1662) whose unfinished Pensées explore human greatness and misery.
+David Hume|Scottish philosopher and historian (1711–1776) of the Enlightenment, a sceptic about reason, causation and the self.
+Augustine|Augustine of Hippo (354–430), North African bishop and theologian whose Confessions is the first great autobiography of the inner life.
+Sophocles|Athenian tragedian (c. 497–406 BC) of Oedipus the King and Antigone.
+Aeschylus|Athenian tragedian (c. 525–456 BC), the "father of tragedy", author of the Oresteia.
+Euripides|Athenian tragedian (c. 480–406 BC) of Medea and The Bacchae, known for his psychological realism.
+W. B. Yeats|Irish poet and dramatist (1865–1939) of "The Second Coming" and "Sailing to Byzantium", whose verse blends myth, mysticism and politics. Nobel Prize 1923.
+John Milton|English poet (1608–1674) who, blind, dictated Paradise Lost, the epic of the Fall.
+T. S. Eliot|American-British poet (1888–1965) of The Waste Land and Four Quartets. Nobel Prize 1948.
+Friedrich Hölderlin|German poet (1770–1843) of hymns and elegies longing for the lost gods of Greece, who spent his last decades in mental illness.
+Thomas Hardy|English novelist and poet (1840–1928) of Tess of the d'Urbervilles and Jude the Obscure, whose poems face loss and indifferent fate.
+Meister Eckhart|German Dominican mystic and theologian (c. 1260–1328) who taught letting go and the birth of God in the soul.
+Julian of Norwich|English anchoress and mystic (c. 1343–after 1416), the first woman known to write a book in English, Revelations of Divine Love: "All shall be well."
+Thomas à Kempis|German-Dutch monk (c. 1380–1471) traditionally credited with The Imitation of Christ, a classic of Christian devotion.
+Brother Lawrence|French Carmelite lay brother (c. 1614–1691) whose The Practice of the Presence of God found God among the pots and pans of the monastery kitchen.
+Thomas Traherne|English poet and clergyman (1636–1674) whose Centuries of Meditations, rediscovered in 1896, are full of childlike wonder at the world.
+William Law|English priest and writer (1686–1761) of A Serious Call to a Devout and Holy Life.
+Emily Brontë|English novelist and poet (1818–1848) of Wuthering Heights.
+Charlotte Brontë|English novelist (1816–1855) of Jane Eyre and Villette.
+Anne Brontë|English novelist and poet (1820–1849) of Agnes Grey and The Tenant of Wildfell Hall.
+Ludwig Wittgenstein|Austrian-British philosopher (1889–1951) of the Tractatus and the Philosophical Investigations, on the limits and uses of language.
+Alan Watts|British-American writer (1915–1973) who brought Zen and Daoism to Western readers.
+J. Krishnamurti|Indian philosopher and teacher (1895–1986) who rejected all authority in spiritual matters and urged direct self-awareness.
+Iris Murdoch|Irish-British novelist and philosopher (1919–1999) who wrote about goodness, attention and love.
+Ernest Becker|American anthropologist (1924–1974) whose The Denial of Death argued that our cultures are defences against mortality.
+Hafiz|Persian poet (c. 1315–1390) of Shiraz, master of the ghazal, whose poems of wine, love and the divine are still recited across Iran.
+Al-Ghazali|Persian theologian and mystic (c. 1058–1111) who left a brilliant career to seek certainty in Sufism.
+Sa'di|Saadi of Shiraz (c. 1210–1292), Persian poet of the Gulistan (The Rose Garden) and the Bustan (The Orchard).
+Saadi|Persian poet of Shiraz (c. 1210–1292) whose Gulistan (The Rose Garden) and Bustan (The Orchard) mix tales and verse on wisdom, love and humanity.
+Jami|Persian poet and Sufi (1414–1492), often called the last great classical Persian poet.
+Ibn 'Arabi|Andalusian Sufi mystic and philosopher (1165–1240) who taught the unity of being.
+Matsuo Bashō|Japanese poet (1644–1694), the great master of haiku, who travelled Japan and wrote The Narrow Road to the Deep North.
+Yosa Buson|Japanese poet and painter (1716–1784), one of the great haiku masters after Bashō.
+Kaga no Chiyo|Japanese poet (1703–1775), one of the finest women haiku poets.
+Saigyō|Japanese Buddhist monk and poet (1118–1190) of wandering, moon and cherry blossoms.
+Sutta Nipata|One of the oldest collections of the Buddha's discourses in the Pali Canon.
+Therigatha|"Verses of the Elder Nuns", poems by the first Buddhist women, among the oldest women's writing in the world.
+Theragatha|"Verses of the Elder Monks", poems by the Buddha's early disciples on their path to freedom.
+Psalms|The book of 150 songs and prayers in the Hebrew Bible, from praise to lament.
+Proverbs|A book of the Hebrew Bible collecting sayings of practical and moral wisdom.
+Song of Songs|A book of love poetry in the Hebrew Bible, read by Jews and Christians as an allegory of divine love.
+Book of Wisdom|The Wisdom of Solomon, a Jewish book of the 1st century BC on wisdom and righteousness.
+Sirach|The Wisdom of Ben Sira, a Jewish book of practical wisdom from about 180 BC.
+Charles Bukowski|German-born American poet and novelist (1920–1994) of raw, unsentimental poems about the down and out.
+Anaïs Nin|French-Cuban-American writer (1903–1977) famous for her diaries.
+La Rochefoucauld|French nobleman and moralist (1613–1680) whose Maxims expose the self-love behind our virtues.
+Chamfort|Nicolas Chamfort (1741–1794), French writer of bitter, witty maxims about society.
+Joseph Joubert|French moralist (1754–1824) whose notebooks of luminous thoughts were published after his death.
+Georg Christoph Lichtenberg|German physicist and aphorist (1742–1799) whose "waste books" are full of wit and insight.
+Sir Thomas Browne|English physician and writer (1605–1682) of Religio Medici and Urn Burial, famed for his rich prose and curiosity.
+Miguel de Unamuno|Spanish philosopher and novelist (1864–1936) of The Tragic Sense of Life.
+William James|American philosopher and psychologist (1842–1910), founder of pragmatism and author of The Varieties of Religious Experience.
+Marcel Proust|French novelist (1871–1922) of In Search of Lost Time, the great novel of memory.
+C. P. Cavafy|Greek poet of Alexandria (1863–1933) of "Ithaka" and "Waiting for the Barbarians".
+John Donne|English poet and preacher (1572–1631), the greatest of the metaphysical poets: "No man is an island."
+George Herbert|English poet and priest (1593–1633) of The Temple.
+Andrew Marvell|English poet (1621–1678) of "To His Coy Mistress" and "The Garden".
+Henry Vaughan|Welsh poet and physician (1621–1695) of mystical poems of light and eternity.
+Gerard Manley Hopkins|English poet and Jesuit priest (1844–1889) whose sprung rhythm celebrates "the dearest freshness deep down things".
+Matthew Arnold|English poet and critic (1822–1888) of "Dover Beach".
+Robert Browning|English poet (1812–1889), master of the dramatic monologue.
+Christina Rossetti|English poet (1830–1894) of "Goblin Market" and devotional verse.
+Arthur Hugh Clough|English poet (1819–1861) of doubt and quiet hope.
+Algernon Charles Swinburne|English poet (1837–1909) known for his musical, rebellious verse.
+Lord Byron|English Romantic poet (1788–1824) of Don Juan, who died aiding Greek independence.
+Stéphane Mallarmé|French Symbolist poet (1842–1898).
+Paul Verlaine|French Symbolist poet (1844–1896) of musical, melancholy verse.
+Arthur Rimbaud|French poet (1854–1891) who wrote all his work before twenty-one, including A Season in Hell.
+T'ao Ch'ien|Tao Yuanming (365–427), Chinese poet who left office for a life of farming, wine and chrysanthemums.
+Li Po|Li Bai (701–762), Tang poet of wine, the moon and wandering.
+Po Chü-i|Bai Juyi (772–846), Tang poet of plain, humane verse.
+Wang Wei|Tang poet and painter (699–759) of quiet Buddhist landscapes.
+Tu Fu|Du Fu (712–770), Tang poet often called China's greatest.
+Mikhail Lermontov|Russian Romantic poet and novelist (1814–1841) of A Hero of Our Time.
+Alexander Pushkin|Russia's national poet (1799–1837), author of Eugene Onegin.
+Victor Hugo|French poet and novelist (1802–1885) of Les Misérables and Notre-Dame de Paris.
+James Joyce|Irish novelist (1882–1941) of Dubliners and Ulysses.
+Thomas Mann|German novelist (1875–1955) of The Magic Mountain. Nobel Prize 1929.
+Baruch Spinoza|Dutch philosopher (1632–1677) of the Ethics, who saw God and Nature as one.
+Nikos Kazantzakis|Greek writer (1883–1957) of Zorba the Greek.
+Martin Buber|Austrian-Israeli philosopher (1878–1965) of I and Thou.
+Hannah Arendt|German-American political thinker (1906–1975) of The Human Condition and Eichmann in Jerusalem.
+Simone de Beauvoir|French philosopher and novelist (1908–1986) of The Second Sex.
+Samuel Beckett|Irish writer (1906–1989) of Waiting for Godot. Nobel Prize 1969.
+Erich Fromm|German-American psychoanalyst (1900–1980) of The Art of Loving.
+Rollo May|American existential psychologist (1909–1994) of Love and Will.
+Thomas Merton|American Trappist monk and writer (1915–1968) of The Seven Storey Mountain.
+Thich Nhat Hanh|Vietnamese Zen master and peace activist (1926–2022) who taught mindfulness worldwide.
+Irvin Yalom|American existential psychiatrist and novelist (born 1931).
+Joseph Campbell|American mythologist (1904–1987) of The Hero with a Thousand Faces.
+Miyamoto Musashi|Japanese swordsman and artist (1584–1645), author of The Book of Five Rings.
+Susan Sontag|American essayist (1933–2004) of Against Interpretation and On Photography.
+Max Ehrmann|American poet and lawyer (1872–1945), author of "Desiderata".
+Rudyard Kipling|English writer (1865–1936) of The Jungle Book and "If—". Nobel Prize 1907.
+Henri-Frédéric Amiel|Swiss philosopher (1821–1881) whose vast Journal Intime is a classic of introspection.
+Boethius|Roman philosopher (c. 477–524) who wrote The Consolation of Philosophy in prison awaiting execution.
+Novalis|German Romantic poet (1772–1801) of the Hymns to the Night.
+Antonio Machado|Spanish poet (1875–1939): "Traveller, there is no road; the road is made by walking."
+G. K. Chesterton|English writer (1874–1936) of paradox, the Father Brown stories and Orthodoxy.
+Homer|Legendary Greek poet (c. 8th century BC) of the Iliad and the Odyssey.
+Sappho|Greek lyric poet of Lesbos (c. 630–570 BC), the first great woman poet, whose love poems survive in fragments.
+Antoine de Saint-Exupéry|French writer and aviator (1900–1944) of The Little Prince and Wind, Sand and Stars, lost on a reconnaissance flight in the war.
+C. S. Lewis|British writer and scholar (1898–1963) of the Narnia books, Mere Christianity and A Grief Observed.
+Stefan Zweig|Austrian writer (1881–1942) of novellas, biographies and the memoir The World of Yesterday.
+Clarice Lispector|Brazilian writer (1920–1977) of intense, inward novels such as The Passion According to G.H.
+Dag Hammarskjöld|Swedish diplomat (1905–1961), UN Secretary-General, whose spiritual diary Markings was found after his death.
+Gabriel García Márquez|Colombian novelist (1927–2014) of One Hundred Years of Solitude and Love in the Time of Cholera. Nobel Prize 1982.
+Attar|Persian Sufi poet (c. 1145–1221) of The Conference of the Birds.
+Petrarch|Italian poet and scholar (1304–1374), father of humanism, whose sonnets to Laura shaped European love poetry.
+Michelangelo|Italian sculptor, painter, architect and poet (1475–1564) of the David and the Sistine Chapel ceiling.
+Gustave Flaubert|French novelist (1821–1880) of Madame Bovary, obsessed with finding the exact word.
+Federico García Lorca|Spanish poet and playwright (1898–1936) of the Gypsy Ballads and Blood Wedding, killed in the Civil War.
+Octavio Paz|Mexican poet and essayist (1914–1998) of The Labyrinth of Solitude. Nobel Prize 1990.
+José Saramago|Portuguese novelist (1922–2010) of Blindness. Nobel Prize 1998.
+Anna Akhmatova|Russian poet (1889–1966) whose Requiem bore witness to Stalin's terror.
+Marina Tsvetaeva|Russian poet (1892–1941) of passionate, fierce lyrics.
+Czesław Miłosz|Polish poet and essayist (1911–2004) who wrote on history, faith and memory. Nobel Prize 1980.
+Tomas Tranströmer|Swedish poet (1931–2015) of luminous, dreamlike images. Nobel Prize 2011.
+Paul Celan|Romanian-born German-language poet (1920–1970) of "Death Fugue", who wrote in the shadow of the Holocaust.
+W. G. Sebald|German writer (1944–2001) of The Rings of Saturn and Austerlitz, on memory and loss.
+Gaston Bachelard|French philosopher (1884–1962) of The Poetics of Space.
+Pierre Teilhard de Chardin|French Jesuit priest and palaeontologist (1881–1955) who saw evolution moving toward spirit.
+Mikhail Bulgakov|Russian writer (1891–1940) of The Master and Margarita.
+Knut Hamsun|Norwegian novelist (1859–1952) of Hunger and Growth of the Soil. Nobel Prize 1920.
+V. S. Naipaul|Trinidad-born British writer (1932–2018) of A House for Mr Biswas. Nobel Prize 2001.
+Derek Walcott|Saint Lucian poet and playwright (1930–2017) of Omeros. Nobel Prize 1992.
+Plutarch|Greek biographer and essayist (c. 46–120) of the Parallel Lives.
+Ovid|Roman poet (43 BC–17/18 AD) of the Metamorphoses, a great treasury of myths, who died in exile.
+Thucydides|Athenian historian (c. 460–400 BC) of the Peloponnesian War.
+Teresa of Ávila|Spanish Carmelite nun and mystic (1515–1582) of The Interior Castle.
+John of the Cross|Spanish mystic and poet (1542–1591) of The Dark Night of the Soul.
+Mencius|Chinese Confucian philosopher (c. 372–289 BC) who taught that human nature is good.
+Ryōkan|Japanese Zen monk and poet (1758–1831) who lived as a hermit and played with village children.
+Ikkyū|Japanese Zen monk and poet (1394–1481), eccentric and free-spirited.
+Mary Shelley|English novelist (1797–1851) who wrote Frankenstein at nineteen.
+Stendhal|French novelist (1783–1842) of The Red and the Black.
+Honoré de Balzac|French novelist (1799–1850) of the Human Comedy.
+Nikolai Gogol|Russian-Ukrainian writer (1809–1852) of Dead Souls and "The Overcoat".
+Immanuel Kant|German philosopher (1724–1804) of the Critiques, who asked what we can know, what we ought to do and what we may hope.
+Henri Bergson|French philosopher (1859–1941) of time, memory and creative evolution. Nobel Prize 1927.
+Osip Mandelstam|Russian poet (1891–1938) who died in a Stalinist camp.
+Boris Pasternak|Russian poet and novelist (1890–1960) of Doctor Zhivago. Nobel Prize 1958.
+Joseph Brodsky|Russian-American poet (1940–1996), exiled from the USSR. Nobel Prize 1987.
+Seamus Heaney|Irish poet (1939–2013) of earth, memory and the Troubles. Nobel Prize 1995.
+Jack Gilbert|American poet (1925–2012) of love, loss and joy.
+George Seferis|Greek poet and diplomat (1900–1971). Nobel Prize 1963.
+Wendell Berry|American farmer, poet and essayist (born 1934) who writes about land, community and care.
+Rebecca Solnit|American writer (born 1961) of A Field Guide to Getting Lost and Hope in the Dark.
+Umberto Eco|Italian novelist and semiotician (1932–2016) of The Name of the Rose.
+Aldous Huxley|English writer (1894–1963) of Brave New World and The Perennial Philosophy.
+Aleksandr Solzhenitsyn|Russian writer (1918–2008) of The Gulag Archipelago. Nobel Prize 1970.
+Ocean Vuong|Vietnamese-American poet and novelist (born 1988) of On Earth We're Briefly Gorgeous.
+Pierre Hadot|French philosopher and historian (1922–2010) who showed ancient philosophy as a way of life.
+Carl Sagan|American astronomer and writer (1934–1996) of Cosmos and Pale Blue Dot.
+Ivan Goncharov|Russian novelist (1812–1891) of Oblomov.
+Lev Shestov|Russian existentialist philosopher (1866–1938) who set faith against reason.
+Vasily Rozanov|Russian writer and thinker (1856–1919) of intimate, fragmentary books like Solitaria.
+Georg Büchner|German dramatist (1813–1837) of Woyzeck and Danton's Death, who died at 23.
+Luigi Pirandello|Italian dramatist and novelist (1867–1936) of Six Characters in Search of an Author. Nobel Prize 1934.
+Italo Svevo|Italian novelist (1861–1928) of Zeno's Conscience.
+August Strindberg|Swedish playwright and novelist (1849–1912).
+Karl Jaspers|German psychiatrist and existentialist philosopher (1883–1969).
+Martin Heidegger|German philosopher (1889–1976) of Being and Time.
+Gabriel Marcel|French Christian existentialist philosopher and playwright (1889–1973).
+Nikolai Berdyaev|Russian religious philosopher (1874–1948) of freedom and creativity.
+José Ortega y Gasset|Spanish philosopher (1883–1955): "I am I and my circumstance."
+Paul Tillich|German-American theologian (1886–1965) of The Courage to Be.
+Walker Percy|American novelist (1916–1990) of The Moviegoer.
+Ralph Ellison|American novelist (1913–1994) of Invisible Man.
+Robert Musil|Austrian novelist (1880–1942) of The Man Without Qualities.
+André Malraux|French novelist and statesman (1901–1976) of Man's Fate.
+Eugène Ionesco|Romanian-French playwright (1909–1994) of the Theatre of the Absurd.
+Robert Burton|English scholar and clergyman (1577–1640) whose Anatomy of Melancholy is a vast, witty encyclopedia of sadness.
+John Ruskin|English art critic and social thinker (1819–1900) of Modern Painters and Unto This Last.
+William Hazlitt|English essayist and critic (1778–1830) of Table-Talk.
+Kamo no Chōmei|Japanese poet and recluse (c. 1155–1216) whose Hōjōki (An Account of My Hut) meditates on impermanence.
+Yoshida Kenkō|Japanese Buddhist monk and writer (c. 1283–1350) of Essays in Idleness (Tsurezuregusa).
+Han Shan|"Cold Mountain", a legendary Chinese hermit poet of the Tang dynasty, beloved of Zen.
+Baltasar Gracián|Spanish Jesuit writer (1601–1658) of The Art of Worldly Wisdom.
+Horace|Roman poet (65–8 BC) of the Odes and Satires: "Carpe diem."
+Héloïse|French scholar and abbess (c. 1100–1164) whose letters to Abelard are among the great love letters.
+Peter Abelard|French philosopher and theologian (1079–1142), Héloïse's lover and husband.
+The Cloud of Unknowing|An anonymous 14th-century English guide to contemplative prayer.
+Angelus Silesius|German mystic and poet (1624–1677) of The Cherubinic Wanderer.
+Elizabeth Barrett Browning|English poet (1806–1861) of Sonnets from the Portuguese and Aurora Leigh.
+Gustavo Adolfo Bécquer|Spanish Romantic poet (1836–1870) of the Rimas.
+Fyodor Tyutchev|Russian poet and diplomat (1803–1873) of nature, night and the soul.
+J. R. R. Tolkien|English writer and philologist (1892–1973) of The Hobbit and The Lord of the Rings.
+Richard Jefferies|English nature writer (1848–1887) whose The Story of My Heart is a mystical autobiography of the soul in nature.
+Maurice Maeterlinck|Belgian poet, playwright and essayist (1862–1949) of The Blue Bird and The Treasure of the Humble. Nobel Prize 1911.
+John Muir|Scottish-American naturalist and writer (1838–1914), "father of the national parks", who walked and wrote the Sierra Nevada.
+A. E. Housman|English scholar and poet (1859–1936) of A Shropshire Lad.
+Edward Thomas|English poet and nature writer (1878–1917), friend of Robert Frost, killed at the Battle of Arras.
+The Qur'an|The holy book of Islam, revealed to the Prophet Muhammad in the 7th century.
+Mirza Ghalib|Urdu and Persian poet of Delhi (1797–1869), the great master of the Urdu ghazal.
+Hildegard of Bingen|German abbess, mystic, composer and healer (1098–1179).
+Chuang Tzu|Zhuangzi (c. 369–286 BC), Chinese Daoist philosopher of paradox and freedom.
+George Berkeley|Irish philosopher and bishop (1685–1753) who argued that to be is to be perceived.
+John Locke|English philosopher (1632–1704) of empiricism and natural rights.
+John Stuart Mill|English philosopher (1806–1873) of On Liberty and Utilitarianism.
+William of Ockham|English Franciscan philosopher (c. 1287–1347).
+John Rawls|American philosopher (1921–2002) of A Theory of Justice.
+Charles Darwin|English naturalist (1809–1882) whose On the Origin of Species explained evolution by natural selection.
+James Hutton|Scottish geologist (1726–1797), founder of modern geology.
+Pierre-Simon Laplace|French mathematician and astronomer (1749–1827).
+Rudolf Clausius|German physicist (1822–1888) who formulated the second law of thermodynamics.
+Nicolaus Copernicus|Polish astronomer (1473–1543) who put the Sun at the centre.
+Galileo Galilei|Italian astronomer and physicist (1564–1642), tried by the Inquisition for defending Copernicus.
+Werner Heisenberg|German physicist (1901–1976), a founder of quantum mechanics.
+Alfred Wegener|German scientist (1880–1930) who proposed continental drift.
+Karl Popper|Austrian-British philosopher (1902–1994) of science and the open society.
+Thomas Kuhn|American historian of science (1922–1996).
+Edward Lorenz|American mathematician and meteorologist (1917–2008), a founder of chaos theory.
+Lynn Margulis|American biologist (1938–2011).
+Ivan Pavlov|Russian physiologist (1849–1936). Nobel Prize 1904.
+Abraham Maslow|American psychologist (1908–1970).
+Mihaly Csikszentmihalyi|Hungarian-American psychologist (1934–2021) of Flow.
+Carol Dweck|American psychologist (born 1946).
+Adam Smith|Scottish economist and philosopher (1723–1790) of The Wealth of Nations and The Theory of Moral Sentiments.
+Thomas Malthus|English economist and cleric (1766–1834).
+Thorstein Veblen|American economist (1857–1929).
+Alexis de Tocqueville|French political thinker (1805–1859) of Democracy in America.
+Thomas Hobbes|English philosopher (1588–1679) of Leviathan.
+David Ricardo|British economist (1772–1823).
+Frédéric Bastiat|French economist and writer (1801–1850).
+Joseph Schumpeter|Austrian-American economist (1883–1950).
+Montesquieu|French political philosopher (1689–1755) of The Spirit of the Laws.
+Euclid|Greek mathematician of Alexandria (c. 300 BC) whose Elements was the textbook of geometry for two thousand years.
+Brahmagupta|Indian mathematician and astronomer (598–c. 668).
+Georg Cantor|German mathematician (1845–1918), creator of set theory.
+Kurt Gödel|Austrian-American logician (1906–1978).
+Bertrand Russell|British philosopher and logician (1872–1970). Nobel Prize 1950.
+Alan Turing|English mathematician (1912–1954), a founder of computer science.
+Thomas Bayes|English minister and mathematician (c. 1701–1761).
+Claude Shannon|American mathematician and engineer (1916–2001), founder of information theory.
+Leonhard Euler|Swiss mathematician (1707–1783).
+Jacob Bernoulli|Swiss mathematician (1655–1705).
+The Buddha|Siddhartha Gautama (c. 5th century BC), the Indian teacher whose awakening founded Buddhism.
+Shunryu Suzuki|Japanese Zen teacher (1904–1971) of Zen Mind, Beginner's Mind.
+Edmund Burke|Irish statesman and philosopher (1729–1797).
+Roland Barthes|French literary theorist (1915–1980).
+Walter Benjamin|German critic and philosopher (1892–1940).
+G. W. F. Hegel|German philosopher (1770–1831) of the Phenomenology of Spirit.
+Emmanuel Levinas|Lithuanian-French philosopher (1906–1995) of ethics as first philosophy.
+Gregor Mendel|Austrian monk and scientist (1822–1884), founder of genetics.
+James Clerk Maxwell|Scottish physicist (1831–1879).
+Enrico Fermi|Italian-American physicist (1901–1954). Nobel Prize 1938.
+Charles Horton Cooley|American sociologist (1864–1929).
+Vilfredo Pareto|Italian economist and sociologist (1848–1923).
+Hesiod|Greek poet (c. 700 BC) of the Theogony and Works and Days.
+Thomas Bulfinch|American writer (1796–1867) whose The Age of Fable retold the classical myths for general readers.
+The Poetic Edda|Old Norse poems of gods and heroes, preserved in a 13th-century Icelandic manuscript.
+The Prose Edda|Snorri Sturluson's 13th-century Icelandic handbook of Norse myth.
+The Epic of Gilgamesh|Ancient Mesopotamian epic (c. 2100–1200 BC) of the king who sought immortality, among the oldest surviving works of literature.
+The Egyptian Book of the Dead|Ancient Egyptian funerary texts of spells and prayers to guide the dead.
+The Kalevala|The Finnish national epic, compiled by Elias Lönnrot from folk songs in 1835–1849.
+The Mabinogion|Medieval Welsh tales of myth and legend.
+The Kojiki|Japan's oldest chronicle (712), recording its myths of creation and the gods.
+Ecclesiastes & Job|Two wisdom books of the Hebrew Bible that face the hardest questions: the vanity of all things under the sun, and why the good suffer.
+Presocratics & Epicurus|The first Greek philosophers, from Thales to Democritus, who sought the nature of everything without appeal to myth, together with Epicurus and his heirs.
+Greek tragedians|Aeschylus, Sophocles and Euripides, the three great dramatists of 5th-century Athens, whose tragedies still shape how we think of fate and suffering.
+The Brontë sisters|Charlotte (1816–1855), Emily (1818–1848) and Anne (1820–1849), who grew up on the Yorkshire moors and wrote Jane Eyre, Wuthering Heights and The Tenant of Wildfell Hall.
+Hafiz & the Sufi poets|The mystical poets of Islam, from Persia to India, who wrote of longing for the divine Beloved in the language of love and wine.
+Haiku (Bashō, Issa, Buson)|The short Japanese poem of seventeen syllables, perfected by Bashō, Buson and Issa, which catches a single moment of nature and feeling.
+Early Buddhist texts|The oldest teachings of the Buddha and his first disciples, preserved in the Pali Canon: discourses and verses by monks and nuns.
+Psalms, Proverbs & Wisdom|The songs, sayings and wisdom books of the Hebrew Bible and its neighbours, from the Psalms and Proverbs to Sirach and the Book of Wisdom.
+Christian mystics|Men and women who sought direct union with God, from Meister Eckhart and Julian of Norwich to Teresa of Ávila and John of the Cross.
+The French aphorists|La Rochefoucauld, La Bruyère, Chamfort, Joubert, Vauvenargues and others, masters of the short, sharp maxim about human nature.
+Donne & the metaphysical poets|John Donne, George Herbert, Andrew Marvell, Henry Vaughan and others in 17th-century England, who wrote with daring wit about love, death and God.
+Tennyson, Arnold & the Victorians|The poets of Victorian England, among them Tennyson, Arnold, Browning, Christina Rossetti, Hardy and Hopkins, writing through an age of faith and doubt.
+Shelley, Coleridge & Byron|The English Romantic poets of imagination, nature and revolt.
+Rimbaud, Verlaine & the Symbolists|The French poets of the late 19th century who sought music, suggestion and the mystery behind things.
+Li Po, Tu Fu & the Tang poets|The great poets of China's Tang dynasty (618–907), the golden age of Chinese poetry.
+Pushkin & Lermontov|The founders of modern Russian poetry, both killed in duels young.
+Desiderata (Max Ehrmann)|A prose poem written in 1927 by the American poet Max Ehrmann (1872–1945): "Go placidly amid the noise and haste..."
+Ryōkan & Ikkyū|Two free-spirited Japanese Zen monks and poets: Ikkyū (1394–1481) and Ryōkan (1758–1831).
+Kafka's love letters|Franz Kafka's letters to Felice Bauer and Milena Jesenská, intense, anxious and tender.
+Van Gogh's later letters|Vincent van Gogh's letters from Arles, Saint-Rémy and Auvers (1888–1890), written in his last, most productive years.
+Abelard & Héloïse|The 12th-century philosopher Peter Abelard and his student Héloïse, whose love affair ended in tragedy and whose letters became legendary.
+Isaiah|A book of the Hebrew Bible, the prophecies of Isaiah of Jerusalem and his successors.
+Lamentations|A book of the Hebrew Bible: poems of grief over the fall of Jerusalem.
+Matthew|The Gospel of Matthew, one of the four accounts of the life and teaching of Jesus.
+James|The Letter of James in the New Testament, on faith shown in deeds.
+1 Corinthians|Paul's first letter to the Corinthians, containing the great hymn to love.
+Hebrews|The Letter to the Hebrews in the New Testament.
+Micah|A book of the Hebrew Bible: "do justly, love mercy, and walk humbly with thy God."
+Japanese poem|Classical Japanese poems (waka) from the imperial anthologies.
+Kokinshū|The first imperial anthology of Japanese waka poetry (c. 905).
+Leon Festinger|American social psychologist (1919–1989).
+Martin Seligman|American psychologist (born 1942), founder of positive psychology.
+Thomas Gilovich|American psychologist (born 1954).
+Karl Marx and Friedrich Engels|German philosophers and revolutionaries, Marx (1818–1883) and Engels (1820–1895), authors of The Communist Manifesto.
+Nikolai Lobachevsky|Russian mathematician (1792–1856), a founder of non-Euclidean geometry.
+Alfred Korzybski|Polish-American scholar (1879–1950).
+Viktor Shklovsky|Russian literary theorist and writer (1893–1984).
+Charles Goodhart|British economist (born 1936).
+C. Northcote Parkinson|British naval historian (1909–1993).
+Robin Dunbar|British anthropologist (born 1947).

@@ -206,6 +206,8 @@ private fun QuotesScreen(
     var interval by remember { mutableStateOf(prefs.intervalMinutes) }
     var allowRepeats by remember { mutableStateOf(prefs.allowRepeats) }
     var swipeCard by remember { mutableStateOf(prefs.swipeCard) }
+    var ideasMix by remember { mutableStateOf(prefs.ideasMix) }
+    var mythsMix by remember { mutableStateOf(prefs.mythsMix) }
     var quoteFont by remember { mutableStateOf(prefs.font) }
     var quoteSize by remember { mutableStateOf(prefs.size) }
     var quoteColor by remember { mutableStateOf(prefs.textColor) }
@@ -819,6 +821,49 @@ private fun QuotesScreen(
                         style = MaterialTheme.typography.bodySmall,
                         color = MaterialTheme.colorScheme.error,
                     )
+                }
+            }
+        }
+        item(key = "q-mix") {
+            // How often great ideas and myths come up, compared with their natural share of the pool.
+            val (ideasShare, mythsShare) = remember(categories, custom.size) {
+                val counts = repo.bundled().groupingBy { it.category }.eachCount()
+                fun count(c: Category) = if (c == Category.CUSTOM) custom.size else counts[c] ?: 0
+                val onTotal = Category.entries.filter { it in categories }.sumOf { count(it) }.coerceAtLeast(1)
+                fun share(group: QuoteGroup): Int {
+                    val n = Category.entries.filter { it.group == group && it in categories }.sumOf { count(it) }
+                    return if (n == 0) 0 else (onTotal / n).coerceAtLeast(1)
+                }
+                share(QuoteGroup.IDEAS) to share(QuoteGroup.MYTHS)
+            }
+            if (ideasShare > 0 || mythsShare > 0) {
+                SettingsCard("Mix") {
+                    Text(
+                        "How often great ideas and myths come up on the lock screen and in the app. " +
+                            "\"Usual\" gives them their share of everything switched on.",
+                        style = MaterialTheme.typography.bodySmall,
+                    )
+                    listOf(
+                        Triple("Great ideas", ideasShare, ideasMix),
+                        Triple("Mythology", mythsShare, mythsMix),
+                    ).forEach { (label, natural, value) ->
+                        if (natural == 0) return@forEach
+                        Text(label, style = MaterialTheme.typography.labelLarge)
+                        Row(
+                            modifier = Modifier.horizontalScroll(rememberScrollState()),
+                            horizontalArrangement = Arrangement.spacedBy(8.dp),
+                        ) {
+                            listOf(0, 20, 10, 5, 3).forEach { n ->
+                                FilterChip(
+                                    selected = value == n,
+                                    onClick = {
+                                        if (label == "Great ideas") { ideasMix = n; prefs.ideasMix = n } else { mythsMix = n; prefs.mythsMix = n }
+                                    },
+                                    label = { Text(if (n == 0) "Usual (1 in $natural)" else "1 in $n") },
+                                )
+                            }
+                        }
+                    }
                 }
             }
         }

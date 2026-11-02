@@ -63,8 +63,25 @@ internal fun ListAction(@DrawableRes icon: Int, description: String, tint: Color
 }
 
 /** The person behind a label such as "Leo Tolstoy, War and Peace", "Hafiz (tr. Gertrude Bell)" or "The Qur'an (2:255)". */
-fun authorName(label: String?): String? =
-    label?.substringBefore(", ")?.substringBefore(" (")?.trim()?.ifBlank { null }
+fun authorName(label: String?): String? = when {
+    label == null -> null
+    label.startsWith("Alfred, Lord Tennyson") -> "Alfred, Lord Tennyson"
+    else -> label.substringBefore(", ").substringBefore(" (").trim().ifBlank { null }
+}
+
+/** Short biographies of the authors, shown at the top of their page (res/raw/bios.txt: `name|bio`). */
+object AuthorBios {
+    @Volatile private var bios: Map<String, String>? = null
+
+    fun of(context: android.content.Context, name: String?): String? {
+        if (name == null) return null
+        val map = bios ?: context.applicationContext.resources.openRawResource(R.raw.bios).bufferedReader().useLines { lines ->
+            lines.filter { it.isNotBlank() && !it.startsWith("#") && '|' in it }
+                .associate { it.substringBefore('|').trim() to it.substringAfter('|').trim() }
+        }.also { bios = it }
+        return map[name]
+    }
+}
 
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
@@ -131,6 +148,15 @@ fun QuoteBrowser(
                         if (searching) "Explore" else category?.label ?: subject?.label ?: author.orEmpty(),
                         style = MaterialTheme.typography.headlineSmall,
                     )
+                    val context = androidx.compose.ui.platform.LocalContext.current
+                    val bio = remember(page) { if (searching) null else AuthorBios.of(context, author ?: category?.label) }
+                    bio?.let {
+                        Text(
+                            it,
+                            style = MaterialTheme.typography.bodyMedium,
+                            modifier = Modifier.padding(top = 6.dp, bottom = 6.dp),
+                        )
+                    }
                     Text(
                         when {
                             searching && query.isBlank() -> "${all.size} quotes by ${authors.size} authors. Type a word, a phrase or a name."

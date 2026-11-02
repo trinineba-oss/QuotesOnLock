@@ -200,9 +200,11 @@ class QuoteRepository(
      * the current one can come up.
      */
     fun advance(): Quote? {
-        val pool = pool()
-        if (pool.isEmpty()) return null
+        val all = pool()
+        if (all.isEmpty()) return null
         val currentText = prefs.currentText
+        // The mix: great ideas and myths can come up more often than their share of the pool.
+        val pool = mixedPick(all)
         var seen = prefs.seen
         var candidates = if (prefs.allowRepeats) {
             pool.filter { it.text != currentText }
@@ -210,9 +212,14 @@ class QuoteRepository(
             pool.filter { it.key() !in seen && it.text != currentText }
         }
         if (candidates.isEmpty()) {
-            seen = emptySet()
-            candidates = pool.filter { it.text != currentText }.ifEmpty { pool }
+            // Everything in this part of the mix has been shown: start it over.
+            val keys = pool.map { it.key() }.toSet()
+            seen = seen - keys
+            candidates = pool.filter { it.text != currentText }.ifEmpty { all.filter { it.text != currentText }.ifEmpty { all } }
         }
+        // Not the same author twice in a row, when there's a choice.
+        val lastAuthor = authorName(prefs.currentAuthor)
+        if (lastAuthor != null) candidates.filter { authorName(it.author) != lastAuthor }.takeIf { it.isNotEmpty() }?.let { candidates = it }
         val next = candidates.random()
         current()?.let { saveHistory(history() + it) }
         prefs.seen = seen + next.key()
@@ -220,6 +227,27 @@ class QuoteRepository(
         prefs.currentAuthor = next.author
         QuoteWidgets.refresh(appContext)
         return next
+    }
+
+    /**
+     * Which part of the pool to pick from this time. With a mix set (e.g. ideas 1 in 5), ideas are chosen
+     * with that probability and the rest of the time something else is; with none set, everything has
+     * its natural share.
+     */
+    private fun mixedPick(all: List<Quote>): List<Quote> {
+        val ideas = all.filter { it.category?.group == QuoteGroup.IDEAS }
+        val myths = all.filter { it.category?.group == QuoteGroup.MYTHS }
+        val pIdeas = prefs.ideasMix.takeIf { it > 0 && ideas.isNotEmpty() }?.let { 1f / it } ?: 0f
+        val pMyths = prefs.mythsMix.takeIf { it > 0 && myths.isNotEmpty() }?.let { 1f / it } ?: 0f
+        if (pIdeas == 0f && pMyths == 0f) return all
+        val r = kotlin.random.Random.nextFloat()
+        return when {
+            r < pIdeas -> ideas
+            r < pIdeas + pMyths -> myths
+            else -> all.filter {
+                (pIdeas == 0f || it.category?.group != QuoteGroup.IDEAS) && (pMyths == 0f || it.category?.group != QuoteGroup.MYTHS)
+            }.ifEmpty { all }
+        }
     }
 
     /** Makes [quote] the current quote (e.g. picked from the quote browser), keeping it in history. */
