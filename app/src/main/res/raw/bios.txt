@@ -440,3 +440,26 @@ Viktor Shklovsky|Russian literary theorist and writer (1893–1984).
 Charles Goodhart|British economist (born 1936).
 C. Northcote Parkinson|British naval historian (1909–1993).
 Robin Dunbar|British anthropologist (born 1947).
+Niccolò Machiavelli|Florentine diplomat and political thinker (1469–1527) whose The Prince described power as it is practised, not as it should be.
+Philippa Foot|British moral philosopher (1920–2010) who revived virtue ethics and posed the trolley problem.
+Robert Nozick|American philosopher (1938–2002) of Anarchy, State, and Utopia.
+John Searle|American philosopher of mind and language (1932–2025).
+Frank Jackson|Australian philosopher (born 1943) of mind.
+Max Weber|German sociologist (1864–1920) of The Protestant Ethic and the Spirit of Capitalism.
+Émile Durkheim|French sociologist (1858–1917), a founder of sociology.
+Robert K. Merton|American sociologist (1910–2003).
+Arthur Pigou|British economist (1877–1959).
+Thomas Gresham|English merchant and financier (c. 1519–1579).
+Dmitri Mendeleev|Russian chemist (1834–1907) who created the periodic table.
+Alexander Fleming|Scottish physician and microbiologist (1881–1955) who discovered penicillin. Nobel Prize 1945.
+Edward Jenner|English physician (1749–1823), pioneer of vaccination.
+Santiago Ramón y Cajal|Spanish neuroscientist and artist (1852–1934). Nobel Prize 1906.
+John Nash|American mathematician (1928–2015) of game theory. Nobel Prize in Economics 1994.
+Benoît Mandelbrot|Polish-born French-American mathematician (1924–2010), father of fractal geometry.
+Leonardo of Pisa (Fibonacci)|Italian mathematician (c. 1170–c. 1250) who brought Hindu-Arabic numerals to Europe in his Liber Abaci.
+Zeno of Elea|Greek philosopher (c. 490–430 BC), pupil of Parmenides, famous for his paradoxes of motion.
+Friedrich Schiller|German poet, playwright and philosopher (1759–1805), author of the "Ode to Joy" and On the Aesthetic Education of Man.
+Nāgārjuna|Indian Buddhist philosopher (c. 150–250), founder of the Madhyamaka school.
+Isaac Newton and Gottfried Leibniz|Newton (1643–1727) in England and Leibniz (1646–1716) in Germany, who independently invented calculus.
+Peter Dirichlet|German mathematician (1805–1859).
+Daniel Kahneman|Israeli-American psychologist (1934–2024), founder of behavioural economics. Nobel Prize in Economics 2002.
