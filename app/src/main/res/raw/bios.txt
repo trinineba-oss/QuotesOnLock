@@ -463,3 +463,16 @@ Nāgārjuna|Indian Buddhist philosopher (c. 150–250), founder of the Madhyamak
 Isaac Newton and Gottfried Leibniz|Newton (1643–1727) in England and Leibniz (1646–1716) in Germany, who independently invented calculus.
 Peter Dirichlet|German mathematician (1805–1859).
 Daniel Kahneman|Israeli-American psychologist (1934–2024), founder of behavioural economics. Nobel Prize in Economics 2002.
+Great ideas|Concepts that changed how people think, from Plato's Cave to the uncertainty principle. Each is given in its originator's own words where the original is in the public domain, with a short explanation written for the app.
+Mythology|Myths from around the world, told where possible in the words of old translations and retellings, each with a short note on what it means.
+Philosophy|Ideas about how to live, what we can know and what is real, from the ancient Greeks to the existentialists.
+Science|Discoveries and theories about the universe, life and matter.
+Mind & psychology|Ideas about how the mind works: attention, habit, emotion, memory and the biases that steer us.
+Society & economics|Ideas about power, money, cooperation and how people live together.
+Mathematics & logic|Ideas about number, shape, chance and the limits of proof.
+Eastern thought|Ideas from Indian, Chinese, Japanese and other Asian traditions, and from African philosophy.
+Art & aesthetics|Ideas about beauty, art, stories and why they move us.
+Greek & Roman|The myths of ancient Greece and Rome: gods, heroes and the human stories behind them.
+Norse|The myths of the Vikings and Icelanders, from the creation of the world to Ragnarök.
+Egypt & Mesopotamia|The oldest written myths, from the Nile and the land between the rivers.
+Myths of the world|Creation stories and tales from Finland, Wales, China, Japan, India, Africa, Polynesia and Mexico.

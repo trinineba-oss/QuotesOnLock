@@ -599,6 +599,8 @@ private fun QuotesScreen(
             },
             onOpenAuthor = { browse = browse + BrowsePage.author(it) },
             onOpenSubject = { browse = browse + BrowsePage.subject(it) },
+            onOpenPage = { browse = browse + it },
+            onSwitchPage = { browse = browse.dropLast(1) + it },
         )
         return
     }
@@ -720,11 +722,16 @@ private fun QuotesScreen(
                         val textColor = quoteColor?.let { Color(it) } ?: Color.Unspecified
                         quote.title?.let { title ->
                             Column {
+                                // Tap the label to see every idea or myth of this type.
+                                val kind = quote.category
                                 Text(
-                                    ((quote.category?.group?.title ?: "Great ideas") + " · " + (quote.category?.label ?: "")).uppercase(),
+                                    ((kind?.group?.title ?: "Great ideas") + " · " + (kind?.label ?: "") + if (kind != null) " ›" else "").uppercase(),
                                     style = MaterialTheme.typography.labelSmall,
                                     color = MaterialTheme.colorScheme.primary,
                                     letterSpacing = 1.2.sp,
+                                    modifier = if (kind != null) {
+                                        Modifier.clickable(onClickLabel = "All ${kind.label}") { browse = listOf(BrowsePage.category(kind)) }
+                                    } else Modifier,
                                 )
                                 Text(title, fontFamily = family, fontWeight = FontWeight.SemiBold, fontSize = (quoteSize.sizeSp + 5).sp, color = textColor)
                             }

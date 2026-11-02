@@ -10,6 +10,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.SuggestionChip
+import androidx.compose.material3.FilterChip
 import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.ExperimentalLayoutApi
 import androidx.compose.foundation.layout.Column
@@ -44,6 +45,8 @@ object BrowsePage {
     fun category(category: Category) = "c:${category.key}"
     fun author(name: String) = "a:$name"
     fun subject(subject: Subject) = "t:${subject.key}"
+    /** Every idea or myth in a group such as Great ideas, with chips for its types. */
+    fun group(group: QuoteGroup) = "g:${group.name}"
 
     /** Every quote, searchable; lists all authors A–Z until you type. */
     const val SEARCH = "s:"
@@ -92,6 +95,10 @@ fun QuoteBrowser(
     onShow: (Quote) -> Unit,
     onOpenAuthor: (String) -> Unit,
     onOpenSubject: (Subject) -> Unit = {},
+    /** Opens another browser page on top of this one. */
+    onOpenPage: (String) -> Unit = {},
+    /** Swaps this page for another (the type chips on idea and myth pages). */
+    onSwitchPage: (String) -> Unit = {},
 ) {
     val context = LocalContext.current
     BackHandler(onBack = onBack)
@@ -99,6 +106,9 @@ fun QuoteBrowser(
     val category = if (page.startsWith("c:")) Category.fromKey(page.removePrefix("c:")) else null
     val author = if (page.startsWith("a:")) page.removePrefix("a:") else null
     val subject = if (page.startsWith("t:")) Subject.fromKey(page.removePrefix("t:")) else null
+    val group = if (page.startsWith("g:")) QuoteGroup.entries.firstOrNull { it.name == page.removePrefix("g:") } else null
+    // Idea and myth pages get chips to move between the group's types.
+    val chipGroup = group ?: category?.group?.takeIf { it == QuoteGroup.IDEAS || it == QuoteGroup.MYTHS }
     val searching = page == BrowsePage.SEARCH
     val all = remember(page) {
         when {
@@ -106,6 +116,7 @@ fun QuoteBrowser(
             category == Category.CUSTOM -> repo.custom()
             category != null -> repo.bundled().filter { it.category == category }
             subject != null -> repo.bundled().filter { subject.key in it.subjects }
+            group != null -> repo.bundled().filter { it.category?.group == group }
             else -> (repo.custom() + repo.bundled()).filter { authorName(it.author) == author }
         }
     }
@@ -145,11 +156,16 @@ fun QuoteBrowser(
             item {
                 Column {
                     Text(
-                        if (searching) "Explore" else category?.label ?: subject?.label ?: author.orEmpty(),
+                        when {
+                            searching -> "Explore"
+                            group != null -> group.title
+                            category != null && chipGroup != null -> "${chipGroup.title} · ${category.label}"
+                            else -> category?.label ?: subject?.label ?: author.orEmpty()
+                        },
                         style = MaterialTheme.typography.headlineSmall,
                     )
                     val context = androidx.compose.ui.platform.LocalContext.current
-                    val bio = remember(page) { if (searching) null else AuthorBios.of(context, author ?: category?.label) }
+                    val bio = remember(page) { if (searching) null else AuthorBios.of(context, author ?: group?.title ?: category?.label) }
                     bio?.let {
                         Text(
                             it,
@@ -160,6 +176,8 @@ fun QuoteBrowser(
                     Text(
                         when {
                             searching && query.isBlank() -> "${all.size} quotes by ${authors.size} authors. Type a word, a phrase or a name."
+                            query.isBlank() && chipGroup == QuoteGroup.MYTHS -> "${all.size} myths"
+                            query.isBlank() && chipGroup == QuoteGroup.IDEAS -> "${all.size} ideas"
                             query.isBlank() -> "${all.size} quotes"
                             else -> "${shown.size} of ${all.size} quotes"
                         },
@@ -176,10 +194,43 @@ fun QuoteBrowser(
                     label = { Text(if (searching) "Search all quotes and authors" else "Search these quotes") },
                 )
             }
+            if (chipGroup != null) {
+                // All of the group, or one of its types.
+                item {
+                    val counts = remember(chipGroup) { repo.bundled().filter { it.category?.group == chipGroup }.groupingBy { it.category }.eachCount() }
+                    FlowRow(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                        FilterChip(
+                            selected = group != null,
+                            onClick = { if (group == null) onSwitchPage(BrowsePage.group(chipGroup)) },
+                            label = { Text("All \u00B7 ${counts.values.sum()}") },
+                        )
+                        Category.entries.filter { it.group == chipGroup && (counts[it] ?: 0) > 0 }.forEach { c ->
+                            FilterChip(
+                                selected = category == c,
+                                onClick = { if (category != c) onSwitchPage(BrowsePage.category(c)) },
+                                label = { Text("${c.label} \u00B7 ${counts[c]}") },
+                            )
+                        }
+                    }
+                }
+            }
             if (searching && query.isBlank()) {
-                // Before typing: every subject, then every author A–Z.
+                // Before typing: great ideas and mythology, every subject, then every author A–Z.
                 item {
                     Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
+                        val groupCounts = remember { repo.bundled().groupingBy { it.category?.group }.eachCount() }
+                        val shelves = listOf(QuoteGroup.IDEAS, QuoteGroup.MYTHS).filter { (groupCounts[it] ?: 0) > 0 }
+                        if (shelves.isNotEmpty()) {
+                            Text("Ideas & myths", style = MaterialTheme.typography.titleMedium)
+                            FlowRow(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                                shelves.forEach { g ->
+                                    SuggestionChip(
+                                        onClick = { onOpenPage(BrowsePage.group(g)) },
+                                        label = { Text("${g.title} \u00B7 ${groupCounts[g]}") },
+                                    )
+                                }
+                            }
+                        }
                         Text("Subjects", style = MaterialTheme.typography.titleMedium)
                         FlowRow(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
                             Subject.entries.filter { (subjectCounts[it.key] ?: 0) > 0 }.forEach { s ->
