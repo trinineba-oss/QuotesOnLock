@@ -124,13 +124,17 @@ enum class AppTheme(
     WAVES(
         "waves", "Waves at dusk", "Rolling waves", R.drawable.notif_frame_waves, 0xFF10203A.toInt(),
         0xFFFFFFFF.toInt(), 0xFFFFC9A8.toInt(),
+    ),
+    BAMBOO(
+        "bamboo", "Bamboo grove", "Bamboo in the wind", R.drawable.notif_frame_bamboo, 0xFFF2F7EE.toInt(),
+        0xFF1F3324.toInt(), 0xFF3F6E33.toInt(),
     );
 
     /** The calm themes drawn by [CalmArt]. */
-    val isCalm: Boolean get() = this == SNOW || this == CANDLE || this == FIREFLIES || this == LAVENDER || this == CLOUDS || this == WAVES
+    val isCalm: Boolean get() = this == SNOW || this == CANDLE || this == FIREFLIES || this == LAVENDER || this == CLOUDS || this == WAVES || this == BAMBOO
 
     /** Light themes use dark text. */
-    val isLight: Boolean get() = this == BOOK || this == BUTTERFLY || this == LAVENDER || this == CLOUDS
+    val isLight: Boolean get() = this == BOOK || this == BUTTERFLY || this == LAVENDER || this == CLOUDS || this == BAMBOO
 
     companion object {
         fun fromKey(key: String?): AppTheme = entries.firstOrNull { it.key == key } ?: CLASSIC
@@ -282,6 +286,7 @@ fun AppTheme.colorScheme(cardOpacity: Float): ColorScheme? = when (this) {
     AppTheme.LAVENDER -> calmScheme(false, 0xFF7B3FA0, 0xFFF6EEF8, 0xFF3A2547, 0xFF5E4470, cardOpacity)
     AppTheme.CLOUDS -> calmScheme(false, 0xFF3E6E9E, 0xFFF4F8FC, 0xFF24364A, 0xFF4A5E74, cardOpacity)
     AppTheme.WAVES -> calmScheme(true, 0xFFFFC9A8, 0xFF10203A, 0xFFF4EEF2, 0xFFD6CCD8, cardOpacity)
+    AppTheme.BAMBOO -> calmScheme(false, 0xFF3F6E33, 0xFFF2F7EE, 0xFF1F3324, 0xFF45604A, cardOpacity)
     AppTheme.BUTTERFLY -> lightColorScheme(
         primary = Color(0xFFC2185B),
         onPrimary = Color.White,
@@ -333,7 +338,7 @@ fun AppTheme.typography(base: Typography): Typography = when (this) {
         all = { it.copy(shadow = Shadow(Color(0xE6000000), Offset(0f, 2f), 8f)) },
     )
     AppTheme.BOOK -> base.map(headings = { it }, all = { it.copy(fontFamily = FontFamily.Serif) })
-    AppTheme.BUTTERFLY, AppTheme.LAVENDER, AppTheme.CLOUDS -> base.map(headings = { it.copy(fontFamily = FontFamily.Serif) }, all = { it })
+    AppTheme.BUTTERFLY, AppTheme.LAVENDER, AppTheme.CLOUDS, AppTheme.BAMBOO -> base.map(headings = { it.copy(fontFamily = FontFamily.Serif) }, all = { it })
 }
 
 private fun Typography.map(headings: (TextStyle) -> TextStyle, all: (TextStyle) -> TextStyle) = Typography(
@@ -372,7 +377,7 @@ fun ThemedBackground(theme: AppTheme, animate: Boolean, auroraIntensity: Float =
         AppTheme.WATER -> WaterBackground(animate)
         AppTheme.RAIN -> RainBackground(animate, night = false)
         AppTheme.RAIN_NIGHT -> RainBackground(animate, night = true)
-        AppTheme.SNOW, AppTheme.CANDLE, AppTheme.FIREFLIES, AppTheme.LAVENDER, AppTheme.CLOUDS, AppTheme.WAVES -> CalmBackground(theme, animate)
+        AppTheme.SNOW, AppTheme.CANDLE, AppTheme.FIREFLIES, AppTheme.LAVENDER, AppTheme.CLOUDS, AppTheme.WAVES, AppTheme.BAMBOO -> CalmBackground(theme, animate)
     }
 }
 

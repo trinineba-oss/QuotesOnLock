@@ -33,6 +33,7 @@ internal object CalmArt {
             AppTheme.LAVENDER -> lavender(canvas, w, h, t, d)
             AppTheme.CLOUDS -> clouds(canvas, w, h, t, d)
             AppTheme.WAVES -> waves(canvas, w, h, t, d)
+            AppTheme.BAMBOO -> bamboo(canvas, w, h, t, d)
             else -> Unit
         }
     }
@@ -356,6 +357,114 @@ internal object CalmArt {
             }
             fill.shader = null
         }
+    }
+
+    // ---- bamboo grove in the wind ----------------------------------------------------------------
+
+    private class Leaf(val h: Float, val side: Float, val n: Int, val ph: Float)
+    private class Cane(val x: Float, val w: Float, val ph: Float, val seg: Float, val lean: Float, val leaves: List<Leaf>)
+    private class Grove(val color: Int, val alpha: Float, val sway: Float, val canes: List<Cane>)
+    private class Falling(val x: Float, val p: Float, val speed: Float, val ph: Float)
+
+    private val groves = Random(33).let { r ->
+        listOf(Triple(10, 0x96B496, 0.55f) to Triple(0.012f, 0.018f, 0.6f), Triple(8, 0x5F8C5F, 0.8f) to Triple(0.018f, 0.028f, 0.8f), Triple(6, 0x346038, 1f) to Triple(0.03f, 0.045f, 1f))
+            .map { (a, b) ->
+                Grove(a.second, a.third, b.third, List(a.first) {
+                    Cane(r.nextFloat() * 1.1f - 0.05f, b.first + r.nextFloat() * (b.second - b.first), r.nextFloat() * TAU, 0.07f + r.nextFloat() * 0.05f,
+                        (r.nextFloat() - 0.5f) * 0.06f, List(5) { Leaf(0.1f + r.nextFloat() * 0.6f, if (r.nextFloat() < 0.5f) -1f else 1f, 3 + r.nextInt(3), r.nextFloat() * TAU) })
+                })
+            }
+    }
+    private val falling = Random(34).let { r -> List(6) { Falling(r.nextFloat(), r.nextFloat(), 0.012f + r.nextFloat() * 0.01f, r.nextFloat() * TAU) } }
+
+    private fun caneX(cane: Cane, grove: Grove, w: Float, h: Float, t: Float, y: Float): Float {
+        val k = 1f - y / h
+        val wind = (sin(t * 0.5f + cane.ph) * 0.6f + sin(t * 1.3f + cane.ph * 2f) * 0.25f) * grove.sway
+        return cane.x * w + cane.lean * w * k + wind * w * 0.04f * k * k
+    }
+
+    private fun bamboo(c: Canvas, w: Float, h: Float, t: Float, d: Float) {
+        vertical(c, 0f, 0f, h, w, intArrayOf(0xFFEEF4E6.toInt(), 0xFFD6E6CF.toInt(), 0xFFA9C6A0.toInt()), floatArrayOf(0f, 0.5f, 1f))
+        glow(c, w * 0.8f, h * 0.08f, w * 0.9f, 0xFFFAE1, 0.6f)
+        for (i in 0 until 4) {
+            val x0 = w * (0.6f + i * 0.12f)
+            val a = 0.08f + 0.04f * sin(t * 0.3f + i)
+            fill.shader = LinearGradient(0f, 0f, 0f, h, color(0xFFFCE6, a), 0x00FFFCE6, Shader.TileMode.CLAMP)
+            path.reset()
+            path.moveTo(x0, 0f)
+            path.lineTo(x0 + w * 0.05f, 0f)
+            path.lineTo(x0 - w * 0.3f, h)
+            path.lineTo(x0 - w * 0.42f, h)
+            path.close()
+            c.drawPath(path, fill)
+        }
+        fill.shader = null
+        groves.forEachIndexed { li, grove ->
+            glow(c, w * 0.5f, h * (0.75f - li * 0.1f), w * 0.9f, 0xEBF5E6, 0.25f)
+            val node = (((grove.color shr 16 and 0xFF) * 0.7f).toInt() shl 16) or (((grove.color shr 8 and 0xFF) * 0.7f).toInt() shl 8) or ((grove.color and 0xFF) * 0.7f).toInt()
+            grove.canes.forEach { cane ->
+                val tw = cane.w * w
+                val steps = 24
+                stroke.strokeCap = Paint.Cap.BUTT
+                stroke.color = color(grove.color, grove.alpha)
+                stroke.strokeWidth = tw
+                path.reset()
+                for (i in 0..steps) {
+                    val y = h - i * h * 1.05f / steps
+                    val x = caneX(cane, grove, w, h, t, y)
+                    if (i == 0) path.moveTo(x, y) else path.lineTo(x, y)
+                }
+                c.drawPath(path, stroke)
+                stroke.color = color(0xFFFFF0, 0.18f * grove.alpha)
+                stroke.strokeWidth = tw * 0.18f
+                path.offset(-tw * 0.22f, 0f)
+                c.drawPath(path, stroke)
+                stroke.color = color(node, grove.alpha)
+                stroke.strokeWidth = max(1f, tw * 0.18f)
+                var y = h - cane.seg * h
+                while (y > 0f) {
+                    val x = caneX(cane, grove, w, h, t, y)
+                    c.drawLine(x - tw * 0.55f, y, x + tw * 0.55f, y, stroke)
+                    y -= cane.seg * h
+                }
+                stroke.strokeCap = Paint.Cap.ROUND
+                fill.color = color(grove.color, grove.alpha)
+                cane.leaves.forEach { lf ->
+                    val ly = h * (1f - lf.h) * 0.9f
+                    val lx = caneX(cane, grove, w, h, t, ly)
+                    val len = (26f + li * 14f) * d
+                    for (i in 0 until lf.n) {
+                        val ang = lf.side * (0.35f + i * 0.28f) + sin(t * 1.1f + lf.ph + i) * 0.12f - (if (lf.side < 0) PI.toFloat() else 0f)
+                        val ex = lx + kotlin.math.cos(ang) * len
+                        val ey = ly + sin(ang) * len * 0.55f + len * 0.25f
+                        val mx = (lx + ex) / 2
+                        val my = (ly + ey) / 2
+                        val nx = -(ey - ly) * 0.09f
+                        val ny = (ex - lx) * 0.09f
+                        path.reset()
+                        path.moveTo(lx, ly)
+                        path.quadTo(mx + nx, my + ny, ex, ey)
+                        path.quadTo(mx - nx, my - ny, lx, ly)
+                        c.drawPath(path, fill)
+                    }
+                }
+            }
+        }
+        fill.color = 0xD9789A5A.toInt()
+        falling.forEach { f ->
+            val y = ((f.p + t * f.speed) % 1f) * h
+            val x = f.x * w + sin(t * 0.8f + f.ph) * 30 * d
+            c.save()
+            c.translate(x, y)
+            c.rotate(sin(t * 1.5f + f.ph) * 46f)
+            path.reset()
+            path.moveTo(-9 * d, 0f)
+            path.quadTo(0f, -3 * d, 9 * d, 0f)
+            path.quadTo(0f, 3 * d, -9 * d, 0f)
+            c.drawPath(path, fill)
+            c.restore()
+        }
+        vertical(c, 0f, h * 0.93f, h, w, intArrayOf(0x003C5A37, 0xCC284628.toInt()), null)
     }
 
     // ---- ocean waves at dusk ---------------------------------------------------------------------

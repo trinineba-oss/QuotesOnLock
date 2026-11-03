@@ -1764,6 +1764,7 @@ private fun themePicture(option: AppTheme): Int? = when (option) {
     AppTheme.LAVENDER -> R.drawable.lavender_frame
     AppTheme.CLOUDS -> R.drawable.clouds_frame
     AppTheme.WAVES -> R.drawable.waves_frame
+    AppTheme.BAMBOO -> R.drawable.bamboo_frame
     AppTheme.CLASSIC -> null
 }
 
