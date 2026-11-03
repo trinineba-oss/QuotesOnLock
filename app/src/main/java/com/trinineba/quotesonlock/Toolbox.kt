@@ -120,7 +120,7 @@ fun ToolRow(@DrawableRes icon: Int, title: String, subtitle: String, onClick: ()
 
 /** The shared frame of the tool screens: back arrow, title, then the content in a scrolling column. */
 @Composable
-private fun ToolScreen(title: String, onBack: () -> Unit, content: androidx.compose.foundation.lazy.LazyListScope.() -> Unit) {
+internal fun ToolScreen(title: String, onBack: () -> Unit, content: androidx.compose.foundation.lazy.LazyListScope.() -> Unit) {
     BackHandler(onBack = onBack)
     Scaffold { padding ->
         LazyColumn(
@@ -163,6 +163,7 @@ private val PATTERNS = listOf(
  * A breathing guide: a soft circle that grows on the in-breath and shrinks on the out-breath. One
  * frame clock drives the circle, the words and the countdown together, so they can't drift apart.
  */
+@OptIn(ExperimentalLayoutApi::class)
 @Composable
 fun BreatheScreen(repo: QuoteRepository, onBack: () -> Unit) {
     val context = LocalContext.current
@@ -183,6 +184,15 @@ fun BreatheScreen(repo: QuoteRepository, onBack: () -> Unit) {
     DisposableEffect(running) {
         view.keepScreenOn = running
         onDispose { view.keepScreenOn = false }
+    }
+    // An optional calming sound under the exercise: starts with it and stops when it ends,
+    // unless something was already playing from Calming sounds.
+    val prefs = remember { QuotePrefs(context) }
+    var breatheSound by remember { mutableStateOf(Soundscape.fromKey(prefs.breatheSound)) }
+    DisposableEffect(running) {
+        val chosen = breatheSound
+        if (running && chosen != null && SoundPlayer.state.value.sound == null) SoundPlayer.play(context, chosen, forBreathe = true)
+        onDispose { if (SoundPlayer.state.value.forBreathe) SoundPlayer.stop(context) }
     }
     LaunchedEffect(running, patternIndex, minutes) {
         if (!running) {
@@ -290,6 +300,30 @@ fun BreatheScreen(repo: QuoteRepository, onBack: () -> Unit) {
                 Spacer(Modifier.weight(1f))
                 Text("Vibrate", style = MaterialTheme.typography.bodySmall, modifier = Modifier.padding(end = 6.dp))
                 Switch(checked = vibrate, onCheckedChange = { vibrate = it })
+            }
+        }
+        item {
+            SoftCard(Modifier.fillMaxWidth()) {
+                Column(Modifier.padding(horizontal = 16.dp, vertical = 10.dp)) {
+                    Row(verticalAlignment = Alignment.CenterVertically) {
+                        Icon(painterResource(R.drawable.ic_graphic_eq), contentDescription = null, tint = MaterialTheme.colorScheme.primary)
+                        Column(Modifier.weight(1f).padding(start = 12.dp)) {
+                            Text("Sound", style = MaterialTheme.typography.titleSmall)
+                            Text(breatheSound?.label ?: "Off", style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
+                        }
+                        Switch(checked = breatheSound != null, enabled = !running, onCheckedChange = { on ->
+                            breatheSound = if (on) Soundscape.WAVES else null
+                            prefs.breatheSound = breatheSound?.key ?: ""
+                        })
+                    }
+                    if (breatheSound != null && !running) {
+                        FlowRow(horizontalArrangement = Arrangement.spacedBy(6.dp), modifier = Modifier.padding(top = 6.dp)) {
+                            Soundscape.entries.forEach { snd ->
+                                FilterChip(selected = snd == breatheSound, onClick = { breatheSound = snd; prefs.breatheSound = snd.key }, label = { Text(snd.label) })
+                            }
+                        }
+                    }
+                }
             }
         }
         item {

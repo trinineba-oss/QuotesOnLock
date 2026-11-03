@@ -16,7 +16,7 @@ object Backup {
     private val SETTINGS = listOf(
         "enabled", "interval_minutes", "categories_off", "font", "size", "text_color", "theme", "lock_theme",
         "widget_theme", "allow_repeats", "favorites_only", "update_check", "card_softness", "card_opacity",
-        "motion_speed", "aurora_intensity", "animate_background", "wallpaper_show_quote", "wallpaper_quote_position", "swipe_card", "ideas_mix", "myths_mix", "random_theme",
+        "motion_speed", "aurora_intensity", "animate_background", "wallpaper_show_quote", "wallpaper_quote_position", "swipe_card", "ideas_mix", "myths_mix", "random_theme", "sound_volume", "sound_timer", "breathe_sound",
         "lifeline_letter", "lifeline_helps", "lifeline_people", "lifeline_places", "lifeline_reasons", "lifeline_notes",
     )
 

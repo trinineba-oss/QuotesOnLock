@@ -137,6 +137,19 @@ class QuotePrefs(context: Context) {
         get() = prefs.getString("lifeline_letter", "") ?: ""
         set(value) = prefs.edit().putString("lifeline_letter", value).apply()
 
+    /** Calming sounds: volume (0–1), stop-after minutes (0 keeps playing), and the sound under Breathe ("" for none). */
+    var soundVolume: Float
+        get() = prefs.getFloat("sound_volume", 0.6f)
+        set(value) = prefs.edit().putFloat("sound_volume", value).apply()
+
+    var soundTimer: Int
+        get() = prefs.getInt("sound_timer", 30)
+        set(value) = prefs.edit().putInt("sound_timer", value).apply()
+
+    var breatheSound: String
+        get() = prefs.getString("breathe_sound", "") ?: ""
+        set(value) = prefs.edit().putString("breathe_sound", value).apply()
+
     var lifelineHelps: String
         get() = prefs.getString("lifeline_helps", "") ?: ""
         set(value) = prefs.edit().putString("lifeline_helps", value).apply()

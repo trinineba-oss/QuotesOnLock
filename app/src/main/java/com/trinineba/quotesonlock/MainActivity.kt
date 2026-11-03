@@ -607,6 +607,7 @@ private fun QuotesScreen(
             "breathe" -> BreatheScreen(repo) { tool = null }
             "ground" -> GroundScreen(onBack = { tool = null }, onBreathe = { tool = "breathe" })
             "reframe" -> ReframeScreen(prefs) { tool = null }
+            "sounds" -> SoundsScreen(prefs) { tool = null }
             "lifeline" -> LifelineScreen(prefs, repo) { tool = null; favorites = repo.favorites() }
             else -> tool = null
         }
@@ -1502,6 +1503,7 @@ private fun QuotesScreen(
             }
         }
         item(key = "tb-breathe") { ToolRow(R.drawable.ic_air, "Breathe", "A calm circle to breathe with \u00B7 1\u20135 min") { tool = "breathe" } }
+        item(key = "tb-sounds") { ToolRow(R.drawable.ic_graphic_eq, "Calming sounds", "Rain, waves, a stream, birdsong \u00B7 sleep timer") { tool = "sounds" } }
         item(key = "tb-ground") { ToolRow(R.drawable.ic_visibility, "Ground yourself", "5 things you see, 4 you can touch\u2026") { tool = "ground" } }
         item(key = "tb-reframe") { ToolRow(R.drawable.ic_psychology, "Look at a thought again", "What would you tell a friend?") { tool = "reframe" } }
         item(key = "tb-lifeline") { ToolRow(R.drawable.ic_volunteer_activism, "My lifeline", "A letter to yourself, kept thoughts, what helps") { tool = "lifeline" } }
