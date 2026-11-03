@@ -159,7 +159,10 @@ private val PATTERNS = listOf(
         listOf(Phase.IN to 2, Phase.TOP_UP to 1, Phase.OUT to 6)),
 )
 
-/** A breathing guide: a soft circle that grows on the in-breath and shrinks on the out-breath. */
+/**
+ * A breathing guide: a soft circle that grows on the in-breath and shrinks on the out-breath. One
+ * frame clock drives the circle, the words and the countdown together, so they can't drift apart.
+ */
 @Composable
 fun BreatheScreen(repo: QuoteRepository, onBack: () -> Unit) {
     val context = LocalContext.current
@@ -168,9 +171,11 @@ fun BreatheScreen(repo: QuoteRepository, onBack: () -> Unit) {
     var minutes by rememberSaveable { mutableIntStateOf(3) }
     var vibrate by rememberSaveable { mutableStateOf(true) }
     var running by remember { mutableStateOf(false) }
-    var label by remember { mutableStateOf("Tap Start when you're ready") }
+    var finished by remember { mutableStateOf(false) }
+    var phase by remember { mutableStateOf<Phase?>(null) }
+    var phaseSeconds by remember { mutableIntStateOf(0) }
     var secondsLeft by remember { mutableIntStateOf(0) }
-    val scale = remember { Animatable(0.45f) }
+    val scale = remember { androidx.compose.runtime.mutableFloatStateOf(0.45f) }
     val quote = remember { Comfort.quotes(context, repo, Feeling.ANXIOUS).filter { !it.isIdea && it.text.length < 200 }.randomOrNull() }
     val pattern = PATTERNS[patternIndex]
     val color = MaterialTheme.colorScheme.primary
@@ -180,33 +185,51 @@ fun BreatheScreen(repo: QuoteRepository, onBack: () -> Unit) {
         onDispose { view.keepScreenOn = false }
     }
     LaunchedEffect(running, patternIndex, minutes) {
-        if (!running) return@LaunchedEffect
-        val end = System.currentTimeMillis() + minutes * 60_000L
-        while (System.currentTimeMillis() < end) {
-            for ((phase, seconds) in pattern.steps) {
-                label = phase.label
-                if (vibrate) view.performHapticFeedback(HapticFeedbackConstants.LONG_PRESS)
-                val target = when (phase) {
-                    Phase.IN -> if (pattern.steps.any { it.first == Phase.TOP_UP }) 0.9f else 1f
-                    Phase.TOP_UP -> 1f
-                    Phase.OUT -> 0.45f
-                    else -> null
-                }
-                if (target != null) scale.animateTo(target, tween(seconds * 1000, easing = FastOutSlowInEasing))
-                else delay(seconds * 1000L)
+        if (!running) {
+            phase = null
+            scale.floatValue = 0.45f
+            return@LaunchedEffect
+        }
+        finished = false
+        val steps = pattern.steps
+        val cycleMs = steps.sumOf { it.second } * 1000L
+        val totalMs = minutes * 60_000L
+        val topUp = steps.any { it.first == Phase.TOP_UP }
+        var shown = -1
+        var from = scale.floatValue
+        val start = androidx.compose.runtime.withFrameNanos { it }
+        while (true) {
+            val now = androidx.compose.runtime.withFrameNanos { it }
+            val elapsed = (now - start) / 1_000_000L
+            if (elapsed >= totalMs) break
+            secondsLeft = ((totalMs - elapsed + 999) / 1000).toInt()
+            val inCycle = elapsed % cycleMs
+            var index = 0
+            var phaseStart = 0L
+            while (inCycle >= phaseStart + steps[index].second * 1000L) {
+                phaseStart += steps[index].second * 1000L
+                index++
             }
+            val (p, secs) = steps[index]
+            val duration = secs * 1000L
+            if (index != shown) {
+                shown = index
+                phase = p
+                from = scale.floatValue
+                if (vibrate) view.performHapticFeedback(HapticFeedbackConstants.LONG_PRESS)
+            }
+            phaseSeconds = ((duration - (inCycle - phaseStart) + 999) / 1000).toInt()
+            val target = when (p) {
+                Phase.IN -> if (topUp) 0.9f else 1f
+                Phase.TOP_UP -> 1f
+                Phase.OUT -> 0.45f
+                else -> from
+            }
+            val progress = ((inCycle - phaseStart).toFloat() / duration).coerceIn(0f, 1f)
+            scale.floatValue = from + (target - from) * FastOutSlowInEasing.transform(progress)
         }
         running = false
-        label = "Well done. Notice how you feel now."
-        scale.animateTo(0.45f, tween(1200))
-    }
-    LaunchedEffect(running, minutes) {
-        if (!running) return@LaunchedEffect
-        secondsLeft = minutes * 60
-        while (running && secondsLeft > 0) {
-            delay(1000)
-            secondsLeft--
-        }
+        finished = true
     }
 
     ToolScreen("Breathe", onBack) {
@@ -219,19 +242,34 @@ fun BreatheScreen(repo: QuoteRepository, onBack: () -> Unit) {
         }
         item { Text(pattern.about, style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant) }
         item {
-            Box(Modifier.fillMaxWidth().height(280.dp), contentAlignment = Alignment.Center) {
-                Canvas(Modifier.size(260.dp)) {
-                    val r = size.minDimension / 2f * scale.value
-                    drawCircle(
-                        brush = Brush.radialGradient(
-                            listOf(color.copy(alpha = 0.55f), color.copy(alpha = 0.18f), Color.Transparent),
-                            center = Offset(size.width / 2f, size.height / 2f),
-                            radius = r.coerceAtLeast(1f),
-                        ),
-                        radius = r,
-                    )
+            Column(Modifier.fillMaxWidth(), horizontalAlignment = Alignment.CenterHorizontally) {
+                Box(Modifier.fillMaxWidth().height(260.dp), contentAlignment = Alignment.Center) {
+                    Canvas(Modifier.size(250.dp)) {
+                        val r = size.minDimension / 2f * scale.floatValue
+                        drawCircle(
+                            brush = Brush.radialGradient(
+                                listOf(color.copy(alpha = 0.5f), color.copy(alpha = 0.16f), Color.Transparent),
+                                center = Offset(size.width / 2f, size.height / 2f),
+                                radius = r.coerceAtLeast(1f),
+                            ),
+                            radius = r,
+                        )
+                    }
+                    if (running && phase != null) {
+                        Text("$phaseSeconds", style = MaterialTheme.typography.displaySmall, color = MaterialTheme.colorScheme.onSurface)
+                    }
                 }
-                Text(label, style = MaterialTheme.typography.titleLarge, textAlign = TextAlign.Center)
+                // The words sit below the circle, where the glow can't wash them out.
+                Text(
+                    when {
+                        running && phase != null -> phase!!.label
+                        finished -> "Well done. Notice how you feel now."
+                        else -> "Tap Start when you're ready"
+                    },
+                    style = MaterialTheme.typography.headlineSmall,
+                    color = MaterialTheme.colorScheme.primary,
+                    textAlign = TextAlign.Center,
+                )
             }
         }
         item {
@@ -257,12 +295,8 @@ fun BreatheScreen(repo: QuoteRepository, onBack: () -> Unit) {
         item {
             Button(
                 onClick = {
-                    if (running) {
-                        running = false
-                        label = "Paused. Tap Start to begin again."
-                    } else {
-                        running = true
-                    }
+                    finished = false
+                    running = !running
                 },
                 modifier = Modifier.fillMaxWidth().height(52.dp),
             ) { Text(if (running) "Stop" else "Start") }

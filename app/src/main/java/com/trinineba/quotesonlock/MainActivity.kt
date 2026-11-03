@@ -113,6 +113,23 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val prefs = QuotePrefs(this)
+        // A random theme, if chosen: a new one each day, or each time the app starts.
+        val themeBefore = prefs.theme
+        if (savedInstanceState == null) when (prefs.randomTheme) {
+            "open" -> prefs.shuffleTheme()
+            "daily" -> {
+                val today = java.text.SimpleDateFormat("yyyy-MM-dd", java.util.Locale.US).format(java.util.Date())
+                if (prefs.randomThemeDay != today) {
+                    prefs.randomThemeDay = today
+                    prefs.shuffleTheme()
+                }
+            }
+        }
+        if (prefs.theme != themeBefore) {
+            // The lock-screen card and widgets follow the app's theme unless they have their own.
+            if (prefs.enabled) QuoteRepository(this, prefs).current()?.let { QuoteNotifier.show(this, it) }
+            QuoteWidgets.refresh(this)
+        }
         if (prefs.enabled || QuoteWidgets.hasAny(this)) QuoteScheduler.ensureScheduled(this, prefs.intervalMinutes)
         Updater.schedule(this, prefs.updateCheck)
         val openUpdates = intent.getBooleanExtra(EXTRA_OPEN_UPDATES, false)
@@ -1044,6 +1061,29 @@ private fun QuotesScreen(
                         }
                         repeat(3 - row.size) { Spacer(Modifier.weight(1f)) }
                     }
+                }
+                var randomTheme by remember { mutableStateOf(prefs.randomTheme) }
+                Text("Random theme", style = MaterialTheme.typography.labelLarge)
+                Row(
+                    modifier = Modifier.horizontalScroll(rememberScrollState()),
+                    horizontalArrangement = Arrangement.spacedBy(8.dp),
+                    verticalAlignment = Alignment.CenterVertically,
+                ) {
+                    listOf("off" to "Off", "daily" to "Each day", "open" to "Each time I open the app").forEach { (key, label) ->
+                        FilterChip(
+                            selected = randomTheme == key,
+                            onClick = {
+                                randomTheme = key
+                                prefs.randomTheme = key
+                                if (key == "daily") prefs.randomThemeDay = java.text.SimpleDateFormat("yyyy-MM-dd", java.util.Locale.US).format(java.util.Date())
+                            },
+                            label = { Text(label) },
+                        )
+                    }
+                    TextButton(onClick = {
+                        onTheme(prefs.shuffleTheme())
+                        refreshNotification()
+                    }) { Text("Surprise me") }
                 }
                 theme.motionLabel?.let { label ->
                     Row(verticalAlignment = Alignment.CenterVertically) {

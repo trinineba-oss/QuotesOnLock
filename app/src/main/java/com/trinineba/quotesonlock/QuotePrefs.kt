@@ -168,6 +168,23 @@ class QuotePrefs(context: Context) {
         prefs.edit().putString("lifeline_notes", org.json.JSONArray(list).toString()).apply()
     }
 
+    /** A random theme: "off", "daily" (a new one each day) or "open" (each time the app starts). */
+    var randomTheme: String
+        get() = prefs.getString("random_theme", "off") ?: "off"
+        set(value) = prefs.edit().putString("random_theme", value).apply()
+
+    /** The day (yyyy-MM-dd) the daily random theme was last picked. */
+    var randomThemeDay: String
+        get() = prefs.getString("random_theme_day", "") ?: ""
+        set(value) = prefs.edit().putString("random_theme_day", value).apply()
+
+    /** Picks a different theme at random (never Classic) and makes it the app's theme. */
+    fun shuffleTheme(): AppTheme {
+        val pick = AppTheme.entries.filter { it != AppTheme.CLASSIC && it != theme }.random()
+        theme = pick
+        return pick
+    }
+
     /** Theme of the home-screen widgets, or null to follow the app's theme. */
     var widgetTheme: AppTheme?
         get() = prefs.getString("widget_theme", null)?.let { AppTheme.fromKey(it) }
