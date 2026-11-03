@@ -476,3 +476,15 @@ Greek & Roman|The myths of ancient Greece and Rome: gods, heroes and the human s
 Norse|The myths of the Vikings and Icelanders, from the creation of the world to Ragnarök.
 Egypt & Mesopotamia|The oldest written myths, from the Nile and the land between the rivers.
 Myths of the world|Creation stories and tales from Finland, Wales, China, Japan, India, Africa, Polynesia and Mexico.
+Lady Gregory|Irish playwright and folklorist (1852–1932), co-founder of the Abbey Theatre, who retold the Irish myths in Gods and Fighting Men and Cuchulain of Muirthemne.
+Johannes Kepler|German astronomer (1571–1630) who discovered the laws of planetary motion.
+Antoine Lavoisier|French chemist (1743–1794), father of modern chemistry, executed in the Revolution.
+Michael Faraday|English scientist (1791–1867) who discovered electromagnetic induction.
+Elinor Ostrom|American political economist (1933–2012), the first woman to win the Nobel Prize in Economics (2009).
+Antonio Gramsci|Italian Marxist thinker (1891–1937) who wrote his Prison Notebooks in Mussolini's jails.
+Marcel Mauss|French anthropologist (1872–1950) of The Gift.
+David Hilbert|German mathematician (1862–1943).
+Emmy Noether|German mathematician (1882–1935), whose theorem links symmetry and conservation laws.
+Ernest Hemingway|American novelist (1899–1961) of The Old Man and the Sea. Nobel Prize 1954.
+Robert Zajonc|Polish-American social psychologist (1923–2008).
+Edward Thorndike|American psychologist (1874–1949).
