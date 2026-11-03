@@ -100,10 +100,37 @@ enum class AppTheme(
     RAIN_NIGHT(
         "rainnight", "Rainy night", "Rain on the glass", R.drawable.notif_frame_rain_night, 0xFF141A2A.toInt(),
         0xFFFFFFFF.toInt(), 0xFFFFC27A.toInt(),
+    ),
+    SNOW(
+        "snow", "Snowy night", "Falling snow", R.drawable.notif_frame_snow, 0xFF101C30.toInt(),
+        0xFFFFFFFF.toInt(), 0xFFCFE0F5.toInt(),
+    ),
+    CANDLE(
+        "candle", "Candlelight", "Flickering flame", R.drawable.notif_frame_candle, 0xFF140C06.toInt(),
+        0xFFFFF4E6.toInt(), 0xFFFFC27A.toInt(),
+    ),
+    FIREFLIES(
+        "fireflies", "Fireflies", "Drifting fireflies", R.drawable.notif_frame_fireflies, 0xFF0B1A17.toInt(),
+        0xFFFFFFFF.toInt(), 0xFFE4F59A.toInt(),
+    ),
+    LAVENDER(
+        "lavender", "Lavender field", "Swaying lavender", R.drawable.notif_frame_lavender, 0xFFF6EEF8.toInt(),
+        0xFF3A2547.toInt(), 0xFF7B3FA0.toInt(),
+    ),
+    CLOUDS(
+        "clouds", "Drifting clouds", "Drifting clouds", R.drawable.notif_frame_clouds, 0xFFF4F8FC.toInt(),
+        0xFF24364A.toInt(), 0xFF3E6E9E.toInt(),
+    ),
+    WAVES(
+        "waves", "Waves at dusk", "Rolling waves", R.drawable.notif_frame_waves, 0xFF10203A.toInt(),
+        0xFFFFFFFF.toInt(), 0xFFFFC9A8.toInt(),
     );
 
+    /** The calm themes drawn by [CalmArt]. */
+    val isCalm: Boolean get() = this == SNOW || this == CANDLE || this == FIREFLIES || this == LAVENDER || this == CLOUDS || this == WAVES
+
     /** Light themes use dark text. */
-    val isLight: Boolean get() = this == BOOK || this == BUTTERFLY
+    val isLight: Boolean get() = this == BOOK || this == BUTTERFLY || this == LAVENDER || this == CLOUDS
 
     companion object {
         fun fromKey(key: String?): AppTheme = entries.firstOrNull { it.key == key } ?: CLASSIC
@@ -249,6 +276,12 @@ fun AppTheme.colorScheme(cardOpacity: Float): ColorScheme? = when (this) {
         outline = Color(0xFFFFC27A),
         outlineVariant = Color(0x665A4030),
     )
+    AppTheme.SNOW -> calmScheme(true, 0xFFCFE0F5, 0xFF101C30, 0xFFF1F5FB, 0xFFC9D6E6, cardOpacity)
+    AppTheme.CANDLE -> calmScheme(true, 0xFFFFC27A, 0xFF140C06, 0xFFFFF4E6, 0xFFE3CDB4, cardOpacity)
+    AppTheme.FIREFLIES -> calmScheme(true, 0xFFE4F59A, 0xFF0B1A17, 0xFFEFF6EC, 0xFFC4D6C6, cardOpacity)
+    AppTheme.LAVENDER -> calmScheme(false, 0xFF7B3FA0, 0xFFF6EEF8, 0xFF3A2547, 0xFF5E4470, cardOpacity)
+    AppTheme.CLOUDS -> calmScheme(false, 0xFF3E6E9E, 0xFFF4F8FC, 0xFF24364A, 0xFF4A5E74, cardOpacity)
+    AppTheme.WAVES -> calmScheme(true, 0xFFFFC9A8, 0xFF10203A, 0xFFF4EEF2, 0xFFD6CCD8, cardOpacity)
     AppTheme.BUTTERFLY -> lightColorScheme(
         primary = Color(0xFFC2185B),
         onPrimary = Color.White,
@@ -270,15 +303,37 @@ fun AppTheme.colorScheme(cardOpacity: Float): ColorScheme? = when (this) {
     )
 }
 
+/** A colour scheme for a calm theme from its accent, card colour and text colours. */
+private fun calmScheme(dark: Boolean, accent: Long, card: Long, text: Long, textVariant: Long, cardOpacity: Float): ColorScheme {
+    val a = Color(accent)
+    val c = Color(card)
+    val on = Color(text)
+    val onVariant = Color(textVariant)
+    return if (dark) darkColorScheme(
+        primary = a, onPrimary = c, primaryContainer = a.copy(alpha = 0.35f), onPrimaryContainer = on,
+        secondary = onVariant, onSecondary = c, secondaryContainer = a.copy(alpha = 0.25f), onSecondaryContainer = on,
+        background = Color.Transparent, onBackground = on, surface = c, onSurface = on, onSurfaceVariant = onVariant,
+        surfaceContainerHighest = c.copy(alpha = cardOpacity), surfaceVariant = c.copy(alpha = 0.8f),
+        outline = a, outlineVariant = a.copy(alpha = 0.4f),
+    ) else lightColorScheme(
+        primary = a, onPrimary = Color.White, primaryContainer = a.copy(alpha = 0.25f), onPrimaryContainer = on,
+        secondary = onVariant, onSecondary = Color.White, secondaryContainer = a.copy(alpha = 0.2f), onSecondaryContainer = on,
+        background = Color.Transparent, onBackground = on, surface = c, onSurface = on, onSurfaceVariant = onVariant,
+        surfaceContainerHighest = c.copy(alpha = cardOpacity), surfaceVariant = c.copy(alpha = 0.8f),
+        outline = a, outlineVariant = a.copy(alpha = 0.4f),
+    )
+}
+
 /** Night themes get a soft shadow under all text so it reads over the painting; the book page gets serif type. */
 fun AppTheme.typography(base: Typography): Typography = when (this) {
     AppTheme.CLASSIC -> base
-    AppTheme.STARRY, AppTheme.AURORA, AppTheme.SPACE, AppTheme.WATER, AppTheme.RAIN, AppTheme.RAIN_NIGHT -> base.map(
+    AppTheme.STARRY, AppTheme.AURORA, AppTheme.SPACE, AppTheme.WATER, AppTheme.RAIN, AppTheme.RAIN_NIGHT,
+    AppTheme.SNOW, AppTheme.CANDLE, AppTheme.FIREFLIES, AppTheme.WAVES -> base.map(
         headings = { it.copy(fontFamily = FontFamily.Serif) },
         all = { it.copy(shadow = Shadow(Color(0xE6000000), Offset(0f, 2f), 8f)) },
     )
     AppTheme.BOOK -> base.map(headings = { it }, all = { it.copy(fontFamily = FontFamily.Serif) })
-    AppTheme.BUTTERFLY -> base.map(headings = { it.copy(fontFamily = FontFamily.Serif) }, all = { it })
+    AppTheme.BUTTERFLY, AppTheme.LAVENDER, AppTheme.CLOUDS -> base.map(headings = { it.copy(fontFamily = FontFamily.Serif) }, all = { it })
 }
 
 private fun Typography.map(headings: (TextStyle) -> TextStyle, all: (TextStyle) -> TextStyle) = Typography(
@@ -317,6 +372,7 @@ fun ThemedBackground(theme: AppTheme, animate: Boolean, auroraIntensity: Float =
         AppTheme.WATER -> WaterBackground(animate)
         AppTheme.RAIN -> RainBackground(animate, night = false)
         AppTheme.RAIN_NIGHT -> RainBackground(animate, night = true)
+        AppTheme.SNOW, AppTheme.CANDLE, AppTheme.FIREFLIES, AppTheme.LAVENDER, AppTheme.CLOUDS, AppTheme.WAVES -> CalmBackground(theme, animate)
     }
 }
 
@@ -400,6 +456,16 @@ private fun SpaceBackground(animate: Boolean) {
     Canvas(Modifier.fillMaxSize()) {
         val t = time.value
         drawIntoCanvas { SpaceArt.draw(it.nativeCanvas, size.width, size.height, t, density, nebula) }
+    }
+}
+
+@Composable
+private fun CalmBackground(theme: AppTheme, animate: Boolean) {
+    // A loop of 2π·1000 ms makes the value plain seconds.
+    val time: State<Float> = if (animate) rememberLoopAngle(2000f * PI.toFloat()) else remember(theme) { mutableFloatStateOf(CalmArt.stillTime(theme)) }
+    Canvas(Modifier.fillMaxSize()) {
+        val t = time.value
+        drawIntoCanvas { CalmArt.draw(theme, it.nativeCanvas, size.width, size.height, t, density) }
     }
 }
 

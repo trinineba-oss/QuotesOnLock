@@ -1753,6 +1753,12 @@ private fun themePicture(option: AppTheme): Int? = when (option) {
     AppTheme.WATER -> R.drawable.water_frame
     AppTheme.RAIN -> R.drawable.rain_frame
     AppTheme.RAIN_NIGHT -> R.drawable.rain_night_frame
+    AppTheme.SNOW -> R.drawable.snow_frame
+    AppTheme.CANDLE -> R.drawable.candle_frame
+    AppTheme.FIREFLIES -> R.drawable.fireflies_frame
+    AppTheme.LAVENDER -> R.drawable.lavender_frame
+    AppTheme.CLOUDS -> R.drawable.clouds_frame
+    AppTheme.WAVES -> R.drawable.waves_frame
     AppTheme.CLASSIC -> null
 }
 
