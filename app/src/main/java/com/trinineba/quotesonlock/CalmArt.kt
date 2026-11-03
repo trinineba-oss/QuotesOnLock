@@ -1,5 +1,6 @@
 package com.trinineba.quotesonlock
 
+import android.graphics.Bitmap
 import android.graphics.Canvas
 import android.graphics.LinearGradient
 import android.graphics.Paint
@@ -26,6 +27,8 @@ internal object CalmArt {
     private val oval = RectF()
 
     fun draw(theme: AppTheme, canvas: Canvas, w: Float, h: Float, t: Float, d: Float) {
+        // Nothing to draw before the view has a size (and a zero-sized gradient would throw).
+        if (w < 2f || h < 2f) return
         when (theme) {
             AppTheme.SNOW -> snow(canvas, w, h, t, d)
             AppTheme.CANDLE -> candle(canvas, w, h, t, d)
@@ -44,7 +47,38 @@ internal object CalmArt {
         else -> 12.3f
     }
 
+    /** Puts the shared paints back after a failed frame, so the next one starts clean. */
+    fun reset() {
+        fill.shader = null
+        stroke.shader = null
+    }
+
     // ---- helpers -------------------------------------------------------------------------------
+
+    private val bitmapPaint = Paint(Paint.FILTER_BITMAP_FLAG)
+    private val cache = LinkedHashMap<String, Bitmap>()
+
+    /**
+     * The parts of a scene that never move, painted once at half resolution and reused every frame
+     * (soft gradients scale up without loss). A few sizes are kept: the app and the wallpaper differ.
+     */
+    private fun cached(c: Canvas, key: String, w: Float, h: Float, paint: (Canvas) -> Unit) {
+        val k = "$key:${w.toInt()}x${h.toInt()}"
+        val bitmap = cache[k] ?: run {
+            val bw = max(1, (w / 2).toInt())
+            val bh = max(1, (h / 2).toInt())
+            val b = Bitmap.createBitmap(bw, bh, Bitmap.Config.ARGB_8888)
+            val bc = Canvas(b)
+            bc.scale(bw / w, bh / h)
+            paint(bc)
+            reset()
+            if (cache.size >= 6) cache.remove(cache.keys.first())
+            cache[k] = b
+            b
+        }
+        oval.set(0f, 0f, w, h)
+        c.drawBitmap(bitmap, null, oval, bitmapPaint)
+    }
 
     private fun vertical(c: Canvas, x: Float, y0: Float, y1: Float, w: Float, colors: IntArray, stops: FloatArray?) {
         fill.shader = LinearGradient(0f, y0, 0f, y1, colors, stops, Shader.TileMode.CLAMP)
@@ -341,21 +375,42 @@ internal object CalmArt {
         }
     }
 
+    private val cloudSprites = HashMap<String, Bitmap>()
+
+    /** One cloud painted once into its own soft image; it then only slides across the sky. */
+    private fun cloudSprite(index: Int, cl: Cloud, cw: Float): Bitmap {
+        val k = "$index:${cw.toInt()}"
+        return cloudSprites[k] ?: run {
+            if (cloudSprites.size > 40) cloudSprites.clear()
+            val bw = max(1, (cw * 1.4f).toInt())
+            val bh = max(1, (cw * 0.8f).toInt())
+            val b = Bitmap.createBitmap(bw, bh, Bitmap.Config.ARGB_8888)
+            val bc = Canvas(b)
+            bc.scale(0.5f, 0.5f)
+            cl.puffs.forEach { p ->
+                val px = 1.4f * cw + p[0] * cw
+                val py = 0.7f * cw + p[1] * cw
+                val r = cw * p[2]
+                fill.shader = RadialGradient(px, py, r, intArrayOf(0xBFFFFFFF.toInt(), 0x73FFFFFF, 0x00FFFFFF), floatArrayOf(0f, 0.6f, 1f), Shader.TileMode.CLAMP)
+                bc.drawCircle(px, py, r, fill)
+            }
+            fill.shader = null
+            cloudSprites[k] = b
+            b
+        }
+    }
+
     private fun clouds(c: Canvas, w: Float, h: Float, t: Float, d: Float) {
-        vertical(c, 0f, 0f, h, w, intArrayOf(0xFF9EC5EA.toInt(), 0xFFCFE1F2.toInt(), 0xFFF6DCCB.toInt(), 0xFFFBE6D6.toInt()), floatArrayOf(0f, 0.55f, 0.85f, 1f))
-        glow(c, w * 0.2f, h * 0.85f, w * 0.8f, 0xFFEBD7, 0.5f)
-        cloudList.forEach { cl ->
+        cached(c, "clouds", w, h) { bc ->
+            vertical(bc, 0f, 0f, h, w, intArrayOf(0xFF9EC5EA.toInt(), 0xFFCFE1F2.toInt(), 0xFFF6DCCB.toInt(), 0xFFFBE6D6.toInt()), floatArrayOf(0f, 0.55f, 0.85f, 1f))
+            glow(bc, w * 0.2f, h * 0.85f, w * 0.8f, 0xFFEBD7, 0.5f)
+        }
+        cloudList.forEachIndexed { i, cl ->
             val cw = w * 0.32f * cl.s
             val x = ((cl.x + t * cl.v) % 1.4f - 0.2f) * w
             val y = cl.y * h
-            cl.puffs.forEach { p ->
-                val px = x + p[0] * cw
-                val py = y + p[1] * cw
-                val r = cw * p[2]
-                fill.shader = RadialGradient(px, py, r, intArrayOf(0xBFFFFFFF.toInt(), 0x73FFFFFF, 0x00FFFFFF), floatArrayOf(0f, 0.6f, 1f), Shader.TileMode.CLAMP)
-                c.drawCircle(px, py, r, fill)
-            }
-            fill.shader = null
+            oval.set(x - 1.4f * cw, y - 0.7f * cw, x + 1.4f * cw, y + 0.9f * cw)
+            c.drawBitmap(cloudSprite(i, cl, cw), null, oval, bitmapPaint)
         }
     }
 
@@ -471,9 +526,12 @@ internal object CalmArt {
 
     private fun waves(c: Canvas, w: Float, h: Float, t: Float, d: Float) {
         val hz = h * 0.5f
-        vertical(c, 0f, 0f, hz, w, intArrayOf(0xFF1C2A52.toInt(), 0xFF5A4D7A.toInt(), 0xFFD98F8A.toInt(), 0xFFF2B38E.toInt()), floatArrayOf(0f, 0.6f, 0.9f, 1f))
-        glow(c, w * 0.35f, hz, w * 0.5f, 0xFFBE96, 0.45f)
-        vertical(c, 0f, hz, h * 0.8f, w, intArrayOf(0xFF6A6390.toInt(), 0xFF3B4A72.toInt(), 0xFF22324F.toInt()), floatArrayOf(0f, 0.3f, 1f))
+        cached(c, "waves", w, h) { bc ->
+            vertical(bc, 0f, 0f, hz, w, intArrayOf(0xFF1C2A52.toInt(), 0xFF5A4D7A.toInt(), 0xFFD98F8A.toInt(), 0xFFF2B38E.toInt()), floatArrayOf(0f, 0.6f, 0.9f, 1f))
+            glow(bc, w * 0.35f, hz, w * 0.5f, 0xFFBE96, 0.45f)
+            vertical(bc, 0f, hz, h * 0.8f, w, intArrayOf(0xFF6A6390.toInt(), 0xFF3B4A72.toInt(), 0xFF22324F.toInt()), floatArrayOf(0f, 0.3f, 1f))
+            vertical(bc, 0f, h * 0.8f, h, w, intArrayOf(0xFF8A7A86.toInt(), 0xFF5E5260.toInt()), null)
+        }
         for (i in 0 until 26) {
             val y = hz + (i / 26f).pow(1.5f) * h * 0.28f
             val ww = w * (0.05f + i * 0.006f) * (0.7f + 0.3f * sin(t * 1.3f + i))
@@ -483,7 +541,7 @@ internal object CalmArt {
         }
         for (i in 0 until 14) {
             val p = ((i / 14f) + t * 0.03f) % 1f
-            val y = hz + p * p * h * 0.32f
+            val y = hz + p * p * h * 0.3f
             stroke.color = color(0xC8D2F0, 0.06f + p * 0.12f)
             stroke.strokeWidth = (0.6f + p * 1.6f) * d
             path.reset()
@@ -495,7 +553,6 @@ internal object CalmArt {
             }
             c.drawPath(path, stroke)
         }
-        vertical(c, 0f, h * 0.8f, h, w, intArrayOf(0xFF8A7A86.toInt(), 0xFF5E5260.toInt()), null)
         val s = 0.5f + 0.5f * sin(t * TAU / 9f)
         val fy = h * (0.8f + s * 0.07f)
         path.reset()
