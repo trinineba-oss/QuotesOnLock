@@ -27,15 +27,20 @@ import androidx.core.content.ContextCompat
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 
-/** The calming sounds: each a seamless loop in res/raw, shown with the matching calm theme's artwork. */
-enum class Soundscape(val key: String, val label: String, @RawRes val raw: Int, @DrawableRes val art: Int) {
+/**
+ * The calming sounds: each a seamless loop in res/raw, shown with the matching calm theme's artwork.
+ * The [music] ones are whole piano pieces that start again after a short pause.
+ */
+enum class Soundscape(val key: String, val label: String, @RawRes val raw: Int, @DrawableRes val art: Int, val music: Boolean = false) {
     RAIN("rain", "Rain on the window", R.raw.snd_rain, R.drawable.rain_night_frame),
     WAVES("waves", "Waves at dusk", R.raw.snd_waves, R.drawable.waves_frame),
     WIND("wind", "Wind in bamboo", R.raw.snd_wind, R.drawable.bamboo_frame),
     FOREST("forest", "Night forest", R.raw.snd_forest, R.drawable.fireflies_frame),
     FIRE("fire", "Crackling fire", R.raw.snd_fire, R.drawable.candle_frame),
     STREAM("stream", "Gentle stream", R.raw.snd_stream, R.drawable.water_frame),
-    BIRDS("birds", "Birdsong", R.raw.snd_birds, R.drawable.clouds_frame);
+    BIRDS("birds", "Birdsong", R.raw.snd_birds, R.drawable.clouds_frame),
+    // MOONLIGHT is added once its recording is in res/raw.
+    NOCTURNE("nocturne", "Chopin: Nocturne Op. 9 No. 2", R.raw.mus_nocturne, R.drawable.starry_frame, music = true);
 
     companion object {
         fun fromKey(key: String?): Soundscape? = entries.firstOrNull { it.key == key }

@@ -69,7 +69,11 @@ fun SoundsScreen(prefs: QuotePrefs, onBack: () -> Unit) {
         }
     }
     ToolScreen("Calming sounds", onBack) {
-        Soundscape.entries.chunked(2).forEach { pair ->
+        listOf("Nature" to Soundscape.entries.filter { !it.music }, "Music" to Soundscape.entries.filter { it.music }).forEach { (heading, list) ->
+        item(key = "h-$heading") {
+            Text(heading, style = MaterialTheme.typography.labelLarge, color = MaterialTheme.colorScheme.primary)
+        }
+        list.chunked(2).forEach { pair ->
             item(key = "s-" + pair.first().key) {
                 Row(horizontalArrangement = Arrangement.spacedBy(10.dp)) {
                     pair.forEach { s ->
@@ -80,6 +84,7 @@ fun SoundsScreen(prefs: QuotePrefs, onBack: () -> Unit) {
                     if (pair.size == 1) Box(Modifier.weight(1f))
                 }
             }
+        }
         }
         item(key = "s-volume") {
             SoftCard(Modifier.fillMaxWidth()) {
@@ -150,7 +155,7 @@ fun SoundsScreen(prefs: QuotePrefs, onBack: () -> Unit) {
         }
         item(key = "s-note") {
             Text(
-                "Recordings are public domain or CC0 (see About › Sources); the wind is made by the app.",
+                "Recordings are public domain or CC0 (see About › Sources); the wind and fire are made by the app. The piano pieces start again after a short pause.",
                 style = MaterialTheme.typography.bodySmall,
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
             )
