@@ -110,7 +110,7 @@ enum class AppTheme(
         0xFFFFF4E6.toInt(), 0xFFFFC27A.toInt(),
     ),
     FIREFLIES(
-        "fireflies", "Fireflies", "Drifting fireflies", R.drawable.notif_frame_fireflies, 0xFF0B1A17.toInt(),
+        "fireflies", "Enchanted forest", "Drifting fireflies", R.drawable.notif_frame_fireflies, 0xFF0C1A24.toInt(),
         0xFFFFFFFF.toInt(), 0xFFE4F59A.toInt(),
     ),
     LAVENDER(
@@ -278,7 +278,7 @@ fun AppTheme.colorScheme(cardOpacity: Float): ColorScheme? = when (this) {
     )
     AppTheme.SNOW -> calmScheme(true, 0xFFCFE0F5, 0xFF101C30, 0xFFF1F5FB, 0xFFC9D6E6, cardOpacity)
     AppTheme.CANDLE -> calmScheme(true, 0xFFFFC27A, 0xFF140C06, 0xFFFFF4E6, 0xFFE3CDB4, cardOpacity)
-    AppTheme.FIREFLIES -> calmScheme(true, 0xFFE4F59A, 0xFF0B1A17, 0xFFEFF6EC, 0xFFC4D6C6, cardOpacity)
+    AppTheme.FIREFLIES -> calmScheme(true, 0xFFE4F59A, 0xFF0C1A24, 0xFFEFF6EC, 0xFFC4D6C6, cardOpacity)
     AppTheme.LAVENDER -> calmScheme(false, 0xFF7B3FA0, 0xFFF6EEF8, 0xFF3A2547, 0xFF5E4470, cardOpacity)
     AppTheme.CLOUDS -> calmScheme(false, 0xFF3E6E9E, 0xFFF4F8FC, 0xFF24364A, 0xFF4A5E74, cardOpacity)
     AppTheme.WAVES -> calmScheme(true, 0xFFFFC9A8, 0xFF10203A, 0xFFF4EEF2, 0xFFD6CCD8, cardOpacity)

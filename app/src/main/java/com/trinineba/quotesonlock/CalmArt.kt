@@ -152,39 +152,135 @@ internal object CalmArt {
         vertical(c, 0f, h * 0.96f, h, w, intArrayOf(0xFF2A1810.toInt(), 0xFF120A06.toInt()), null)
     }
 
-    // ---- fireflies in a dusk forest --------------------------------------------------------------
+    // ---- fireflies in an enchanted forest ---------------------------------------------------------
 
-    private class Fly(val x: Float, val y: Float, val ax: Float, val ay: Float, val fx: Float, val fy: Float, val ph: Float, val pulse: Float)
-    private class Tree(val x: Float, val w: Float, val far: Boolean)
+    private class Fly(
+        val x: Float, val y: Float, val ax: Float, val ay: Float, val fx: Float, val fy: Float,
+        val ph: Float, val pulse: Float, val z: Float, val warm: Boolean,
+    )
+    private class Trunk(val x: Float, val w: Float, val lean: Float)
+    private class Layer(val y: Float, val color: Int, val ground: Int, val trunks: List<Trunk>)
+    private class Shroom(val x: Float, val s: Float, val cyan: Boolean, val layer: Int)
+    private class Fern(val x: Float, val s: Float, val ph: Float)
+    private class Spark(val x: Float, val p: Float, val speed: Float, val ph: Float)
 
-    private val flies = Random(9).let { r ->
-        List(46) {
-            Fly(r.nextFloat(), 0.35f + r.nextFloat() * 0.6f, 0.03f + r.nextFloat() * 0.08f, 0.02f + r.nextFloat() * 0.05f,
-                0.05f + r.nextFloat() * 0.12f, 0.04f + r.nextFloat() * 0.1f, r.nextFloat() * TAU, 0.4f + r.nextFloat() * 0.9f)
+    private val layers = Random(21).let { r ->
+        listOf(
+            Triple(0.70f, 0xFF2C465C.toInt(), 9) to (0.012f to 0.022f),
+            Triple(0.80f, 0xFF182C38.toInt(), 7) to (0.02f to 0.035f),
+            Triple(0.92f, 0xFF091418.toInt(), 5) to (0.04f to 0.075f),
+        ).map { (spec, widths) ->
+            val (y, col, n) = spec
+            val rr = (col shr 16) and 0xFF
+            val gg = (col shr 8) and 0xFF
+            val bb = col and 0xFF
+            val ground = (0xFF shl 24) or ((rr * 0.45f).toInt() shl 16) or ((gg * 0.55f).toInt() shl 8) or (bb * 0.5f).toInt()
+            Layer(y, col, ground, List(n) { Trunk(r.nextFloat() * 1.1f - 0.05f, widths.first + r.nextFloat() * (widths.second - widths.first), (r.nextFloat() - 0.5f) * 0.04f) })
         }
     }
-    private val trees = Random(10).let { r -> List(18) { Tree(r.nextFloat(), 0.025f + r.nextFloat() * 0.05f, r.nextFloat() < 0.5f) } }
+    private val flies = Random(9).let { r ->
+        List(64) {
+            Fly(r.nextFloat(), 0.3f + r.nextFloat() * 0.68f, 0.02f + r.nextFloat() * 0.07f, 0.015f + r.nextFloat() * 0.05f,
+                0.03f + r.nextFloat() * 0.08f, 0.03f + r.nextFloat() * 0.07f, r.nextFloat() * TAU, 0.5f + r.nextFloat() * 1.1f,
+                r.nextFloat(), r.nextFloat() < 0.75f)
+        }
+    }
+    private val shrooms = Random(13).let { r -> List(12) { Shroom(r.nextFloat(), 0.7f + r.nextFloat() * 0.6f, r.nextFloat() < 0.6f, if (r.nextFloat() < 0.5f) 1 else 2) } }
+    private val ferns = Random(14).let { r -> List(16) { Fern(r.nextFloat(), 0.7f + r.nextFloat() * 0.7f, r.nextFloat() * TAU) } }
+    private val sparks = Random(15).let { r -> List(30) { Spark(r.nextFloat(), r.nextFloat(), 0.01f + r.nextFloat() * 0.02f, r.nextFloat() * TAU) } }
 
     private fun fireflies(c: Canvas, w: Float, h: Float, t: Float, d: Float) {
-        vertical(c, 0f, 0f, h, w, intArrayOf(0xFF16263A.toInt(), 0xFF1A3A3F.toInt(), 0xFF07120F.toInt()), floatArrayOf(0f, 0.45f, 1f))
-        glow(c, w * 0.5f, h * 0.35f, w * 0.9f, 0x78A096, 0.12f)
-        listOf(true, false).forEach { far ->
-            fill.color = if (far) 0xFF183332.toInt() else 0xFF0B1A17.toInt()
-            trees.filter { it.far == far }.forEach { tr ->
+        vertical(c, 0f, 0f, h, w, intArrayOf(0xFF0D1630.toInt(), 0xFF14304A.toInt(), 0xFF0F2A33.toInt(), 0xFF050C0D.toInt()), floatArrayOf(0f, 0.35f, 0.7f, 1f))
+        // Moonlight behind the canopy, and shafts of it falling between the trees.
+        glow(c, w * 0.7f, h * 0.12f, w * 0.75f, 0xAAD2FF, 0.28f)
+        glow(c, w * 0.7f, h * 0.12f, w * 0.12f, 0xE6F0FF, 0.55f)
+        for (i in 0 until 4) {
+            val x0 = w * (0.45f + i * 0.13f)
+            val a = 0.05f + 0.03f * sin(t * 0.4f + i * 1.7f)
+            fill.shader = LinearGradient(0f, 0f, 0f, h * 0.9f, color(0xB4DCFF, a), 0x00B4DCFF, Shader.TileMode.CLAMP)
+            path.reset()
+            path.moveTo(x0, 0f)
+            path.lineTo(x0 + w * 0.06f, 0f)
+            path.lineTo(x0 - w * 0.23f, h * 0.9f)
+            path.lineTo(x0 - w * 0.35f, h * 0.9f)
+            path.close()
+            c.drawPath(path, fill)
+        }
+        fill.shader = null
+        layers.forEachIndexed { li, layer ->
+            // Mist drifting in front of each layer of trees.
+            val mistY = h * (0.55f + li * 0.12f)
+            for (k in 0 until 3) {
+                val mx = ((k * 0.4f + t * 0.004f * (li + 1)) % 1.4f - 0.2f) * w
+                glow(c, mx, mistY, w * 0.5f, 0x96C8D2, 0.12f - li * 0.02f)
+            }
+            fill.color = layer.color
+            val base = h * layer.y + h * 0.1f
+            layer.trunks.forEach { tr ->
                 val x = tr.x * w
-                val tw = tr.w * w * (if (far) 0.7f else 1f)
-                c.drawRect(x - tw / 2, h * (if (far) 0.25f else 0.1f), x + tw / 2, h, fill)
-                for (k in 0..2) c.drawCircle(x + (k - 1) * tw * 1.6f, h * (if (far) 0.26f else 0.12f) + k * 8 * d, tw * (if (far) 2.2f else 3f), fill)
+                val tw = tr.w * w
+                path.reset()
+                path.moveTo(x - tw * 0.6f, base)
+                path.quadTo(x - tw * 0.45f + tr.lean * w, base - h * 0.5f, x - tw * 0.35f + tr.lean * w * 2, -10f)
+                path.lineTo(x + tw * 0.35f + tr.lean * w * 2, -10f)
+                path.quadTo(x + tw * 0.45f + tr.lean * w, base - h * 0.5f, x + tw * 0.6f, base)
+                path.close()
+                c.drawPath(path, fill)
+                path.reset()
+                path.moveTo(x - tw * 1.2f, base)
+                path.quadTo(x - tw * 0.5f, base - tw * 0.6f, x, base - tw * 1.2f)
+                path.quadTo(x + tw * 0.5f, base - tw * 0.6f, x + tw * 1.2f, base)
+                path.close()
+                c.drawPath(path, fill)
+            }
+            hill(c, w, h, base, h * 0.01f, 5f + li * 2f, li.toFloat(), layer.ground)
+            // Glowing mushrooms at the foot of the nearer trees.
+            shrooms.filter { it.layer == li }.forEach { m ->
+                val mx = m.x * w
+                val my = base - 2 * d
+                val sz = m.s * (if (li == 2) 2.4f else 1.6f) * d
+                val col = if (m.cyan) 0x78E6FF else 0xBE96FF
+                val glowA = 0.6f + 0.4f * sin(t * 0.8f + m.x * 20f)
+                glow(c, mx, my - 4 * sz, 22 * sz, col, 0.35f * glowA)
+                fill.color = 0xCCDCF0F0.toInt()
+                c.drawRect(mx - 0.8f * sz, my - 4 * sz, mx + 0.8f * sz, my, fill)
+                fill.color = color(col, 0.85f)
+                oval.set(mx - 3.4f * sz, my - 6 * sz, mx + 3.4f * sz, my - 2 * sz)
+                c.drawArc(oval, 180f, 180f, true, fill)
             }
         }
-        hill(c, w, h, h * 0.86f, h * 0.012f, 7f, 0f, 0xFF08130F.toInt())
+        // Fern silhouettes along the bottom edge.
+        stroke.color = 0xF2050E0C.toInt()
+        stroke.strokeWidth = 2 * d
+        ferns.forEach { f ->
+            val bx = f.x * w
+            val by = h * 1.01f
+            val s = f.s * h * 0.07f
+            for (k in -3..3) {
+                val ang = (-PI / 2).toFloat() + k * 0.28f + sin(t * 0.6f + f.ph) * 0.05f
+                val side = if (k < 0) -1f else 1f
+                path.reset()
+                path.moveTo(bx, by)
+                path.quadTo(bx + kotlin.math.cos(ang) * s * 0.5f, by + sin(ang) * s * 0.6f, bx + kotlin.math.cos(ang + 0.25f * side) * s, by + sin(ang) * s)
+                c.drawPath(path, stroke)
+            }
+        }
+        // Fireflies at different depths: near ones larger and softer.
         flies.forEach { f ->
             val x = (f.x + f.ax * sin(t * f.fx * TAU * 0.3f + f.ph)) * w
             val y = (f.y + f.ay * sin(t * f.fy * TAU * 0.3f + f.ph * 1.7f)) * h
-            val a = max(0f, sin(t * f.pulse + f.ph))
-            glow(c, x, y, 14 * d, 0xD6FF78, 0.5f * a)
-            fill.color = color(0xF5FFBE, 0.9f * a)
-            c.drawCircle(x, y, 1.6f * d, fill)
+            val a = max(0f, sin(t * f.pulse + f.ph)).pow(1.5f)
+            val size = 0.6f + f.z * 1.6f
+            glow(c, x, y, 16 * size * d, if (f.warm) 0xFFE278 else 0xC8FF96, 0.45f * a)
+            fill.color = color(0xFFFAD7, 0.95f * a)
+            c.drawCircle(x, y, 1.3f * size * d, fill)
+        }
+        // Tiny sparkles rising slowly.
+        sparks.forEach { s ->
+            val y = (1f - ((s.p + t * s.speed) % 1f)) * h
+            val x = s.x * w + sin(t * 0.7f + s.ph) * 8 * d
+            fill.color = color(0xDCF0FF, 0.55f * (0.5f + 0.5f * sin(t * 3f + s.ph)))
+            c.drawCircle(x, y, 0.9f * d, fill)
         }
     }
 
