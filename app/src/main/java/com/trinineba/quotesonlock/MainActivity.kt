@@ -49,6 +49,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
@@ -1614,8 +1615,12 @@ private fun QuotesScreen(
         }
     }
 
+    // Each page opens at its top (About starts at the update card, not wherever the home screen was scrolled to).
+    val listState = androidx.compose.foundation.lazy.rememberLazyListState()
+    LaunchedEffect(page) { listState.scrollToItem(0) }
     Scaffold { innerPadding ->
         LazyColumn(
+            state = listState,
             modifier = Modifier.fillMaxSize().padding(innerPadding),
             contentPadding = PaddingValues(16.dp),
             verticalArrangement = Arrangement.spacedBy(12.dp),
