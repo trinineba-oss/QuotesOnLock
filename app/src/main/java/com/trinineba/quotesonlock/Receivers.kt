@@ -61,3 +61,11 @@ class BootReceiver : BroadcastReceiver() {
         (repo.current() ?: repo.advance())?.let { QuoteNotifier.show(context, it) }
     }
 }
+
+/** "Read aloud" on the lock-screen card: reads the current quote with the phone's voice. */
+class ReadQuoteReceiver : BroadcastReceiver() {
+    override fun onReceive(context: Context, intent: Intent) {
+        val quote = QuoteRepository(context, QuotePrefs(context)).current() ?: return
+        QuoteVoice.toggle(context.applicationContext, quote)
+    }
+}

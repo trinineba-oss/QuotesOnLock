@@ -28,6 +28,7 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -291,6 +292,7 @@ fun QuoteBrowser(
                             )
                         }
                         Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.End) {
+                            ReadAloudButton(quote)
                             ListAction(R.drawable.ic_lock, "Show on the lock screen now") { onShow(quote) }
                             ListAction(R.drawable.ic_content_copy, "Copy") { QuoteClipboard.copy(context, quote) }
                             ListAction(R.drawable.ic_share, "Share as image") { QuoteShare.share(context, quote) }
@@ -308,5 +310,16 @@ fun QuoteBrowser(
                 }
             }
         }
+    }
+}
+
+/** Reads [quote] aloud with the phone's voice; shows Stop while it is being read. */
+@Composable
+internal fun ReadAloudButton(quote: Quote) {
+    val context = androidx.compose.ui.platform.LocalContext.current
+    val speaking by QuoteVoice.speaking.collectAsState()
+    val reading = speaking == quote.text
+    ListAction(if (reading) R.drawable.ic_stop else R.drawable.ic_volume_up, if (reading) "Stop reading" else "Read aloud") {
+        QuoteVoice.toggle(context, quote)
     }
 }

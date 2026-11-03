@@ -5,6 +5,7 @@
     <string name="action_next">Next quote</string>
     <string name="action_previous">Previous</string>
     <string name="action_copy">Copy</string>
+    <string name="action_read">Read aloud</string>
     <string name="quote_copied">Quote copied</string>
     <string name="wallpaper_name">Quotes on Lock</string>
     <string name="wallpaper_description">Your theme\'s artwork, from Starry Night to candlelight and waves at dusk, with today\'s quote.</string>

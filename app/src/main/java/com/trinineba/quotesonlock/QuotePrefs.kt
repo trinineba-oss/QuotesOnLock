@@ -137,6 +137,19 @@ class QuotePrefs(context: Context) {
         get() = prefs.getString("lifeline_letter", "") ?: ""
         set(value) = prefs.edit().putString("lifeline_letter", value).apply()
 
+    /** Reading aloud: speed (1 is the voice's normal pace), the chosen voice ("" for the phone's default), and a Read button on the lock-screen card. */
+    var voiceRate: Float
+        get() = prefs.getFloat("voice_rate", 0.85f)
+        set(value) = prefs.edit().putFloat("voice_rate", value).apply()
+
+    var voiceName: String
+        get() = prefs.getString("voice_name", "") ?: ""
+        set(value) = prefs.edit().putString("voice_name", value).apply()
+
+    var notifRead: Boolean
+        get() = prefs.getBoolean("notif_read", false)
+        set(value) = prefs.edit().putBoolean("notif_read", value).apply()
+
     /** Calming sounds: volume (0–1), stop-after minutes (0 keeps playing), and the sound under Breathe ("" for none). */
     var soundVolume: Float
         get() = prefs.getFloat("sound_volume", 0.6f)

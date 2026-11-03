@@ -775,18 +775,24 @@ private fun QuotesScreen(
                             fontSize = (quoteSize.sizeSp + if (quote.explained) 0 else 2).sp,
                             color = textColor,
                         )
-                        quote.byline?.let { author ->
-                            val name = authorName(author)
-                            Text(
-                                if (name != null) "— $author ›" else "— $author",
-                                fontFamily = family,
-                                fontSize = (quoteSize.sizeSp * 0.9f).sp,
-                                color = if (quoteColor == null && theme != AppTheme.CLASSIC) MaterialTheme.colorScheme.primary else textColor,
-                                // Tap the author to see all of their quotes.
-                                modifier = if (name != null) {
-                                    Modifier.clickable(onClickLabel = "All quotes by $name") { browse = listOf(BrowsePage.author(name)) }
-                                } else Modifier,
-                            )
+                        // The byline, with the read-aloud button at its end.
+                        Row(verticalAlignment = Alignment.CenterVertically) {
+                            Box(Modifier.weight(1f)) {
+                                quote.byline?.let { author ->
+                                    val name = authorName(author)
+                                    Text(
+                                        if (name != null) "— $author ›" else "— $author",
+                                        fontFamily = family,
+                                        fontSize = (quoteSize.sizeSp * 0.9f).sp,
+                                        color = if (quoteColor == null && theme != AppTheme.CLASSIC) MaterialTheme.colorScheme.primary else textColor,
+                                        // Tap the author to see all of their quotes.
+                                        modifier = if (name != null) {
+                                            Modifier.clickable(onClickLabel = "All quotes by $name") { browse = listOf(BrowsePage.author(name)) }
+                                        } else Modifier,
+                                    )
+                                }
+                            }
+                            ReadAloudButton(quote)
                         }
                         quote.brief?.let { brief ->
                             HorizontalDivider(color = MaterialTheme.colorScheme.primary.copy(alpha = 0.3f))
@@ -1156,6 +1162,11 @@ private fun QuotesScreen(
                 )
             }
         }
+        item(key = "ap-voice") {
+            SettingsCard("Read aloud") {
+                ReadAloudSettings(prefs) { refreshNotification() }
+            }
+        }
         item(key = "ap-text") {
             SettingsCard("Text") {
                 Row(
@@ -1483,6 +1494,7 @@ private fun QuotesScreen(
                             if (enabled) QuoteNotifier.show(context, quote)
                             page = Page.HOME
                         }
+                        ReadAloudButton(quote)
                         ListAction(R.drawable.ic_content_copy, "Copy") { QuoteClipboard.copy(context, quote) }
                         ListAction(R.drawable.ic_share, "Share as image") { QuoteShare.share(context, quote) }
                         ListAction(R.drawable.ic_favorite, "Remove from favourites", tint = Color(0xFFE0566B)) { toggleFavorite(quote) }
