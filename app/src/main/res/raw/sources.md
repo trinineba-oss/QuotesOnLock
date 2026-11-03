@@ -203,6 +203,13 @@ editions below, or a translation made for this app and labelled `(tr. Claude)`.
 | George MacDonald | Phantastes; Unspoken Sermons | original English | Project Gutenberg #325, #9057 |
 | A. E. Housman (more) | Last Poems (1922) | original English | Project Gutenberg #7848 |
 | Edward Thomas (more) | Last Poems (1918) | original English | Project Gutenberg #22732 |
+| Sara Teasdale | Love Songs (1917); Flame and Shadow (1920) | original English | Project Gutenberg #442, #591 |
+| E. M. Forster | Howards End (1910); A Room with a View (1908) | original English | Project Gutenberg #2946, #2641 |
+| George Santayana | Soliloquies in England (1922); The Life of Reason (1905–06) | original English | Project Gutenberg #48429, #15000 |
+| Bertrand Russell | The Conquest of Happiness (1930); The Problems of Philosophy (1912) | original English | Project Gutenberg #77894, #5827 |
+| J. P. Jacobsen | Niels Lyhne (1880) | tr. Hanna Astrup Larsen (1919) | Project Gutenberg #55389 |
+| John O'Donohue | short excerpts (in copyright) | original English | Goodreads, hand-checked |
+| Marilynne Robinson | short excerpts (in copyright) | original English | Goodreads, hand-checked |
 
 The themed quotes (Motivation, Thought-provoking, Stoic & ancient wisdom, Kindness & hope) are short, widely
 published sayings and aphorisms by ancient and 19th-century authors, attributed to the person traditionally credited.
