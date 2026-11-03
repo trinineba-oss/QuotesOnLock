@@ -488,3 +488,10 @@ Emmy Noether|German mathematician (1882–1935), whose theorem links symmetry an
 Ernest Hemingway|American novelist (1899–1961) of The Old Man and the Sea. Nobel Prize 1954.
 Robert Zajonc|Polish-American social psychologist (1923–2008).
 Edward Thorndike|American psychologist (1874–1949).
+Ole Rømer|Danish astronomer (1644–1710) who first measured the speed of light.
+Ludwig Boltzmann|Austrian physicist (1844–1906) who explained entropy through the statistics of atoms.
+Barry Schwartz|American psychologist (born 1946) of The Paradox of Choice.
+Paul Samuelson|American economist (1915–2009). Nobel Prize in Economics 1970.
+Frank Benford|American physicist (1883–1948).
+Baldassare Castiglione|Italian courtier and diplomat (1478–1529) of The Book of the Courtier.
+T. S. Eliot|American-British poet (1888–1965) of The Waste Land and Four Quartets. Nobel Prize 1948.
