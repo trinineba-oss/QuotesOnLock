@@ -130,6 +130,7 @@ class MainActivity : ComponentActivity() {
             if (prefs.enabled) QuoteRepository(this, prefs).current()?.let { QuoteNotifier.show(this, it) }
             QuoteWidgets.refresh(this)
         }
+        QuoteRepository(this, prefs).preload()
         if (prefs.enabled || QuoteWidgets.hasAny(this)) QuoteScheduler.ensureScheduled(this, prefs.intervalMinutes)
         Updater.schedule(this, prefs.updateCheck)
         val openUpdates = intent.getBooleanExtra(EXTRA_OPEN_UPDATES, false)

@@ -12,7 +12,17 @@ class QuoteRepository(
 ) {
     private val appContext = context.applicationContext
 
-    fun bundled(): List<Quote> = bundledCache ?: (loadBundled() + loadIdeas()).also { bundledCache = it }
+    /** Every built-in quote, idea and myth, read once per process (the first call can take a moment). */
+    fun bundled(): List<Quote> = bundledCache ?: synchronized(lock) {
+        bundledCache ?: (loadBundled() + loadIdeas()).also { bundledCache = it }
+    }
+
+    /** Reads the built-in quotes on a background thread, so the first screen doesn't wait for them. */
+    fun preload() {
+        if (bundledCache == null) Thread({ runCatching { bundled(); counts() } }, "quotes-preload").start()
+    }
+
+    private fun counts(): Map<Category?, Int> = countCache ?: bundled().groupingBy { it.category }.eachCount().also { countCache = it }
 
     /**
      * Great ideas: `category|title|text|author|brief|kind|era`, where kind `q` is the idea in its originator's
@@ -150,7 +160,7 @@ class QuoteRepository(
 
     /** How many quotes a category holds, whether or not it is turned on. */
     fun count(category: Category): Int =
-        if (category == Category.CUSTOM) custom().size else bundled().count { it.category == category }
+        if (category == Category.CUSTOM) custom().size else counts()[category] ?: 0
 
     fun current(): Quote? = prefs.currentText?.let { full(Quote(it, prefs.currentAuthor)) }
 
@@ -271,5 +281,10 @@ class QuoteRepository(
 
         @Volatile
         var ideaIndex: Map<String, Quote>? = null
+
+        @Volatile
+        var countCache: Map<Category?, Int>? = null
+
+        val lock = Any()
     }
 }

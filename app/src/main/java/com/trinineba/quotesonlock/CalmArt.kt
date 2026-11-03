@@ -26,9 +26,42 @@ internal object CalmArt {
     private val path = Path()
     private val oval = RectF()
 
+    /**
+     * Draws one frame. A frame that fails is tried once more with fresh caches and, failing that, the
+     * scene's plain sky is painted, so the screen is never left empty (with motion off there is no
+     * next frame to recover on).
+     */
+    @Synchronized
     fun draw(theme: AppTheme, canvas: Canvas, w: Float, h: Float, t: Float, d: Float) {
         // Nothing to draw before the view has a size (and a zero-sized gradient would throw).
         if (w < 2f || h < 2f) return
+        val ok = runCatching { scene(theme, canvas, w, h, t, d) }.isSuccess ||
+            runCatching { clear(); scene(theme, canvas, w, h, t, d) }.isSuccess
+        if (!ok) {
+            reset()
+            canvas.drawColor(fallback(theme))
+        }
+    }
+
+    private fun fallback(theme: AppTheme): Int = when (theme) {
+        AppTheme.SNOW -> 0xFF1C2A44.toInt()
+        AppTheme.CANDLE -> 0xFF2A1A10.toInt()
+        AppTheme.FIREFLIES -> 0xFF0F1F1A.toInt()
+        AppTheme.LAVENDER -> 0xFFC9B6DE.toInt()
+        AppTheme.CLOUDS -> 0xFFB8D3EE.toInt()
+        AppTheme.WAVES -> 0xFF3A3556.toInt()
+        AppTheme.BAMBOO -> 0xFFCFE0C4.toInt()
+        else -> 0xFF101820.toInt()
+    }
+
+    /** Forgets every cached layer and cloud, so the next frame paints them anew. */
+    private fun clear() {
+        reset()
+        cache.clear()
+        cloudSprites.clear()
+    }
+
+    private fun scene(theme: AppTheme, canvas: Canvas, w: Float, h: Float, t: Float, d: Float) {
         when (theme) {
             AppTheme.SNOW -> snow(canvas, w, h, t, d)
             AppTheme.CANDLE -> candle(canvas, w, h, t, d)
@@ -375,26 +408,32 @@ internal object CalmArt {
         }
     }
 
-    private val cloudSprites = HashMap<String, Bitmap>()
+    private val cloudSprites = LinkedHashMap<String, Bitmap>()
 
-    /** One cloud painted once into its own soft image; it then only slides across the sky. */
+    /**
+     * One cloud painted once into its own small, soft image; it then only slides across the sky. Clouds
+     * are all blur, so a quarter-size image (and at most 360 px wide) scales up without any visible loss
+     * and keeps memory and GPU uploads small.
+     */
     private fun cloudSprite(index: Int, cl: Cloud, cw: Float): Bitmap {
         val k = "$index:${cw.toInt()}"
         return cloudSprites[k] ?: run {
-            if (cloudSprites.size > 40) cloudSprites.clear()
-            val bw = max(1, (cw * 1.4f).toInt())
-            val bh = max(1, (cw * 0.8f).toInt())
+            val scale = minOf(0.25f, 360f / (2.8f * cw))
+            val bw = max(1, (2.8f * cw * scale).toInt())
+            val bh = max(1, (1.6f * cw * scale).toInt())
             val b = Bitmap.createBitmap(bw, bh, Bitmap.Config.ARGB_8888)
             val bc = Canvas(b)
-            bc.scale(0.5f, 0.5f)
+            bc.scale(bw / (2.8f * cw), bh / (1.6f * cw))
             cl.puffs.forEach { p ->
                 val px = 1.4f * cw + p[0] * cw
                 val py = 0.7f * cw + p[1] * cw
-                val r = cw * p[2]
+                val r = max(1f, cw * p[2])
                 fill.shader = RadialGradient(px, py, r, intArrayOf(0xBFFFFFFF.toInt(), 0x73FFFFFF, 0x00FFFFFF), floatArrayOf(0f, 0.6f, 1f), Shader.TileMode.CLAMP)
                 bc.drawCircle(px, py, r, fill)
             }
             fill.shader = null
+            // Two screen sizes' worth (the app and the wallpaper); the oldest go first.
+            while (cloudSprites.size >= 2 * cloudList.size) cloudSprites.remove(cloudSprites.keys.first())
             cloudSprites[k] = b
             b
         }

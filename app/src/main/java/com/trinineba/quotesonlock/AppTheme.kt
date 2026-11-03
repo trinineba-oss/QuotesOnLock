@@ -470,8 +470,8 @@ private fun CalmBackground(theme: AppTheme, animate: Boolean) {
     val time: State<Float> = if (animate) rememberLoopAngle(2000f * PI.toFloat()) else remember(theme) { mutableFloatStateOf(CalmArt.stillTime(theme)) }
     Canvas(Modifier.fillMaxSize()) {
         val t = time.value
-        // A failed frame must never leave the screen blank: reset and try again on the next one.
-        drawIntoCanvas { runCatching { CalmArt.draw(theme, it.nativeCanvas, size.width, size.height, t, density) }.onFailure { CalmArt.reset() } }
+        // CalmArt never leaves the frame blank: a failed frame is retried, then shown as a plain sky.
+        drawIntoCanvas { CalmArt.draw(theme, it.nativeCanvas, size.width, size.height, t, density) }
     }
 }
 
