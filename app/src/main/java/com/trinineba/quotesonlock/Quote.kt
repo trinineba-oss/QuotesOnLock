@@ -269,6 +269,9 @@ enum class Category(val key: String, val label: String, val group: QuoteGroup) {
     MUIR("muir", "John Muir", QuoteGroup.WRITERS),
     HOUSMAN("housman", "A. E. Housman", QuoteGroup.POETS),
     EDWARD_THOMAS("edwardthomas", "Edward Thomas", QuoteGroup.POETS),
+    CATHER("cather", "Willa Cather", QuoteGroup.WRITERS),
+    HEARN("hearn", "Lafcadio Hearn", QuoteGroup.WRITERS),
+    MACDONALD("macdonald", "George MacDonald", QuoteGroup.WRITERS),
     QURAN("quran", "The Qur'an", QuoteGroup.SCRIPTURE),
     CUSTOM("custom", "My own quotes", QuoteGroup.MINE);
 

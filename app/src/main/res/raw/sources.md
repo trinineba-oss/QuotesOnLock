@@ -198,6 +198,11 @@ editions below, or a translation made for this app and labelled `(tr. Claude)`.
 | John Muir | My First Summer in the Sierra | original English | Project Gutenberg #32540 |
 | A. E. Housman | A Shropshire Lad | original English | Project Gutenberg #5720 |
 | Edward Thomas | Poems (1917) | original English | Project Gutenberg #22423 |
+| Willa Cather | My Ántonia; O Pioneers!; The Song of the Lark | original English | Project Gutenberg #242, #24, #44 |
+| Lafcadio Hearn | In Ghostly Japan; Glimpses of Unfamiliar Japan | original English | Project Gutenberg #8128, #8130 |
+| George MacDonald | Phantastes; Unspoken Sermons | original English | Project Gutenberg #325, #9057 |
+| A. E. Housman (more) | Last Poems (1922) | original English | Project Gutenberg #7848 |
+| Edward Thomas (more) | Last Poems (1918) | original English | Project Gutenberg #22732 |
 
 The themed quotes (Motivation, Thought-provoking, Stoic & ancient wisdom, Kindness & hope) are short, widely
 published sayings and aphorisms by ancient and 19th-century authors, attributed to the person traditionally credited.
