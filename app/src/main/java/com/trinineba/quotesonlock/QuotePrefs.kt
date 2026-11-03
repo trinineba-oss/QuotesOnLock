@@ -132,6 +132,42 @@ class QuotePrefs(context: Context) {
         get() = prefs.getInt("myths_mix", 0)
         set(value) = prefs.edit().putInt("myths_mix", value).apply()
 
+    /** My lifeline (When it's hard): written by the user, kept on the phone only. */
+    var lifelineLetter: String
+        get() = prefs.getString("lifeline_letter", "") ?: ""
+        set(value) = prefs.edit().putString("lifeline_letter", value).apply()
+
+    var lifelineHelps: String
+        get() = prefs.getString("lifeline_helps", "") ?: ""
+        set(value) = prefs.edit().putString("lifeline_helps", value).apply()
+
+    var lifelinePeople: String
+        get() = prefs.getString("lifeline_people", "") ?: ""
+        set(value) = prefs.edit().putString("lifeline_people", value).apply()
+
+    var lifelinePlaces: String
+        get() = prefs.getString("lifeline_places", "") ?: ""
+        set(value) = prefs.edit().putString("lifeline_places", value).apply()
+
+    var lifelineReasons: String
+        get() = prefs.getString("lifeline_reasons", "") ?: ""
+        set(value) = prefs.edit().putString("lifeline_reasons", value).apply()
+
+    /** Kinder thoughts kept from "Look at a thought again", newest last. */
+    val lifelineNotes: List<String> get() = notesFromJson(prefs.getString("lifeline_notes", null))
+
+    fun addLifelineNote(note: String) {
+        if (note.isBlank()) return
+        val a = org.json.JSONArray(lifelineNotes + note)
+        prefs.edit().putString("lifeline_notes", a.toString()).apply()
+    }
+
+    fun removeLifelineNote(index: Int) {
+        val list = lifelineNotes.toMutableList()
+        if (index in list.indices) list.removeAt(index)
+        prefs.edit().putString("lifeline_notes", org.json.JSONArray(list).toString()).apply()
+    }
+
     /** Theme of the home-screen widgets, or null to follow the app's theme. */
     var widgetTheme: AppTheme?
         get() = prefs.getString("widget_theme", null)?.let { AppTheme.fromKey(it) }

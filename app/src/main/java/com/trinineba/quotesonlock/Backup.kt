@@ -17,6 +17,7 @@ object Backup {
         "enabled", "interval_minutes", "categories_off", "font", "size", "text_color", "theme", "lock_theme",
         "widget_theme", "allow_repeats", "favorites_only", "update_check", "card_softness", "card_opacity",
         "motion_speed", "aurora_intensity", "animate_background", "wallpaper_show_quote", "wallpaper_quote_position", "swipe_card", "ideas_mix", "myths_mix",
+        "lifeline_letter", "lifeline_helps", "lifeline_people", "lifeline_places", "lifeline_reasons", "lifeline_notes",
     )
 
     class Result(val favoritesAdded: Int, val customAdded: Int, val hasSettings: Boolean)

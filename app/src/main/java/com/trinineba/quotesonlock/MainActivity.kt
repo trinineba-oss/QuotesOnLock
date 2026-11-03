@@ -207,6 +207,7 @@ private fun QuotesScreen(
     var allowRepeats by remember { mutableStateOf(prefs.allowRepeats) }
     var swipeCard by remember { mutableStateOf(prefs.swipeCard) }
     var ideasMix by remember { mutableStateOf(prefs.ideasMix) }
+    var tool by rememberSaveable { mutableStateOf<String?>(null) }
     var mythsMix by remember { mutableStateOf(prefs.mythsMix) }
     var quoteFont by remember { mutableStateOf(prefs.font) }
     var quoteSize by remember { mutableStateOf(prefs.size) }
@@ -581,6 +582,18 @@ private fun QuotesScreen(
         return
     }
 
+    // The toolbox's tools open full screen, over the page.
+    tool?.let { t ->
+        when (t) {
+            "breathe" -> BreatheScreen(repo) { tool = null }
+            "ground" -> GroundScreen(onBack = { tool = null }, onBreathe = { tool = "breathe" })
+            "reframe" -> ReframeScreen(prefs) { tool = null }
+            "lifeline" -> LifelineScreen(prefs, repo) { tool = null; favorites = repo.favorites() }
+            else -> tool = null
+        }
+        return
+    }
+
     browse.lastOrNull()?.let { bp ->
         QuoteBrowser(
             page = bp,
@@ -800,6 +813,14 @@ private fun QuotesScreen(
                     pair.forEach { TileCard(it, Modifier.weight(1f)) }
                 }
             }
+        }
+        item(key = "tile-toolbox") {
+            // Low down and quiet, on purpose: it's there when needed, not in the way.
+            TileCard(
+                Tile(R.drawable.ic_spa, "When it's hard", "Comfort, calm and support") { page = Page.TOOLBOX },
+                Modifier.fillMaxWidth(),
+                wide = true,
+            )
         }
         item(key = "tile-about") {
             TileCard(
@@ -1428,6 +1449,29 @@ private fun QuotesScreen(
         }
     }
 
+    fun LazyListScope.toolboxPage() {
+        item(key = "tb-intro") {
+            Text("Take your time. Nothing here is saved unless you choose to.", style = MaterialTheme.typography.bodyMedium)
+        }
+        item(key = "tb-feel") {
+            SettingsCard("How are you feeling?") {
+                FeelingChips { browse = listOf(BrowsePage.feeling(it)) }
+                Text("Opens gentle quotes, ideas and myths for that feeling.", style = MaterialTheme.typography.bodySmall)
+            }
+        }
+        item(key = "tb-breathe") { ToolRow(R.drawable.ic_air, "Breathe", "A calm circle to breathe with \u00B7 1\u20135 min") { tool = "breathe" } }
+        item(key = "tb-ground") { ToolRow(R.drawable.ic_visibility, "Ground yourself", "5 things you see, 4 you can touch\u2026") { tool = "ground" } }
+        item(key = "tb-reframe") { ToolRow(R.drawable.ic_psychology, "Look at a thought again", "What would you tell a friend?") { tool = "reframe" } }
+        item(key = "tb-lifeline") { ToolRow(R.drawable.ic_volunteer_activism, "My lifeline", "A letter to yourself, kept thoughts, what helps") { tool = "lifeline" } }
+        item(key = "tb-note") {
+            Text(
+                "These are gentle companions, not a replacement for care from people who know you or from a professional.",
+                style = MaterialTheme.typography.bodySmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+            )
+        }
+    }
+
     fun LazyListScope.aboutPage() {
         item(key = "a-update") {
             SettingsCard("App updates") {
@@ -1584,6 +1628,7 @@ private fun QuotesScreen(
                 Page.SCHEDULE -> schedulePage()
                 Page.FAVORITES -> favoritesPage()
                 Page.MINE -> minePage()
+                Page.TOOLBOX -> toolboxPage()
                 Page.ABOUT -> aboutPage()
             }
         }
@@ -1598,6 +1643,7 @@ private enum class Page(val title: String) {
     SCHEDULE("Schedule"),
     FAVORITES("Favourites"),
     MINE("My quotes"),
+    TOOLBOX("When it's hard"),
     ABOUT("About & updates"),
 }
 

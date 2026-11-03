@@ -45,6 +45,8 @@ object BrowsePage {
     fun category(category: Category) = "c:${category.key}"
     fun author(name: String) = "a:$name"
     fun subject(subject: Subject) = "t:${subject.key}"
+    /** The hand-picked comfort set for a feeling (When it's hard). */
+    fun feeling(feeling: Feeling) = "f:${feeling.key}"
     /** Every idea or myth in a group such as Great ideas, with chips for its types. */
     fun group(group: QuoteGroup) = "g:${group.name}"
 
@@ -106,6 +108,7 @@ fun QuoteBrowser(
     val category = if (page.startsWith("c:")) Category.fromKey(page.removePrefix("c:")) else null
     val author = if (page.startsWith("a:")) page.removePrefix("a:") else null
     val subject = if (page.startsWith("t:")) Subject.fromKey(page.removePrefix("t:")) else null
+    val feeling = if (page.startsWith("f:")) Feeling.fromKey(page.removePrefix("f:")) else null
     val group = if (page.startsWith("g:")) QuoteGroup.entries.firstOrNull { it.name == page.removePrefix("g:") } else null
     // Idea and myth pages get chips to move between the group's types.
     val chipGroup = group ?: category?.group?.takeIf { it == QuoteGroup.IDEAS || it == QuoteGroup.MYTHS }
@@ -116,6 +119,7 @@ fun QuoteBrowser(
             category == Category.CUSTOM -> repo.custom()
             category != null -> repo.bundled().filter { it.category == category }
             subject != null -> repo.bundled().filter { subject.key in it.subjects }
+            feeling != null -> Comfort.quotes(context, repo, feeling)
             group != null -> repo.bundled().filter { it.category?.group == group }
             else -> (repo.custom() + repo.bundled()).filter { authorName(it.author) == author }
         }
@@ -158,6 +162,7 @@ fun QuoteBrowser(
                     Text(
                         when {
                             searching -> "Explore"
+                            feeling != null -> feeling.heading
                             group != null -> group.title
                             category != null && chipGroup != null -> "${chipGroup.title} · ${category.label}"
                             else -> category?.label ?: subject?.label ?: author.orEmpty()
@@ -165,7 +170,7 @@ fun QuoteBrowser(
                         style = MaterialTheme.typography.headlineSmall,
                     )
                     val context = androidx.compose.ui.platform.LocalContext.current
-                    val bio = remember(page) { if (searching) null else AuthorBios.of(context, author ?: group?.title ?: category?.label) }
+                    val bio = remember(page) { if (searching) null else feeling?.intro ?: AuthorBios.of(context, author ?: group?.title ?: category?.label) }
                     bio?.let {
                         Text(
                             it,
@@ -176,6 +181,7 @@ fun QuoteBrowser(
                     Text(
                         when {
                             searching && query.isBlank() -> "${all.size} quotes by ${authors.size} authors. Type a word, a phrase or a name."
+                            query.isBlank() && feeling != null -> "${all.size} to read slowly"
                             query.isBlank() && chipGroup == QuoteGroup.MYTHS -> "${all.size} myths"
                             query.isBlank() && chipGroup == QuoteGroup.IDEAS -> "${all.size} ideas"
                             query.isBlank() -> "${all.size} quotes"
@@ -193,6 +199,9 @@ fun QuoteBrowser(
                     singleLine = true,
                     label = { Text(if (searching) "Search all quotes and authors" else "Search these quotes") },
                 )
+            }
+            if (feeling != null) {
+                item { FeelingChips(selected = feeling) { if (it != feeling) onSwitchPage(BrowsePage.feeling(it)) } }
             }
             if (chipGroup != null) {
                 // All of the group, or one of its types.
