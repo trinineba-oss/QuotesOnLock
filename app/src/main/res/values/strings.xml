@@ -7,7 +7,7 @@
     <string name="action_copy">Copy</string>
     <string name="quote_copied">Quote copied</string>
     <string name="wallpaper_name">Quotes on Lock</string>
-    <string name="wallpaper_description">Your theme's artwork, from Starry Night to candlelight and waves at dusk, with today\'s quote.</string>
+    <string name="wallpaper_description">Your theme\'s artwork, from Starry Night to candlelight and waves at dusk, with today\'s quote.</string>
     <string name="widget_large_name">Quote (large)</string>
     <string name="widget_small_name">Quote (small)</string>
     <string name="widget_large_description">Today\'s quote on your theme\'s picture, with a heart and next.</string>
