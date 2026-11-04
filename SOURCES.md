@@ -210,6 +210,9 @@ editions below, or a translation made for this app and labelled `(tr. Claude)`.
 | J. P. Jacobsen | Niels Lyhne (1880) | tr. Hanna Astrup Larsen (1919) | Project Gutenberg #55389 |
 | John O'Donohue | short excerpts (in copyright) | original English | Goodreads, hand-checked |
 | Marilynne Robinson | short excerpts (in copyright) | original English | Goodreads, hand-checked |
+| Martin Luther King Jr. | short excerpts (in copyright) | original English | Goodreads, hand-checked against his speeches and books |
+| Nelson Mandela | short excerpts (in copyright) | original English | Goodreads, hand-checked; misattributed lines left out |
+| Muhammad Ali | short excerpts (in copyright) | original English | Goodreads, hand-checked |
 
 The themed quotes (Motivation, Thought-provoking, Stoic & ancient wisdom, Kindness & hope) are short, widely
 published sayings and aphorisms by ancient and 19th-century authors, attributed to the person traditionally credited.

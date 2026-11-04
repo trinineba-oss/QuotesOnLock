@@ -530,3 +530,6 @@ Noam Chomsky|American linguist (born 1928) who transformed the study of language
 J. L. Austin|British philosopher (1911–1960) of ordinary language, known for How to Do Things with Words.
 Elizabeth Loftus|American psychologist (born 1944) whose research showed how malleable human memory is.
 James Lovelock and Lynn Margulis|Lovelock (1919–2022), a British scientist and inventor, and Margulis (1938–2011), an American biologist, developed the Gaia hypothesis.
+Martin Luther King Jr.|American minister and civil rights leader (1929–1968) who led the movement against segregation through nonviolence; Nobel Peace Prize 1964.
+Nelson Mandela|South African anti-apartheid leader (1918–2013), imprisoned for 27 years, who became his country's first democratically elected president; Nobel Peace Prize 1993.
+Muhammad Ali|American boxer (1942–2016), three-time world heavyweight champion, who refused the Vietnam draft on conscience and became a voice for civil rights and peace.
