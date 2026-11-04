@@ -214,6 +214,11 @@ editions below, or a translation made for this app and labelled `(tr. Claude)`.
 | Nelson Mandela | short excerpts (in copyright) | original English | Goodreads, hand-checked; misattributed lines left out |
 | Muhammad Ali | short excerpts (in copyright) | original English | Goodreads, hand-checked |
 | Marianne Williamson | A Return to Love (1992) and others, short excerpts (in copyright) | original English | Goodreads, hand-checked |
+| Mahatma Gandhi | An Autobiography, or The Story of My Experiments with Truth (tr. Mahadev Desai, 1927–29); Hind Swaraj (1921 ed.) | as listed | Internet Archive `storyofmyexperim0001mkga`, `storyofmyexperim0002mkga`, `hindswarajorindi00ganduoft` (scan errors corrected) |
+| Frederick Douglass | Narrative of the Life (1845); West India Emancipation speech (1857) | original English | Project Gutenberg #23; Internet Archive `ASPC0001937700` |
+| Abraham Lincoln | speeches and letters | original English | Project Gutenberg #3253 |
+| Mary Wollstonecraft | A Vindication of the Rights of Woman (1792) | original English | Project Gutenberg #3420 |
+| Maya Angelou, Desmond Tutu, the Dalai Lama, Eleanor Roosevelt | short excerpts (in copyright) | original English (the Dalai Lama in his English books) | Goodreads, hand-checked; misattributed lines left out |
 
 The themed quotes (Motivation, Thought-provoking, Stoic & ancient wisdom, Kindness & hope) are short, widely
 published sayings and aphorisms by ancient and 19th-century authors, attributed to the person traditionally credited.
