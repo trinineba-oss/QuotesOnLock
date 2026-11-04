@@ -291,6 +291,11 @@ enum class Category(val key: String, val label: String, val group: QuoteGroup) {
     TUTU("tutu", "Desmond Tutu", QuoteGroup.THINKERS),
     DALAILAMA("dalailama", "The Dalai Lama", QuoteGroup.THINKERS),
     ELEANOR("eleanor", "Eleanor Roosevelt", QuoteGroup.THINKERS),
+    ROSSETTI("rossetti", "Christina Rossetti", QuoteGroup.POETS),
+    MIRABAI("mirabai", "Mirabai", QuoteGroup.POETS),
+    MISTRAL("mistral", "Gabriela Mistral", QuoteGroup.POETS),
+    CARROLL("carroll", "Lewis Carroll", QuoteGroup.WRITERS),
+    GRAHAME("grahame", "Kenneth Grahame", QuoteGroup.WRITERS),
     QURAN("quran", "The Qur'an", QuoteGroup.SCRIPTURE),
     CUSTOM("custom", "My own quotes", QuoteGroup.MINE);
 

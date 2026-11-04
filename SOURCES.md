@@ -219,6 +219,11 @@ editions below, or a translation made for this app and labelled `(tr. Claude)`.
 | Abraham Lincoln | speeches and letters | original English | Project Gutenberg #3253 |
 | Mary Wollstonecraft | A Vindication of the Rights of Woman (1792) | original English | Project Gutenberg #3420 |
 | Maya Angelou, Desmond Tutu, the Dalai Lama, Eleanor Roosevelt | short excerpts (in copyright) | original English (the Dalai Lama in his English books) | Goodreads, hand-checked; misattributed lines left out |
+| Christina Rossetti | Poems; Goblin Market and Other Poems | original English | Project Gutenberg #19188, #16950 |
+| Lewis Carroll | Alice's Adventures in Wonderland; Through the Looking-Glass | original English | Project Gutenberg #11, #12 |
+| Kenneth Grahame | The Wind in the Willows (1908) | original English | Project Gutenberg #289 |
+| Gabriela Mistral | Ternura (Montevideo, 1925) | my own translations from the Spanish, marked "(tr. Claude)" | Internet Archive `ternuracanciones00mist` |
+| Mirabai | traditional padas (16th century) | my own translations from the Rajasthani/Hindi of well-known songs, marked "(tr. Claude)" | traditional texts |
 
 The themed quotes (Motivation, Thought-provoking, Stoic & ancient wisdom, Kindness & hope) are short, widely
 published sayings and aphorisms by ancient and 19th-century authors, attributed to the person traditionally credited.
