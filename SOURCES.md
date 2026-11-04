@@ -213,6 +213,7 @@ editions below, or a translation made for this app and labelled `(tr. Claude)`.
 | Martin Luther King Jr. | short excerpts (in copyright) | original English | Goodreads, hand-checked against his speeches and books |
 | Nelson Mandela | short excerpts (in copyright) | original English | Goodreads, hand-checked; misattributed lines left out |
 | Muhammad Ali | short excerpts (in copyright) | original English | Goodreads, hand-checked |
+| Marianne Williamson | A Return to Love (1992) and others, short excerpts (in copyright) | original English | Goodreads, hand-checked |
 
 The themed quotes (Motivation, Thought-provoking, Stoic & ancient wisdom, Kindness & hope) are short, widely
 published sayings and aphorisms by ancient and 19th-century authors, attributed to the person traditionally credited.
