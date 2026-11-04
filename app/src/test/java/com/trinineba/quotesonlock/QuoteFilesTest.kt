@@ -45,8 +45,8 @@ class QuoteFilesTest {
     @Test fun everyBookCategoryHasQuotes() {
         val counts = (quotes + ideas).groupingBy { it.category }.eachCount()
         val empty = Category.entries.filter { it != Category.CUSTOM && (counts[it] ?: 0) == 0 }
-            // Ghalib is listed for later; no public-domain translation has been found yet.
-            .filter { it.key != "ghalib" }
+            // Listed for later, waiting for a usable public-domain source; the app hides empty types.
+            .filter { it.key !in setOf("ghalib", "hildegard") }
         assertTrue("categories with nothing in them: $empty", empty.isEmpty())
     }
 
