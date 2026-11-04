@@ -155,7 +155,7 @@ fun SoundsScreen(prefs: QuotePrefs, onBack: () -> Unit) {
         }
         item(key = "s-note") {
             Text(
-                "Recordings are public domain or CC0 (see About › Sources); the wind and fire are made by the app. The piano pieces start again after a short pause.",
+                "Nature recordings and the nocturne are public domain or CC0; the Moonlight Sonata is performed by Roel van Kuppevelt, www.classicals.de (CC BY-NC 4.0). The wind and fire are made by the app. See About › Sources. The piano pieces start again after a short pause.",
                 style = MaterialTheme.typography.bodySmall,
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
             )

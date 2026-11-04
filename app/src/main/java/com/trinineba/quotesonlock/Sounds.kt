@@ -39,7 +39,7 @@ enum class Soundscape(val key: String, val label: String, @RawRes val raw: Int, 
     FIRE("fire", "Crackling fire", R.raw.snd_fire, R.drawable.candle_frame),
     STREAM("stream", "Gentle stream", R.raw.snd_stream, R.drawable.water_frame),
     BIRDS("birds", "Birdsong", R.raw.snd_birds, R.drawable.clouds_frame),
-    // MOONLIGHT is added once its recording is in res/raw.
+    MOONLIGHT("moonlight", "Beethoven: Moonlight Sonata", R.raw.mus_moonlight, R.drawable.snow_frame, music = true),
     NOCTURNE("nocturne", "Chopin: Nocturne Op. 9 No. 2", R.raw.mus_nocturne, R.drawable.starry_frame, music = true);
 
     companion object {
