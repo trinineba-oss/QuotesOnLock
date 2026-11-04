@@ -770,7 +770,7 @@ private fun QuotesScreen(
                             }
                         }
                         Text(
-                            quote.shownText,
+                            readingText(quote),
                             fontFamily = if (quote.explained) null else family,
                             fontSize = (quoteSize.sizeSp + if (quote.explained) 0 else 2).sp,
                             color = textColor,
@@ -1478,7 +1478,7 @@ private fun QuotesScreen(
             SoftCard(Modifier.fillMaxWidth()) {
                 Column(Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(4.dp)) {
                     quote.title?.let { Text(it, fontWeight = FontWeight.SemiBold) }
-                    Text(quote.shownText)
+                    Text(readingText(quote))
                     quote.byline?.let { label ->
                         val name = authorName(label)
                         Text(

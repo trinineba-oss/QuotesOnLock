@@ -339,7 +339,7 @@ fun BreatheScreen(repo: QuoteRepository, onBack: () -> Unit) {
             item {
                 SoftCard(Modifier.fillMaxWidth()) {
                     Column(Modifier.padding(18.dp)) {
-                        Text(q.shownText, style = MaterialTheme.typography.bodyLarge)
+                        Text(readingText(q), style = MaterialTheme.typography.bodyLarge)
                         q.byline?.let { Text("— $it", style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.primary, modifier = Modifier.padding(top = 6.dp)) }
                     }
                 }
@@ -516,7 +516,7 @@ fun LifelineScreen(prefs: QuotePrefs, repo: QuoteRepository, onBack: () -> Unit)
                     SoftCard(Modifier.fillMaxWidth()) {
                         Column(Modifier.padding(16.dp)) {
                             q.title?.let { Text(it, fontWeight = FontWeight.SemiBold) }
-                            Text(q.shownText)
+                            Text(readingText(q))
                             q.byline?.let { Text("— $it", style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.primary) }
                         }
                     }

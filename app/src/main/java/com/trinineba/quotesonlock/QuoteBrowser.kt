@@ -279,7 +279,7 @@ fun QuoteBrowser(
                 SoftCard(modifier = Modifier.fillMaxWidth()) {
                     Column(Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(4.dp)) {
                         quote.title?.let { Text(it, fontWeight = androidx.compose.ui.text.font.FontWeight.SemiBold) }
-                        Text(quote.shownText)
+                        Text(readingText(quote))
                         quote.brief?.let { Text("In brief: $it", style = MaterialTheme.typography.bodySmall) }
                         quote.more?.let { MoreAbout(quote.text, it) }
                         quote.byline?.let { label ->
@@ -340,5 +340,26 @@ internal fun MoreAbout(key: String, more: String, color: Color = Color.Unspecifi
                 .padding(vertical = 4.dp),
         )
         if (open) Text(more, style = MaterialTheme.typography.bodyMedium, color = color, modifier = Modifier.padding(top = 2.dp))
+    }
+}
+
+/**
+ * A quote's shown text, with the words being read aloud gently highlighted while the voice reads this quote.
+ */
+@Composable
+internal fun readingText(quote: Quote): androidx.compose.ui.text.AnnotatedString {
+    val speaking by QuoteVoice.speaking.collectAsState()
+    val range by QuoteVoice.reading.collectAsState()
+    val text = quote.shownText
+    val mark = MaterialTheme.colorScheme.primary.copy(alpha = 0.3f)
+    val active = speaking == quote.text
+    return remember(text, active, range, mark) {
+        androidx.compose.ui.text.buildAnnotatedString {
+            append(text)
+            val r = range
+            if (active && r != null && r.first >= 0 && r.last < text.length && r.first <= r.last) {
+                addStyle(androidx.compose.ui.text.SpanStyle(background = mark), r.first, r.last + 1)
+            }
+        }
     }
 }

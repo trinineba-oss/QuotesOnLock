@@ -22,7 +22,6 @@ import java.util.Locale
 object QuoteVoice {
     private var tts: TextToSpeech? = null
     private var ready = false
-    private var pending: Pair<String, String>? = null
     private var focus: AudioFocusRequest? = null
     private lateinit var app: Context
 
@@ -41,39 +40,54 @@ object QuoteVoice {
         if (mutable.value == quote.text) stop() else speak(context, quote)
     }
 
+    /** The part of the quote's shown text being read right now (a word where the voice reports it, else a sentence). */
+    private val readingRange = MutableStateFlow<IntRange?>(null)
+    val reading: StateFlow<IntRange?> = readingRange
+
+    /**
+     * One piece of speech. [map] gives, for each character spoken, its place in the quote's shown text, so the
+     * screen can highlight what is being said; it is null for the title, byline and explanations.
+     */
+    class Segment(val text: String, val map: IntArray?, val pauseAfterMs: Long)
+
+    // Each reading gets a new generation, so callbacks from a reading that was stopped are ignored.
+    private var generation = 0
+    private var segments: List<Segment> = emptyList()
+    private var lastId: String? = null
+    private var pending: Pair<String, List<Segment>>? = null
+
     fun speak(context: Context, quote: Quote) {
         app = context.applicationContext
-        val words = spokenText(quote)
+        val parts = segments(quote)
         val engine = tts
-        if (engine == null) {
-            pending = quote.text to words
+        if (engine == null || !ready) {
+            pending = quote.text to parts
             mutable.value = quote.text
-            tts = TextToSpeech(app) { status -> onReady(status) }
+            if (engine == null) tts = TextToSpeech(app) { status -> onReady(status) }
             return
         }
-        if (!ready) {
-            pending = quote.text to words
-            mutable.value = quote.text
-            return
-        }
-        say(engine, quote.text, words)
+        say(engine, quote.text, parts)
     }
 
     fun stop() {
         pending = null
+        generation++
         tts?.stop()
         done()
     }
 
-    /** The installed voices for the phone's language (and English), best first, for the settings. */
+    /**
+     * The voices for the phone's language (and English), most natural first, for the settings. Voices that need
+     * the internet are included, as they are often the most natural, and marked as such in the list.
+     */
     fun voices(): List<Voice> {
         val engine = tts ?: return emptyList()
         if (!ready) return emptyList()
         val lang = Locale.getDefault().language
         return runCatching { engine.voices.orEmpty() }.getOrDefault(emptySet())
-            .filter { !it.isNetworkConnectionRequired && it.features?.contains(TextToSpeech.Engine.KEY_FEATURE_NOT_INSTALLED) != true }
+            .filter { it.features?.contains(TextToSpeech.Engine.KEY_FEATURE_NOT_INSTALLED) != true }
             .filter { it.locale.language == lang || it.locale.language == "en" }
-            .sortedWith(compareBy<Voice>({ it.locale.language != lang }, { -it.quality }, { it.name }))
+            .sortedWith(compareBy<Voice>({ it.locale.language != lang }, { -it.quality }, { it.isNetworkConnectionRequired }, { it.name }))
     }
 
     /** Starts the engine early (for the settings' voice list) without saying anything. */
@@ -95,47 +109,95 @@ object QuoteVoice {
         ready = true
         engine.setAudioAttributes(attributes)
         engine.setOnUtteranceProgressListener(object : UtteranceProgressListener() {
-            override fun onStart(utteranceId: String?) = Unit
-            override fun onDone(utteranceId: String?) = done(utteranceId)
+            override fun onStart(utteranceId: String?) {
+                val seg = segmentOf(utteranceId) ?: return
+                // A whole sentence lights up as it starts; engines that report words narrow it further.
+                readingRange.value = seg.map?.takeIf { it.isNotEmpty() }?.let { it.first()..it.last() }
+            }
+
+            override fun onRangeStart(utteranceId: String?, start: Int, end: Int, frame: Int) {
+                val map = segmentOf(utteranceId)?.map ?: return
+                if (start < 0 || end <= start || start >= map.size) return
+                readingRange.value = map[start]..map[(end - 1).coerceAtMost(map.size - 1)]
+            }
+
+            override fun onDone(utteranceId: String?) {
+                if (utteranceId != null && utteranceId == lastId) done()
+            }
+
             @Deprecated("Deprecated in Java")
-            override fun onError(utteranceId: String?) = done(utteranceId)
-            override fun onError(utteranceId: String?, errorCode: Int) = done(utteranceId)
-            override fun onStop(utteranceId: String?, interrupted: Boolean) = done(utteranceId)
+            override fun onError(utteranceId: String?) = finishIfCurrent(utteranceId)
+            override fun onError(utteranceId: String?, errorCode: Int) = finishIfCurrent(utteranceId)
+            override fun onStop(utteranceId: String?, interrupted: Boolean) = finishIfCurrent(utteranceId)
         })
-        pending?.let { (key, words) -> say(engine, key, words) }
+        pending?.let { (key, parts) -> say(engine, key, parts) }
         pending = null
     }
 
-    private fun say(engine: TextToSpeech, key: String, words: String) {
-        val prefs = QuotePrefs(app)
-        val wanted = prefs.voiceName
-        val voice = if (wanted.isNotEmpty()) runCatching { engine.voices?.firstOrNull { it.name == wanted } }.getOrNull() else null
-        if (voice != null) {
-            engine.voice = voice
-        } else {
-            val result = engine.setLanguage(Locale.getDefault())
-            if (result == TextToSpeech.LANG_MISSING_DATA || result == TextToSpeech.LANG_NOT_SUPPORTED) {
-                if (engine.setLanguage(Locale.ENGLISH) < TextToSpeech.LANG_AVAILABLE) {
-                    done()
-                    Toast.makeText(app, "This phone has no voice installed for reading aloud yet.", Toast.LENGTH_LONG).show()
-                    runCatching {
-                        app.startActivity(Intent(TextToSpeech.Engine.ACTION_INSTALL_TTS_DATA).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK))
-                    }
-                    return
-                }
-            }
-        }
-        engine.setSpeechRate(prefs.voiceRate)
-        engine.setPitch(1f)
-        requestFocus()
-        mutable.value = key
-        if (engine.speak(words, TextToSpeech.QUEUE_FLUSH, Bundle(), key.hashCode().toString()) != TextToSpeech.SUCCESS) done()
+    private fun finishIfCurrent(utteranceId: String?) {
+        if (utteranceId?.substringBefore(':') == generation.toString()) done()
     }
 
-    private fun done(utteranceId: String? = null) {
-        // A finished earlier utterance must not clear the state of the one that replaced it.
-        if (utteranceId != null && utteranceId != mutable.value?.hashCode()?.toString()) return
+    private fun segmentOf(utteranceId: String?): Segment? {
+        val id = utteranceId ?: return null
+        if (id.substringBefore(':') != generation.toString()) return null
+        return segments.getOrNull(id.substringAfter(':').toIntOrNull() ?: return null)
+    }
+
+    /**
+     * The voice to use: the one chosen in the settings, or else the most natural voice installed on the
+     * phone for its language (engines often default to a plainer one).
+     */
+    private fun chooseVoice(engine: TextToSpeech): Boolean {
+        val all = runCatching { engine.voices.orEmpty() }.getOrDefault(emptySet())
+        val wanted = QuotePrefs(app).voiceName
+        all.firstOrNull { it.name == wanted && wanted.isNotEmpty() }?.let { engine.voice = it; return true }
+        val here = Locale.getDefault()
+        val best = all
+            .filter { !it.isNetworkConnectionRequired && it.features?.contains(TextToSpeech.Engine.KEY_FEATURE_NOT_INSTALLED) != true }
+            .filter { it.locale.language == here.language }
+            .sortedWith(compareBy<Voice>({ it.locale.country != here.country }, { -it.quality }, { it.latency }))
+            .firstOrNull()
+        if (best != null) {
+            engine.voice = best
+            return true
+        }
+        val result = engine.setLanguage(here)
+        return result >= TextToSpeech.LANG_AVAILABLE || engine.setLanguage(Locale.ENGLISH) >= TextToSpeech.LANG_AVAILABLE
+    }
+
+    private fun say(engine: TextToSpeech, key: String, parts: List<Segment>) {
+        if (!chooseVoice(engine)) {
+            done()
+            Toast.makeText(app, "This phone has no voice installed for reading aloud yet.", Toast.LENGTH_LONG).show()
+            runCatching {
+                app.startActivity(Intent(TextToSpeech.Engine.ACTION_INSTALL_TTS_DATA).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK))
+            }
+            return
+        }
+        engine.setSpeechRate(QuotePrefs(app).voiceRate)
+        engine.setPitch(1f)
+        requestFocus()
+        val gen = ++generation
+        segments = parts
+        mutable.value = key
+        readingRange.value = null
+        // Sentence by sentence, with short natural pauses: after the title, between sentences, before the byline.
+        var ok = true
+        parts.forEachIndexed { i, seg ->
+            val mode = if (i == 0) TextToSpeech.QUEUE_FLUSH else TextToSpeech.QUEUE_ADD
+            ok = ok && engine.speak(seg.text, mode, Bundle(), "$gen:$i") == TextToSpeech.SUCCESS
+            lastId = "$gen:$i"
+            if (seg.pauseAfterMs > 0 && i < parts.lastIndex) {
+                engine.playSilentUtterance(seg.pauseAfterMs, TextToSpeech.QUEUE_ADD, "$gen:p$i")
+            }
+        }
+        if (!ok || parts.isEmpty()) done()
+    }
+
+    private fun done() {
         mutable.value = null
+        readingRange.value = null
         focus?.let { f -> runCatching { app.getSystemService(AudioManager::class.java).abandonAudioFocusRequest(f) } }
         focus = null
     }
@@ -155,20 +217,62 @@ object QuoteVoice {
         }
     }
 
+    private const val PUNCTUATION = ".,;:!?—–-…"
+
     /**
-     * What is said: the quote and who said it; for ideas and myths the title, the passage and the short
-     * explanation. Line breaks in verse become pauses, and translator notes are left out of the byline.
+     * The quote's shown text split into sentences, each turned into what is said (a line break in verse
+     * becomes a pause, a comma) together with where each spoken character sits in the shown text.
      */
-    fun spokenText(quote: Quote): String {
-        fun lines(s: String) = s.split('\n').map { it.trim() }.filter { it.isNotEmpty() }
-            .joinToString(" ") { if (it.last() in ".,;:!?—–-…") it else "$it," }
-        val byline = quote.byline?.replace(Regex("\\s*\\((tr\\.|trans\\.)[^)]*\\)"), "")?.trim()
-        return buildString {
-            quote.title?.let { append(it).append(". ") }
-            append(lines(quote.shownText))
-            if (!byline.isNullOrBlank()) append("\n\n").append(byline).append('.')
-            if (quote.isIdea) quote.brief?.takeIf { it.isNotBlank() && !quote.explained }?.let { append("\n\nIn brief: ").append(it) }
-            quote.more?.let { append("\n\n").append(it) }
+    fun bodySegments(shown: String): List<Segment> {
+        val out = mutableListOf<Segment>()
+        val sentenceEnd = Regex("""[.!?…]["”’)]*\s+""")
+        var start = 0
+        val bounds = sentenceEnd.findAll(shown).map { it.range.last + 1 }.toMutableList().apply { add(shown.length) }
+        for (end in bounds) {
+            if (end <= start) continue
+            val spoken = StringBuilder()
+            val map = ArrayList<Int>()
+            var lastChar = ' '
+            for (k in start until end) {
+                val c = shown[k]
+                if (c == '\n') {
+                    if (spoken.isNotEmpty()) {
+                        if (lastChar !in PUNCTUATION) { spoken.append(','); map.add(k) }
+                        spoken.append(' '); map.add(k)
+                        lastChar = ' '
+                    }
+                } else {
+                    spoken.append(c); map.add(k)
+                    if (!c.isWhitespace()) lastChar = c
+                }
+            }
+            // Trim the spaces at either end, keeping the map in step.
+            var a = 0
+            var b = spoken.length
+            while (a < b && spoken[a].isWhitespace()) a++
+            while (b > a && spoken[b - 1].isWhitespace()) b--
+            if (b > a) out += Segment(spoken.substring(a, b), map.subList(a, b).toIntArray(), 120)
+            start = end
         }
+        return out
     }
+
+    /**
+     * What is said, in order: for ideas and myths the title; the quote, sentence by sentence; who said it
+     * (translator notes left out); and for ideas the brief and the fuller explanation.
+     */
+    fun segments(quote: Quote): List<Segment> {
+        val byline = quote.byline?.replace(Regex("\\s*\\((tr\\.|trans\\.)[^)]*\\)"), "")?.trim()
+        val out = mutableListOf<Segment>()
+        quote.title?.let { out += Segment("$it.", null, 450) }
+        val body = bodySegments(quote.shownText)
+        body.forEachIndexed { i, seg -> out += if (i == body.lastIndex) Segment(seg.text, seg.map, 500) else seg }
+        if (!byline.isNullOrBlank()) out += Segment("$byline.", null, 650)
+        if (quote.isIdea) quote.brief?.takeIf { it.isNotBlank() && !quote.explained }?.let { out += Segment("In brief: $it", null, 650) }
+        quote.more?.let { out += Segment(it, null, 0) }
+        return out
+    }
+
+    /** All of it as one text (used by the tests). */
+    fun spokenText(quote: Quote): String = segments(quote).joinToString(" ") { it.text }
 }

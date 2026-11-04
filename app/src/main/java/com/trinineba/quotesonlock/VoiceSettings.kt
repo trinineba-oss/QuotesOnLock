@@ -33,11 +33,15 @@ private val SAMPLE = Quote(
     author = "Marcus Aurelius",
 )
 
-/** A readable name for a voice: its language and region, numbered when there are several. */
+/** A readable name for a voice: its language and region, numbered when there are several, and how it sounds. */
 private fun voiceLabel(voice: Voice, all: List<Voice>): String {
     val same = all.filter { it.locale == voice.locale }
-    val base = voice.locale.displayName
-    return if (same.size > 1) "$base · ${same.indexOf(voice) + 1}" else base
+    val base = voice.locale.displayName + if (same.size > 1) " · ${same.indexOf(voice) + 1}" else ""
+    val notes = listOfNotNull(
+        "natural".takeIf { voice.quality >= Voice.QUALITY_HIGH },
+        "online".takeIf { voice.isNetworkConnectionRequired },
+    )
+    return if (notes.isEmpty()) base else "$base (${notes.joinToString(", ")})"
 }
 
 /** Appearance › Read aloud: speed, voice, the lock-screen button and a sample. */
@@ -54,7 +58,9 @@ fun ReadAloudSettings(prefs: QuotePrefs, onLockScreenChanged: () -> Unit) {
 
     Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
         Text(
-            "Tap the speaker beside a quote to hear it, using your phone's own voices (works offline once a voice is installed).",
+            "Tap the speaker beside a quote to hear it, using your phone's own voices. The words light up as they are read. " +
+                "For the most natural sound, pick a voice marked natural; voices marked online sound best but need the internet. " +
+                "More voices: Voice settings › Speech Services by Google › Install voice data.",
             style = MaterialTheme.typography.bodySmall,
         )
         Row(verticalAlignment = Alignment.CenterVertically) {
@@ -75,15 +81,16 @@ fun ReadAloudSettings(prefs: QuotePrefs, onLockScreenChanged: () -> Unit) {
                 TextButton(onClick = { menu = true }, enabled = voices.isNotEmpty()) {
                     Text(
                         when {
-                            voices.isEmpty() -> "Phone default"
+                            voices.isEmpty() -> "Best available"
                             current != null -> voiceLabel(current, voices)
-                            else -> "Phone default"
+                            else -> "Best available"
                         } + " ▾",
                     )
                 }
                 DropdownMenu(expanded = menu, onDismissRequest = { menu = false }) {
-                    DropdownMenuItem(text = { Text("Phone default") }, onClick = {
+                    DropdownMenuItem(text = { Text("Best available (automatic)") }, onClick = {
                         voiceName = ""; prefs.voiceName = ""; menu = false
+                        QuoteVoice.speak(context, SAMPLE)
                     })
                     voices.forEach { v ->
                         DropdownMenuItem(text = { Text(voiceLabel(v, voices)) }, onClick = {

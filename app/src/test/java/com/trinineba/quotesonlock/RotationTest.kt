@@ -78,4 +78,16 @@ class RotationTest {
         assertTrue(spoken, spoken.contains("cloud, That floats"))
         assertTrue(spoken, spoken.trim().endsWith("Rumi."))
     }
+
+    @Test fun readingHighlightPointsBackIntoTheShownText() {
+        val shown = "\u201CFirst line\nsecond line. Then more.\u201D"
+        val segs = QuoteVoice.bodySegments(shown)
+        assertEquals(2, segs.size)
+        for (seg in segs) {
+            val map = seg.map!!
+            assertEquals(seg.text.length, map.size)
+            seg.text.forEachIndexed { i, c -> if (c != ',' && c != ' ') assertEquals(c, shown[map[i]]) }
+        }
+        assertTrue(segs[0].text, segs[0].text.contains("line, second"))
+    }
 }
