@@ -30,7 +30,13 @@ android {
 
     buildTypes {
         release {
-            isMinifyEnabled = false
+            // Smaller and faster than a debug build: unused library code and resources are stripped.
+            // Names are kept (no obfuscation) because settings store some names, e.g. the chosen theme.
+            isMinifyEnabled = true
+            isShrinkResources = true
+            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
+            // Same shared key as earlier builds, so a release build installs over the app already on phones.
+            signingConfig = signingConfigs.getByName("debug")
         }
     }
 
@@ -44,6 +50,10 @@ android {
     buildFeatures {
         compose = true
     }
+    testOptions {
+        // Plain JVM tests: Android calls that sneak in return defaults instead of throwing.
+        unitTests.isReturnDefaultValues = true
+    }
 }
 
 dependencies {
@@ -56,4 +66,6 @@ dependencies {
     implementation("androidx.compose.ui:ui")
     implementation("androidx.compose.foundation:foundation")
     implementation("androidx.compose.material3:material3")
+
+    testImplementation("junit:junit:4.13.2")
 }

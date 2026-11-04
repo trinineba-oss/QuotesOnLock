@@ -29,10 +29,12 @@ object QuoteVoice {
     private val mutable = MutableStateFlow<String?>(null)
     val speaking: StateFlow<String?> = mutable
 
-    private val attributes: AudioAttributes = AudioAttributes.Builder()
-        .setUsage(AudioAttributes.USAGE_MEDIA)
-        .setContentType(AudioAttributes.CONTENT_TYPE_SPEECH)
-        .build()
+    private val attributes: AudioAttributes by lazy {
+        AudioAttributes.Builder()
+            .setUsage(AudioAttributes.USAGE_MEDIA)
+            .setContentType(AudioAttributes.CONTENT_TYPE_SPEECH)
+            .build()
+    }
 
     /** Reads [quote], or stops if it is the one being read. */
     fun toggle(context: Context, quote: Quote) {

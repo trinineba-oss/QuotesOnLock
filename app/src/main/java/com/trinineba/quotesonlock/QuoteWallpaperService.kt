@@ -219,7 +219,7 @@ class QuoteWallpaperService : WallpaperService() {
             // On the wallpaper an idea shows its name and text; the explanation would crowd the screen.
             val body = quote.title?.let { "$it\n\n${quote.shownText}" }
             QuoteArt.drawQuoteCard(
-                canvas, width, height, metrics.density, metrics.scaledDensity, theme, prefs.style,
+                canvas, width, height, metrics.density, android.util.TypedValue.applyDimension(android.util.TypedValue.COMPLEX_UNIT_SP, 1f, metrics), theme, prefs.style,
                 quote.text, quote.byline, prefs.cardOpacity, prefs.wallpaperQuotePosition, prefs.cardSoftness,
                 body = body,
             )

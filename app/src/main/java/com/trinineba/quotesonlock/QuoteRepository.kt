@@ -24,61 +24,22 @@ class QuoteRepository(
 
     private fun counts(): Map<Category?, Int> = countCache ?: bundled().groupingBy { it.category }.eachCount().also { countCache = it }
 
-    /**
-     * Great ideas: `category|title|text|author|brief|kind|era`, where kind `q` is the idea in its originator's
-     * words (with a brief explanation) and `e` is an explanation only (text is the explanation).
-     */
     private fun loadIdeas(): List<Quote> =
-        appContext.resources.openRawResource(R.raw.ideas).bufferedReader().useLines { lines ->
-            lines
-                .map { it.trim() }
-                .filter { it.isNotEmpty() && !it.startsWith("#") }
-                .mapNotNull { line ->
-                    val f = line.split('|')
-                    val category = Category.fromKey(f[0].trim())
-                    if (category == null || f.size < 7) return@mapNotNull null
-                    val explained = f[5].trim() == "e"
-                    Quote(
-                        text = f[2].trim().replace("\\n", "\n"),
-                        author = f[3].trim().ifBlank { null },
-                        category = category,
-                        title = f[1].trim(),
-                        brief = f[4].trim().ifBlank { null },
-                        explained = explained,
-                        era = f[6].trim().ifBlank { null },
-                        more = f.getOrNull(7)?.trim()?.ifBlank { null },
-                    )
-                }
-                .toList()
-        }
+        appContext.resources.openRawResource(R.raw.ideas).bufferedReader().useLines { QuoteData.parseIdeas(it) }
 
-    /** Quotes kept in storage only as text and author get back their idea title and explanation. */
+    /**
+     * Quotes kept in storage only as text and author (favourites, history, the current quote) get back their
+     * full form: an idea's title and explanation, a quote's type and subjects, and the collection's current
+     * wording if its punctuation has been tidied since it was saved.
+     */
     private fun full(quote: Quote): Quote {
-        if (quote.isIdea) return quote
-        val index = ideaIndex ?: bundled().filter { it.isIdea }.associateBy { it.text }.also { ideaIndex = it }
-        return index[quote.text] ?: quote
+        if (quote.isIdea || quote.category == Category.CUSTOM) return quote
+        val index = wordsIndex ?: bundled().associateBy { QuoteData.wordsKey(it.text) }.also { wordsIndex = it }
+        return index[QuoteData.wordsKey(quote.text)] ?: quote
     }
 
-    /** Lines look like `category|text|author|subjects`; a literal `\n` in the text is a line break. */
     private fun loadBundled(): List<Quote> =
-        appContext.resources.openRawResource(R.raw.quotes).bufferedReader().useLines { lines ->
-            lines
-                .map { it.trim() }
-                .filter { it.isNotEmpty() && !it.startsWith("#") }
-                .mapNotNull { line ->
-                    // Quotes never contain '|', so the fields split cleanly; subjects are optional.
-                    val parts = line.split('|')
-                    val category = Category.fromKey(parts[0].trim())
-                    if (category == null || parts.size < 3) return@mapNotNull null
-                    Quote(
-                        text = parts[1].trim().replace("\\n", "\n"),
-                        author = parts[2].trim().ifBlank { null },
-                        category = category,
-                        subjects = parts.getOrNull(3)?.split(',')?.map { it.trim() }?.filter { it.isNotEmpty() } ?: emptyList(),
-                    )
-                }
-                .toList()
-        }
+        appContext.resources.openRawResource(R.raw.quotes).bufferedReader().useLines { QuoteData.parseQuotes(it) }
 
     fun custom(): List<Quote> {
         val raw = prefs.customJson ?: return emptyList()
@@ -212,67 +173,28 @@ class QuoteRepository(
      */
     fun advance(): Quote? {
         val all = pool()
-        if (all.isEmpty()) return null
-        val currentText = prefs.currentText
         // The mix: great ideas and myths can come up more often than their share of the pool.
-        val pool = mixedPick(all)
-        var seen = prefs.seen
-        var candidates = if (prefs.allowRepeats) {
-            pool.filter { it.text != currentText }
-        } else {
-            pool.filter { it.key() !in seen && it.text != currentText }
-        }
-        if (candidates.isEmpty()) {
-            // Everything in this part of the mix has been shown: start it over.
-            val keys = pool.map { it.key() }.toSet()
-            seen = seen - keys
-            candidates = pool.filter { it.text != currentText }.ifEmpty { all.filter { it.text != currentText }.ifEmpty { all } }
-        }
-        // Not the same author twice in a row, when there's a choice.
-        val lastAuthor = authorName(prefs.currentAuthor)
-        if (lastAuthor != null) candidates.filter { authorName(it.author) != lastAuthor }.takeIf { it.isNotEmpty() }?.let { candidates = it }
-        val next = candidates.random()
+        val pool = QuoteData.mixedPick(all, prefs.ideasMix, prefs.mythsMix, kotlin.random.Random.nextFloat())
+        val pick = QuoteData.next(all, pool, prefs.seen, prefs.currentText, prefs.currentAuthor, prefs.allowRepeats) ?: return null
+        val next = pick.quote
         current()?.let { saveHistory(history() + it) }
-        prefs.seen = seen + next.key()
+        prefs.seen = pick.seen
         prefs.currentText = next.text
         prefs.currentAuthor = next.author
         QuoteWidgets.refresh(appContext)
         return next
     }
 
-    /**
-     * Which part of the pool to pick from this time. With a mix set (e.g. ideas 1 in 5), ideas are chosen
-     * with that probability and the rest of the time something else is; with none set, everything has
-     * its natural share.
-     */
-    private fun mixedPick(all: List<Quote>): List<Quote> {
-        val ideas = all.filter { it.category?.group == QuoteGroup.IDEAS }
-        val myths = all.filter { it.category?.group == QuoteGroup.MYTHS }
-        val pIdeas = prefs.ideasMix.takeIf { it > 0 && ideas.isNotEmpty() }?.let { 1f / it } ?: 0f
-        val pMyths = prefs.mythsMix.takeIf { it > 0 && myths.isNotEmpty() }?.let { 1f / it } ?: 0f
-        if (pIdeas == 0f && pMyths == 0f) return all
-        val r = kotlin.random.Random.nextFloat()
-        return when {
-            r < pIdeas -> ideas
-            r < pIdeas + pMyths -> myths
-            else -> all.filter {
-                (pIdeas == 0f || it.category?.group != QuoteGroup.IDEAS) && (pMyths == 0f || it.category?.group != QuoteGroup.MYTHS)
-            }.ifEmpty { all }
-        }
-    }
-
     /** Makes [quote] the current quote (e.g. picked from the quote browser), keeping it in history. */
     fun show(quote: Quote): Quote {
         if (prefs.currentText == quote.text) return quote
         current()?.let { saveHistory(history() + it) }
-        prefs.seen = prefs.seen + quote.key()
+        prefs.seen = prefs.seen + QuoteData.key(quote)
         prefs.currentText = quote.text
         prefs.currentAuthor = quote.author
         QuoteWidgets.refresh(appContext)
         return quote
     }
-
-    private fun Quote.key() = "$text|$author".hashCode().toString()
 
     private companion object {
         const val HISTORY_SIZE = 50
@@ -281,7 +203,7 @@ class QuoteRepository(
         var bundledCache: List<Quote>? = null
 
         @Volatile
-        var ideaIndex: Map<String, Quote>? = null
+        var wordsIndex: Map<String, Quote>? = null
 
         @Volatile
         var countCache: Map<Category?, Int>? = null

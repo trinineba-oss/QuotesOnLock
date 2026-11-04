@@ -18,18 +18,20 @@ jobs:
           distribution: temurin
           java-version: 17
       - uses: gradle/actions/setup-gradle@v4
-      - name: Build debug APK
-        run: ./gradlew assembleDebug
+      - name: Run tests
+        run: ./gradlew testDebugUnitTest
+      - name: Build release APK
+        run: ./gradlew assembleRelease
       - uses: actions/upload-artifact@v4
         with:
-          name: quotes-on-lock-debug
-          path: app/build/outputs/apk/debug/app-debug.apk
+          name: quotes-on-lock
+          path: app/build/outputs/apk/release/app-release.apk
       - name: Publish APK to the "latest" release
         if: github.event_name == 'push'
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          cp app/build/outputs/apk/debug/app-debug.apk quotes-on-lock.apk
+          cp app/build/outputs/apk/release/app-release.apk quotes-on-lock.apk
           # version.json is what the in-app updater reads (build number, change summary, APK size).
           python3 -c 'import json,os,subprocess; print(json.dumps({"build": int(os.environ["GITHUB_RUN_NUMBER"]), "notes": subprocess.check_output(["git","log","-1","--format=%s"], text=True).strip(), "size": os.path.getsize("quotes-on-lock.apk")}))' > version.json
           cat version.json
