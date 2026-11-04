@@ -55,6 +55,7 @@ class CopyQuoteReceiver : BroadcastReceiver() {
 class BootReceiver : BroadcastReceiver() {
     override fun onReceive(context: Context, intent: Intent) {
         if (intent.action != Intent.ACTION_BOOT_COMPLETED) return
+        DailyQuote.schedule(context)
         val prefs = QuotePrefs(context)
         if (!prefs.enabled) return
         val repo = QuoteRepository(context, prefs)

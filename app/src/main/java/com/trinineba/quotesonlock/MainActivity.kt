@@ -79,6 +79,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.saveable.rememberSaveable
@@ -243,6 +244,17 @@ private fun QuotesScreen(
     var canGoBack by remember { mutableStateOf(repo.hasPrevious()) }
     var custom by remember { mutableStateOf(repo.custom()) }
     var favorites by remember { mutableStateOf(repo.favorites()) }
+    // Notes and collections on favourites.
+    var favInfo by remember { mutableStateOf(repo.favoriteInfo()) }
+    var collections by remember { mutableStateOf(repo.collections()) }
+    var favFilter by rememberSaveable { mutableStateOf<String?>(null) }
+    var noteFor by remember { mutableStateOf<Quote?>(null) }
+    var listsFor by remember { mutableStateOf<Quote?>(null) }
+    // The journal: reflections on quotes, kept on the phone.
+    var journal by remember { mutableStateOf(Journal.entries(prefs)) }
+    var reflectOn by remember { mutableStateOf(prefs.reflectPrompt) }
+    var writingAbout by remember { mutableStateOf<Quote?>(null) }
+    var editingEntry by remember { mutableStateOf<JournalEntry?>(null) }
     var favoritesOnly by remember { mutableStateOf(prefs.favoritesOnly) }
     var newText by rememberSaveable { mutableStateOf("") }
     var newAuthor by rememberSaveable { mutableStateOf("") }
@@ -288,7 +300,7 @@ private fun QuotesScreen(
     LifecycleEventEffect(Lifecycle.Event.ON_RESUME) {
         current = repo.current()
         canGoBack = repo.hasPrevious()
-        favorites = repo.favorites()
+        favorites = repo.favorites(); favInfo = repo.favoriteInfo(); collections = repo.collections()
     }
     // Leaving the app: draw any look changes onto the home-screen widgets.
     LifecycleEventEffect(Lifecycle.Event.ON_STOP) { QuoteWidgets.refresh(context) }
@@ -325,7 +337,7 @@ private fun QuotesScreen(
                     context.contentResolver.openInputStream(uri)!!.use { it.readBytes().toString(Charsets.UTF_8) }
                 }
                 val result = Backup.restoreQuotes(context, text)
-                favorites = repo.favorites()
+                favorites = repo.favorites(); favInfo = repo.favoriteInfo(); collections = repo.collections()
                 custom = repo.custom()
                 backupStatus = "Restored ${result.favoritesAdded} favourite" + (if (result.favoritesAdded == 1) "" else "s") +
                     " and ${result.customAdded} of your own quote" + (if (result.customAdded == 1) "" else "s") +
@@ -477,9 +489,59 @@ private fun QuotesScreen(
         if (shown == null || repo.pool().none { it.text == shown.text }) nextQuote()
     }
 
+    fun refreshFavorites() {
+        favorites = repo.favorites()
+        favInfo = repo.favoriteInfo()
+        collections = repo.collections()
+        if (favFilter != null && favFilter !in collections) favFilter = null
+    }
+
     fun toggleFavorite(quote: Quote) {
         repo.toggleFavorite(quote)
-        favorites = repo.favorites()
+        refreshFavorites()
+    }
+
+    writingAbout?.let { q ->
+        val prompt = Journal.promptFor(q)
+        JournalDialog(
+            quoteText = q.shownText,
+            prompt = prompt,
+            initial = "",
+            onSave = { text -> Journal.add(prefs, q, prompt, text); journal = Journal.entries(prefs); writingAbout = null },
+            onDelete = null,
+            onDismiss = { writingAbout = null },
+        )
+    }
+    editingEntry?.let { e ->
+        JournalDialog(
+            quoteText = e.quote,
+            prompt = e.prompt,
+            initial = e.text,
+            onSave = { text -> Journal.update(prefs, e.time, text); journal = Journal.entries(prefs); editingEntry = null },
+            onDelete = { Journal.delete(prefs, e.time); journal = Journal.entries(prefs); editingEntry = null },
+            onDismiss = { editingEntry = null },
+        )
+    }
+    noteFor?.let { q ->
+        FavoriteNoteDialog(
+            quote = q,
+            initial = favInfo[QuoteData.wordsKey(q.text)]?.note.orEmpty(),
+            onSave = { text -> repo.setFavoriteNote(q, text); noteFor = null; refreshFavorites() },
+            onDismiss = { noteFor = null },
+        )
+    }
+    listsFor?.let { q ->
+        FavoriteCollectionsDialog(
+            all = collections,
+            selected = favInfo[QuoteData.wordsKey(q.text)]?.collections.orEmpty(),
+            onSave = { chosen, created ->
+                created.forEach { repo.addCollection(it) }
+                repo.setFavoriteCollections(q, chosen)
+                listsFor = null
+                refreshFavorites()
+            },
+            onDismiss = { listsFor = null },
+        )
     }
 
     fun setFavoritesOnly(on: Boolean) {
@@ -608,7 +670,7 @@ private fun QuotesScreen(
             "ground" -> GroundScreen(onBack = { tool = null }, onBreathe = { tool = "breathe" })
             "reframe" -> ReframeScreen(prefs) { tool = null }
             "sounds" -> SoundsScreen(prefs) { tool = null }
-            "lifeline" -> LifelineScreen(prefs, repo) { tool = null; favorites = repo.favorites() }
+            "lifeline" -> LifelineScreen(prefs, repo) { tool = null; favorites = repo.favorites(); favInfo = repo.favoriteInfo(); collections = repo.collections() }
             else -> tool = null
         }
         return
@@ -620,14 +682,14 @@ private fun QuotesScreen(
             repo = repo,
             onBack = {
                 browse = browse.dropLast(1)
-                favorites = repo.favorites()
+                favorites = repo.favorites(); favInfo = repo.favoriteInfo(); collections = repo.collections()
             },
             onShow = { quote ->
                 current = repo.show(quote)
                 canGoBack = repo.hasPrevious()
                 if (enabled) QuoteNotifier.show(context, quote)
                 browse = emptyList()
-                favorites = repo.favorites()
+                favorites = repo.favorites(); favInfo = repo.favoriteInfo(); collections = repo.collections()
                 page = Page.HOME
             },
             onOpenAuthor = { browse = browse + BrowsePage.author(it) },
@@ -824,6 +886,24 @@ private fun QuotesScreen(
                 }
             }
         }
+        if (reflectOn) current?.let { q ->
+            item(key = "home-reflect") {
+                // A quiet question to think with; writing is optional and stays on the phone.
+                Row(
+                    Modifier.fillMaxWidth().padding(horizontal = 6.dp),
+                    verticalAlignment = Alignment.CenterVertically,
+                ) {
+                    Text(
+                        Journal.promptFor(q),
+                        style = MaterialTheme.typography.bodyMedium,
+                        fontStyle = androidx.compose.ui.text.font.FontStyle.Italic,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                        modifier = Modifier.weight(1f),
+                    )
+                    TextButton(onClick = { writingAbout = q }) { Text("Reflect") }
+                }
+            }
+        }
         val typeCount = Category.entries.count { it != Category.CUSTOM && countOf(it) > 0 }
         val onCount = Category.entries.count { it in categories && countOf(it) > 0 }
         val tiles = listOf(
@@ -840,6 +920,13 @@ private fun QuotesScreen(
                     pair.forEach { TileCard(it, Modifier.weight(1f)) }
                 }
             }
+        }
+        item(key = "tile-journal") {
+            TileCard(
+                Tile(R.drawable.ic_edit_note, "Journal", if (journal.isEmpty()) "Your reflections on quotes, kept on this phone" else "${journal.size} reflection" + if (journal.size == 1) "" else "s") { page = Page.JOURNAL },
+                Modifier.fillMaxWidth(),
+                wide = true,
+            )
         }
         item(key = "tile-toolbox") {
             // Low down and quiet, on purpose: it's there when needed, not in the way.
@@ -1373,6 +1460,44 @@ private fun QuotesScreen(
                 }
             }
         }
+        item(key = "sch-daily") {
+            var daily by remember { mutableStateOf(prefs.dailyEnabled) }
+            var hour by remember { mutableIntStateOf(prefs.dailyHour) }
+            var minute by remember { mutableIntStateOf(prefs.dailyMinute) }
+            // Its own permission prompt: granting it here must not switch on the lock-screen card.
+            val askNotify = rememberLauncherForActivityResult(ActivityResultContracts.RequestPermission()) { }
+            SettingsCard("Today's quote") {
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    Column(Modifier.weight(1f)) {
+                        Text("A quote each day")
+                        Text(
+                            "One gentle notification a day with a quote from the types you have on, separate from the lock-screen card.",
+                            style = MaterialTheme.typography.bodySmall,
+                        )
+                    }
+                    Switch(checked = daily, onCheckedChange = { on ->
+                        daily = on
+                        prefs.dailyEnabled = on
+                        DailyQuote.schedule(context)
+                        if (on && Build.VERSION.SDK_INT >= 33 &&
+                            ContextCompat.checkSelfPermission(context, Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED
+                        ) askNotify.launch(Manifest.permission.POST_NOTIFICATIONS)
+                    })
+                }
+                if (daily) {
+                    OutlinedButton(onClick = {
+                        android.app.TimePickerDialog(context, { _, h, m ->
+                            hour = h; minute = m
+                            prefs.dailyHour = h; prefs.dailyMinute = m
+                            DailyQuote.schedule(context)
+                        }, hour, minute, android.text.format.DateFormat.is24HourFormat(context)).show()
+                    }) {
+                        val cal = java.util.Calendar.getInstance().apply { set(java.util.Calendar.HOUR_OF_DAY, hour); set(java.util.Calendar.MINUTE, minute) }
+                        Text("At " + android.text.format.DateFormat.getTimeFormat(context).format(cal.time))
+                    }
+                }
+            }
+        }
         item(key = "sch-notif") {
             SettingsCard("Lock screen") {
                 Text(
@@ -1474,7 +1599,34 @@ private fun QuotesScreen(
                 )
             }
         }
-        items(favorites.asReversed(), key = { "fav-" + it.text.hashCode() + it.author }) { quote ->
+        if (favorites.isNotEmpty()) {
+            item(key = "f-collections") {
+                @OptIn(androidx.compose.foundation.layout.ExperimentalLayoutApi::class)
+                androidx.compose.foundation.layout.FlowRow(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                    FilterChip(selected = favFilter == null, onClick = { favFilter = null }, label = { Text("All (${favorites.size})") })
+                    collections.forEach { name ->
+                        val n = favInfo.values.count { name in it.collections }
+                        FilterChip(
+                            selected = favFilter == name,
+                            onClick = { favFilter = if (favFilter == name) null else name },
+                            label = { Text("$name ($n)") },
+                        )
+                    }
+                }
+                if (favFilter != null) {
+                    TextButton(onClick = {
+                        repo.deleteCollection(favFilter!!)
+                        favFilter = null
+                        refreshFavorites()
+                    }) { Text("Delete this collection (its quotes stay in favourites)") }
+                }
+            }
+        }
+        val shownFavorites = favorites.asReversed().filter { q ->
+            favFilter == null || favInfo[QuoteData.wordsKey(q.text)]?.collections?.contains(favFilter) == true
+        }
+        items(shownFavorites, key = { "fav-" + it.text.hashCode() + it.author }) { quote ->
+            val info = favInfo[QuoteData.wordsKey(quote.text)]
             SoftCard(Modifier.fillMaxWidth()) {
                 Column(Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(4.dp)) {
                     quote.title?.let { Text(it, fontWeight = FontWeight.SemiBold) }
@@ -1488,7 +1640,21 @@ private fun QuotesScreen(
                             modifier = if (name != null) Modifier.clickable { browse = listOf(BrowsePage.author(name)) } else Modifier,
                         )
                     }
+                    info?.note?.takeIf { it.isNotBlank() }?.let { note ->
+                        Text(
+                            note,
+                            style = MaterialTheme.typography.bodySmall,
+                            fontStyle = androidx.compose.ui.text.font.FontStyle.Italic,
+                            color = MaterialTheme.colorScheme.onSurfaceVariant,
+                            modifier = Modifier.padding(top = 4.dp).clickable(onClickLabel = "Edit your note") { noteFor = quote },
+                        )
+                    }
+                    info?.collections?.takeIf { it.isNotEmpty() }?.let { lists ->
+                        Text(lists.joinToString(" · "), style = MaterialTheme.typography.labelSmall, color = MaterialTheme.colorScheme.primary)
+                    }
                     Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.End) {
+                        ListAction(R.drawable.ic_edit_note, if (info?.note.isNullOrBlank()) "Add a note" else "Edit your note") { noteFor = quote }
+                        ListAction(R.drawable.ic_label, "Collections") { listsFor = quote }
                         ListAction(R.drawable.ic_lock, "Show on the lock screen now") {
                             current = repo.show(quote)
                             canGoBack = repo.hasPrevious()
@@ -1500,6 +1666,55 @@ private fun QuotesScreen(
                         ListAction(R.drawable.ic_share, "Share as image") { QuoteShare.share(context, quote) }
                         ListAction(R.drawable.ic_favorite, "Remove from favourites", tint = Color(0xFFE0566B)) { toggleFavorite(quote) }
                     }
+                }
+            }
+        }
+    }
+
+    fun LazyListScope.journalPage() {
+        item(key = "j-settings") {
+            SettingsCard("Reflection") {
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    Column(Modifier.weight(1f)) {
+                        Text("A question under the quote")
+                        Text(
+                            "A short question to think with appears under the home-screen quote. Tap Reflect to write; it is never required.",
+                            style = MaterialTheme.typography.bodySmall,
+                        )
+                    }
+                    Switch(checked = reflectOn, onCheckedChange = { reflectOn = it; prefs.reflectPrompt = it })
+                }
+                Text(
+                    "Your journal is kept only on this phone. It is included when you save a backup in About & updates.",
+                    style = MaterialTheme.typography.bodySmall,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                )
+            }
+        }
+        if (journal.isEmpty()) {
+            item(key = "j-empty") {
+                Text(
+                    "No reflections yet. Tap Reflect under a quote on the home screen to write a few lines about it.",
+                    style = MaterialTheme.typography.bodyMedium,
+                )
+            }
+        }
+        items(journal, key = { "j-" + it.time }) { e ->
+            SoftCard(Modifier.fillMaxWidth(), onClick = { editingEntry = e }) {
+                Column(Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(6.dp)) {
+                    Text(
+                        java.text.DateFormat.getDateInstance(java.text.DateFormat.LONG).format(java.util.Date(e.time)),
+                        style = MaterialTheme.typography.labelMedium,
+                        color = MaterialTheme.colorScheme.primary,
+                    )
+                    Text(
+                        "\u201C" + e.quote.take(180) + (if (e.quote.length > 180) "…" else "") + "\u201D" + (e.author?.let { " — " + authorName(it) } ?: ""),
+                        style = MaterialTheme.typography.bodySmall,
+                        fontStyle = androidx.compose.ui.text.font.FontStyle.Italic,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    )
+                    Text(e.prompt, style = MaterialTheme.typography.labelLarge)
+                    Text(e.text, style = MaterialTheme.typography.bodyLarge)
                 }
             }
         }
@@ -1690,6 +1905,7 @@ private fun QuotesScreen(
                 Page.FAVORITES -> favoritesPage()
                 Page.MINE -> minePage()
                 Page.TOOLBOX -> toolboxPage()
+                Page.JOURNAL -> journalPage()
                 Page.ABOUT -> aboutPage()
             }
         }
@@ -1705,5 +1921,6 @@ private enum class Page(val title: String) {
     FAVORITES("Favourites"),
     MINE("My quotes"),
     TOOLBOX("When it's hard"),
+    JOURNAL("Journal"),
     ABOUT("About & updates"),
 }

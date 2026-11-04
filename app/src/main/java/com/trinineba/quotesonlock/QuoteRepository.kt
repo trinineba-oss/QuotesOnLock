@@ -95,21 +95,85 @@ class QuoteRepository(
 
     fun isFavorite(quote: Quote): Boolean = favorites().any { it.text == quote.text }
 
-    /** Adds or removes [quote]; returns whether it is now a favourite. */
+    private fun favoritesArray(): JSONArray =
+        prefs.favoritesJson?.let { runCatching { JSONArray(it) }.getOrNull() } ?: JSONArray()
+
+    /** Index of [quote] in the stored favourites, matched by its words (punctuation may have been tidied since). */
+    private fun indexIn(array: JSONArray, quote: Quote): Int {
+        val key = QuoteData.wordsKey(quote.text)
+        return (0 until array.length()).firstOrNull { QuoteData.wordsKey(array.getJSONObject(it).optString("text")) == key } ?: -1
+    }
+
+    /**
+     * Adds or removes [quote]; returns whether it is now a favourite. The list is edited in place, so the
+     * notes and collections of the other favourites are kept.
+     */
     fun toggleFavorite(quote: Quote): Boolean {
-        val current = favorites()
-        val nowFavorite = current.none { it.text == quote.text }
-        val updated = if (nowFavorite) current + Quote(quote.text, quote.author) else current.filterNot { it.text == quote.text }
-        val array = JSONArray()
-        updated.forEach { q ->
+        val array = favoritesArray()
+        val at = indexIn(array, quote)
+        if (at >= 0) {
+            array.remove(at)
+        } else {
             array.put(JSONObject().apply {
-                put("text", q.text)
-                if (q.author != null) put("author", q.author)
+                put("text", quote.text)
+                if (quote.author != null) put("author", quote.author)
             })
         }
         prefs.favoritesJson = array.toString()
         QuoteWidgets.refresh(appContext)
-        return nowFavorite
+        return at < 0
+    }
+
+    /** Your note on a favourite, and the collections it belongs to. */
+    class FavoriteInfo(val note: String, val collections: List<String>)
+
+    /** Notes and collections of every favourite, keyed by [QuoteData.wordsKey] of its text. */
+    fun favoriteInfo(): Map<String, FavoriteInfo> {
+        val array = favoritesArray()
+        return (0 until array.length()).associate { i ->
+            val o = array.getJSONObject(i)
+            val lists = o.optJSONArray("lists")?.let { l -> (0 until l.length()).map { l.optString(it) } }.orEmpty()
+            QuoteData.wordsKey(o.optString("text")) to FavoriteInfo(o.optString("note"), lists)
+        }
+    }
+
+    fun setFavoriteNote(quote: Quote, note: String) = editFavorite(quote) { o ->
+        if (note.isBlank()) o.remove("note") else o.put("note", note.trim())
+    }
+
+    fun setFavoriteCollections(quote: Quote, lists: List<String>) = editFavorite(quote) { o ->
+        if (lists.isEmpty()) o.remove("lists") else o.put("lists", JSONArray(lists.distinct()))
+    }
+
+    private fun editFavorite(quote: Quote, change: (JSONObject) -> Unit) {
+        val array = favoritesArray()
+        val at = indexIn(array, quote).takeIf { it >= 0 } ?: return
+        change(array.getJSONObject(at))
+        prefs.favoritesJson = array.toString()
+    }
+
+    /** Every collection name: those you created (even if empty) and those in use, in the order created. */
+    fun collections(): List<String> {
+        val used = favoriteInfo().values.flatMap { it.collections }
+        return (prefs.collectionNames + used).distinct()
+    }
+
+    fun addCollection(name: String) {
+        val n = name.trim()
+        if (n.isNotEmpty() && n !in prefs.collectionNames) prefs.collectionNames = prefs.collectionNames + n
+    }
+
+    /** Removes a collection; its quotes stay in your favourites. */
+    fun deleteCollection(name: String) {
+        prefs.collectionNames = prefs.collectionNames - name
+        val array = favoritesArray()
+        for (i in 0 until array.length()) {
+            val o = array.getJSONObject(i)
+            val l = o.optJSONArray("lists") ?: continue
+            val kept = (0 until l.length()).map { l.optString(it) }.filter { it != name }
+            if (kept.isEmpty()) o.remove("lists") else o.put("lists", JSONArray(kept))
+        }
+        prefs.favoritesJson = array.toString()
     }
 
     /** The quotes eligible for rotation, based on the categories the user turned on. */

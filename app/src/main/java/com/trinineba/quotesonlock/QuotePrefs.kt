@@ -137,6 +137,35 @@ class QuotePrefs(context: Context) {
         get() = prefs.getString("lifeline_letter", "") ?: ""
         set(value) = prefs.edit().putString("lifeline_letter", value).apply()
 
+    /** Names of your favourites' collections, in the order you made them (stored as a JSON array). */
+    var collectionNames: List<String>
+        get() = prefs.getString("fav_collections", null)?.let { raw ->
+            runCatching { org.json.JSONArray(raw).let { a -> (0 until a.length()).map { a.getString(it) } } }.getOrNull()
+        }.orEmpty()
+        set(value) = prefs.edit().putString("fav_collections", org.json.JSONArray(value).toString()).apply()
+
+    /** The journal's entries (a JSON array; see [Journal]) and whether the home screen asks a question. */
+    var journalJson: String?
+        get() = prefs.getString("journal_json", null)
+        set(value) = prefs.edit().putString("journal_json", value).apply()
+
+    var reflectPrompt: Boolean
+        get() = prefs.getBoolean("reflect_prompt", true)
+        set(value) = prefs.edit().putBoolean("reflect_prompt", value).apply()
+
+    /** Today's quote: a daily notification at [dailyHour]:[dailyMinute]. */
+    var dailyEnabled: Boolean
+        get() = prefs.getBoolean("daily_enabled", false)
+        set(value) = prefs.edit().putBoolean("daily_enabled", value).apply()
+
+    var dailyHour: Int
+        get() = prefs.getInt("daily_hour", 8)
+        set(value) = prefs.edit().putInt("daily_hour", value).apply()
+
+    var dailyMinute: Int
+        get() = prefs.getInt("daily_minute", 0)
+        set(value) = prefs.edit().putInt("daily_minute", value).apply()
+
     /** Reading aloud: speed (1 is the voice's normal pace), the chosen voice ("" for the phone's default), and a Read button on the lock-screen card. */
     var voiceRate: Float
         get() = prefs.getFloat("voice_rate", 0.85f)

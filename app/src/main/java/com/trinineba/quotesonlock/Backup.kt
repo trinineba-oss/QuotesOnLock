@@ -16,7 +16,7 @@ object Backup {
     private val SETTINGS = listOf(
         "enabled", "interval_minutes", "categories_off", "font", "size", "text_color", "theme", "lock_theme",
         "widget_theme", "allow_repeats", "favorites_only", "update_check", "card_softness", "card_opacity",
-        "motion_speed", "aurora_intensity", "animate_background", "wallpaper_show_quote", "wallpaper_quote_position", "swipe_card", "ideas_mix", "myths_mix", "random_theme", "sound_volume", "sound_timer", "breathe_sound", "voice_rate", "voice_name", "notif_read",
+        "motion_speed", "aurora_intensity", "animate_background", "wallpaper_show_quote", "wallpaper_quote_position", "swipe_card", "ideas_mix", "myths_mix", "random_theme", "sound_volume", "sound_timer", "breathe_sound", "voice_rate", "voice_name", "notif_read", "fav_collections", "reflect_prompt", "daily_enabled", "daily_hour", "daily_minute",
         "lifeline_letter", "lifeline_helps", "lifeline_people", "lifeline_places", "lifeline_reasons", "lifeline_notes",
     )
 
@@ -47,6 +47,7 @@ object Backup {
             .put("saved", System.currentTimeMillis())
             .put("favorites", prefs.favoritesJson?.let { JSONArray(it) } ?: JSONArray())
             .put("custom", prefs.customJson?.let { JSONArray(it) } ?: JSONArray())
+            .put("journal", JSONArray().apply { Journal.entries(prefs).forEach { put(it.toJson()) } })
             .put("settings", settings)
             .toString(2)
     }
@@ -78,6 +79,9 @@ object Backup {
                 favorites.put(JSONObject().apply {
                     put("text", t)
                     obj.optString("author").takeIf { it.isNotBlank() }?.let { put("author", it) }
+                    // Your note and collections travel with the favourite.
+                    obj.optString("note").takeIf { it.isNotBlank() }?.let { put("note", it) }
+                    obj.optJSONArray("lists")?.let { put("lists", it) }
                 })
                 favAdded++
             }
@@ -107,6 +111,10 @@ object Backup {
             }
         }
         prefs.customJson = custom.toString()
+        // Journal entries are added, never replaced.
+        json.optJSONArray("journal")?.let { arr ->
+            Journal.merge(prefs, (0 until arr.length()).mapNotNull { arr.optJSONObject(it)?.let(JournalEntry::fromJson) })
+        }
         QuoteWidgets.refresh(context)
         val settings = json.optJSONObject("settings")
         return Result(favAdded, customAdded, settings != null && settings.length() > 0)
