@@ -799,6 +799,7 @@ private fun QuotesScreen(
                             Text("IN BRIEF", style = MaterialTheme.typography.labelSmall, color = MaterialTheme.colorScheme.primary, letterSpacing = 1.2.sp)
                             Text(brief, style = MaterialTheme.typography.bodyMedium, color = textColor)
                         }
+                        quote.more?.let { MoreAbout(quote.text, it, textColor) }
                         if (quote.isIdea) {
                             Text(
                                 if (quote.explained) "Written for the app" else "Explanation written for the app",

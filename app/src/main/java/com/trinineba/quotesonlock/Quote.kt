@@ -308,6 +308,8 @@ data class Quote(
     val explained: Boolean = false,
     /** When an explained idea was put forward, e.g. "1927". */
     val era: String? = null,
+    /** For a great idea or myth: a fuller explanation written for the app, shown in the app (not on the lock screen). */
+    val more: String? = null,
 ) {
     val isIdea: Boolean get() = title != null
 

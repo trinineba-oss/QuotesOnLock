@@ -37,6 +37,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 
 /**
  * A page in the quote browser, saved as a string so it survives rotation:
@@ -280,6 +281,7 @@ fun QuoteBrowser(
                         quote.title?.let { Text(it, fontWeight = androidx.compose.ui.text.font.FontWeight.SemiBold) }
                         Text(quote.shownText)
                         quote.brief?.let { Text("In brief: $it", style = MaterialTheme.typography.bodySmall) }
+                        quote.more?.let { MoreAbout(quote.text, it) }
                         quote.byline?.let { label ->
                             val name = authorName(label)
                             // In a quote type's list, tapping the author opens everything by them.
@@ -321,5 +323,22 @@ internal fun ReadAloudButton(quote: Quote) {
     val reading = speaking == quote.text
     ListAction(if (reading) R.drawable.ic_stop else R.drawable.ic_volume_up, if (reading) "Stop reading" else "Read aloud") {
         QuoteVoice.toggle(context, quote)
+    }
+}
+
+/** "More about this ›": a great idea's or myth's fuller explanation, folded away until asked for. */
+@Composable
+internal fun MoreAbout(key: String, more: String, color: Color = Color.Unspecified) {
+    var open by rememberSaveable(key) { mutableStateOf(false) }
+    Column {
+        Text(
+            if (open) "LESS ‹" else "MORE ABOUT THIS ›",
+            style = MaterialTheme.typography.labelSmall,
+            color = MaterialTheme.colorScheme.primary,
+            letterSpacing = 1.2.sp,
+            modifier = Modifier.clickable(onClickLabel = if (open) "Hide the fuller explanation" else "Show a fuller explanation") { open = !open }
+                .padding(vertical = 4.dp),
+        )
+        if (open) Text(more, style = MaterialTheme.typography.bodyMedium, color = color, modifier = Modifier.padding(top = 2.dp))
     }
 }

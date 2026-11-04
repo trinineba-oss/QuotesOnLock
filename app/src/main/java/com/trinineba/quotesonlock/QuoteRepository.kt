@@ -46,6 +46,7 @@ class QuoteRepository(
                         brief = f[4].trim().ifBlank { null },
                         explained = explained,
                         era = f[6].trim().ifBlank { null },
+                        more = f.getOrNull(7)?.trim()?.ifBlank { null },
                     )
                 }
                 .toList()

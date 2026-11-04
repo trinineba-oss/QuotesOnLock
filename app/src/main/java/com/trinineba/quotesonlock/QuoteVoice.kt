@@ -166,6 +166,7 @@ object QuoteVoice {
             append(lines(quote.shownText))
             if (!byline.isNullOrBlank()) append("\n\n").append(byline).append('.')
             if (quote.isIdea) quote.brief?.takeIf { it.isNotBlank() && !quote.explained }?.let { append("\n\nIn brief: ").append(it) }
+            quote.more?.let { append("\n\n").append(it) }
         }
     }
 }
