@@ -6,6 +6,9 @@ import android.media.AudioAttributes
 import android.media.AudioFocusRequest
 import android.media.AudioManager
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
+import android.os.SystemClock
 import android.speech.tts.TextToSpeech
 import android.speech.tts.UtteranceProgressListener
 import android.speech.tts.Voice
@@ -13,6 +16,7 @@ import android.widget.Toast
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import java.util.Locale
+import java.util.concurrent.ConcurrentHashMap
 
 /**
  * Reads quotes aloud with the phone's own text-to-speech voices (nothing is downloaded or bundled).
@@ -56,6 +60,37 @@ object QuoteVoice {
     private var lastId: String? = null
     private var pending: Pair<String, List<Segment>>? = null
 
+    /*
+     * Keeping the highlight in step with the voice. Engines report each word as they *prepare* the audio, which is
+     * often well ahead of when it is heard (more so at slower speeds). They also say where in the audio the word
+     * falls (its frame), so each word is lit at the moment its audio plays: when the sentence starts playing plus
+     * frame / sample rate. Engines that give no frames fall back to lighting the word as soon as it is reported.
+     */
+    private class Timing {
+        var sampleRate = 0
+        var startedAt = -1L
+        var hasFrames = false
+        val waiting = mutableListOf<Pair<Int, IntRange>>()
+    }
+    private val timings = ConcurrentHashMap<String, Timing>()
+    private val main by lazy { Handler(Looper.getMainLooper()) }
+    private val token = Any()
+
+    private fun timing(id: String) = timings.getOrPut(id) { Timing() }
+
+    /** Lights [range] when frame [frame] of the utterance is heard (call with the timing locked, after it started). */
+    private fun schedule(t: Timing, frame: Int, range: IntRange) {
+        val gen = generation
+        val offset = if (t.hasFrames && t.sampleRate > 0) frame * 1000L / t.sampleRate else 0L
+        val due = maxOf(SystemClock.uptimeMillis(), t.startedAt + offset)
+        main.postAtTime({ if (gen == generation && mutable.value != null) readingRange.value = range }, token, due)
+    }
+
+    private fun clearTimings() {
+        timings.clear()
+        runCatching { main.removeCallbacksAndMessages(token) }
+    }
+
     fun speak(context: Context, quote: Quote) {
         app = context.applicationContext
         val parts = segments(quote)
@@ -72,6 +107,7 @@ object QuoteVoice {
     fun stop() {
         pending = null
         generation++
+        clearTimings()
         tts?.stop()
         done()
     }
@@ -109,16 +145,34 @@ object QuoteVoice {
         ready = true
         engine.setAudioAttributes(attributes)
         engine.setOnUtteranceProgressListener(object : UtteranceProgressListener() {
+            override fun onBeginSynthesis(utteranceId: String?, sampleRateInHz: Int, audioFormat: Int, channelCount: Int) {
+                if (segmentOf(utteranceId)?.map == null) return
+                val t = timing(utteranceId!!)
+                synchronized(t) { t.sampleRate = sampleRateInHz }
+            }
+
             override fun onStart(utteranceId: String?) {
                 val seg = segmentOf(utteranceId) ?: return
-                // A whole sentence lights up as it starts; engines that report words narrow it further.
+                // A whole sentence lights up as it starts to play; the words reported for it then narrow it further.
                 readingRange.value = seg.map?.takeIf { it.isNotEmpty() }?.let { it.first()..it.last() }
+                if (seg.map == null) return
+                val t = timing(utteranceId!!)
+                synchronized(t) {
+                    t.startedAt = SystemClock.uptimeMillis()
+                    t.waiting.forEach { (frame, range) -> schedule(t, frame, range) }
+                    t.waiting.clear()
+                }
             }
 
             override fun onRangeStart(utteranceId: String?, start: Int, end: Int, frame: Int) {
                 val map = segmentOf(utteranceId)?.map ?: return
                 if (start < 0 || end <= start || start >= map.size) return
-                readingRange.value = map[start]..map[(end - 1).coerceAtMost(map.size - 1)]
+                val range = map[start]..map[(end - 1).coerceAtMost(map.size - 1)]
+                val t = timing(utteranceId!!)
+                synchronized(t) {
+                    if (frame > 0) t.hasFrames = true
+                    if (t.startedAt < 0) t.waiting += frame to range else schedule(t, frame, range)
+                }
             }
 
             override fun onDone(utteranceId: String?) {
@@ -179,6 +233,7 @@ object QuoteVoice {
         engine.setPitch(1f)
         requestFocus()
         val gen = ++generation
+        clearTimings()
         segments = parts
         mutable.value = key
         readingRange.value = null
@@ -196,6 +251,7 @@ object QuoteVoice {
     }
 
     private fun done() {
+        clearTimings()
         mutable.value = null
         readingRange.value = null
         focus?.let { f -> runCatching { app.getSystemService(AudioManager::class.java).abandonAudioFocusRequest(f) } }
