@@ -363,3 +363,10 @@ Yasunari Kawabata|Yasunari Kawabata|1899|1972|writers|
 Yukio Mishima|Yukio Mishima|1925|1970|writers|
 Neil deGrasse Tyson|Neil deGrasse Tyson|1958||thinkers|
 Richard Feynman|Richard Feynman|1918|1988|thinkers|
+J. J. Thomas|J. J. Thomas|1840|1889|thinkers|c
+Maxwell Philip|Maxwell Philip|1829|1888|writers|
+Sam Selvon|Sam Selvon|1923|1994|writers|
+Earl Lovelace|Earl Lovelace|1935||writers|
+C. L. R. James|C. L. R. James|1901|1989|thinkers|
+Dionne Brand|Dionne Brand|1953||poets|
+Monique Roffey|Monique Roffey|1965||writers|
