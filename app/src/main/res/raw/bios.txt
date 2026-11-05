@@ -543,3 +543,5 @@ Mirabai|Rajput princess and bhakti poet-saint (c. 1498–1547) of Rajasthan, who
 Gabriela Mistral|Chilean poet, teacher and diplomat (1889–1957), the first Latin American to win the Nobel Prize in Literature (1945).
 Lewis Carroll|English writer, mathematician and photographer (1832–1898), author of Alice's Adventures in Wonderland and Through the Looking-Glass.
 Kenneth Grahame|Scottish writer (1859–1932), a banker by day, who wrote The Wind in the Willows from bedtime stories for his son.
+Neil deGrasse Tyson|American astrophysicist (born 1958), director of the Hayden Planetarium and host of Cosmos: A Spacetime Odyssey.
+Richard Feynman|American physicist (1918–1988), Nobel laureate for quantum electrodynamics, teacher and author of Surely You're Joking, Mr. Feynman!
