@@ -1,0 +1,327 @@
+# display|author page|born|died (empty if living)|group|c = approximate
+Lao Tzu|Lao Tzu|-580|-520|thinkers|c
+Ralph Waldo Emerson|Ralph Waldo Emerson|1803|1882|thinkers|
+Benjamin Franklin|Benjamin Franklin|1706|1790|thinkers|
+Aristotle|Aristotle|-384|-322|thinkers|
+Helen Keller|Helen Keller|1880|1968|thinkers|
+Eleanor Roosevelt|Eleanor Roosevelt|1884|1962|thinkers|
+Theodore Roosevelt|Theodore Roosevelt|1858|1919|thinkers|
+Virgil|Virgil|-70|-19|poets|
+Samuel Johnson|Samuel Johnson|1709|1784|writers|
+Voltaire|Voltaire|1694|1778|thinkers|
+Frederick Douglass|Frederick Douglass|1818|1895|thinkers|c
+Henry Wadsworth Longfellow|Henry Wadsworth Longfellow|1807|1882|thinkers|
+Robert Frost|Robert Frost|1874|1963|poets|
+Mark Twain|Mark Twain|1835|1910|writers|
+James Allen|James Allen|1864|1912|thinkers|
+Samuel Smiles|Samuel Smiles|1812|1904|thinkers|
+Booker T. Washington|Booker T. Washington|1856|1915|thinkers|
+Alfred, Lord Tennyson|Alfred, Lord Tennyson|1809|1892|poets|
+Heraclitus|Heraclitus|-535|-475|thinkers|c
+Albert Einstein|Albert Einstein|1879|1955|thinkers|
+Friedrich Nietzsche|Friedrich Nietzsche|1844|1900|thinkers|
+Søren Kierkegaard|Søren Kierkegaard|1813|1855|thinkers|
+William Shakespeare|William Shakespeare|1564|1616|poets|
+Oscar Wilde|Oscar Wilde|1854|1900|writers|
+Henry David Thoreau|Henry David Thoreau|1817|1862|thinkers|
+Plato|Plato|-428|-348|thinkers|c
+Jean-Jacques Rousseau|Jean-Jacques Rousseau|1712|1778|thinkers|
+Miguel de Cervantes|Miguel de Cervantes|1547|1616|writers|
+Francis Bacon|Francis Bacon|1561|1626|thinkers|
+Arthur Schopenhauer|Arthur Schopenhauer|1788|1860|thinkers|
+Marcus Aurelius|Marcus Aurelius|121|180|thinkers|
+Epictetus|Epictetus|50|135|thinkers|c
+Epicurus|Epicurus|-341|-270|thinkers|
+Cicero|Cicero|-106|-43|thinkers|
+Emily Dickinson|Emily Dickinson|1830|1886|poets|
+Jane Austen|Jane Austen|1775|1817|writers|
+Charles Dickens|Charles Dickens|1812|1870|writers|
+George Eliot|George Eliot|1819|1880|writers|
+Walt Whitman|Walt Whitman|1819|1892|poets|
+Kahlil Gibran|Kahlil Gibran|1883|1931|poets|
+Rainer Maria Rilke|Rainer Maria Rilke|1875|1926|poets|
+Fyodor Dostoevsky|Fyodor Dostoevsky|1821|1881|writers|
+Leo Tolstoy|Leo Tolstoy|1828|1910|writers|
+Franz Kafka|Franz Kafka|1883|1924|writers|
+Albert Camus|Albert Camus|1913|1960|thinkers|
+Hermann Hesse|Hermann Hesse|1877|1962|writers|
+Confucius|Confucius|-551|-479|thinkers|
+Rumi|Rumi|1207|1273|poets|
+Omar Khayyam|Omar Khayyam|1048|1131|poets|
+Sun Tzu|Sun Tzu|-580|-520|thinkers|c
+Rabindranath Tagore|Rabindranath Tagore|1861|1941|poets|
+Haruki Murakami|Haruki Murakami|1949||writers|
+William Blake|William Blake|1757|1827|poets|
+Giacomo Leopardi|Giacomo Leopardi|1798|1837|poets|
+Charles Baudelaire|Charles Baudelaire|1821|1867|poets|
+The Bhagavad Gita|The Bhagavad Gita|-180|-120|mystics|c
+Viktor Frankl|Viktor Frankl|1905|1997|thinkers|
+Fernando Pessoa|Fernando Pessoa|1888|1935|writers|
+Jorge Luis Borges|Jorge Luis Borges|1899|1986|writers|
+E. M. Cioran|E. M. Cioran|1911|1995|thinkers|
+Simone Weil|Simone Weil|1909|1943|thinkers|
+Pablo Neruda|Pablo Neruda|1904|1973|poets|
+Mary Oliver|Mary Oliver|1935|2019|poets|
+Wisława Szymborska|Wisława Szymborska|1923|2012|poets|
+Milan Kundera|Milan Kundera|1929|2023|writers|
+Jean-Paul Sartre|Jean-Paul Sartre|1905|1980|thinkers|
+Kabir|Kabir|1420|1480|poets|c
+Zhuangzi|Zhuangzi|-369|-286|thinkers|c
+Herman Melville|Herman Melville|1819|1891|writers|
+Ivan Turgenev|Ivan Turgenev|1818|1883|writers|
+Anton Chekhov|Anton Chekhov|1860|1904|writers|
+Dante Alighieri|Dante Alighieri|1265|1321|poets|
+Sigmund Freud|Sigmund Freud|1856|1939|thinkers|
+Carl Jung|Carl Jung|1875|1961|thinkers|
+Stephen King|Stephen King|1947||thinkers|
+Ray Bradbury|Ray Bradbury|1920|2012|thinkers|
+Anne Lamott|Anne Lamott|1954||thinkers|
+Annie Dillard|Annie Dillard|1945||writers|
+Steven Pressfield|Steven Pressfield|1943||thinkers|
+Madeleine L'Engle|Madeleine L'Engle|1918|2007|thinkers|
+Austin Kleon|Austin Kleon|1983||thinkers|
+Elizabeth Gilbert|Elizabeth Gilbert|1969||thinkers|
+Ursula K. Le Guin|Ursula K. Le Guin|1929|2018|writers|
+Neil Gaiman|Neil Gaiman|1960||thinkers|
+Maya Angelou|Maya Angelou|1928|2014|writers|
+Toni Morrison|Toni Morrison|1931|2019|writers|
+Kurt Vonnegut|Kurt Vonnegut|1922|2007|thinkers|
+James Baldwin|James Baldwin|1924|1987|writers|
+Joan Didion|Joan Didion|1934|2021|thinkers|
+George Orwell|George Orwell|1903|1950|thinkers|
+E. B. White|E. B. White|1899|1985|thinkers|
+Georgia O'Keeffe|Georgia O'Keeffe|1887|1986|thinkers|
+Leonard Cohen|Leonard Cohen|1934|2016|poets|
+John Cage|John Cage|1912|1992|thinkers|
+Virginia Woolf|Virginia Woolf|1882|1941|writers|
+Italo Calvino|Italo Calvino|1923|1985|writers|
+John Keats|John Keats|1795|1821|poets|
+Percy Bysshe Shelley|Percy Bysshe Shelley|1792|1822|poets|
+Samuel Taylor Coleridge|Samuel Taylor Coleridge|1772|1834|poets|
+William Wordsworth|William Wordsworth|1770|1850|poets|
+Edgar Allan Poe|Edgar Allan Poe|1809|1849|poets|
+James McNeill Whistler|James McNeill Whistler|1834|1903|thinkers|
+Wassily Kandinsky|Wassily Kandinsky|1866|1944|thinkers|
+Walter Pater|Walter Pater|1839|1894|thinkers|
+Auguste Rodin|Auguste Rodin|1840|1917|thinkers|
+Leonardo da Vinci|Leonardo da Vinci|1452|1519|thinkers|
+Ludwig van Beethoven|Ludwig van Beethoven|1770|1827|thinkers|
+Johann Wolfgang von Goethe|Johann Wolfgang von Goethe|1749|1832|thinkers|
+Joseph Conrad|Joseph Conrad|1857|1924|writers|
+Henry James|Henry James|1843|1916|writers|
+Robert Louis Stevenson|Robert Louis Stevenson|1850|1894|thinkers|
+Vincent van Gogh|Vincent van Gogh|1853|1890|writers|
+Lucretius|Lucretius|-99|-55|thinkers|c
+Xenophanes|Xenophanes|-570|-478|thinkers|c
+Parmenides|Parmenides|-480|-420|thinkers|c
+Empedocles|Empedocles|-494|-434|thinkers|c
+Anaxagoras|Anaxagoras|-500|-428|thinkers|c
+Michel de Montaigne|Michel de Montaigne|1533|1592|thinkers|
+Blaise Pascal|Blaise Pascal|1623|1662|thinkers|
+David Hume|David Hume|1711|1776|thinkers|
+Augustine|Augustine|354|430|thinkers|
+Goethe|Goethe|1749|1832|poets|
+Sophocles|Sophocles|-497|-406|poets|c
+Aeschylus|Aeschylus|-525|-456|poets|c
+Euripides|Euripides|-480|-406|poets|c
+W. B. Yeats|W. B. Yeats|1865|1939|poets|
+John Milton|John Milton|1608|1674|poets|
+T. S. Eliot|T. S. Eliot|1888|1965|poets|
+Friedrich Hölderlin|Friedrich Hölderlin|1770|1843|poets|
+Thomas Hardy|Thomas Hardy|1840|1928|poets|
+Meister Eckhart|Meister Eckhart|1260|1328|mystics|c
+Thomas à Kempis|Thomas à Kempis|1380|1471|mystics|c
+Brother Lawrence|Brother Lawrence|1614|1691|mystics|c
+Thomas Traherne|Thomas Traherne|1636|1674|poets|
+William Law|William Law|1686|1761|mystics|
+Emily Brontë|Emily Brontë|1818|1848|writers|
+Charlotte Brontë|Charlotte Brontë|1816|1855|writers|
+Anne Brontë|Anne Brontë|1820|1849|writers|
+Ludwig Wittgenstein|Ludwig Wittgenstein|1889|1951|thinkers|
+Alan Watts|Alan Watts|1915|1973|thinkers|
+J. Krishnamurti|J. Krishnamurti|1895|1986|thinkers|
+Iris Murdoch|Iris Murdoch|1919|1999|thinkers|
+Ernest Becker|Ernest Becker|1924|1974|thinkers|
+Hafiz|Hafiz|1315|1390|poets|c
+Al-Ghazali|Al-Ghazali|1058|1111|poets|c
+Sa'di|Sa'di|1210|1292|poets|c
+Jami|Jami|1414|1492|poets|
+Matsuo Bashō|Matsuo Bashō|1644|1694|poets|
+Yosa Buson|Yosa Buson|1716|1784|poets|
+Book of Wisdom|Book of Wisdom|-80|-20|mystics|c
+Charles Bukowski|Charles Bukowski|1920|1994|writers|
+Anaïs Nin|Anaïs Nin|1903|1977|writers|
+La Rochefoucauld|La Rochefoucauld|1613|1680|thinkers|
+Chamfort|Chamfort|1741|1794|thinkers|
+Joseph Joubert|Joseph Joubert|1754|1824|thinkers|
+Georg Christoph Lichtenberg|Georg Christoph Lichtenberg|1742|1799|thinkers|
+Sir Thomas Browne|Sir Thomas Browne|1605|1682|thinkers|
+Miguel de Unamuno|Miguel de Unamuno|1864|1936|thinkers|
+William James|William James|1842|1910|thinkers|
+Marcel Proust|Marcel Proust|1871|1922|writers|
+C. P. Cavafy|C. P. Cavafy|1863|1933|poets|
+John Donne|John Donne|1572|1631|poets|
+George Herbert|George Herbert|1593|1633|poets|
+Andrew Marvell|Andrew Marvell|1621|1678|poets|
+Henry Vaughan|Henry Vaughan|1621|1695|poets|
+Gerard Manley Hopkins|Gerard Manley Hopkins|1844|1889|poets|
+Matthew Arnold|Matthew Arnold|1822|1888|poets|
+Robert Browning|Robert Browning|1812|1889|poets|
+Christina Rossetti|Christina Rossetti|1830|1894|poets|
+Arthur Hugh Clough|Arthur Hugh Clough|1819|1861|poets|
+Algernon Charles Swinburne|Algernon Charles Swinburne|1837|1909|poets|
+Lord Byron|Lord Byron|1788|1824|poets|
+Stéphane Mallarmé|Stéphane Mallarmé|1842|1898|poets|
+Paul Verlaine|Paul Verlaine|1844|1896|poets|
+Arthur Rimbaud|Arthur Rimbaud|1854|1891|poets|
+T'ao Ch'ien|T'ao Ch'ien|365|427|poets|
+Li Po|Li Po|701|762|poets|
+Po Chü-i|Po Chü-i|772|846|poets|
+Tu Fu|Tu Fu|712|770|poets|
+Mikhail Lermontov|Mikhail Lermontov|1814|1841|poets|
+Alexander Pushkin|Alexander Pushkin|1799|1837|poets|
+Victor Hugo|Victor Hugo|1802|1885|writers|
+James Joyce|James Joyce|1882|1941|writers|
+Thomas Mann|Thomas Mann|1875|1955|writers|
+Baruch Spinoza|Baruch Spinoza|1632|1677|thinkers|
+Nikos Kazantzakis|Nikos Kazantzakis|1883|1957|writers|
+Martin Buber|Martin Buber|1878|1965|thinkers|
+Hannah Arendt|Hannah Arendt|1906|1975|thinkers|
+Simone de Beauvoir|Simone de Beauvoir|1908|1986|thinkers|
+Samuel Beckett|Samuel Beckett|1906|1989|writers|
+Erich Fromm|Erich Fromm|1900|1980|thinkers|
+Rollo May|Rollo May|1909|1994|thinkers|
+Thomas Merton|Thomas Merton|1915|1968|thinkers|
+Thich Nhat Hanh|Thich Nhat Hanh|1926|2022|thinkers|
+Irvin Yalom|Irvin Yalom|1931||thinkers|
+Joseph Campbell|Joseph Campbell|1904|1987|thinkers|
+Miyamoto Musashi|Miyamoto Musashi|1584|1645|thinkers|
+Susan Sontag|Susan Sontag|1933|2004|writers|
+Max Ehrmann|Max Ehrmann|1872|1945|poets|
+Rudyard Kipling|Rudyard Kipling|1865|1936|poets|
+Henri-Frédéric Amiel|Henri-Frédéric Amiel|1821|1881|writers|
+Boethius|Boethius|477|524|thinkers|c
+Novalis|Novalis|1772|1801|poets|
+Antonio Machado|Antonio Machado|1875|1939|poets|
+G. K. Chesterton|G. K. Chesterton|1874|1936|writers|
+Homer|Homer|-780|-720|poets|c
+Sappho|Sappho|-630|-570|poets|c
+Antoine de Saint-Exupéry|Antoine de Saint-Exupéry|1900|1944|writers|
+C. S. Lewis|C. S. Lewis|1898|1963|writers|
+Stefan Zweig|Stefan Zweig|1881|1942|writers|
+Clarice Lispector|Clarice Lispector|1920|1977|writers|
+Dag Hammarskjöld|Dag Hammarskjöld|1905|1961|thinkers|
+Gabriel García Márquez|Gabriel García Márquez|1927|2014|writers|
+Attar|Attar|1145|1221|poets|c
+Petrarch|Petrarch|1304|1374|poets|
+Michelangelo|Michelangelo|1475|1564|poets|
+Gustave Flaubert|Gustave Flaubert|1821|1880|writers|
+Federico García Lorca|Federico García Lorca|1898|1936|poets|
+Octavio Paz|Octavio Paz|1914|1998|poets|
+José Saramago|José Saramago|1922|2010|writers|
+Anna Akhmatova|Anna Akhmatova|1889|1966|poets|
+Marina Tsvetaeva|Marina Tsvetaeva|1892|1941|poets|
+Czesław Miłosz|Czesław Miłosz|1911|2004|poets|
+Tomas Tranströmer|Tomas Tranströmer|1931|2015|poets|
+Paul Celan|Paul Celan|1920|1970|poets|
+W. G. Sebald|W. G. Sebald|1944|2001|writers|
+Gaston Bachelard|Gaston Bachelard|1884|1962|thinkers|
+Pierre Teilhard de Chardin|Pierre Teilhard de Chardin|1881|1955|thinkers|
+Mikhail Bulgakov|Mikhail Bulgakov|1891|1940|writers|
+Knut Hamsun|Knut Hamsun|1859|1952|writers|
+V. S. Naipaul|V. S. Naipaul|1932|2018|writers|
+Derek Walcott|Derek Walcott|1930|2017|poets|
+Plutarch|Plutarch|46|120|thinkers|c
+Thucydides|Thucydides|-460|-400|writers|c
+Teresa of Ávila|Teresa of Ávila|1515|1582|mystics|
+John of the Cross|John of the Cross|1542|1591|mystics|
+Mencius|Mencius|-372|-289|thinkers|c
+Ryōkan|Ryōkan|1758|1831|poets|
+Ikkyū|Ikkyū|1394|1481|poets|
+Mary Shelley|Mary Shelley|1797|1851|writers|
+Stendhal|Stendhal|1783|1842|writers|
+Honoré de Balzac|Honoré de Balzac|1799|1850|writers|
+Nikolai Gogol|Nikolai Gogol|1809|1852|writers|
+Immanuel Kant|Immanuel Kant|1724|1804|thinkers|
+Henri Bergson|Henri Bergson|1859|1941|thinkers|
+Osip Mandelstam|Osip Mandelstam|1891|1938|poets|
+Boris Pasternak|Boris Pasternak|1890|1960|poets|
+Joseph Brodsky|Joseph Brodsky|1940|1996|poets|
+Seamus Heaney|Seamus Heaney|1939|2013|poets|
+Jack Gilbert|Jack Gilbert|1925|2012|poets|
+George Seferis|George Seferis|1900|1971|poets|
+Wendell Berry|Wendell Berry|1934||poets|
+Rebecca Solnit|Rebecca Solnit|1961||writers|
+Umberto Eco|Umberto Eco|1932|2016|writers|
+Aldous Huxley|Aldous Huxley|1894|1963|writers|
+Aleksandr Solzhenitsyn|Aleksandr Solzhenitsyn|1918|2008|writers|
+Ocean Vuong|Ocean Vuong|1988||poets|
+Pierre Hadot|Pierre Hadot|1922|2010|thinkers|
+Carl Sagan|Carl Sagan|1934|1996|thinkers|
+Ivan Goncharov|Ivan Goncharov|1812|1891|writers|
+Lev Shestov|Lev Shestov|1866|1938|thinkers|
+Vasily Rozanov|Vasily Rozanov|1856|1919|thinkers|
+Georg Büchner|Georg Büchner|1813|1837|writers|
+Luigi Pirandello|Luigi Pirandello|1867|1936|writers|
+Italo Svevo|Italo Svevo|1861|1928|writers|
+August Strindberg|August Strindberg|1849|1912|writers|
+Karl Jaspers|Karl Jaspers|1883|1969|thinkers|
+Martin Heidegger|Martin Heidegger|1889|1976|thinkers|
+Gabriel Marcel|Gabriel Marcel|1889|1973|thinkers|
+Nikolai Berdyaev|Nikolai Berdyaev|1874|1948|thinkers|
+José Ortega y Gasset|José Ortega y Gasset|1883|1955|thinkers|
+Paul Tillich|Paul Tillich|1886|1965|thinkers|
+Walker Percy|Walker Percy|1916|1990|writers|
+Ralph Ellison|Ralph Ellison|1913|1994|writers|
+Robert Musil|Robert Musil|1880|1942|writers|
+André Malraux|André Malraux|1901|1976|writers|
+Eugène Ionesco|Eugène Ionesco|1909|1994|writers|
+Robert Burton|Robert Burton|1577|1640|writers|
+John Ruskin|John Ruskin|1819|1900|writers|
+William Hazlitt|William Hazlitt|1778|1830|writers|
+Kamo no Chōmei|Kamo no Chōmei|1155|1216|writers|c
+Yoshida Kenkō|Yoshida Kenkō|1283|1350|writers|c
+Saadi|Saadi|1210|1292|poets|c
+Baltasar Gracián|Baltasar Gracián|1601|1658|thinkers|
+Horace|Horace|-65|-8|poets|
+Héloïse|Héloïse|1100|1164|writers|c
+Peter Abelard|Peter Abelard|1079|1142|writers|
+Angelus Silesius|Angelus Silesius|1624|1677|poets|
+Elizabeth Barrett Browning|Elizabeth Barrett Browning|1806|1861|poets|
+Gustavo Adolfo Bécquer|Gustavo Adolfo Bécquer|1836|1870|poets|
+Fyodor Tyutchev|Fyodor Tyutchev|1803|1873|poets|
+J. R. R. Tolkien|J. R. R. Tolkien|1892|1973|writers|
+Richard Jefferies|Richard Jefferies|1848|1887|writers|
+Maurice Maeterlinck|Maurice Maeterlinck|1862|1949|writers|
+John Muir|John Muir|1838|1914|writers|
+A. E. Housman|A. E. Housman|1859|1936|poets|
+Edward Thomas|Edward Thomas|1878|1917|poets|
+Willa Cather|Willa Cather|1873|1947|writers|
+Lafcadio Hearn|Lafcadio Hearn|1850|1904|writers|
+George MacDonald|George MacDonald|1824|1905|writers|
+Sara Teasdale|Sara Teasdale|1884|1933|poets|
+E. M. Forster|E. M. Forster|1879|1970|writers|
+George Santayana|George Santayana|1863|1952|thinkers|
+Bertrand Russell|Bertrand Russell|1872|1970|thinkers|
+J. P. Jacobsen|J. P. Jacobsen|1847|1885|writers|
+John O'Donohue|John O'Donohue|1956|2008|thinkers|
+Marilynne Robinson|Marilynne Robinson|1943||writers|
+Martin Luther King Jr.|Martin Luther King Jr.|1929|1968|thinkers|
+Nelson Mandela|Nelson Mandela|1918|2013|thinkers|
+Muhammad Ali|Muhammad Ali|1942|2016|thinkers|
+Marianne Williamson|Marianne Williamson|1952||thinkers|
+Mahatma Gandhi|Mahatma Gandhi|1869|1948|thinkers|
+Abraham Lincoln|Abraham Lincoln|1809|1865|thinkers|
+Mary Wollstonecraft|Mary Wollstonecraft|1759|1797|thinkers|
+Desmond Tutu|Desmond Tutu|1931|2021|thinkers|
+The Dalai Lama|The Dalai Lama|1935||thinkers|
+Mirabai|Mirabai|1498|1547|poets|c
+Gabriela Mistral|Gabriela Mistral|1889|1957|poets|
+Lewis Carroll|Lewis Carroll|1832|1898|writers|
+Kenneth Grahame|Kenneth Grahame|1859|1932|writers|
+The Qur'an|The Qur'an|620|680|mystics|c
+Seneca|Seneca|-4|65|thinkers|c
+Ovid|Ovid|-43|17|poets|
+Julian of Norwich|Julian of Norwich|1343|1416|mystics|c
+Han Shan|Han Shan|730|800|poets|c
+The Buddha|The Dhammapada|-563|-483|thinkers|c

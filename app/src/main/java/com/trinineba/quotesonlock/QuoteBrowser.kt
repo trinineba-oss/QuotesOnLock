@@ -231,6 +231,11 @@ fun QuoteBrowser(
                     Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
                         val groupCounts = remember { repo.bundled().groupingBy { it.category?.group }.eachCount() }
                         val shelves = listOf(QuoteGroup.IDEAS, QuoteGroup.MYTHS).filter { (groupCounts[it] ?: 0) > 0 }
+                        Text("Discover", style = MaterialTheme.typography.titleMedium)
+                        FlowRow(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                            SuggestionChip(onClick = { onOpenPage("dialogues") }, label = { Text("Dialogues across time") })
+                            SuggestionChip(onClick = { onOpenPage("timeline") }, label = { Text("Who was alive together") })
+                        }
                         if (shelves.isNotEmpty()) {
                             Text("Ideas & myths", style = MaterialTheme.typography.titleMedium)
                             FlowRow(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
@@ -296,8 +301,8 @@ fun QuoteBrowser(
                         Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.End) {
                             ReadAloudButton(quote)
                             ListAction(R.drawable.ic_lock, "Show on the lock screen now") { onShow(quote) }
-                            ListAction(R.drawable.ic_content_copy, "Copy") { QuoteClipboard.copy(context, quote) }
-                            ListAction(R.drawable.ic_share, "Share as image") { QuoteShare.share(context, quote) }
+                            ContextListAction(quote)
+                            ShareListAction(quote)
                             val favorite = quote.text in favorites
                             ListAction(
                                 if (favorite) R.drawable.ic_favorite else R.drawable.ic_favorite_border,

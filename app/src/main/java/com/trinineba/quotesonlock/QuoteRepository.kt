@@ -19,7 +19,7 @@ class QuoteRepository(
 
     /** Reads the built-in quotes on a background thread, so the first screen doesn't wait for them. */
     fun preload() {
-        if (bundledCache == null) Thread({ runCatching { bundled(); counts() } }, "quotes-preload").start()
+        if (bundledCache == null) Thread({ runCatching { bundled(); counts(); QuoteContext.warmUp(appContext) } }, "quotes-preload").start()
     }
 
     private fun counts(): Map<Category?, Int> = countCache ?: bundled().groupingBy { it.category }.eachCount().also { countCache = it }

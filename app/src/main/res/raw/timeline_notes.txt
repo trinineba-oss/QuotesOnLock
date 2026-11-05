@@ -1,0 +1,13 @@
+# year (negative = BC)|note
+-500|Confucius in China, the Buddha in India and Heraclitus in Greece were all alive around 500 BC, and never knew of one another.
+-430|Socrates was questioning people in the streets of Athens while Sophocles and Euripides were writing their tragedies there.
+1270|Rumi and Saadi were writing Persian verse in the same decades, while Thomas Aquinas taught in Paris.
+1350|Hafiz in Shiraz and Petrarch in Italy were writing love poems at the same time.
+1616|Shakespeare and Cervantes died within days of each other, in April 1616.
+1660|Pascal and Spinoza were writing in the same years, one in Paris, one in Amsterdam.
+1820|Keats and Leopardi, two young poets of beauty and sorrow, were writing in the same years; Keats died in Rome in 1821.
+1855|Walden came out in 1854 and Leaves of Grass in 1855; Thoreau went to meet Whitman in Brooklyn the next year.
+1862|Emily Dickinson was writing most of her poems while Lincoln was president and the Civil War raged.
+1887|Nietzsche discovered Dostoevsky in 1887 and called him the only psychologist from whom he had anything to learn.
+1910|Tolstoy and Gandhi wrote to each other in the last year of Tolstoy's life; Gandhi named his farm in South Africa after him.
+1942|Camus, Sartre and Simone Weil were all writing in wartime France.

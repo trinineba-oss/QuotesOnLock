@@ -676,6 +676,16 @@ private fun QuotesScreen(
         return
     }
 
+    when (browse.lastOrNull()) {
+        "dialogues" -> {
+            DialoguesScreen(onBack = { browse = browse.dropLast(1) }, onOpenAuthor = { browse = browse + BrowsePage.author(it) })
+            return
+        }
+        "timeline" -> {
+            TimelineScreen(onBack = { browse = browse.dropLast(1) }, onOpenAuthor = { browse = browse + BrowsePage.author(it) })
+            return
+        }
+    }
     browse.lastOrNull()?.let { bp ->
         QuoteBrowser(
             page = bp,
@@ -874,8 +884,8 @@ private fun QuotesScreen(
                     Row(Modifier.fillMaxWidth().padding(top = 4.dp), horizontalArrangement = Arrangement.SpaceAround) {
                         QuoteAction(R.drawable.ic_arrow_back, "Previous", enabled = canGoBack) { previousQuote() }
                         QuoteAction(R.drawable.ic_arrow_forward, "Next") { nextQuote() }
-                        QuoteAction(R.drawable.ic_content_copy, "Copy", enabled = quote != null) { quote?.let { QuoteClipboard.copy(context, it) } }
-                        QuoteAction(R.drawable.ic_share, "Share", enabled = quote != null) { quote?.let { QuoteShare.share(context, it) } }
+                        ContextAction(quote)
+                        ShareAction(quote)
                         QuoteAction(
                             if (favorite) R.drawable.ic_favorite else R.drawable.ic_favorite_border,
                             if (favorite) "Saved" else "Save",
@@ -1662,8 +1672,8 @@ private fun QuotesScreen(
                             page = Page.HOME
                         }
                         ReadAloudButton(quote)
-                        ListAction(R.drawable.ic_content_copy, "Copy") { QuoteClipboard.copy(context, quote) }
-                        ListAction(R.drawable.ic_share, "Share as image") { QuoteShare.share(context, quote) }
+                        ContextListAction(quote)
+                        ShareListAction(quote)
                         ListAction(R.drawable.ic_favorite, "Remove from favourites", tint = Color(0xFFE0566B)) { toggleFavorite(quote) }
                     }
                 }
