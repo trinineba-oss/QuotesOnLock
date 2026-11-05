@@ -545,3 +545,37 @@ Lewis Carroll|English writer, mathematician and photographer (1832–1898), auth
 Kenneth Grahame|Scottish writer (1859–1932), a banker by day, who wrote The Wind in the Willows from bedtime stories for his son.
 Neil deGrasse Tyson|American astrophysicist (born 1958), director of the Hayden Planetarium and host of Cosmos: A Spacetime Odyssey.
 Richard Feynman|American physicist (1918–1988), Nobel laureate for quantum electrodynamics, teacher and author of Surely You're Joking, Mr. Feynman!
+F. Scott Fitzgerald|American novelist (1896–1940) of the Jazz Age, whose The Great Gatsby is a lament for the American dream.
+William Faulkner|American novelist (1897–1962) of the Mississippi South, Nobel laureate, author of The Sound and the Fury.
+Langston Hughes|American poet (1901–1967) and leading voice of the Harlem Renaissance, who brought jazz and the blues into verse.
+Nathaniel Hawthorne|American novelist (1804–1864) of guilt and conscience in Puritan New England, author of The Scarlet Letter.
+Geoffrey Chaucer|English poet (c. 1343–1400), the father of English literature, whose Canterbury Tales gathers a whole nation on pilgrimage.
+Heinrich Heine|German poet (1797–1856) of bittersweet love songs, many set to music by Schubert and Schumann, and a sharp-witted exile in Paris.
+Henrik Ibsen|Norwegian playwright (1828–1906), father of modern drama, whose A Doll's House and Ghosts shook the conscience of Europe.
+George Bernard Shaw|Irish playwright and critic (1856–1950), Nobel laureate, author of Pygmalion and a master of the paradox.
+Molière|French comic playwright and actor (1622–1673) who mocked hypocrisy and pretension in Tartuffe and The Misanthrope.
+Jean Racine|French tragic poet (1639–1699) whose Phaedra is the summit of French classical tragedy.
+Ferdowsi|Persian poet (c. 940–1020) who spent some thirty years writing the Shahnameh, the Book of Kings, the national epic of Iran.
+Nizami|Persian poet (c. 1141–1209) of Ganja, whose Layla and Majnun became the great love story of the Islamic world.
+Kalidasa|Classical Sanskrit poet and dramatist (around the 5th century), author of Shakuntala and The Cloud-Messenger.
+Tulsidas|Indian poet-saint (c. 1532–1623) whose Ramcharitmanas retold the Ramayana in Hindi as a song of devotion.
+Murasaki Shikibu|Japanese lady-in-waiting (c. 973–c. 1014) at the Heian court, author of The Tale of Genji, often called the first novel.
+Natsume Sōseki|Japanese novelist (1867–1916) of the modern self and its loneliness, author of Kokoro and Kusamakura.
+Robert Burns|Scotland's national poet (1759–1796), a ploughman's son who wrote Auld Lang Syne and A Red, Red Rose.
+Laurence Sterne|Irish-born English clergyman and novelist (1713–1768) whose playful Tristram Shandy broke every rule of the novel.
+François Rabelais|French Renaissance writer, monk and physician (c. 1494–1553), whose giants Gargantua and Pantagruel laugh at everything.
+Giovanni Boccaccio|Italian writer (1313–1375) whose Decameron gathers a hundred tales told by ten young people fleeing the plague.
+Luís de Camões|Portugal's great poet (c. 1524–1580), soldier and wanderer, author of The Lusiads and some of the finest sonnets in Portuguese.
+Chinua Achebe|Nigerian novelist (1930–2013) whose Things Fall Apart told the story of Africa from the inside.
+Wole Soyinka|Nigerian playwright and poet (born 1934), the first African Nobel laureate in literature, imprisoned for speaking against tyranny.
+Ben Okri|Nigerian-born poet and novelist (born 1959) whose The Famished Road weaves dream and reality.
+Sylvia Plath|American poet and novelist (1932–1963), author of Ariel and The Bell Jar, writer of fierce and luminous intensity.
+W. H. Auden|English-born poet (1907–1973) of love, conscience and the age of anxiety.
+Philip Larkin|English poet and librarian (1922–1985) whose plain, rueful poems find tenderness in ordinary life.
+Elizabeth Bishop|American poet (1911–1979) of exact, quietly astonishing observation, author of One Art.
+César Vallejo|Peruvian poet (1892–1938), one of the great innovators of 20th-century poetry in Spanish.
+John Steinbeck|American novelist (1902–1968), Nobel laureate, author of The Grapes of Wrath and East of Eden.
+Vladimir Nabokov|Russian-American novelist (1899–1977), a dazzling stylist and lover of butterflies, author of Speak, Memory and Pale Fire.
+Julio Cortázar|Argentine writer (1914–1984) of playful, labyrinthine fiction, author of Hopscotch.
+Yasunari Kawabata|Japanese novelist (1899–1972), the first Japanese Nobel laureate in literature, author of Snow Country.
+Yukio Mishima|Japanese novelist and playwright (1925–1970), author of The Temple of the Golden Pavilion.

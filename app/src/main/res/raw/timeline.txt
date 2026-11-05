@@ -325,3 +325,41 @@ Ovid|Ovid|-43|17|poets|
 Julian of Norwich|Julian of Norwich|1343|1416|mystics|c
 Han Shan|Han Shan|730|800|poets|c
 The Buddha|The Dhammapada|-563|-483|thinkers|c
+F. Scott Fitzgerald|F. Scott Fitzgerald|1896|1940|writers|
+Ernest Hemingway|Ernest Hemingway|1899|1961|writers|
+William Faulkner|William Faulkner|1897|1962|writers|
+Langston Hughes|Langston Hughes|1901|1967|poets|
+Nathaniel Hawthorne|Nathaniel Hawthorne|1804|1864|writers|
+Geoffrey Chaucer|Geoffrey Chaucer|1343|1400|poets|c
+Friedrich Schiller|Friedrich Schiller|1759|1805|poets|
+Heinrich Heine|Heinrich Heine|1797|1856|poets|
+Henrik Ibsen|Henrik Ibsen|1828|1906|writers|
+George Bernard Shaw|George Bernard Shaw|1856|1950|writers|
+Molière|Molière|1622|1673|writers|
+Jean Racine|Jean Racine|1639|1699|writers|
+Ferdowsi|Ferdowsi|940|1020|poets|c
+Nizami|Nizami|1141|1209|poets|c
+Kalidasa|Kalidasa|380|450|poets|c
+Tulsidas|Tulsidas|1532|1623|poets|c
+Murasaki Shikibu|Murasaki Shikibu|973|1014|writers|c
+Natsume Sōseki|Natsume Sōseki|1867|1916|writers|
+Robert Burns|Robert Burns|1759|1796|poets|
+Laurence Sterne|Laurence Sterne|1713|1768|writers|
+François Rabelais|François Rabelais|1494|1553|writers|c
+Giovanni Boccaccio|Giovanni Boccaccio|1313|1375|writers|
+Luís de Camões|Luís de Camões|1524|1580|poets|c
+Chinua Achebe|Chinua Achebe|1930|2013|writers|
+Wole Soyinka|Wole Soyinka|1934||writers|
+Ben Okri|Ben Okri|1959||writers|
+Sylvia Plath|Sylvia Plath|1932|1963|poets|
+W. H. Auden|W. H. Auden|1907|1973|poets|
+Philip Larkin|Philip Larkin|1922|1985|poets|
+Elizabeth Bishop|Elizabeth Bishop|1911|1979|poets|
+César Vallejo|César Vallejo|1892|1938|poets|
+John Steinbeck|John Steinbeck|1902|1968|writers|
+Vladimir Nabokov|Vladimir Nabokov|1899|1977|writers|
+Julio Cortázar|Julio Cortázar|1914|1984|writers|
+Yasunari Kawabata|Yasunari Kawabata|1899|1972|writers|
+Yukio Mishima|Yukio Mishima|1925|1970|writers|
+Neil deGrasse Tyson|Neil deGrasse Tyson|1958||thinkers|
+Richard Feynman|Richard Feynman|1918|1988|thinkers|
