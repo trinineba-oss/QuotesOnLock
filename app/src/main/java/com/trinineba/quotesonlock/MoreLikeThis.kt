@@ -78,10 +78,11 @@ object MoreLikeThis {
         val keys = matches(context)[key(quote.text)] ?: return emptyList()
         val all = byKey(context)
         val on = QuotePrefs(context).enabledCategories
-        val hidden = Category.MODERN.filter { it !in on }.toSet()
-        val favorites = QuoteRepository(context).favorites().map { QuoteData.wordsKey(it.text) }.toSet()
-        val found = keys.mapNotNull { all[it] }.filter { it.category !in hidden }
-        val (saved, rest) = found.partition { QuoteData.wordsKey(it.text) in favorites }
+        val hidden: Set<Category?> = Category.MODERN.filter { it !in on }.toSet()
+        val favorites: Set<String> = QuoteRepository(context).favorites().map { QuoteData.wordsKey(it.text) }.toSet()
+        val found: List<Quote> = keys.toList().mapNotNull { k -> all[k] }.filter { q -> q.category !in hidden }
+        val saved: List<Quote> = found.filter { q -> QuoteData.wordsKey(q.text) in favorites }
+        val rest: List<Quote> = found.filter { q -> QuoteData.wordsKey(q.text) !in favorites }
         return (saved + rest).take(SHOWN)
     }
 }
