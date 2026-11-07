@@ -885,6 +885,7 @@ private fun QuotesScreen(
                         QuoteAction(R.drawable.ic_arrow_back, "Previous", enabled = canGoBack) { previousQuote() }
                         QuoteAction(R.drawable.ic_arrow_forward, "Next") { nextQuote() }
                         ContextAction(quote)
+                        MoreLikeThisAction(quote) { refreshFavorites() }
                         ShareAction(quote)
                         QuoteAction(
                             if (favorite) R.drawable.ic_favorite else R.drawable.ic_favorite_border,
@@ -1637,6 +1638,7 @@ private fun QuotesScreen(
         }
         items(shownFavorites, key = { "fav-" + it.text.hashCode() + it.author }) { quote ->
             val info = favInfo[QuoteData.wordsKey(quote.text)]
+            var similar by remember(quote.text) { mutableStateOf(false) }
             SoftCard(Modifier.fillMaxWidth()) {
                 Column(Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(4.dp)) {
                     quote.title?.let { Text(it, fontWeight = FontWeight.SemiBold) }
@@ -1673,9 +1675,11 @@ private fun QuotesScreen(
                         }
                         ReadAloudButton(quote)
                         ContextListAction(quote)
+                        MoreLikeThisListAction(quote, similar) { similar = !similar }
                         ShareListAction(quote)
                         ListAction(R.drawable.ic_favorite, "Remove from favourites", tint = Color(0xFFE0566B)) { toggleFavorite(quote) }
                     }
+                    if (similar) MoreLikeThisRow(quote) { refreshFavorites() }
                 }
             }
         }

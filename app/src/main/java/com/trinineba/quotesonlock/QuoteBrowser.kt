@@ -281,6 +281,7 @@ fun QuoteBrowser(
                 }
             }
             items(shown) { quote ->
+                var similar by remember(quote.text) { mutableStateOf(false) }
                 SoftCard(modifier = Modifier.fillMaxWidth()) {
                     Column(Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(4.dp)) {
                         quote.title?.let { Text(it, fontWeight = androidx.compose.ui.text.font.FontWeight.SemiBold) }
@@ -302,6 +303,7 @@ fun QuoteBrowser(
                             ReadAloudButton(quote)
                             ListAction(R.drawable.ic_lock, "Show on the lock screen now") { onShow(quote) }
                             ContextListAction(quote)
+                            MoreLikeThisListAction(quote, similar) { similar = !similar }
                             ShareListAction(quote)
                             val favorite = quote.text in favorites
                             ListAction(
@@ -313,6 +315,7 @@ fun QuoteBrowser(
                                 favorites = repo.favorites().map { it.text }.toSet()
                             }
                         }
+                        if (similar) MoreLikeThisRow(quote) { favorites = repo.favorites().map { it.text }.toSet() }
                     }
                 }
             }

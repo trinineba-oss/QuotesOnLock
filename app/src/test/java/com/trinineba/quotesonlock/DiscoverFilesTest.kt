@@ -20,6 +20,23 @@ class DiscoverFilesTest {
         assertTrue("only $found quotes find a passage", found > 5000)
     }
 
+    @Test fun moreLikeThisCoversTheCollectionAndPointsIntoIt() {
+        val ideas = raw("ideas.txt").useLines { QuoteData.parseIdeas(it) }
+        val all = quotes + ideas
+        val lines = raw("similar.txt").readLines().filter { it.isNotBlank() && !it.startsWith("#") }
+        val rows = lines.associate { line ->
+            val keys = line.trim().split(' ').map { it.toInt(36) }
+            keys.first() to keys.drop(1)
+        }
+        // The app's key (made in Kotlin) must match the one the build script wrote (made in Python).
+        val known = all.map { MoreLikeThis.key(it.text) }.toSet()
+        val covered = all.count { MoreLikeThis.key(it.text) in rows }
+        assertTrue("only $covered of ${all.size} lines have matches", covered >= all.size * 99 / 100)
+        val dangling = rows.values.flatten().count { it !in known }
+        assertTrue("$dangling matches point at nothing", dangling == 0)
+        assertTrue(rows.values.all { it.size >= 3 })
+    }
+
     @Test fun everyDialogueQuotesTheCollectionExactly() {
         val texts = quotes.map { it.text }.toSet()
         val lines = raw("dialogues.txt").readLines().filter { it.isNotBlank() && !it.startsWith("#") }
