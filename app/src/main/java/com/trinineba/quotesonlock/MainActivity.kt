@@ -60,6 +60,8 @@ import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.FilterChip
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.NavigationBar
+import androidx.compose.material3.NavigationBarItem
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Scaffold
@@ -779,6 +781,23 @@ private fun QuotesScreen(
         }
     }
 
+    /** The title of a tab, with the settings gear. */
+    fun LazyListScope.tabHeader(title: String) {
+        item(key = "tab-header-$title") {
+            Row(verticalAlignment = Alignment.CenterVertically) {
+                Text(title, style = MaterialTheme.typography.headlineMedium, modifier = Modifier.weight(1f))
+                Box(
+                    modifier = Modifier
+                        .size(44.dp)
+                        .clip(CircleShape)
+                        .background(MaterialTheme.colorScheme.surfaceContainerHighest.copy(alpha = 0.7f))
+                        .clickable(onClickLabel = "Settings") { lastTab = page; page = Page.SETTINGS },
+                    contentAlignment = Alignment.Center,
+                ) { Icon(painterResource(R.drawable.ic_settings), contentDescription = "Settings", tint = MaterialTheme.colorScheme.primary) }
+            }
+        }
+    }
+
     fun LazyListScope.homePage() {
         tabHeader("Today")
         item(key = "home-quote") {
@@ -964,23 +983,6 @@ private fun QuotesScreen(
                     )
                     TextButton(onClick = { writingAbout = q }) { Text("Reflect") }
                 }
-            }
-        }
-    }
-
-    /** The title of a tab, with the settings gear. */
-    fun LazyListScope.tabHeader(title: String) {
-        item(key = "tab-header-$title") {
-            Row(verticalAlignment = Alignment.CenterVertically) {
-                Text(title, style = MaterialTheme.typography.headlineMedium, modifier = Modifier.weight(1f))
-                Box(
-                    modifier = Modifier
-                        .size(44.dp)
-                        .clip(CircleShape)
-                        .background(MaterialTheme.colorScheme.surfaceContainerHighest.copy(alpha = 0.7f))
-                        .clickable(onClickLabel = "Settings") { lastTab = page; page = Page.SETTINGS },
-                    contentAlignment = Alignment.Center,
-                ) { Icon(painterResource(R.drawable.ic_settings), contentDescription = "Settings", tint = MaterialTheme.colorScheme.primary) }
             }
         }
     }
@@ -2057,14 +2059,14 @@ private fun QuotesScreen(
     Scaffold(
         bottomBar = {
             if (page in TABS) {
-                androidx.compose.material3.NavigationBar(containerColor = MaterialTheme.colorScheme.surfaceContainer.copy(alpha = 0.94f)) {
+                NavigationBar(containerColor = MaterialTheme.colorScheme.surfaceContainer.copy(alpha = 0.94f)) {
                     listOf(
                         Triple(Page.HOME, R.drawable.ic_today, "Today"),
                         Triple(Page.DISCOVER, R.drawable.ic_explore, "Discover"),
                         Triple(Page.YOURS, R.drawable.ic_bookmark, "Yours"),
                         Triple(Page.TOOLBOX, R.drawable.ic_spa, "Calm"),
                     ).forEach { (p, icon, label) ->
-                        androidx.compose.material3.NavigationBarItem(
+                        NavigationBarItem(
                             selected = page == p,
                             onClick = { page = p; lastTab = p },
                             icon = { Icon(painterResource(icon), contentDescription = null) },
