@@ -160,6 +160,7 @@ class MainActivity : ComponentActivity() {
                     onAuroraIntensity = { auroraIntensity = it },
                     openUpdates = openUpdates,
                 )
+                WordSheetHost()
             }
         }
     }
@@ -254,6 +255,7 @@ private fun QuotesScreen(
     var journal by remember { mutableStateOf(Journal.entries(prefs)) }
     var reflectOn by remember { mutableStateOf(prefs.reflectPrompt) }
     var writingAbout by remember { mutableStateOf<Quote?>(null) }
+    var writingPair by remember { mutableStateOf<Pair<Quote, Quote>?>(null) }
     var editingEntry by remember { mutableStateOf<JournalEntry?>(null) }
     var favoritesOnly by remember { mutableStateOf(prefs.favoritesOnly) }
     var newText by rememberSaveable { mutableStateOf("") }
@@ -501,6 +503,17 @@ private fun QuotesScreen(
         refreshFavorites()
     }
 
+    writingPair?.let { (a, b) ->
+        val prompt = "Alongside “${b.text.take(90).trimEnd()}${if (b.text.length > 90) "…" else ""}” (${authorName(b.byline) ?: b.byline.orEmpty()}): what do these two lines say to each other?"
+        JournalDialog(
+            quoteText = a.shownText,
+            prompt = prompt,
+            initial = "",
+            onSave = { text -> Journal.add(prefs, a, prompt, text); journal = Journal.entries(prefs); writingPair = null },
+            onDelete = null,
+            onDismiss = { writingPair = null },
+        )
+    }
     writingAbout?.let { q ->
         val prompt = Journal.promptFor(q)
         JournalDialog(
@@ -685,6 +698,18 @@ private fun QuotesScreen(
             TimelineScreen(onBack = { browse = browse.dropLast(1) }, onOpenAuthor = { browse = browse + BrowsePage.author(it) })
             return
         }
+        "themes" -> {
+            ThemesScreen(onBack = { browse = browse.dropLast(1) }, onOpenAuthor = { browse = browse + BrowsePage.author(it) })
+            return
+        }
+    }
+    browse.lastOrNull()?.takeIf { it == "influences" || it.startsWith("influences:") }?.let { route ->
+        InfluencesScreen(
+            start = route.substringAfter(':', "").toIntOrNull(),
+            onBack = { browse = browse.dropLast(1) },
+            onOpenAuthor = { browse = browse + BrowsePage.author(it) },
+        )
+        return
     }
     browse.lastOrNull()?.let { bp ->
         QuoteBrowser(
@@ -880,6 +905,7 @@ private fun QuotesScreen(
                             )
                         }
                     }
+                    current?.let { q -> EchoNote(q, favorites) { a, b -> writingPair = a to b } }
                     val favorite = quote != null && favorites.any { it.text == quote.text }
                     Row(Modifier.fillMaxWidth().padding(top = 4.dp), horizontalArrangement = Arrangement.SpaceAround) {
                         QuoteAction(R.drawable.ic_arrow_back, "Previous", enabled = canGoBack) { previousQuote() }

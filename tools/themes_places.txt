@@ -1,0 +1,131 @@
+Aeschylus|Greece
+Alan Watts|England & America
+Albert Camus|Algeria & France
+Albert Einstein|Germany & America
+Aldous Huxley|England
+Aleksandr Solzhenitsyn|Russia
+Angelus Silesius|Germany
+Annie Dillard|America
+Aristotle|Greece
+Arthur Schopenhauer|Germany
+Augustine|North Africa
+Baltasar Gracián|Spain
+Baruch Spinoza|Netherlands
+Bertrand Russell|England
+Blaise Pascal|France
+Boethius|Rome
+C. S. Lewis|Ireland & England
+Carl Jung|Switzerland
+Chinua Achebe|Nigeria
+Cicero|Rome
+Clarice Lispector|Brazil
+Confucius|China
+Dag Hammarskjöld|Sweden
+Dante Alighieri|Italy
+David Hume|Scotland
+Dionne Brand|Trinidad & Canada
+E. M. Forster|England
+Emily Dickinson|America
+Epictetus|Greece & Rome
+Erich Fromm|Germany & America
+Fernando Pessoa|Portugal
+Francis Bacon|England
+Friedrich Hölderlin|Germany
+Friedrich Nietzsche|Germany
+Friedrich Schiller|Germany
+Fyodor Dostoevsky|Russia
+Geoffrey Chaucer|England
+Georg Büchner|Germany
+Han Shan|China
+Hannah Arendt|Germany & America
+Haruki Murakami|Japan
+Henri Bergson|France
+Henry David Thoreau|America
+Heraclitus|Greece
+Hermann Hesse|Germany & Switzerland
+Homer|Greece
+Ikkyū|Japan
+Immanuel Kant|Germany
+Iris Murdoch|Ireland & England
+J. Krishnamurti|India
+J. R. R. Tolkien|England
+James Baldwin|America
+Jami|Persia
+Jean-Paul Sartre|France
+John Keats|England
+John Milton|England
+John O'Donohue|Ireland
+John Ruskin|England
+John of the Cross|Spain
+Jorge Luis Borges|Argentina
+Joseph Campbell|America
+Joseph Joubert|France
+Julian of Norwich|England
+Kabir|India
+Kahlil Gibran|Lebanon & America
+Karl Jaspers|Germany
+La Rochefoucauld|France
+Lao Tzu|China
+Leo Tolstoy|Russia
+Leonardo da Vinci|Italy
+Ludwig Wittgenstein|Austria & England
+Marcel Proust|France
+Marcus Aurelius|Rome
+Martin Buber|Austria & Israel
+Martin Luther King Jr.|America
+Mary Oliver|America
+Meister Eckhart|Germany
+Mencius|China
+Michel de Montaigne|France
+Miguel de Cervantes|Spain
+Miguel de Unamuno|Spain
+Milan Kundera|Czech lands & France
+Muhammad Ali|America
+Nelson Mandela|South Africa
+Nikos Kazantzakis|Greece
+Novalis|Germany
+Octavio Paz|Mexico
+Ovid|Rome
+Peter Abelard|France
+Plato|Greece
+Plutarch|Greece
+Po Chü-i|China
+Rabindranath Tagore|India
+Rainer Maria Rilke|Bohemia & Germany
+Ralph Waldo Emerson|America
+Rebecca Solnit|America
+Richard Feynman|America
+Robert Burton|England
+Robert Frost|America
+Rumi|Persia & Anatolia
+Ryōkan|Japan
+Sa'di|Persia
+Saadi|Persia
+Samuel Johnson|England
+Samuel Taylor Coleridge|England
+Sappho|Greece
+Seneca|Rome
+Simone Weil|France
+Sir Thomas Browne|England
+Stendhal|France
+Søren Kierkegaard|Denmark
+T'ao Ch'ien|China
+The Dhammapada|India
+The Qur'an|Arabia
+The Upanishads|India
+Thich Nhat Hanh|Vietnam
+Thomas Merton|America
+Thomas à Kempis|Netherlands
+Toni Morrison|America
+Ursula K. Le Guin|America
+V. S. Naipaul|Trinidad & England
+Victor Hugo|France
+Viktor Frankl|Austria
+Vincent van Gogh|Netherlands & France
+Virgil|Rome
+Walt Whitman|America
+William Hazlitt|England
+William Wordsworth|England
+Yasunari Kawabata|Japan
+Yoshida Kenkō|Japan
+Zhuangzi|China

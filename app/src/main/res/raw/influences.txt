@@ -1,0 +1,189 @@
+# Influences: T|title|subtitle, then N|author|when|quote text|byline and E|why the next one follows (written for the app). Built by tools/threads_build.py
+T|The road of nonviolence|From an ancient Indian song to the American civil rights movement.
+N|The Bhagavad Gita|c. 2nd century BC|But thou, want not! ask not! Find full reward\nOf doing right in right! Let right deeds be\nThy motive, not the fruit which comes from them.\nAnd live in action! Labour! Make thine acts\nThy piety, casting all self aside,\nContemning gain and merit; equable\nIn good or evil: equability\nIs Yog, is piety!|The Bhagavad Gita
+E|Thoreau took the Gita with him to Walden Pond: “In the morning I bathe my intellect in the stupendous and cosmogonal philosophy of the Bhagvat Geeta.”
+N|Henry David Thoreau|1849|Under a government which imprisons any unjustly, the true place for a just man is also a prison.|Henry David Thoreau, Civil Disobedience
+E|Gandhi read Civil Disobedience in South Africa and printed extracts from it in his newspaper, Indian Opinion, in 1907.
+N|Mahatma Gandhi|1927|'Hate the sin and not the sinner' is a precept which though easy enough to understand is rarely practised, and that is why the poison of hatred spreads in the world.|Mahatma Gandhi, An Autobiography
+E|King studied Gandhi as a seminary student, travelled to India in 1959, and made nonviolent resistance the method of the civil rights movement.
+N|Martin Luther King Jr.|1963|Darkness cannot drive out darkness: only light can do that. Hate cannot drive out hate: only love can do that.|Martin Luther King Jr.
+T|Tolstoy and the young Gandhi|An old novelist and a young lawyer, writing to each other across the world.
+N|Leo Tolstoy|1894|All that was drowned in a sea of merry common labor. God gave the day, God gave the strength. And the day and the strength were consecrated to labor, and that labor was its own reward. For whom the labor? What would be its fruits? These were idle considerations—beside the point.|Leo Tolstoy, Anna Karenina
+E|Gandhi wrote that Tolstoy's The Kingdom of God Is Within You overwhelmed him. In 1910 the two corresponded, and Gandhi named his community near Johannesburg Tolstoy Farm.
+N|Mahatma Gandhi|1927|I began to realise more and more the infinite possibilities of universal love.|Mahatma Gandhi, An Autobiography
+T|Socrates and the Stoics|The man who knew he knew nothing becomes the model of the free mind.
+N|Plato|4th century BC|I see, my dear Theaetetus, that Theodorus had a true insight into your nature when he said that you were a philosopher, for wonder is the feeling of a philosopher, and philosophy begins in wonder.|Plato
+E|Epictetus holds up Socrates again and again as the model of a free and fearless man.
+N|Epictetus|c. AD 108|Men are disturbed not by things, but by the views which they take of things. Thus death is nothing terrible, else it would have appeared so to Socrates. But the terror consists in our notion of death, that it is terrible.|Epictetus, Enchiridion (tr. Thomas Wentworth Higginson)
+E|In the first book of the Meditations, Marcus Aurelius thanks his teacher Rusticus for lending him the discourses of Epictetus.
+N|Marcus Aurelius|c. AD 170|Alexander, Caesar, Pompey, what were they compared with Diogenes, Heraclitus, Socrates? These knew the nature of things, their causes and their matter, and the minds within them were at one. As to the former, how many things they schemed for, and to how many were they enslaved!|Marcus Aurelius, Meditations
+T|A conversation of essayists|Seneca to Montaigne to Emerson to Nietzsche: four free minds, each reading the last.
+N|Seneca|1st century|What is the use of possessing numberless books and libraries, whose titles their owner can hardly read through in a lifetime? A student is overwhelmed by such a mass, not instructed, and it is much better to devote yourself to a few writers than to skim through many.|Seneca, Minor Dialogues (tr. Aubrey Stewart)
+E|Montaigne named Seneca and Plutarch as the two authors he returned to most; his Essays are full of them.
+N|Michel de Montaigne|1580|Would I fortify myself against the fear of death, it must be at the expense of Seneca: would I extract consolation for myself or my friend, I borrow it from Cicero. I might have found it in myself, had I been trained to make use of my own reason.|Michel de Montaigne, Essays (tr. Charles Cotton)
+E|Emerson wrote of the Essays: “It seemed to me as if I had myself written the book, in some former life.”
+N|Ralph Waldo Emerson|1841|The poet has a new thought; he has a whole new experience to unfold; he will tell us how it was with him, and all men will be the richer in his fortune. For the experience of each new age requires a new confession, and the world seems always waiting for its poet.|Ralph Waldo Emerson, The Poet
+E|The teenage Nietzsche read Emerson and kept rereading him all his life; the first edition of The Gay Science opens with lines from Emerson.
+N|Friedrich Nietzsche|1882|For the sake of this day—I am for the first time content to have lived mine entire life. And that I testify so much is still not enough for me. It is worth while living on the earth: one day, one festival with Zarathustra, hath taught me to love the earth.|Friedrich Nietzsche, Thus Spake Zarathustra
+T|From Hume to Hesse|A chain of German thought, woken by a Scottish sceptic.
+N|David Hume|1739|We speak not strictly and philosophically when we talk of the combat of passion and of reason. Reason is, and ought only to be the slave of the passions, and can never pretend to any other office than to serve and obey them.|David Hume, A Treatise of Human Nature
+E|Kant wrote that Hume first interrupted his “dogmatic slumber” and set his philosophy on a new course.
+N|Immanuel Kant|1788|Two things fill the mind with ever new and increasing admiration and awe, the oftener and the more steadily we reflect on them: the starry heavens above and the moral law within. I have not to search for them and conjecture them as though they were veiled in darkness or were in the transcendent region beyond my horizon; I see them before me and connect them directly with the consciousness of my existence.|Immanuel Kant, Critique of Practical Reason (tr. Thomas Kingsmill Abbott)
+E|Schopenhauer began from Kant: the line between things as they appear and as they are in themselves became the ground of his own philosophy.
+N|Arthur Schopenhauer|1819|Every man takes the limits of his own field of vision for the limits of the world. This is an error of the intellect as inevitable as that error of the eye which lets us fancy that on the horizon heaven and earth meet.|Arthur Schopenhauer, Studies in Pessimism (tr. T. Bailey Saunders)
+E|In 1865 the student Nietzsche found The World as Will and Representation in a Leipzig bookshop and was gripped by it for years.
+N|Friedrich Nietzsche|1883|O Zarathustra, thy fruits are ripe, but thou art not ripe for thy fruits! So must thou go again into solitude: for thou shalt yet become mellow.|Friedrich Nietzsche, Thus Spake Zarathustra
+E|Hesse read Nietzsche as a young bookseller in Tübingen; Zarathustra's voice runs through Demian and Steppenwolf.
+N|Hermann Hesse|1922|Madness, in a higher sense, is the beginning of all wisdom.|Hermann Hesse
+T|The Upanishads reach Europe|Ancient Indian wisdom finds a German pessimist.
+N|The Upanishads|c. 7th century BC|The knowing Self is not born, it dies not; it sprang from nothing, nothing sprang from it.|The Upanishads
+E|Schopenhauer read the Upanishads in a Latin translation and called them the consolation of his life, and of his death.
+N|Arthur Schopenhauer|1851|Every parting gives a foretaste of death; every coming together again a foretaste of the resurrection. This is why even people who were indifferent to each other, rejoice so much if they come together again after twenty or thirty years' separation.|Arthur Schopenhauer, Studies in Pessimism (tr. T. Bailey Saunders)
+T|Hafiz, Goethe and Emerson|A Persian poet's songs travel west, through German into English.
+N|Hafiz|14th century|And, Hafiz, at the door of Kismet lies\nNo just complaint — a mind like water clear,\nA song that swells and dies upon the ear,\nThese are enough for thee!|Hafiz (tr. Gertrude Bell)
+E|Goethe read Hafiz in Joseph von Hammer-Purgstall's German translation in 1814 and answered him with a whole book of poems, the West-Eastern Divan.
+N|Goethe|1819|Thou who comest from on high,\nWho all woes and sorrows stillest,\nWho, for twofold misery,\nHearts with twofold balsam fillest,\nWould this constant strife would cease!\nWhat are pain and rapture now?\nBlissful Peace,\nTo my bosom hasten thou!|Goethe, Poems (tr. Edgar Alfred Bowring)
+E|Emerson admired Goethe as the great modern writer, and through the same German translation came to Hafiz, whom he called the prince of Persian poets and translated himself.
+N|Ralph Waldo Emerson|1858|The true philosopher and the true poet are one, and a beauty, which is truth, and a truth, which is beauty, is the aim of both.|Ralph Waldo Emerson, Nature
+T|Kierkegaard, Kafka and Camus|Faith, anxiety and the absurd.
+N|Søren Kierkegaard|1843|It is one thing to compose one's own life, another, to let one's life be composed. The Christian lets his life be composed; and insofar a simple Christian lives far more poetically than many a genius.|Søren Kierkegaard
+E|In 1913 Kafka read Kierkegaard and wrote in his diary that, despite great differences, Kierkegaard's case was very like his own.
+N|Franz Kafka|1917|Each of us has his own way of emerging from the underworld, mine is by writing. That's why the only way I can keep going, if at all, is by writing, not through rest and sleep. I am far more likely to achieve peace of mind through writing than the capacity to write through peace.|Franz Kafka, Letters to Felice
+E|Camus wrote an essay on hope and the absurd in Kafka, added to The Myth of Sisyphus.
+N|Albert Camus|1942|The struggle itself towards the heights is enough to fill a man's heart. One must imagine Sisyphus happy.|Albert Camus
+T|Dostoevsky and Nietzsche|A novelist who saw into the underground of the soul.
+N|Fyodor Dostoevsky|1880|Why, suffering is the sole origin of consciousness.|Fyodor Dostoevsky, Notes from Underground
+E|Nietzsche called Dostoevsky “the only psychologist from whom I had anything to learn”.
+N|Friedrich Nietzsche|1888|The discipline of suffering, of great suffering—know ye not that it is only this discipline that has produced all the elevations of humanity hitherto?|Friedrich Nietzsche, Beyond Good and Evil
+T|Dostoevsky and Camus|The question of meaning without God.
+N|Fyodor Dostoevsky|1872|The awful thing is that beauty is mysterious as well as terrible. God and the devil are fighting there and the battlefield is the heart of man.|Fyodor Dostoevsky, The Brothers Karamazov
+E|Camus wrote about Dostoevsky in The Myth of Sisyphus and in 1959 adapted his novel Demons for the stage.
+N|Albert Camus|1942|Happiness and the absurd are two sons of the same earth. They are inseparable.|Albert Camus
+T|The way of the Tao|From Lao Tzu to the Western seeker.
+N|Lao Tzu|6th century BC|Man takes his law from the Earth; the Earth takes its law from Heaven; Heaven takes its law from the Tao. The law of the Tao is its being what it is.|Lao Tzu
+E|Zhuangzi carried Lao Tzu's Tao into stories, jokes and dreams; together they are the founders of Taoism.
+N|Zhuangzi|4th century BC|Perfect Tao does not declare itself. Nor does perfect argument express itself in words. Nor does perfect charity show itself in act. Nor is perfect honesty absolutely incorruptible. Nor is perfect courage absolutely unyielding.|Zhuangzi
+E|Chinese Chan (Zen) Buddhism took in the Taoist love of naturalness; the hermit poet Han Shan is loved by both traditions.
+N|Han Shan|8th century|In the jade-green ravine the spring water is clear;\non Cold Mountain the moonlight is white.\nIn silent knowing the spirit grows bright of itself;\ncontemplating emptiness, the world grows ever stiller.|Han Shan, Cold Mountain Poems (tr. Claude)
+E|Alan Watts brought Taoism and Zen to the West in The Way of Zen and Tao: The Watercourse Way, and Cold Mountain's poems became a touchstone for his generation.
+N|Alan Watts|1957|Zen is a liberation from time. For if we open our eyes and see clearly, it becomes obvious that there is no other time than this instant, and that the past and the future are abstractions without any concrete reality.|Alan Watts
+T|Two monks, East and West|The Buddha's teaching meets a Trappist monk.
+N|The Dhammapada|3rd century BC|Not to blame, not to strike, to live restrained under the law, to be moderate in eating, to sleep and sit alone, and to dwell on the highest thoughts,—this is the teaching of the Awakened.|The Dhammapada
+E|Thich Nhat Hanh, a Vietnamese Zen monk, taught the Buddha's mindfulness as a practice for everyday life.
+N|Thich Nhat Hanh|1975|Mindfulness must be engaged. Once there is seeing, there must be acting. Otherwise, what's the use of seeing?|Thich Nhat Hanh, Peace Is Every Step
+E|In 1966 Thomas Merton welcomed Thich Nhat Hanh at his monastery in Kentucky and wrote the essay “Nhat Hanh Is My Brother”.
+N|Thomas Merton|1968|For me to be a saint means to be myself. Therefore the problem of sanctity and salvation is in fact the problem of finding out who I am and of discovering my true self.|Thomas Merton, New Seeds of Contemplation
+T|The epic line|From Homer through Virgil and Dante to the modern poem.
+N|Homer|8th century BC|Fear, O Achilles, the wrath of heaven; think on your own father and have compassion upon me, who am the more pitiable, for I have steeled myself as no man yet has ever steeled himself before me, and have raised to my lips the hand of him who slew my son.|Homer, The Iliad (tr. Samuel Butler)
+E|Virgil modelled the Aeneid on Homer: its first half an Odyssey of wandering, its second an Iliad of war.
+N|Virgil|19 BC|What land is left, Achates, what tract on earth that is not full of our agony? Behold Priam! Here too is the meed of honour, here mortal estate touches the soul to tears.|Virgil, Aeneid (tr. J. W. Mackail)
+E|Dante chose Virgil as his guide through Hell and Purgatory, calling him his master and his author.
+N|Dante Alighieri|1320|Thou didst as he who walketh in the night,\nWho bears his light behind, which helps him not,\nBut wary makes the persons after him|Dante Alighieri, Purgatorio (tr. H. W. Longfellow)
+E|T. S. Eliot wrote that Dante and Shakespeare divide the modern world between them; there is no third.
+N|T. S. Eliot|1943|No poet, no artist of any art, has his complete meaning alone. His significance, his appreciation is the appreciation of his relation to the dead poets and artists.|T. S. Eliot, Tradition and the Individual Talent
+T|Plato, Augustine and Petrarch|The turn inward.
+N|Plato|4th century BC|You are going to commit your soul to the care of a man whom you call a Sophist. And yet I hardly think that you know what a Sophist is; and if not, then you do not even know to whom you are committing your soul and whether the thing to which you commit yourself be good or evil.|Plato
+E|Augustine tells in the Confessions how “the books of the Platonists” prepared him for his conversion.
+N|Augustine|397|When out of their order, they are restless; restored to order, they are at rest. My weight, is my love; thereby am I borne, whithersoever I am borne.|Augustine, Confessions (tr. E. B. Pusey)
+E|On Mont Ventoux in 1336, Petrarch opened Augustine's Confessions at random and found a rebuke to those who admire mountains and neglect their own souls.
+N|Petrarch|1350s|In a low valley shut from all around,\nSole consolation of my heart-deep sighs,\nPensive and slow, with Love I walk alone:\nNot ladies here, but rocks and founts are found,\nAnd of that day blest images arise,\nWhich my thought shapes where'er I turn mine eyes.|Petrarch, Canzoniere (tr. R. G. Macgregor)
+T|Milton, Wordsworth and Keats|English poets calling to each other across the centuries.
+N|John Milton|1667|Then wilt thou not be loth\nTo leave this Paradise, but shalt possess\nA paradise within thee, happier far.|John Milton, Paradise Lost
+E|Wordsworth's sonnet of 1802 begins “Milton! thou shouldst be living at this hour”.
+N|William Wordsworth|1807|Milton! thou should'st be living at this hour:\nEngland hath need of thee: she is a fen\nOf stagnant waters: altar, sword and pen,\nFireside, the heroic wealth of hall and bower,\nHave forfeited their ancient English dower\nOf inward happiness.|William Wordsworth, London, 1802
+E|Keats studied Wordsworth closely, and in a letter of 1818 wondered whether he had gone further than Milton into the “dark Passages” of the human heart.
+N|John Keats|1819|The Genius of Poetry must work out its own salvation in a man: It cannot be matured by law and precept, but by sensation and watchfulness in itself—That which is creative must create itself.|John Keats, Letters to His Family and Friends
+T|Shakespeare and Keats|Negative capability.
+N|William Shakespeare|1600s|This above all: to thine own self be true;\nAnd it must follow, as the night the day,\nThou canst not then be false to any man.|William Shakespeare
+E|Keats wrote of “Negative Capability”, being in doubt without reaching after certainty, “which Shakespeare possessed so enormously”.
+N|John Keats|1818|Negative Capability, that is, when a man is capable of being in uncertainties, mysteries, doubts, without any irritable reaching after fact and reason.|John Keats, Letter to George and Thomas Keats, December 1817
+T|Blake, Yeats and Heaney|Vision handed on.
+N|William Blake|1790s|Eternity is in love with the productions of time.|William Blake
+E|Yeats co-edited the first large edition of Blake's works in 1893.
+N|W. B. Yeats|1920s|All changed, changed utterly:\nA terrible beauty is born.|W. B. Yeats, Easter, 1916
+E|Seamus Heaney grew up on Yeats and wrote about him all his life; both became Irish Nobel laureates.
+N|Seamus Heaney|1990s|Is there a life before death? That's chalked up\nIn Ballymurphy. Competence with pain,\nCoherent miseries, a bite and sup:\nwe hug our little destiny again.|Seamus Heaney, Whatever You Say Say Nothing
+T|Whitman's children|One American voice heard across the Spanish-speaking world.
+N|Walt Whitman|1855|Walt Whitman, a kosmos, of Manhattan the son,\nTurbulent, fleshy, sensual, eating, drinking and breeding,\nNo sentimentalist, no stander above men and women or apart from them,\nNo more modest than immodest.|Walt Whitman
+E|Lorca wrote an “Ode to Walt Whitman” in Poet in New York.
+N|Federico García Lorca|1930|And if death is death,\nwhat will become of the poets\nand of the sleeping things\nthat no one remembers any more?|Federico García Lorca, Libro de poemas (tr. Claude)
+E|Lorca and Pablo Neruda became close friends in Buenos Aires in 1933; Neruda also wrote that he owed much to Whitman.
+N|Pablo Neruda|1950s|On our earth, before writing was invented, before the printing press was invented, poetry flourished. That is why we know that poetry is like bread; it should be shared by all, by scholars and by peasants, by all our vast, incredible, extraordinary family of humanity.|Pablo Neruda
+T|I, too, sing America|A promise answered.
+N|Walt Whitman|1860|The question, O me! so sad, recurring—What good amid these, O me, O life?\nAnswer.\nThat you are here—that life exists and identity,\nThat the powerful play goes on, and you may contribute a verse.|Walt Whitman
+E|Langston Hughes's “I, too, sing America” answers Whitman's “I Hear America Singing” for those left out of it.
+N|Langston Hughes|1926|I, too, sing America.\n\nI am the darker brother.\nThey send me to eat in the kitchen\nWhen company comes,\nBut I laugh,\nAnd eat well,\nAnd grow strong.\n\nTomorrow,\nI'll sit at the table\nWhen company comes.\nNobody'll dare\nSay to me,\n"Eat in the kitchen,"\nThen.\n\nBesides,\nThey'll see how beautiful I am\nAnd be ashamed,—\n\nI, too, am America.|Langston Hughes
+T|Whitman in Lisbon|A poet of many selves greets another.
+N|Walt Whitman|1855|I am the poet of the Body and I am the poet of the Soul,\nThe pleasures of heaven are with me and the pains of hell are with me,\nThe first I graft and increase upon myself, the latter I translate into new tongue.|Walt Whitman
+E|Fernando Pessoa's other self, the poet Álvaro de Campos, wrote a long “Salutation to Walt Whitman”.
+N|Fernando Pessoa|1930s|Everything stated or expressed by man is a note in the margin of a completely erased text. From what's in the note we can extract the gist of what must have been in the text, but there's always a doubt, and the possible meanings are many.|Fernando Pessoa, The Book of Disquiet
+T|Kabir, Tagore and Yeats|Indian song reaches the English-speaking world.
+N|Kabir|15th century|Kabîr says: "Dive thou into that Ocean of sweetness: thus let all errors of life and of death flee away."|Kabir
+E|Tagore translated a hundred poems of Kabir into English, published in 1915.
+N|Rabindranath Tagore|1912|It is the pang of separation that spreads throughout the world and gives birth to shapes innumerable in the infinite sky. It is this sorrow of separation that gazes in silence all nights from star to star and becomes lyric among rustling leaves in rainy darkness of July.|Rabindranath Tagore
+E|Yeats wrote the introduction to Tagore's Gitanjali in 1912; the next year Tagore became the first non-European Nobel laureate in literature.
+N|W. B. Yeats|1910s|I made my song a coat\nCovered with embroideries\nOut of old mythologies\nFrom heel to throat;\nBut the fools caught it,\nWore it in the world's eye\nAs though they'd wrought it.\nSong, let them take it\nFor there's more enterprise\nIn walking naked.|W. B. Yeats, A Coat
+T|Spinoza's God|God or Nature.
+N|Baruch Spinoza|1677|The mind's highest good is the knowledge of God, and the mind's highest virtue is to know God.|Baruch Spinoza, Ethics (tr. R. H. M. Elwes)
+E|Asked in 1929 whether he believed in God, Einstein answered that he believed in Spinoza's God, revealed in the harmony of all that exists.
+N|Albert Einstein|1930s|I believe in Spinoza's God, who reveals Himself in the lawful harmony of the world, not in a God who concerns Himself with the fate and the doings of mankind.|Albert Einstein
+T|Spinoza and Goethe|A calm that steadied a passionate young poet.
+N|Baruch Spinoza|1677|Blessedness is not the reward of virtue, but virtue itself; neither do we rejoice therein, because we control our lusts, but, contrariwise, because we rejoice therein, we are able to control our lusts.|Baruch Spinoza, Ethics (tr. R. H. M. Elwes)
+E|Goethe wrote that reading Spinoza's Ethics brought calm to his passions and opened a wide, free view of the world.
+N|Goethe|1810s|Truth belongs to the man, error to his age. This is why it has been said that, while the misfortune of the age caused his error, the force of his soul made him emerge from the error with glory.|Goethe, Maxims and Reflections (tr. T. Bailey Saunders)
+T|Freud, Jung and Campbell|The depths of the mind, and the myths that map them.
+N|Sigmund Freud|1900s|The unconscious is the larger circle which includes within itself the smaller circle of the conscious; everything conscious has its preliminary step in the unconscious, whereas the unconscious may stop with this step and still claim full value as a psychic activity.|Sigmund Freud
+E|Jung was Freud's chosen heir until they broke in 1913 over the nature of the unconscious.
+N|Carl Jung|1930s|Individuation, however, is an indispensable psychological requirement. The crushing predominance of what is collective should make us realise what peculiar care and attention must be given to the delicate plant "individuality," if it is to develop.|Carl Jung
+E|Joseph Campbell built The Hero with a Thousand Faces on Jung's archetypes of the unconscious.
+N|Joseph Campbell|1949|Mythology, in other words, is psychology misread as biography, history, and cosmology.|Joseph Campbell, The Hero with a Thousand Faces
+T|Kierkegaard, Jaspers and Arendt|The existence of the individual, then the life of the mind.
+N|Søren Kierkegaard|1846|It is said to be difficult to understand the philosophy of Hegel; but to understand Abraham, why, that is an easy matter! To proceed further than Hegel is a wonderful feat, but to proceed further than Abraham, why, nothing is easier!|Søren Kierkegaard
+E|Karl Jaspers was among the first to place Kierkegaard, with Nietzsche, at the source of modern philosophy.
+N|Karl Jaspers|1930s|Philosophy means to be on the way. Its questions are more essential than its answers, and every answer becomes a new question.|Karl Jaspers
+E|Hannah Arendt wrote her doctorate under Jaspers and remained his friend for life.
+N|Hannah Arendt|1958|Plurality is the condition of human action because we are all the same, that is, human, in such a way that nobody is ever the same as anyone else who ever lived, lives, or will live.|Hannah Arendt, The Human Condition
+T|Buber and Hammarskjöld|I and Thou at the United Nations.
+N|Martin Buber|1923|The basic word I-You can only be spoken with one's whole being. The basic word I-It can never be spoken with one's whole being.|Martin Buber, I and Thou
+E|When he died in 1961, Dag Hammarskjöld was translating Buber's I and Thou into Swedish.
+N|Dag Hammarskjöld|1950s|Thou takest the pen–and the lines dance. Thou takest the flute–and the notes shimmer. Thou takest the brush–and the colors sing. So all things have meaning and beauty in that space beyond time where Thou art. How, then, can I hold back anything from Thee.|Dag Hammarskjöld, Markings
+T|Attar and Rumi|A meeting in legend.
+N|Attar|12th century|Then went a Third, who spurr'd with true Desire,\nPlunging at once into the sacred Fire,\nFolded his Wings within, till he became\nOne Colour and one Substance with the Flame.\nHe only knew the Flame who in it burn'd;\nAnd only He could tell who ne'er to tell return'd|Attar, The Conference of the Birds (version by Edward FitzGerald)
+E|Legend says the old Attar met the boy Rumi and gave him his Book of Secrets; Rumi later wrote that Attar had crossed all the seven cities of love.
+N|Rumi|13th century|When pen hasted to write,\nOn reaching the subject of love it split in twain.\nWhen the discourse touched on the matter of love,\nPen was broken and paper torn.\nIn explaining it Reason sticks fast, as an ass in mire;\nNaught but Love itself can explain love and lovers!|Rumi
+T|Yeats and Achebe|Things fall apart.
+N|W. B. Yeats|1919|Turning and turning in the widening gyre\nThe falcon cannot hear the falconer;\nThings fall apart; the centre cannot hold;\nMere anarchy is loosed upon the world,\nThe blood-dimmed tide is loosed, and everywhere\nThe ceremony of innocence is drowned;\nThe best lack all conviction, while the worst\nAre full of passionate intensity.|W. B. Yeats, The Second Coming
+E|Achebe took the title of his first novel, Things Fall Apart, from Yeats's poem “The Second Coming”.
+N|Chinua Achebe|1958|We cannot trample upon the humanity of others without devaluing our own. The Igbo, always practical, put it concretely in their proverb Onye ji onye n'ani ji onwe ya: "He who will hold another down in the mud must stay in the mud to keep him down.|Chinua Achebe
+T|Proust and Woolf|Two explorers of consciousness.
+N|Marcel Proust|1913|There is nothing like desire for preventing the thing one says from bearing any resemblance to what one has in one's mind. Time presses, and yet it seems as though we were seeking to gain time by speaking of subjects absolutely alien to that by which we are obsessed.|Marcel Proust, The Guermantes Way (tr. C. K. Scott Moncrieff)
+E|Woolf wrote to a friend in 1922 after reading Proust: “Oh if I could write like that!”
+N|Virginia Woolf|1927|It would be a thousand pities if women wrote like men, or lived like men, or looked like men, for if two sexes are quite inadequate, considering the vastness and variety of the world, how should we manage with one only?|Virginia Woolf, A Room of One's Own
+T|Kafka, Borges and Eco|Labyrinths and libraries.
+N|Franz Kafka|1915|It is no refutation of the foreboding of a final liberation if on the next day the captivity remains unchanged, or even grows worse, or even if it is expressly declared that it will never end. All this can rather be the necessary precondition of the final liberation.|Franz Kafka, Diaries (tr. Claude)
+E|Borges translated stories by Kafka into Spanish and wrote the essay “Kafka and His Precursors”.
+N|Jorge Luis Borges|1940s|The fact is that every writer creates his own precursors. His work modifies our conception of the past, as it will modify the future.|Jorge Luis Borges
+E|Umberto Eco named the blind librarian of The Name of the Rose, Jorge of Burgos, after Borges.
+N|Umberto Eco|1980|Yesterday's rose endures in its name, we hold empty names.|Umberto Eco, The Name of the Rose
+T|Montaigne and Shakespeare|An essay becomes a play.
+N|Michel de Montaigne|1580|Every place swarms with commentaries; of authors there is great scarcity.|Michel de Montaigne, Essays (tr. Charles Cotton)
+E|Gonzalo's ideal commonwealth in The Tempest follows John Florio's 1603 English translation of Montaigne's essay “Of Cannibals” almost word for word.
+N|William Shakespeare|c. 1600|There is a tide in the affairs of men,\nWhich, taken at the flood, leads on to fortune;\nOmitted, all the voyage of their life\nIs bound in shallows and in miseries.\nOn such a full sea are we now afloat,.|William Shakespeare
+T|Montaigne and Pascal|The sceptic and the believer.
+N|Michel de Montaigne|1580|Do but recollect yourself, and you will find in yourself natural arguments against death, true, and the fittest to serve you in time of necessity: ’tis they that make a peasant, and whole nations, die with as much firmness as a philosopher.|Michel de Montaigne, Essays (tr. Charles Cotton)
+E|Pascal read Montaigne closely and argued with him on page after page of the Pensées.
+N|Blaise Pascal|1660|When a natural discourse paints a passion or an effect, one feels within oneself the truth of what one reads, which was there before, although one did not know it. Hence one is inclined to love him who makes us feel it, for he has not shown us his own riches, but ours.|Blaise Pascal, Pensées (tr. W. F. Trotter)
+T|Jacobsen and Rilke|Two books a young poet should never be without.
+N|J. P. Jacobsen|1880|Not when you went about forever poetizing about your own life instead of living it.|J. P. Jacobsen, Niels Lyhne (tr. Hanna Astrup Larsen)
+E|In Letters to a Young Poet, Rilke tells Kappus that of all books he could not do without two: the Bible and the books of Jacobsen.
+N|Rainer Maria Rilke|1903|To discover in all lusts and crimes, in all trials and all despair, an infinite reason for existence is a part of that great longing that creates poets.|Rainer Maria Rilke, Auguste Rodin (tr. Jessie Lemont & Hans Trausil)
+T|Emerson and Whitman|“I greet you at the beginning of a great career.”
+N|Ralph Waldo Emerson|1844|All that we call sacred history attests that the birth of a poet is the principal event in chronology.|Ralph Waldo Emerson, Essays: Second Series
+E|Emerson wrote to the unknown Whitman in 1855 after reading Leaves of Grass: “I greet you at the beginning of a great career.”
+N|Walt Whitman|1855|Poets to come! orators, singers, musicians to come!\nNot to-day is to justify me and answer what I am for,\nBut you, a new brood, native, athletic, continental, greater than before known,\nArouse! for you must justify me.|Walt Whitman
+T|Emerson, Thoreau and Muir|Nature as a teacher, from Concord to Yosemite.
+N|Ralph Waldo Emerson|1836|The poet is the sayer, the namer, and represents beauty. He is a sovereign, and stands on the centre. For the world is not painted or adorned, but is from the beginning beautiful; and God has not made some beautiful things, but Beauty is the creator of the universe.|Ralph Waldo Emerson, The Poet
+E|Thoreau built his cabin at Walden Pond on land Emerson owned, and began his journal at Emerson's suggestion.
+N|Henry David Thoreau|1854|What business have I in the woods, if I am thinking of something out of the woods?|Henry David Thoreau, Walking
+E|John Muir carried Emerson and Thoreau into the mountains; in 1871 Emerson visited him in Yosemite.
+N|John Muir|1890s|Nevermore, however weary, should one faint by the way who gains the blessings of one mountain day; whatever his fate, long life, short life, stormy or calm, he is rich forever.|John Muir, My First Summer in the Sierra

@@ -74,6 +74,9 @@ object MoreLikeThis {
     fun has(context: Context, quote: Quote): Boolean =
         quote.category != Category.CUSTOM && matches(context).containsKey(key(quote.text))
 
+    /** The keys of [quote]'s matches, nearest first, before any filtering. */
+    fun nearest(context: Context, quote: Quote): IntArray = matches(context)[key(quote.text)] ?: IntArray(0)
+
     fun of(context: Context, quote: Quote): List<Quote> {
         val keys = matches(context)[key(quote.text)] ?: return emptyList()
         val all = byKey(context)
@@ -247,4 +250,67 @@ fun MoreLikeThisRow(quote: Quote, onFavoritesChanged: () -> Unit = {}) {
         }
     }
     opened?.let { MoreLikeThisSheet(it, { opened = null }, onFavoritesChanged, showStart = true) }
+}
+
+// ---- Echoes -------------------------------------------------------------------------------------
+
+/**
+ * A line you have saved that [quote] closely echoes (one of its three nearest matches), or null. Nothing is
+ * shown for a quote that is itself a favourite, so the note stays a small surprise.
+ */
+fun MoreLikeThis.echo(context: Context, quote: Quote, favorites: List<Quote>): Quote? {
+    if (quote.category == Category.CUSTOM || favorites.isEmpty()) return null
+    val saved = favorites.associateBy { key(it.text) }
+    if (key(quote.text) in saved) return null
+    return nearest(context, quote).take(3).firstNotNullOfOrNull { saved[it] }
+}
+
+/** Under the home card's quote: a quiet note when it echoes something you saved. Tap it to see both. */
+@Composable
+fun EchoNote(quote: Quote, favorites: List<Quote>, onReflect: (Quote, Quote) -> Unit) {
+    val context = LocalContext.current
+    val echo = remember(quote.text, favorites) { runCatching { MoreLikeThis.echo(context, quote, favorites) }.getOrNull() } ?: return
+    val savedAt = remember(echo.text, favorites) { QuoteRepository(context).favoriteSavedTimes()[QuoteData.wordsKey(echo.text)] }
+    var open by remember(quote.text) { mutableStateOf(false) }
+    val amber = Color(0xFFFFE2B0)
+    val heading = "↺ Echoes a line you saved" + (savedAt?.let { " in " + savedWhen(it) } ?: "")
+    Surface(
+        onClick = { open = true },
+        shape = RoundedCornerShape(14.dp),
+        color = amber.copy(alpha = 0.08f),
+        border = BorderStroke(1.dp, amber.copy(alpha = 0.45f)),
+        modifier = Modifier.fillMaxWidth(),
+    ) {
+        Column(Modifier.padding(horizontal = 12.dp, vertical = 10.dp), verticalArrangement = Arrangement.spacedBy(4.dp)) {
+            Text(heading.uppercase(), style = MaterialTheme.typography.labelSmall, letterSpacing = 0.6.sp, color = MaterialTheme.colorScheme.tertiary)
+            Text(cardText(echo), fontFamily = FontFamily.Serif, fontSize = 14.sp, lineHeight = 20.sp, maxLines = 4, overflow = TextOverflow.Ellipsis)
+            echo.byline?.let { Text("— $it", fontFamily = FontFamily.Serif, fontSize = 12.sp, color = MaterialTheme.colorScheme.primary, maxLines = 1, overflow = TextOverflow.Ellipsis) }
+        }
+    }
+    if (open) {
+        androidx.compose.material3.AlertDialog(
+            onDismissRequest = { open = false },
+            title = { Text("Two voices, one thought") },
+            text = {
+                Column(Modifier.verticalScroll(rememberScrollState()), verticalArrangement = Arrangement.spacedBy(12.dp)) {
+                    listOf(quote, echo).forEach { q ->
+                        Column(verticalArrangement = Arrangement.spacedBy(4.dp)) {
+                            Text(q.shownText, fontFamily = FontFamily.Serif, fontSize = 16.sp, lineHeight = 22.sp)
+                            q.byline?.let { Text("— $it", style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.primary) }
+                        }
+                    }
+                }
+            },
+            confirmButton = { androidx.compose.material3.TextButton(onClick = { open = false; onReflect(quote, echo) }) { Text("Write about these") } },
+            dismissButton = { androidx.compose.material3.TextButton(onClick = { open = false }) { Text("Close") } },
+        )
+    }
+}
+
+/** "March", or "March 2025" when it was another year. */
+private fun savedWhen(time: Long): String {
+    val then = java.util.Calendar.getInstance().apply { timeInMillis = time }
+    val now = java.util.Calendar.getInstance()
+    val pattern = if (then.get(java.util.Calendar.YEAR) == now.get(java.util.Calendar.YEAR)) "MMMM" else "MMMM yyyy"
+    return java.text.SimpleDateFormat(pattern, java.util.Locale.getDefault()).format(then.time)
 }

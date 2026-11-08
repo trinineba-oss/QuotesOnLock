@@ -180,6 +180,7 @@ fun QuoteBrowser(
                             modifier = Modifier.padding(top = 6.dp, bottom = 6.dp),
                         )
                     }
+                    if (author != null) AuthorInfluences(author) { onOpenPage("influences:$it") }
                     Text(
                         when {
                             searching && query.isBlank() -> "${all.size} quotes by ${authors.size} authors. Type a word, a phrase or a name."
@@ -235,6 +236,8 @@ fun QuoteBrowser(
                         FlowRow(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
                             SuggestionChip(onClick = { onOpenPage("dialogues") }, label = { Text("Dialogues across time") })
                             SuggestionChip(onClick = { onOpenPage("timeline") }, label = { Text("Who was alive together") })
+                            SuggestionChip(onClick = { onOpenPage("themes") }, label = { Text("One idea, many hands") })
+                            SuggestionChip(onClick = { onOpenPage("influences") }, label = { Text("Influences") })
                         }
                         if (shelves.isNotEmpty()) {
                             Text("Ideas & myths", style = MaterialTheme.typography.titleMedium)
@@ -361,9 +364,30 @@ internal fun readingText(quote: Quote): androidx.compose.ui.text.AnnotatedString
     val text = quote.shownText
     val mark = MaterialTheme.colorScheme.primary.copy(alpha = 0.3f)
     val active = speaking == quote.text
-    return remember(text, active, range, mark) {
+    val context = androidx.compose.ui.platform.LocalContext.current
+    // Words with a richer original are underlined; tapping one opens "the word behind the word".
+    val words = remember(text, quote.category) {
+        runCatching { Words.find(Words.all(context), text, quote.category?.key) }.getOrDefault(emptyList())
+    }
+    val linkColor = MaterialTheme.colorScheme.primary
+    return remember(text, active, range, mark, words, linkColor) {
         androidx.compose.ui.text.buildAnnotatedString {
             append(text)
+            words.forEach { (start, end, word) ->
+                addLink(
+                    androidx.compose.ui.text.LinkAnnotation.Clickable(
+                        tag = "word-${word.id}",
+                        styles = androidx.compose.ui.text.TextLinkStyles(
+                            style = androidx.compose.ui.text.SpanStyle(
+                                textDecoration = androidx.compose.ui.text.style.TextDecoration.Underline,
+                                color = linkColor,
+                            ),
+                        ),
+                        linkInteractionListener = { Words.opened.value = word },
+                    ),
+                    start, end,
+                )
+            }
             val r = range
             if (active && r != null && r.first >= 0 && r.last < text.length && r.first <= r.last) {
                 addStyle(androidx.compose.ui.text.SpanStyle(background = mark), r.first, r.last + 1)

@@ -82,6 +82,7 @@ object Backup {
                     // Your note and collections travel with the favourite.
                     obj.optString("note").takeIf { it.isNotBlank() }?.let { put("note", it) }
                     obj.optJSONArray("lists")?.let { put("lists", it) }
+                    obj.optLong("saved", 0L).takeIf { it > 0 }?.let { put("saved", it) }
                 })
                 favAdded++
             }

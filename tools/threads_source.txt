@@ -1,0 +1,222 @@
+T|The road of nonviolence|From an ancient Indian song to the American civil rights movement.
+N|The Bhagavad Gita|c. 2nd century BC|Let right deeds be
+E|Thoreau took the Gita with him to Walden Pond: “In the morning I bathe my intellect in the stupendous and cosmogonal philosophy of the Bhagvat Geeta.”
+N|Henry David Thoreau|1849|Under a government which imprisons any unjustly
+E|Gandhi read Civil Disobedience in South Africa and printed extracts from it in his newspaper, Indian Opinion, in 1907.
+N|Mahatma Gandhi|1927|Hate the sin and not the sinner
+E|King studied Gandhi as a seminary student, travelled to India in 1959, and made nonviolent resistance the method of the civil rights movement.
+N|Martin Luther King Jr.|1963|Darkness cannot drive out darkness
+
+T|Tolstoy and the young Gandhi|An old novelist and a young lawyer, writing to each other across the world.
+N|Leo Tolstoy|1894|
+E|Gandhi wrote that Tolstoy's The Kingdom of God Is Within You overwhelmed him. In 1910 the two corresponded, and Gandhi named his community near Johannesburg Tolstoy Farm.
+N|Mahatma Gandhi|1927|infinite possibilities of universal love
+
+T|Socrates and the Stoics|The man who knew he knew nothing becomes the model of the free mind.
+N|Plato|4th century BC|
+E|Epictetus holds up Socrates again and again as the model of a free and fearless man.
+N|Epictetus|c. AD 108|Men are disturbed not by things
+E|In the first book of the Meditations, Marcus Aurelius thanks his teacher Rusticus for lending him the discourses of Epictetus.
+N|Marcus Aurelius|c. AD 170|
+
+T|A conversation of essayists|Seneca to Montaigne to Emerson to Nietzsche: four free minds, each reading the last.
+N|Seneca|1st century|
+E|Montaigne named Seneca and Plutarch as the two authors he returned to most; his Essays are full of them.
+N|Michel de Montaigne|1580|
+E|Emerson wrote of the Essays: “It seemed to me as if I had myself written the book, in some former life.”
+N|Ralph Waldo Emerson|1841|
+E|The teenage Nietzsche read Emerson and kept rereading him all his life; the first edition of The Gay Science opens with lines from Emerson.
+N|Friedrich Nietzsche|1882|
+
+T|From Hume to Hesse|A chain of German thought, woken by a Scottish sceptic.
+N|David Hume|1739|
+E|Kant wrote that Hume first interrupted his “dogmatic slumber” and set his philosophy on a new course.
+N|Immanuel Kant|1788|starry heavens
+E|Schopenhauer began from Kant: the line between things as they appear and as they are in themselves became the ground of his own philosophy.
+N|Arthur Schopenhauer|1819|
+E|In 1865 the student Nietzsche found The World as Will and Representation in a Leipzig bookshop and was gripped by it for years.
+N|Friedrich Nietzsche|1883|
+E|Hesse read Nietzsche as a young bookseller in Tübingen; Zarathustra's voice runs through Demian and Steppenwolf.
+N|Hermann Hesse|1922|
+
+T|The Upanishads reach Europe|Ancient Indian wisdom finds a German pessimist.
+N|The Upanishads|c. 7th century BC|The knowing Self is not born
+E|Schopenhauer read the Upanishads in a Latin translation and called them the consolation of his life, and of his death.
+N|Arthur Schopenhauer|1851|
+
+T|Hafiz, Goethe and Emerson|A Persian poet's songs travel west, through German into English.
+N|Hafiz|14th century|
+E|Goethe read Hafiz in Joseph von Hammer-Purgstall's German translation in 1814 and answered him with a whole book of poems, the West-Eastern Divan.
+N|Goethe|1819|
+E|Emerson admired Goethe as the great modern writer, and through the same German translation came to Hafiz, whom he called the prince of Persian poets and translated himself.
+N|Ralph Waldo Emerson|1858|
+
+T|Kierkegaard, Kafka and Camus|Faith, anxiety and the absurd.
+N|Søren Kierkegaard|1843|
+E|In 1913 Kafka read Kierkegaard and wrote in his diary that, despite great differences, Kierkegaard's case was very like his own.
+N|Franz Kafka|1917|
+E|Camus wrote an essay on hope and the absurd in Kafka, added to The Myth of Sisyphus.
+N|Albert Camus|1942|
+
+T|Dostoevsky and Nietzsche|A novelist who saw into the underground of the soul.
+N|Fyodor Dostoevsky|1880|
+E|Nietzsche called Dostoevsky “the only psychologist from whom I had anything to learn”.
+N|Friedrich Nietzsche|1888|
+
+T|Dostoevsky and Camus|The question of meaning without God.
+N|Fyodor Dostoevsky|1872|
+E|Camus wrote about Dostoevsky in The Myth of Sisyphus and in 1959 adapted his novel Demons for the stage.
+N|Albert Camus|1942|Happiness and the absurd
+
+T|The way of the Tao|From Lao Tzu to the Western seeker.
+N|Lao Tzu|6th century BC|
+E|Zhuangzi carried Lao Tzu's Tao into stories, jokes and dreams; together they are the founders of Taoism.
+N|Zhuangzi|4th century BC|
+E|Chinese Chan (Zen) Buddhism took in the Taoist love of naturalness; the hermit poet Han Shan is loved by both traditions.
+N|Han Shan|8th century|
+E|Alan Watts brought Taoism and Zen to the West in The Way of Zen and Tao: The Watercourse Way, and Cold Mountain's poems became a touchstone for his generation.
+N|Alan Watts|1957|
+
+T|Two monks, East and West|The Buddha's teaching meets a Trappist monk.
+N|The Dhammapada|3rd century BC|
+E|Thich Nhat Hanh, a Vietnamese Zen monk, taught the Buddha's mindfulness as a practice for everyday life.
+N|Thich Nhat Hanh|1975|
+E|In 1966 Thomas Merton welcomed Thich Nhat Hanh at his monastery in Kentucky and wrote the essay “Nhat Hanh Is My Brother”.
+N|Thomas Merton|1968|
+
+T|The epic line|From Homer through Virgil and Dante to the modern poem.
+N|Homer|8th century BC|
+E|Virgil modelled the Aeneid on Homer: its first half an Odyssey of wandering, its second an Iliad of war.
+N|Virgil|19 BC|
+E|Dante chose Virgil as his guide through Hell and Purgatory, calling him his master and his author.
+N|Dante Alighieri|1320|
+E|T. S. Eliot wrote that Dante and Shakespeare divide the modern world between them; there is no third.
+N|T. S. Eliot|1943|
+
+T|Plato, Augustine and Petrarch|The turn inward.
+N|Plato|4th century BC|
+E|Augustine tells in the Confessions how “the books of the Platonists” prepared him for his conversion.
+N|Augustine|397|My weight, is my love
+E|On Mont Ventoux in 1336, Petrarch opened Augustine's Confessions at random and found a rebuke to those who admire mountains and neglect their own souls.
+N|Petrarch|1350s|
+
+T|Milton, Wordsworth and Keats|English poets calling to each other across the centuries.
+N|John Milton|1667|
+E|Wordsworth's sonnet of 1802 begins “Milton! thou shouldst be living at this hour”.
+N|William Wordsworth|1807|
+E|Keats studied Wordsworth closely, and in a letter of 1818 wondered whether he had gone further than Milton into the “dark Passages” of the human heart.
+N|John Keats|1819|
+
+T|Shakespeare and Keats|Negative capability.
+N|William Shakespeare|1600s|
+E|Keats wrote of “Negative Capability”, being in doubt without reaching after certainty, “which Shakespeare possessed so enormously”.
+N|John Keats|1818|
+
+T|Blake, Yeats and Heaney|Vision handed on.
+N|William Blake|1790s|
+E|Yeats co-edited the first large edition of Blake's works in 1893.
+N|W. B. Yeats|1920s|
+E|Seamus Heaney grew up on Yeats and wrote about him all his life; both became Irish Nobel laureates.
+N|Seamus Heaney|1990s|
+
+T|Whitman's children|One American voice heard across the Spanish-speaking world.
+N|Walt Whitman|1855|
+E|Lorca wrote an “Ode to Walt Whitman” in Poet in New York.
+N|Federico García Lorca|1930|
+E|Lorca and Pablo Neruda became close friends in Buenos Aires in 1933; Neruda also wrote that he owed much to Whitman.
+N|Pablo Neruda|1950s|
+
+T|I, too, sing America|A promise answered.
+N|Walt Whitman|1860|
+E|Langston Hughes's “I, too, sing America” answers Whitman's “I Hear America Singing” for those left out of it.
+N|Langston Hughes|1926|I, too, sing America
+
+T|Whitman in Lisbon|A poet of many selves greets another.
+N|Walt Whitman|1855|
+E|Fernando Pessoa's other self, the poet Álvaro de Campos, wrote a long “Salutation to Walt Whitman”.
+N|Fernando Pessoa|1930s|
+
+T|Kabir, Tagore and Yeats|Indian song reaches the English-speaking world.
+N|Kabir|15th century|
+E|Tagore translated a hundred poems of Kabir into English, published in 1915.
+N|Rabindranath Tagore|1912|
+E|Yeats wrote the introduction to Tagore's Gitanjali in 1912; the next year Tagore became the first non-European Nobel laureate in literature.
+N|W. B. Yeats|1910s|
+
+T|Spinoza's God|God or Nature.
+N|Baruch Spinoza|1677|
+E|Asked in 1929 whether he believed in God, Einstein answered that he believed in Spinoza's God, revealed in the harmony of all that exists.
+N|Albert Einstein|1930s|
+
+T|Spinoza and Goethe|A calm that steadied a passionate young poet.
+N|Baruch Spinoza|1677|Blessedness is not the reward
+E|Goethe wrote that reading Spinoza's Ethics brought calm to his passions and opened a wide, free view of the world.
+N|Goethe|1810s|
+
+T|Freud, Jung and Campbell|The depths of the mind, and the myths that map them.
+N|Sigmund Freud|1900s|
+E|Jung was Freud's chosen heir until they broke in 1913 over the nature of the unconscious.
+N|Carl Jung|1930s|
+E|Joseph Campbell built The Hero with a Thousand Faces on Jung's archetypes of the unconscious.
+N|Joseph Campbell|1949|
+
+T|Kierkegaard, Jaspers and Arendt|The existence of the individual, then the life of the mind.
+N|Søren Kierkegaard|1846|
+E|Karl Jaspers was among the first to place Kierkegaard, with Nietzsche, at the source of modern philosophy.
+N|Karl Jaspers|1930s|
+E|Hannah Arendt wrote her doctorate under Jaspers and remained his friend for life.
+N|Hannah Arendt|1958|
+
+T|Buber and Hammarskjöld|I and Thou at the United Nations.
+N|Martin Buber|1923|
+E|When he died in 1961, Dag Hammarskjöld was translating Buber's I and Thou into Swedish.
+N|Dag Hammarskjöld|1950s|
+
+T|Attar and Rumi|A meeting in legend.
+N|Attar|12th century|
+E|Legend says the old Attar met the boy Rumi and gave him his Book of Secrets; Rumi later wrote that Attar had crossed all the seven cities of love.
+N|Rumi|13th century|
+
+T|Yeats and Achebe|Things fall apart.
+N|W. B. Yeats|1919|Things fall apart
+E|Achebe took the title of his first novel, Things Fall Apart, from Yeats's poem “The Second Coming”.
+N|Chinua Achebe|1958|
+
+T|Proust and Woolf|Two explorers of consciousness.
+N|Marcel Proust|1913|
+E|Woolf wrote to a friend in 1922 after reading Proust: “Oh if I could write like that!”
+N|Virginia Woolf|1927|
+
+T|Kafka, Borges and Eco|Labyrinths and libraries.
+N|Franz Kafka|1915|
+E|Borges translated stories by Kafka into Spanish and wrote the essay “Kafka and His Precursors”.
+N|Jorge Luis Borges|1940s|
+E|Umberto Eco named the blind librarian of The Name of the Rose, Jorge of Burgos, after Borges.
+N|Umberto Eco|1980|
+
+T|Montaigne and Shakespeare|An essay becomes a play.
+N|Michel de Montaigne|1580|
+E|Gonzalo's ideal commonwealth in The Tempest follows John Florio's 1603 English translation of Montaigne's essay “Of Cannibals” almost word for word.
+N|William Shakespeare|c. 1600|
+
+T|Montaigne and Pascal|The sceptic and the believer.
+N|Michel de Montaigne|1580|
+E|Pascal read Montaigne closely and argued with him on page after page of the Pensées.
+N|Blaise Pascal|1660|
+
+T|Jacobsen and Rilke|Two books a young poet should never be without.
+N|J. P. Jacobsen|1880|
+E|In Letters to a Young Poet, Rilke tells Kappus that of all books he could not do without two: the Bible and the books of Jacobsen.
+N|Rainer Maria Rilke|1903|
+
+T|Emerson and Whitman|“I greet you at the beginning of a great career.”
+N|Ralph Waldo Emerson|1844|
+E|Emerson wrote to the unknown Whitman in 1855 after reading Leaves of Grass: “I greet you at the beginning of a great career.”
+N|Walt Whitman|1855|
+
+T|Emerson, Thoreau and Muir|Nature as a teacher, from Concord to Yosemite.
+N|Ralph Waldo Emerson|1836|
+E|Thoreau built his cabin at Walden Pond on land Emerson owned, and began his journal at Emerson's suggestion.
+N|Henry David Thoreau|1854|
+E|John Muir carried Emerson and Thoreau into the mountains; in 1871 Emerson visited him in Yosemite.
+N|John Muir|1890s|

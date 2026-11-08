@@ -20,6 +20,38 @@ class DiscoverFilesTest {
         assertTrue("only $found quotes find a passage", found > 5000)
     }
 
+    @Test fun themesAndInfluencesQuoteTheCollectionExactly() {
+        val texts = quotes.map { it.text }.toSet()
+        val themes = raw("themes.txt").useLines { IdeaThemes.parse(it) }
+        assertTrue("too few themes: ${themes.size}", themes.size >= 15)
+        themes.forEach { t ->
+            assertTrue("${t.name}: too few voices", t.voices.size >= 6)
+            assertTrue("${t.name}: no note", t.note.isNotBlank())
+            t.voices.forEach { v -> assertTrue("${t.name}: not in the collection: ${v.text.take(40)}", v.text in texts) }
+        }
+        val threads = raw("influences.txt").useLines { Influences.parse(it) }
+        assertTrue("too few threads: ${threads.size}", threads.size >= 25)
+        threads.forEach { th ->
+            assertEquals("${th.title}: one link between each pair", th.nodes.size - 1, th.links.size)
+            th.nodes.forEach { n ->
+                assertTrue("${th.title}: not in the collection: ${n.text.take(40)}", n.text in texts)
+                assertEquals("${th.title}: byline and author disagree", n.author, authorName(n.byline))
+            }
+        }
+    }
+
+    @Test fun everyWordMarksSomething() {
+        val ideas = raw("ideas.txt").useLines { QuoteData.parseIdeas(it) }
+        val all = quotes + ideas
+        val words = raw("words.txt").useLines { Words.parse(it) }
+        assertTrue("too few words: ${words.size}", words.size >= 50)
+        words.forEach { w ->
+            assertTrue("${w.original}: incomplete", w.note.isNotBlank() && w.meaning.isNotBlank() && w.language.isNotBlank())
+            val one = listOf(w)
+            assertTrue("${w.original} (${w.forms.first().first}) marks nothing", all.any { Words.find(one, it.shownText, it.category?.key).isNotEmpty() })
+        }
+    }
+
     @Test fun moreLikeThisCoversTheCollectionAndPointsIntoIt() {
         val ideas = raw("ideas.txt").useLines { QuoteData.parseIdeas(it) }
         val all = quotes + ideas

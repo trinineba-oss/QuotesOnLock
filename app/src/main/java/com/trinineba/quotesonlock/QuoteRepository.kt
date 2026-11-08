@@ -19,7 +19,7 @@ class QuoteRepository(
 
     /** Reads the built-in quotes on a background thread, so the first screen doesn't wait for them. */
     fun preload() {
-        if (bundledCache == null) Thread({ runCatching { bundled(); counts(); QuoteContext.warmUp(appContext); MoreLikeThis.warmUp(appContext) } }, "quotes-preload").start()
+        if (bundledCache == null) Thread({ runCatching { bundled(); counts(); QuoteContext.warmUp(appContext); MoreLikeThis.warmUp(appContext); Words.all(appContext) } }, "quotes-preload").start()
     }
 
     private fun counts(): Map<Category?, Int> = countCache ?: bundled().groupingBy { it.category }.eachCount().also { countCache = it }
@@ -117,11 +117,21 @@ class QuoteRepository(
             array.put(JSONObject().apply {
                 put("text", quote.text)
                 if (quote.author != null) put("author", quote.author)
+                put("saved", System.currentTimeMillis())
             })
         }
         prefs.favoritesJson = array.toString()
         QuoteWidgets.refresh(appContext)
         return at < 0
+    }
+
+    /** When each favourite was saved (only known for those saved since this was recorded), by [QuoteData.wordsKey]. */
+    fun favoriteSavedTimes(): Map<String, Long> {
+        val array = favoritesArray()
+        return (0 until array.length()).mapNotNull { i ->
+            val o = array.getJSONObject(i)
+            o.optLong("saved", 0L).takeIf { it > 0 }?.let { QuoteData.wordsKey(o.optString("text")) to it }
+        }.toMap()
     }
 
     /** Your note on a favourite, and the collections it belongs to. */
