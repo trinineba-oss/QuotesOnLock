@@ -318,7 +318,7 @@ Legge's Tao Teh King marks words he supplied with parentheses; the app drops tho
 
 ### Artwork
 
-The Starry Night theme uses Vincent van Gogh's *The Starry Night* (1889), public domain, from the Google Art Project scan on Wikimedia Commons. The northern-lights frame and the old-paper texture are generated for this app.
+The Starry Night theme uses Vincent van Gogh's *The Starry Night* (1889), public domain, from the Google Art Project scan on Wikimedia Commons. The Van Gogh's clouds theme uses his *Wheat Field with Cypresses* (1889), The Metropolitan Museum of Art (1993.132), from the Met's Open Access image (public domain); the sky was separated from the hills and cypresses for the app, and a seamless loop made from van Gogh's own sky drifts behind them. The northern-lights frame and the old-paper texture are generated for this app.
 
 ### Calming sounds
 

@@ -118,7 +118,7 @@ enum class AppTheme(
         0xFF3A2547.toInt(), 0xFF7B3FA0.toInt(),
     ),
     CLOUDS(
-        "clouds", "Drifting clouds", "Drifting clouds", R.drawable.notif_frame_clouds, 0xFFF4F8FC.toInt(),
+        "clouds", "Van Gogh's clouds", "Clouds drifting over van Gogh's wheat field", R.drawable.notif_frame_clouds, 0xFFF4F8FC.toInt(),
         0xFF24364A.toInt(), 0xFF3E6E9E.toInt(),
     ),
     WAVES(
@@ -468,6 +468,8 @@ private fun SpaceBackground(animate: Boolean) {
 private fun CalmBackground(theme: AppTheme, animate: Boolean) {
     // A loop of 2π·1000 ms makes the value plain seconds.
     val time: State<Float> = if (animate) rememberLoopAngle(2000f * PI.toFloat()) else remember(theme) { mutableFloatStateOf(CalmArt.stillTime(theme)) }
+    val context = androidx.compose.ui.platform.LocalContext.current
+    remember { CalmArt.attach(context) }
     Canvas(Modifier.fillMaxSize()) {
         val t = time.value
         // CalmArt never leaves the frame blank: a failed frame is retried, then shown as a plain sky.

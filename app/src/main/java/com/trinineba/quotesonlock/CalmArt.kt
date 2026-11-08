@@ -58,7 +58,7 @@ internal object CalmArt {
     private fun clear() {
         reset()
         cache.clear()
-        cloudSprites.clear()
+        vgKey = ""
     }
 
     private fun scene(theme: AppTheme, canvas: Canvas, w: Float, h: Float, t: Float, d: Float) {
@@ -397,60 +397,69 @@ internal object CalmArt {
         }
     }
 
-    // ---- drifting clouds -----------------------------------------------------------------------
-
-    private class Cloud(val y: Float, val s: Float, val v: Float, val x: Float, val puffs: List<FloatArray>)
-
-    private val cloudList = Random(12).let { r ->
-        List(9) {
-            Cloud(0.08f + r.nextFloat() * 0.75f, 0.6f + r.nextFloat() * 0.9f, 0.004f + r.nextFloat() * 0.006f, r.nextFloat(),
-                List(7) { floatArrayOf(r.nextFloat() * 1.6f - 0.8f, r.nextFloat() * 0.35f - 0.1f, 0.25f + r.nextFloat() * 0.35f) })
-        }
-    }
-
-    private val cloudSprites = LinkedHashMap<String, Bitmap>()
+    // ---- van Gogh's clouds ------------------------------------------------------------------------
 
     /**
-     * One cloud painted once into its own small, soft image; it then only slides across the sky. Clouds
-     * are all blur, so a quarter-size image (and at most 360 px wide) scales up without any visible loss
-     * and keeps memory and GPU uploads small.
+     * Van Gogh's Wheat Field with Cypresses (1889, The Met, public domain) in two layers: the painting with
+     * its sky cut out, and a seamless band of his sky that drifts slowly behind the hills and the cypresses.
+     * Both are scaled to the screen once and reused, so each frame is two or three plain bitmap copies.
      */
-    private fun cloudSprite(index: Int, cl: Cloud, cw: Float): Bitmap {
-        val k = "$index:${cw.toInt()}"
-        return cloudSprites[k] ?: run {
-            val scale = minOf(0.25f, 360f / (2.8f * cw))
-            val bw = max(1, (2.8f * cw * scale).toInt())
-            val bh = max(1, (1.6f * cw * scale).toInt())
-            val b = Bitmap.createBitmap(bw, bh, Bitmap.Config.ARGB_8888)
-            val bc = Canvas(b)
-            bc.scale(bw / (2.8f * cw), bh / (1.6f * cw))
-            cl.puffs.forEach { p ->
-                val px = 1.4f * cw + p[0] * cw
-                val py = 0.7f * cw + p[1] * cw
-                val r = max(1f, cw * p[2])
-                fill.shader = RadialGradient(px, py, r, intArrayOf(0xBFFFFFFF.toInt(), 0x73FFFFFF, 0x00FFFFFF), floatArrayOf(0f, 0.6f, 1f), Shader.TileMode.CLAMP)
-                bc.drawCircle(px, py, r, fill)
-            }
-            fill.shader = null
-            // Two screen sizes' worth (the app and the wallpaper); the oldest go first.
-            while (cloudSprites.size >= 2 * cloudList.size) cloudSprites.remove(cloudSprites.keys.first())
-            cloudSprites[k] = b
-            b
-        }
+    @Volatile private var appContext: android.content.Context? = null
+
+    /** Gives the scenes that use pictures a way to load them (call before drawing). */
+    fun attach(context: android.content.Context) {
+        if (appContext == null) appContext = context.applicationContext
+    }
+
+    private var vgKey = ""
+    private var vgFg: Bitmap? = null
+    private var vgSky: Bitmap? = null
+    private var vgTop = 0f
+
+    private fun vanGoghLayers(w: Float, h: Float): Boolean {
+        val k = "${w.toInt()}x${h.toInt()}"
+        if (k == vgKey && vgFg != null && vgSky != null) return true
+        val ctx = appContext ?: return false
+        val res = ctx.resources
+        val opts = android.graphics.BitmapFactory.Options().apply { inScaled = false }
+        val fg = android.graphics.BitmapFactory.decodeResource(res, R.drawable.vg_wheatfield_fg, opts) ?: return false
+        val sky = android.graphics.BitmapFactory.decodeResource(res, R.drawable.vg_wheatfield_sky, opts) ?: return false
+        // Cover the screen; on a tall phone the view is centred a little right, to keep the cypresses in it.
+        val scale = maxOf(h / fg.height, w / fg.width)
+        val fw = fg.width * scale
+        val fh = fg.height * scale
+        val left = (w / 2f - 0.72f * fw).coerceIn(w - fw, 0f)
+        // The part of the painting on screen, at screen size (the hills sit at the bottom).
+        val visible = Bitmap.createBitmap(max(1, w.toInt()), max(1, h.toInt()), Bitmap.Config.ARGB_8888)
+        Canvas(visible).drawBitmap(fg, null, RectF(left, h - fh, left + fw, h), bitmapPaint)
+        val sw = max(1, (sky.width * scale).toInt())
+        val sh = max(1, (sky.height * scale).toInt())
+        val skyScaled = Bitmap.createScaledBitmap(sky, sw, sh, true)
+        fg.recycle()
+        if (skyScaled != sky) sky.recycle()
+        vgFg?.recycle(); vgSky?.recycle()
+        vgFg = visible; vgSky = skyScaled; vgKey = k; vgTop = h - fh
+        return true
     }
 
     private fun clouds(c: Canvas, w: Float, h: Float, t: Float, d: Float) {
-        cached(c, "clouds", w, h) { bc ->
-            vertical(bc, 0f, 0f, h, w, intArrayOf(0xFF9EC5EA.toInt(), 0xFFCFE1F2.toInt(), 0xFFF6DCCB.toInt(), 0xFFFBE6D6.toInt()), floatArrayOf(0f, 0.55f, 0.85f, 1f))
-            glow(bc, w * 0.2f, h * 0.85f, w * 0.8f, 0xFFEBD7, 0.5f)
+        if (!vanGoghLayers(w, h)) {
+            c.drawColor(fallback(AppTheme.CLOUDS))
+            return
         }
-        cloudList.forEachIndexed { i, cl ->
-            val cw = w * 0.32f * cl.s
-            val x = ((cl.x + t * cl.v) % 1.4f - 0.2f) * w
-            val y = cl.y * h
-            oval.set(x - 1.4f * cw, y - 0.7f * cw, x + 1.4f * cw, y + 0.9f * cw)
-            c.drawBitmap(cloudSprite(i, cl, cw), null, oval, bitmapPaint)
+        val sky = vgSky!!
+        val fg = vgFg!!
+        // The sky band starts at the top of the painting; its loop drifts left, about one screen width a minute and a half.
+        c.drawColor(0xFFA9C3DA.toInt())
+        val speed = w / 90f
+        val tw = sky.width.toFloat()
+        var x = -((t * speed) % tw)
+        val top = vgTop
+        while (x < w) {
+            c.drawBitmap(sky, x, top, bitmapPaint)
+            x += tw
         }
+        c.drawBitmap(fg, 0f, 0f, bitmapPaint)
     }
 
     // ---- bamboo grove in the wind ----------------------------------------------------------------
