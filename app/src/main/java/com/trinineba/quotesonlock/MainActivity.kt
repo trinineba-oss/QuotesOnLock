@@ -79,6 +79,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -256,6 +257,11 @@ private fun QuotesScreen(
     var reflectOn by remember { mutableStateOf(prefs.reflectPrompt) }
     var writingAbout by remember { mutableStateOf<Quote?>(null) }
     var writingPair by remember { mutableStateOf<Pair<Quote, Quote>?>(null) }
+    // The quote page (a tap on a quote), with the tab it opens on.
+    var quotePage by remember { mutableStateOf<Pair<Quote, String?>?>(null) }
+    var cardMenu by remember { mutableStateOf(false) }
+    // The tab Settings was opened from, so Back returns there.
+    var lastTab by rememberSaveable { mutableStateOf(Page.HOME) }
     var editingEntry by remember { mutableStateOf<JournalEntry?>(null) }
     var favoritesOnly by remember { mutableStateOf(prefs.favoritesOnly) }
     var newText by rememberSaveable { mutableStateOf("") }
@@ -535,6 +541,22 @@ private fun QuotesScreen(
             onDismiss = { editingEntry = null },
         )
     }
+    quotePage?.let { (q, startTab) ->
+        QuotePageSheet(
+            quote = q,
+            onDismiss = { quotePage = null },
+            onShowOnLock = { shown ->
+                current = repo.show(shown)
+                canGoBack = repo.hasPrevious()
+                if (enabled) QuoteNotifier.show(context, shown)
+                browse = emptyList()
+                page = Page.HOME
+            },
+            onChanged = { refreshFavorites(); journal = Journal.entries(prefs) },
+            onOpenAuthor = { browse = listOf(BrowsePage.author(it)) },
+            startTab = startTab,
+        )
+    }
     noteFor?.let { q ->
         FavoriteNoteDialog(
             quote = q,
@@ -735,7 +757,7 @@ private fun QuotesScreen(
         return
     }
 
-    BackHandler(enabled = page != Page.HOME) { page = Page.HOME }
+    BackHandler(enabled = page != Page.HOME) { page = parentOf(page, lastTab) }
 
     fun LazyListScope.header() {
         item(key = "header-${page.name}") {
@@ -745,7 +767,7 @@ private fun QuotesScreen(
                         .size(48.dp)
                         .clip(CircleShape)
                         .background(MaterialTheme.colorScheme.surfaceContainerHighest)
-                        .clickable(onClickLabel = "Back") { page = Page.HOME },
+                        .clickable(onClickLabel = "Back") { page = parentOf(page, lastTab) },
                     contentAlignment = Alignment.Center,
                 ) { Icon(painterResource(R.drawable.ic_arrow_back), contentDescription = null) }
                 Text(
@@ -758,27 +780,7 @@ private fun QuotesScreen(
     }
 
     fun LazyListScope.homePage() {
-        item(key = "home-title") {
-            Text("Quotes on Lock", style = MaterialTheme.typography.headlineMedium)
-        }
-        item(key = "home-lock") {
-            Row(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .clip(RoundedCornerShape(28.dp))
-                    .background(MaterialTheme.colorScheme.surfaceContainerHighest)
-                    .padding(start = 16.dp, end = 10.dp, top = 4.dp, bottom = 4.dp),
-                verticalAlignment = Alignment.CenterVertically,
-            ) {
-                Icon(painterResource(R.drawable.ic_lock), contentDescription = null, tint = MaterialTheme.colorScheme.primary, modifier = Modifier.size(20.dp))
-                Text(
-                    if (enabled) "Showing on the lock screen" else "Not on the lock screen",
-                    style = MaterialTheme.typography.bodyMedium,
-                    modifier = Modifier.weight(1f).padding(start = 12.dp),
-                )
-                Switch(checked = enabled, onCheckedChange = { onToggle(it) })
-            }
-        }
+        tabHeader("Today")
         item(key = "home-quote") {
             // Swiping the card: it follows the finger, and past the threshold flies off and the next
             // (left) or previous (right) quote slides in from the other side.
@@ -871,6 +873,7 @@ private fun QuotesScreen(
                             fontFamily = if (quote.explained) null else family,
                             fontSize = (quoteSize.sizeSp + if (quote.explained) 0 else 2).sp,
                             color = textColor,
+                            modifier = Modifier.opensQuote { quotePage = quote to null },
                         )
                         // The byline, with the read-aloud button at its end.
                         Row(verticalAlignment = Alignment.CenterVertically) {
@@ -908,20 +911,42 @@ private fun QuotesScreen(
                     current?.let { q -> EchoNote(q, favorites) { a, b -> writingPair = a to b } }
                     val favorite = quote != null && favorites.any { it.text == quote.text }
                     Row(Modifier.fillMaxWidth().padding(top = 4.dp), horizontalArrangement = Arrangement.SpaceAround) {
-                        QuoteAction(R.drawable.ic_arrow_back, "Previous", enabled = canGoBack) { previousQuote() }
-                        QuoteAction(R.drawable.ic_arrow_forward, "Next") { nextQuote() }
-                        ContextAction(quote)
-                        MoreLikeThisAction(quote) { refreshFavorites() }
-                        ShareAction(quote)
+                        // Without swiping, the card keeps its own Previous and Next.
+                        if (!swipeCard) {
+                            QuoteAction(R.drawable.ic_arrow_back, "Previous", enabled = canGoBack) { previousQuote() }
+                            QuoteAction(R.drawable.ic_arrow_forward, "Next") { nextQuote() }
+                        }
                         QuoteAction(
                             if (favorite) R.drawable.ic_favorite else R.drawable.ic_favorite_border,
                             if (favorite) "Saved" else "Save",
                             enabled = quote != null,
                             tint = if (favorite) Color(0xFFE0566B) else null,
                         ) { quote?.let { toggleFavorite(it) } }
+                        MoreLikeThisAction(quote) { refreshFavorites() }
+                        Box {
+                            QuoteAction(R.drawable.ic_more_horiz, "More", enabled = quote != null) { cardMenu = true }
+                            if (quote != null) androidx.compose.material3.DropdownMenu(expanded = cardMenu, onDismissRequest = { cardMenu = false }) {
+                                androidx.compose.material3.DropdownMenuItem(text = { Text("Open the quote page") }, onClick = { cardMenu = false; quotePage = quote to null })
+                                if (QuoteContext.has(context, quote)) androidx.compose.material3.DropdownMenuItem(text = { Text("Read it in context") }, onClick = { cardMenu = false; quotePage = quote to "Context" })
+                                androidx.compose.material3.DropdownMenuItem(text = { Text(if (QuoteVoice.speaking.value == quote.text) "Stop reading" else "Read aloud") }, onClick = { cardMenu = false; QuoteVoice.toggle(context, quote) })
+                                if (swipeCard && canGoBack) androidx.compose.material3.DropdownMenuItem(text = { Text("Previous quote") }, onClick = { cardMenu = false; previousQuote() })
+                                androidx.compose.material3.DropdownMenuItem(text = { Text("Copy text") }, onClick = { cardMenu = false; QuoteClipboard.copy(context, quote) })
+                                androidx.compose.material3.DropdownMenuItem(text = { Text("Share as a picture") }, onClick = { cardMenu = false; QuoteShare.share(context, quote) })
+                                androidx.compose.material3.DropdownMenuItem(text = { Text("Share as text") }, onClick = { cardMenu = false; shareText(context, quote) })
+                            }
+                        }
                     }
                 }
             }
+        }
+        if (current != null) item(key = "home-hint") {
+            Text(
+                if (swipeCard) "Swipe for the next quote · tap it to open" else "Tap the quote to open it",
+                style = MaterialTheme.typography.labelSmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                modifier = Modifier.fillMaxWidth(),
+                textAlign = androidx.compose.ui.text.style.TextAlign.Center,
+            )
         }
         if (reflectOn) current?.let { q ->
             item(key = "home-reflect") {
@@ -941,49 +966,131 @@ private fun QuotesScreen(
                 }
             }
         }
-        val typeCount = Category.entries.count { it != Category.CUSTOM && countOf(it) > 0 }
-        val onCount = Category.entries.count { it in categories && countOf(it) > 0 }
-        val tiles = listOf(
-            Tile(R.drawable.ic_format_quote, "Quotes & authors", "$onCount of $typeCount on") { page = Page.QUOTES },
-            Tile(R.drawable.ic_explore, "Explore", "Search, subjects, authors A–Z") { browse = listOf(BrowsePage.SEARCH) },
-            Tile(R.drawable.ic_palette, "Appearance", theme.label + " · " + quoteFont.label) { page = Page.THEMES },
-            Tile(R.drawable.ic_schedule, "Schedule", "Every " + (INTERVALS.firstOrNull { it.first == interval }?.second?.lowercase() ?: "$interval min")) { page = Page.SCHEDULE },
-            Tile(R.drawable.ic_favorite_border, "Favourites", if (favorites.isEmpty()) "Tap the heart on a quote" else "${favorites.size} saved" + if (favoritesOnly) " · only these" else "") { page = Page.FAVORITES },
-            Tile(R.drawable.ic_edit, "My quotes", if (custom.isEmpty()) "Add your own" else "${custom.size} added") { page = Page.MINE },
-        )
-        tiles.chunked(2).forEachIndexed { i, pair ->
-            item(key = "tiles-$i") {
-                Row(horizontalArrangement = Arrangement.spacedBy(12.dp)) {
-                    pair.forEach { TileCard(it, Modifier.weight(1f)) }
+    }
+
+    /** The title of a tab, with the settings gear. */
+    fun LazyListScope.tabHeader(title: String) {
+        item(key = "tab-header-$title") {
+            Row(verticalAlignment = Alignment.CenterVertically) {
+                Text(title, style = MaterialTheme.typography.headlineMedium, modifier = Modifier.weight(1f))
+                Box(
+                    modifier = Modifier
+                        .size(44.dp)
+                        .clip(CircleShape)
+                        .background(MaterialTheme.colorScheme.surfaceContainerHighest.copy(alpha = 0.7f))
+                        .clickable(onClickLabel = "Settings") { lastTab = page; page = Page.SETTINGS },
+                    contentAlignment = Alignment.Center,
+                ) { Icon(painterResource(R.drawable.ic_settings), contentDescription = "Settings", tint = MaterialTheme.colorScheme.primary) }
+            }
+        }
+    }
+
+    fun LazyListScope.discoverPage() {
+        tabHeader("Discover")
+        item(key = "d-search") {
+            SoftCard(Modifier.fillMaxWidth(), onClick = { browse = listOf(BrowsePage.SEARCH) }) {
+                Row(Modifier.padding(horizontal = 18.dp, vertical = 14.dp), verticalAlignment = Alignment.CenterVertically) {
+                    Icon(painterResource(R.drawable.ic_search), contentDescription = null, tint = MaterialTheme.colorScheme.onSurfaceVariant)
+                    Text(
+                        "Search ${"%,d".format(repo.bundled().size)} quotes and authors",
+                        style = MaterialTheme.typography.bodyLarge,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                        modifier = Modifier.padding(start = 12.dp),
+                    )
                 }
             }
         }
-        item(key = "tile-journal") {
-            TileCard(
-                Tile(R.drawable.ic_edit_note, "Journal", if (journal.isEmpty()) "Your reflections on quotes, kept on this phone" else "${journal.size} reflection" + if (journal.size == 1) "" else "s") { page = Page.JOURNAL },
-                Modifier.fillMaxWidth(),
-                wide = true,
-            )
+        item(key = "d-journeys") { Text("JOURNEYS", style = MaterialTheme.typography.labelMedium, color = MaterialTheme.colorScheme.primary, letterSpacing = 1.2.sp) }
+        item(key = "d-themes") {
+            JourneyCard("One idea, many hands", "Time, the self, love, death… 20 great themes traced across the centuries", Color(0xFF7A5ADC)) { browse = listOf("themes") }
         }
-        item(key = "tile-toolbox") {
-            // Low down and quiet, on purpose: it's there when needed, not in the way.
-            TileCard(
-                Tile(R.drawable.ic_spa, "When it's hard", "Comfort, calm and support") { page = Page.TOOLBOX },
-                Modifier.fillMaxWidth(),
-                wide = true,
-            )
+        item(key = "d-pair1") {
+            Row(horizontalArrangement = Arrangement.spacedBy(12.dp)) {
+                JourneyCard("Influences", "Threads of who read whom", Color(0xFF3C78C8), Modifier.weight(1f)) { browse = listOf("influences") }
+                JourneyCard("Dialogues", "Voices answering across time", Color(0xFFC86EA0), Modifier.weight(1f)) { browse = listOf("dialogues") }
+            }
         }
-        item(key = "tile-about") {
-            TileCard(
-                Tile(
-                    R.drawable.ic_info,
-                    "About, sources & updates",
-                    latest?.takeIf { it.build > currentBuild }?.let { "Update available: build ${it.build}" }
-                        ?: "Where each quote comes from, and app updates",
-                ) { page = Page.ABOUT },
-                Modifier.fillMaxWidth(),
-                wide = true,
-            )
+        item(key = "d-timeline") {
+            JourneyCard("Who was alive together", "Every author on one timeline", Color(0xFFD2A050)) { browse = listOf("timeline") }
+        }
+        item(key = "d-browse") { Text("BROWSE", style = MaterialTheme.typography.labelMedium, color = MaterialTheme.colorScheme.primary, letterSpacing = 1.2.sp) }
+        item(key = "d-shelves") {
+            val groupCounts = remember { repo.bundled().groupingBy { it.category?.group }.eachCount() }
+            Column(verticalArrangement = Arrangement.spacedBy(12.dp)) {
+                Row(horizontalArrangement = Arrangement.spacedBy(12.dp)) {
+                    TileCard(Tile(R.drawable.ic_psychology, "Great ideas", "${groupCounts[QuoteGroup.IDEAS] ?: 0} ideas") { browse = listOf(BrowsePage.group(QuoteGroup.IDEAS)) }, Modifier.weight(1f))
+                    TileCard(Tile(R.drawable.ic_spa, "Mythology", "${groupCounts[QuoteGroup.MYTHS] ?: 0} myths") { browse = listOf(BrowsePage.group(QuoteGroup.MYTHS)) }, Modifier.weight(1f))
+                }
+                Row(horizontalArrangement = Arrangement.spacedBy(12.dp)) {
+                    TileCard(Tile(R.drawable.ic_label, "Subjects", "Love, time, nature…") { browse = listOf(BrowsePage.SEARCH) }, Modifier.weight(1f))
+                    TileCard(Tile(R.drawable.ic_format_quote, "Authors A–Z", "Every voice in the app") { browse = listOf(BrowsePage.SEARCH) }, Modifier.weight(1f))
+                }
+            }
+        }
+    }
+
+    fun LazyListScope.yoursPage() {
+        tabHeader("Yours")
+        item(key = "y-fav") {
+            ToolRow(
+                R.drawable.ic_favorite_border,
+                "Favourites",
+                if (favorites.isEmpty()) "Tap the heart on a quote to keep it here"
+                else "${favorites.size} saved" + (if (collections.isNotEmpty()) " · ${collections.size} collection" + (if (collections.size == 1) "" else "s") else "") + if (favoritesOnly) " · only these on the lock screen" else "",
+            ) { favFilter = null; page = Page.FAVORITES }
+        }
+        if (collections.isNotEmpty()) {
+            item(key = "y-coll-title") { Text("COLLECTIONS", style = MaterialTheme.typography.labelMedium, color = MaterialTheme.colorScheme.primary, letterSpacing = 1.2.sp) }
+            collections.chunked(2).forEachIndexed { i, pair ->
+                item(key = "y-coll-$i") {
+                    Row(horizontalArrangement = Arrangement.spacedBy(12.dp)) {
+                        pair.forEach { name ->
+                            val n = favInfo.values.count { name in it.collections }
+                            TileCard(Tile(R.drawable.ic_label, name, "$n line" + if (n == 1) "" else "s") { favFilter = name; page = Page.FAVORITES }, Modifier.weight(1f))
+                        }
+                        if (pair.size == 1) Box(Modifier.weight(1f))
+                    }
+                }
+            }
+        }
+        item(key = "y-journal") {
+            ToolRow(R.drawable.ic_edit_note, "Journal", if (journal.isEmpty()) "Your reflections on quotes, kept on this phone" else "${journal.size} reflection" + if (journal.size == 1) "" else "s") { page = Page.JOURNAL }
+        }
+        item(key = "y-mine") {
+            ToolRow(R.drawable.ic_edit, "My own quotes", if (custom.isEmpty()) "Add lines of your own" else "${custom.size} added") { page = Page.MINE }
+        }
+    }
+
+    fun LazyListScope.settingsPage() {
+        item(key = "s-lock") {
+            SoftCard(Modifier.fillMaxWidth(), onClick = { page = Page.SCHEDULE }) {
+                Row(Modifier.padding(16.dp), verticalAlignment = Alignment.CenterVertically) {
+                    Icon(painterResource(R.drawable.ic_lock), contentDescription = null, tint = MaterialTheme.colorScheme.primary, modifier = Modifier.size(26.dp))
+                    Column(Modifier.weight(1f).padding(start = 14.dp)) {
+                        Text("Lock screen & daily quote", style = MaterialTheme.typography.titleSmall, fontWeight = FontWeight.SemiBold)
+                        Text(
+                            (if (enabled) "On · every " + (INTERVALS.firstOrNull { it.first == interval }?.second?.lowercase() ?: "$interval min") else "Off") + " · today's quote, schedule",
+                            style = MaterialTheme.typography.bodySmall,
+                        )
+                    }
+                    Switch(checked = enabled, onCheckedChange = { onToggle(it) })
+                }
+            }
+        }
+        item(key = "s-quotes") {
+            val typeCount = Category.entries.count { it != Category.CUSTOM && countOf(it) > 0 }
+            val onCount = Category.entries.count { it in categories && countOf(it) > 0 }
+            ToolRow(R.drawable.ic_format_quote, "Quotes & authors", "$onCount of $typeCount types on · modern authors · ideas and myths mix") { page = Page.QUOTES }
+        }
+        item(key = "s-look") {
+            ToolRow(R.drawable.ic_palette, "Appearance", theme.label + " · " + quoteFont.label + " · wallpaper, widgets, read aloud") { page = Page.THEMES }
+        }
+        item(key = "s-about") {
+            ToolRow(
+                R.drawable.ic_info,
+                "About, backup & updates",
+                latest?.takeIf { it.build > currentBuild }?.let { "Update available: build ${it.build}" } ?: "Sources, backup and restore, feedback",
+            ) { page = Page.ABOUT }
         }
     }
 
@@ -1668,7 +1775,7 @@ private fun QuotesScreen(
             SoftCard(Modifier.fillMaxWidth()) {
                 Column(Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(4.dp)) {
                     quote.title?.let { Text(it, fontWeight = FontWeight.SemiBold) }
-                    Text(readingText(quote))
+                    Text(readingText(quote), modifier = Modifier.opensQuote { quotePage = quote to null })
                     quote.byline?.let { label ->
                         val name = authorName(label)
                         Text(
@@ -1761,20 +1868,38 @@ private fun QuotesScreen(
     }
 
     fun LazyListScope.toolboxPage() {
+        tabHeader("Calm")
         item(key = "tb-intro") {
-            Text("Take your time. Nothing here is saved unless you choose to.", style = MaterialTheme.typography.bodyMedium)
+            Text("Take a moment. What would help right now? Nothing here is saved unless you choose to.", style = MaterialTheme.typography.bodyMedium)
         }
-        item(key = "tb-feel") {
-            SettingsCard("How are you feeling?") {
-                FeelingChips { browse = listOf(BrowsePage.feeling(it)) }
-                Text("Opens gentle quotes, ideas and myths for that feeling.", style = MaterialTheme.typography.bodySmall)
+        item(key = "tb-tools-1") {
+            Row(horizontalArrangement = Arrangement.spacedBy(12.dp)) {
+                TileCard(Tile(R.drawable.ic_air, "Breathe", "A calm circle, 1–5 min") { tool = "breathe" }, Modifier.weight(1f))
+                TileCard(Tile(R.drawable.ic_graphic_eq, "Sounds", "Rain, waves, piano") { tool = "sounds" }, Modifier.weight(1f))
             }
         }
-        item(key = "tb-breathe") { ToolRow(R.drawable.ic_air, "Breathe", "A calm circle to breathe with \u00B7 1\u20135 min") { tool = "breathe" } }
-        item(key = "tb-sounds") { ToolRow(R.drawable.ic_graphic_eq, "Calming sounds", "Rain, waves, a stream, birdsong \u00B7 sleep timer") { tool = "sounds" } }
-        item(key = "tb-ground") { ToolRow(R.drawable.ic_visibility, "Ground yourself", "5 things you see, 4 you can touch\u2026") { tool = "ground" } }
-        item(key = "tb-reframe") { ToolRow(R.drawable.ic_psychology, "Look at a thought again", "What would you tell a friend?") { tool = "reframe" } }
+        item(key = "tb-tools-2") {
+            Row(horizontalArrangement = Arrangement.spacedBy(12.dp)) {
+                TileCard(Tile(R.drawable.ic_visibility, "Ground yourself", "5 things you see…") { tool = "ground" }, Modifier.weight(1f))
+                TileCard(Tile(R.drawable.ic_psychology, "Look at a thought", "What would you tell a friend?") { tool = "reframe" }, Modifier.weight(1f))
+            }
+        }
+        item(key = "tb-feel") {
+            SettingsCard("Gentle words for when you feel") {
+                FeelingChips { browse = listOf(BrowsePage.feeling(it)) }
+            }
+        }
         item(key = "tb-lifeline") { ToolRow(R.drawable.ic_volunteer_activism, "My lifeline", "A letter to yourself, kept thoughts, what helps") { tool = "lifeline" } }
+        item(key = "tb-playing") {
+            val sound by SoundPlayer.state.collectAsState()
+            sound.sound?.takeIf { !sound.forBreathe }?.let { playing ->
+                ToolRow(
+                    if (sound.playing) R.drawable.ic_pause else R.drawable.ic_play_arrow,
+                    playing.label,
+                    if (sound.playing) "Playing · tap for sounds" else "Paused · tap for sounds",
+                ) { tool = "sounds" }
+            }
+        }
         item(key = "tb-note") {
             Text(
                 "These are gentle companions, not a replacement for care from people who know you or from a professional.",
@@ -1929,16 +2054,39 @@ private fun QuotesScreen(
     // Each page opens at its top (About starts at the update card, not wherever the home screen was scrolled to).
     val listState = androidx.compose.foundation.lazy.rememberLazyListState()
     LaunchedEffect(page) { listState.scrollToItem(0) }
-    Scaffold { innerPadding ->
+    Scaffold(
+        bottomBar = {
+            if (page in TABS) {
+                androidx.compose.material3.NavigationBar(containerColor = MaterialTheme.colorScheme.surfaceContainer.copy(alpha = 0.94f)) {
+                    listOf(
+                        Triple(Page.HOME, R.drawable.ic_today, "Today"),
+                        Triple(Page.DISCOVER, R.drawable.ic_explore, "Discover"),
+                        Triple(Page.YOURS, R.drawable.ic_bookmark, "Yours"),
+                        Triple(Page.TOOLBOX, R.drawable.ic_spa, "Calm"),
+                    ).forEach { (p, icon, label) ->
+                        androidx.compose.material3.NavigationBarItem(
+                            selected = page == p,
+                            onClick = { page = p; lastTab = p },
+                            icon = { Icon(painterResource(icon), contentDescription = null) },
+                            label = { Text(label) },
+                        )
+                    }
+                }
+            }
+        },
+    ) { innerPadding ->
         LazyColumn(
             state = listState,
             modifier = Modifier.fillMaxSize().padding(innerPadding),
             contentPadding = PaddingValues(16.dp),
             verticalArrangement = Arrangement.spacedBy(12.dp),
         ) {
-            if (page != Page.HOME) header()
+            if (page !in TABS) header()
             when (page) {
                 Page.HOME -> homePage()
+                Page.DISCOVER -> discoverPage()
+                Page.YOURS -> yoursPage()
+                Page.SETTINGS -> settingsPage()
                 Page.QUOTES -> quotesPage()
                 Page.THEMES -> themesPage()
                 Page.SCHEDULE -> schedulePage()
@@ -1954,13 +2102,27 @@ private fun QuotesScreen(
 
 /** The pages reachable from the home screen's tiles. */
 private enum class Page(val title: String) {
-    HOME(""),
+    HOME("Today"),
+    DISCOVER("Discover"),
+    YOURS("Yours"),
+    TOOLBOX("Calm"),
+    SETTINGS("Settings"),
     QUOTES("Quotes & authors"),
     THEMES("Appearance"),
-    SCHEDULE("Schedule"),
+    SCHEDULE("Lock screen & daily quote"),
     FAVORITES("Favourites"),
     MINE("My quotes"),
-    TOOLBOX("When it's hard"),
     JOURNAL("Journal"),
-    ABOUT("About & updates"),
+    ABOUT("About, backup & updates"),
+}
+
+/** The four places along the bottom bar. */
+private val TABS = setOf(Page.HOME, Page.DISCOVER, Page.YOURS, Page.TOOLBOX)
+
+/** Where Back goes from [page]: settings pages to Settings, your things to Yours, Settings to the tab it was opened from. */
+private fun parentOf(page: Page, lastTab: Page): Page = when (page) {
+    Page.QUOTES, Page.THEMES, Page.SCHEDULE, Page.ABOUT -> Page.SETTINGS
+    Page.FAVORITES, Page.MINE, Page.JOURNAL -> Page.YOURS
+    Page.SETTINGS -> lastTab
+    else -> Page.HOME
 }

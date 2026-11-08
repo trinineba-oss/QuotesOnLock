@@ -128,6 +128,16 @@ fun QuoteBrowser(
     }
     var query by rememberSaveable(page) { mutableStateOf("") }
     var favorites by remember { mutableStateOf(repo.favorites().map { it.text }.toSet()) }
+    var opened by remember { mutableStateOf<Quote?>(null) }
+    opened?.let { q ->
+        QuotePageSheet(
+            quote = q,
+            onDismiss = { opened = null },
+            onShowOnLock = onShow,
+            onChanged = { favorites = repo.favorites().map { it.text }.toSet() },
+            onOpenAuthor = { if (it != author) onOpenAuthor(it) },
+        )
+    }
     val shown = remember(all, query) {
         val q = query.trim()
         when {
@@ -158,7 +168,7 @@ fun QuoteBrowser(
             contentPadding = PaddingValues(16.dp),
             verticalArrangement = Arrangement.spacedBy(12.dp),
         ) {
-            item { TextButton(onClick = onBack) { Text("← Back") } }
+            item { BackArrow(onBack) }
             item {
                 Column {
                     Text(
@@ -288,7 +298,7 @@ fun QuoteBrowser(
                 SoftCard(modifier = Modifier.fillMaxWidth()) {
                     Column(Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(4.dp)) {
                         quote.title?.let { Text(it, fontWeight = androidx.compose.ui.text.font.FontWeight.SemiBold) }
-                        Text(readingText(quote))
+                        Text(readingText(quote), modifier = Modifier.opensQuote { opened = quote })
                         quote.brief?.let { Text("In brief: $it", style = MaterialTheme.typography.bodySmall) }
                         quote.more?.let { MoreAbout(quote.text, it) }
                         quote.byline?.let { label ->

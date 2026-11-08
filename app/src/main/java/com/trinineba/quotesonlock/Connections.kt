@@ -203,7 +203,7 @@ fun ThemesScreen(onBack: () -> Unit, onOpenAuthor: (String) -> Unit) {
             contentPadding = PaddingValues(16.dp),
             verticalArrangement = Arrangement.spacedBy(10.dp),
         ) {
-            item { TextButton(onClick = onBack) { Text("← Back") } }
+            item { BackArrow(onBack) }
             item {
                 Column(verticalArrangement = Arrangement.spacedBy(4.dp)) {
                     Text("One idea, many hands", style = MaterialTheme.typography.headlineSmall)
@@ -350,7 +350,7 @@ fun InfluencesScreen(start: Int?, onBack: () -> Unit, onOpenAuthor: (String) -> 
             contentPadding = PaddingValues(16.dp),
             verticalArrangement = Arrangement.spacedBy(10.dp),
         ) {
-            item { TextButton(onClick = { if (thread != null && start == null) open = -1 else onBack() }) { Text("← Back") } }
+            item { BackArrow { if (thread != null && start == null) open = -1 else onBack() } }
             if (thread == null) {
                 item {
                     Column(verticalArrangement = Arrangement.spacedBy(4.dp)) {

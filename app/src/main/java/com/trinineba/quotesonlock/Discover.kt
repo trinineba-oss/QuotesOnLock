@@ -87,41 +87,49 @@ object QuoteContext {
     }
 }
 
-/** The surrounding passage in a sheet from the bottom, the quote highlighted and its source named. */
+/** The surrounding passage, the quote highlighted and its source named (in the Context sheet and the quote page). */
+@Composable
+fun ContextPassage(quote: Quote) {
+    val context = LocalContext.current
+    val passage = remember(quote.text) { QuoteContext.get(context, quote) }
+    if (passage == null) {
+        Text("The surrounding passage isn't available for this quote.")
+        return
+    }
+    val mark = MaterialTheme.colorScheme.primary.copy(alpha = 0.22f)
+    val strong = MaterialTheme.colorScheme.onSurface
+    Column(verticalArrangement = Arrangement.spacedBy(12.dp)) {
+        Text(
+            buildAnnotatedString {
+                if (passage.before.isNotBlank()) append("…" + passage.before.trimStart())
+                withStyle(SpanStyle(background = mark, color = strong, fontWeight = FontWeight.Medium)) { append(passage.quote) }
+                if (passage.after.isNotBlank()) append(passage.after.trimEnd() + "…")
+            },
+            fontFamily = FontFamily.Serif,
+            fontSize = 17.sp,
+            lineHeight = 26.sp,
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
+        )
+        val from = listOfNotNull(quote.byline, passage.source.ifBlank { null }).joinToString(" · ")
+        Text(
+            "$from · public-domain text",
+            style = MaterialTheme.typography.bodySmall,
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
+        )
+    }
+}
+
+/** The surrounding passage in a sheet from the bottom. */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ContextSheet(quote: Quote, onDismiss: () -> Unit) {
-    val context = LocalContext.current
-    val passage = remember(quote.text) { QuoteContext.get(context, quote) }
     ModalBottomSheet(onDismissRequest = onDismiss) {
         Column(
             Modifier.fillMaxWidth().padding(horizontal = 20.dp).padding(bottom = 28.dp).verticalScroll(rememberScrollState()),
             verticalArrangement = Arrangement.spacedBy(12.dp),
         ) {
             Text("IN CONTEXT", style = MaterialTheme.typography.labelMedium, color = MaterialTheme.colorScheme.primary, letterSpacing = 1.2.sp)
-            if (passage == null) {
-                Text("The surrounding passage isn't available for this quote.")
-            } else {
-                val mark = MaterialTheme.colorScheme.primary.copy(alpha = 0.22f)
-                val strong = MaterialTheme.colorScheme.onSurface
-                Text(
-                    buildAnnotatedString {
-                        if (passage.before.isNotBlank()) append("…" + passage.before.trimStart())
-                        withStyle(SpanStyle(background = mark, color = strong, fontWeight = FontWeight.Medium)) { append(passage.quote) }
-                        if (passage.after.isNotBlank()) append(passage.after.trimEnd() + "…")
-                    },
-                    fontFamily = FontFamily.Serif,
-                    fontSize = 17.sp,
-                    lineHeight = 26.sp,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant,
-                )
-                val from = listOfNotNull(quote.byline, passage.source.ifBlank { null }).joinToString(" · ")
-                Text(
-                    "$from · public-domain text",
-                    style = MaterialTheme.typography.bodySmall,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant,
-                )
-            }
+            ContextPassage(quote)
         }
     }
 }
@@ -149,14 +157,14 @@ fun ContextListAction(quote: Quote) {
 
 // ---- Copy and share in one button ---------------------------------------------------------------
 
-private fun shareText(context: Context, quote: Quote) {
+internal fun shareText(context: Context, quote: Quote) {
     val text = if (quote.isIdea) quote.fullText() else "“${quote.text}”" + (quote.byline?.let { " — $it" } ?: "")
     val send = Intent(Intent.ACTION_SEND).setType("text/plain").putExtra(Intent.EXTRA_TEXT, text)
     context.startActivity(Intent.createChooser(send, "Share quote").addFlags(Intent.FLAG_ACTIVITY_NEW_TASK))
 }
 
 @Composable
-private fun ShareMenu(quote: Quote, expanded: Boolean, onDismiss: () -> Unit) {
+internal fun ShareMenu(quote: Quote, expanded: Boolean, onDismiss: () -> Unit) {
     val context = LocalContext.current
     DropdownMenu(expanded = expanded, onDismissRequest = onDismiss) {
         DropdownMenuItem(text = { Text("Copy text") }, onClick = { onDismiss(); QuoteClipboard.copy(context, quote) })

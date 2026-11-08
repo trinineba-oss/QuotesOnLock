@@ -360,3 +360,43 @@ internal fun ColorSwatch(label: String, color: Color?, selected: Boolean, onClic
         if (color == null) Text("A", style = MaterialTheme.typography.labelLarge)
     }
 }
+
+/** A large card for one of Discover's journeys, tinted with its own colour. */
+@Composable
+internal fun JourneyCard(title: String, subtitle: String, tint: Color, modifier: Modifier = Modifier.fillMaxWidth(), onClick: () -> Unit) {
+    androidx.compose.material3.Surface(
+        onClick = onClick,
+        shape = RoundedCornerShape(18.dp),
+        color = Color.Transparent,
+        modifier = modifier,
+    ) {
+        Box(
+            Modifier
+                .background(
+                    androidx.compose.ui.graphics.Brush.linearGradient(
+                        listOf(tint.copy(alpha = 0.55f), MaterialTheme.colorScheme.surfaceContainer.copy(alpha = 0.85f)),
+                    ),
+                )
+                .heightIn(min = 76.dp)
+                .padding(16.dp),
+        ) {
+            Column(verticalArrangement = Arrangement.spacedBy(4.dp)) {
+                Text(title, style = MaterialTheme.typography.titleMedium, fontFamily = androidx.compose.ui.text.font.FontFamily.Serif, fontWeight = androidx.compose.ui.text.font.FontWeight.SemiBold)
+                Text(subtitle, style = MaterialTheme.typography.bodySmall)
+            }
+        }
+    }
+}
+
+/** The round back arrow at the top of inner pages. */
+@Composable
+internal fun BackArrow(onBack: () -> Unit) {
+    Box(
+        modifier = Modifier
+            .size(44.dp)
+            .clip(CircleShape)
+            .background(MaterialTheme.colorScheme.surfaceContainerHighest.copy(alpha = 0.8f))
+            .clickable(onClickLabel = "Back", onClick = onBack),
+        contentAlignment = Alignment.Center,
+    ) { androidx.compose.material3.Icon(painterResource(R.drawable.ic_arrow_back), contentDescription = "Back") }
+}
