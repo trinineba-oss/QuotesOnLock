@@ -435,3 +435,19 @@ Arthur Schnitzler|Arthur Schnitzler|1862|1931|writers|
 Torquato Tasso|Torquato Tasso|1544|1595|poets|
 Heinrich von Kleist|Heinrich von Kleist|1777|1811|writers|
 E. T. A. Hoffmann|E. T. A. Hoffmann|1776|1822|writers|
+Sei Shōnagon|Sei Shōnagon|966|1025|writers|
+José Rizal|José Rizal|1861|1896|writers|
+Machado de Assis|Machado de Assis|1839|1908|writers|
+Cao Xueqin|Cao Xueqin|1715|1763|writers|
+José Martí|José Martí|1853|1895|poets|
+Sor Juana Inés de la Cruz|Sor Juana Inés de la Cruz|1648|1695|poets|
+Rubén Darío|Rubén Darío|1867|1916|poets|
+Sándor Petőfi|Sándor Petőfi|1823|1849|poets|
+Benito Pérez Galdós|Benito Pérez Galdós|1843|1920|writers|
+Eça de Queirós|Eça de Queirós|1845|1900|writers|
+Francisco de Quevedo|Francisco de Quevedo|1580|1645|writers|
+Jaroslav Hašek|Jaroslav Hašek|1883|1923|writers|
+Chikamatsu Monzaemon|Chikamatsu Monzaemon|1653|1725|writers|
+Su Shi|Su Shi|1037|1101|poets|
+Li Qingzhao|Li Qingzhao|1084|1155|poets|
+Naguib Mahfouz|Naguib Mahfouz|1911|2006|writers|
