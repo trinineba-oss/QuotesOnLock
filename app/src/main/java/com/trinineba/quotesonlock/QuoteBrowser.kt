@@ -76,15 +76,24 @@ fun authorName(label: String?): String? = when {
     else -> label.substringBefore(", ").substringBefore(" (").trim().ifBlank { null }
 }
 
-/** Short biographies of the authors, shown at the top of their page (res/raw/bios.txt: `name|bio`). */
-object AuthorBios {
-    @Volatile private var bios: Map<String, String>? = null
+/** An author's short biography and, for most authors, a fuller account of their life. */
+data class AuthorBio(val short: String, val more: String?)
 
-    fun of(context: android.content.Context, name: String?): String? {
+/**
+ * Biographies of the authors, shown at the top of their page (res/raw/bios.txt: `name|bio|more`): the short line
+ * always, the fuller life under "More about their life".
+ */
+object AuthorBios {
+    @Volatile private var bios: Map<String, AuthorBio>? = null
+
+    fun of(context: android.content.Context, name: String?): AuthorBio? {
         if (name == null) return null
         val map = bios ?: context.applicationContext.resources.openRawResource(R.raw.bios).bufferedReader().useLines { lines ->
             lines.filter { it.isNotBlank() && !it.startsWith("#") && '|' in it }
-                .associate { it.substringBefore('|').trim() to it.substringAfter('|').trim() }
+                .associate { line ->
+                    val f = line.split('|')
+                    f[0].trim() to AuthorBio(f[1].trim(), f.getOrNull(2)?.trim()?.ifBlank { null })
+                }
         }.also { bios = it }
         return map[name]
     }
@@ -182,13 +191,19 @@ fun QuoteBrowser(
                         style = MaterialTheme.typography.headlineSmall,
                     )
                     val context = androidx.compose.ui.platform.LocalContext.current
-                    val bio = remember(page) { if (searching) null else feeling?.intro ?: AuthorBios.of(context, author ?: group?.title ?: category?.label) }
+                    val bio = remember(page) {
+                        if (searching) null
+                        else feeling?.intro?.let { AuthorBio(it, null) } ?: AuthorBios.of(context, author ?: group?.title ?: category?.label)
+                    }
                     bio?.let {
                         Text(
-                            it,
+                            it.short,
                             style = MaterialTheme.typography.bodyMedium,
-                            modifier = Modifier.padding(top = 6.dp, bottom = 6.dp),
+                            modifier = Modifier.padding(top = 6.dp, bottom = if (it.more == null) 6.dp else 0.dp),
                         )
+                        it.more?.let { more ->
+                            Column(Modifier.padding(bottom = 6.dp)) { MoreAbout("bio:$page", more, label = "MORE ABOUT THEIR LIFE ›") }
+                        }
                     }
                     if (author != null) AuthorInfluences(author) { onOpenPage("influences:$it") }
                     Text(
@@ -349,11 +364,11 @@ internal fun ReadAloudButton(quote: Quote) {
 
 /** "More about this ›": a great idea's or myth's fuller explanation, folded away until asked for. */
 @Composable
-internal fun MoreAbout(key: String, more: String, color: Color = Color.Unspecified) {
+internal fun MoreAbout(key: String, more: String, color: Color = Color.Unspecified, label: String = "MORE ABOUT THIS ›") {
     var open by rememberSaveable(key) { mutableStateOf(false) }
     Column {
         Text(
-            if (open) "LESS ‹" else "MORE ABOUT THIS ›",
+            if (open) "LESS ‹" else label,
             style = MaterialTheme.typography.labelSmall,
             color = MaterialTheme.colorScheme.primary,
             letterSpacing = 1.2.sp,

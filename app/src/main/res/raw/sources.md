@@ -306,6 +306,10 @@ A larger set (158 more, bringing great ideas to 625) fills out Mathematics & log
 
 Ghalib was planned but is not included: there is no public-domain English translation of the ghazals, and the Urdu originals could not be checked line by line for a translation of my own.
 
+### Author biographies
+
+The short biographies and the fuller "More about their life" accounts on author pages (about 550 authors and books) are written for the app from standard reference knowledge. Where a story is legend or disputed (for example Lao Tzu's journey west, Aesop's life, Empedocles and Etna, Kalidasa's name), it is told as such. If something is wrong, please open an issue.
+
 ### Einstein
 
 Einstein's own writings are still in copyright, and many "Einstein quotes" online are misattributed. The ones included here are lines with a documented source (his essays, letters and interviews, e.g. *The World As I See It*, the 1929 *Saturday Evening Post* interview, his 1950 letter on the "circle of compassion", his letter to Born), taken from the most-liked Goodreads entries where those match the documented wording and written out from the standard published wording otherwise. Translated passages follow the commonly cited English renderings; they may differ slightly from your edition.

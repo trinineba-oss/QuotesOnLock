@@ -54,6 +54,11 @@ class QuoteFilesTest {
         dataLines("bios.txt").forEach { line ->
             val (name, bio) = line.split('|', limit = 2).let { it[0] to it.getOrElse(1) { "" } }
             assertTrue("bio without text: $name", bio.isNotBlank())
+            val f = line.split('|')
+            assertTrue("bio with too many fields: $name", f.size <= 3)
+            if (f.size == 3) assertTrue("fuller life left blank: $name", f[2].isNotBlank())
         }
+        val fuller = dataLines("bios.txt").count { it.split('|').size == 3 }
+        assertTrue("suspiciously few fuller lives: $fuller", fuller > 500)
     }
 }
