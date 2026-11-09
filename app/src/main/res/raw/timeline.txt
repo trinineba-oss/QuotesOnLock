@@ -410,3 +410,28 @@ Olaudah Equiano|Olaudah Equiano|1745|1797|writers|
 Paul Laurence Dunbar|Paul Laurence Dunbar|1872|1906|poets|
 James Weldon Johnson|James Weldon Johnson|1871|1938|poets|
 Claude McKay|Claude McKay|1889|1948|poets|
+Herodotus|Herodotus|-484|-425|writers|
+Xenophon|Xenophon|-430|-354|thinkers|
+Tacitus|Tacitus|56|120|writers|
+Livy|Livy|-59|17|writers|
+Pindar|Pindar|-518|-438|poets|
+Catullus|Catullus|-84|-54|poets|
+Juvenal|Juvenal|55|130|poets|
+Martial|Martial|40|104|poets|
+Alexandre Dumas|Alexandre Dumas|1802|1870|writers|
+Émile Zola|Émile Zola|1840|1902|writers|
+Guy de Maupassant|Guy de Maupassant|1850|1893|writers|
+Alessandro Manzoni|Alessandro Manzoni|1785|1873|writers|
+Maxim Gorky|Maxim Gorky|1868|1936|writers|
+Pedro Calderón de la Barca|Pedro Calderón de la Barca|1600|1681|writers|
+Gotthold Ephraim Lessing|Gotthold Ephraim Lessing|1729|1781|writers|
+Henryk Sienkiewicz|Henryk Sienkiewicz|1846|1916|writers|
+Karel Čapek|Karel Čapek|1890|1938|writers|
+Hans Christian Andersen|Hans Christian Andersen|1805|1875|writers|
+Adam Mickiewicz|Adam Mickiewicz|1798|1855|poets|
+Selma Lagerlöf|Selma Lagerlöf|1858|1940|writers|
+Alexander Herzen|Alexander Herzen|1812|1870|thinkers|
+Arthur Schnitzler|Arthur Schnitzler|1862|1931|writers|
+Torquato Tasso|Torquato Tasso|1544|1595|poets|
+Heinrich von Kleist|Heinrich von Kleist|1777|1811|writers|
+E. T. A. Hoffmann|E. T. A. Hoffmann|1776|1822|writers|
