@@ -370,3 +370,43 @@ Earl Lovelace|Earl Lovelace|1935||writers|
 C. L. R. James|C. L. R. James|1901|1989|thinkers|
 Dionne Brand|Dionne Brand|1953||poets|
 Monique Roffey|Monique Roffey|1965||writers|
+Daniel Defoe|Daniel Defoe|1660|1731|writers|
+Henry Fielding|Henry Fielding|1707|1754|writers|
+Oliver Goldsmith|Oliver Goldsmith|1728|1774|writers|
+Fanny Burney|Fanny Burney|1752|1840|writers|
+William Makepeace Thackeray|William Makepeace Thackeray|1811|1863|writers|
+Anthony Trollope|Anthony Trollope|1815|1882|writers|
+Elizabeth Gaskell|Elizabeth Gaskell|1810|1865|writers|
+Wilkie Collins|Wilkie Collins|1824|1889|writers|
+George Meredith|George Meredith|1828|1909|writers|
+George Gissing|George Gissing|1857|1903|writers|
+H. G. Wells|H. G. Wells|1866|1946|writers|
+Edmund Spenser|Edmund Spenser|1552|1599|poets|
+Christopher Marlowe|Christopher Marlowe|1564|1593|poets|
+Ben Jonson|Ben Jonson|1572|1637|poets|
+Robert Herrick|Robert Herrick|1591|1674|poets|
+Alexander Pope|Alexander Pope|1688|1744|poets|
+William Cowper|William Cowper|1731|1800|poets|
+John Clare|John Clare|1793|1864|poets|
+Thomas Hood|Thomas Hood|1799|1845|poets|
+John Bunyan|John Bunyan|1628|1688|writers|
+Izaak Walton|Izaak Walton|1593|1683|writers|
+Joseph Addison and Richard Steele|Joseph Addison and Richard Steele|1672|1729|writers|
+Samuel Pepys|Samuel Pepys|1633|1703|writers|
+Charles Lamb|Charles Lamb|1775|1834|writers|
+Thomas De Quincey|Thomas De Quincey|1785|1859|writers|
+Thomas Carlyle|Thomas Carlyle|1795|1881|thinkers|
+John Henry Newman|John Henry Newman|1801|1890|thinkers|
+J. M. Synge|J. M. Synge|1871|1909|writers|
+Washington Irving|Washington Irving|1783|1859|writers|
+James Fenimore Cooper|James Fenimore Cooper|1789|1851|writers|
+Harriet Beecher Stowe|Harriet Beecher Stowe|1811|1896|writers|
+Louisa May Alcott|Louisa May Alcott|1832|1888|writers|
+Ambrose Bierce|Ambrose Bierce|1842|1914|writers|
+Stephen Crane|Stephen Crane|1871|1900|writers|
+O. Henry|O. Henry|1862|1910|writers|
+Phillis Wheatley|Phillis Wheatley|1753|1784|poets|
+Olaudah Equiano|Olaudah Equiano|1745|1797|writers|
+Paul Laurence Dunbar|Paul Laurence Dunbar|1872|1906|poets|
+James Weldon Johnson|James Weldon Johnson|1871|1938|poets|
+Claude McKay|Claude McKay|1889|1948|poets|
