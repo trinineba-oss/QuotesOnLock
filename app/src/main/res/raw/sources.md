@@ -346,9 +346,9 @@ The Starry Night theme uses Vincent van Gogh's *The Starry Night* (1889), public
 
 The guided sessions (breathing space, body scan, letting go of tension, loving-kindness, into sleep) are written for the app, drawing on common, freely described relaxation and mindfulness exercises, and are read by the phone's own voice. The practices quote their sources word for word: Seneca, *On Anger* III (tr. Aubrey Stewart, *Minor Dialogues*, Gutenberg #64576); Marcus Aurelius, *Meditations*; Epictetus, *Enchiridion* (tr. Higginson); Defoe, *Robinson Crusoe*. Wind down reads passages already in the collection (Thoreau, Annie Dillard, Kamo no Chōmei, Kenkō, John Muir, Wordsworth, John Clare, George Gissing).
 
-### Temple bell at dusk
+### Inside the temple
 
-The "Temple bell at dusk" theme, shown behind the singing bowls in Calm, is Utagawa Hiroshige's *Vesper Bells at Mii Temple*, from the series *Eight Views of Ōmi* (about 1832), The Metropolitan Museum of Art, New York (accession via the Met's Open Access programme, object 56892, public domain). It is cropped to a tall view around the temple and the mountain, with the print's centre fold evened out; the drifting mist and the bell's rings are drawn by the app.
+The "Inside the temple" theme, shown behind the singing bowls in Calm, is the photograph "Golden Buddha statue in old monastery" from Pexels (pexels.com/photo/4324950), used under the Pexels License, which allows free use and changes without attribution; it is not public domain, and the photographer keeps the copyright. It is cropped to a tall view around the statue. The lamplight flicker, the incense smoke and the drifting dust are drawn by the app.
 
 ### Calming sounds
 

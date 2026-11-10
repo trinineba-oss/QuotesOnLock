@@ -130,7 +130,7 @@ enum class AppTheme(
         0xFF1F3324.toInt(), 0xFF3F6E33.toInt(),
     ),
     ZEN(
-        "zen", "Temple bell at dusk", "Drifting mist and the bell's rings", R.drawable.notif_frame_zen, 0xFF1C2230.toInt(),
+        "zen", "Inside the temple", "Incense smoke and lamplight", R.drawable.notif_frame_zen, 0xFF2A1E14.toInt(),
         0xFFF3EEE4.toInt(), 0xFFF0B98C.toInt(),
     );
 
@@ -291,7 +291,7 @@ fun AppTheme.colorScheme(cardOpacity: Float): ColorScheme? = when (this) {
     AppTheme.CLOUDS -> calmScheme(false, 0xFF3E6E9E, 0xFFF4F8FC, 0xFF24364A, 0xFF4A5E74, cardOpacity)
     AppTheme.WAVES -> calmScheme(true, 0xFFFFC9A8, 0xFF10203A, 0xFFF4EEF2, 0xFFD6CCD8, cardOpacity)
     AppTheme.BAMBOO -> calmScheme(false, 0xFF3F6E33, 0xFFF2F7EE, 0xFF1F3324, 0xFF45604A, cardOpacity)
-    AppTheme.ZEN -> calmScheme(true, 0xFFF0B98C, 0xFF1C2230, 0xFFF3EEE4, 0xFFD2CABB, cardOpacity)
+    AppTheme.ZEN -> calmScheme(true, 0xFFF0B98C, 0xFF2A1E14, 0xFFF3EEE4, 0xFFD8C9B2, cardOpacity)
     AppTheme.BUTTERFLY -> lightColorScheme(
         primary = Color(0xFFC2185B),
         onPrimary = Color.White,

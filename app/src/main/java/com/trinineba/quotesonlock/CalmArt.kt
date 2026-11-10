@@ -51,7 +51,7 @@ internal object CalmArt {
         AppTheme.CLOUDS -> 0xFFB8D3EE.toInt()
         AppTheme.WAVES -> 0xFF3A3556.toInt()
         AppTheme.BAMBOO -> 0xFFCFE0C4.toInt()
-        AppTheme.ZEN -> 0xFF8E8A7C.toInt()
+        AppTheme.ZEN -> 0xFF2E2116.toInt()
         else -> 0xFF101820.toInt()
     }
 
@@ -468,74 +468,102 @@ internal object CalmArt {
     // ---- temple bell at dusk ------------------------------------------------------------------------
 
     /*
-     * Hiroshige's "Vesper Bell at Mii Temple" (about 1832), cropped tall around the temple and the mountain. Bands
-     * of mist drift slowly across it, and every so often soft rings spread out from the temple, like the sound of
-     * its bell. The picture is scaled to the screen once; each frame is a bitmap copy, the mist and a few rings.
+     * Inside a temple: a photograph of a golden Buddha in the dim hall of an old monastery. Butter-lamp light
+     * flickers softly over the statue, two threads of incense smoke rise and curl in front of it, and a few specks
+     * of dust drift through the light. The photo is scaled to the screen once; each frame is a bitmap copy, a glow,
+     * some soft puffs and dots.
      */
     private var zenKey = ""
     private var zenBg: Bitmap? = null
-    private var zenMist: Bitmap? = null
-    private var zenTx = 0f
-    private var zenTy = 0f
-    private val zenMistPaint = Paint(Paint.FILTER_BITMAP_FLAG)
-    private val zenRing = Paint(Paint.ANTI_ALIAS_FLAG).apply { style = Paint.Style.STROKE }
+    private var zenPuff: Bitmap? = null
+    private var zenFx = 0f
+    private var zenFy = 0f
+    private var zenPh = 0f
+    private var zenLeft = 0f
+    private var zenTop = 0f
+    private var zenPw = 0f
+    private val zenPuffPaint = Paint(Paint.FILTER_BITMAP_FLAG)
+    private val zenGlow = Paint(Paint.ANTI_ALIAS_FLAG).apply {
+        xfermode = android.graphics.PorterDuffXfermode(android.graphics.PorterDuff.Mode.SCREEN)
+    }
+    private val zenDust = Paint(Paint.ANTI_ALIAS_FLAG)
 
-    private fun zenLayers(w: Float, h: Float): Boolean {
+    private fun zenLayers(w: Float, h: Float, d: Float): Boolean {
         val k = "${w.toInt()}x${h.toInt()}"
-        if (k == zenKey && zenBg != null && zenMist != null) return true
+        if (k == zenKey && zenBg != null && zenPuff != null) return true
         val ctx = appContext ?: return false
         val opts = android.graphics.BitmapFactory.Options().apply { inScaled = false }
         val pic = android.graphics.BitmapFactory.decodeResource(ctx.resources, R.drawable.zen_scene, opts) ?: return false
-        val mist = android.graphics.BitmapFactory.decodeResource(ctx.resources, R.drawable.zen_mist, opts) ?: return false
-        // Cover the screen, keeping the temple (28% across, 52% down the picture) comfortably in view.
+        // Cover the screen, keeping the statue (51% across, 57% down the photo) in view.
         val scale = maxOf(h / pic.height, w / pic.width)
         val pw = pic.width * scale
         val ph = pic.height * scale
-        val left = (w / 2f - 0.42f * pw).coerceIn(w - pw, 0f)
+        val left = (w / 2f - 0.507f * pw).coerceIn(w - pw, 0f)
         val top = (h / 2f - 0.5f * ph).coerceIn(h - ph, 0f)
         val bg = Bitmap.createBitmap(max(1, w.toInt()), max(1, h.toInt()), Bitmap.Config.ARGB_8888)
         Canvas(bg).drawBitmap(pic, null, RectF(left, top, left + pw, top + ph), bitmapPaint)
-        val mw = max(1, (w * 1.3f).toInt())
-        val mh = max(1, (mist.height * mw / mist.width.toFloat()).toInt())
-        val mistScaled = Bitmap.createScaledBitmap(mist, mw, mh, true)
         pic.recycle()
-        if (mistScaled != mist) mist.recycle()
-        zenBg?.recycle(); zenMist?.recycle()
-        zenBg = bg; zenMist = mistScaled; zenKey = k
-        zenTx = left + 0.283f * pw
-        zenTy = top + 0.517f * ph
+        // One soft white puff, drawn many times over for the smoke.
+        val r = max(8, (28f * d).toInt())
+        val puff = Bitmap.createBitmap(r * 2, r * 2, Bitmap.Config.ARGB_8888)
+        Canvas(puff).drawCircle(r.toFloat(), r.toFloat(), r.toFloat(), Paint(Paint.ANTI_ALIAS_FLAG).apply {
+            shader = android.graphics.RadialGradient(
+                r.toFloat(), r.toFloat(), r.toFloat(),
+                intArrayOf(0xA0E8E2D8.toInt(), 0x3CE8E2D8, 0x00E8E2D8), floatArrayOf(0f, 0.5f, 1f), android.graphics.Shader.TileMode.CLAMP,
+            )
+        })
+        zenBg?.recycle(); zenPuff?.recycle()
+        zenBg = bg; zenPuff = puff; zenKey = k
+        zenFx = left + 0.507f * pw
+        zenFy = top + 0.57f * ph
+        zenLeft = left; zenTop = top; zenPw = pw; zenPh = ph
+        zenGlow.shader = android.graphics.RadialGradient(
+            zenFx, zenFy, 0.55f * pw,
+            intArrayOf(0x55FFB561, 0x22FF9A3C, 0x00FF9A3C), floatArrayOf(0f, 0.45f, 1f), android.graphics.Shader.TileMode.CLAMP,
+        )
         return true
     }
 
     private fun zen(c: Canvas, w: Float, h: Float, t: Float, d: Float) {
-        if (!zenLayers(w, h)) {
+        if (!zenLayers(w, h, d)) {
             c.drawColor(fallback(AppTheme.ZEN))
             return
         }
         c.drawBitmap(zenBg!!, 0f, 0f, bitmapPaint)
-        val mist = zenMist!!
-        val mw = mist.width.toFloat()
-        // Three bands at different heights and speeds, the lowest drifting the other way.
-        for ((yc, speed, alpha) in listOf(Triple(zenTy - 0.02f * h, w / 140f, 0.55f), Triple(zenTy + 0.09f * h, -w / 200f, 0.45f), Triple(zenTy - 0.16f * h, w / 260f, 0.3f))) {
-            zenMistPaint.alpha = (alpha * 255).toInt()
-            var x = ((t * speed) % mw)
-            if (x > 0) x -= mw
-            val y = yc - mist.height / 2f
-            while (x < w) {
-                c.drawBitmap(mist, x, y, zenMistPaint)
-                x += mw
+        // Lamp light: a warm glow that breathes and flickers a little, never still and never jumpy.
+        val flicker = 0.55f + 0.18f * sin(t * 0.7f) + 0.12f * sin(t * 2.3f + 1f) + 0.08f * sin(t * 5.1f + 2f) + 0.05f * sin(t * 9.7f)
+        zenGlow.alpha = (flicker.coerceIn(0f, 1f) * 255).toInt()
+        c.drawRect(0f, 0f, w, h, zenGlow)
+        // Incense: two sticks on the altar, each sending up a thread of puffs that drift, widen and fade.
+        val puff = zenPuff!!
+        val pr = puff.width / 2f
+        val rise = 0.42f * zenPh
+        for ((sx, seed) in listOf(0.36f to 0f, 0.67f to 3.1f)) {
+            val x0 = zenLeft + sx * zenPw
+            val y0 = zenTop + 0.88f * zenPh
+            val n = 34
+            for (i in 0 until n) {
+                val p = (((t / 16f) + i / n.toFloat() + seed) % 1f)
+                val y = y0 - p * rise
+                val sway = sin(p * 7f + t * 0.35f + seed) * (6f + 60f * p * p) * d + sin(p * 3f + seed) * 18f * p * d
+                val size = 0.35f + 1.9f * p
+                val a = sin(PI.toFloat() * p) * (1f - p) * 2.2f
+                zenPuffPaint.alpha = (a.coerceIn(0f, 1f) * 255).toInt()
+                val half = pr * size
+                oval.set(x0 + sway - half, y - half, x0 + sway + half, y + half)
+                c.drawBitmap(puff, null, oval, zenPuffPaint)
             }
         }
-        // The bell: every 14 seconds two soft rings spread out from the temple and fade.
-        for (delay in floatArrayOf(0f, 0.9f)) {
-            val p = (((t - delay) % 14f + 14f) % 14f) / 7f
-            if (p >= 1f) continue
-            val r = 14f * d + p * w * 0.5f
-            val a = 0.28f * (1f - p) * (1f - p)
-            zenRing.strokeWidth = (2.2f - 1.2f * p) * d
-            zenRing.color = color(0xFFF4E2, a)
-            oval.set(zenTx - r, zenTy - r * 0.42f, zenTx + r, zenTy + r * 0.42f)
-            c.drawOval(oval, zenRing)
+        // Dust in the light: a few warm specks drifting slowly upward and twinkling.
+        for (i in 0 until 26) {
+            val f = i * 0.6180339f % 1f
+            val g = i * 0.7548777f % 1f
+            val p = ((t / (40f + 25f * g)) + f) % 1f
+            val x = zenFx + (g - 0.5f) * 0.7f * zenPw + sin(t * 0.2f + i) * 14f * d
+            val y = zenFy + 0.25f * zenPh - p * 0.6f * zenPh
+            val a = sin(PI.toFloat() * p) * (0.35f + 0.3f * sin(t * (0.8f + g) + i * 1.7f))
+            zenDust.color = color(0xFFE2B0, a)
+            c.drawCircle(x, y, (0.9f + 0.9f * f) * d, zenDust)
         }
     }
 
