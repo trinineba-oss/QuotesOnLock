@@ -27,65 +27,141 @@ import androidx.core.content.ContextCompat
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 
+/** How a sound is grouped on the Sounds screen. */
+enum class SoundKind(val heading: String) { NATURE("Nature"), QUIET("Steady and still"), MUSIC("Music") }
+
 /**
- * The calming sounds: each a seamless loop in res/raw, shown with the matching calm theme's artwork.
- * The [music] ones are whole piano pieces that start again after a short pause.
+ * The calming sounds: each a seamless stereo loop in res/raw, shown with artwork and, in Calm, the matching
+ * calm scene behind the app ([scene]). The [SoundKind.MUSIC] ones are whole pieces that start again after a pause.
  */
-enum class Soundscape(val key: String, val label: String, @RawRes val raw: Int, @DrawableRes val art: Int, val music: Boolean = false) {
-    RAIN("rain", "Rain on the window", R.raw.snd_rain, R.drawable.rain_night_frame),
-    WAVES("waves", "Waves at dusk", R.raw.snd_waves, R.drawable.waves_frame),
-    WIND("wind", "Wind in bamboo", R.raw.snd_wind, R.drawable.bamboo_frame),
-    FOREST("forest", "Night forest", R.raw.snd_forest, R.drawable.fireflies_frame),
-    FIRE("fire", "Crackling fire", R.raw.snd_fire, R.drawable.candle_frame),
-    STREAM("stream", "Gentle stream", R.raw.snd_stream, R.drawable.water_frame),
-    BIRDS("birds", "Birdsong", R.raw.snd_birds, R.drawable.clouds_frame),
-    MOONLIGHT("moonlight", "Beethoven: Moonlight Sonata", R.raw.mus_moonlight, R.drawable.snow_frame, music = true),
-    NOCTURNE("nocturne", "Chopin: Nocturne Op. 9 No. 2", R.raw.mus_nocturne, R.drawable.starry_frame, music = true);
+enum class Soundscape(
+    val key: String,
+    val label: String,
+    @RawRes val raw: Int,
+    @DrawableRes val art: Int,
+    val scene: AppTheme,
+    val kind: SoundKind = SoundKind.NATURE,
+) {
+    RAIN("rain", "Rain on the window", R.raw.snd_rain, R.drawable.rain_night_frame, AppTheme.RAIN_NIGHT),
+    TENT("tent", "Rain on a tent", R.raw.snd_tent, R.drawable.rain_frame, AppTheme.RAIN),
+    STORM("storm", "Distant storm", R.raw.snd_storm, R.drawable.space_frame, AppTheme.RAIN_NIGHT),
+    WAVES("waves", "Waves on the shore", R.raw.snd_waves, R.drawable.waves_frame, AppTheme.WAVES),
+    STREAM("stream", "Mountain stream", R.raw.snd_stream, R.drawable.water_frame, AppTheme.WATER),
+    WIND("wind", "Wind in the trees", R.raw.snd_wind, R.drawable.bamboo_frame, AppTheme.BAMBOO),
+    FIRE("fire", "Campfire", R.raw.snd_fire, R.drawable.candle_frame, AppTheme.CANDLE),
+    FOREST("forest", "Night crickets", R.raw.snd_forest, R.drawable.fireflies_frame, AppTheme.FIREFLIES),
+    FROGS("frogs", "Frogs on a summer night", R.raw.snd_frogs, R.drawable.lavender_frame, AppTheme.FIREFLIES),
+    BIRDS("birds", "Dawn chorus", R.raw.snd_birds, R.drawable.clouds_frame, AppTheme.CLOUDS),
+    BROWN("brown", "Brown noise", R.raw.snd_brown, R.drawable.aurora_frame, AppTheme.SPACE, SoundKind.QUIET),
+    BOWL("bowl", "Singing bowls", R.raw.snd_bowl, R.drawable.butterfly_frame, AppTheme.SNOW, SoundKind.QUIET),
+    SATIE("satie", "Satie: Gymnopédie No. 1", R.raw.mus_satie, R.drawable.lavender_frame, AppTheme.LAVENDER, SoundKind.MUSIC),
+    BACH("bach", "Bach: Aria from the Goldberg Variations", R.raw.mus_bach, R.drawable.starry_frame, AppTheme.AURORA, SoundKind.MUSIC),
+    NOCTURNE("nocturne", "Chopin: Nocturne Op. 9 No. 2", R.raw.mus_nocturne, R.drawable.starry_frame, AppTheme.STARRY, SoundKind.MUSIC),
+    MOONLIGHT("moonlight", "Beethoven: Moonlight Sonata", R.raw.mus_moonlight, R.drawable.snow_frame, AppTheme.SNOW, SoundKind.MUSIC);
+
+    val music: Boolean get() = kind == SoundKind.MUSIC
 
     companion object {
         fun fromKey(key: String?): Soundscape? = entries.firstOrNull { it.key == key }
     }
 }
 
+/** One sound in a mix, with its own volume (0–1) under the overall volume. */
+data class SoundLayer(val sound: Soundscape, val volume: Float = 0.8f)
+
+/** A mix: up to [MAX_LAYERS] sounds playing together. Stored as "key:volume,key:volume". */
+object SoundMix {
+    const val MAX_LAYERS = 3
+
+    fun encode(layers: List<SoundLayer>): String = layers.joinToString(",") { "${it.sound.key}:${"%.2f".format(java.util.Locale.US, it.volume)}" }
+
+    fun decode(raw: String?): List<SoundLayer> = raw.orEmpty().split(',').mapNotNull { part ->
+        val sound = Soundscape.fromKey(part.substringBefore(':')) ?: return@mapNotNull null
+        SoundLayer(sound, part.substringAfter(':', "0.8").toFloatOrNull()?.coerceIn(0f, 1f) ?: 0.8f)
+    }.distinctBy { it.sound }.take(MAX_LAYERS)
+
+    /** A short name for a mix: "Rain on the window + Campfire". */
+    fun label(layers: List<SoundLayer>): String = layers.joinToString(" + ") { it.sound.label }
+}
+
+/** A mix the user saved by name. */
+data class SavedMix(val name: String, val layers: List<SoundLayer>)
+
 /** What's playing, for the screens to show. [endsAt] is in elapsedRealtime, 0 when there's no timer. */
 data class SoundState(
-    val sound: Soundscape? = null,
+    val layers: List<SoundLayer> = emptyList(),
     val playing: Boolean = false,
     val endsAt: Long = 0L,
     val forBreathe: Boolean = false,
-)
+) {
+    /** The first sound of the mix: it names the mix and chooses the calm scene. */
+    val sound: Soundscape? get() = layers.firstOrNull()?.sound
+}
 
 /** The app's handle on the sound service: every call is a small intent, the service does the work. */
 object SoundPlayer {
     internal val mutable = MutableStateFlow(SoundState())
     val state: StateFlow<SoundState> = mutable
 
-    /** Plays [sound] (replacing any other) with the saved timer, or none for Breathe. */
+    /** Plays [sound] on its own (replacing any mix) with the saved timer, or none for Breathe. */
     fun play(context: Context, sound: Soundscape, forBreathe: Boolean = false) =
-        send(context, SoundService.ACTION_PLAY) {
-            putExtra(SoundService.EXTRA_SOUND, sound.key)
+        playMix(context, listOf(SoundLayer(sound, 1f)), forBreathe)
+
+    /** Plays a whole mix, replacing what was playing. */
+    fun playMix(context: Context, layers: List<SoundLayer>, forBreathe: Boolean = false) {
+        if (layers.isEmpty()) return stop(context)
+        send(context, SoundService.ACTION_MIX) {
+            putExtra(SoundService.EXTRA_MIX, SoundMix.encode(layers.take(SoundMix.MAX_LAYERS)))
             putExtra(SoundService.EXTRA_BREATHE, forBreathe)
         }
+    }
 
-    /** Tap on a sound card: start it, or pause/resume it if it is the one already chosen. */
-    fun toggle(context: Context, sound: Soundscape) {
+    /**
+     * Tap on a sound card: adds it to what's playing (up to three), or takes it out if it's already there.
+     * With nothing playing, it simply starts. Returns false when the mix is already full.
+     */
+    fun toggleLayer(context: Context, sound: Soundscape): Boolean {
         val s = state.value
-        when {
-            s.sound != sound -> play(context, sound)
-            s.playing -> pause(context)
-            else -> resume(context)
+        val layers = s.layers
+        return when {
+            layers.isEmpty() || s.forBreathe -> { play(context, sound); true }
+            layers.any { it.sound == sound } -> {
+                val rest = layers.filter { it.sound != sound }
+                if (rest.isEmpty()) stop(context) else playMix(context, rest)
+                true
+            }
+            layers.size >= SoundMix.MAX_LAYERS -> false
+            else -> {
+                // A new layer joins a little quieter than the first, so the mix stays soft.
+                playMix(context, layers + SoundLayer(sound, 0.6f))
+                true
+            }
         }
+    }
+
+    /** Changes one layer's volume while it plays. */
+    fun setLayerVolume(context: Context, sound: Soundscape, volume: Float) {
+        val layers = state.value.layers.map { if (it.sound == sound) it.copy(volume = volume) else it }
+        mutable.value = state.value.copy(layers = layers)
+        send(context, SoundService.ACTION_VOLUMES) { putExtra(SoundService.EXTRA_MIX, SoundMix.encode(layers)) }
+    }
+
+    /** Pause or resume the whole mix. */
+    fun togglePlaying(context: Context) {
+        val s = state.value
+        if (s.layers.isEmpty()) return
+        if (s.playing) pause(context) else resume(context)
     }
 
     fun pause(context: Context) = send(context, SoundService.ACTION_PAUSE)
     fun resume(context: Context) = send(context, SoundService.ACTION_RESUME)
     fun stop(context: Context) {
-        if (state.value.sound != null) send(context, SoundService.ACTION_STOP)
+        if (state.value.layers.isNotEmpty()) send(context, SoundService.ACTION_STOP)
     }
 
     /** Re-reads the volume and timer from the settings (after the user changes them). */
     fun settingsChanged(context: Context) {
-        if (state.value.sound != null) send(context, SoundService.ACTION_SETTINGS)
+        if (state.value.layers.isNotEmpty()) send(context, SoundService.ACTION_SETTINGS)
     }
 
     private fun send(context: Context, action: String, extras: Intent.() -> Unit = {}) {
@@ -95,16 +171,19 @@ object SoundPlayer {
 }
 
 /**
- * Plays one looping sound in the foreground (so it keeps going with the screen off), with a sleep timer
- * that fades out over the last minute, and a notification to pause, stop or add time.
+ * Plays a mix of up to three looping sounds in the foreground (so it keeps going with the screen off), each
+ * with its own volume, starting with a short fade-in, with a sleep timer that fades out over the last minute,
+ * and a notification to pause, stop or add time.
  */
 class SoundService : Service() {
-    private var player: MediaPlayer? = null
-    private var sound: Soundscape? = null
+    private val players = LinkedHashMap<Soundscape, MediaPlayer>()
+    private var layers: List<SoundLayer> = emptyList()
     private var playing = false
     private var forBreathe = false
     private var endsAt = 0L
     private var pausedLeft = 0L
+    private var fadeInFrom = 0L
+    private var ducked = false
     private val handler = Handler(Looper.getMainLooper())
     private var focus: AudioFocusRequest? = null
     private var noisyRegistered = false
@@ -115,16 +194,12 @@ class SoundService : Service() {
     private val tick = object : Runnable {
         override fun run() {
             if (!playing) return
-            if (endsAt > 0) {
-                val left = endsAt - SystemClock.elapsedRealtime()
-                if (left <= 0) {
-                    stopAll()
-                    return
-                }
-                // The last minute fades out gently.
-                applyVolume(if (left < FADE_MS) left.toFloat() / FADE_MS else 1f)
+            if (endsAt > 0 && endsAt - SystemClock.elapsedRealtime() <= 0) {
+                stopAll()
+                return
             }
-            handler.postDelayed(this, 250)
+            applyVolume()
+            handler.postDelayed(this, 200)
         }
     }
 
@@ -137,8 +212,8 @@ class SoundService : Service() {
         when (change) {
             AudioManager.AUDIOFOCUS_LOSS -> pause()
             AudioManager.AUDIOFOCUS_LOSS_TRANSIENT -> pause()
-            AudioManager.AUDIOFOCUS_LOSS_TRANSIENT_CAN_DUCK -> player?.setVolume(0.2f * prefs.soundVolume, 0.2f * prefs.soundVolume)
-            AudioManager.AUDIOFOCUS_GAIN -> applyVolume(1f)
+            AudioManager.AUDIOFOCUS_LOSS_TRANSIENT_CAN_DUCK -> { ducked = true; applyVolume() }
+            AudioManager.AUDIOFOCUS_GAIN -> { ducked = false; applyVolume() }
         }
     }
 
@@ -148,9 +223,10 @@ class SoundService : Service() {
         // Every start must promise the foreground at once, even one that only stops.
         goForeground()
         when (intent?.action) {
-            ACTION_PLAY -> Soundscape.fromKey(intent.getStringExtra(EXTRA_SOUND))?.let {
-                start(it, intent.getBooleanExtra(EXTRA_BREATHE, false))
+            ACTION_MIX -> SoundMix.decode(intent.getStringExtra(EXTRA_MIX)).takeIf { it.isNotEmpty() }?.let {
+                setMix(it, intent.getBooleanExtra(EXTRA_BREATHE, false))
             } ?: stopAll()
+            ACTION_VOLUMES -> volumes(SoundMix.decode(intent.getStringExtra(EXTRA_MIX)))
             ACTION_PAUSE -> pause()
             ACTION_RESUME -> resume()
             ACTION_EXTEND -> extend()
@@ -160,48 +236,74 @@ class SoundService : Service() {
         return START_NOT_STICKY
     }
 
-    private fun start(s: Soundscape, breathe: Boolean) {
-        releasePlayer()
-        val mp = runCatching {
-            MediaPlayer().apply {
-                setAudioAttributes(ATTRIBUTES)
-                resources.openRawResourceFd(s.raw).use { setDataSource(it.fileDescriptor, it.startOffset, it.length) }
-                isLooping = true
-                prepare()
-            }
-        }.getOrNull() ?: return stopAll()
-        player = mp
-        sound = s
-        forBreathe = breathe
-        val minutes = if (breathe) 0 else prefs.soundTimer
-        endsAt = if (minutes > 0) SystemClock.elapsedRealtime() + minutes * 60_000L else 0L
+    private fun newPlayer(s: Soundscape): MediaPlayer? = runCatching {
+        MediaPlayer().apply {
+            setAudioAttributes(ATTRIBUTES)
+            resources.openRawResourceFd(s.raw).use { setDataSource(it.fileDescriptor, it.startOffset, it.length) }
+            isLooping = true
+            setVolume(0f, 0f)
+            prepare()
+        }
+    }.getOrNull()
+
+    /** Makes [wanted] the mix: keeps the players already running, starts new ones, releases the rest. */
+    private fun setMix(wanted: List<SoundLayer>, breathe: Boolean) {
+        val wasEmpty = players.isEmpty()
+        val keep = wanted.map { it.sound }.toSet()
+        players.keys.filter { it !in keep }.forEach { s -> players.remove(s)?.let { release(it) } }
+        val added = mutableListOf<MediaPlayer>()
+        wanted.forEach { l ->
+            if (l.sound !in players) newPlayer(l.sound)?.let { players[l.sound] = it; added += it }
+        }
+        layers = wanted.filter { it.sound in players }
+        if (layers.isEmpty()) return stopAll()
+        if (wasEmpty || breathe != forBreathe) {
+            forBreathe = breathe
+            val minutes = if (breathe) 0 else prefs.soundTimer
+            endsAt = if (minutes > 0) SystemClock.elapsedRealtime() + minutes * 60_000L else 0L
+            pausedLeft = 0L
+        }
         if (!requestFocus()) return stopAll()
-        applyVolume(1f)
-        mp.start()
-        playing = true
-        listenNoisy(true)
+        fadeInFrom = SystemClock.elapsedRealtime()
+        applyVolume()
+        if (wasEmpty || playing || added.isNotEmpty()) {
+            // Adding a sound to a paused mix resumes the whole mix.
+            if (!playing && pausedLeft > 0 && endsAt == 0L) endsAt = SystemClock.elapsedRealtime() + pausedLeft
+            players.values.forEach { mp -> if (!mp.isPlaying) runCatching { mp.start() } }
+            playing = true
+            listenNoisy(true)
+            handler.removeCallbacks(tick)
+            handler.post(tick)
+        }
         publish()
-        handler.removeCallbacks(tick)
-        handler.post(tick)
+    }
+
+    private fun volumes(wanted: List<SoundLayer>) {
+        val byKey = wanted.associateBy { it.sound }
+        layers = layers.map { byKey[it.sound] ?: it }
+        applyVolume()
+        SoundPlayer.mutable.value = SoundPlayer.state.value.copy(layers = layers)
     }
 
     private fun pause() {
-        val mp = player ?: return
-        if (!playing) return
-        runCatching { mp.pause() }
+        if (players.isEmpty() || !playing) return
+        players.values.forEach { runCatching { it.pause() } }
         playing = false
         pausedLeft = if (endsAt > 0) (endsAt - SystemClock.elapsedRealtime()).coerceAtLeast(FADE_MS) else 0L
+        endsAt = 0L
         handler.removeCallbacks(tick)
         listenNoisy(false)
         publish()
     }
 
     private fun resume() {
-        val mp = player ?: return
-        if (playing) return
+        if (players.isEmpty() || playing) return
         if (!requestFocus()) return
         if (pausedLeft > 0) endsAt = SystemClock.elapsedRealtime() + pausedLeft
-        runCatching { mp.start() }
+        pausedLeft = 0L
+        fadeInFrom = SystemClock.elapsedRealtime()
+        applyVolume()
+        players.values.forEach { runCatching { it.start() } }
         playing = true
         listenNoisy(true)
         publish()
@@ -213,7 +315,7 @@ class SoundService : Service() {
         val now = SystemClock.elapsedRealtime()
         if (playing) {
             endsAt = (if (endsAt > now) endsAt else now) + 15 * 60_000L
-            applyVolume(1f)
+            applyVolume()
         } else {
             pausedLeft = (if (pausedLeft > 0) pausedLeft else 0L) + 15 * 60_000L
         }
@@ -222,7 +324,7 @@ class SoundService : Service() {
 
     /** The volume or the timer changed in the app. */
     private fun settings() {
-        if (sound == null) return stopAll()
+        if (players.isEmpty()) return stopAll()
         if (!forBreathe) {
             val minutes = prefs.soundTimer
             val left = if (minutes > 0) minutes * 60_000L else 0L
@@ -232,13 +334,21 @@ class SoundService : Service() {
                 pausedLeft = left
             }
         }
-        if (playing) applyVolume(1f)
+        if (playing) applyVolume()
         publish()
     }
 
-    private fun applyVolume(fade: Float) {
-        val v = (prefs.soundVolume * fade).coerceIn(0f, 1f)
-        runCatching { player?.setVolume(v, v) }
+    /** Overall volume × the layer's own × the fade-in × the timer's fade-out × ducking under speech. */
+    private fun applyVolume() {
+        val now = SystemClock.elapsedRealtime()
+        val fadeIn = ((now - fadeInFrom).toFloat() / FADE_IN_MS).coerceIn(0f, 1f)
+        val fadeOut = if (endsAt > 0) ((endsAt - now).toFloat() / FADE_MS).coerceIn(0f, 1f) else 1f
+        val duck = if (ducked) 0.2f else 1f
+        val master = prefs.soundVolume * fadeIn * fadeIn * fadeOut * duck
+        layers.forEach { l ->
+            val v = (master * l.volume).coerceIn(0f, 1f)
+            runCatching { players[l.sound]?.setVolume(v, v) }
+        }
     }
 
     private fun requestFocus(): Boolean {
@@ -256,17 +366,21 @@ class SoundService : Service() {
         noisyRegistered = on
     }
 
-    private fun releasePlayer() {
+    private fun release(mp: MediaPlayer) {
+        runCatching { mp.stop() }
+        runCatching { mp.release() }
+    }
+
+    private fun releasePlayers() {
         handler.removeCallbacks(tick)
-        runCatching { player?.stop() }
-        runCatching { player?.release() }
-        player = null
+        players.values.forEach { release(it) }
+        players.clear()
     }
 
     private fun stopAll() {
-        releasePlayer()
+        releasePlayers()
+        layers = emptyList()
         playing = false
-        sound = null
         endsAt = 0L
         pausedLeft = 0L
         listenNoisy(false)
@@ -277,7 +391,7 @@ class SoundService : Service() {
     }
 
     override fun onDestroy() {
-        releasePlayer()
+        releasePlayers()
         listenNoisy(false)
         focus?.let { audio.abandonAudioFocusRequest(it) }
         SoundPlayer.mutable.value = SoundState()
@@ -287,7 +401,7 @@ class SoundService : Service() {
     /** Shares the state with the app and refreshes the notification. */
     private fun publish() {
         val shownEnd = if (playing) endsAt else if (pausedLeft > 0) -pausedLeft else 0L
-        SoundPlayer.mutable.value = SoundState(sound, playing, shownEnd, forBreathe)
+        SoundPlayer.mutable.value = SoundState(layers, playing, shownEnd, forBreathe)
         getSystemService(NotificationManager::class.java).notify(NOTIFICATION_ID, notification())
     }
 
@@ -298,13 +412,12 @@ class SoundService : Service() {
     }
 
     private fun notification(): Notification {
-        val s = sound
         val open = PendingIntent.getActivity(
             this, 0, Intent(this, MainActivity::class.java).addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP),
             PendingIntent.FLAG_IMMUTABLE or PendingIntent.FLAG_UPDATE_CURRENT,
         )
         val text = when {
-            s == null -> ""
+            layers.isEmpty() -> ""
             !playing -> "Paused"
             endsAt > 0 -> "Stops at " + android.text.format.DateFormat.getTimeFormat(this)
                 .format(java.util.Date(System.currentTimeMillis() + (endsAt - SystemClock.elapsedRealtime())))
@@ -312,7 +425,7 @@ class SoundService : Service() {
         }
         val builder = NotificationCompat.Builder(this, CHANNEL_ID)
             .setSmallIcon(R.drawable.ic_graphic_eq)
-            .setContentTitle(s?.label ?: "Calming sounds")
+            .setContentTitle(if (layers.isEmpty()) "Calming sounds" else SoundMix.label(layers))
             .setContentText(text)
             .setContentIntent(open)
             .setOngoing(playing)
@@ -321,7 +434,7 @@ class SoundService : Service() {
             .setCategory(NotificationCompat.CATEGORY_TRANSPORT)
             .setVisibility(NotificationCompat.VISIBILITY_PUBLIC)
             .setForegroundServiceBehavior(NotificationCompat.FOREGROUND_SERVICE_IMMEDIATE)
-        if (s != null) {
+        if (layers.isNotEmpty()) {
             if (playing) builder.addAction(R.drawable.ic_pause, "Pause", action(ACTION_PAUSE, 1))
             else builder.addAction(R.drawable.ic_play_arrow, "Play", action(ACTION_RESUME, 2))
             builder.addAction(R.drawable.ic_stop, "Stop", action(ACTION_STOP, 3))
@@ -344,17 +457,19 @@ class SoundService : Service() {
     }
 
     companion object {
-        const val ACTION_PLAY = "com.trinineba.quotesonlock.sound.PLAY"
+        const val ACTION_MIX = "com.trinineba.quotesonlock.sound.MIX"
+        const val ACTION_VOLUMES = "com.trinineba.quotesonlock.sound.VOLUMES"
         const val ACTION_PAUSE = "com.trinineba.quotesonlock.sound.PAUSE"
         const val ACTION_RESUME = "com.trinineba.quotesonlock.sound.RESUME"
         const val ACTION_STOP = "com.trinineba.quotesonlock.sound.STOP"
         const val ACTION_EXTEND = "com.trinineba.quotesonlock.sound.EXTEND"
         const val ACTION_SETTINGS = "com.trinineba.quotesonlock.sound.SETTINGS"
-        const val EXTRA_SOUND = "sound"
+        const val EXTRA_MIX = "mix"
         const val EXTRA_BREATHE = "breathe"
         private const val CHANNEL_ID = "sounds"
         private const val NOTIFICATION_ID = 4207
         private const val FADE_MS = 60_000L
+        private const val FADE_IN_MS = 2_500L
         private val ATTRIBUTES: AudioAttributes = AudioAttributes.Builder()
             .setUsage(AudioAttributes.USAGE_MEDIA)
             .setContentType(AudioAttributes.CONTENT_TYPE_MUSIC)

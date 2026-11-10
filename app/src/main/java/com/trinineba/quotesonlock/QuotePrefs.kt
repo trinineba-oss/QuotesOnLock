@@ -192,6 +192,37 @@ class QuotePrefs(context: Context) {
         get() = prefs.getString("breathe_sound", "") ?: ""
         set(value) = prefs.edit().putString("breathe_sound", value).apply()
 
+    /** Mixes saved on the Sounds screen, as JSON: [{"name": "...", "mix": "rain:0.80,fire:0.50"}]. */
+    var savedMixes: List<SavedMix>
+        get() = runCatching {
+            val arr = org.json.JSONArray(prefs.getString("saved_mixes", "[]"))
+            (0 until arr.length()).mapNotNull { i ->
+                val o = arr.getJSONObject(i)
+                val layers = SoundMix.decode(o.optString("mix"))
+                if (layers.isEmpty()) null else SavedMix(o.optString("name").ifBlank { SoundMix.label(layers) }, layers)
+            }
+        }.getOrDefault(emptyList())
+        set(value) {
+            val arr = org.json.JSONArray()
+            value.forEach { arr.put(org.json.JSONObject().put("name", it.name).put("mix", SoundMix.encode(it.layers))) }
+            prefs.edit().putString("saved_mixes", arr.toString()).apply()
+        }
+
+    /** Calm's own wallpaper: "follow" the sound playing, "fixed" on [calmTheme], or "off" (keep the app theme). */
+    var calmWallpaper: String
+        get() = prefs.getString("calm_wallpaper", "follow") ?: "follow"
+        set(value) = prefs.edit().putString("calm_wallpaper", value).apply()
+
+    /** The scene Calm shows when nothing is playing, or always in "fixed" mode. */
+    var calmTheme: AppTheme
+        get() = AppTheme.fromKey(prefs.getString("calm_theme", AppTheme.WATER.key)).takeIf { it != AppTheme.CLASSIC } ?: AppTheme.WATER
+        set(value) = prefs.edit().putString("calm_theme", value.key).apply()
+
+    /** Keep Calm's wallpaper still instead of gently moving. */
+    var calmStill: Boolean
+        get() = prefs.getBoolean("calm_still", false)
+        set(value) = prefs.edit().putBoolean("calm_still", value).apply()
+
     var lifelineHelps: String
         get() = prefs.getString("lifeline_helps", "") ?: ""
         set(value) = prefs.edit().putString("lifeline_helps", value).apply()

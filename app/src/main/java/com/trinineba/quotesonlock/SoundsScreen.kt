@@ -16,6 +16,11 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.layout.width
+import androidx.compose.material3.AlertDialog
+import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material3.TextButton
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.FilterChip
 import androidx.compose.material3.Icon
@@ -53,7 +58,10 @@ fun soundTimeLeft(state: SoundState, now: Long): String? {
     return "%d:%02d left".format(left / 60, left % 60)
 }
 
-/** Calming sounds: tap a sound to play it, set the volume and when it should stop. */
+/**
+ * Calming sounds: tap sounds to build a mix of up to three, each with its own volume; save mixes by name;
+ * set the overall volume and when it should stop.
+ */
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
 fun SoundsScreen(prefs: QuotePrefs, onBack: () -> Unit) {
@@ -61,6 +69,8 @@ fun SoundsScreen(prefs: QuotePrefs, onBack: () -> Unit) {
     val state by SoundPlayer.state.collectAsState()
     var volume by remember { mutableFloatStateOf(prefs.soundVolume) }
     var timer by remember { mutableIntStateOf(prefs.soundTimer) }
+    var saved by remember { mutableStateOf(prefs.savedMixes) }
+    var naming by remember { mutableStateOf(false) }
     var now by remember { mutableLongStateOf(android.os.SystemClock.elapsedRealtime()) }
     LaunchedEffect(state.playing) {
         while (state.playing) {
@@ -68,64 +78,22 @@ fun SoundsScreen(prefs: QuotePrefs, onBack: () -> Unit) {
             delay(1000)
         }
     }
-    ToolScreen("Calming sounds", onBack) {
-        listOf("Nature" to Soundscape.entries.filter { !it.music }, "Music" to Soundscape.entries.filter { it.music }).forEach { (heading, list) ->
-        item(key = "h-$heading") {
-            Text(heading, style = MaterialTheme.typography.labelLarge, color = MaterialTheme.colorScheme.primary)
+    val mix = state.layers.takeIf { !state.forBreathe }.orEmpty()
+    ToolScreen("Sounds", onBack) {
+        item(key = "s-intro") {
+            Text(
+                "Tap a sound to play it; tap others to layer up to three. Each has its own volume.",
+                style = MaterialTheme.typography.bodyMedium,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+            )
         }
-        list.chunked(2).forEach { pair ->
-            item(key = "s-" + pair.first().key) {
-                Row(horizontalArrangement = Arrangement.spacedBy(10.dp)) {
-                    pair.forEach { s ->
-                        SoundCard(s, chosen = state.sound == s, playing = state.sound == s && state.playing, Modifier.weight(1f)) {
-                            SoundPlayer.toggle(context, s)
-                        }
-                    }
-                    if (pair.size == 1) Box(Modifier.weight(1f))
-                }
-            }
-        }
-        }
-        item(key = "s-volume") {
+        if (mix.isNotEmpty()) item(key = "s-mix") {
             SoftCard(Modifier.fillMaxWidth()) {
-                Column(Modifier.padding(16.dp)) {
-                    Text("Volume", style = MaterialTheme.typography.labelLarge, color = MaterialTheme.colorScheme.primary)
-                    Slider(
-                        value = volume,
-                        onValueChange = { volume = it; prefs.soundVolume = it; SoundPlayer.settingsChanged(context) },
-                        valueRange = 0.05f..1f,
-                    )
-                }
-            }
-        }
-        item(key = "s-timer") {
-            SoftCard(Modifier.fillMaxWidth()) {
-                Column(Modifier.padding(16.dp)) {
-                    Text("Stop after", style = MaterialTheme.typography.labelLarge, color = MaterialTheme.colorScheme.primary)
-                    FlowRow(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-                        listOf(15 to "15 min", 30 to "30 min", 60 to "1 hour", 0 to "Keep playing").forEach { (m, label) ->
-                            FilterChip(
-                                selected = timer == m,
-                                onClick = { timer = m; prefs.soundTimer = m; SoundPlayer.settingsChanged(context) },
-                                label = { Text(label) },
-                            )
-                        }
-                    }
-                    Text(
-                        if (timer > 0) "Fades out slowly over the last minute." else "Plays until you stop it.",
-                        style = MaterialTheme.typography.bodySmall,
-                        color = MaterialTheme.colorScheme.onSurfaceVariant,
-                    )
-                }
-            }
-        }
-        state.sound?.let { s ->
-            item(key = "s-now") {
-                SoftCard(Modifier.fillMaxWidth()) {
-                    Row(Modifier.padding(14.dp), verticalAlignment = Alignment.CenterVertically) {
+                Column(Modifier.padding(14.dp)) {
+                    Row(verticalAlignment = Alignment.CenterVertically) {
                         Box(
                             Modifier.size(52.dp).clip(CircleShape).background(MaterialTheme.colorScheme.primary)
-                                .clickable(onClickLabel = if (state.playing) "Pause" else "Play") { SoundPlayer.toggle(context, s) },
+                                .clickable(onClickLabel = if (state.playing) "Pause" else "Play") { SoundPlayer.togglePlaying(context) },
                             contentAlignment = Alignment.Center,
                         ) {
                             Icon(
@@ -134,7 +102,7 @@ fun SoundsScreen(prefs: QuotePrefs, onBack: () -> Unit) {
                             )
                         }
                         Column(Modifier.weight(1f).padding(start = 14.dp)) {
-                            Text(s.label, style = MaterialTheme.typography.titleSmall, fontWeight = FontWeight.SemiBold)
+                            Text(if (mix.size == 1) "Playing" else "Your mix", style = MaterialTheme.typography.titleSmall, fontWeight = FontWeight.SemiBold)
                             Text(
                                 listOfNotNull(
                                     if (state.playing) null else "Paused",
@@ -150,16 +118,136 @@ fun SoundsScreen(prefs: QuotePrefs, onBack: () -> Unit) {
                             contentAlignment = Alignment.Center,
                         ) { Icon(painterResource(R.drawable.ic_stop), contentDescription = null) }
                     }
+                    mix.forEach { layer ->
+                        Row(verticalAlignment = Alignment.CenterVertically, modifier = Modifier.padding(top = 6.dp)) {
+                            Text(layer.sound.label, style = MaterialTheme.typography.bodySmall, modifier = Modifier.width(118.dp), maxLines = 2)
+                            Slider(
+                                value = layer.volume,
+                                onValueChange = { SoundPlayer.setLayerVolume(context, layer.sound, it) },
+                                valueRange = 0.05f..1f,
+                                modifier = Modifier.weight(1f),
+                            )
+                            Box(
+                                Modifier.size(36.dp).clip(CircleShape).clickable(onClickLabel = "Take ${layer.sound.label} out of the mix") {
+                                    SoundPlayer.toggleLayer(context, layer.sound)
+                                },
+                                contentAlignment = Alignment.Center,
+                            ) { Text("✕", style = MaterialTheme.typography.labelLarge, color = MaterialTheme.colorScheme.onSurfaceVariant) }
+                        }
+                    }
+                    Row(Modifier.fillMaxWidth().padding(top = 4.dp), horizontalArrangement = Arrangement.End) {
+                        TextButton(onClick = { naming = true }) { Text("Save this mix") }
+                    }
+                }
+            }
+        }
+        Soundscape.entries.groupBy { it.kind }.forEach { (kind, list) ->
+            item(key = "h-${kind.name}") {
+                Text(kind.heading, style = MaterialTheme.typography.labelLarge, color = MaterialTheme.colorScheme.primary)
+            }
+            list.chunked(2).forEach { pair ->
+                item(key = "s-" + pair.first().key) {
+                    Row(horizontalArrangement = Arrangement.spacedBy(10.dp)) {
+                        pair.forEach { s ->
+                            val inMix = mix.any { it.sound == s }
+                            SoundCard(s, chosen = inMix, playing = inMix && state.playing, Modifier.weight(1f)) {
+                                if (!SoundPlayer.toggleLayer(context, s)) {
+                                    android.widget.Toast.makeText(context, "A mix can hold three sounds. Take one out first.", android.widget.Toast.LENGTH_SHORT).show()
+                                }
+                            }
+                        }
+                        if (pair.size == 1) Box(Modifier.weight(1f))
+                    }
+                }
+            }
+        }
+        if (saved.isNotEmpty()) item(key = "s-saved") {
+            SoftCard(Modifier.fillMaxWidth()) {
+                Column(Modifier.padding(16.dp)) {
+                    Text("Saved mixes", style = MaterialTheme.typography.labelLarge, color = MaterialTheme.colorScheme.primary)
+                    saved.forEachIndexed { i, m ->
+                        Row(verticalAlignment = Alignment.CenterVertically, modifier = Modifier.fillMaxWidth()
+                            .clip(RoundedCornerShape(10.dp))
+                            .clickable(onClickLabel = "Play ${m.name}") { SoundPlayer.playMix(context, m.layers) }
+                            .padding(vertical = 8.dp)) {
+                            Icon(painterResource(R.drawable.ic_play_arrow), contentDescription = null, tint = MaterialTheme.colorScheme.primary)
+                            Column(Modifier.weight(1f).padding(start = 10.dp)) {
+                                Text(m.name, style = MaterialTheme.typography.titleSmall)
+                                Text(SoundMix.label(m.layers), style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
+                            }
+                            Box(
+                                Modifier.size(36.dp).clip(CircleShape).clickable(onClickLabel = "Delete ${m.name}") {
+                                    saved = saved.filterIndexed { j, _ -> j != i }; prefs.savedMixes = saved
+                                },
+                                contentAlignment = Alignment.Center,
+                            ) { Text("✕", style = MaterialTheme.typography.labelLarge, color = MaterialTheme.colorScheme.onSurfaceVariant) }
+                        }
+                    }
+                }
+            }
+        }
+        item(key = "s-volume") {
+            SoftCard(Modifier.fillMaxWidth()) {
+                Column(Modifier.padding(16.dp)) {
+                    Text("Overall volume", style = MaterialTheme.typography.labelLarge, color = MaterialTheme.colorScheme.primary)
+                    Slider(
+                        value = volume,
+                        onValueChange = { volume = it; prefs.soundVolume = it; SoundPlayer.settingsChanged(context) },
+                        valueRange = 0.05f..1f,
+                    )
+                }
+            }
+        }
+        item(key = "s-timer") {
+            SoftCard(Modifier.fillMaxWidth()) {
+                Column(Modifier.padding(16.dp)) {
+                    Text("Stop after", style = MaterialTheme.typography.labelLarge, color = MaterialTheme.colorScheme.primary)
+                    FlowRow(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                        listOf(15 to "15 min", 30 to "30 min", 45 to "45 min", 60 to "1 hour", 90 to "1½ hours", 0 to "Keep playing").forEach { (m, label) ->
+                            FilterChip(
+                                selected = timer == m,
+                                onClick = { timer = m; prefs.soundTimer = m; SoundPlayer.settingsChanged(context) },
+                                label = { Text(label) },
+                            )
+                        }
+                    }
+                    Text(
+                        if (timer > 0) "Fades out slowly over the last minute." else "Plays until you stop it.",
+                        style = MaterialTheme.typography.bodySmall,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    )
                 }
             }
         }
         item(key = "s-note") {
             Text(
-                "Recordings are public domain or CC0 (see About › Sources); the wind and fire are made by the app. The piano pieces start again after a short pause.",
+                "Nature sounds are real recordings in the public domain (see About › Sources), made into long seamless loops. " +
+                    "Brown noise and the singing bowls are made by the app. The music starts again after a short pause.",
                 style = MaterialTheme.typography.bodySmall,
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
             )
         }
+    }
+    if (naming) {
+        var name by remember { mutableStateOf("") }
+        AlertDialog(
+            onDismissRequest = { naming = false },
+            title = { Text("Save this mix") },
+            text = {
+                OutlinedTextField(value = name, onValueChange = { name = it.take(40) }, singleLine = true, label = { Text("Name, e.g. Reading by the fire") })
+            },
+            confirmButton = {
+                TextButton(onClick = {
+                    val layers = SoundPlayer.state.value.layers
+                    if (layers.isNotEmpty()) {
+                        saved = saved + SavedMix(name.trim().ifBlank { SoundMix.label(layers) }, layers)
+                        prefs.savedMixes = saved
+                    }
+                    naming = false
+                }) { Text("Save") }
+            },
+            dismissButton = { TextButton(onClick = { naming = false }) { Text("Cancel") } },
+        )
     }
 }
 

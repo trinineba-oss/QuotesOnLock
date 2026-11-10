@@ -49,6 +49,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.rememberScrollState
@@ -138,6 +139,7 @@ class MainActivity : ComponentActivity() {
         if (prefs.enabled || QuoteWidgets.hasAny(this)) QuoteScheduler.ensureScheduled(this, prefs.intervalMinutes)
         Updater.schedule(this, prefs.updateCheck)
         val openUpdates = intent.getBooleanExtra(EXTRA_OPEN_UPDATES, false)
+        CalmScene.load(this)
         setContent {
             var theme by remember { mutableStateOf(prefs.theme) }
             var animate by remember { mutableStateOf(prefs.animateBackground) }
@@ -181,16 +183,22 @@ private fun QuotesTheme(
 ) {
     val dark = isSystemInDarkTheme()
     val context = LocalContext.current
-    val colors = theme.colorScheme(cardOpacity) ?: when {
+    // In Calm, the background (and the colours that go with it) becomes the calm scene.
+    val (shownTheme, shownAnimate) = CalmScene.shown(theme, animate)
+    val colors = shownTheme.colorScheme(cardOpacity) ?: when {
         Build.VERSION.SDK_INT >= Build.VERSION_CODES.S ->
             if (dark) dynamicDarkColorScheme(context) else dynamicLightColorScheme(context)
         dark -> darkColorScheme()
         else -> lightColorScheme()
     }
-    MaterialTheme(colorScheme = colors, typography = theme.typography(Typography())) {
+    MaterialTheme(colorScheme = colors, typography = shownTheme.typography(Typography())) {
         CompositionLocalProvider(LocalMotionSpeed provides motionSpeed, LocalCardSoftness provides cardSoftness) {
             Box(Modifier.fillMaxSize()) {
-                ThemedBackground(theme, animate, auroraIntensity)
+                androidx.compose.animation.Crossfade(
+                    targetState = shownTheme to shownAnimate,
+                    animationSpec = androidx.compose.animation.core.tween(900),
+                    label = "background",
+                ) { (t, a) -> ThemedBackground(t, a, auroraIntensity) }
                 content()
             }
         }
@@ -269,6 +277,9 @@ private fun QuotesScreen(
     var newText by rememberSaveable { mutableStateOf("") }
     var newAuthor by rememberSaveable { mutableStateOf("") }
     var page by rememberSaveable { mutableStateOf(if (openUpdates) Page.ABOUT else Page.HOME) }
+    // Calm and its tools show the calm wallpaper.
+    LaunchedEffect(page, tool) { CalmScene.active.value = page == Page.TOOLBOX || tool != null }
+    DisposableEffect(Unit) { onDispose { CalmScene.active.value = false } }
     val scope = rememberCoroutineScope()
     val currentBuild = remember { Updater.currentBuild(context) }
     var updateCheck by remember { mutableStateOf(prefs.updateCheck) }
@@ -1877,7 +1888,7 @@ private fun QuotesScreen(
         item(key = "tb-tools-1") {
             Row(horizontalArrangement = Arrangement.spacedBy(12.dp)) {
                 TileCard(Tile(R.drawable.ic_air, "Breathe", "A calm circle, 1–5 min") { tool = "breathe" }, Modifier.weight(1f))
-                TileCard(Tile(R.drawable.ic_graphic_eq, "Sounds", "Rain, waves, piano") { tool = "sounds" }, Modifier.weight(1f))
+                TileCard(Tile(R.drawable.ic_graphic_eq, "Sounds", "Mix rain, fire, waves, piano") { tool = "sounds" }, Modifier.weight(1f))
             }
         }
         item(key = "tb-tools-2") {
@@ -1897,9 +1908,20 @@ private fun QuotesScreen(
             sound.sound?.takeIf { !sound.forBreathe }?.let { playing ->
                 ToolRow(
                     if (sound.playing) R.drawable.ic_pause else R.drawable.ic_play_arrow,
-                    playing.label,
+                    SoundMix.label(sound.layers),
                     if (sound.playing) "Playing · tap for sounds" else "Paused · tap for sounds",
                 ) { tool = "sounds" }
+            }
+        }
+        item(key = "tb-wallpaper") {
+            var open by rememberSaveable { mutableStateOf(false) }
+            SettingsCard("Calm wallpaper") {
+                Text(
+                    "Calm shows a slow, calm scene behind it, matching the sound you play.",
+                    style = MaterialTheme.typography.bodySmall,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                )
+                if (open) CalmWallpaperSettings() else TextButton(onClick = { open = true }) { Text("Change") }
             }
         }
         item(key = "tb-note") {
