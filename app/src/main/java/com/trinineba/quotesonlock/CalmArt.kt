@@ -51,6 +51,7 @@ internal object CalmArt {
         AppTheme.CLOUDS -> 0xFFB8D3EE.toInt()
         AppTheme.WAVES -> 0xFF3A3556.toInt()
         AppTheme.BAMBOO -> 0xFFCFE0C4.toInt()
+        AppTheme.ZEN -> 0xFF8E8A7C.toInt()
         else -> 0xFF101820.toInt()
     }
 
@@ -59,6 +60,7 @@ internal object CalmArt {
         reset()
         cache.clear()
         vgKey = ""
+        zenKey = ""
     }
 
     private fun scene(theme: AppTheme, canvas: Canvas, w: Float, h: Float, t: Float, d: Float) {
@@ -70,6 +72,7 @@ internal object CalmArt {
             AppTheme.CLOUDS -> clouds(canvas, w, h, t, d)
             AppTheme.WAVES -> waves(canvas, w, h, t, d)
             AppTheme.BAMBOO -> bamboo(canvas, w, h, t, d)
+            AppTheme.ZEN -> zen(canvas, w, h, t, d)
             else -> Unit
         }
     }
@@ -460,6 +463,80 @@ internal object CalmArt {
             x += tw
         }
         c.drawBitmap(fg, 0f, 0f, bitmapPaint)
+    }
+
+    // ---- temple bell at dusk ------------------------------------------------------------------------
+
+    /*
+     * Hiroshige's "Vesper Bell at Mii Temple" (about 1832), cropped tall around the temple and the mountain. Bands
+     * of mist drift slowly across it, and every so often soft rings spread out from the temple, like the sound of
+     * its bell. The picture is scaled to the screen once; each frame is a bitmap copy, the mist and a few rings.
+     */
+    private var zenKey = ""
+    private var zenBg: Bitmap? = null
+    private var zenMist: Bitmap? = null
+    private var zenTx = 0f
+    private var zenTy = 0f
+    private val zenMistPaint = Paint(Paint.FILTER_BITMAP_FLAG)
+    private val zenRing = Paint(Paint.ANTI_ALIAS_FLAG).apply { style = Paint.Style.STROKE }
+
+    private fun zenLayers(w: Float, h: Float): Boolean {
+        val k = "${w.toInt()}x${h.toInt()}"
+        if (k == zenKey && zenBg != null && zenMist != null) return true
+        val ctx = appContext ?: return false
+        val opts = android.graphics.BitmapFactory.Options().apply { inScaled = false }
+        val pic = android.graphics.BitmapFactory.decodeResource(ctx.resources, R.drawable.zen_scene, opts) ?: return false
+        val mist = android.graphics.BitmapFactory.decodeResource(ctx.resources, R.drawable.zen_mist, opts) ?: return false
+        // Cover the screen, keeping the temple (28% across, 52% down the picture) comfortably in view.
+        val scale = maxOf(h / pic.height, w / pic.width)
+        val pw = pic.width * scale
+        val ph = pic.height * scale
+        val left = (w / 2f - 0.42f * pw).coerceIn(w - pw, 0f)
+        val top = (h / 2f - 0.5f * ph).coerceIn(h - ph, 0f)
+        val bg = Bitmap.createBitmap(max(1, w.toInt()), max(1, h.toInt()), Bitmap.Config.ARGB_8888)
+        Canvas(bg).drawBitmap(pic, null, RectF(left, top, left + pw, top + ph), bitmapPaint)
+        val mw = max(1, (w * 1.3f).toInt())
+        val mh = max(1, (mist.height * mw / mist.width.toFloat()).toInt())
+        val mistScaled = Bitmap.createScaledBitmap(mist, mw, mh, true)
+        pic.recycle()
+        if (mistScaled != mist) mist.recycle()
+        zenBg?.recycle(); zenMist?.recycle()
+        zenBg = bg; zenMist = mistScaled; zenKey = k
+        zenTx = left + 0.283f * pw
+        zenTy = top + 0.517f * ph
+        return true
+    }
+
+    private fun zen(c: Canvas, w: Float, h: Float, t: Float, d: Float) {
+        if (!zenLayers(w, h)) {
+            c.drawColor(fallback(AppTheme.ZEN))
+            return
+        }
+        c.drawBitmap(zenBg!!, 0f, 0f, bitmapPaint)
+        val mist = zenMist!!
+        val mw = mist.width.toFloat()
+        // Three bands at different heights and speeds, the lowest drifting the other way.
+        for ((yc, speed, alpha) in listOf(Triple(zenTy - 0.02f * h, w / 140f, 0.55f), Triple(zenTy + 0.09f * h, -w / 200f, 0.45f), Triple(zenTy - 0.16f * h, w / 260f, 0.3f))) {
+            zenMistPaint.alpha = (alpha * 255).toInt()
+            var x = ((t * speed) % mw)
+            if (x > 0) x -= mw
+            val y = yc - mist.height / 2f
+            while (x < w) {
+                c.drawBitmap(mist, x, y, zenMistPaint)
+                x += mw
+            }
+        }
+        // The bell: every 14 seconds two soft rings spread out from the temple and fade.
+        for (delay in floatArrayOf(0f, 0.9f)) {
+            val p = (((t - delay) % 14f + 14f) % 14f) / 7f
+            if (p >= 1f) continue
+            val r = 14f * d + p * w * 0.5f
+            val a = 0.28f * (1f - p) * (1f - p)
+            zenRing.strokeWidth = (2.2f - 1.2f * p) * d
+            zenRing.color = color(0xFFF4E2, a)
+            oval.set(zenTx - r, zenTy - r * 0.42f, zenTx + r, zenTy + r * 0.42f)
+            c.drawOval(oval, zenRing)
+        }
     }
 
     // ---- bamboo grove in the wind ----------------------------------------------------------------

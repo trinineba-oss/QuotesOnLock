@@ -54,7 +54,7 @@ object QuoteShare {
             AppTheme.WATER -> cover(canvas, BitmapFactory.decodeResource(context.resources, R.drawable.water))
             AppTheme.RAIN -> cover(canvas, BitmapFactory.decodeResource(context.resources, R.drawable.rain_still))
             AppTheme.RAIN_NIGHT -> cover(canvas, BitmapFactory.decodeResource(context.resources, R.drawable.rain_night_still))
-            AppTheme.SNOW, AppTheme.CANDLE, AppTheme.FIREFLIES, AppTheme.LAVENDER, AppTheme.CLOUDS, AppTheme.WAVES, AppTheme.BAMBOO -> {
+            AppTheme.SNOW, AppTheme.CANDLE, AppTheme.FIREFLIES, AppTheme.LAVENDER, AppTheme.CLOUDS, AppTheme.WAVES, AppTheme.BAMBOO, AppTheme.ZEN -> {
                 CalmArt.attach(context)
                 CalmArt.draw(theme, canvas, w, h, CalmArt.stillTime(theme), density)
             }

@@ -53,7 +53,7 @@ enum class Soundscape(
     FROGS("frogs", "Frogs on a summer night", R.raw.snd_frogs, R.drawable.lavender_frame, AppTheme.FIREFLIES),
     BIRDS("birds", "Dawn chorus", R.raw.snd_birds, R.drawable.clouds_frame, AppTheme.CLOUDS),
     BROWN("brown", "Brown noise", R.raw.snd_brown, R.drawable.aurora_frame, AppTheme.SPACE, SoundKind.QUIET),
-    BOWL("bowl", "Singing bowls", R.raw.snd_bowl, R.drawable.butterfly_frame, AppTheme.SNOW, SoundKind.QUIET),
+    BOWL("bowl", "Singing bowls", R.raw.snd_bowl, R.drawable.zen_frame, AppTheme.ZEN, SoundKind.QUIET),
     SATIE("satie", "Satie: Gymnopédie No. 1", R.raw.mus_satie, R.drawable.lavender_frame, AppTheme.LAVENDER, SoundKind.MUSIC),
     BACH("bach", "Bach: Aria from the Goldberg Variations", R.raw.mus_bach, R.drawable.starry_frame, AppTheme.AURORA, SoundKind.MUSIC),
     NOCTURNE("nocturne", "Chopin: Nocturne Op. 9 No. 2", R.raw.mus_nocturne, R.drawable.starry_frame, AppTheme.STARRY, SoundKind.MUSIC),

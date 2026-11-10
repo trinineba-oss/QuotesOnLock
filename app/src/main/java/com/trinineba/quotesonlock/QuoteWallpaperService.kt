@@ -100,7 +100,7 @@ class QuoteWallpaperService : WallpaperService() {
                     AppTheme.WATER -> drawWater(canvas, t)
                     AppTheme.RAIN -> drawRain(canvas, t, night = false)
                     AppTheme.RAIN_NIGHT -> drawRain(canvas, t, night = true)
-                    AppTheme.SNOW, AppTheme.CANDLE, AppTheme.FIREFLIES, AppTheme.LAVENDER, AppTheme.CLOUDS, AppTheme.WAVES, AppTheme.BAMBOO -> {
+                    AppTheme.SNOW, AppTheme.CANDLE, AppTheme.FIREFLIES, AppTheme.LAVENDER, AppTheme.CLOUDS, AppTheme.WAVES, AppTheme.BAMBOO, AppTheme.ZEN -> {
                         CalmArt.attach(this@QuoteWallpaperService)
                         runCatching { CalmArt.draw(theme, canvas, width.toFloat(), height.toFloat(), if (moving()) t else CalmArt.stillTime(theme), resources.displayMetrics.density) }
                             .onFailure { CalmArt.reset() }
