@@ -348,7 +348,7 @@ The guided sessions (breathing space, body scan, letting go of tension, loving-k
 
 ### Inside the temple
 
-The "Inside the temple" theme, shown behind the singing bowls in Calm, is the photograph "Golden Buddha statue in old monastery" from Pexels (pexels.com/photo/4324950), used under the Pexels License, which allows free use and changes without attribution; it is not public domain, and the photographer keeps the copyright. It is cropped to a tall view around the statue. The lamplight flicker, the incense smoke and the drifting dust are drawn by the app.
+The "Inside the temple" theme, shown behind the singing bowls in Calm, was drawn for the app (a zen hall at night, made with a small script from simple shapes), so it uses no outside picture. The candle flames, the lantern's flicker, the incense smoke and the drifting dust are drawn by the app as it runs.
 
 ### Calming sounds
 

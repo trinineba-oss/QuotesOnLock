@@ -130,7 +130,7 @@ enum class AppTheme(
         0xFF1F3324.toInt(), 0xFF3F6E33.toInt(),
     ),
     ZEN(
-        "zen", "Inside the temple", "Incense smoke and lamplight", R.drawable.notif_frame_zen, 0xFF2A1E14.toInt(),
+        "zen", "Inside the temple", "Candlelight and incense smoke", R.drawable.notif_frame_zen, 0xFF2A1E14.toInt(),
         0xFFF3EEE4.toInt(), 0xFFF0B98C.toInt(),
     );
 
