@@ -2141,7 +2141,15 @@ private fun QuotesScreen(
                                 if (p == Page.TOOLBOX) {
                                     Column(horizontalAlignment = Alignment.CenterHorizontally) {
                                         Text(label)
-                                        Text("when overwhelmed", fontSize = 9.sp, lineHeight = 10.sp, maxLines = 1)
+                                        // One line, never wrapped (wrapping left only "when" showing).
+                                        Text(
+                                            "when overwhelmed",
+                                            fontSize = 9.sp,
+                                            lineHeight = 10.sp,
+                                            maxLines = 1,
+                                            softWrap = false,
+                                            overflow = TextOverflow.Visible,
+                                        )
                                     }
                                 } else {
                                     Text(label)
