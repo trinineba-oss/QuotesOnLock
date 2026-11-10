@@ -107,13 +107,19 @@ object SoundPlayer {
     fun play(context: Context, sound: Soundscape, forBreathe: Boolean = false) =
         playMix(context, listOf(SoundLayer(sound, 1f)), forBreathe)
 
-    /** Plays a whole mix, replacing what was playing. */
-    fun playMix(context: Context, layers: List<SoundLayer>, forBreathe: Boolean = false) {
+    /** Plays a whole mix, replacing what was playing; [minutes] sets this mix's own timer (else the saved one). */
+    fun playMix(context: Context, layers: List<SoundLayer>, forBreathe: Boolean = false, minutes: Int? = null) {
         if (layers.isEmpty()) return stop(context)
         send(context, SoundService.ACTION_MIX) {
             putExtra(SoundService.EXTRA_MIX, SoundMix.encode(layers.take(SoundMix.MAX_LAYERS)))
             putExtra(SoundService.EXTRA_BREATHE, forBreathe)
+            if (minutes != null) putExtra(SoundService.EXTRA_MINUTES, minutes)
         }
+    }
+
+    /** Fifteen more minutes before the sounds fade out. */
+    fun extend(context: Context) {
+        if (state.value.layers.isNotEmpty()) send(context, SoundService.ACTION_EXTEND)
     }
 
     /**
@@ -224,7 +230,7 @@ class SoundService : Service() {
         goForeground()
         when (intent?.action) {
             ACTION_MIX -> SoundMix.decode(intent.getStringExtra(EXTRA_MIX)).takeIf { it.isNotEmpty() }?.let {
-                setMix(it, intent.getBooleanExtra(EXTRA_BREATHE, false))
+                setMix(it, intent.getBooleanExtra(EXTRA_BREATHE, false), intent.getIntExtra(EXTRA_MINUTES, -1).takeIf { m -> m >= 0 })
             } ?: stopAll()
             ACTION_VOLUMES -> volumes(SoundMix.decode(intent.getStringExtra(EXTRA_MIX)))
             ACTION_PAUSE -> pause()
@@ -247,7 +253,7 @@ class SoundService : Service() {
     }.getOrNull()
 
     /** Makes [wanted] the mix: keeps the players already running, starts new ones, releases the rest. */
-    private fun setMix(wanted: List<SoundLayer>, breathe: Boolean) {
+    private fun setMix(wanted: List<SoundLayer>, breathe: Boolean, ownMinutes: Int? = null) {
         val wasEmpty = players.isEmpty()
         val keep = wanted.map { it.sound }.toSet()
         players.keys.filter { it !in keep }.forEach { s -> players.remove(s)?.let { release(it) } }
@@ -257,9 +263,9 @@ class SoundService : Service() {
         }
         layers = wanted.filter { it.sound in players }
         if (layers.isEmpty()) return stopAll()
-        if (wasEmpty || breathe != forBreathe) {
+        if (wasEmpty || breathe != forBreathe || ownMinutes != null) {
             forBreathe = breathe
-            val minutes = if (breathe) 0 else prefs.soundTimer
+            val minutes = ownMinutes ?: if (breathe) 0 else prefs.soundTimer
             endsAt = if (minutes > 0) SystemClock.elapsedRealtime() + minutes * 60_000L else 0L
             pausedLeft = 0L
         }
@@ -465,6 +471,7 @@ class SoundService : Service() {
         const val ACTION_EXTEND = "com.trinineba.quotesonlock.sound.EXTEND"
         const val ACTION_SETTINGS = "com.trinineba.quotesonlock.sound.SETTINGS"
         const val EXTRA_MIX = "mix"
+        const val EXTRA_MINUTES = "minutes"
         const val EXTRA_BREATHE = "breathe"
         private const val CHANNEL_ID = "sounds"
         private const val NOTIFICATION_ID = 4207

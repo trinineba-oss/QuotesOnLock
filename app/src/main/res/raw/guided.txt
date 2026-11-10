@@ -1,0 +1,151 @@
+# Guided sessions, written for the app and read aloud by the phone's own voice.
+# S|key|title|subtitle|short minutes|long minutes|suggested sound key
+# Then one line per step: seconds of quiet after it|text   (a leading "L:" means the step is only in the long version)
+# The long version also doubles every pause.
+
+S|breathing|Breathing space|A short pause in three steps|3|7|stream
+4|Find a way of sitting or lying that feels steady. You can close your eyes, or let them rest on one spot.
+6|This is a short pause in three steps. There's nothing to get right.
+3|First, notice what is here right now.
+10|What thoughts are passing through? You don't need to follow them. Just notice that they are there.
+10|What feelings are here? Perhaps something pleasant, something difficult, or nothing much at all.
+10|And what can you feel in your body? Any tightness, warmth, heaviness, or ease.
+L:12|Whatever you find, let it be as it is for now. You are only taking a look.
+4|Now, gently, gather your attention onto your breathing.
+12|Feel the breath coming in, and the breath going out, wherever you notice it most.
+12|When your mind wanders, and it will, simply notice where it went, and come back to the next breath.
+L:20|There's no need to change the breath. Let it find its own rhythm.
+L:20|In, and out. Each breath a small place to rest.
+4|Now let your attention widen, from the breath to the whole body.
+12|Feel the body sitting or lying here, breathing. The weight of it. The space around it.
+L:15|If there is any discomfort, you might breathe towards it, and on the out-breath let it soften, just a little.
+8|As this pause comes to an end, take this wider awareness with you into whatever comes next.
+3|Thank you for taking this time.
+
+S|bodyscan|Body scan|Resting attention, from feet to head|7|15|waves
+5|Settle into a comfortable position, lying down if you can. Let your arms rest by your sides.
+8|Close your eyes if that feels right. Take a few slower breaths, and let each out-breath be a little longer than the one before.
+6|In this practice we will move our attention slowly through the body. You don't have to relax. Just notice what is there.
+3|Begin with your feet.
+14|Notice the toes, the soles, the heels. Perhaps warmth or coolness, the touch of a blanket or socks, or perhaps no sensation at all. That's fine too.
+L:20|Imagine the breath travelling all the way down to the feet, and on the out-breath, let them be heavy.
+3|Now move up to the ankles and the lower legs.
+12|The shins, the calves. Notice any tingling, or tiredness, or ease.
+3|Now the knees, and the thighs.
+12|Feel the weight of the legs, resting, supported.
+L:20|If your mind has wandered, that's what minds do. Gently bring it back to where you were.
+3|Now the hips and the pelvis.
+12|Notice where the body meets the surface beneath you. Let it carry your weight.
+3|Now the lower back, and the belly.
+14|Feel the belly rising as you breathe in, and falling as you breathe out.
+L:20|There's nothing to fix. Just this rising, and this falling.
+3|Now the chest, and the upper back.
+14|Notice the heart beating, if you can feel it. The ribs widening and settling with each breath.
+3|Now the hands.
+12|The fingers, the palms, the backs of the hands. Perhaps a pulse in the fingertips.
+3|Now the arms. The wrists, the forearms, the elbows, the upper arms.
+12|Let them be heavy.
+3|Now the shoulders.
+14|Shoulders often carry a lot. On the next out-breath, let them soften and drop, just a little.
+L:20|And again, breathing out, letting go of whatever they don't need to hold.
+3|Now the neck and the throat.
+12|Notice the breath moving through the throat, cool coming in, warmer going out.
+3|Now the face.
+14|The jaw, letting the teeth part slightly. The cheeks. The eyes, resting in their sockets. The forehead, smooth and wide.
+3|And now the top of the head.
+15|Now let your attention spread through the whole body at once, from the top of the head to the soles of the feet, breathing.
+L:30|Resting here, as a whole body, breathing, alive.
+8|When you are ready, let a little movement come back into your fingers and toes.
+4|Take your time, and open your eyes when you choose.
+
+S|tension|Let go of tension|Tense, then release, muscle by muscle|7|13|rain
+5|Find a comfortable position, sitting or lying. In this practice you will gently tense a group of muscles for a few seconds, then let go, and notice the difference.
+5|Tense only to a mild, comfortable level, never to the point of pain. If any part of your body is injured or sore, simply skip it and just breathe.
+6|Take a slow breath in, and a long breath out.
+3|Begin with your hands. Make both hands into fists, and squeeze gently.
+5|Hold, and notice the tightness.
+12|And let go. Let the fingers fall open. Notice how the hands feel now, warm, heavy, loose.
+L:15|Once more, squeeze the fists. Hold. And release.
+3|Now bend your arms and tense the upper arms, as if showing your muscles.
+5|Hold it there.
+12|And release. Let the arms fall back and rest.
+3|Now raise your shoulders up towards your ears.
+5|Hold them there.
+14|And let them drop. Feel the shoulders settle further than before.
+L:15|Again, shoulders up. Hold. And let them fall.
+3|Now the face. Scrunch up your eyes and forehead.
+5|Hold.
+12|And release. Let the forehead be smooth and the eyes soft.
+3|Press your lips together and clench your jaw lightly.
+5|Hold.
+14|And let go. Let the jaw hang loose, the tongue resting.
+3|Now take a deep breath in and hold it, feeling the chest tighten.
+5|Hold.
+14|And breathe out slowly. Let the chest soften.
+3|Now gently pull in your stomach muscles.
+5|Hold.
+14|And release. Let the belly be soft, breathing freely.
+3|Now the legs. Press your knees together and tighten your thighs.
+5|Hold.
+12|And release.
+3|Now point your toes away from you, tightening the calves.
+5|Hold.
+12|And let go.
+3|Now pull your toes up towards you.
+5|Hold.
+14|And release. Feel the whole of each leg, heavy and loose.
+6|Now let your attention move slowly over the whole body. If you find any tension left, breathe towards it, and on the out-breath, let it go.
+L:30|Rest here. There's nothing you need to do now.
+15|Notice the feeling of a body that has let go. Remember it. You can come back to it whenever you need.
+5|When you are ready, take a deeper breath, stretch a little, and open your eyes.
+
+S|kindness|Loving-kindness|Kind wishes, for yourself and others|5|10|bowl
+5|Sit comfortably, and let your breathing settle. This practice is about wishing well, quietly, in your own words.
+6|It is very old: the Buddha taught it as one of the "divine abodes" of the heart. It doesn't matter whether you feel warmth at first. The intention is enough.
+4|Begin with yourself. Silently repeat these phrases, slowly, letting each one land.
+10|May I be safe.
+10|May I be peaceful.
+10|May I be kind to myself.
+12|May I accept myself as I am.
+L:20|If this feels hard, picture yourself as a small child, and offer the wishes to that child.
+5|Now bring to mind someone you love easily, a friend, a family member, even a pet. Picture them.
+10|May you be safe.
+10|May you be peaceful.
+10|May you be happy.
+12|May you be free from suffering.
+5|Now think of someone you hardly know: a neighbour, a shop assistant, someone you passed today. They want to be happy too.
+10|May you be safe.
+10|May you be peaceful.
+12|May you be happy.
+L:6|If you are ready, think of someone you find difficult. Not the hardest person, just someone who troubles you a little.
+L:12|May you be safe. May you be peaceful.
+L:15|May you be free from the suffering that makes you act as you do.
+5|Now let the wishes spread out, wider and wider, to everyone in this town, this country, the whole world. To every living being.
+12|May all beings be safe.
+12|May all beings be peaceful.
+15|May all beings be happy and free.
+6|Rest for a moment in whatever you feel now.
+3|And when you are ready, return.
+
+S|sleep|Into sleep|A slow wind-down to drift off with|5|11|rain
+5|Lie down in bed, and let your head sink into the pillow.
+8|There is nothing more to do today. Whatever was left undone can wait until tomorrow. It will still be there, and so will you.
+6|Take a slow breath in, and let it out with a sigh.
+10|And again. Breathing in, and a long, slow breath out.
+6|Let your eyes be heavy. Let your jaw be loose.
+12|Feel the weight of your body on the bed. The bed holds all of you. You don't have to hold yourself up.
+L:20|Each time you breathe out, let yourself sink a little deeper into it.
+6|Now let your breathing slow down by itself. Don't force it. Just notice it getting a little slower, a little softer.
+15|In, and out.
+L:25|In, and out.
+6|If thoughts come, that's alright. Picture each one as a leaf on a slow river. Watch it drift by, and let it go.
+20|There's nowhere to go. Nothing to solve.
+6|Now picture a place where you feel completely safe. A real place, or one you imagine.
+15|Notice the light there. The colours. The sounds. The air on your skin.
+L:30|Let yourself stay there, as long as you like.
+6|Your hands are heavy and warm.
+10|Your legs are heavy and warm.
+12|Your whole body is heavy, warm and still.
+L:30|Sinking, softly, into rest.
+8|You can stop listening now, whenever you like, and let sleep come in its own time.
+20|Goodnight.

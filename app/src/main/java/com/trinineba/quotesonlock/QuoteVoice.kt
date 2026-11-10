@@ -93,6 +93,8 @@ object QuoteVoice {
 
     fun speak(context: Context, quote: Quote) {
         app = context.applicationContext
+        rateFactor = 1f
+        duck = true
         val parts = segments(quote)
         val engine = tts
         if (engine == null || !ready) {
@@ -102,6 +104,28 @@ object QuoteVoice {
             return
         }
         say(engine, quote.text, parts)
+    }
+
+    // A guided session can slow the voice down and leave the calming sounds at their own level.
+    private var rateFactor = 1f
+    private var duck = true
+
+    /**
+     * Reads prepared [parts] (a guided session, a passage) under [key]; [slower] multiplies the user's speed,
+     * and [duckSounds] false leaves the calming sounds where they are rather than dipping them.
+     */
+    fun speakParts(context: Context, key: String, parts: List<Segment>, slower: Float = 1f, duckSounds: Boolean = true) {
+        app = context.applicationContext
+        rateFactor = slower
+        duck = duckSounds
+        val engine = tts
+        if (engine == null || !ready) {
+            pending = key to parts
+            mutable.value = key
+            if (engine == null) tts = TextToSpeech(app) { status -> onReady(status) }
+            return
+        }
+        say(engine, key, parts)
     }
 
     fun stop() {
@@ -229,9 +253,9 @@ object QuoteVoice {
             }
             return
         }
-        engine.setSpeechRate(QuotePrefs(app).voiceRate)
+        engine.setSpeechRate(QuotePrefs(app).voiceRate * rateFactor)
         engine.setPitch(1f)
-        requestFocus()
+        if (duck) requestFocus()
         val gen = ++generation
         clearTimings()
         segments = parts

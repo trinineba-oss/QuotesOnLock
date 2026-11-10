@@ -342,6 +342,10 @@ Legge's Tao Teh King marks words he supplied with parentheses; the app drops tho
 
 The Starry Night theme uses Vincent van Gogh's *The Starry Night* (1889), public domain, from the Google Art Project scan on Wikimedia Commons. The Van Gogh's clouds theme uses his *Wheat Field with Cypresses* (1889), The Metropolitan Museum of Art (1993.132), from the Met's Open Access image (public domain); the sky was separated from the hills and cypresses for the app, and a seamless loop made from van Gogh's own sky drifts behind them. The northern-lights frame and the old-paper texture are generated for this app.
 
+### Calm: guided sessions and practices
+
+The guided sessions (breathing space, body scan, letting go of tension, loving-kindness, into sleep) are written for the app, drawing on common, freely described relaxation and mindfulness exercises, and are read by the phone's own voice. The practices quote their sources word for word: Seneca, *On Anger* III (tr. Aubrey Stewart, *Minor Dialogues*, Gutenberg #64576); Marcus Aurelius, *Meditations*; Epictetus, *Enchiridion* (tr. Higginson); Defoe, *Robinson Crusoe*. Wind down reads passages already in the collection (Thoreau, Annie Dillard, Kamo no Chōmei, Kenkō, John Muir, Wordsworth, John Clare, George Gissing).
+
 ### Calming sounds
 
 The nature sounds are field recordings in the public domain (Creative Commons Public Domain Mark) from radio aporee (Internet Archive), each made into a seamless stereo loop of two to four minutes (the end crossfaded into the start), levelled to an even loudness and re-encoded for the app:

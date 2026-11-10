@@ -279,6 +279,22 @@ private fun QuotesScreen(
     var page by rememberSaveable { mutableStateOf(if (openUpdates) Page.ABOUT else Page.HOME) }
     // Calm and its tools show the calm wallpaper.
     LaunchedEffect(page, tool) { CalmScene.active.value = page == Page.TOOLBOX || tool != null }
+    // After a Calm tool, one optional "how do you feel now?" (when it was used for at least a minute).
+    var rateTool by remember { mutableStateOf<String?>(null) }
+    var lastTool by remember { mutableStateOf<String?>(null) }
+    var toolSince by remember { mutableStateOf(0L) }
+    LaunchedEffect(tool) {
+        val now = System.currentTimeMillis()
+        val t = tool
+        if (t != null) {
+            lastTool = t
+            toolSince = now
+        } else {
+            val was = lastTool
+            if (was != null && rateTool == null && CalmLog.rated(was) && now - toolSince >= 60_000L) rateTool = was
+            lastTool = null
+        }
+    }
     DisposableEffect(Unit) { onDispose { CalmScene.active.value = false } }
     val scope = rememberCoroutineScope()
     val currentBuild = remember { Updater.currentBuild(context) }
@@ -719,7 +735,16 @@ private fun QuotesScreen(
             "reframe" -> ReframeScreen(prefs) { tool = null }
             "sounds" -> SoundsScreen(prefs) { tool = null }
             "lifeline" -> LifelineScreen(prefs, repo) { tool = null; favorites = repo.favorites(); favInfo = repo.favoriteInfo(); collections = repo.collections() }
-            else -> tool = null
+            "winddown" -> WindDownScreen(repo) { tool = null }
+            else -> when {
+                t.startsWith("guide:") -> Guides.byKey(context, t.removePrefix("guide:"))
+                    ?.let { g -> GuideScreen(g, onBack = { tool = null }, onFinished = { rateTool = t; tool = null }) }
+                    ?: run { tool = null }
+                t.startsWith("practice:") -> Practices.byKey(t.removePrefix("practice:"))
+                    ?.let { pr -> PracticeScreen(pr, repo, current, onBack = { tool = null }, onFinished = { rateTool = t; tool = null; journal = Journal.entries(prefs) }) }
+                    ?: run { tool = null }
+                else -> tool = null
+            }
         }
         return
     }
@@ -1885,6 +1910,23 @@ private fun QuotesScreen(
         item(key = "tb-intro") {
             Text("Take a moment. What would help right now? Nothing here is saved unless you choose to.", style = MaterialTheme.typography.bodyMedium)
         }
+        item(key = "tb-checkin") {
+            CheckInCard(onOpen = { tool = it }, onWords = { browse = listOf(BrowsePage.feeling(it)) })
+        }
+        item(key = "tb-guides-h") {
+            Text("GUIDED SESSIONS · READ ALOUD", style = MaterialTheme.typography.labelLarge, color = MaterialTheme.colorScheme.primary)
+        }
+        item(key = "tb-guides") { GuideRow { tool = it } }
+        item(key = "tb-winddown") {
+            TileCard(Tile(R.drawable.ic_spa, "Wind down for sleep", "A dim screen, slow reading, sounds that fade away") { tool = "winddown" }, Modifier.fillMaxWidth(), wide = true)
+        }
+        item(key = "tb-wise-h") {
+            Text("FROM THE WISE", style = MaterialTheme.typography.labelLarge, color = MaterialTheme.colorScheme.primary)
+        }
+        item(key = "tb-wise") { PracticeRow { tool = it } }
+        item(key = "tb-quick-h") {
+            Text("QUICK TOOLS", style = MaterialTheme.typography.labelLarge, color = MaterialTheme.colorScheme.primary)
+        }
         item(key = "tb-tools-1") {
             Row(horizontalArrangement = Arrangement.spacedBy(12.dp)) {
                 TileCard(Tile(R.drawable.ic_air, "Breathe", "A calm circle, 1–5 min") { tool = "breathe" }, Modifier.weight(1f))
@@ -1913,6 +1955,7 @@ private fun QuotesScreen(
                 ) { tool = "sounds" }
             }
         }
+        item(key = "tb-helps") { WhatHelpsCard() }
         item(key = "tb-wallpaper") {
             var open by rememberSaveable { mutableStateOf(false) }
             SettingsCard("Calm wallpaper") {
@@ -2075,6 +2118,8 @@ private fun QuotesScreen(
         }
     }
 
+    rateTool?.let { t -> FeelNowDialog(t) { rateTool = null } }
+
     // Each page opens at its top (About starts at the update card, not wherever the home screen was scrolled to).
     val listState = androidx.compose.foundation.lazy.rememberLazyListState()
     LaunchedEffect(page) { listState.scrollToItem(0) }
@@ -2092,7 +2137,16 @@ private fun QuotesScreen(
                             selected = page == p,
                             onClick = { page = p; lastTab = p },
                             icon = { Icon(painterResource(icon), contentDescription = null) },
-                            label = { Text(label) },
+                            label = {
+                                if (p == Page.TOOLBOX) {
+                                    Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                                        Text(label)
+                                        Text("when overwhelmed", fontSize = 9.sp, lineHeight = 10.sp, maxLines = 1)
+                                    }
+                                } else {
+                                    Text(label)
+                                }
+                            },
                         )
                     }
                 }
