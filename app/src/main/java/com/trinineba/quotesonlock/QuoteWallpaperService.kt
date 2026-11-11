@@ -95,12 +95,11 @@ class QuoteWallpaperService : WallpaperService() {
                 val t = clock
                 when (theme) {
                     AppTheme.AURORA -> drawAurora(canvas, if (moving()) t * 2f * PI.toFloat() / 10f else 1.2f)
-                    AppTheme.BOOK -> drawCover(canvas, bitmap(R.drawable.paper))
                     AppTheme.BUTTERFLY -> ButterflyArt.draw(canvas, width.toFloat(), height.toFloat(), if (moving()) t else 3f, resources.displayMetrics.density)
                     AppTheme.WATER -> drawWater(canvas, t)
                     AppTheme.RAIN -> drawRain(canvas, t, night = false)
                     AppTheme.RAIN_NIGHT -> drawRain(canvas, t, night = true)
-                    AppTheme.SNOW, AppTheme.CANDLE, AppTheme.FIREFLIES, AppTheme.LAVENDER, AppTheme.CLOUDS, AppTheme.WAVES, AppTheme.BAMBOO, AppTheme.ZEN -> {
+                    AppTheme.SNOW, AppTheme.CANDLE, AppTheme.FIREFLIES, AppTheme.LAVENDER, AppTheme.CLOUDS, AppTheme.WAVES, AppTheme.BAMBOO, AppTheme.ZEN, AppTheme.BOOK -> {
                         CalmArt.attach(this@QuoteWallpaperService)
                         runCatching { CalmArt.draw(theme, canvas, width.toFloat(), height.toFloat(), if (moving()) t else CalmArt.stillTime(theme), resources.displayMetrics.density) }
                             .onFailure { CalmArt.reset() }

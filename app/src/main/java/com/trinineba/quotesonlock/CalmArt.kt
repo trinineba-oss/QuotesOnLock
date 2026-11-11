@@ -52,6 +52,7 @@ internal object CalmArt {
         AppTheme.WAVES -> 0xFF3A3556.toInt()
         AppTheme.BAMBOO -> 0xFFCFE0C4.toInt()
         AppTheme.ZEN -> 0xFF2E2116.toInt()
+        AppTheme.BOOK -> 0xFFF1E4C6.toInt()
         else -> 0xFF101820.toInt()
     }
 
@@ -61,6 +62,7 @@ internal object CalmArt {
         cache.clear()
         vgKey = ""
         zenKey = ""
+        bookKey = ""
     }
 
     private fun scene(theme: AppTheme, canvas: Canvas, w: Float, h: Float, t: Float, d: Float) {
@@ -73,6 +75,7 @@ internal object CalmArt {
             AppTheme.WAVES -> waves(canvas, w, h, t, d)
             AppTheme.BAMBOO -> bamboo(canvas, w, h, t, d)
             AppTheme.ZEN -> zen(canvas, w, h, t, d)
+            AppTheme.BOOK -> book(canvas, w, h, t, d)
             else -> Unit
         }
     }
@@ -594,6 +597,114 @@ internal object CalmArt {
             val a = sin(PI.toFloat() * p) * (0.3f + 0.25f * sin(t * (0.8f + g) + i * 1.7f))
             zenDust.color = color(0xFFE2B0, a)
             c.drawCircle(x, y, (0.9f + 0.9f * f) * d, zenDust)
+        }
+    }
+
+    // ---- old book: light from a window, dust and a lifting page corner ---------------------------
+
+    /*
+     * The old paper page in a quiet room. A soft beam of light falls across it from a window, brightening and
+     * dimming as clouds pass; specks of dust drift slowly in the beam; and about once every 48 seconds the bottom
+     * corner of the page lifts in a draught and settles again. The paper is scaled to the screen once.
+     */
+    private var bookKey = ""
+    private var bookBg: Bitmap? = null
+    private val bookBeam = Paint(Paint.ANTI_ALIAS_FLAG)
+    private val bookDust = Paint(Paint.ANTI_ALIAS_FLAG)
+    private val bookFlap = Paint(Paint.ANTI_ALIAS_FLAG)
+    private val bookShade = Paint(Paint.ANTI_ALIAS_FLAG)
+    private var bookBw = 0f
+
+    private fun bookLayers(w: Float, h: Float): Boolean {
+        val k = "${w.toInt()}x${h.toInt()}"
+        if (k == bookKey && bookBg != null) return true
+        val ctx = appContext ?: return false
+        val opts = android.graphics.BitmapFactory.Options().apply { inScaled = false }
+        val pic = android.graphics.BitmapFactory.decodeResource(ctx.resources, R.drawable.paper, opts) ?: return false
+        val scale = maxOf(h / pic.height, w / pic.width)
+        val pw = pic.width * scale
+        val ph = pic.height * scale
+        val bg = Bitmap.createBitmap(max(1, w.toInt()), max(1, h.toInt()), Bitmap.Config.ARGB_8888)
+        val cv = Canvas(bg)
+        cv.drawBitmap(pic, null, RectF((w - pw) / 2f, (h - ph) / 2f, (w + pw) / 2f, (h + ph) / 2f), bitmapPaint)
+        // The room is a little dimmer than the beam.
+        cv.drawColor(0x1C28190A)
+        pic.recycle()
+        bookBg?.recycle()
+        bookBg = bg; bookKey = k
+        bookBw = 0.5f * w
+        val hw = bookBw / 2f
+        bookBeam.shader = LinearGradient(
+            -hw, 0f, hw, 0f,
+            intArrayOf(0x00FFF6DC, 0x50FFF6DC, 0x8CFFF6DC.toInt(), 0x50FFF6DC, 0x00FFF6DC),
+            floatArrayOf(0f, 0.2f, 0.5f, 0.8f, 1f), Shader.TileMode.CLAMP,
+        )
+        return true
+    }
+
+    private fun book(c: Canvas, w: Float, h: Float, t: Float, d: Float) {
+        if (!bookLayers(w, h)) {
+            c.drawColor(0xFFF1E4C6.toInt())
+            return
+        }
+        c.drawBitmap(bookBg!!, 0f, 0f, bitmapPaint)
+        // The beam, slanting down from the upper left; passing clouds make it slowly brighten and dim.
+        val cloud = 0.75f + 0.25f * (0.5f * sin(t * 0.11f) + 0.3f * sin(t * 0.047f + 1f) + 0.2f * sin(t * 0.23f + 2f))
+        val bw = bookBw
+        val len = kotlin.math.hypot(w, h) + 200f * d
+        c.save()
+        c.translate(0.42f * w, 0.5f * h)
+        c.rotate(-25f)
+        bookBeam.alpha = (cloud.coerceIn(0f, 1f) * 255).toInt()
+        c.drawRect(-bw / 2f, -len / 2f, bw / 2f, len / 2f, bookBeam)
+        // Dust: specks drifting slowly up the beam, glinting as they turn, brightest at its middle.
+        for (i in 0 until 32) {
+            val f = i * 0.6180339f % 1f
+            val g = i * 0.7548777f % 1f
+            val p = ((t / (70f + 40f * g)) + f) % 1f
+            val u = (g - 0.5f) * 0.85f * bw + sin(t * 0.17f + i * 1.3f) * 10f * d
+            val v = (0.5f - p) * 0.9f * h
+            val across = 1f - kotlin.math.abs(u / (bw / 2f))
+            val a = sin(PI.toFloat() * p) * (0.45f + 0.4f * sin(t * (0.6f + g) + i * 1.7f)) * across * 1.6f * cloud
+            if (a <= 0.01f) continue
+            bookDust.color = color(0xFFFCF0, a)
+            c.drawCircle(u, v, (1f + 1.2f * f) * d, bookDust)
+        }
+        c.restore()
+        // The page corner: lifts over about five seconds, with a slight flutter, then lies flat again.
+        val phase = ((t - 20f) % 48f + 48f) % 48f
+        if (phase < 5f) {
+            val q = phase / 5f
+            val lift = sin(PI.toFloat() * q).pow(2) * (1f + 0.06f * sin(q * PI.toFloat() * 6f))
+            val sz = lift * 0.17f * w
+            if (sz > 2f) {
+                val ax = w - sz; val ay = h
+                val bx = w; val by = h - sz * 1.15f
+                // The corner, folded over the line from A to B.
+                val dx = bx - ax; val dy = by - ay
+                val k = ((w - ax) * dx + (h - ay) * dy) / (dx * dx + dy * dy)
+                val px = ax + k * dx; val py = ay + k * dy
+                val rx = 2f * px - w; val ry = 2f * py - h
+                // Under it, the page below in shadow.
+                path.reset(); path.moveTo(ax, ay); path.lineTo(w, h); path.lineTo(bx, by); path.close()
+                bookShade.color = 0x5A967850
+                c.drawPath(path, bookShade)
+                // A soft shadow cast by the lifted flap.
+                for ((grow, alpha) in listOf(0.14f to 0.10f, 0.07f to 0.14f)) {
+                    path.reset(); path.moveTo(ax - grow * sz * 0.3f, ay); path.lineTo(bx, by + grow * sz * 0.3f)
+                    path.lineTo(rx - grow * sz, ry - grow * sz); path.close()
+                    bookShade.color = color(0x3C2814, alpha * lift)
+                    c.drawPath(path, bookShade)
+                }
+                // The back of the page: darker by the fold, lighter where it catches the light.
+                bookFlap.shader = LinearGradient(px, py, rx, ry, 0xFFD6C29A.toInt(), 0xFFF0E4C8.toInt(), Shader.TileMode.CLAMP)
+                path.reset(); path.moveTo(ax, ay); path.lineTo(bx, by); path.lineTo(rx, ry); path.close()
+                c.drawPath(path, bookFlap)
+                stroke.shader = null
+                stroke.strokeWidth = 1.2f * d
+                stroke.color = 0x60785F3C
+                c.drawLine(ax, ay, bx, by, stroke)
+            }
         }
     }
 

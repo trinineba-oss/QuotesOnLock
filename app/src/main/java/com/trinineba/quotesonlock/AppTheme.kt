@@ -78,7 +78,7 @@ enum class AppTheme(
         0xFFFFFFFF.toInt(), 0xFF6CF5C8.toInt(),
     ),
     BOOK(
-        "book", "Old book", null, R.drawable.notif_frame_book, 0xFFF1E4C6.toInt(),
+        "book", "Old book", "Window light, dust and a lifting page", R.drawable.notif_frame_book, 0xFFF1E4C6.toInt(),
         0xFF3B2A1A.toInt(), 0xFF7A2E1F.toInt(),
     ),
     BUTTERFLY(
@@ -371,12 +371,7 @@ fun ThemedBackground(theme: AppTheme, animate: Boolean, auroraIntensity: Float =
         AppTheme.CLASSIC -> Unit
         AppTheme.STARRY -> StarryBackground(animate)
         AppTheme.AURORA -> AuroraBackground(animate, auroraIntensity)
-        AppTheme.BOOK -> Image(
-            painter = painterResource(R.drawable.paper),
-            contentDescription = null,
-            modifier = Modifier.fillMaxSize(),
-            contentScale = ContentScale.Crop,
-        )
+        AppTheme.BOOK -> CalmBackground(theme, animate)
         AppTheme.BUTTERFLY -> ButterflyBackground(animate)
         AppTheme.SPACE -> SpaceBackground(animate)
         AppTheme.WATER -> WaterBackground(animate)
