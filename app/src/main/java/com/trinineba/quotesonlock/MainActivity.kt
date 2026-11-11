@@ -272,6 +272,8 @@ private fun QuotesScreen(
     var cardMenu by remember { mutableStateOf(false) }
     // The tab Settings was opened from, so Back returns there.
     var lastTab by rememberSaveable { mutableStateOf(Page.HOME) }
+    // Appearance opened straight from a tab's palette button goes back to that tab, not to Settings.
+    var appearanceFromTab by rememberSaveable { mutableStateOf(false) }
     var editingEntry by remember { mutableStateOf<JournalEntry?>(null) }
     var favoritesOnly by remember { mutableStateOf(prefs.favoritesOnly) }
     var newText by rememberSaveable { mutableStateOf("") }
@@ -795,7 +797,8 @@ private fun QuotesScreen(
         return
     }
 
-    BackHandler(enabled = page != Page.HOME) { page = parentOf(page, lastTab) }
+    fun up(): Page = if (page == Page.THEMES && appearanceFromTab) lastTab else parentOf(page, lastTab)
+    BackHandler(enabled = page != Page.HOME) { page = up() }
 
     fun LazyListScope.header() {
         item(key = "header-${page.name}") {
@@ -805,7 +808,7 @@ private fun QuotesScreen(
                         .size(48.dp)
                         .clip(CircleShape)
                         .background(MaterialTheme.colorScheme.surfaceContainerHighest)
-                        .clickable(onClickLabel = "Back") { page = parentOf(page, lastTab) },
+                        .clickable(onClickLabel = "Back") { page = up() },
                     contentAlignment = Alignment.Center,
                 ) { Icon(painterResource(R.drawable.ic_arrow_back), contentDescription = null) }
                 Text(
@@ -827,7 +830,16 @@ private fun QuotesScreen(
                         .size(44.dp)
                         .clip(CircleShape)
                         .background(MaterialTheme.colorScheme.surfaceContainerHighest.copy(alpha = 0.7f))
-                        .clickable(onClickLabel = "Settings") { lastTab = page; page = Page.SETTINGS },
+                        .clickable(onClickLabel = "Appearance") { lastTab = page; appearanceFromTab = true; page = Page.THEMES },
+                    contentAlignment = Alignment.Center,
+                ) { Icon(painterResource(R.drawable.ic_palette), contentDescription = "Appearance", tint = MaterialTheme.colorScheme.primary) }
+                Spacer(Modifier.width(8.dp))
+                Box(
+                    modifier = Modifier
+                        .size(44.dp)
+                        .clip(CircleShape)
+                        .background(MaterialTheme.colorScheme.surfaceContainerHighest.copy(alpha = 0.7f))
+                        .clickable(onClickLabel = "Settings") { lastTab = page; appearanceFromTab = false; page = Page.SETTINGS },
                     contentAlignment = Alignment.Center,
                 ) { Icon(painterResource(R.drawable.ic_settings), contentDescription = "Settings", tint = MaterialTheme.colorScheme.primary) }
             }

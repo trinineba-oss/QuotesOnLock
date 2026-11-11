@@ -604,8 +604,8 @@ internal object CalmArt {
 
     /*
      * The old paper page in a quiet room. A soft beam of light falls across it from a window, brightening and
-     * dimming as clouds pass; specks of dust drift slowly in the beam; and about once every 48 seconds the bottom
-     * corner of the page lifts in a draught and settles again. The paper is scaled to the screen once.
+     * dimming as clouds pass; specks of dust drift slowly in the beam; and every 24 seconds the top corner of the
+     * page lifts in a draught and settles again. The paper is scaled to the screen once.
      */
     private var bookKey = ""
     private var bookBg: Bitmap? = null
@@ -671,28 +671,29 @@ internal object CalmArt {
             c.drawCircle(u, v, (1f + 1.2f * f) * d, bookDust)
         }
         c.restore()
-        // The page corner: lifts over about five seconds, with a slight flutter, then lies flat again.
-        val phase = ((t - 20f) % 48f + 48f) % 48f
+        // The top corner of the page (clear of the bottom bar): every 24 seconds it lifts over about five
+        // seconds, with a slight flutter, curling down along the right edge, then lies flat again.
+        val phase = ((t - 20f) % 24f + 24f) % 24f
         if (phase < 5f) {
             val q = phase / 5f
             val lift = sin(PI.toFloat() * q).pow(2) * (1f + 0.06f * sin(q * PI.toFloat() * 6f))
-            val sz = lift * 0.17f * w
+            val sz = lift * 0.22f * w
             if (sz > 2f) {
-                val ax = w - sz; val ay = h
-                val bx = w; val by = h - sz * 1.15f
-                // The corner, folded over the line from A to B.
+                val ax = w - sz; val ay = 0f
+                val bx = w; val by = sz * 1.9f
+                // The corner (w, 0), folded over the line from A to B.
                 val dx = bx - ax; val dy = by - ay
-                val k = ((w - ax) * dx + (h - ay) * dy) / (dx * dx + dy * dy)
+                val k = ((w - ax) * dx + (0f - ay) * dy) / (dx * dx + dy * dy)
                 val px = ax + k * dx; val py = ay + k * dy
-                val rx = 2f * px - w; val ry = 2f * py - h
+                val rx = 2f * px - w; val ry = 2f * py
                 // Under it, the page below in shadow.
-                path.reset(); path.moveTo(ax, ay); path.lineTo(w, h); path.lineTo(bx, by); path.close()
+                path.reset(); path.moveTo(ax, ay); path.lineTo(w, 0f); path.lineTo(bx, by); path.close()
                 bookShade.color = 0x5A967850
                 c.drawPath(path, bookShade)
                 // A soft shadow cast by the lifted flap.
                 for ((grow, alpha) in listOf(0.14f to 0.10f, 0.07f to 0.14f)) {
                     path.reset(); path.moveTo(ax - grow * sz * 0.3f, ay); path.lineTo(bx, by + grow * sz * 0.3f)
-                    path.lineTo(rx - grow * sz, ry - grow * sz); path.close()
+                    path.lineTo(rx - grow * sz, ry + grow * sz); path.close()
                     bookShade.color = color(0x3C2814, alpha * lift)
                     c.drawPath(path, bookShade)
                 }
