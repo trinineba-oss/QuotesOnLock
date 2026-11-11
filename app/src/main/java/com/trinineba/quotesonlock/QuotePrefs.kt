@@ -175,6 +175,11 @@ class QuotePrefs(context: Context) {
         get() = prefs.getString("voice_name", "") ?: ""
         set(value) = prefs.edit().putString("voice_name", value).apply()
 
+    /** Guided sessions, practices and Wind down use the recorded natural voice (else the phone's own voice). */
+    var naturalVoice: Boolean
+        get() = prefs.getBoolean("natural_voice", true)
+        set(value) = prefs.edit().putBoolean("natural_voice", value).apply()
+
     var notifRead: Boolean
         get() = prefs.getBoolean("notif_read", false)
         set(value) = prefs.edit().putBoolean("notif_read", value).apply()

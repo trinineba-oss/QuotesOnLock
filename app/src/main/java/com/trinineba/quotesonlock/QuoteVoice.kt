@@ -5,6 +5,7 @@ import android.content.Intent
 import android.media.AudioAttributes
 import android.media.AudioFocusRequest
 import android.media.AudioManager
+import android.media.MediaPlayer
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
@@ -118,6 +119,14 @@ object QuoteVoice {
         app = context.applicationContext
         rateFactor = slower
         duck = duckSounds
+        // Every line already recorded in the natural voice (guided sessions, practices, Wind down): play those.
+        if (parts.isNotEmpty() && QuotePrefs(app).naturalVoice) {
+            val ids = parts.map { recordings()[normal(it.text)] }
+            if (ids.all { it != null }) {
+                playRecorded(key, parts, ids.map { it!! })
+                return
+            }
+        }
         val engine = tts
         if (engine == null || !ready) {
             pending = key to parts
@@ -133,7 +142,74 @@ object QuoteVoice {
         generation++
         clearTimings()
         tts?.stop()
+        releasePlayer()
         done()
+    }
+
+    // ---- the natural voice: lines recorded for the app (res/raw/voice_index.txt), played in place of the phone's voice
+
+    private var recorded: Map<String, Int>? = null
+    private var player: MediaPlayer? = null
+
+    /** A line as the recordings are keyed: line breaks and runs of spaces become one space. */
+    fun normal(text: String): String = text.replace("\\n", " ").replace(Regex("\\s+"), " ").trim()
+
+    private fun recordings(): Map<String, Int> = recorded ?: runCatching {
+        val res = app.resources
+        res.openRawResource(R.raw.voice_index).bufferedReader().useLines { lines ->
+            lines.filter { it.isNotBlank() && !it.startsWith("#") }.mapNotNull { line ->
+                @Suppress("DiscouragedApi")
+                val id = res.getIdentifier(line.substringBefore('|'), "raw", app.packageName)
+                if (id == 0) null else normal(line.substringAfter('|')) to id
+            }.toMap()
+        }
+    }.getOrDefault(emptyMap()).also { recorded = it }
+
+    private fun releasePlayer() {
+        player?.let { runCatching { it.stop() }; it.release() }
+        player = null
+    }
+
+    /** Plays the recordings [ids] for [parts] one after another, with each part's pause between them. */
+    private fun playRecorded(key: String, parts: List<Segment>, ids: List<Int>) {
+        tts?.stop()
+        releasePlayer()
+        pending = null
+        if (duck) requestFocus()
+        val gen = ++generation
+        clearTimings()
+        segments = parts
+        mutable.value = key
+        readingRange.value = null
+        // The recordings are at a calm pace already; the speed setting (0.85 by default) moves them from there.
+        val speed = (QuotePrefs(app).voiceRate / 0.85f).coerceIn(0.75f, 1.3f)
+        val manager = app.getSystemService(AudioManager::class.java)
+        fun play(i: Int) {
+            if (gen != generation) return
+            val seg = parts[i]
+            val mp = runCatching { MediaPlayer.create(app, ids[i], attributes, manager.generateAudioSessionId()) }.getOrNull()
+            if (mp == null) {
+                done()
+                return
+            }
+            player = mp
+            readingRange.value = seg.map?.takeIf { it.isNotEmpty() }?.let { it.first()..it.last() }
+            mp.setOnCompletionListener {
+                it.release()
+                if (player === it) player = null
+                if (gen != generation) return@setOnCompletionListener
+                if (i == parts.lastIndex) done() else main.postAtTime({ play(i + 1) }, token, SystemClock.uptimeMillis() + seg.pauseAfterMs)
+            }
+            mp.setOnErrorListener { p, _, _ ->
+                p.release()
+                if (player === p) player = null
+                if (gen == generation) done()
+                true
+            }
+            if (speed != 1f) runCatching { mp.playbackParams = mp.playbackParams.setSpeed(speed) }
+            if (!mp.isPlaying) mp.start()
+        }
+        play(0)
     }
 
     /**
@@ -253,6 +329,7 @@ object QuoteVoice {
             }
             return
         }
+        releasePlayer()
         engine.setSpeechRate(QuotePrefs(app).voiceRate * rateFactor)
         engine.setPitch(1f)
         if (duck) requestFocus()

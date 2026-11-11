@@ -33,4 +33,17 @@ class CalmContentTest {
         }
         assertEquals(Practices.all.size, Practices.all.map { it.key }.toSet().size)
     }
+
+    @Test fun calmLinesAreRecordedInTheNaturalVoice() {
+        // A changed line falls back to the phone's voice, so re-record (voice_index.txt) when the words change.
+        fun normal(t: String) = t.replace("\\n", " ").replace(Regex("\\s+"), " ").trim()
+        val index = raw("voice_index.txt").readLines().filter { it.isNotBlank() && !it.startsWith("#") }
+            .associate { normal(it.substringAfter('|')) to it.substringBefore('|') }
+        index.values.forEach { assertTrue("missing file $it", raw("$it.ogg").exists()) }
+        val lines = mutableListOf<String>()
+        raw("guided.txt").useLines { Guides.parse(it) }.forEach { g -> g.steps(true).forEach { lines += it.text } }
+        Practices.all.forEach { p -> p.quote?.let { lines += it }; lines += p.spoken }
+        WIND_DOWN.forEach { start -> lines += quotes.first { it.text.startsWith(start) }.text }
+        lines.forEach { assertTrue("not recorded: ${it.take(60)}", normal(it) in index) }
+    }
 }

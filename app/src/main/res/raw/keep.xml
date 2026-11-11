@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- The natural-voice recordings are found by name from voice_index.txt, so resource shrinking must keep them. -->
+<resources xmlns:tools="http://schemas.android.com/tools"
+    tools:keep="@raw/v_*,@raw/voice_index" />

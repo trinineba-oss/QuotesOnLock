@@ -346,6 +346,10 @@ The Starry Night theme uses Vincent van Gogh's *The Starry Night* (1889), public
 
 The guided sessions (breathing space, body scan, letting go of tension, loving-kindness, into sleep) are written for the app, drawing on common, freely described relaxation and mindfulness exercises, and are read by the phone's own voice. The practices quote their sources word for word: Seneca, *On Anger* III (tr. Aubrey Stewart, *Minor Dialogues*, Gutenberg #64576); Marcus Aurelius, *Meditations*; Epictetus, *Enchiridion* (tr. Higginson); Defoe, *Robinson Crusoe*. Wind down reads passages already in the collection (Thoreau, Annie Dillard, Kamo no Chōmei, Kenkō, John Muir, Wordsworth, John Clare, George Gissing).
 
+### The natural voice
+
+The recorded voice in Calm (the guided sessions, the practices' lines and the Wind down passages) was made for the app with Kokoro-82M (by hexgrad, Apache License 2.0), using its "Heart" voice, run offline once when the app was built: about 12 minutes of speech in 151 short recordings (res/raw/v_*.ogg, listed in voice_index.txt). Lines that are not recorded, such as your favourites in Slow reading and every quote elsewhere, are read by the phone's own voice; Read aloud settings can switch the recorded voice off.
+
 ### Inside the temple
 
 The "Inside the temple" theme, shown behind the singing bowls in Calm, was drawn for the app (a zen hall at night, made with a small script from simple shapes), so it uses no outside picture. The candle flames, the lantern's flicker, the incense smoke and the drifting dust are drawn by the app as it runs.

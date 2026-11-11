@@ -51,6 +51,7 @@ fun ReadAloudSettings(prefs: QuotePrefs, onLockScreenChanged: () -> Unit) {
     var rate by remember { mutableFloatStateOf(prefs.voiceRate) }
     var voiceName by remember { mutableStateOf(prefs.voiceName) }
     var notifRead by remember { mutableStateOf(prefs.notifRead) }
+    var natural by remember { mutableStateOf(prefs.naturalVoice) }
     var voices by remember { mutableStateOf(emptyList<Voice>()) }
     var menu by remember { mutableStateOf(false) }
     val speaking by QuoteVoice.speaking.collectAsState()
@@ -100,6 +101,17 @@ fun ReadAloudSettings(prefs: QuotePrefs, onLockScreenChanged: () -> Unit) {
                     }
                 }
             }
+        }
+        Row(verticalAlignment = Alignment.CenterVertically) {
+            Column(Modifier.weight(1f)) {
+                Text("Natural voice in Calm")
+                Text(
+                    "Guided sessions, practices and Wind down are read by a recorded natural voice, kept in the app. " +
+                        "Off: your phone's voice reads them. Quotes always use your phone's voice.",
+                    style = MaterialTheme.typography.bodySmall,
+                )
+            }
+            Switch(checked = natural, onCheckedChange = { natural = it; prefs.naturalVoice = it })
         }
         Row(verticalAlignment = Alignment.CenterVertically) {
             Column(Modifier.weight(1f)) {

@@ -1,0 +1,152 @@
+# Recorded lines for the natural voice: resource name | the line, as the app speaks it (whitespace collapsed).
+v_000|Find a way of sitting or lying that feels steady. You can close your eyes, or let them rest on one spot.
+v_001|This is a short pause in three steps. There's nothing to get right.
+v_002|First, notice what is here right now.
+v_003|What thoughts are passing through? You don't need to follow them. Just notice that they are there.
+v_004|What feelings are here? Perhaps something pleasant, something difficult, or nothing much at all.
+v_005|And what can you feel in your body? Any tightness, warmth, heaviness, or ease.
+v_006|Whatever you find, let it be as it is for now. You are only taking a look.
+v_007|Now, gently, gather your attention onto your breathing.
+v_008|Feel the breath coming in, and the breath going out, wherever you notice it most.
+v_009|When your mind wanders, and it will, simply notice where it went, and come back to the next breath.
+v_010|There's no need to change the breath. Let it find its own rhythm.
+v_011|In, and out. Each breath a small place to rest.
+v_012|Now let your attention widen, from the breath to the whole body.
+v_013|Feel the body sitting or lying here, breathing. The weight of it. The space around it.
+v_014|If there is any discomfort, you might breathe towards it, and on the out-breath let it soften, just a little.
+v_015|As this pause comes to an end, take this wider awareness with you into whatever comes next.
+v_016|Thank you for taking this time.
+v_017|Settle into a comfortable position, lying down if you can. Let your arms rest by your sides.
+v_018|Close your eyes if that feels right. Take a few slower breaths, and let each out-breath be a little longer than the one before.
+v_019|In this practice we will move our attention slowly through the body. You don't have to relax. Just notice what is there.
+v_020|Begin with your feet.
+v_021|Notice the toes, the soles, the heels. Perhaps warmth or coolness, the touch of a blanket or socks, or perhaps no sensation at all. That's fine too.
+v_022|Imagine the breath travelling all the way down to the feet, and on the out-breath, let them be heavy.
+v_023|Now move up to the ankles and the lower legs.
+v_024|The shins, the calves. Notice any tingling, or tiredness, or ease.
+v_025|Now the knees, and the thighs.
+v_026|Feel the weight of the legs, resting, supported.
+v_027|If your mind has wandered, that's what minds do. Gently bring it back to where you were.
+v_028|Now the hips and the pelvis.
+v_029|Notice where the body meets the surface beneath you. Let it carry your weight.
+v_030|Now the lower back, and the belly.
+v_031|Feel the belly rising as you breathe in, and falling as you breathe out.
+v_032|There's nothing to fix. Just this rising, and this falling.
+v_033|Now the chest, and the upper back.
+v_034|Notice the heart beating, if you can feel it. The ribs widening and settling with each breath.
+v_035|Now the hands.
+v_036|The fingers, the palms, the backs of the hands. Perhaps a pulse in the fingertips.
+v_037|Now the arms. The wrists, the forearms, the elbows, the upper arms.
+v_038|Let them be heavy.
+v_039|Now the shoulders.
+v_040|Shoulders often carry a lot. On the next out-breath, let them soften and drop, just a little.
+v_041|And again, breathing out, letting go of whatever they don't need to hold.
+v_042|Now the neck and the throat.
+v_043|Notice the breath moving through the throat, cool coming in, warmer going out.
+v_044|Now the face.
+v_045|The jaw, letting the teeth part slightly. The cheeks. The eyes, resting in their sockets. The forehead, smooth and wide.
+v_046|And now the top of the head.
+v_047|Now let your attention spread through the whole body at once, from the top of the head to the soles of the feet, breathing.
+v_048|Resting here, as a whole body, breathing, alive.
+v_049|When you are ready, let a little movement come back into your fingers and toes.
+v_050|Take your time, and open your eyes when you choose.
+v_051|Find a comfortable position, sitting or lying. In this practice you will gently tense a group of muscles for a few seconds, then let go, and notice the difference.
+v_052|Tense only to a mild, comfortable level, never to the point of pain. If any part of your body is injured or sore, simply skip it and just breathe.
+v_053|Take a slow breath in, and a long breath out.
+v_054|Begin with your hands. Make both hands into fists, and squeeze gently.
+v_055|Hold, and notice the tightness.
+v_056|And let go. Let the fingers fall open. Notice how the hands feel now, warm, heavy, loose.
+v_057|Once more, squeeze the fists. Hold. And release.
+v_058|Now bend your arms and tense the upper arms, as if showing your muscles.
+v_059|Hold it there.
+v_060|And release. Let the arms fall back and rest.
+v_061|Now raise your shoulders up towards your ears.
+v_062|Hold them there.
+v_063|And let them drop. Feel the shoulders settle further than before.
+v_064|Again, shoulders up. Hold. And let them fall.
+v_065|Now the face. Scrunch up your eyes and forehead.
+v_066|Hold.
+v_067|And release. Let the forehead be smooth and the eyes soft.
+v_068|Press your lips together and clench your jaw lightly.
+v_069|And let go. Let the jaw hang loose, the tongue resting.
+v_070|Now take a deep breath in and hold it, feeling the chest tighten.
+v_071|And breathe out slowly. Let the chest soften.
+v_072|Now gently pull in your stomach muscles.
+v_073|And release. Let the belly be soft, breathing freely.
+v_074|Now the legs. Press your knees together and tighten your thighs.
+v_075|And release.
+v_076|Now point your toes away from you, tightening the calves.
+v_077|And let go.
+v_078|Now pull your toes up towards you.
+v_079|And release. Feel the whole of each leg, heavy and loose.
+v_080|Now let your attention move slowly over the whole body. If you find any tension left, breathe towards it, and on the out-breath, let it go.
+v_081|Rest here. There's nothing you need to do now.
+v_082|Notice the feeling of a body that has let go. Remember it. You can come back to it whenever you need.
+v_083|When you are ready, take a deeper breath, stretch a little, and open your eyes.
+v_084|Sit comfortably, and let your breathing settle. This practice is about wishing well, quietly, in your own words.
+v_085|It is very old: the Buddha taught it as one of the "divine abodes" of the heart. It doesn't matter whether you feel warmth at first. The intention is enough.
+v_086|Begin with yourself. Silently repeat these phrases, slowly, letting each one land.
+v_087|May I be safe.
+v_088|May I be peaceful.
+v_089|May I be kind to myself.
+v_090|May I accept myself as I am.
+v_091|If this feels hard, picture yourself as a small child, and offer the wishes to that child.
+v_092|Now bring to mind someone you love easily, a friend, a family member, even a pet. Picture them.
+v_093|May you be safe.
+v_094|May you be peaceful.
+v_095|May you be happy.
+v_096|May you be free from suffering.
+v_097|Now think of someone you hardly know: a neighbour, a shop assistant, someone you passed today. They want to be happy too.
+v_098|If you are ready, think of someone you find difficult. Not the hardest person, just someone who troubles you a little.
+v_099|May you be safe. May you be peaceful.
+v_100|May you be free from the suffering that makes you act as you do.
+v_101|Now let the wishes spread out, wider and wider, to everyone in this town, this country, the whole world. To every living being.
+v_102|May all beings be safe.
+v_103|May all beings be peaceful.
+v_104|May all beings be happy and free.
+v_105|Rest for a moment in whatever you feel now.
+v_106|And when you are ready, return.
+v_107|Lie down in bed, and let your head sink into the pillow.
+v_108|There is nothing more to do today. Whatever was left undone can wait until tomorrow. It will still be there, and so will you.
+v_109|Take a slow breath in, and let it out with a sigh.
+v_110|And again. Breathing in, and a long, slow breath out.
+v_111|Let your eyes be heavy. Let your jaw be loose.
+v_112|Feel the weight of your body on the bed. The bed holds all of you. You don't have to hold yourself up.
+v_113|Each time you breathe out, let yourself sink a little deeper into it.
+v_114|Now let your breathing slow down by itself. Don't force it. Just notice it getting a little slower, a little softer.
+v_115|In, and out.
+v_116|If thoughts come, that's alright. Picture each one as a leaf on a slow river. Watch it drift by, and let it go.
+v_117|There's nowhere to go. Nothing to solve.
+v_118|Now picture a place where you feel completely safe. A real place, or one you imagine.
+v_119|Notice the light there. The colours. The sounds. The air on your skin.
+v_120|Let yourself stay there, as long as you like.
+v_121|Your hands are heavy and warm.
+v_122|Your legs are heavy and warm.
+v_123|Your whole body is heavy, warm and still.
+v_124|Sinking, softly, into rest.
+v_125|You can stop listening now, whenever you like, and let sleep come in its own time.
+v_126|Goodnight.
+v_127|I make use of this privilege, and daily plead my cause before myself: when the lamp is taken out of my sight, and my wife, who knows my habit, has ceased to talk, I pass the whole day in review before myself, and repeat all that I have said and done: I conceal nothing from myself, and omit nothing
+v_128|Look down, as from some eminence, upon the innumerable herds, the countless solemn festivals, the voyaging of every sort, in tempests and in calms; the different states of those who come into life, enter upon life's associations, and leave it in the end.
+v_129|Close your eyes, and take a slow breath.
+v_130|Picture yourself where you are now, as if from the ceiling, looking down.
+v_131|Now rise higher, above the building. See the roofs, the streets, the people going about their day.
+v_132|Higher still. The whole town, then the country, rivers and roads like threads.
+v_133|Now the whole earth, turning slowly in the dark. Every life on it, all at once.
+v_134|From here, look at whatever has been troubling you. See how small it is, beside all of this.
+v_135|It still matters. But it is one small part of a very large, very old world, that has held countless troubles and carried on.
+v_136|Now come slowly back down, bringing a little of this wider view with you.
+v_137|There are things which are within our power, and there are things which are beyond our power. Within our power are opinion, aim, desire, aversion, and, in one word, whatever affairs are our own. Beyond our power are body, property, reputation, office, and, in one word, whatever are not properly our own affairs.
+v_138|All our discontents about what we want appeared to me to spring from the want of thankfulness for what we have.
+v_139|Gradually the village murmur subsided, and we seemed to be embarked on the placid current of our dreams, floating from past to future as silently as one awakes to fresh morning or evening thoughts.
+v_140|It has always been a happy thought to me that the creek runs on all night, new every minute, whether I wish it or know it or care, as a closed book on a shelf continues to whisper to itself its own inexhaustible tale.
+v_141|On tranquil nights I gaze upon the moon’s orb shining in through my window, and think of the great figures of the men of old, or am moved to tears that drench my sleeves by the mournful cries of the monkeys in the neighbouring thickets.
+v_142|And must we always look on the moon and the blossoms with the eye alone? Nay, in the very thought thereof, in the Spring though we do not go abroad, on moonlit nights though we keep our chamber, there is great comfort and delight.
+v_143|Far up the Pilot Peak Ridge the radiant host of trees stand hushed and thoughtful, receiving the Sun’s good-night, as solemn and impressive a leave-taking as if sun and trees were to meet no more.
+v_144|O there is blessing in this gentle breeze, A visitant that while it fans my cheek Doth seem half-conscious of the joy it brings From the green fields, and from yon azure sky.
+v_145|When once the sun sinks in the west, And dew-drops pearl the evening's breast; Almost as pale as moonbeams are, Or its companionable star, The evening primrose opes anew Its delicate blossoms to the dew; And, shunning-hermit of the light, Wastes its fair bloom upon the night; Who, blindfold to its fond caresses, Knows not the beauty he possesses.
+v_146|I have the happiness of the passing moment, and what more can mortal ask?
+v_147|If the day and the night are such that you greet them with joy, and life emits a fragrance like flowers and sweet-scented herbs, is more elastic, more starry, more immortal,—that is your success.
+v_148|And so this memorable month ends, a stream of beauty unmeasured, no more to be sectioned off by almanac arithmetic than sun-radiance or the currents of seas and rivers—a peaceful, joyful stream of beauty.
+v_149|When I get tired of reciting prayers or of reading the scriptures I can rest at will; no one is by to prevent me, no friend to reproach me. I have made no vow of silence, but my lonely life stops my lips’ play.
+v_150|Of the flowing river the flood ever changeth, on the still pool the foam gathering, vanishing, stayeth not. Such too is the lot of men and of the dwellings of men in this world of ours.
