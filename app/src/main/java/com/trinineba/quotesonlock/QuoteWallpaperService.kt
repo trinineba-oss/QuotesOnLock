@@ -97,6 +97,7 @@ class QuoteWallpaperService : WallpaperService() {
                     AppTheme.AURORA -> drawAurora(canvas, if (moving()) t * 2f * PI.toFloat() / 10f else 1.2f)
                     AppTheme.BUTTERFLY -> ButterflyArt.draw(canvas, width.toFloat(), height.toFloat(), if (moving()) t else 3f, resources.displayMetrics.density)
                     AppTheme.WATER -> drawWater(canvas, t)
+                    AppTheme.DROP -> drawDrop(canvas, t)
                     AppTheme.RAIN -> drawRain(canvas, t, night = false)
                     AppTheme.RAIN_NIGHT -> drawRain(canvas, t, night = true)
                     AppTheme.SNOW, AppTheme.CANDLE, AppTheme.FIREFLIES, AppTheme.LAVENDER, AppTheme.CLOUDS, AppTheme.WAVES, AppTheme.BAMBOO, AppTheme.ZEN, AppTheme.BOOK -> {
@@ -183,6 +184,28 @@ class QuoteWallpaperService : WallpaperService() {
                 canvas.drawRect(0f, 0f, width.toFloat(), height.toFloat(), Paint().apply { this.shader = shader })
             } else {
                 drawCover(canvas, bitmap(if (night) R.drawable.rain_night_still else R.drawable.rain_still))
+            }
+        }
+
+        private var dropShader: RuntimeShader? = null
+        private var dropShaderFailed = false
+
+        /** A single drop on the GPU (Android 13+, hardware canvas); otherwise the still picture. */
+        private fun drawDrop(canvas: Canvas, t: Float) {
+            val shader = if (moving() && !dropShaderFailed && Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU && canvas.isHardwareAccelerated) {
+                dropShader ?: runCatching { RuntimeShader(DropArt.SHADER) }.getOrNull().also {
+                    dropShader = it
+                    dropShaderFailed = it == null
+                }
+            } else {
+                null
+            }
+            if (shader != null && Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+                shader.setFloatUniform("res", width.toFloat(), height.toFloat())
+                shader.setFloatUniform("time", t % 3600f)
+                canvas.drawRect(0f, 0f, width.toFloat(), height.toFloat(), Paint().apply { this.shader = shader })
+            } else {
+                drawCover(canvas, bitmap(R.drawable.drop_still))
             }
         }
 

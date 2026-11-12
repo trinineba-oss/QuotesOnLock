@@ -132,6 +132,10 @@ enum class AppTheme(
     ZEN(
         "zen", "Inside the temple", "Candlelight and incense smoke", R.drawable.notif_frame_zen, 0xFF2A1E14.toInt(),
         0xFFF3EEE4.toInt(), 0xFFF0B98C.toInt(),
+    ),
+    DROP(
+        "drop", "A single drop", "A drop falling into still water", R.drawable.notif_frame_drop, 0xFF0A1A24.toInt(),
+        0xFFF2F4F2.toInt(), 0xFFF2B66B.toInt(),
     );
 
     /** The calm themes drawn by [CalmArt]. */
@@ -291,6 +295,7 @@ fun AppTheme.colorScheme(cardOpacity: Float): ColorScheme? = when (this) {
     AppTheme.CLOUDS -> calmScheme(false, 0xFF3E6E9E, 0xFFF4F8FC, 0xFF24364A, 0xFF4A5E74, cardOpacity)
     AppTheme.WAVES -> calmScheme(true, 0xFFFFC9A8, 0xFF10203A, 0xFFF4EEF2, 0xFFD6CCD8, cardOpacity)
     AppTheme.BAMBOO -> calmScheme(false, 0xFF3F6E33, 0xFFF2F7EE, 0xFF1F3324, 0xFF45604A, cardOpacity)
+    AppTheme.DROP -> calmScheme(true, 0xFFF2B66B, 0xFF0A1A24, 0xFFF0F2F0, 0xFFC9D3D6, cardOpacity)
     AppTheme.ZEN -> calmScheme(true, 0xFFF0B98C, 0xFF2A1E14, 0xFFF3EEE4, 0xFFD8C9B2, cardOpacity)
     AppTheme.BUTTERFLY -> lightColorScheme(
         primary = Color(0xFFC2185B),
@@ -338,7 +343,7 @@ private fun calmScheme(dark: Boolean, accent: Long, card: Long, text: Long, text
 fun AppTheme.typography(base: Typography): Typography = when (this) {
     AppTheme.CLASSIC -> base
     AppTheme.STARRY, AppTheme.AURORA, AppTheme.SPACE, AppTheme.WATER, AppTheme.RAIN, AppTheme.RAIN_NIGHT,
-    AppTheme.SNOW, AppTheme.CANDLE, AppTheme.FIREFLIES, AppTheme.WAVES -> base.map(
+    AppTheme.SNOW, AppTheme.CANDLE, AppTheme.FIREFLIES, AppTheme.WAVES, AppTheme.DROP -> base.map(
         headings = { it.copy(fontFamily = FontFamily.Serif) },
         all = { it.copy(shadow = Shadow(Color(0xE6000000), Offset(0f, 2f), 8f)) },
     )
@@ -375,6 +380,7 @@ fun ThemedBackground(theme: AppTheme, animate: Boolean, auroraIntensity: Float =
         AppTheme.BUTTERFLY -> ButterflyBackground(animate)
         AppTheme.SPACE -> SpaceBackground(animate)
         AppTheme.WATER -> WaterBackground(animate)
+        AppTheme.DROP -> DropBackground(animate)
         AppTheme.RAIN -> RainBackground(animate, night = false)
         AppTheme.RAIN_NIGHT -> RainBackground(animate, night = true)
         AppTheme.SNOW, AppTheme.CANDLE, AppTheme.FIREFLIES, AppTheme.LAVENDER, AppTheme.CLOUDS, AppTheme.WAVES, AppTheme.BAMBOO, AppTheme.ZEN -> CalmBackground(theme, animate)
@@ -416,6 +422,39 @@ private fun RainOnGlass(shader: RuntimeShader, night: Boolean) {
             shader, sceneShader, fogShader, scene.width, scene.height, size.width, size.height, time,
             streaks = if (night) 0f else 1f, lensLift = if (night) 0.6f else 0f,
         )
+        drawRect(brush)
+    }
+}
+
+@Composable
+private fun DropBackground(animate: Boolean) {
+    // If the GPU can't build the shader, show the still picture rather than fail.
+    val shader = if (animate && Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+        remember { runCatching { RuntimeShader(DropArt.SHADER) }.getOrNull() }
+    } else {
+        null
+    }
+    if (shader != null && Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+        FallingDrop(shader)
+    } else {
+        Image(
+            painter = painterResource(R.drawable.drop_still),
+            contentDescription = null,
+            modifier = Modifier.fillMaxSize(),
+            contentScale = ContentScale.Crop,
+        )
+    }
+}
+
+@RequiresApi(Build.VERSION_CODES.TIRAMISU)
+@Composable
+private fun FallingDrop(shader: RuntimeShader) {
+    val brush = remember(shader) { ShaderBrush(shader) }
+    // A loop of 2π·1000 ms makes the value plain seconds.
+    val time by rememberLoopAngle(2000f * PI.toFloat())
+    Canvas(Modifier.fillMaxSize()) {
+        shader.setFloatUniform("res", size.width, size.height)
+        shader.setFloatUniform("time", time % 3600f)
         drawRect(brush)
     }
 }

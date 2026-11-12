@@ -51,6 +51,7 @@ object QuoteShare {
             AppTheme.AURORA -> QuoteArt.drawAurora(canvas, w, h, 1.2f, false, prefs.auroraIntensity, density)
             AppTheme.BOOK -> cover(canvas, BitmapFactory.decodeResource(context.resources, R.drawable.paper))
             AppTheme.BUTTERFLY -> ButterflyArt.draw(canvas, w, h, 3f, density)
+            AppTheme.DROP -> cover(canvas, BitmapFactory.decodeResource(context.resources, R.drawable.drop_still))
             AppTheme.WATER -> cover(canvas, BitmapFactory.decodeResource(context.resources, R.drawable.water))
             AppTheme.RAIN -> cover(canvas, BitmapFactory.decodeResource(context.resources, R.drawable.rain_still))
             AppTheme.RAIN_NIGHT -> cover(canvas, BitmapFactory.decodeResource(context.resources, R.drawable.rain_night_still))

@@ -209,6 +209,7 @@ object QuoteWidgets {
         AppTheme.WAVES -> R.drawable.waves_frame
         AppTheme.BAMBOO -> R.drawable.bamboo_frame
         AppTheme.ZEN -> R.drawable.zen_frame
+        AppTheme.DROP -> R.drawable.drop_frame
         AppTheme.CLASSIC -> null
     }
 
