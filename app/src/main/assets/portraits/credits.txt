@@ -86,3 +86,54 @@ w_e_b_du_bois|William Edward Burghardt Du Bois|1904|https://www.loc.gov/item/200
 washington_irving|Washington Irving|c1900|https://www.loc.gov/item/2018697132/
 wilkie_collins|W. Collins|between 1880 and 1890|https://www.loc.gov/item/2004682548/
 william_shakespeare|William Shakespeare|1849|https://www.loc.gov/item/98517032/
+alexander_pushkin|Luuletaja Aleksander Puškini portree (Art Museum of Estonia, via Europeana, CC0)||https://www.europeana.eu/item/401/item_TWCFJDRG37ISY2FZEJ5JXI4YXFHQAYH6
+andrew_marvell|Portret van dichter Andrew Marvell (Rijksmuseum, via Europeana, Public Domain Mark)||https://www.europeana.eu/item/90402/RP_P_OB_35_928
+august_strindberg|Kabinettsfotografi - August Strindberg (Upplands Museum, via Europeana, CC0)||https://www.europeana.eu/item/91617/upmu_photo_FN06030
+baruch_spinoza|Porträt Baruch de Spinoza (The Albertina Museum, via Europeana, Public Domain Mark)||https://www.europeana.eu/item/15508/https___id_kulturpool_at_26be6780_83b5_4148_a293_e0fe508a9e36_cho
+blaise_pascal|Porträt Blaise Pascal (The Albertina Museum, via Europeana, Public Domain Mark)||https://www.europeana.eu/item/15508/https___id_kulturpool_at_87040d49_f94c_43d5_8477_a524d723fbfa_cho
+chamfort|Chamfort (Catholic University of Leuven, via Europeana, Public Domain Mark)||https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9983491550101488
+daniel_defoe|Daniel Defoe from "Daniel Defoe: his life and recently discovered writings: extending from 1716 to 1 (The British Library, via Europeana, Public Domain Mark)|1869|https://www.europeana.eu/item/2059209/3709_11057191276_5a66ab8824_o_jpg
+david_hume|Porträt David Hume (The Albertina Museum, via Europeana, Public Domain Mark)|1766|https://www.europeana.eu/item/15508/https___id_kulturpool_at_fd778aab_8e53_4467_9ac2_8b0a06f0f1b2_cho
+emile_zola|Portret van Emile Zola (Rijksmuseum, via Europeana, Public Domain Mark)||https://www.europeana.eu/item/90402/RP_F_2001_7_67_36
+erasmus|Portret van Erasmus (Rijksmuseum, via Europeana, Public Domain Mark)|1809|https://www.europeana.eu/item/90402/RP_P_1926_1078
+francis_bacon|Bildnis des Francis Bacon (Leipzig University Library, via Europeana, Public Domain Mark)||https://www.europeana.eu/item/783/item_PUCSLY45EQSZTRLLHD434DSRU4CK7FGL
+francisco_de_quevedo|Retrato de Francisco de Quevedo Material gráfico (Valencian Digital Library, via Europeana, Public Domain Mark)|1772|https://www.europeana.eu/item/343/https___hispana_mcu_es_lod_oai_bivaldi_gva_es_10276_ent0
+francois_rabelais|Portrait of Francois Rabelais (Leipzig University Library, via Europeana, Public Domain Mark)||https://www.europeana.eu/item/783/item_YD5FVK76M7KPRLA6PTIAOZCX37SK3WJA
+geoffrey_chaucer|Porträt Geoffrey Chaucer (The Albertina Museum, via Europeana, Public Domain Mark)|1741|https://www.europeana.eu/item/15508/https___id_kulturpool_at_36eb8281_59ff_4005_84aa_1c1345531ccb_cho
+georg_christoph_lichtenberg|Portrait of Georg Christoph Lichtenberg (Leipzig University Library, via Europeana, Public Domain Mark)||https://www.europeana.eu/item/783/item_33DI3NSKJHY7MFMH3O7RLO6JAEK3YRJV
+goethe|Goethe. Portree (Estonian History Museum, via Europeana, CC0)||https://www.europeana.eu/item/401/item_2QWZJULLHZ3RGMJ7YLXBR7VOWI4KEF6F
+gotthold_ephraim_lessing|Bildnis des Gotthold Ephraim Lessing (Leipzig University Library, via Europeana, Public Domain Mark)|1770|https://www.europeana.eu/item/783/item_4IPGZMRCYZCRTITARJUKOQYC5YJEC4QE
+gustavo_adolfo_becquer|Retrato de Gustavo Adolfo Bécquer Material gráfico no proyectable (Digital Library Real Academia de la Historia, via Europeana, Public Domain Mark)|1861|https://www.europeana.eu/item/344/https___hispana_mcu_es_lod_oai_bibliotecadigital_rah_es_61812_ent0
+heinrich_heine|Heinrich Heine portree (Estonian History Museum, via Europeana, CC0)||https://www.europeana.eu/item/401/item_EWNCE2JQACCF64EWD2FEWXQECY7IYPGP
+henrik_ibsen|Portrett av Henrik Ibsen. (The Norwegian Museum of Cultural History, via Europeana, Public Domain Mark)|1898|https://www.europeana.eu/item/502/_011013555571
+immanuel_kant|Bildnis des Immanuel Kant (Leipzig University Library, via Europeana, Public Domain Mark)||https://www.europeana.eu/item/783/item_ZBDEA55ETGGXWPCQ5JIUJK44HARR6T2P
+james_fenimore_cooper|Bildnis des Fenimore Cooper (Leipzig University Library, via Europeana, Public Domain Mark)||https://www.europeana.eu/item/783/item_PCK22MVC5IG44XEBOXGQX53CSH6BSKAR
+jean_racine|Porträt Jean Racine (The Albertina Museum, via Europeana, Public Domain Mark)||https://www.europeana.eu/item/15508/https___id_kulturpool_at_daffbb4d_c6b6_482b_b632_cfed976c89a1_cho
+johann_wolfgang_von_goethe|Porträt von Johann Wolfgang von Goethe (Deutsche Fotothek, via Europeana, Public Domain Mark)||https://www.europeana.eu/item/463/item_W7G5MNSWQ3FHO57FDIX767OLKPN5ZLSJ
+john_henry_newman|Portret van John Henry Newman (Rijksmuseum, via Europeana, Public Domain Mark)||https://www.europeana.eu/item/90402/RP_F_2001_7_67_26
+john_keats|portrait from "The Poetical Works of John Keats. With a memoir by Richard Monckton Milnes. Illustrat (The British Library, via Europeana, Public Domain Mark)|1854|https://www.europeana.eu/item/2059209/5546_11234355285_f859713d58_o_jpg
+john_milton|Porträt John Milton (The Albertina Museum, via Europeana, Public Domain Mark)|1741|https://www.europeana.eu/item/15508/https___id_kulturpool_at_1dbb6927_c017_4e93_ab67_a3a89819c025_cho
+laurence_sterne|Portret van Laurence Sterne (Rijksmuseum, via Europeana, Public Domain Mark)||https://www.europeana.eu/item/90402/RP_P_1937_1336
+leonardo_da_vinci|Leonardo da Vinci (Library of the Wroclaw University, via Europeana, Public Domain Mark)||https://www.europeana.eu/item/0940429/_nhtp31S
+lord_byron|Bildnis des Lord Byron (Leipzig University Library, via Europeana, Public Domain Mark)||https://www.europeana.eu/item/783/item_AACOTQPBGHNAIVNGKVCZIHOWCI43AU2N
+ludwig_van_beethoven|Bildnis des Ludwig van Beethoven (Leipzig University Library, via Europeana, Public Domain Mark)||https://www.europeana.eu/item/783/item_E5NKD464DVW4FSWKHHTEBQ2OJMYNMMJP
+maurice_maeterlinck|Maurice Maeterlinck (Catholic University of Leuven, via Europeana, Public Domain Mark)||https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9983087930101488
+maxim_gorky|Portrait of Maxim Gorky (Finnish National Gallery, via Europeana, CC0)||https://www.europeana.eu/item/2021012/_CB11B97D8F85768362D61A2A0FF04323
+michel_de_montaigne|Portrait of Michel de Montaigne (Leipzig University Library, via Europeana, Public Domain Mark)||https://www.europeana.eu/item/783/item_3GZZJPKMHN5HPN77NABUCCTK62C2ODYU
+miguel_de_cervantes|Portrait of Miguel de Cervantes Saavedra (Leipzig University Library, via Europeana, Public Domain Mark)|1818|https://www.europeana.eu/item/783/item_CLZMLGBBHT46KOTZGTOL6QO6W24PD4JM
+moliere|Porträt Molière (The Albertina Museum, via Europeana, Public Domain Mark)|1883|https://www.europeana.eu/item/15508/https___id_kulturpool_at_505346db_5edd_4551_85c3_011ee4eb89e1_cho
+niccolo_machiavelli|Portret van Niccolò Machiavelli (Rijksmuseum, via Europeana, Public Domain Mark)|1807|https://www.europeana.eu/item/90402/RP_P_OB_35_926
+oliver_goldsmith|Bildnis des Oliver Goldsmith (Leipzig University Library, via Europeana, Public Domain Mark)||https://www.europeana.eu/item/783/item_HYDTMK3CVK25AWL2XXPA66RS7XVWUMRM
+paul_verlaine|Portret van Paul Verlaine (Rijksmuseum, via Europeana, Public Domain Mark)|1892|https://www.europeana.eu/item/90402/RP_F_W_1749
+petrarch|Petrarch, Francesco Petrarca (The Albertina Museum, via Europeana, Public Domain Mark)||https://www.europeana.eu/item/15508/https___id_kulturpool_at_c7973e27_2b6e_4387_b978_62dc039bbf53_cho
+sandor_petofi|portrait of Sándor Petőfi (Tartu Art Museum, via Europeana, CC0)|1954|https://www.europeana.eu/item/401/item_S4FSB7ZJOG3I2AXPBPHKPZKKR7IAML3L
+selma_lagerlof|Porträt von Selma Lagerlöf (Archive of the German Women’s Movement, via Europeana, Public Domain Mark)||https://www.europeana.eu/item/769/item_ZNWAFBQY3Y5YJ3B7CVN6BM2YMXP2AONK
+teresa_of_avila|Portret van Teresa van Avila (Rijksmuseum, via Europeana, Public Domain Mark)||https://www.europeana.eu/item/90402/RP_T_1965_288
+thomas_a_kempis|Portret van Thomas à Kempis (Rijksmuseum, via Europeana, Public Domain Mark)||https://www.europeana.eu/item/90402/RP_P_OB_27_024
+thomas_de_quincey|Thomas de Quincey (Rijksmuseum, via Europeana, Public Domain Mark)||https://www.europeana.eu/item/90402/RP_F_2001_7_10_4
+thomas_hobbes|Porträt Thomas Hobbes (The Albertina Museum, via Europeana, Public Domain Mark)|1665|https://www.europeana.eu/item/15508/https___id_kulturpool_at_933e92a3_65af_4dea_8704_cbaea2742cd8_cho
+thomas_mann|Portrett, mann med studentlue. Thomas Bonnevie. (The Norwegian Museum of Cultural History, via Europeana, Public Domain Mark)||https://www.europeana.eu/item/502/_011013528450
+thomas_more|Portret van Thomas More (Rijksmuseum, via Europeana, Public Domain Mark)||https://www.europeana.eu/item/90402/RP_P_1904_187
+torquato_tasso|Portrait of Torquato Tasso (Leipzig University Library, via Europeana, Public Domain Mark)||https://www.europeana.eu/item/783/item_R2C3OXM2XWNO3BLA7NXJEBOIKCW3NGEN
+walt_whitman|Porträt von Walt Whitman (Magnus-Hirschfeld-Gesellschaft, via Europeana, Public Domain Mark)||https://www.europeana.eu/item/1288/item_CXTFTMJDW47NJ6OCTD4YV7JCW4P7EFUI
+william_wordsworth|William Wordsworth (Catholic University of Leuven, via Europeana, Public Domain Mark)||https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9983449210101488

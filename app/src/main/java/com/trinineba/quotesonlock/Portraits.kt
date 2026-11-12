@@ -114,7 +114,7 @@ fun AuthorPortrait(name: String, size: Dp = 76.dp) {
                     Image(bitmap = picture, contentDescription = "Portrait of $name", modifier = Modifier.size(240.dp).clip(MaterialTheme.shapes.large))
                     Text(
                         Portraits.credit(context, name).orEmpty().let { c ->
-                            if ("Wikimedia" in c) "$c." else (if (c.isBlank()) "" else "$c. ") + "Library of Congress, Prints and Photographs Division; no known restrictions on publication."
+                            if ("Wikimedia" in c || "Europeana" in c) "$c." else (if (c.isBlank()) "" else "$c. ") + "Library of Congress, Prints and Photographs Division; no known restrictions on publication."
                         },
                         style = MaterialTheme.typography.bodySmall,
                     )
