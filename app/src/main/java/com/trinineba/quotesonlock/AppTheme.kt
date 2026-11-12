@@ -136,13 +136,33 @@ enum class AppTheme(
     DROP(
         "drop", "A single drop", "A drop falling into still water", R.drawable.notif_frame_drop, 0xFF0A1A24.toInt(),
         0xFFF2F4F2.toInt(), 0xFFF2B66B.toInt(),
+    ),
+    BLOSSOM(
+        "blossom", "Falling blossoms", "Petals drifting down", R.drawable.notif_frame_blossom, 0xFFFBF1F5.toInt(),
+        0xFF4A2A38.toInt(), 0xFFB0446A.toInt(),
+    ),
+    MOUNTAINS(
+        "mountains", "Misty mountains", "Mist drifting through the valleys", R.drawable.notif_frame_mountains, 0xFF2B2A38.toInt(),
+        0xFFF4EEF2.toInt(), 0xFFF3C9A4.toInt(),
+    ),
+    LANTERNS(
+        "lanterns", "Floating lanterns", "Lanterns rising over the lake", R.drawable.notif_frame_lanterns, 0xFF141A3A.toInt(),
+        0xFFFFF4E6.toInt(), 0xFFFFC27A.toInt(),
+    ),
+    LEAVES(
+        "leaves", "Autumn leaves", "Leaves twirling down", R.drawable.notif_frame_leaves, 0xFF3A2414.toInt(),
+        0xFFFFF4E6.toInt(), 0xFFF2B266.toInt(),
+    ),
+    SEA(
+        "sea", "Light under the sea", "Sunbeams and swaying kelp", R.drawable.notif_frame_sea, 0xFF082A40.toInt(),
+        0xFFEFFAFF.toInt(), 0xFF9FE3F2.toInt(),
     );
 
     /** The calm themes drawn by [CalmArt]. */
     val isCalm: Boolean get() = this == SNOW || this == CANDLE || this == FIREFLIES || this == LAVENDER || this == CLOUDS || this == WAVES || this == BAMBOO || this == ZEN
 
     /** Light themes use dark text. */
-    val isLight: Boolean get() = this == BOOK || this == BUTTERFLY || this == LAVENDER || this == CLOUDS || this == BAMBOO
+    val isLight: Boolean get() = this == BLOSSOM || this == BOOK || this == BUTTERFLY || this == LAVENDER || this == CLOUDS || this == BAMBOO
 
     companion object {
         fun fromKey(key: String?): AppTheme = entries.firstOrNull { it.key == key } ?: CLASSIC
@@ -295,6 +315,11 @@ fun AppTheme.colorScheme(cardOpacity: Float): ColorScheme? = when (this) {
     AppTheme.CLOUDS -> calmScheme(false, 0xFF3E6E9E, 0xFFF4F8FC, 0xFF24364A, 0xFF4A5E74, cardOpacity)
     AppTheme.WAVES -> calmScheme(true, 0xFFFFC9A8, 0xFF10203A, 0xFFF4EEF2, 0xFFD6CCD8, cardOpacity)
     AppTheme.BAMBOO -> calmScheme(false, 0xFF3F6E33, 0xFFF2F7EE, 0xFF1F3324, 0xFF45604A, cardOpacity)
+    AppTheme.BLOSSOM -> calmScheme(false, 0xFFB0446A, 0xFFFBF1F5, 0xFF4A2A38, 0xFF6E4A5A, cardOpacity)
+    AppTheme.MOUNTAINS -> calmScheme(true, 0xFFF3C9A4, 0xFF2B2A38, 0xFFF4EEF2, 0xFFD6CCD6, cardOpacity)
+    AppTheme.LANTERNS -> calmScheme(true, 0xFFFFC27A, 0xFF141A3A, 0xFFFFF4E6, 0xFFDCD2C8, cardOpacity)
+    AppTheme.LEAVES -> calmScheme(true, 0xFFF2B266, 0xFF3A2414, 0xFFFFF4E6, 0xFFE6D2BC, cardOpacity)
+    AppTheme.SEA -> calmScheme(true, 0xFF9FE3F2, 0xFF082A40, 0xFFEFFAFF, 0xFFC4DCE6, cardOpacity)
     AppTheme.DROP -> calmScheme(true, 0xFFF2B66B, 0xFF0A1A24, 0xFFF0F2F0, 0xFFC9D3D6, cardOpacity)
     AppTheme.ZEN -> calmScheme(true, 0xFFF0B98C, 0xFF2A1E14, 0xFFF3EEE4, 0xFFD8C9B2, cardOpacity)
     AppTheme.BUTTERFLY -> lightColorScheme(
@@ -343,12 +368,12 @@ private fun calmScheme(dark: Boolean, accent: Long, card: Long, text: Long, text
 fun AppTheme.typography(base: Typography): Typography = when (this) {
     AppTheme.CLASSIC -> base
     AppTheme.STARRY, AppTheme.AURORA, AppTheme.SPACE, AppTheme.WATER, AppTheme.RAIN, AppTheme.RAIN_NIGHT,
-    AppTheme.SNOW, AppTheme.CANDLE, AppTheme.FIREFLIES, AppTheme.WAVES, AppTheme.DROP -> base.map(
+    AppTheme.SNOW, AppTheme.CANDLE, AppTheme.FIREFLIES, AppTheme.WAVES, AppTheme.DROP, AppTheme.MOUNTAINS, AppTheme.LANTERNS, AppTheme.LEAVES, AppTheme.SEA -> base.map(
         headings = { it.copy(fontFamily = FontFamily.Serif) },
         all = { it.copy(shadow = Shadow(Color(0xE6000000), Offset(0f, 2f), 8f)) },
     )
     AppTheme.BOOK -> base.map(headings = { it }, all = { it.copy(fontFamily = FontFamily.Serif) })
-    AppTheme.BUTTERFLY, AppTheme.LAVENDER, AppTheme.CLOUDS, AppTheme.BAMBOO, AppTheme.ZEN -> base.map(headings = { it.copy(fontFamily = FontFamily.Serif) }, all = { it })
+    AppTheme.BUTTERFLY, AppTheme.LAVENDER, AppTheme.CLOUDS, AppTheme.BAMBOO, AppTheme.ZEN, AppTheme.BLOSSOM -> base.map(headings = { it.copy(fontFamily = FontFamily.Serif) }, all = { it })
 }
 
 private fun Typography.map(headings: (TextStyle) -> TextStyle, all: (TextStyle) -> TextStyle) = Typography(
@@ -383,7 +408,7 @@ fun ThemedBackground(theme: AppTheme, animate: Boolean, auroraIntensity: Float =
         AppTheme.DROP -> DropBackground(animate)
         AppTheme.RAIN -> RainBackground(animate, night = false)
         AppTheme.RAIN_NIGHT -> RainBackground(animate, night = true)
-        AppTheme.SNOW, AppTheme.CANDLE, AppTheme.FIREFLIES, AppTheme.LAVENDER, AppTheme.CLOUDS, AppTheme.WAVES, AppTheme.BAMBOO, AppTheme.ZEN -> CalmBackground(theme, animate)
+        AppTheme.SNOW, AppTheme.CANDLE, AppTheme.FIREFLIES, AppTheme.LAVENDER, AppTheme.CLOUDS, AppTheme.WAVES, AppTheme.BAMBOO, AppTheme.ZEN, AppTheme.BLOSSOM, AppTheme.MOUNTAINS, AppTheme.LANTERNS, AppTheme.LEAVES, AppTheme.SEA -> CalmBackground(theme, animate)
     }
 }
 

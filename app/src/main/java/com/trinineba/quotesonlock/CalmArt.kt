@@ -53,6 +53,11 @@ internal object CalmArt {
         AppTheme.BAMBOO -> 0xFFCFE0C4.toInt()
         AppTheme.ZEN -> 0xFF2E2116.toInt()
         AppTheme.BOOK -> 0xFFF1E4C6.toInt()
+        AppTheme.BLOSSOM -> 0xFFEBDCE6.toInt()
+        AppTheme.MOUNTAINS -> 0xFF7C7290.toInt()
+        AppTheme.LANTERNS -> 0xFF141A3A.toInt()
+        AppTheme.LEAVES -> 0xFFC98A48.toInt()
+        AppTheme.SEA -> 0xFF10587E.toInt()
         else -> 0xFF101820.toInt()
     }
 
@@ -63,6 +68,7 @@ internal object CalmArt {
         vgKey = ""
         zenKey = ""
         bookKey = ""
+        NatureArt.clear()
     }
 
     private fun scene(theme: AppTheme, canvas: Canvas, w: Float, h: Float, t: Float, d: Float) {
@@ -76,6 +82,8 @@ internal object CalmArt {
             AppTheme.BAMBOO -> bamboo(canvas, w, h, t, d)
             AppTheme.ZEN -> zen(canvas, w, h, t, d)
             AppTheme.BOOK -> book(canvas, w, h, t, d)
+            AppTheme.BLOSSOM, AppTheme.MOUNTAINS, AppTheme.LANTERNS, AppTheme.LEAVES, AppTheme.SEA ->
+                if (!NatureArt.draw(appContext, theme, canvas, w, h, t)) canvas.drawColor(fallback(theme))
             else -> Unit
         }
     }
