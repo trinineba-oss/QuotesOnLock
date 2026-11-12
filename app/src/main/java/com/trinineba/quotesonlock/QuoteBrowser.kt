@@ -34,6 +34,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
@@ -180,7 +181,12 @@ fun QuoteBrowser(
             item { BackArrow(onBack) }
             item {
                 Column {
-                    Text(
+                    if (author != null) {
+                        Row(verticalAlignment = Alignment.CenterVertically) {
+                            AuthorPortrait(author)
+                            Text(author, style = MaterialTheme.typography.headlineSmall, modifier = Modifier.padding(start = 14.dp))
+                        }
+                    } else Text(
                         when {
                             searching -> "Explore"
                             feeling != null -> feeling.heading

@@ -1,0 +1,88 @@
+# Author portraits: slug|title|date|source (public domain; see SOURCES.md)
+abraham_lincoln|Abraham Lincoln|between 1860 and 1865|https://www.loc.gov/item/2006677676/
+albert_einstein|Albert Einstein, 1879-1955|c1947|https://www.loc.gov/item/2004671908/
+aleksandr_solzhenitsyn|Aleksandr Solzhenitsyn, head-and-shoulders portrait, facing front, speaking at a meeting of the AFL-CIO|June 31 1975|https://www.loc.gov/item/2015647011/
+alexander_pope|Mr. Alexander Pope|1731|https://www.loc.gov/item/2006680515/
+alexander_von_humboldt|Baron Alexander von Humboldt, half-length portrait, facing front|between 1850 and 1859|https://www.loc.gov/item/2005692506/
+alfred_lord_tennyson|Portrait of Alfred, Lord Tennyson|1867 April|https://www.loc.gov/item/96507686/
+algernon_charles_swinburne|Algernon Charles Swinburne, 1827-1909, bust portrait, facing left|c1901|https://www.loc.gov/item/2005689309/
+ambrose_bierce|Bierce, Ambrose, at the Bohemian Club Grove|between 1896 and 1914|https://www.loc.gov/item/2018717437/
+anthony_trollope|Anthony Trollope, bust portrait, facing front|between 1860 and 1869|https://www.loc.gov/item/00650505/
+anton_chekhov|Antonʺ Chekhovʺ|1905|https://www.loc.gov/item/2012648263/
+arthur_schopenhauer|Johann Schäfer (Wikimedia Commons, Public domain)|March 1859|https://commons.wikimedia.org/wiki/File:Arthur_Schopenhauer_by_J_Sch%C3%A4fer,_1859b.jpg
+auguste_rodin|Auguste Rodin|1905|https://www.loc.gov/item/2006691706/
+ben_jonson|Ben Jonson|between ca 1830 and 1836|https://www.loc.gov/item/2009617622/
+benjamin_franklin|Benjamin Franklin|1782|https://www.loc.gov/item/2003675421/
+booker_t_washington|Booker T. Washington|approximately 1910|https://www.loc.gov/item/2013649123/
+carl_sagan|Carl Sagan during an interview|1980|https://www.loc.gov/item/2026160308/
+charles_baudelaire|Charles Baudelaire, bust portrait, maturity|c1902|https://www.loc.gov/item/2018653979/
+charles_darwin|Portrait of Charles Darwin|ca 1870|https://www.loc.gov/item/2004674431/
+charles_dickens|Charles Dickens|1867|https://www.loc.gov/item/2019631492/
+charlotte_bronte|Charlotte Brontë|between 1870 and 1880|https://www.loc.gov/item/2005696300/
+edgar_allan_poe|Edgar Allan Poe|1896|https://www.loc.gov/item/2018697260/
+eleanor_roosevelt|Eleanor Roosevelt, head-and-shoulders portrait, facing front|c1945|https://www.loc.gov/item/93503451/
+elizabeth_barrett_browning|Elizabeth Barrett Browning|4/29/12 (date created or published later by Bain)|https://www.loc.gov/item/2014683565/
+emily_dickinson|Emily Dickinson, head-and-shoulders portrait, facing right|1894|https://www.loc.gov/item/96518224/
+ernest_hemingway|Ernest Hemingway seated at typewriter|1939|https://www.loc.gov/item/2002736785/
+frederick_douglass|Frederick Douglass|1868|https://www.loc.gov/item/2014645333/
+friedrich_nietzsche|Friedrich Hermann Hartmann (Wikimedia Commons, Public domain)|circa 1875|https://commons.wikimedia.org/wiki/File:Nietzsche187a.jpg
+friedrich_schiller|Fredrich von Schiller|c1905|https://www.loc.gov/item/2006677580/
+galileo_galilei|Galileo|1853|https://www.loc.gov/item/2014645305/
+george_bernard_shaw|Portrait of George Bernard Shaw|c1905|https://www.loc.gov/item/2004674432/
+george_eliot|George Eliot|no date recorded on shelflist card|https://www.loc.gov/item/2003677578/
+george_meredith|George Meredith, sitting in chair, three-quarter-length portrait|between 1900 and 1920|https://www.loc.gov/item/2016796471/
+georgia_o_keeffe|Georgia O'Keeffe|1919|https://www.loc.gov/item/2005679119/
+giovanni_boccaccio|Giovanni Boccaccio, half-length portrait|1833|https://www.loc.gov/item/2018652299/
+harriet_beecher_stowe|Harriet Beecher Stowe|ca 1870|https://www.loc.gov/item/2016652290/
+helen_keller|Helen Keller, no. 8|c1904 October 28|https://www.loc.gov/item/2009633161/
+henri_bergson|Henri Bergson|no date recorded on caption card|https://www.loc.gov/item/2014718527/
+henry_david_thoreau|Henry David Thoreau, head-and-shoulders portrait, facing slightly right|c1879|https://www.loc.gov/item/95513963/
+henry_wadsworth_longfellow|Henry W. Longfellow|1876|https://www.loc.gov/item/2015651534/
+herman_melville|Herman Melville, head-and-shoulders portrait, facing left|ca 1944|https://www.loc.gov/item/2005694855/
+honore_de_balzac|Honore de Balzac, bust portrait, maturity|c1895|https://www.loc.gov/item/2018653983/
+ivan_turgenev|Ilya Repin (Wikimedia Commons, Public domain)|1874|https://commons.wikimedia.org/wiki/File:Turgenev_by_Repin.jpg
+j_krishnamurti|J. Krishnamurti|no date recorded on caption card|https://www.loc.gov/item/2014719002/
+james_weldon_johnson|James Weldon Johnson, half-length portrait at desk with telephone|between 1900 and 1920|https://www.loc.gov/item/95518635/
+jane_austen|Cassandra Austen (Wikimedia Commons, Public domain)|circa 1810|https://commons.wikimedia.org/wiki/File:CassandraAusten-JaneAusten(c.1810)_hires.jpg
+jean_jacques_rousseau|Jean-Jacques Rousseau, half-length portrait, facing left with right hand on chest, wearing fur-trimmed coat and hat|1766|https://www.loc.gov/item/2012645515/
+john_locke|J. Locke|between 1830 and 1832|https://www.loc.gov/item/2004672071/
+john_ruskin|John Ruskin|between 1863 and 1870|https://www.loc.gov/item/2007683143/
+john_stuart_mill|J. Stuart Mill|1884|https://www.loc.gov/item/2004678579/
+jose_rizal|Jose Rizal, 1861-1896, bust portrait, facing left|no date recorded on caption card|https://www.loc.gov/item/2005686023/
+joseph_brodsky|New Poet Laureate meets the press|5/17/91 17 May 1991|https://www.loc.gov/item/2021638472/
+joseph_conrad|Joseph Conrad, half-length portrait, standing, facing left|1923|https://www.loc.gov/item/99404140/
+knut_hamsun|Knut Hamsun|no date recorded on caption card|https://www.loc.gov/item/2014719536/
+kurt_vonnegut|Kurt Vonnegut, half-length portrait, seated outdoors in Concord, N.H.|1971|https://www.loc.gov/item/2006689911/
+langston_hughes|Portrait of Langston Hughes|1943|https://www.loc.gov/item/2017858893/
+leo_tolstoy|Leo Tolstoy 1897|1897|https://www.loc.gov/item/2014645312/
+louisa_may_alcott|Louisa May Alcott, writer, abolitionist, and Civil War nurse|ca 1870|https://www.loc.gov/item/2017660625/
+luis_de_camoes|Luis de Camoe|1883|https://www.loc.gov/item/2025164297/
+marie_curie|Marie Skłodowska Curie, half-length portrait, seated, facing right|between 1890 and 1934|https://www.loc.gov/item/96512741/
+mark_twain|"Mark Twain"|c1907 May 20|https://www.loc.gov/item/2004672770/
+martin_luther_king_jr|Martin Luther King press conference|1964 Mar 26|https://www.loc.gov/item/2003688129/
+mary_wollstonecraft|Mary Wollstonecraft, half-length portrait, facing left|between 1850 and 1870|https://www.loc.gov/item/2004680088/
+michael_faraday|Michael Faraday, half-length portrait, three-quarters to the right, seated in chair, hand resting on table|between 1844 and 1860|https://www.loc.gov/item/2004663942/
+michelangelo|Michel-Ange|between 1808 and 1830|https://www.loc.gov/item/99406796/
+nathaniel_hawthorne|Nathaniel Hawthorne|published 1851|https://www.loc.gov/item/93507969/
+olaudah_equiano|Frontispiece and title page from: The interesting narrative of the life of Olaudah Equiano|1794|https://www.loc.gov/item/98501896/
+oscar_wilde|Oscar Wilde|c1882|https://www.loc.gov/item/93517594/
+paul_laurence_dunbar|Paul Lawrence sic Dunbar|published 1905|https://www.loc.gov/item/93509689/
+phillis_wheatley|Phillis Wheatley, Negro servant to Mr. John Wheatley, of Boston|1773|https://www.loc.gov/item/2002712199/
+ralph_waldo_emerson|Ralph Waldo Emerson|1859|https://www.loc.gov/item/2003688869/
+robert_browning|Robert Browning, half-length portrait, seated, facing right|between 1862 and 1869|https://www.loc.gov/item/00650499/
+robert_burns|Portrait of Robert Burns, Ayr, Scotland|between ca 1890 and ca 1900|https://www.loc.gov/item/2001703585/
+robert_frost|Robert Frost, poet who is 85 years old today|1959|https://www.loc.gov/item/98506660/
+robert_louis_stevenson|Robert Louis Stevenson|1909|https://www.loc.gov/item/2018697258/
+rudyard_kipling|Rudyard Kipling, head-and-shoulders portrait, facing front|c1891|https://www.loc.gov/item/97518138/
+samuel_johnson|Dr. Samuel Johnson, half-length portrait|cbetween 1900 and 1920|https://www.loc.gov/item/2016817153/
+samuel_smiles|George Reid (Wikimedia Commons, Public domain)|1877|https://commons.wikimedia.org/wiki/File:Samuel_Smiles_by_Sir_George_Reid.jpg
+sara_teasdale|Felsinger, Sara Teasdale, Mrs., portrait photograph|1919 July 11|https://www.loc.gov/item/2018711739/
+seamus_heaney|Seamus Heaney , Irish poet, NYC|November 1982|https://www.loc.gov/item/2020731120/
+sren_kierkegaard|La Biblioteca Real de Dinamarca (Wikimedia Commons, Public domain)|circa 1840|https://commons.wikimedia.org/wiki/File:S%C3%B8ren_Kierkegaard_(1813-1855)_-_(cropped).jpg
+thomas_paine|Thomas Paine|1836|https://www.loc.gov/item/2008676219/
+victor_hugo|Victor Hugo|1851|https://www.loc.gov/item/90708026/
+virginia_woolf|Virginia Woolf : indeed, I would venture to guess that Anon, who wrote so many poems without signing them, was often a woman|between 1965 and 1980|https://www.loc.gov/item/2016648590/
+w_e_b_du_bois|William Edward Burghardt Du Bois|1904|https://www.loc.gov/item/2004670383/
+washington_irving|Washington Irving|c1900|https://www.loc.gov/item/2018697132/
+wilkie_collins|W. Collins|between 1880 and 1890|https://www.loc.gov/item/2004682548/
+william_shakespeare|William Shakespeare|1849|https://www.loc.gov/item/98517032/
