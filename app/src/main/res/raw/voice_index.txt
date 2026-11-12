@@ -150,3 +150,121 @@ v_147|If the day and the night are such that you greet them with joy, and life e
 v_148|And so this memorable month ends, a stream of beauty unmeasured, no more to be sectioned off by almanac arithmetic than sun-radiance or the currents of seas and rivers—a peaceful, joyful stream of beauty.
 v_149|When I get tired of reciting prayers or of reading the scriptures I can rest at will; no one is by to prevent me, no friend to reproach me. I have made no vow of silence, but my lonely life stops my lips’ play.
 v_150|Of the flowing river the flood ever changeth, on the still pool the foam gathering, vanishing, stayeth not. Such too is the lot of men and of the dwellings of men in this world of ours.
+v_151|Before the day begins, take a moment here. Sit up, or stay lying down if you are still in bed.
+v_152|Take a slow breath in, and let it go. There's no hurry yet.
+v_153|Notice that you are here. A new day, that hasn't happened before.
+v_154|Feel the air on your face, the weight of your body, the light coming in, however much there is.
+v_155|Stretch a little, if you like. Your arms, your neck, your back.
+v_156|Whatever kind of night it was, let it be over now.
+v_157|Now think of one thing you are looking forward to today. It can be very small. A cup of tea. A walk. A voice you'll hear.
+v_158|Let yourself feel a little of that, already.
+v_159|And think of one thing that might be hard today.
+v_160|You don't have to solve it now. Just know that you will meet it as it comes, one part at a time.
+v_161|Now choose one way you would like to be today. Patient, perhaps. Or kind. Or simply present.
+v_162|Say it to yourself, quietly, as a gentle intention, not a rule.
+v_163|If the day pulls you away from it, as days do, you can come back to it at any moment, with one breath.
+v_164|Take one more slow breath, a little deeper than the others.
+v_165|And go gently into your day.
+v_166|Find a comfortable way to sit or lie down. This is a short pause for when things are hard.
+v_167|Take a slow breath, and as you breathe out, let your shoulders soften.
+v_168|Bring to mind what is difficult right now. Not the hardest thing in your life, just what is weighing on you today.
+v_169|Notice how it feels in your body. Perhaps a tightness in the chest, a heaviness, a knot in the stomach.
+v_170|Now say to yourself, gently: this is a moment of suffering. This is hard.
+v_171|You don't have to pretend it isn't.
+v_172|And remember: everyone struggles. Others feel this too. You are not alone in it, even if it feels that way.
+v_173|Somewhere, right now, many people feel just as you do.
+v_174|Now, if it feels right, place a hand on your heart, or on your cheek, or wherever is comforting.
+v_175|Feel the warmth of your hand. Let it be a kind hand, the way you would comfort a friend.
+v_176|Breathe with it. In, and out. Let the warmth spread a little.
+v_177|Now offer yourself some words of kindness. Perhaps: may I be kind to myself. May I give myself what I need.
+v_178|Or find your own words, whatever you would say to someone you love who was going through this.
+v_179|If being kind to yourself feels strange, or even hard, that's alright. Just notice that, and let the wish be there anyway.
+v_180|Stay here for a few more breaths, with your hand, and your kindness.
+v_181|When you are ready, take a deeper breath, and go on with your day as gently as you can.
+v_182|Sit comfortably, and let your eyes close, or rest them on one spot.
+v_183|Take a few slow breaths, and let your body settle.
+v_184|Now imagine you are sitting beside a gentle stream. The water is slow and clear.
+v_185|Leaves are floating past on the surface, one after another, carried by the current.
+v_186|You might hear the water. Feel the ground beneath you. See the light on the stream.
+v_187|Now, each time a thought comes into your mind, place it on a leaf, and watch it float away.
+v_188|It might be a word, a picture, a worry, a plan. Whatever it is, put it on a leaf and let the stream carry it.
+v_189|You don't need to push the leaves along, or make them go faster. Just let them drift at their own pace.
+v_190|If no thoughts come, simply watch the stream, and wait.
+v_191|If you notice that you've been swept away by a thought, that's completely normal.
+v_192|Gently come back to the bank, and put that thought on a leaf too.
+v_193|Even thoughts like this is boring, or I'm doing it wrong, can go on a leaf.
+v_194|Sitting by the stream. Leaf after leaf. Thought after thought, floating by.
+v_195|You are not your thoughts. You are the one watching them come and go.
+v_196|Rest here a little longer, beside the water.
+v_197|Now let the picture of the stream fade, and come back to the room. Notice the sounds around you.
+v_198|And open your eyes when you are ready.
+v_199|If a strong feeling is here right now, panic, anger, fear or sadness, you don't have to fight it.
+v_200|Feelings rise and fall like waves. Even the biggest wave passes.
+v_201|Plant your feet on the floor. Feel the ground holding you up.
+v_202|Breathe out slowly, longer than you breathe in. And again.
+v_203|Now notice where the feeling is in your body. Your chest, your throat, your stomach, your hands.
+v_204|Describe it to yourself, as if you were curious about it. Is it hot or cold? Tight or buzzing? Still or moving?
+v_205|You don't have to like it. Just let it be there, and watch it.
+v_206|Notice that it is changing, moment by moment. A little stronger, then a little less.
+v_207|Imagine you are on a surfboard, riding the feeling. It lifts you up, and then it lets you down.
+v_208|Keep breathing slowly. Breathe around the feeling, giving it space.
+v_209|You can feel this, and still be safe. This is a wave, and you are riding it.
+v_210|If the feeling grows, that's the wave cresting. Stay with your breath. It will come down.
+v_211|Notice where the wave is now. Has it changed, even a little?
+v_212|Whatever is left, let it be. It will keep passing.
+v_213|Take one more slow breath, and when you are ready, carry on, gently.
+v_214|You've woken in the night. That's alright. It happens to everyone, and sleep will come back.
+v_215|You don't need to check the time. Whatever time it is, it's a time for resting.
+v_216|Let your body lie heavy on the bed. Let the pillow hold your head.
+v_217|Breathe out slowly, and let your jaw loosen. Let your tongue rest. Let your eyes be soft behind their lids.
+v_218|If thoughts are busy, that's alright. Night thoughts always seem bigger than they are. In the morning they will be their usual size.
+v_219|You can let them wait until then.
+v_220|Now let's count the breath, very slowly. Breathing in, and breathing out, is one.
+v_221|Breathing in, and out, two.
+v_222|In, and out, three.
+v_223|Four.
+v_224|Five.
+v_225|If you lose count, it doesn't matter. Just begin again at one.
+v_226|Even resting like this, without sleeping, is good for you. Your body is resting, whether you sleep or not.
+v_227|Let each breath out be a little slower, a little softer.
+v_228|There's nothing to do. Nowhere to be until the morning.
+v_229|You can stop listening now, and drift.
+v_230|This is a walk to take slowly, indoors or outside. Find a quiet stretch where you can walk up and down, ten or twenty steps.
+v_231|Stand still first, and feel your feet on the ground. Feel your weight, and the way your body balances.
+v_232|Now begin to walk, more slowly than usual.
+v_233|Notice the lifting of one foot, the moving, and the placing of it down. Then the other.
+v_234|You might say to yourself, quietly: lifting, moving, placing.
+v_235|Let your arms hang loosely, or hold your hands together, in front or behind.
+v_236|Feel the heel touch the ground, then the sole, then the toes. The weight shifting from one leg to the other.
+v_237|When you reach the end of your path, stop for a moment. Then turn slowly, and walk back.
+v_238|If your mind wanders, that's fine. Notice where it went, and come back to the feeling of your feet.
+v_239|Now widen your attention a little. Notice the sounds around you, the air, the light.
+v_240|Keep walking, slowly, feeling each step.
+v_241|There's nowhere to get to. Each step is already the place you're going.
+v_242|Lifting, moving, placing.
+v_243|Now let your steps slow even more, and come to a stop.
+v_244|Stand still, and feel your whole body standing here, breathing.
+v_245|Thank you for this walk.
+v_246|We suffer more often in imagination than in reality.
+v_247|Order not your life as though you had ten thousand years to live. Fate hangs over you. While you live, while yet you may, be good.
+v_248|Hills suffer from the trees they produce. Fat burns by its own combustibility. Cinnamon trees furnish food: therefore they are cut down. The lacquer tree is felled for use. All men know the use of useful things; but they do not know the use of useless things.
+v_249|For the next few minutes, there is nothing to achieve.
+v_250|Put down whatever you were doing. Let your hands rest.
+v_251|Look out of a window, if there is one, or at anything at all. Let your eyes wander where they like.
+v_252|If you feel you ought to be doing something, notice that feeling, and let it pass.
+v_253|Like the old tree that no one wanted to cut down, simply stand here, and grow.
+v_254|Stay as long as you like. When you are ready, come back, and write a few words if you wish.
+v_255|Our life is frittered away by detail. Simplify, simplify.
+v_256|Men are disturbed not by things, but by the views which they take of things.
+v_257|Among a thousand clouds and ten thousand streams there lives one idle man. By day he wanders the green hills; at night he goes home to sleep beneath the cliff. Swiftly the springs and autumns pass; still and silent, no ties of the world's dust. How happy! What does he lean on? He is calm as the water of an autumn river.
+v_258|It is the autumn season now, a silence in the woods all round; the hills are there, the sun is there, and at evening the moon and the stars will come; all regular and certain, full of kindliness, an embrace.
+v_259|Hush'd on the hill Is the breeze; Scarce by the zephyr The trees Softly are press'd; The woodbird's asleep on the bough. Wait, then, and thou Soon wilt find rest.
+v_260|Ne'er saw I, never felt, a calm so deep! The river glideth at his own sweet will: Dear God! the very houses seem asleep; And all that mighty heart is lying still!
+v_261|It was kind of solemn, drifting down the big, still river, laying on our backs looking up at the stars, and we didn't ever feel like talking loud, and it warn't often that we laughed—only a little kind of a low chuckle.
+v_262|The stars are ranged in rows, the night bright and deep; on the cliff a lone lamp is lit: the moon not yet set. Full and round, its brightness needs no polishing; hung in the blue sky, it is my mind.
+v_263|Peace flows into me As the tide to the pool by the shore; It is mine forevermore, It will not ebb like the sea. I am the pool of blue That worships the vivid sky; My hopes were heaven-high, They are all fulfilled in you. I am the pool of gold When sunset burns and dies— You are my deepening skies; Give me your stars to hold.
+v_264|Alone in the night On a dark hill With pines around me Spicy and still, And a heaven full of stars Over my head, White and topaz And misty red; Myriads with beating Hearts of fire That aeons Cannot vex or tire; Up the dome of heaven Like a great hill, I watch them marching Stately and still, And I know that I Am honored to be Witness Of so much majesty.
+v_265|A thing of beauty is a joy for ever: Its loveliness increases; it will never Pass into nothingness; but still will keep A bower quiet for us, and a sleep Full of sweet dreams, and health, and quiet breathing.
+v_266|Yet still to lounge with friends in the soft grass Beside a river of water, underneath A big tree's boughs, and merrily to refresh Our frames, with no vast outlay—most of all If the weather is laughing and the times of the year Besprinkle the green of the grass around with flowers.
+v_267|The sea is calm to-night. The tide is full, the moon lies fair Upon the straits;—on the French coast the light Gleams and is gone; the cliffs of England stand, Glimmering and vast, out in the tranquil bay.
+v_268|To fling my arms wide In some place of the sun, To whirl and to dance Till the white day is done. Then rest at cool evening Beneath a tall tree While night comes on gently, Dark like me,— That is my dream! To fling my arms wide In the face of the sun, Dance! whirl! whirl! Till the quick day is done. Rest at pale evening.... A tall, slim tree.... Night coming tenderly Black like me.

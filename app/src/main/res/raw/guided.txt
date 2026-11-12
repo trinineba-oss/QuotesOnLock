@@ -149,3 +149,110 @@ L:30|Let yourself stay there, as long as you like.
 L:30|Sinking, softly, into rest.
 8|You can stop listening now, whenever you like, and let sleep come in its own time.
 20|Goodnight.
+
+S|morning|A gentle start|Arriving in the day, kindly|4|8|birds
+4|Before the day begins, take a moment here. Sit up, or stay lying down if you are still in bed.
+8|Take a slow breath in, and let it go. There's no hurry yet.
+10|Notice that you are here. A new day, that hasn't happened before.
+L:15|Feel the air on your face, the weight of your body, the light coming in, however much there is.
+4|Stretch a little, if you like. Your arms, your neck, your back.
+10|Whatever kind of night it was, let it be over now.
+6|Now think of one thing you are looking forward to today. It can be very small. A cup of tea. A walk. A voice you'll hear.
+12|Let yourself feel a little of that, already.
+L:6|And think of one thing that might be hard today.
+L:15|You don't have to solve it now. Just know that you will meet it as it comes, one part at a time.
+6|Now choose one way you would like to be today. Patient, perhaps. Or kind. Or simply present.
+12|Say it to yourself, quietly, as a gentle intention, not a rule.
+L:20|If the day pulls you away from it, as days do, you can come back to it at any moment, with one breath.
+6|Take one more slow breath, a little deeper than the others.
+3|And go gently into your day.
+
+S|compassion|A kind hand|For a hard day: kindness towards yourself|5|10|bowl
+5|Find a comfortable way to sit or lie down. This is a short pause for when things are hard.
+8|Take a slow breath, and as you breathe out, let your shoulders soften.
+5|Bring to mind what is difficult right now. Not the hardest thing in your life, just what is weighing on you today.
+12|Notice how it feels in your body. Perhaps a tightness in the chest, a heaviness, a knot in the stomach.
+5|Now say to yourself, gently: this is a moment of suffering. This is hard.
+10|You don't have to pretend it isn't.
+5|And remember: everyone struggles. Others feel this too. You are not alone in it, even if it feels that way.
+10|Somewhere, right now, many people feel just as you do.
+5|Now, if it feels right, place a hand on your heart, or on your cheek, or wherever is comforting.
+12|Feel the warmth of your hand. Let it be a kind hand, the way you would comfort a friend.
+L:20|Breathe with it. In, and out. Let the warmth spread a little.
+5|Now offer yourself some words of kindness. Perhaps: may I be kind to myself. May I give myself what I need.
+12|Or find your own words, whatever you would say to someone you love who was going through this.
+L:20|If being kind to yourself feels strange, or even hard, that's alright. Just notice that, and let the wish be there anyway.
+8|Stay here for a few more breaths, with your hand, and your kindness.
+4|When you are ready, take a deeper breath, and go on with your day as gently as you can.
+
+S|leaves|Leaves on a stream|Watching thoughts float by|5|10|stream
+5|Sit comfortably, and let your eyes close, or rest them on one spot.
+8|Take a few slow breaths, and let your body settle.
+6|Now imagine you are sitting beside a gentle stream. The water is slow and clear.
+12|Leaves are floating past on the surface, one after another, carried by the current.
+L:15|You might hear the water. Feel the ground beneath you. See the light on the stream.
+6|Now, each time a thought comes into your mind, place it on a leaf, and watch it float away.
+15|It might be a word, a picture, a worry, a plan. Whatever it is, put it on a leaf and let the stream carry it.
+6|You don't need to push the leaves along, or make them go faster. Just let them drift at their own pace.
+15|If no thoughts come, simply watch the stream, and wait.
+5|If you notice that you've been swept away by a thought, that's completely normal.
+12|Gently come back to the bank, and put that thought on a leaf too.
+L:6|Even thoughts like this is boring, or I'm doing it wrong, can go on a leaf.
+L:25|Sitting by the stream. Leaf after leaf. Thought after thought, floating by.
+5|You are not your thoughts. You are the one watching them come and go.
+15|Rest here a little longer, beside the water.
+6|Now let the picture of the stream fade, and come back to the room. Notice the sounds around you.
+4|And open your eyes when you are ready.
+
+S|wave|Riding the wave|When a strong feeling rises|4|8|waves
+4|If a strong feeling is here right now, panic, anger, fear or sadness, you don't have to fight it.
+6|Feelings rise and fall like waves. Even the biggest wave passes.
+6|Plant your feet on the floor. Feel the ground holding you up.
+10|Breathe out slowly, longer than you breathe in. And again.
+5|Now notice where the feeling is in your body. Your chest, your throat, your stomach, your hands.
+12|Describe it to yourself, as if you were curious about it. Is it hot or cold? Tight or buzzing? Still or moving?
+5|You don't have to like it. Just let it be there, and watch it.
+12|Notice that it is changing, moment by moment. A little stronger, then a little less.
+L:20|Imagine you are on a surfboard, riding the feeling. It lifts you up, and then it lets you down.
+5|Keep breathing slowly. Breathe around the feeling, giving it space.
+12|You can feel this, and still be safe. This is a wave, and you are riding it.
+L:20|If the feeling grows, that's the wave cresting. Stay with your breath. It will come down.
+6|Notice where the wave is now. Has it changed, even a little?
+10|Whatever is left, let it be. It will keep passing.
+4|Take one more slow breath, and when you are ready, carry on, gently.
+
+S|backtosleep|Back to sleep|For waking in the night|4|9|tent
+5|You've woken in the night. That's alright. It happens to everyone, and sleep will come back.
+8|You don't need to check the time. Whatever time it is, it's a time for resting.
+6|Let your body lie heavy on the bed. Let the pillow hold your head.
+12|Breathe out slowly, and let your jaw loosen. Let your tongue rest. Let your eyes be soft behind their lids.
+6|If thoughts are busy, that's alright. Night thoughts always seem bigger than they are. In the morning they will be their usual size.
+12|You can let them wait until then.
+6|Now let's count the breath, very slowly. Breathing in, and breathing out, is one.
+10|Breathing in, and out, two.
+10|In, and out, three.
+L:12|Four.
+L:15|Five.
+6|If you lose count, it doesn't matter. Just begin again at one.
+20|Even resting like this, without sleeping, is good for you. Your body is resting, whether you sleep or not.
+L:25|Let each breath out be a little slower, a little softer.
+8|There's nothing to do. Nowhere to be until the morning.
+20|You can stop listening now, and drift.
+
+S|walking|Walking slowly|A short walk, step by step|5|10|wind
+5|This is a walk to take slowly, indoors or outside. Find a quiet stretch where you can walk up and down, ten or twenty steps.
+6|Stand still first, and feel your feet on the ground. Feel your weight, and the way your body balances.
+5|Now begin to walk, more slowly than usual.
+12|Notice the lifting of one foot, the moving, and the placing of it down. Then the other.
+6|You might say to yourself, quietly: lifting, moving, placing.
+15|Let your arms hang loosely, or hold your hands together, in front or behind.
+L:20|Feel the heel touch the ground, then the sole, then the toes. The weight shifting from one leg to the other.
+6|When you reach the end of your path, stop for a moment. Then turn slowly, and walk back.
+15|If your mind wanders, that's fine. Notice where it went, and come back to the feeling of your feet.
+6|Now widen your attention a little. Notice the sounds around you, the air, the light.
+15|Keep walking, slowly, feeling each step.
+L:6|There's nowhere to get to. Each step is already the place you're going.
+L:25|Lifting, moving, placing.
+6|Now let your steps slow even more, and come to a stop.
+8|Stand still, and feel your whole body standing here, breathing.
+3|Thank you for this walk.

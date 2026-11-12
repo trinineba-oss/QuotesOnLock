@@ -170,15 +170,15 @@ object CalmLog {
     /** What to suggest for a feeling: a sensible order, re-ranked by what has helped this person before. */
     fun suggestions(context: Context, feeling: Feeling?): List<String> {
         val base = when (feeling) {
-            Feeling.ANXIOUS -> listOf("guide:breathing", "breathe", "ground", "guide:tension")
-            Feeling.SAD -> listOf("guide:kindness", "words", "guide:breathing", "sounds")
-            Feeling.GRIEVING -> listOf("words", "guide:kindness", "sounds", "guide:breathing")
-            Feeling.LONELY -> listOf("guide:kindness", "words", "lifeline", "sounds")
-            Feeling.OVERWHELMED -> listOf("guide:breathing", "ground", "guide:tension", "breathe")
-            Feeling.ANGRY -> listOf("breathe", "guide:tension", "guide:breathing", "reframe")
-            Feeling.NUMB -> listOf("ground", "guide:bodyscan", "sounds", "words")
-            Feeling.SLEEP -> listOf("winddown", "guide:sleep", "guide:bodyscan", "sounds")
-            null -> listOf("sounds", "guide:bodyscan", "guide:breathing", "winddown")
+            Feeling.ANXIOUS -> listOf("guide:breathing", "breathe", "guide:wave", "ground", "guide:tension")
+            Feeling.SAD -> listOf("guide:compassion", "guide:kindness", "words", "guide:breathing", "sounds")
+            Feeling.GRIEVING -> listOf("words", "guide:compassion", "guide:kindness", "sounds", "guide:breathing")
+            Feeling.LONELY -> listOf("guide:kindness", "guide:compassion", "words", "lifeline", "sounds")
+            Feeling.OVERWHELMED -> listOf("guide:breathing", "guide:wave", "ground", "guide:leaves", "guide:tension", "breathe")
+            Feeling.ANGRY -> listOf("breathe", "guide:wave", "guide:tension", "guide:walking", "reframe")
+            Feeling.NUMB -> listOf("ground", "guide:walking", "guide:bodyscan", "sounds", "words")
+            Feeling.SLEEP -> listOf("winddown", "guide:sleep", "guide:backtosleep", "guide:bodyscan", "sounds")
+            null -> listOf("sounds", "guide:morning", "guide:bodyscan", "guide:leaves", "guide:breathing", "winddown")
         }
         val log = entries(context).filter { feeling == null || it.feeling == feeling.key }
         return base.withIndex().sortedByDescending { (i, tool) ->
@@ -247,6 +247,12 @@ private fun suggestionWhy(tool: String): String = when (tool) {
     "guide:tension" -> "Tense, then let go"
     "guide:kindness" -> "Kind wishes, for you and others"
     "guide:sleep" -> "A slow wind-down to drift off with"
+    "guide:morning" -> "Arriving in the day, kindly"
+    "guide:compassion" -> "Kindness towards yourself, on a hard day"
+    "guide:leaves" -> "Let thoughts float by on a stream"
+    "guide:wave" -> "Let a strong feeling rise and pass"
+    "guide:backtosleep" -> "For waking in the night"
+    "guide:walking" -> "A slow walk, step by step"
     "breathe" -> "A calm circle to breathe with"
     "ground" -> "Five things you can see, four you can touch…"
     "reframe" -> "What would you tell a friend?"
@@ -422,6 +428,18 @@ internal val WIND_DOWN = listOf(
     "And so this memorable month ends",
     "When I get tired of reciting prayers",
     "Of the flowing river the flood ever changeth",
+    "Among a thousand clouds and ten thousand streams",
+    "It is the autumn season now, a silence in the woods",
+    "Hush'd on the hill",
+    "Ne'er saw I, never felt, a calm so deep",
+    "It was kind of solemn, drifting down the big, still river",
+    "The stars are ranged in rows, the night bright and deep",
+    "Peace flows into me",
+    "Alone in the night\nOn a dark hill",
+    "A thing of beauty is a joy for ever",
+    "Yet still to lounge with friends in the soft grass",
+    "The sea is calm to-night",
+    "To fling my arms wide",
 )
 
 /**
