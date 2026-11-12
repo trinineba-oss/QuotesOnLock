@@ -451,3 +451,18 @@ Chikamatsu Monzaemon|Chikamatsu Monzaemon|1653|1725|writers|
 Su Shi|Su Shi|1037|1101|poets|
 Li Qingzhao|Li Qingzhao|1084|1155|poets|
 Naguib Mahfouz|Naguib Mahfouz|1911|2006|writers|
+Charles Darwin|Charles Darwin|1809|1882|thinkers|
+Galileo Galilei|Galileo Galilei|1564|1642|thinkers|
+Michael Faraday|Michael Faraday|1791|1867|thinkers|
+Alexander von Humboldt|Alexander von Humboldt|1769|1859|thinkers|
+Marie Curie|Marie Curie|1867|1934|thinkers|
+John Stuart Mill|John Stuart Mill|1806|1873|thinkers|
+Adam Smith|Adam Smith|1723|1790|thinkers|
+Niccolò Machiavelli|Niccolò Machiavelli|1469|1527|thinkers|
+Erasmus|Erasmus|1466|1536|thinkers|c
+Thomas More|Thomas More|1478|1535|thinkers|
+Jonathan Swift|Jonathan Swift|1667|1745|writers|
+Thomas Hobbes|Thomas Hobbes|1588|1679|thinkers|
+John Locke|John Locke|1632|1704|thinkers|
+Thomas Paine|Thomas Paine|1737|1809|thinkers|
+W. E. B. Du Bois|W. E. B. Du Bois|1868|1963|thinkers|
