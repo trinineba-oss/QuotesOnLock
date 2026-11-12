@@ -22,7 +22,7 @@ import kotlin.random.Random
 
 /**
  * Five drawn scenes: Falling blossoms, Misty mountains, Floating lanterns, Autumn leaves and Light under the sea.
- * The parts that never move are one picture each (drawn for the app, res/drawable-nodpi/*_bg.webp), scaled to
+ * The parts that never move are one picture each (drawn for the app, the "_bg" pictures in res/drawable-nodpi), scaled to
  * the screen once; petals, mist, lanterns, leaves, light rays and kelp are drawn over it every frame. Sizes are
  * given for a 360-unit-wide screen and scaled by [k]. Called from [CalmArt], on one thread.
  */
