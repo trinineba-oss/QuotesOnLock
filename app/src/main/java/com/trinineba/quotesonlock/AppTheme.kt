@@ -156,10 +156,6 @@ enum class AppTheme(
     SEA(
         "sea", "Light under the sea", "Sunbeams and swaying kelp", R.drawable.notif_frame_sea, 0xFF082A40.toInt(),
         0xFFEFFAFF.toInt(), 0xFF9FE3F2.toInt(),
-    ),
-    KOI(
-        "koi", "Koi pond", "Koi gliding under lily pads", R.drawable.notif_frame_koi, 0xFF0F2820.toInt(),
-        0xFFF2F6F0.toInt(), 0xFFF6D27A.toInt(),
     );
 
     /** The calm themes drawn by [CalmArt]. */
@@ -323,7 +319,6 @@ fun AppTheme.colorScheme(cardOpacity: Float): ColorScheme? = when (this) {
     AppTheme.MOUNTAINS -> calmScheme(true, 0xFFF3C9A4, 0xFF2B2A38, 0xFFF4EEF2, 0xFFD6CCD6, cardOpacity)
     AppTheme.LANTERNS -> calmScheme(true, 0xFFFFC27A, 0xFF141A3A, 0xFFFFF4E6, 0xFFDCD2C8, cardOpacity)
     AppTheme.LEAVES -> calmScheme(true, 0xFFF2B266, 0xFF3A2414, 0xFFFFF4E6, 0xFFE6D2BC, cardOpacity)
-    AppTheme.KOI -> calmScheme(true, 0xFFF6D27A, 0xFF0F2820, 0xFFF2F6F0, 0xFFC8D8CC, cardOpacity)
     AppTheme.SEA -> calmScheme(true, 0xFF9FE3F2, 0xFF082A40, 0xFFEFFAFF, 0xFFC4DCE6, cardOpacity)
     AppTheme.DROP -> calmScheme(true, 0xFFF2B66B, 0xFF0A1A24, 0xFFF0F2F0, 0xFFC9D3D6, cardOpacity)
     AppTheme.ZEN -> calmScheme(true, 0xFFF0B98C, 0xFF2A1E14, 0xFFF3EEE4, 0xFFD8C9B2, cardOpacity)
@@ -373,7 +368,7 @@ private fun calmScheme(dark: Boolean, accent: Long, card: Long, text: Long, text
 fun AppTheme.typography(base: Typography): Typography = when (this) {
     AppTheme.CLASSIC -> base
     AppTheme.STARRY, AppTheme.AURORA, AppTheme.SPACE, AppTheme.WATER, AppTheme.RAIN, AppTheme.RAIN_NIGHT,
-    AppTheme.SNOW, AppTheme.CANDLE, AppTheme.FIREFLIES, AppTheme.WAVES, AppTheme.DROP, AppTheme.MOUNTAINS, AppTheme.LANTERNS, AppTheme.LEAVES, AppTheme.SEA, AppTheme.KOI -> base.map(
+    AppTheme.SNOW, AppTheme.CANDLE, AppTheme.FIREFLIES, AppTheme.WAVES, AppTheme.DROP, AppTheme.MOUNTAINS, AppTheme.LANTERNS, AppTheme.LEAVES, AppTheme.SEA -> base.map(
         headings = { it.copy(fontFamily = FontFamily.Serif) },
         all = { it.copy(shadow = Shadow(Color(0xE6000000), Offset(0f, 2f), 8f)) },
     )
@@ -411,7 +406,6 @@ fun ThemedBackground(theme: AppTheme, animate: Boolean, auroraIntensity: Float =
         AppTheme.SPACE -> SpaceBackground(animate)
         AppTheme.WATER -> WaterBackground(animate)
         AppTheme.DROP -> DropBackground(animate)
-        AppTheme.KOI -> KoiBackground(animate)
         AppTheme.RAIN -> RainBackground(animate, night = false)
         AppTheme.RAIN_NIGHT -> RainBackground(animate, night = true)
         AppTheme.SNOW, AppTheme.CANDLE, AppTheme.FIREFLIES, AppTheme.LAVENDER, AppTheme.CLOUDS, AppTheme.WAVES, AppTheme.BAMBOO, AppTheme.ZEN, AppTheme.BLOSSOM, AppTheme.MOUNTAINS, AppTheme.LANTERNS, AppTheme.LEAVES, AppTheme.SEA -> CalmBackground(theme, animate)
@@ -454,41 +448,6 @@ private fun RainOnGlass(shader: RuntimeShader, night: Boolean) {
             streaks = if (night) 0f else 1f, lensLift = if (night) 0.6f else 0f,
         )
         drawRect(brush)
-    }
-}
-
-@Composable
-private fun KoiBackground(animate: Boolean) {
-    // If the GPU can't build the shader, show the still pond rather than fail.
-    val shader = if (animate && Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-        remember { runCatching { RuntimeShader(KoiArt.SHADER) }.getOrNull() }
-    } else {
-        null
-    }
-    if (shader != null && Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-        KoiPond(shader)
-    } else {
-        Image(
-            painter = painterResource(R.drawable.koi_still),
-            contentDescription = null,
-            modifier = Modifier.fillMaxSize(),
-            contentScale = ContentScale.Crop,
-        )
-    }
-}
-
-@RequiresApi(Build.VERSION_CODES.TIRAMISU)
-@Composable
-private fun KoiPond(shader: RuntimeShader) {
-    val floor = ImageBitmap.imageResource(R.drawable.koi_floor)
-    val floorShader = remember(floor) { BitmapShader(floor.asAndroidBitmap(), Shader.TileMode.CLAMP, Shader.TileMode.CLAMP) }
-    val brush = remember(shader) { ShaderBrush(shader) }
-    // A loop of 2π·1000 ms makes the value plain seconds.
-    val time by rememberLoopAngle(2000f * PI.toFloat())
-    Canvas(Modifier.fillMaxSize()) {
-        KoiArt.bind(shader, floorShader, floor.width, floor.height, size.width, size.height, time)
-        drawRect(brush)
-        drawIntoCanvas { KoiArt.drawPads(it.nativeCanvas, size.width, size.height, time) }
     }
 }
 

@@ -98,7 +98,6 @@ class QuoteWallpaperService : WallpaperService() {
                     AppTheme.BUTTERFLY -> ButterflyArt.draw(canvas, width.toFloat(), height.toFloat(), if (moving()) t else 3f, resources.displayMetrics.density)
                     AppTheme.WATER -> drawWater(canvas, t)
                     AppTheme.DROP -> drawDrop(canvas, t)
-                    AppTheme.KOI -> drawKoi(canvas, t)
                     AppTheme.RAIN -> drawRain(canvas, t, night = false)
                     AppTheme.RAIN_NIGHT -> drawRain(canvas, t, night = true)
                     AppTheme.SNOW, AppTheme.CANDLE, AppTheme.FIREFLIES, AppTheme.LAVENDER, AppTheme.CLOUDS, AppTheme.WAVES, AppTheme.BAMBOO, AppTheme.ZEN, AppTheme.BOOK, AppTheme.BLOSSOM, AppTheme.MOUNTAINS, AppTheme.LANTERNS, AppTheme.LEAVES, AppTheme.SEA -> {
@@ -185,31 +184,6 @@ class QuoteWallpaperService : WallpaperService() {
                 canvas.drawRect(0f, 0f, width.toFloat(), height.toFloat(), Paint().apply { this.shader = shader })
             } else {
                 drawCover(canvas, bitmap(if (night) R.drawable.rain_night_still else R.drawable.rain_still))
-            }
-        }
-
-        private var koiShader: RuntimeShader? = null
-        private var koiShaderFailed = false
-        private var koiFloor: BitmapShader? = null
-
-        /** The koi pond on the GPU (Android 13+, hardware canvas), lily pads on top; otherwise the still picture. */
-        private fun drawKoi(canvas: Canvas, t: Float) {
-            val shader = if (moving() && !koiShaderFailed && Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU && canvas.isHardwareAccelerated) {
-                koiShader ?: runCatching { RuntimeShader(KoiArt.SHADER) }.getOrNull().also {
-                    koiShader = it
-                    koiShaderFailed = it == null
-                }
-            } else {
-                null
-            }
-            if (shader != null && Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-                val floor = bitmap(R.drawable.koi_floor)
-                val fs = koiFloor ?: BitmapShader(floor, Shader.TileMode.CLAMP, Shader.TileMode.CLAMP).also { koiFloor = it }
-                KoiArt.bind(shader, fs, floor.width, floor.height, width.toFloat(), height.toFloat(), t)
-                canvas.drawRect(0f, 0f, width.toFloat(), height.toFloat(), Paint().apply { this.shader = shader })
-                KoiArt.drawPads(canvas, width.toFloat(), height.toFloat(), t)
-            } else {
-                drawCover(canvas, bitmap(R.drawable.koi_still))
             }
         }
 

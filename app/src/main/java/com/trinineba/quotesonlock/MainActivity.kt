@@ -1380,7 +1380,7 @@ private fun QuotesScreen(
                         Column(Modifier.weight(1f)) {
                             Text(label)
                             Text(
-                                if (theme in listOf(AppTheme.STARRY, AppTheme.WATER, AppTheme.DROP, AppTheme.KOI, AppTheme.RAIN, AppTheme.RAIN_NIGHT) &&
+                                if (theme in listOf(AppTheme.STARRY, AppTheme.WATER, AppTheme.DROP, AppTheme.RAIN, AppTheme.RAIN_NIGHT) &&
                                     Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU
                                 ) {
                                     "Needs Android 13 or newer; this phone shows a still picture."
