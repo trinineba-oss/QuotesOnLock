@@ -19,7 +19,7 @@ import kotlin.math.sqrt
  * Lily pads are drawn over it on the canvas ([drawPads]). Sizes are in a 360-unit-wide space.
  */
 internal object KoiArt {
-    const val N = 24
+    const val N = 16
 
     private class Koi(val c1: Int, val c2: Int, val c3: Int?, val ph: Float, val sp: Float, val len: Float, val depth: Float)
 
@@ -40,10 +40,15 @@ internal object KoiArt {
     private val c2 = FloatArray(15)
     private val c3 = FloatArray(15)
     private val has3 = FloatArray(5)
+    private val box = FloatArray(5 * 4)
+    private val floorMatrix = android.graphics.Matrix()
+    private val xy = FloatArray(2)
 
-    private fun path(ph: Float, sp: Float, t: Float): Pair<Float, Float> {
+    /** Where a fish's head is at time [t], into [xy] (no allocation: this runs every frame). */
+    private fun path(ph: Float, sp: Float, t: Float) {
         val a = t * 0.16f * sp + ph
-        return (0.5f + 0.34f * sin(a) + 0.06f * sin(a * 2.3f + ph)) to (0.5f + 0.38f * sin(a * 0.7f + ph * 1.3f) + 0.05f * cos(a * 1.9f))
+        xy[0] = 0.5f + 0.34f * sin(a) + 0.06f * sin(a * 2.3f + ph)
+        xy[1] = 0.5f + 0.38f * sin(a * 0.7f + ph * 1.3f) + 0.05f * cos(a * 1.9f)
     }
 
     private fun rgb(out: FloatArray, i: Int, c: Int) {
@@ -55,13 +60,17 @@ internal object KoiArt {
     @androidx.annotation.RequiresApi(android.os.Build.VERSION_CODES.TIRAMISU)
     fun bind(shader: android.graphics.RuntimeShader, floor: android.graphics.BitmapShader, fw: Int, fh: Int, w: Float, h: Float, t: Float) {
         val s = maxOf(w / fw, h / fh)
-        floor.setLocalMatrix(android.graphics.Matrix().apply { setScale(s, s); postTranslate((w - fw * s) / 2f, (h - fh * s) / 2f) })
+        floorMatrix.setScale(s, s)
+        floorMatrix.postTranslate((w - fw * s) / 2f, (h - fh * s) / 2f)
+        floor.setLocalMatrix(floorMatrix)
         shader.setInputShader("pond", floor)
         val sw = 360f
         val sh = 360f * h / w
         for ((f, k) in fish.withIndex()) {
-            val (x, y) = path(k.ph, k.sp, t)
-            val (x2, y2) = path(k.ph, k.sp, t - 0.3f)
+            path(k.ph, k.sp, t)
+            val x = xy[0]; val y = xy[1]
+            path(k.ph, k.sp, t - 0.3f)
+            val x2 = xy[0]; val y2 = xy[1]
             val ang = atan2((y - y2) * sh, (x - x2) * sw)
             val ca = cos(ang)
             val sa = sin(ang)
@@ -74,6 +83,16 @@ internal object KoiArt {
                 val prof = if (q < 0.06f) sqrt(q / 0.06f) else 1f
                 rad[f * N + i] = max(0.135f * l * prof * (1f - 0.78f * max(0f, (q - 0.30f) / 0.70f).pow(1.25f)), 0.012f * l)
             }
+            // The box this fish (with its fins and shadow) can touch; pixels outside it skip the fish.
+            var minX = Float.MAX_VALUE; var minY = Float.MAX_VALUE; var maxX = -Float.MAX_VALUE; var maxY = -Float.MAX_VALUE
+            for (i in 0 until N) {
+                val px = pts[(f * N + i) * 2]; val py = pts[(f * N + i) * 2 + 1]
+                if (px < minX) minX = px; if (px > maxX) maxX = px
+                if (py < minY) minY = py; if (py > maxY) maxY = py
+            }
+            val pad = 0.4f * l
+            box[f * 4] = minX - pad; box[f * 4 + 1] = minY - pad
+            box[f * 4 + 2] = maxX + pad + 10f; box[f * 4 + 3] = maxY + pad + 15f
             shape[f * 4] = ca; shape[f * 4 + 1] = sa; shape[f * 4 + 2] = l; shape[f * 4 + 3] = k.depth
             extra[f * 4] = k.ph
             extra[f * 4 + 1] = sin(t * 4.2f * k.sp - 4.5f + k.ph)
@@ -92,6 +111,7 @@ internal object KoiArt {
         shader.setFloatUniform("C2", c2)
         shader.setFloatUniform("C3", c3)
         shader.setFloatUniform("HAS3", has3)
+        shader.setFloatUniform("BB", box)
     }
 
     // ---- lily pads, drawn over the water ----
@@ -152,8 +172,9 @@ internal object KoiArt {
 uniform shader pond;
 uniform float2 res;
 uniform float time;
-uniform float2 P[120];
-uniform float R[120];
+uniform float2 P[80];
+uniform float R[80];
+uniform float4 BB[5];
 uniform float4 F[5];
 uniform float4 G[5];
 uniform float3 C1[5];
@@ -174,36 +195,41 @@ half4 main(float2 fc) {
     // soft shadows on the floor, offset down and to the right
     float shade = 0.0;
     for (int f = 0; f < 5; f++) {
-        float2 q = p - float2(9.0, 14.0);
-        float best = 1.0e9;
-        for (int i = 0; i < 23; i++) {
-            float2 a = P[f * 24 + i];
-            float2 b = P[f * 24 + i + 1];
-            float2 pa = q - a; float2 ba = b - a;
-            float hh = clamp(dot(pa, ba) / max(dot(ba, ba), 0.0001), 0.0, 1.0);
-            float d = length(pa - ba * hh) - mix(R[f * 24 + i], R[f * 24 + i + 1], hh);
-            best = min(best, d);
+        float4 bb = BB[f];
+        if (p.x > bb.x && p.x < bb.z && p.y > bb.y && p.y < bb.w) {
+            float2 q = p - float2(9.0, 14.0);
+            float best = 1.0e9;
+            for (int i = 0; i < 15; i++) {
+                float2 a = P[f * 16 + i];
+                float2 b = P[f * 16 + i + 1];
+                float2 pa = q - a; float2 ba = b - a;
+                float hh = clamp(dot(pa, ba) / max(dot(ba, ba), 0.0001), 0.0, 1.0);
+                float d = length(pa - ba * hh) - mix(R[f * 16 + i], R[f * 16 + i + 1], hh);
+                best = min(best, d);
+            }
+            shade = max(shade, smoothstep(9.0, -6.0, best) * 0.5 * (1.0 - F[f].w * 0.6));
         }
-        shade = max(shade, smoothstep(9.0, -6.0, best) * 0.5 * (1.0 - F[f].w * 0.6));
     }
     col *= 1.0 - shade * 0.8;
 
     for (int f = 0; f < 5; f++) {
+      float4 bb = BB[f];
+      if (p.x > bb.x && p.x < bb.z && p.y > bb.y && p.y < bb.w) {
         float2 dir = float2(F[f].x, F[f].y);
         float2 nrm = float2(-dir.y, dir.x);
         float L = F[f].z;
         float depth = F[f].w;
         float ph = G[f].x;
         float best = 1.0e9; float bq = 0.0; float br = 1.0; float bside = 1.0;
-        for (int i = 0; i < 23; i++) {
-            float2 a = P[f * 24 + i];
-            float2 b = P[f * 24 + i + 1];
+        for (int i = 0; i < 15; i++) {
+            float2 a = P[f * 16 + i];
+            float2 b = P[f * 16 + i + 1];
             float2 pa = p - a; float2 ba = b - a;
             float hh = clamp(dot(pa, ba) / max(dot(ba, ba), 0.0001), 0.0, 1.0);
-            float rr = mix(R[f * 24 + i], R[f * 24 + i + 1], hh);
+            float rr = mix(R[f * 16 + i], R[f * 16 + i + 1], hh);
             float d = length(pa - ba * hh) - rr;
             if (d < best) {
-                best = d; br = rr; bq = (float(i) + hh) / 23.0;
+                best = d; br = rr; bq = (float(i) + hh) / 15.0;
                 bside = sign(dot(pa - ba * hh, nrm) + 0.0001);
             }
         }
@@ -221,7 +247,7 @@ half4 main(float2 fc) {
         cc += 0.30 * exp(-((lat + 0.25) / 0.22) * ((lat + 0.25) / 0.22)) * step(0.08, n);
         if (G[f].z > 0.5) cc += 0.12 * exp(-((lat + 0.1) / 0.35) * ((lat + 0.1) / 0.35));
         // eyes
-        float2 head = P[f * 24 + 1];
+        float2 head = P[f * 16 + 1];
         for (int e = 0; e < 2; e++) {
             float s = e == 0 ? 1.0 : -1.0;
             float2 ep = head + nrm * s * 0.0765 * L;
@@ -231,7 +257,7 @@ half4 main(float2 fc) {
         float alpha = clamp(-best / (1.0 + 3.0 * depth), 0.0, 1.0);
         // tail fan and side fins: translucent, with streaks
         float2 bdir = -dir;
-        float2 tail = P[f * 24 + 23];
+        float2 tail = P[f * 16 + 15];
         float2 rr2 = p - tail;
         float along = dot(rr2, bdir);
         float across = dot(rr2, nrm) - G[f].y * 0.10 * L * clamp(along / (0.3 * L), 0.0, 1.0);
@@ -241,7 +267,7 @@ half4 main(float2 fc) {
             float ang = atan(across, max(along, 0.001));
             fa = 0.62 * pow(clamp(1.0 - along / tl, 0.05, 1.0), 0.7) * (0.75 + 0.25 * sin(ang * 22.0));
         }
-        float2 base = P[f * 24 + 2];
+        float2 base = P[f * 16 + 2];
         for (int e = 0; e < 2; e++) {
             float s = e == 0 ? 1.0 : -1.0;
             float flap = 0.7 + 0.3 * sin(time * 2.5 + ph + s);
@@ -258,7 +284,9 @@ half4 main(float2 fc) {
         alpha = max(alpha, fa);
         cc = mix(cc, float3(0.114, 0.247, 0.2), 0.45 * depth);
         col = mix(col, cc, alpha * (1.0 - 0.25 * depth));
+      }
     }
+
     col += float3(0.902, 1.0, 0.878) * 0.04 * cz + float3(0.749, 0.847, 0.878) * 0.05 * clamp(1.0 - uv.y * 1.6, 0.0, 1.0);
     return half4(half3(clamp(col, 0.0, 1.0)), 1.0);
 }
