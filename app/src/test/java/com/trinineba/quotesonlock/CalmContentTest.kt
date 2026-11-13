@@ -12,7 +12,7 @@ class CalmContentTest {
 
     @Test fun guidedSessionsParse() {
         val guides = raw("guided.txt").useLines { Guides.parse(it) }
-        assertEquals(setOf("breathing", "bodyscan", "tension", "kindness", "sleep", "morning", "compassion", "leaves", "wave", "backtosleep", "walking"), guides.map { it.key }.toSet())
+        assertEquals(setOf("breathing", "bodyscan", "tension", "kindness", "sleep", "morning", "compassion", "leaves", "wave", "backtosleep", "walking", "mountain", "gratitude", "safeplace"), guides.map { it.key }.toSet())
         guides.forEach { g ->
             assertTrue("${g.key} is empty", g.steps(false).size >= 5)
             assertTrue("${g.key}: long version not longer", g.steps(true).sumOf { it.pause } > g.steps(false).sumOf { it.pause })

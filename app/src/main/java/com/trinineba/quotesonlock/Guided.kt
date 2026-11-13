@@ -170,15 +170,15 @@ object CalmLog {
     /** What to suggest for a feeling: a sensible order, re-ranked by what has helped this person before. */
     fun suggestions(context: Context, feeling: Feeling?): List<String> {
         val base = when (feeling) {
-            Feeling.ANXIOUS -> listOf("guide:breathing", "breathe", "guide:wave", "ground", "guide:tension")
-            Feeling.SAD -> listOf("guide:compassion", "guide:kindness", "words", "guide:breathing", "sounds")
+            Feeling.ANXIOUS -> listOf("guide:breathing", "breathe", "guide:wave", "guide:safeplace", "ground", "guide:tension")
+            Feeling.SAD -> listOf("guide:compassion", "guide:kindness", "guide:gratitude", "words", "guide:breathing", "sounds")
             Feeling.GRIEVING -> listOf("words", "guide:compassion", "guide:kindness", "sounds", "guide:breathing")
             Feeling.LONELY -> listOf("guide:kindness", "guide:compassion", "words", "lifeline", "sounds")
-            Feeling.OVERWHELMED -> listOf("guide:breathing", "guide:wave", "ground", "guide:leaves", "guide:tension", "breathe")
+            Feeling.OVERWHELMED -> listOf("guide:breathing", "guide:wave", "guide:mountain", "ground", "guide:leaves", "guide:tension", "breathe")
             Feeling.ANGRY -> listOf("breathe", "guide:wave", "guide:tension", "guide:walking", "reframe")
             Feeling.NUMB -> listOf("ground", "guide:walking", "guide:bodyscan", "sounds", "words")
             Feeling.SLEEP -> listOf("winddown", "guide:sleep", "guide:backtosleep", "guide:bodyscan", "sounds")
-            null -> listOf("sounds", "guide:morning", "guide:bodyscan", "guide:leaves", "guide:breathing", "winddown")
+            null -> listOf("sounds", "guide:morning", "guide:gratitude", "guide:bodyscan", "guide:leaves", "guide:breathing", "winddown")
         }
         val log = entries(context).filter { feeling == null || it.feeling == feeling.key }
         return base.withIndex().sortedByDescending { (i, tool) ->
@@ -253,6 +253,9 @@ private fun suggestionWhy(tool: String): String = when (tool) {
     "guide:wave" -> "Let a strong feeling rise and pass"
     "guide:backtosleep" -> "For waking in the night"
     "guide:walking" -> "A slow walk, step by step"
+    "guide:mountain" -> "Steady as a mountain, whatever the weather"
+    "guide:gratitude" -> "A few quiet minutes of thanks"
+    "guide:safeplace" -> "Rest in a calm place of your own"
     "breathe" -> "A calm circle to breathe with"
     "ground" -> "Five things you can see, four you can touch…"
     "reframe" -> "What would you tell a friend?"
@@ -440,6 +443,14 @@ internal val WIND_DOWN = listOf(
     "Yet still to lounge with friends in the soft grass",
     "The sea is calm to-night",
     "To fling my arms wide",
+    "Rises to vision the majesty of gods",
+    "Now a breeze comes too and stirs the treetops",
+    "There is a way of looking at our life daily as an escape",
+    "Beyond a wholesome discipline",
+    "When you are old and gray and full of sleep",
+    "\"And with joy the stars perform their shining",
+    "A setting sun, a rising moon?",
+    "Our birth is but a sleep and a forgetting",
 )
 
 /**

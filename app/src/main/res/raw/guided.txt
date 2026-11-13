@@ -256,3 +256,56 @@ L:25|Lifting, moving, placing.
 6|Now let your steps slow even more, and come to a stop.
 8|Stand still, and feel your whole body standing here, breathing.
 3|Thank you for this walk.
+
+S|mountain|The mountain|Steady as a mountain, whatever the weather|5|10|wind
+5|Sit tall and steady, with your feet on the floor and your hands resting in your lap. Let your eyes close.
+8|Take a few slow breaths, and feel the weight of your body, settled and supported.
+6|Now picture a mountain. One you know, or one you imagine. See its broad base, rooted deep in the earth, and its peak rising into the sky.
+12|Notice how still it is. It has stood there for thousands of years.
+L:15|See its slopes, its rocks and trees, perhaps snow at the top, streams running down its sides.
+6|Now let the mountain and your body become one. Your seat is its broad base. Your spine rises like its slopes. Your head is the peak.
+12|Feel how steady you are, how rooted. Breathing quietly, like a mountain.
+6|Over the mountain, the weather changes. Sun and cloud, rain and wind, snow, then sunshine again.
+12|Storms gather and pass. The seasons turn. And through it all, the mountain stays itself.
+L:20|Clouds may hide the peak for days. People may praise it or ignore it. The mountain does not change because of it.
+6|Our moods and thoughts are like the weather. Worry blows in, sadness rains, joy shines out. All of it moves across us and passes.
+15|You can feel the weather fully, and still be the mountain underneath.
+L:25|Sit here a little longer, still and steady, letting whatever weather is here today come and go.
+6|When you are ready, take a deeper breath, and bring a little of the mountain's steadiness with you.
+3|Open your eyes when you choose.
+
+S|gratitude|Thank you|A quiet few minutes of gratitude|4|8|bowl
+4|Find a comfortable way to sit, and let your breathing slow down by itself.
+8|In this short practice, we will simply notice some of what we are grateful for. It doesn't need to be big.
+5|Begin with your body. Something that is working for you right now. Your breath, coming and going without effort. Your heart, beating.
+12|Silently say thank you to it.
+5|Now think of something small from today, or yesterday. A warm drink. A kind word. Light through a window. A song you heard.
+12|Let yourself remember it in detail, and feel a little of the pleasure again.
+L:6|Think of a place you are glad to know. A room, a park, a view, a corner of the world.
+L:15|Picture it now, and let gratitude rest there for a moment.
+5|Now bring to mind a person you are grateful for. Someone in your life now, or someone from the past.
+12|Think of one thing they did, or one way they are, that you are thankful for.
+L:15|If you like, imagine telling them so. Notice how it feels to say it.
+6|Finally, think of something difficult that has also given you something: a lesson, a strength, a friend you found through it.
+12|You don't have to be grateful for the hardship itself. Just for what grew alongside it.
+6|Rest for a moment in this feeling of having been given things. Of not being alone.
+3|And when you are ready, open your eyes, and carry a little of it with you.
+
+S|safeplace|A safe place|Rest in a calm place of your own|5|10|stream
+5|Settle into a comfortable position, and close your eyes if that feels right.
+8|Take a slow breath in, and a long breath out. And again.
+5|In this practice you will picture a place where you feel completely calm and safe. It can be somewhere real, or a place you invent.
+10|Let a place come to mind. A beach, a garden, a forest, a room you love. Don't worry if it changes; just choose one for now.
+6|Begin to look around. What do you see? Notice the colours, the light, the shapes nearby and far away.
+12|Take your time.
+6|Now listen. What can you hear in this place? Perhaps water, or wind, or birds, or simply quiet.
+12|Let the sounds come to you.
+6|Notice what you can feel. The ground beneath you. The air on your skin, warm or cool.
+12|And any scents in the air. Grass, sea, rain, wood smoke, flowers.
+L:20|Find a spot in this place where you would like to rest, and settle there.
+6|Here, nothing is asked of you. You are safe, and you can simply be.
+15|Let your body soften in this feeling of safety.
+L:25|If you like, give your place a single word, a name that will bring it back to you whenever you need it.
+6|This place is always here. You can come back to it at any time, just by closing your eyes and breathing.
+8|Now slowly let the picture fade, and notice the room around you again.
+3|Open your eyes when you are ready.
