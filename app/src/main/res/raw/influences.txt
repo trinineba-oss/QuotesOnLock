@@ -187,3 +187,27 @@ E|Thoreau built his cabin at Walden Pond on land Emerson owned, and began his jo
 N|Henry David Thoreau|1854|What business have I in the woods, if I am thinking of something out of the woods?|Henry David Thoreau, Walking
 E|John Muir carried Emerson and Thoreau into the mountains; in 1871 Emerson visited him in Yosemite.
 N|John Muir|1890s|Nevermore, however weary, should one faint by the way who gains the blessings of one mountain day; whatever his fate, long life, short life, stormy or calm, he is rich forever.|John Muir, My First Summer in the Sierra
+T|Erasmus, More and the utopians|From a joke between friends to the satire of the twentieth century.
+N|Erasmus|1511|And what is all this life but a kind of comedy, wherein men walk up and down in one another's disguises and act their respective parts, till the property-man brings them back to the attiring house.|Erasmus, The Praise of Folly (tr. John Wilson)
+E|Erasmus wrote The Praise of Folly in Thomas More's house in London in 1509; its Greek title, Moriae Encomium, is a pun on his friend's name.
+N|Thomas More|1516|The pleasures of the mind lie in knowledge, and in that delight which the contemplation of truth carries with it; to which they add the joyful reflections on a well-spent life, and the assured hopes of a future happiness.|Thomas More, Utopia (tr. Gilbert Burnet)
+E|Swift admired More above almost anyone: in Gulliver's Travels he names him among the six greatest men who ever lived, the only modern one.
+N|Jonathan Swift|1726|And he gave it for his opinion, “that whoever could make two ears of corn, or two blades of grass, to grow upon a spot of ground where only one grew before, would deserve better of mankind, and do more essential service to his country, than the whole race of politicians put together.”|Jonathan Swift, Gulliver's Travels
+E|Orwell read Gulliver's Travels as a boy and wrote that it was one of the six books he would keep if all others were destroyed; his own fables owe it much.
+N|George Orwell|1946|Writing a book is a horrible, exhausting struggle, like a long bout with some painful illness. One would never undertake such a thing if one were not driven on by some demon whom one can neither resist nor understand.|George Orwell, Why I Write
+T|Humboldt and Darwin|How a traveller's book set a young man on his voyage.
+N|Alexander von Humboldt|1845|Nature presents itself to meditative contemplation as a unity in diversity.|Alexander von Humboldt, Cosmos (tr. E. C. Otté)
+E|Darwin read Humboldt's account of his South American travels as a student and took it on the Beagle. "My whole course of life is due to having read and reread as a youth his Personal Narrative," he wrote.
+N|Charles Darwin|1859|It is interesting to contemplate an entangled bank, clothed with many plants of many kinds, with birds singing on the bushes, with various insects flitting about, and with worms crawling through the damp earth, and to reflect that these elaborately constructed forms, so different from each other, and dependent on each other in so complex a manner, have all been produced by laws acting around us.|Charles Darwin, On the Origin of Species
+T|Wordsworth, Mill and Russell|Poetry rescues a philosopher, who passes his freedom on to his godson.
+N|William Wordsworth|1807|Thanks to the human heart by which we live,\nThanks to its tenderness, its joys, and fears,\nTo me the meanest flower that blows can give\nThoughts that do often lie too deep for tears.|William Wordsworth, Intimations of Immortality
+E|At twenty, Mill fell into a deep depression. In 1828 Wordsworth's poems brought him back to life: in them he found "a source of inward joy".
+N|John Stuart Mill|1873|In them I seemed to draw from a source of inward joy, of sympathetic and imaginative pleasure, which could be shared in by all human beings; which had no connection with struggle or imperfection, but would be made richer by every improvement in the physical or social condition of mankind.|John Stuart Mill, Autobiography
+E|Mill was Bertrand Russell's godfather ("in a secular sense"). At eighteen Russell read Mill's Autobiography, and it changed his mind about God.
+N|Bertrand Russell|1930|The secret of happiness is this: let your interests be as wide as possible, and let your reactions to the things and persons that interest you be as far as possible friendly rather than hostile.|Bertrand Russell, The Conquest of Happiness
+T|Douglass, Du Bois and King|Three generations of the struggle for freedom.
+N|Frederick Douglass|1857|If there is no struggle, there is no progress.|Frederick Douglass
+E|In The Souls of Black Folk, Du Bois called Douglass "the greatest of American Negro leaders", and took up his fight for full civil rights.
+N|W. E. B. Du Bois|1903|Freedom, too, the long-sought, we still seek,—the freedom of life and limb, the freedom to work and think, the freedom to love and aspire.|W. E. B. Du Bois, The Souls of Black Folk
+E|In February 1968, weeks before his own death, Martin Luther King Jr. gave a speech at Carnegie Hall honouring Du Bois on the hundredth anniversary of his birth.
+N|Martin Luther King Jr.|1963|Darkness cannot drive out darkness: only light can do that. Hate cannot drive out hate: only love can do that.|Martin Luther King Jr.
