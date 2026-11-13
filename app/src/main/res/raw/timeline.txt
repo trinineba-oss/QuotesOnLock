@@ -466,3 +466,12 @@ Thomas Hobbes|Thomas Hobbes|1588|1679|thinkers|
 John Locke|John Locke|1632|1704|thinkers|
 Thomas Paine|Thomas Paine|1737|1809|thinkers|
 W. E. B. Du Bois|W. E. B. Du Bois|1868|1963|thinkers|
+Margaret Fuller|Margaret Fuller|1810|1850|thinkers|
+Olive Schreiner|Olive Schreiner|1855|1920|writers|
+Edith Wharton|Edith Wharton|1862|1937|writers|
+Kate Chopin|Kate Chopin|1850|1904|writers|
+Charlotte Perkins Gilman|Charlotte Perkins Gilman|1860|1935|writers|
+Ida B. Wells|Ida B. Wells|1862|1931|thinkers|
+Zitkala-Ša|Zitkala-Ša|1876|1938|writers|
+Sarojini Naidu|Sarojini Naidu|1879|1949|poets|
+Toru Dutt|Toru Dutt|1856|1877|poets|

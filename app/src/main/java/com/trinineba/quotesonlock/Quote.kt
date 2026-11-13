@@ -440,6 +440,15 @@ enum class Category(val key: String, val label: String, val group: QuoteGroup) {
     LOCKE("locke", "John Locke", QuoteGroup.THINKERS),
     PAINE("paine", "Thomas Paine", QuoteGroup.THINKERS),
     DUBOIS("dubois", "W. E. B. Du Bois", QuoteGroup.THINKERS),
+    FULLER("fuller", "Margaret Fuller", QuoteGroup.THINKERS),
+    SCHREINER("schreiner", "Olive Schreiner", QuoteGroup.WRITERS),
+    WHARTON("wharton", "Edith Wharton", QuoteGroup.WRITERS),
+    CHOPIN("chopin", "Kate Chopin", QuoteGroup.WRITERS),
+    GILMAN("gilman", "Charlotte Perkins Gilman", QuoteGroup.WRITERS),
+    IDAWELLS("idawells", "Ida B. Wells", QuoteGroup.THINKERS),
+    ZITKALA("zitkala", "Zitkala-Ša", QuoteGroup.WRITERS),
+    NAIDU("naidu", "Sarojini Naidu", QuoteGroup.POETS),
+    TORUDUTT("torudutt", "Toru Dutt", QuoteGroup.POETS),
     QURAN("quran", "The Qur'an", QuoteGroup.SCRIPTURE),
     CUSTOM("custom", "My own quotes", QuoteGroup.MINE);
 
