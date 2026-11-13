@@ -652,14 +652,21 @@ private fun rememberLoopAngle(periodMs: Float): State<Float> {
         var last = withFrameNanos { it }
         while (true) {
             withFrameNanos { now ->
-                val ms = ((now - last) / 1_000_000f).coerceAtMost(100f)
-                last = now
-                angle.floatValue += ms * speed / periodMs * 2f * PI.toFloat()
+                val ms = (now - last) / 1_000_000f
+                // At most 30 frames a second: the scene only changes (and redraws) every 33 ms or so, which
+                // looks the same for slow, calm motion and roughly halves the drawing work and battery use.
+                if (ms >= FRAME_MS) {
+                    last = now
+                    angle.floatValue += ms.coerceAtMost(100f) * speed / periodMs * 2f * PI.toFloat()
+                }
             }
         }
     }
     return angle
 }
+
+/** Moving backgrounds advance at most this often (30 frames a second, a little under 33.3 ms for display jitter). */
+private const val FRAME_MS = 32f
 
 /** The "Motion speed" setting (0.25–2), read by every moving background. */
 val LocalMotionSpeed = compositionLocalOf { 1f }
