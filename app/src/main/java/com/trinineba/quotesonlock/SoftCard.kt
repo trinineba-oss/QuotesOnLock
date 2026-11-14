@@ -1,5 +1,6 @@
 package com.trinineba.quotesonlock
 
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
@@ -29,9 +30,12 @@ fun SoftCard(
     content: @Composable ColumnScope.() -> Unit,
 ) {
     val softness = LocalCardSoftness.current
-    if (softness < 0.03f) {
-        if (onClick != null) Card(onClick = onClick, modifier = modifier, content = content)
-        else Card(modifier = modifier, content = content)
+    // On a pure black theme, cards are drawn as a thin outline instead of a filled panel.
+    val outlineOnly = MaterialTheme.colorScheme.surfaceContainerHighest == Color.Black
+    if (outlineOnly || softness < 0.03f) {
+        val border = if (outlineOnly) BorderStroke(1.dp, MaterialTheme.colorScheme.outlineVariant) else null
+        if (onClick != null) Card(onClick = onClick, modifier = modifier, border = border, content = content)
+        else Card(modifier = modifier, border = border, content = content)
         return
     }
     val color = MaterialTheme.colorScheme.surfaceContainerHighest

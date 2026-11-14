@@ -52,7 +52,8 @@ object CalmScene {
         val on by active.collectAsState()
         val s by settings.collectAsState()
         val sound by SoundPlayer.state.collectAsState()
-        if (!on || s.mode == "off") return base to baseAnimate
+        // Pure black is the battery saver: Calm keeps it black and still too.
+        if (!on || s.mode == "off" || base == AppTheme.BLACK) return base to baseAnimate
         val scene = if (s.mode == "follow") sound.sound?.takeIf { !sound.forBreathe || sound.playing }?.scene ?: s.theme else s.theme
         return scene to !s.still
     }

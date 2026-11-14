@@ -94,6 +94,7 @@ class QuoteWallpaperService : WallpaperService() {
                 lastFrame = now
                 val t = clock
                 when (theme) {
+                    AppTheme.BLACK -> canvas.drawColor(android.graphics.Color.BLACK)
                     AppTheme.AURORA -> drawAurora(canvas, if (moving()) t * 2f * PI.toFloat() / 10f else 1.2f)
                     AppTheme.BUTTERFLY -> ButterflyArt.draw(canvas, width.toFloat(), height.toFloat(), if (moving()) t else 3f, resources.displayMetrics.density)
                     AppTheme.WATER -> drawWater(canvas, t)

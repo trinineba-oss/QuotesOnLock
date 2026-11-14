@@ -69,6 +69,11 @@ enum class AppTheme(
     val notificationAuthor: Int?,
 ) {
     CLASSIC("classic", "Classic", null, null, null, null, null),
+    /** True black and nothing moving: on OLED screens black pixels are off, so this uses the least battery. */
+    BLACK(
+        "black", "Pure black", null, R.drawable.notif_frame_black, 0xFF000000.toInt(),
+        0xFFE2DFD9.toInt(), 0xFFC9A66B.toInt(),
+    ),
     STARRY(
         "starry", "Starry Night", "Moving swirls", R.drawable.notif_frame_starry, 0xFF0B1A3D.toInt(),
         0xFFFFFFFF.toInt(), 0xFFF4C94A.toInt(),
@@ -175,6 +180,29 @@ private val AuroraNight = Color(0xFF040915)
 /** [cardOpacity] (0–1) is how solid the cards behind the text are over the theme's artwork. */
 fun AppTheme.colorScheme(cardOpacity: Float): ColorScheme? = when (this) {
     AppTheme.CLASSIC -> null
+    AppTheme.BLACK -> darkColorScheme(
+        primary = Color(0xFFC9A66B),
+        onPrimary = Color.Black,
+        primaryContainer = Color(0xFF1A1714),
+        onPrimaryContainer = Color(0xFFE2DFD9),
+        secondary = Color(0xFFBDB9B2),
+        onSecondary = Color.Black,
+        secondaryContainer = Color(0xFF141311),
+        onSecondaryContainer = Color(0xFFE2DFD9),
+        background = Color.Black,
+        onBackground = Color(0xFFE2DFD9),
+        surface = Color.Black,
+        onSurface = Color(0xFFE2DFD9),
+        onSurfaceVariant = Color(0xFFBDB9B2),
+        surfaceVariant = Color(0xFF141311),
+        surfaceContainerLowest = Color.Black,
+        surfaceContainerLow = Color.Black,
+        surfaceContainer = Color.Black,
+        surfaceContainerHigh = Color.Black,
+        surfaceContainerHighest = Color.Black,
+        outline = Color(0xFF3A3733),
+        outlineVariant = Color(0xFF2A2825),
+    )
     AppTheme.STARRY -> darkColorScheme(
         primary = Color(0xFFF4C94A),
         onPrimary = Color(0xFF1A1300),
@@ -367,6 +395,7 @@ private fun calmScheme(dark: Boolean, accent: Long, card: Long, text: Long, text
 /** Night themes get a soft shadow under all text so it reads over the painting; the book page gets serif type. */
 fun AppTheme.typography(base: Typography): Typography = when (this) {
     AppTheme.CLASSIC -> base
+    AppTheme.BLACK -> base.map(headings = { it.copy(fontFamily = FontFamily.Serif) }, all = { it })
     AppTheme.STARRY, AppTheme.AURORA, AppTheme.SPACE, AppTheme.WATER, AppTheme.RAIN, AppTheme.RAIN_NIGHT,
     AppTheme.SNOW, AppTheme.CANDLE, AppTheme.FIREFLIES, AppTheme.WAVES, AppTheme.DROP, AppTheme.MOUNTAINS, AppTheme.LANTERNS, AppTheme.LEAVES, AppTheme.SEA -> base.map(
         headings = { it.copy(fontFamily = FontFamily.Serif) },
@@ -399,6 +428,7 @@ private fun Typography.map(headings: (TextStyle) -> TextStyle, all: (TextStyle) 
 fun ThemedBackground(theme: AppTheme, animate: Boolean, auroraIntensity: Float = 1f) {
     when (theme) {
         AppTheme.CLASSIC -> Unit
+        AppTheme.BLACK -> Box(Modifier.fillMaxSize().background(Color.Black))
         AppTheme.STARRY -> StarryBackground(animate)
         AppTheme.AURORA -> AuroraBackground(animate, auroraIntensity)
         AppTheme.BOOK -> CalmBackground(theme, animate)

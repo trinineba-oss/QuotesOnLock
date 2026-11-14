@@ -229,6 +229,7 @@ internal fun themePicture(option: AppTheme): Int? = when (option) {
     AppTheme.LANTERNS -> R.drawable.lanterns_frame
     AppTheme.LEAVES -> R.drawable.leaves_frame
     AppTheme.SEA -> R.drawable.sea_frame
+    AppTheme.BLACK -> R.drawable.black_frame
     AppTheme.CLASSIC -> null
 }
 

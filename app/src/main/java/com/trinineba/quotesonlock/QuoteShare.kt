@@ -47,6 +47,7 @@ object QuoteShare {
         val h = HEIGHT.toFloat()
         val density = WIDTH / 360f
         when (theme) {
+            AppTheme.BLACK -> canvas.drawColor(android.graphics.Color.BLACK)
             AppTheme.STARRY -> cover(canvas, BitmapFactory.decodeResource(context.resources, R.drawable.starry_night))
             AppTheme.AURORA -> QuoteArt.drawAurora(canvas, w, h, 1.2f, false, prefs.auroraIntensity, density)
             AppTheme.BOOK -> cover(canvas, BitmapFactory.decodeResource(context.resources, R.drawable.paper))
