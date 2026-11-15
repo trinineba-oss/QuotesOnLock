@@ -388,3 +388,11 @@ Music, each played whole and repeated after a short pause:
 - Bach, Aria from the *Goldberg Variations*: performed by Kimiko Ishizaka, *The Open Goldberg Variations* (Internet Archive `jamendo-113109`), licensed CC BY 3.0.
 - Chopin, Nocturne in E flat major, Op. 9 No. 2: performed by Aaron Dunn for Musopen, *The Complete Chopin Collection* (Internet Archive `musopen-chopin`), CC0; mixed to mono.
 - Beethoven, Piano Sonata No. 14 "Moonlight", Op. 27 No. 2, 1st movement: performed by Paul Pitman for Musopen (Wikimedia Commons), public domain; mixed to mono.
+
+## About this line, and more context
+
+The "About this line" notes on the quote page (about 70 of the best-loved quotes, in `notes.txt`) are written for the app from standard reference knowledge: when and why each line was written, the author's life at the time, and one way to read it today. Where a familiar line is a looser rendering than the edition named, or its exact wording is hard to trace, the note says so.
+
+Context passages were extended to about 8,600 quotes by matching each line against the full Project Gutenberg texts: Marcus Aurelius, *Meditations* (tr. George W. Chrystal, #55317); the *Dhammapada* (tr. F. Max Müller, #2017); the *Tao Teh King* (tr. James Legge, #216); Sun Tzu, *The Art of War* (tr. Lionel Giles, #17405); Tagore, *Gitanjali* (#7164), *The Gardener* (#6686), *Fruit-Gathering* (#6522) and *Sadhana* (#6842); Nietzsche, *Beyond Good and Evil* (tr. Helen Zimmern, #4363); Leonardo's *Notebooks* (tr. J. P. Richter, #5000); Gissing, *The Private Papers of Henry Ryecroft* (#1463); Traherne (#61586); and the scientists', thinkers' and women writers' texts listed above.
+
+More lines from authors who had few: Andersen (#1597, #27200), Dumas (#1184), Pepys (#4200), Herodotus (tr. G. C. Macaulay, #2456), Tacitus (#7524), Catullus (tr. Leonard C. Smithers, #20732), Grahame (#289), Equiano (#15399), Cowper (#3698), Herrick (#22421), Phillis Wheatley (#409), John Clare (#8672), Swift (#829) and Bunyan (#131), each cut word for word from the edition named.
