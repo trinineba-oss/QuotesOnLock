@@ -24,6 +24,7 @@ enum class Subject(val key: String, val label: String) {
     MEMORY("memory", "Memory & the past"),
     SELF("self", "The self & identity"),
     MEANING("meaning", "Meaning & absurdity"),
+    EXISTENTIAL("existential", "Existentialism"),
     WORK("work", "Work, craft & discipline"),
     SOCIETY("society", "Power, society & war"),
     JOURNEY("journey", "Journeys & home"),
