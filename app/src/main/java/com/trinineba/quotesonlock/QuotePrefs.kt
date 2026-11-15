@@ -64,7 +64,7 @@ class QuotePrefs(context: Context) {
         get() = prefs.getBoolean("allow_repeats", false)
         set(value) = prefs.edit().putBoolean("allow_repeats", value).apply()
 
-    /** Check GitHub weekly for a new build. */
+    /** Check GitHub for a new build each time the app opens. */
     var updateCheck: Boolean
         get() = prefs.getBoolean("update_check", true)
         set(value) = prefs.edit().putBoolean("update_check", value).apply()

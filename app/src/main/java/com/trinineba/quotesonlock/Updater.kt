@@ -122,18 +122,13 @@ object Updater {
         )
     }
 
-    /** Turns the weekly background check on or off. */
+    /**
+     * The app now checks each time it is opened (see the quote screen), so the old weekly background
+     * check is cancelled; [on] is kept for callers and only matters for that in-app check.
+     */
+    @Suppress("UNUSED_PARAMETER")
     fun schedule(context: Context, on: Boolean) {
-        val work = WorkManager.getInstance(context.applicationContext)
-        if (!on) {
-            work.cancelUniqueWork(WORK_NAME)
-            return
-        }
-        val request = PeriodicWorkRequestBuilder<UpdateCheckWorker>(7, TimeUnit.DAYS)
-            .setConstraints(Constraints.Builder().setRequiredNetworkType(NetworkType.CONNECTED).build())
-            .setInitialDelay(1, TimeUnit.DAYS)
-            .build()
-        work.enqueueUniquePeriodicWork(WORK_NAME, ExistingPeriodicWorkPolicy.KEEP, request)
+        WorkManager.getInstance(context.applicationContext).cancelUniqueWork(WORK_NAME)
     }
 
     /** Posts "Update available" once per new build. */

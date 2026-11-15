@@ -610,6 +610,42 @@ private fun QuotesScreen(
         )
     }
 
+    // Each time the app comes to the front, quietly ask GitHub for a newer build and offer it once per visit.
+    var offered by remember { mutableStateOf<Release?>(null) }
+    var declinedBuild by remember { mutableStateOf(0L) }
+    LifecycleEventEffect(Lifecycle.Event.ON_START) {
+        if (prefs.updateCheck && !updateBusy) scope.launch {
+            val release = runCatching { withContext(Dispatchers.IO) { Updater.fetchLatest() } }.getOrNull() ?: return@launch
+            if (release.build > currentBuild) {
+                latest = release
+                if (updateStatus == null) updateStatus = "Build ${release.build} is available."
+                if (release.build > declinedBuild && downloadProgress == null) offered = release
+            }
+        }
+    }
+    offered?.let { release ->
+        AlertDialog(
+            onDismissRequest = { declinedBuild = release.build; offered = null },
+            title = { Text("Update available") },
+            text = {
+                Text(
+                    "Build ${release.build} is ready on GitHub." +
+                        release.notes.lines().map { it.trim() }.filter { it.isNotEmpty() && !it.startsWith("Build ") }
+                            .take(3).joinToString("") { "\n• " + it.removePrefix("- ").removePrefix("* ") } +
+                        "\n\nAndroid will ask you to confirm the install."
+                )
+            },
+            confirmButton = {
+                TextButton(onClick = {
+                    offered = null
+                    page = Page.ABOUT
+                    installUpdate(release)
+                }) { Text("Update now") }
+            },
+            dismissButton = { TextButton(onClick = { declinedBuild = release.build; offered = null }) { Text("Later") } },
+        )
+    }
+
     fun setFavoritesOnly(on: Boolean) {
         favoritesOnly = on
         prefs.favoritesOnly = on
@@ -2015,9 +2051,9 @@ private fun QuotesScreen(
                 }
                 Row(verticalAlignment = Alignment.CenterVertically) {
                     Column(Modifier.weight(1f)) {
-                        Text("Check weekly")
+                        Text("Check when the app opens")
                         Text(
-                            "Sends a notification when a new build is on GitHub. Android always asks you to confirm an install.",
+                            "Each time you open the app it asks GitHub for a newer build and offers to install it. Android always asks you to confirm an install.",
                             style = MaterialTheme.typography.bodySmall,
                         )
                     }

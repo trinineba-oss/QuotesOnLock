@@ -180,6 +180,54 @@ thought|It is the possession of a great heart or a great head, and not the mere 
 thought|It is only work done from the heart that ever gains the laurel.|Arthur Schopenhauer, The Wisdom of Life|work
 thought|Life is such a poor business that the strictest economy must be exercised in its good things.|Arthur Schopenhauer, The Wisdom of Life|
 thought|There is no greater consolation in age than the feeling of having put the whole force of one's youth into works which still remain young.|Arthur Schopenhauer, The Wisdom of Life|youth,hope,work
+thought|After all he is only a man, that is to say capable of little and of much, of all and of nothing; he is neither angel nor brute, but man.|Blaise Pascal, Pensées (tr. W. F. Trotter)|self
+thought|We have all sufficient strength to support the misfortunes of others.|La Rochefoucauld, Maxims (tr. J. W. Willis Bund and J. Hain Friswell)|society,suffering
+thought|Few know how to be old.|La Rochefoucauld, Maxims (tr. J. W. Willis Bund and J. Hain Friswell)|time,wisdom
+thought|In the adversity of our best friends we always find something which is not wholly displeasing to us.|La Rochefoucauld, Maxims (tr. J. W. Willis Bund and J. Hain Friswell)|friendship,self
+thought|Too great a hurry to discharge of an obligation is a kind of ingratitude.|La Rochefoucauld, Maxims (tr. J. W. Willis Bund and J. Hain Friswell)|society
+thought|Nothing can bring you peace but yourself.|Ralph Waldo Emerson, Essays: First Series|self
+thought|In every work of genius we recognize our own rejected thoughts; they come back to us with a certain alienated majesty.|Ralph Waldo Emerson, Essays: First Series|art,self
+thought|There is a crack in every thing God has made.|Ralph Waldo Emerson, Essays: First Series|sacred
+thought|We know that the ancestor of every action is a thought.|Ralph Waldo Emerson, Essays: First Series|wisdom
+thought|It is never too late to give up our prejudices.|Henry David Thoreau, Walden|truth,wisdom
+thought|I say, beware of all enterprises that require new clothes, and not rather a new wearer of clothes.|Henry David Thoreau, Walden|self,society
+thought|As if you could kill time without injuring eternity.|Henry David Thoreau, Walden|time
+thought|Things do not change; we change.|Henry David Thoreau, Walden|self,time
+thought|Heaven is under our feet as well as over our heads.|Henry David Thoreau, Walden|nature,sacred
+thought|What a man thinks of himself, that it is which determines, or rather indicates, his fate.|Henry David Thoreau, Walden|self
+thought|A man is rich in proportion to the number of things which he can afford to let alone.|Henry David Thoreau, Walden|freedom,wisdom
+thought|Only that day dawns to which we are awake.|Henry David Thoreau, Walden|time,meaning
+thought|One of the most striking differences between a cat and a lie is that a cat has only nine lives.|Mark Twain, Pudd'nhead Wilson|truth
+thought|He did not want the apple for the apple's sake, he wanted it only because it was forbidden.|Mark Twain, Pudd'nhead Wilson|self
+thought|When angry, count four; when very angry, swear.|Mark Twain, Pudd'nhead Wilson|courage
+thought|There is only one thing in the world worse than being talked about, and that is not being talked about.|Oscar Wilde, The Picture of Dorian Gray|society
+thought|To define is to limit.|Oscar Wilde, The Picture of Dorian Gray|truth
+thought|Every portrait that is painted with feeling is a portrait of the artist, not of the sitter.|Oscar Wilde, The Picture of Dorian Gray|art,self
+thought|Experience was of no ethical value. It was merely the name men gave to their mistakes.|Oscar Wilde, The Picture of Dorian Gray|wisdom
+thought|Philosophy is to be studied, not for the sake of any definite answers to its questions, since no definite answers can, as a rule, be known to be true, but rather for the sake of the questions themselves; because these questions enlarge our conception of what is possible, enrich our intellectual imagination and diminish the dogmatic assurance which closes the mind against speculation; but above all because, through the greatness of the universe which philosophy contemplates, the mind also is rendered great, and becomes capable of that union with the universe which constitutes its highest good.|Bertrand Russell, The Problems of Philosophy|truth,wisdom
+thought|The man who has no tincture of philosophy goes through life imprisoned in the prejudices derived from common sense, from the habitual beliefs of his age or his nation, and from convictions which have grown up in his mind without the co-operation or consent of his deliberate reason.|Bertrand Russell, The Problems of Philosophy|truth,freedom
+thought|The man who has fed the chicken every day throughout its life at last wrings its neck instead, showing that more refined views as to the uniformity of nature would have been useful to the chicken.|Bertrand Russell, The Problems of Philosophy|truth
+thought|There is no such thing as moral phenomena, but only a moral interpretation of phenomena.|Friedrich Nietzsche, Beyond Good and Evil|truth
+thought|When I play with my cat who knows whether I do not make her more sport than she makes me?|Michel de Montaigne, Essays (tr. Charles Cotton)|self,joy
+thought|There is no more terrible sight than ignorance in action.|Goethe, Maxims and Reflections (tr. T. Bailey Saunders)|wisdom
+thought|A man who has no acquaintance with foreign languages knows nothing of his own.|Goethe, Maxims and Reflections (tr. T. Bailey Saunders)|books
+thought|But all things excellent are as difficult as they are rare.|Baruch Spinoza, Ethics (tr. R. H. M. Elwes)|wisdom
+thought|He knows nothing, and thinks that he knows; I neither know nor think that I know.|Plato|wisdom,truth
+thought|Since he is infinitely removed from comprehending the extremes, the end of things and their beginning are hopelessly hidden from him in an impenetrable secret, he is equally incapable of seeing the Nothing from which he was made, and the Infinite in which he is swallowed up.|Blaise Pascal, Pensées (tr. W. F. Trotter)|nature,self
+thought|The cost of a thing is the amount of what I will call life which is required to be exchanged for it, immediately or in the long run.|Henry David Thoreau, Walden|meaning,work
+thought|I had three chairs in my house; one for solitude, two for friendship, three for society.|Henry David Thoreau, Walden|solitude,friendship
+thought|We are in great haste to construct a magnetic telegraph from Maine to Texas; but Maine and Texas, it may be, have nothing important to communicate.|Henry David Thoreau, Walden|society
+thought|Every ultimate fact is only the first of a new series.|Ralph Waldo Emerson, Essays: First Series|truth
+thought|The perfect man ignores self; the divine man ignores action; the true sage ignores reputation.|Zhuangzi|self,wisdom
+thought|Put all your eggs in the one basket and--watch that basket.|Mark Twain, Pudd'nhead Wilson|wisdom
+thought|Even popularity can be overdone.|Mark Twain, Pudd'nhead Wilson|society
+thought|All silencing of discussion is an assumption of infallibility.|John Stuart Mill, On Liberty|truth,freedom
+thought|The worth of a State, in the long run, is the worth of the individuals composing it.|John Stuart Mill, On Liberty|society
+thought|You must bring out of each word its practical cash-value, set it at work within the stream of your experience.|William James, Pragmatism|truth
+thought|Truth happens to an idea.|William James, Pragmatism|truth
+thought|The history of philosophy is to a great extent that of a certain clash of human temperaments.|William James, Pragmatism|truth,self
+thought|Every profound spirit needs a mask; nay, more, around every profound spirit there continually grows a mask, owing to the constantly false, that is to say, superficial interpretation of every word he utters, every step he takes, every sign of life he manifests.|Friedrich Nietzsche, Beyond Good and Evil|self,solitude
+thought|If we do not know ourselves to be full of pride, ambition, lust, weakness, misery, and injustice, we are indeed blind.|Blaise Pascal, Pensées (tr. W. F. Trotter)|self,truth
 stoic|Waste no more time arguing about what a good man should be. Be one.|Marcus Aurelius|
 stoic|If it is not right, do not do it; if it is not true, do not say it.|Marcus Aurelius|
 stoic|The soul is dyed by the colour of its thoughts.|Marcus Aurelius|
