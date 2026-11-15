@@ -56,7 +56,9 @@ fun QuotePageSheet(
     val hasContext = remember(quote.text) { QuoteContext.has(context, quote) }
     val hasMatches = remember(quote.text) { MoreLikeThis.has(context, quote) }
     val words = remember(quote.text) { runCatching { Words.find(Words.all(context), quote.shownText, quote.category?.key) }.getOrDefault(emptyList()) }
+    val about = remember(quote.text) { QuoteNotes.of(context, quote) }
     val tabs = buildList {
+        if (about != null) add("About")
         if (hasContext) add("Context")
         if (hasMatches) add("More like this")
         if (words.isNotEmpty()) add("Words")
@@ -95,6 +97,7 @@ fun QuotePageSheet(
                 tabs.forEach { t -> FilterChip(selected = t == tab, onClick = { tab = t }, label = { Text(t) }) }
             }
             when (tab) {
+                "About" -> about?.let { AboutNote(it) }
                 "Context" -> ContextPassage(quote)
                 "More like this" -> {
                     val found = remember(quote.text) { MoreLikeThis.of(context, quote) }

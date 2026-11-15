@@ -20,6 +20,17 @@ class DiscoverFilesTest {
         assertTrue("only $found quotes find a passage", found > 5000)
     }
 
+    @Test fun everyNoteBelongsToAQuote() {
+        val lines = raw("notes.txt").readLines().filter { it.isNotBlank() && !it.startsWith("#") }
+        assertTrue("too few notes: ${lines.size}", lines.size >= 70)
+        val keys = quotes.map { QuoteContext.key(it.text) }.toSet()
+        lines.forEach { line ->
+            assertEquals("bad note line: ${line.take(60)}", 2, line.split('\t').size)
+            assertTrue("note matches no quote: ${line.take(60)}", line.substringBefore('\t') in keys)
+            assertTrue("note too long: ${line.take(60)}", line.length < 1200)
+        }
+    }
+
     @Test fun themesAndInfluencesQuoteTheCollectionExactly() {
         val texts = quotes.map { it.text }.toSet()
         val themes = raw("themes.txt").useLines { IdeaThemes.parse(it) }

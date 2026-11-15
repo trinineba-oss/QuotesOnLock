@@ -87,6 +87,32 @@ object QuoteContext {
     }
 }
 
+/** "About this line": a short note on when and why a quote was written and how it might be read (res/raw/notes.txt). */
+object QuoteNotes {
+    @Volatile private var notes: Map<String, String>? = null
+
+    fun all(context: Context): Map<String, String> = notes ?: synchronized(this) {
+        notes ?: context.applicationContext.resources.openRawResource(R.raw.notes).bufferedReader().useLines { lines ->
+            lines.filter { !it.startsWith("#") && '\t' in it }
+                .associate { it.substringBefore('\t') to it.substringAfter('\t').replace("\\n", "\n") }
+        }.also { notes = it }
+    }
+
+    fun of(context: Context, quote: Quote): String? =
+        if (quote.explained) null else runCatching { all(context)[QuoteContext.key(quote.text)] }.getOrNull()
+}
+
+/** The note shown in the quote page's About tab. */
+@Composable
+fun AboutNote(note: String) {
+    Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
+        Text("ABOUT THIS LINE", style = MaterialTheme.typography.labelMedium, color = MaterialTheme.colorScheme.primary, letterSpacing = 1.5.sp)
+        note.split("\n\n").forEach { p ->
+            Text(p, style = MaterialTheme.typography.bodyMedium, lineHeight = 22.sp)
+        }
+    }
+}
+
 /** The surrounding passage, the quote highlighted and its source named (in the Context sheet and the quote page). */
 @Composable
 fun ContextPassage(quote: Quote) {
