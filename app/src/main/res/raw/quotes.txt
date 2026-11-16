@@ -13126,7 +13126,6 @@ wollstonecraft|If women are in general feeble both in body and mind, it arises l
 wollstonecraft|But what a weak barrier is truth when it stands in the way of an hypothesis!|Mary Wollstonecraft, A Vindication of the Rights of Woman|truth
 wollstonecraft|Reason is, consequentially, the simple power of improvement; or, more properly speaking, of discerning truth.|Mary Wollstonecraft, A Vindication of the Rights of Woman|truth,society
 wollstonecraft|Friendship is a serious affection; the most sublime of all affections, because it is founded on principle, and cemented by time.|Mary Wollstonecraft, A Vindication of the Rights of Woman|love,friendship
-angelou|There is no greater agony than bearing an untold story inside you.|Maya Angelou, I Know Why the Caged Bird Sings|suffering
 angelou|What you're supposed to do when you don't like a thing is change it. If you can't change it, change the way you think about it. Don't complain.|Maya Angelou|time
 angelou|When people show you who they are, believe them the first time.|Maya Angelou|
 angelou|Courage is the most important of all the virtues because without courage, you can't practice any other virtue consistently.|Maya Angelou|courage,wisdom,work
