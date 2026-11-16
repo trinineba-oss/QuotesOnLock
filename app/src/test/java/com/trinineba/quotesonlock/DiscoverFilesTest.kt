@@ -20,6 +20,16 @@ class DiscoverFilesTest {
         assertTrue("only $found quotes find a passage", found > 5000)
     }
 
+    @Test fun everyReadingPathStepIsInTheCollection() {
+        val paths = raw("paths.txt").useLines { ReadingPaths.parse(it) }
+        assertTrue("too few paths: ${paths.size}", paths.size >= 8)
+        val all = quotes + raw("ideas.txt").useLines { QuoteData.parseIdeas(it) }
+        paths.forEach { p ->
+            assertTrue("${p.title}: too few steps", p.steps.size >= 5)
+            p.steps.forEach { s -> assertTrue("${p.title}: step not found: ${s.ref.take(50)}", ReadingPaths.resolve(all, s) != null) }
+        }
+    }
+
     @Test fun everyNoteBelongsToAQuote() {
         val lines = raw("notes.txt").readLines().filter { it.isNotBlank() && !it.startsWith("#") }
         assertTrue("too few notes: ${lines.size}", lines.size >= 70)

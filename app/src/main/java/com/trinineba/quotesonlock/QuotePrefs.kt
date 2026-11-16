@@ -337,4 +337,18 @@ class QuotePrefs(context: Context) {
     var customJson: String?
         get() = prefs.getString("custom", null)
         set(value) = prefs.edit().putString("custom", value).apply()
+
+    /** How far the reader has got along a reading path (the step to show next), by path title. */
+    fun pathStep(title: String): Int = prefs.getInt("path_step:$title", 0)
+    fun setPathStep(title: String, step: Int) = prefs.edit().putInt("path_step:$title", step).apply()
+
+    /** Reading paths walked to the end. */
+    var pathsDone: Set<String>
+        get() = prefs.getStringSet("paths_done", null) ?: emptySet()
+        set(value) = prefs.edit().putStringSet("paths_done", value).apply()
+
+    /** The path last opened, shown under "Continue". */
+    var lastPath: String?
+        get() = prefs.getString("path_last", null)
+        set(value) = prefs.edit().putString("path_last", value).apply()
 }

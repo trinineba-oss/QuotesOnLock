@@ -796,6 +796,10 @@ private fun QuotesScreen(
             TimelineScreen(onBack = { browse = browse.dropLast(1) }, onOpenAuthor = { browse = browse + BrowsePage.author(it) })
             return
         }
+        "paths" -> {
+            ReadingPathsScreen(onBack = { browse = browse.dropLast(1) }, onOpenAuthor = { browse = browse + BrowsePage.author(it) })
+            return
+        }
         "themes" -> {
             ThemesScreen(onBack = { browse = browse.dropLast(1) }, onOpenAuthor = { browse = browse + BrowsePage.author(it) })
             return
@@ -1087,6 +1091,9 @@ private fun QuotesScreen(
             }
         }
         item(key = "d-journeys") { Text("JOURNEYS", style = MaterialTheme.typography.labelMedium, color = MaterialTheme.colorScheme.primary, letterSpacing = 1.2.sp) }
+        item(key = "d-paths") {
+            JourneyCard("Reading paths", "Guided journeys: existentialism, the Stoics, myths of love, wonder and more", Color(0xFF2E8B74)) { browse = listOf("paths") }
+        }
         item(key = "d-themes") {
             JourneyCard("One idea, many hands", "Time, the self, love, death… 20 great themes traced across the centuries", Color(0xFF7A5ADC)) { browse = listOf("themes") }
         }
