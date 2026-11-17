@@ -56,7 +56,7 @@ class DiscoverFilesTest {
 
     @Test fun everyDiagramIllustratesAnIdea() {
         val ideas = raw("ideas.txt").useLines { QuoteData.parseIdeas(it) }.mapNotNull { it.title }.toSet()
-        assertTrue("too few diagrams: ${Diagrams.titles.size}", Diagrams.titles.size >= 40)
+        assertTrue("too few diagrams: ${Diagrams.titles.size}", Diagrams.titles.size >= 80)
         Diagrams.titles.forEach { assertTrue("diagram for an unknown idea: $it", it in ideas) }
     }
 
