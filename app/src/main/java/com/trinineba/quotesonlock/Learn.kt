@@ -409,6 +409,7 @@ private fun LessonScreen(ref: String, prefs: QuotePrefs, bundled: List<Quote>, o
             0 -> {
                 item { LearnLabel("2 minutes · " + (idea.category?.label ?: "")) }
                 item { IdeaCard(idea) { opened = idea } }
+                if (Diagrams.of(ref) != null) item { LessonDiagram(ref) }
                 item { Takeaway(lesson.takeaway) }
                 item { OutlinedButton(onClick = { opened = idea }, modifier = Modifier.fillMaxWidth()) { Text("More about this") } }
                 item { Button(onClick = { stage = 1 }, modifier = Modifier.fillMaxWidth()) { Text("I've read it — check myself ›") } }
@@ -578,6 +579,7 @@ private fun TopicScreen(title: String, prefs: QuotePrefs, bundled: List<Quote>, 
             item { LinearProgressIndicator(progress = { (at + 1) / topic.steps.size.toFloat() }, modifier = Modifier.fillMaxWidth()) }
             item { LearnLabel("Step ${at + 1} of ${topic.steps.size}") }
             if (q != null) item { IdeaCard(q) { opened = q } }
+            if (step.isIdea && Diagrams.of(step.ref) != null) item(key = "d-$title-$at") { LessonDiagram(step.ref) }
             if (lesson != null) {
                 item { Takeaway(lesson.takeaway) }
                 item(key = "q-$title-$at") { QuestionBlock(lesson) { ok -> answered = true; Learn.answer(prefs, step.ref, ok) } }

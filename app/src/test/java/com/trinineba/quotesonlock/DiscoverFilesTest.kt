@@ -53,6 +53,12 @@ class DiscoverFilesTest {
         }
     }
 
+    @Test fun everyDiagramIllustratesAnIdea() {
+        val ideas = raw("ideas.txt").useLines { QuoteData.parseIdeas(it) }.mapNotNull { it.title }.toSet()
+        assertTrue("too few diagrams: ${Diagrams.titles.size}", Diagrams.titles.size >= 40)
+        Diagrams.titles.forEach { assertTrue("diagram for an unknown idea: $it", it in ideas) }
+    }
+
     @Test fun everyNoteBelongsToAQuote() {
         val lines = raw("notes.txt").readLines().filter { it.isNotBlank() && !it.startsWith("#") }
         assertTrue("too few notes: ${lines.size}", lines.size >= 70)

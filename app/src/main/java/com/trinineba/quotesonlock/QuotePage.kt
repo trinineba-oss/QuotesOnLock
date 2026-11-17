@@ -93,6 +93,7 @@ fun QuotePageSheet(
             }
             quote.brief?.let { Text("In brief: $it", style = MaterialTheme.typography.bodyMedium) }
             quote.more?.let { MoreAbout(quote.text, it) }
+            quote.title?.let { t -> if (Diagrams.of(t) != null) LessonDiagram(t) }
 
             Row(Modifier.horizontalScroll(rememberScrollState()), horizontalArrangement = Arrangement.spacedBy(8.dp)) {
                 tabs.forEach { t -> FilterChip(selected = t == tab, onClick = { tab = t }, label = { Text(t) }) }
