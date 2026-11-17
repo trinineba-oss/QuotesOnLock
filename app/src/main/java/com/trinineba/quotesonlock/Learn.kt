@@ -208,7 +208,7 @@ fun LearnScreen(onBack: () -> Unit, onOpenAuthor: (String) -> Unit, onOpenPaths:
     val bundled = remember { QuoteRepository(context).bundled() }
     var view by remember { mutableStateOf<LearnView>(LearnView.Hub) }
     var refresh by remember { mutableIntStateOf(0) }
-    val toHub = { view = LearnView.Hub; refresh++ }
+    val toHub: () -> Unit = { view = LearnView.Hub; refresh++ }
     when (val v = view) {
         is LearnView.Lesson -> { LessonScreen(v.ref, prefs, bundled, onBack = toHub, onOpenAuthor = onOpenAuthor); return }
         LearnView.Review -> { ReviewScreen(prefs, bundled, onBack = toHub); return }
