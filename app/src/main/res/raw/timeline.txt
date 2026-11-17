@@ -477,3 +477,5 @@ Sarojini Naidu|Sarojini Naidu|1879|1949|poets|
 Toru Dutt|Toru Dutt|1856|1877|poets|
 Jerome K. Jerome|Jerome K. Jerome|1859|1927|writers|
 Samuel Butler|Samuel Butler|1835|1902|writers|
+José Enrique Rodó|José Enrique Rodó|1871|1917|thinkers|
+José Hernández|José Hernández|1834|1886|poets|
