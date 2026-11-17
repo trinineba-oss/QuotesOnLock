@@ -4038,6 +4038,7 @@ turgenev|In sight of death the last earthly cares vanish. I feel I have grown ca
 turgenev|Every object is doubly precious to me. I cannot gaze enough at my poor, cheerless room, saying farewell to each spot on my walls.|Ivan Turgenev, The Diary of a Superfluous Man (tr. Constance Garnett)|
 turgenev|Life is retreating; slowly and smoothly she is flying away from me, as the shore flies from the eyes of one at sea.|Ivan Turgenev, The Diary of a Superfluous Man (tr. Constance Garnett)|
 turgenev|When the summer comes, do not forget to be clothed with flowers from head to foot ... and may it be sweet for people to lie in your fragrant shade, on the fresh grass, among the whispering chatter of your leaves, lightly stirred by the wind.|Ivan Turgenev, The Diary of a Superfluous Man (tr. Constance Garnett)|nature,truth,memory
+turgenev|Nature is rubbish—at least in the sense in which you understand her. She is not a church, but a workshop wherein man is the labourer.|Ivan Turgenev, Fathers and Sons (tr. C. J. Hogarth)|nature,work
 chekhov|The higher a man has climbed in mental and moral development the freer he is, the greater satisfaction he draws from life.|Anton Chekhov|
 chekhov|It is possible for a man to live his own life, to keep silent for ten years, to be reticent with his own wife and friends, and then some day suddenly he meets a cadet in a railway carriage, and reveals to him his whole soul.|Anton Chekhov|solitude,friendship
 chekhov|Think more, and you will realise how trifling are all the things which now excite you.|Anton Chekhov|
@@ -5119,6 +5120,7 @@ goethe|There have been times in my life when I have fallen asleep in tears; but 
 goethe|The truth must be repeated over and over again, because error is repeatedly preached among us, not only by individuals, but by the masses.|Goethe, Conversations with Eckermann (tr. John Oxenford)|truth,self
 goethe|Man is born not to solve the problems of the universe, but to find out where the problem begins, and then to restrain himself within the limits of the comprehensible.|Goethe, Conversations with Eckermann (tr. John Oxenford)|
 goethe|I call the classic healthy, the romantic sickly.|Goethe, Conversations with Eckermann (tr. John Oxenford)|
+goethe|My dear friend, what a thing is the heart of man!|Goethe, The Sorrows of Young Werther (tr. R. Dillon Boylan)|love,self
 tragedians|Look ye, countrymen and Thebans, this is Oedipus the great,\nHe who knew the Sphinx's riddle and was mightiest in our state.\nWho of all our townsmen gazed not on his fame with envious eyes?\nNow, in what a sea of troubles sunk and overwhelmed he lies!\nTherefore wait to see life's ending ere thou count one mortal blest;\nWait till free from pain and sorrow he has gained his final rest.|Sophocles, Oedipus the King (tr. F. Storr)|suffering,society,death
 tragedians|Races of mortal man\nWhose life is but a span,\nI count ye but the shadow of a shade!\nFor he who most doth know\nOf bliss, hath but the show;\nA moment, and the visions pale and fade.\nThy fall, O Oedipus, thy piteous fall\nWarns me none born of women blest to call.|Sophocles, Oedipus the King (tr. F. Storr)|death,joy,dreams
 tragedians|I would as lief a man should cast away\nThe thing he counts most precious, his own life,\nAs spurn a true friend. Thou wilt learn in time\nThe truth, for time alone reveals the just;\nA villain is detected in a day.|Sophocles, Oedipus the King (tr. F. Storr)|truth,friendship
@@ -9911,6 +9913,7 @@ flaubert|I have gone through, several times, melancholy periods, and I have come
 flaubert|How I envy you, how I long to have your serenity!|Gustave Flaubert, letter to George Sand (tr. Aimée L. McKenzie)|
 flaubert|It is so sweet, amid all the disenchantments of life, to be able to dwell in thought upon noble characters, pure affections, and pictures of happiness.|Gustave Flaubert, Madame Bovary (tr. Eleanor Marx-Aveling)|love,joy
 flaubert|Human speech is like a cracked tin kettle, on which we hammer out tunes to make bears dance when we long to move the stars.|Gustave Flaubert, Madame Bovary (tr. Eleanor Marx-Aveling)|
+flaubert|We must not touch our idols; the gilt sticks to our fingers.|Gustave Flaubert, Madame Bovary (tr. Eleanor Marx-Aveling)|truth
 lorca|The things that go away never come back,\neveryone knows it,\nand among the bright crowd of the winds\nit is useless to complain.|Federico García Lorca, Libro de poemas (tr. Claude)|society
 lorca|The snow falls from the roses,\nbut the snow of the soul remains,\nand the claw of the years\nmakes a shroud of it.|Federico García Lorca, Libro de poemas (tr. Claude)|nature
 lorca|And if death is death,\nwhat will become of the poets\nand of the sleeping things\nthat no one remembers any more?|Federico García Lorca, Libro de poemas (tr. Claude)|death,art,memory
@@ -10837,6 +10840,10 @@ cervantes|Strive, too, that in reading your story the melancholy may be moved to
 cervantes|To attain to eminence in letters costs a man time, watching, hunger, nakedness, headaches, indigestions, and other things of the sort.|Miguel de Cervantes, Don Quixote (tr. John Ormsby)|
 cervantes|I have, as you know, wealth of my own, and I covet not that of others; my taste is for freedom, and I have no relish for constraint; I neither love nor hate anyone; I do not deceive this one or court that, or trifle with one or play with another.|Miguel de Cervantes, Don Quixote (tr. John Ormsby)|love,freedom,society
 cervantes|What dost thou want, unsatisfied in the very heart of abundance?|Miguel de Cervantes, Don Quixote (tr. John Ormsby)|
+cervantes|Patience and shuffle.|Miguel de Cervantes, Don Quixote (tr. John Ormsby)|courage,hope
+cervantes|If the poet be pure in his morals, he will be pure in his verses too; the pen is the tongue of the mind, and as the thought engendered there, so will be the things that it writes down.|Miguel de Cervantes, Don Quixote (tr. John Ormsby)|books,art
+cervantes|All I know is that so long as I am asleep I have neither fear nor hope, trouble nor glory; and good luck betide him that invented sleep, the cloak that covers over all a man’s thoughts, the food that removes hunger, the drink that drives away thirst, the fire that warms the cold, the cold that tempers the heat, and, to wind up with, the universal coin wherewith everything is bought, the weight and balance that makes the shepherd equal with the king and the fool with the wise man.|Miguel de Cervantes, Don Quixote (tr. John Ormsby)|dreams,joy
+cervantes|As a grandmother of mine used to say, there are only two families in the world, the Haves and the Haven’ts; and she stuck to the Haves; and to this day, Señor Don Quixote, people would sooner feel the pulse of ‘Have,’ than of ‘Know;’ an ass covered with gold looks better than a horse with a pack-saddle.|Miguel de Cervantes, Don Quixote (tr. John Ormsby)|society
 maryshelley|O wherefore are love and ruin for ever joined in this our mortal dream?|Mary Shelley, The Last Man|love,death,dreams
 maryshelley|The choice is with us; let us will it, and our habitation becomes a paradise.|Mary Shelley, The Last Man|
 maryshelley|But perfect happiness is an attribute of angels; and those who possess it, appear angelic.|Mary Shelley, The Last Man|sacred,joy
@@ -10985,6 +10992,8 @@ gogol|Search out, subject all things to your brush; but in all see that you find
 gogol|An intimation of God's heavenly paradise is contained for the artist in art, and by that alone is it higher than all else.|Nikolai Gogol, The Mysterious Portrait (Everyman's Library, 1918)|art,sacred
 gogol|How little humane feeling after all was to be found in men's hearts; how much coarseness and cruelty was to be found even in the educated and those who were everywhere regarded as good and honourable men.|Nikolai Gogol, The Mantle (tr. Claud Field)|
 gogol|Although his body suffered from this abstinence, his spirit derived all the richer nutriment from perpetually thinking about his new cloak.|Nikolai Gogol, The Mantle (tr. Claud Field)|suffering
+gogol|Whither, then, are you speeding, O Russia of mine? Whither? Answer me! But no answer comes—only the weird sound of your collar-bells.|Nikolai Gogol, Dead Souls (tr. D. J. Hogarth)|journey
+gogol|And you, Russia of mine—are not you also speeding like a troika which nought can overtake?|Nikolai Gogol, Dead Souls (tr. D. J. Hogarth)|journey
 twain|Training is everything. The peach was once a bitter almond; cauliflower is nothing but cabbage with a college education.|Mark Twain, Pudd'nhead Wilson|
 twain|Let us endeavor so to live that when we come to die even the undertaker will be sorry.|Mark Twain, Pudd'nhead Wilson|death
 twain|Habit is habit, and not to be flung out of the window by any man, but coaxed down-stairs a step at a time.|Mark Twain, Pudd'nhead Wilson|
@@ -13464,6 +13473,8 @@ ibsen|I almost think we are all of us ghosts, Pastor Manders. It is not only wha
 ibsen|We see that we have never lived.|Henrik Ibsen, When We Dead Awaken (tr. William Archer)|
 ibsen|Out yonder, under the shining vault,\nAmong men the saying goes: "Man, be thyself!"\nAt home here with us, 'mid the tribe of the trolls,\nThe saying goes: "Troll, to thyself be—enough!"|Henrik Ibsen, Peer Gynt (tr. William and Charles Archer)|
 ibsen|To be oneself on a basis of gold\nIs no better than founding one's house on the sand.|Henrik Ibsen, Peer Gynt (tr. William and Charles Archer)|
+ibsen|Oh, it’s a wonderful thing to be alive and be happy.|Henrik Ibsen, A Doll's House (tr. R. Farquharson Sharp)|joy
+ibsen|I have other duties just as sacred.|Henrik Ibsen, A Doll's House (tr. R. Farquharson Sharp)|self,freedom
 shaw|Do not do unto others as you would that they should do unto you. Their tastes may not be the same.|George Bernard Shaw, Maxims for Revolutionists|
 shaw|The golden rule is that there are no golden rules.|George Bernard Shaw, Maxims for Revolutionists|
 shaw|Liberty means responsibility. That is why most men dread it.|George Bernard Shaw, Maxims for Revolutionists|freedom
@@ -13498,6 +13509,8 @@ moliere|It is a folly second to none to set about correcting the world.|Molière
 moliere|The more we love someone, the less we should flatter them.|Molière, The Misanthrope (tr. Claude)|love
 moliere|I want to be singled out; and, to put it plainly, the friend of all mankind is no friend of mine.|Molière, The Misanthrope (tr. Claude)|friendship
 moliere|We must eat to live, and not live to eat.|Molière, The Miser (tr. Charles Heron Wall)|
+moliere|She wants to leave the world, that's leaving her, And in the specious veil of haughty virtue She'd hide the weakness of her worn-out charms.|Molière, Tartuffe (tr. Curtis Hidden Page)|society,youth
+moliere|For more than forty years I have been speaking prose without knowing anything about it, and I am much obliged to you for having taught me that.|Molière, The Middle-Class Gentleman (tr. Philip Dwight Jones)|books,self
 racine|No longer is it love hid in my heart,\nBut Venus in her might seizing her prey.|Jean Racine, Phaedra (tr. Robert Bruce Boswell)|love
 racine|What heart so stout that Venus has not vanquish'd?|Jean Racine, Phaedra (tr. Robert Bruce Boswell)|
 racine|He who has once transgress'd\nMay violate at last all that men hold\nMost sacred; vice, like virtue, has degrees\nOf progress; innocence was never seen\nTo sink at once into the lowest depths\nOf guilt.|Jean Racine, Phaedra (tr. Robert Bruce Boswell)|wisdom,sacred
@@ -13558,6 +13571,13 @@ sterne|God tempers the wind, said Maria, to the shorn lamb.|Laurence Sterne, A S
 sterne|Sweet pliability of man's spirit, that can at once surrender itself to illusions, which cheat expectation and sorrow of their weary moments!|Laurence Sterne, A Sentimental Journey|suffering,truth
 sterne|Disguise thyself as thou wilt, still, Slavery! said I,—still thou art a bitter draught!|Laurence Sterne, A Sentimental Journey|art,freedom
 sterne|What a large volume of adventures may be grasped within this little span of life by him who interests his heart in every thing, and who, having eyes to see what time and chance are perpetually holding out to him as he journeyeth on his way, misses nothing he can fairly lay his hands on!|Laurence Sterne, A Sentimental Journey|
+sterne|Dear Sensibility! source inexhausted of all that’s precious in our joys, or costly in our sorrows!|Laurence Sterne, A Sentimental Journey|joy,suffering
+sterne|I pity the man who can travel from Dan to Beersheba, and cry, ’Tis all barren;—and so it is: and so is all the world to him who will not cultivate the fruits it offers.|Laurence Sterne, A Sentimental Journey|journey,joy
+sterne|I live in a constant endeavour to fence against the infirmities of ill health, and other evils of life, by mirth; being firmly persuaded that every time a man smiles,——but much more so, when he laughs, it adds something to this Fragment of Life.|Laurence Sterne, Tristram Shandy|joy
+sterne|The ACCUSING SPIRIT, which flew up to heaven’s chancery with the oath, blush’d as he gave it in;—and the RECORDING ANGEL, as he wrote it down, dropp’d a tear upon the word, and blotted it out for ever.|Laurence Sterne, Tristram Shandy|sacred,friendship
+sterne|It is the lot of a few to trace out the true springs of this and such like revolutions—The vulgar look too high for them—Statesmen look too low——Truth (for once) lies in the middle.|Laurence Sterne, Tristram Shandy|truth
+sterne|Man is a creature born to habitudes.|Laurence Sterne, Tristram Shandy|self
+sterne|So much of motion, is so much of life, and so much of joy|Laurence Sterne, Tristram Shandy|joy,journey
 rabelais|Thinking therefore how sorrow might your mind\nConsume, I could no apter subject find;\nOne inch of joy surmounts of grief a span;\nBecause to laugh is proper to the man.|François Rabelais, Gargantua and Pantagruel (tr. Thomas Urquhart and Peter Motteux)|suffering,joy
 rabelais|In all their rule and strictest tie of their order there was but this one clause to be observed, Do What Thou Wilt; because men that are free, well-born, well-bred, and conversant in honest companies, have naturally an instinct and spur that prompteth them unto virtuous actions, and withdraws them from vice, which is called honour.|François Rabelais, Gargantua and Pantagruel (tr. Thomas Urquhart and Peter Motteux)|freedom,truth
 rabelais|It is agreeable with the nature of man to long after things forbidden and to desire what is denied us.|François Rabelais, Gargantua and Pantagruel (tr. Thomas Urquhart and Peter Motteux)|
@@ -14201,6 +14221,7 @@ dumas|Happiness is like the enchanted palaces we read of in our childhood, where
 dumas|Their intense happiness isolated them from all the rest of the world, and they only spoke in broken words, which are the tokens of a joy so extreme that they seem rather the expression of sorrow.|Alexandre Dumas, The Count of Monte Cristo|joy,love
 dumas|Have you never experienced for anyone that sudden and irresistible sympathy which made you feel as if the object of it had been your old and familiar friend, though, in reality, it was the first time you had ever met?|Alexandre Dumas, The Count of Monte Cristo|friendship,love
 dumas|Moral wounds have this peculiarity,—they may be hidden, but they never close; always painful, always ready to bleed when touched, they remain fresh and open in the heart.|Alexandre Dumas, The Count of Monte Cristo|suffering
+dumas|All for one, one for all—that is our motto, is it not?|Alexandre Dumas, The Three Musketeers|friendship,courage
 zola|Since Saturday many families had gone to bed without supper, and in face of the terrible days that were beginning not a complaint was heard, all obeyed the word of command with quiet courage.|Émile Zola, Germinal (tr. Havelock Ellis)|courage
 zola|It was an endless rustling, a general downfall, the forced march of a beaten army, moving on with lowered heads, sullenly absorbed in the desire to renew the struggle and achieve revenge.|Émile Zola, Germinal (tr. Havelock Ellis)|
 maupassant|I spoke a little about solitude and about how charming life can be made by the affection of a woman.|Guy de Maupassant (tr. A. E. Henderson and others)|love,solitude
@@ -14211,6 +14232,7 @@ manzoni|These moments, which ought to be regarded by others with timid respect, 
 manzoni|I am a poor creature, who have never injured you; I forgive you all that you have done, and will pray to God for you.|Alessandro Manzoni, The Betrothed|sacred,friendship
 manzoni|To do good, we must have correct ideas of good in itself considered, and this can be acquired only by control over our own hearts.|Alessandro Manzoni, The Betrothed|
 manzoni|Formerly I would not have dreamt of such a thing, but misfortune gives courage and experience.|Alessandro Manzoni, The Betrothed|courage
+manzoni|Farewell, ye mountains, source of waters! farewell to your varied summits, familiar as the faces of friends! ye torrents, whose voices have been heard from infancy! Farewell! how melancholy the destiny of one, who, bred up amid your scenes, bids you farewell!|Alessandro Manzoni, The Betrothed|journey,memory,nature
 gorky|Some one has to be kind, girl—some one must pity people!|Maxim Gorky|friendship
 gorky|A man is free—he pays for everything himself—belief or unbelief—love—wisdom . . . a man pays for everything—and that's just why he's free!|Maxim Gorky|freedom,love,wisdom
 gorky|There is no hope for them except in themselves; there's no understanding for them except in their own understanding!|Maxim Gorky|hope
@@ -14219,8 +14241,11 @@ gorky|Young, strong, they carry their power, their invincible power, all toward 
 calderon|What is life? 'Tis but a madness.\nWhat is life? A thing that seems,\nA mirage that falsely gleams,\nPhantom joy, delusive rest,\nSince is life a dream at best,\nAnd even dreams themselves are dreams.|Pedro Calderón de la Barca, Life Is a Dream (tr. D. F. MacCarthy)|dreams,truth,joy
 calderon|That is true: then let's restrain\nThis wild rage, this fierce condition\nOf the mind, this proud ambition,\nShould we ever dream again:\nAnd we'll do so, since 'tis plain,\nIn this world's uncertain gleam,\nThat to live is but to dream:\nMan dreams what he is, and wakes\nOnly when upon him breaks\nDeath's mysterious morning beam.|Pedro Calderón de la Barca, Life Is a Dream (tr. D. F. MacCarthy)|dreams,death
 calderon|But in dreams, however bright,\nThou shouldst still have kept in sight\nHow for years I tended thee,\nFor 'twere well, whoe'er we be,\nEven in dreams to do what's right.|Pedro Calderón de la Barca, Life Is a Dream (tr. D. F. MacCarthy)|dreams
+calderon|A thing that seems, A mirage that falsely gleams, Phantom joy, delusive rest, Since is life a dream at best, And even dreams themselves are dreams.|Pedro Calderón de la Barca, Life Is a Dream (tr. D. F. MacCarthy)|dreams
 lessing|Neither, perhaps, obtains the upper hand, and busy fancy, meddling in the fray, Weaves wild enthusiasms to her dazzled spirit, Now clothing Passion in the garb of Reason, and Reason now in Passion’s—do I err?|Gotthold Ephraim Lessing, Nathan the Wise (tr. William Taylor)|love
 lessing|Oh, it has often vexed me, cost me tears, that Christians will forget so often that Our Saviour was a Jew.|Gotthold Ephraim Lessing, Nathan the Wise (tr. William Taylor)|suffering,memory
+lessing|If each of you Has had a ring presented by his father, Let each believe his own the real ring.|Gotthold Ephraim Lessing, Nathan the Wise (tr. William Taylor)|sacred,truth
+lessing|In days of yore, there dwelt in east a man Who from a valued hand received a ring Of endless worth: the stone of it an opal, That shot an ever-changing tint: moreover, It had the hidden virtue him to render Of God and man beloved, who in this view, And this persuasion, wore it.|Gotthold Ephraim Lessing, Nathan the Wise (tr. William Taylor)|sacred,truth
 sienkiewicz|A certain breeze from them had blown on him; this cast new seeds into his soul.|Henryk Sienkiewicz, Quo Vadis (tr. Jeremiah Curtin)|
 sienkiewicz|Before my eyes were open to the light I was ready to burn my own house even, for Lygia’s sake; but now I tell thee that I did not love her, for it was Christ who first taught me to love.|Henryk Sienkiewicz, Quo Vadis (tr. Jeremiah Curtin)|love
 capek|Then the servitude of man to man and the enslavement of man to matter will cease.|Karel Čapek, R.U.R. (tr. Paul Selver and Nigel Playfair)|
