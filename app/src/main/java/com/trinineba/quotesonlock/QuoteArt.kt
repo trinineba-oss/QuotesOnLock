@@ -121,7 +121,8 @@ internal object QuoteArt {
         val authorColor = style.color ?: theme.notificationAuthor ?: Color.WHITE
         val typeface = Typeface.create(style.font.family, Typeface.NORMAL)
         val base = style.size.sizeSp + 4f
-        val margin = w * 0.09f
+        // On a wide screen the card keeps a readable width instead of stretching edge to edge.
+        val margin = if (w > h) max(w * 0.09f, (w - 560f * density) / 2f) else w * 0.09f
         // A soft edge fades over this distance; the text is padded further in so it sits on solid colour.
         val feather = softness.coerceIn(0f, 1f) * 36f * density
         val pad = 18f * density + feather * 0.55f

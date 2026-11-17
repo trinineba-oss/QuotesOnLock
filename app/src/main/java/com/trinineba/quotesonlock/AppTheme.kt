@@ -611,10 +611,12 @@ private fun StarryBackground(animate: Boolean) {
 
 /**
  * Turns the big vortex and two of the stars gently back and forth and lets the brushstrokes
- * shimmer. Runs on the GPU and only while the app is on screen.
+ * shimmer, in the sky only: [sky] is white where the sky is and black for the cypress, the hills and
+ * the village, which stay still. Runs on the GPU and only while it is on screen.
  */
 internal const val SWIRL_SHADER = """
 uniform shader image;
+uniform shader sky;
 uniform float time;
 uniform float k;
 uniform float4 c0;
@@ -635,7 +637,9 @@ half4 main(float2 p) {
     q = swirl(q, c1, time + 1.3);
     q = swirl(q, c2, time + 2.6);
     q += float2(sin(p.y * k / 37.0 + time), cos(p.x * k / 41.0 + time)) * (3.0 / k);
-    return image.eval(q);
+    // Move only where both the point and the place it samples from are sky, so no tree or roof is smeared.
+    float m = sky.eval(p).r * sky.eval(q).r;
+    return mix(image.eval(p), image.eval(q), m);
 }
 """
 
@@ -643,9 +647,13 @@ half4 main(float2 p) {
 @Composable
 private fun SwirlingStarryNight() {
     val image = ImageBitmap.imageResource(R.drawable.starry_night)
+    val mask = ImageBitmap.imageResource(R.drawable.starry_sky)
     val shader = remember { RuntimeShader(SWIRL_SHADER) }
     val bitmapShader = remember(image) {
         BitmapShader(image.asAndroidBitmap(), Shader.TileMode.CLAMP, Shader.TileMode.CLAMP)
+    }
+    val maskShader = remember(mask) {
+        BitmapShader(mask.asAndroidBitmap(), Shader.TileMode.CLAMP, Shader.TileMode.CLAMP)
     }
     val time by rememberLoopAngle(6000f)
     val brush = remember(shader) { ShaderBrush(shader) }
@@ -657,6 +665,9 @@ private fun SwirlingStarryNight() {
         val tx = (size.width - bw * s) / 2f
         bitmapShader.setLocalMatrix(Matrix().apply { setScale(s, s); postTranslate(tx, 0f) })
         shader.setInputShader("image", bitmapShader)
+        val ms = s * bw / mask.width
+        maskShader.setLocalMatrix(Matrix().apply { setScale(ms, ms); postTranslate(tx, 0f) })
+        shader.setInputShader("sky", maskShader)
         val iw = bw * s
         val ih = bh * s
         shader.setFloatUniform("time", time)
