@@ -61,7 +61,7 @@ class Lesson(val ref: String, val takeaway: String, val question: String, val an
 
 /** A topic to start from: a short introduction and a sequence of ideas, myths and quotes (res/raw/topics.txt). */
 class TopicStep(val isIdea: Boolean, val ref: String)
-class Topic(val title: String, val subtitle: String, val tint: Long, val intro: String, val steps: List<TopicStep>)
+class Topic(val title: String, val subtitle: String, val tint: Long, val intro: String, val steps: List<TopicStep>, val course: Boolean = false)
 
 /** Where an idea is in its reviews: [box] 1–4 come back after 1, 3, 7 and 21 days; 5 is learned. */
 class LearnItem(val box: Int, val due: Long, val seen: Long)
@@ -88,7 +88,7 @@ object Learn {
         val out = mutableListOf<Topic>()
         var head: List<String>? = null
         var steps = mutableListOf<TopicStep>()
-        fun flush() { head?.let { h -> if (steps.isNotEmpty()) out += Topic(h[1], h.getOrElse(2) { "" }, 0xFF000000 or (h.getOrNull(3)?.toLongOrNull(16) ?: 0x8A6A3A), h.getOrElse(4) { "" }, steps) } }
+        fun flush() { head?.let { h -> if (steps.isNotEmpty()) out += Topic(h[1], h.getOrElse(2) { "" }, 0xFF000000 or (h.getOrNull(3)?.toLongOrNull(16) ?: 0x8A6A3A), h.getOrElse(4) { "" }, steps, h.getOrNull(5) == "course") } }
         lines.filter { it.isNotBlank() && !it.startsWith("#") }.forEach { l ->
             val f = l.split('|')
             when (f[0]) {
@@ -221,9 +221,11 @@ fun LearnScreen(onBack: () -> Unit, onOpenAuthor: (String) -> Unit, onOpenPaths:
     val todays = remember(refresh) { Learn.todays(prefs, context) }
     val done = remember(refresh) { Learn.todayDone(prefs) }
     val due = remember(refresh) { Learn.due(prefs, context) }
-    val topics = remember { Learn.topics(context) }
+    val allTopics = remember { Learn.topics(context) }
+    val topics = allTopics.filter { !it.course }
+    val courses = allTopics.filter { it.course }
     val learned = progress.count { it.value.box >= Learn.LEARNED }
-    val going = topics.count { val s = Learn.topicStep(prefs, it.title); s in 1 until it.steps.size }
+    val going = allTopics.count { val s = Learn.topicStep(prefs, it.title); s in 1 until it.steps.size }
     ToolScreen("Learn", onBack) {
         item {
             Text(
@@ -276,9 +278,27 @@ fun LearnScreen(onBack: () -> Unit, onOpenAuthor: (String) -> Unit, onOpenPaths:
                 }
             }
         }
+        if (courses.isNotEmpty()) item { LearnLabel("Courses") }
+        items(courses, key = { "c-" + it.title }) { t ->
+            val step = Learn.topicStep(prefs, t.title)
+            SoftCard(Modifier.fillMaxWidth(), onClick = { view = LearnView.TopicPage(t.title) }) {
+                Row(Modifier.padding(horizontal = 14.dp, vertical = 12.dp), verticalAlignment = Alignment.CenterVertically) {
+                    Box(Modifier.padding(end = 12.dp).height(34.dp).clip(RoundedCornerShape(3.dp)).background(Color(t.tint)).padding(horizontal = 2.dp)) {}
+                    Text(t.title, Modifier.weight(1f), fontWeight = FontWeight.SemiBold, maxLines = 1, overflow = TextOverflow.Ellipsis)
+                    Text(
+                        when {
+                            step >= t.steps.size -> "✓ done"
+                            step > 0 -> "step ${step + 1} of ${t.steps.size}"
+                            else -> "${t.steps.size} steps"
+                        },
+                        style = MaterialTheme.typography.labelSmall, color = MaterialTheme.colorScheme.primary,
+                    )
+                }
+            }
+        }
         item {
             OutlinedButton(onClick = onOpenPaths, modifier = Modifier.fillMaxWidth()) {
-                Text(if (going > 0) "Reading paths and courses ›" else "Reading paths ›")
+                Text("Reading paths ›")
             }
         }
         if (progress.isNotEmpty()) {

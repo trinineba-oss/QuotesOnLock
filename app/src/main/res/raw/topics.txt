@@ -53,3 +53,60 @@ S|i|Flow
 S|i|Savouring
 S|i|Gratitude
 S|i|Giving Makes Us Happier
+T|Ten ideas that changed science|a course in 10 steps|3C78C8|From a Sun-centred cosmos to an expanding universe: ten discoveries that changed how we see everything, in the order they came.|course
+S|i|Heliocentrism
+S|i|Universal Gravitation
+S|i|The Periodic Table
+S|i|Germ Theory
+S|i|Natural Selection
+S|i|Light Is Electromagnetism
+S|i|Mass Is Energy
+S|i|The Quantum
+S|i|The Double Helix
+S|i|The Expanding Universe
+T|Logic in a week|a course in 7 steps|5A6B8C|Seven short steps through how mathematicians reason, and the paradoxes that shook the foundations: one a day for a week.|course
+S|i|Axioms
+S|i|Proof by Contradiction
+S|i|Mathematical Induction
+S|i|Zeno's Paradoxes
+S|i|The Liar Paradox
+S|i|Russell's Paradox
+S|i|Incompleteness
+T|Myths of the world|a course in 10 steps|C86EA0|How peoples across the world imagined the beginning of things, the light, the land and the sea: ten myths from China, Finland, Japan, the Pacific, the Americas, Australia, Sumer, India and West Africa.|course
+S|i|Pangu Separates Sky and Earth
+S|i|The Cosmic Egg
+S|i|Amaterasu in the Cave
+S|i|Raven Steals the Light
+S|i|Māui Slows the Sun
+S|i|Sky Woman
+S|i|The Rainbow Serpent
+S|i|The Descent of Inanna
+S|i|The Churning of the Ocean
+S|i|Anansi and the Sky God's Stories
+T|Economics in eight ideas|a course in 8 steps|2E8B74|The handful of ideas behind most talk about money, work and trade, from Adam Smith's pin factory to Schumpeter's creative destruction.|course
+S|i|The Invisible Hand
+S|i|The Division of Labour
+S|i|Comparative Advantage
+S|i|Opportunity Cost
+S|i|Diminishing Returns
+S|i|Marginal Utility
+S|i|Creative Destruction
+S|i|Externalities
+T|How to look at a painting|a course in 8 steps|B4643C|Eight ways painters have shaped what we see, from Renaissance perspective to a urinal in a gallery, so the next museum visit feels different.|course
+S|i|Linear Perspective
+S|i|Chiaroscuro
+S|i|Sfumato
+S|i|Negative Space
+S|i|Impression
+S|i|Cubism: Many Views at Once
+S|i|The Readymade
+S|i|Kintsugi
+T|The mind's shortcuts|a course in 8 steps|7A5ADC|The quick rules of thumb the mind uses to judge and decide, where they help and where they lead us astray.|course
+S|i|The Availability Heuristic
+S|i|Anchoring
+S|i|The Framing Effect
+S|i|The Halo Effect
+S|i|Hindsight Bias
+S|i|Mere Exposure
+S|i|The Gambler's Fallacy
+S|i|The Confidence of Ignorance

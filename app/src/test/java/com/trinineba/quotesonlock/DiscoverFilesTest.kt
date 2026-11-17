@@ -34,7 +34,7 @@ class DiscoverFilesTest {
         val ideas = raw("ideas.txt").useLines { QuoteData.parseIdeas(it) }
         val all = quotes + ideas
         val lessons = raw("lessons.txt").useLines { Learn.parseLessons(it) }
-        assertTrue("too few lessons: ${lessons.size}", lessons.size >= 150)
+        assertTrue("too few lessons: ${lessons.size}", lessons.size >= 300)
         assertEquals("a lesson is listed twice", lessons.size, lessons.map { it.ref }.toSet().size)
         lessons.forEach { l ->
             assertTrue("lesson for an unknown idea: ${l.ref}", Learn.idea(all, l.ref) != null)
@@ -44,6 +44,7 @@ class DiscoverFilesTest {
         }
         val topics = raw("topics.txt").useLines { Learn.parseTopics(it) }
         assertTrue("too few topics: ${topics.size}", topics.size >= 6)
+        assertTrue("too few courses", topics.count { it.course } >= 6)
         val refs = lessons.map { it.ref }.toSet()
         topics.forEach { t ->
             t.steps.forEach { s ->
