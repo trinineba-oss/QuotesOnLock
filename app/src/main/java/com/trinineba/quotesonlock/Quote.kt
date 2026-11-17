@@ -15,6 +15,7 @@ enum class QuoteGroup(val title: String) {
 enum class Category(val key: String, val label: String, val group: QuoteGroup) {
     MOTIVATION("motivation", "Motivation", QuoteGroup.THEME),
     THOUGHT_PROVOKING("thought", "Thought-provoking", QuoteGroup.THEME),
+    OBSERVATIONS("observe", "Observations of life", QuoteGroup.THEME),
     STOIC("stoic", "Stoic & ancient wisdom", QuoteGroup.THEME),
     KINDNESS("kindness", "Kindness & hope", QuoteGroup.THEME),
     CREATIVE("creative", "Creative inspiration", QuoteGroup.THEME),

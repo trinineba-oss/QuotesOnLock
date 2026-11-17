@@ -475,3 +475,5 @@ Ida B. Wells|Ida B. Wells|1862|1931|thinkers|
 Zitkala-Ša|Zitkala-Ša|1876|1938|writers|
 Sarojini Naidu|Sarojini Naidu|1879|1949|poets|
 Toru Dutt|Toru Dutt|1856|1877|poets|
+Jerome K. Jerome|Jerome K. Jerome|1859|1927|writers|
+Samuel Butler|Samuel Butler|1835|1902|writers|
