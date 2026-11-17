@@ -145,6 +145,16 @@ class QuotePrefs(context: Context) {
         set(value) = prefs.edit().putString("fav_collections", org.json.JSONArray(value).toString()).apply()
 
     /** The journal's entries (a JSON array; see [Journal]) and whether the home screen asks a question. */
+    /** Your notebook in Yours (see [Notes]). */
+    var notesJson: String?
+        get() = prefs.getString("notes", null)
+        set(value) = prefs.edit().putString("notes", value).apply()
+
+    /** Progress in Learn: lessons seen, review boxes and due days (see [Learn]). */
+    var learnJson: String?
+        get() = prefs.getString("learn", null)
+        set(value) = prefs.edit().putString("learn", value).apply()
+
     var journalJson: String?
         get() = prefs.getString("journal_json", null)
         set(value) = prefs.edit().putString("journal_json", value).apply()

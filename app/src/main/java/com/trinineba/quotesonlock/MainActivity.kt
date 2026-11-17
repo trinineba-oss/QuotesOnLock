@@ -796,6 +796,18 @@ private fun QuotesScreen(
             TimelineScreen(onBack = { browse = browse.dropLast(1) }, onOpenAuthor = { browse = browse + BrowsePage.author(it) })
             return
         }
+        "learn" -> {
+            LearnScreen(
+                onBack = { browse = browse.dropLast(1) },
+                onOpenAuthor = { browse = browse + BrowsePage.author(it) },
+                onOpenPaths = { browse = browse + "paths" },
+            )
+            return
+        }
+        "notes" -> {
+            NotesScreen(onBack = { browse = browse.dropLast(1) }, onOpenAuthor = { browse = browse + BrowsePage.author(it) })
+            return
+        }
         "paths" -> {
             ReadingPathsScreen(onBack = { browse = browse.dropLast(1) }, onOpenAuthor = { browse = browse + BrowsePage.author(it) })
             return
@@ -1091,6 +1103,9 @@ private fun QuotesScreen(
             }
         }
         item(key = "d-journeys") { Text("JOURNEYS", style = MaterialTheme.typography.labelMedium, color = MaterialTheme.colorScheme.primary, letterSpacing = 1.2.sp) }
+        item(key = "d-learn") {
+            JourneyCard("Learn", "Two minutes a day: one idea, one question, gentle reviews · topics to start from", Color(0xFF8A6A3A)) { browse = listOf("learn") }
+        }
         item(key = "d-paths") {
             JourneyCard("Reading paths", "Guided journeys: existentialism, the Stoics, myths of love, wonder and more", Color(0xFF2E8B74)) { browse = listOf("paths") }
         }
@@ -1148,6 +1163,10 @@ private fun QuotesScreen(
         }
         item(key = "y-journal") {
             ToolRow(R.drawable.ic_edit_note, "Journal", if (journal.isEmpty()) "Your reflections on quotes, kept on this phone" else "${journal.size} reflection" + if (journal.size == 1) "" else "s") { page = Page.JOURNAL }
+        }
+        item(key = "y-notes") {
+            val n = remember(page) { noteCount(context) }
+            ToolRow(R.drawable.ic_edit, "Notes", if (n == 0) "Your own notebook: thoughts, lists, ideas" else "Your own notebook · $n note" + if (n == 1) "" else "s") { browse = listOf("notes") }
         }
         item(key = "y-mine") {
             ToolRow(R.drawable.ic_edit, "My own quotes", if (custom.isEmpty()) "Add lines of your own" else "${custom.size} added") { page = Page.MINE }

@@ -48,6 +48,8 @@ object Backup {
             .put("favorites", prefs.favoritesJson?.let { JSONArray(it) } ?: JSONArray())
             .put("custom", prefs.customJson?.let { JSONArray(it) } ?: JSONArray())
             .put("journal", JSONArray().apply { Journal.entries(prefs).forEach { put(it.toJson()) } })
+            .put("notes", JSONArray().apply { Notes.all(prefs).forEach { put(it.toJson()) } })
+            .put("learn", prefs.learnJson?.let { runCatching { JSONObject(it) }.getOrNull() } ?: JSONObject())
             .put("settings", settings)
             .toString(2)
     }
@@ -116,6 +118,11 @@ object Backup {
         json.optJSONArray("journal")?.let { arr ->
             Journal.merge(prefs, (0 until arr.length()).mapNotNull { arr.optJSONObject(it)?.let(JournalEntry::fromJson) })
         }
+        // Notes are added, never replaced; Learn progress is merged, keeping what is further along.
+        json.optJSONArray("notes")?.let { arr ->
+            Notes.merge(prefs, (0 until arr.length()).mapNotNull { arr.optJSONObject(it)?.let(Note::fromJson) })
+        }
+        json.optJSONObject("learn")?.let { Learn.merge(prefs, it) }
         QuoteWidgets.refresh(context)
         val settings = json.optJSONObject("settings")
         return Result(favAdded, customAdded, settings != null && settings.length() > 0)

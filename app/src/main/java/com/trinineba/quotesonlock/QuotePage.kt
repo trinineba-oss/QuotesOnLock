@@ -69,6 +69,7 @@ fun QuotePageSheet(
     var note by remember(quote.text) { mutableStateOf(repo.favoriteInfo()[QuoteData.wordsKey(quote.text)]?.note.orEmpty()) }
     var editingNote by remember { mutableStateOf(false) }
     var writing by remember { mutableStateOf(false) }
+    var noting by remember { mutableStateOf(false) }
     var sharing by remember { mutableStateOf(false) }
     var following by remember { mutableStateOf<Quote?>(null) }
     val speaking by QuoteVoice.speaking.collectAsState()
@@ -165,6 +166,7 @@ fun QuotePageSheet(
                     if (speaking == quote.text) "Stop" else "Listen",
                 ) { QuoteVoice.toggle(context, quote) }
                 QuoteAction(R.drawable.ic_edit_note, "Journal") { writing = true }
+                QuoteAction(R.drawable.ic_edit, "Note") { noting = true }
                 Box {
                     QuoteAction(R.drawable.ic_share, "Share") { sharing = true }
                     ShareMenu(quote, sharing) { sharing = false }
@@ -191,6 +193,16 @@ fun QuotePageSheet(
             onSave = { text -> Journal.add(prefs, quote, prompt, text); writing = false; onChanged() },
             onDelete = null,
             onDismiss = { writing = false },
+        )
+    }
+    if (noting) {
+        AddToNoteDialog(
+            quote = quote,
+            onDone = { name ->
+                noting = false
+                android.widget.Toast.makeText(context, "Added to $name", android.widget.Toast.LENGTH_SHORT).show()
+            },
+            onDismiss = { noting = false },
         )
     }
     following?.let { m -> MoreLikeThisSheet(m, { following = null }, onChanged, showStart = true) }

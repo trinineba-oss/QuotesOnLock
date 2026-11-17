@@ -30,6 +30,29 @@ class DiscoverFilesTest {
         }
     }
 
+    @Test fun everyLessonAndTopicPointsIntoTheCollection() {
+        val ideas = raw("ideas.txt").useLines { QuoteData.parseIdeas(it) }
+        val all = quotes + ideas
+        val lessons = raw("lessons.txt").useLines { Learn.parseLessons(it) }
+        assertTrue("too few lessons: ${lessons.size}", lessons.size >= 150)
+        assertEquals("a lesson is listed twice", lessons.size, lessons.map { it.ref }.toSet().size)
+        lessons.forEach { l ->
+            assertTrue("lesson for an unknown idea: ${l.ref}", Learn.idea(all, l.ref) != null)
+            assertEquals("${l.ref}: three different choices", 3, l.choices.toSet().size)
+            assertTrue("${l.ref}: the answer is among the choices", l.answer in l.choices)
+            assertTrue("${l.ref}: missing text", l.takeaway.isNotBlank() && l.question.isNotBlank() && l.why.isNotBlank())
+        }
+        val topics = raw("topics.txt").useLines { Learn.parseTopics(it) }
+        assertTrue("too few topics: ${topics.size}", topics.size >= 6)
+        val refs = lessons.map { it.ref }.toSet()
+        topics.forEach { t ->
+            t.steps.forEach { s ->
+                assertTrue("${t.title}: step not found: ${s.ref.take(50)}", Learn.resolve(all, s) != null)
+                if (s.isIdea) assertTrue("${t.title}: no lesson for ${s.ref}", s.ref in refs)
+            }
+        }
+    }
+
     @Test fun everyNoteBelongsToAQuote() {
         val lines = raw("notes.txt").readLines().filter { it.isNotBlank() && !it.startsWith("#") }
         assertTrue("too few notes: ${lines.size}", lines.size >= 70)

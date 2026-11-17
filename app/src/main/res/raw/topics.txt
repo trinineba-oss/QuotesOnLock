@@ -1,0 +1,55 @@
+# Learn topics: T|title|subtitle|tint (hex)|introduction (written for the app), then S|i|idea or myth title or S|q|exact quote text
+T|Think more clearly|bias, logic, evidence|3C78C8|How our minds trip us up, and the tools people have found for seeing straighter. A few minutes a step.
+S|i|Occam's Razor
+S|i|Confirmation Bias
+S|i|Survivorship Bias
+S|i|Correlation Is Not Causation
+S|i|The Map Is Not the Territory
+S|q|We suffer more often in imagination than in reality.
+S|i|The Sunk Cost Fallacy
+S|i|Socratic Wisdom
+T|Handle stress|Stoics, Buddha, calm|2E8B74|Old and new ways of meeting what is hard: what is in our power, the stories we add, and how to let a strong feeling pass.
+S|i|What Is in Our Power
+S|i|It's How We See Things
+S|i|The Second Arrow
+S|i|Name It to Tame It
+S|i|Rehearsing Misfortune
+S|i|Urge Surfing
+S|i|The View from Above
+S|i|Self-Compassion
+T|Understand people|mind, love, society|C86EA0|Why others act as they do, and why we so often misread them: a handful of ideas from psychology and philosophy about living with people.
+S|i|Theory of Mind
+S|i|Fundamental Attribution Error
+S|i|Hanlon's Razor
+S|i|The Spotlight Effect
+S|i|The Looking-Glass Self
+S|i|Attachment
+S|i|The Ben Franklin Effect
+S|i|I and Thou
+T|Find meaning|existentialism, purpose|7A5ADC|What gives a life its point, when no one hands us one: from Frankl's camp to Camus's boulder, and on to the Greek idea of flourishing.
+S|i|Meaning Makes Suffering Bearable
+S|i|Life Understood Backwards
+S|i|Existence Precedes Essence
+S|i|The Absurd
+S|i|Amor Fati
+S|i|Become Who You Are
+S|i|Ikigai
+S|i|Eudaimonia
+T|Wonder at the world|cosmos, nature, life|B4643C|How old, how vast and how connected the world turns out to be, and where we fit in it.
+S|i|Deep Time
+S|i|The Cosmic Calendar
+S|i|We Are Made of Star-Stuff
+S|i|Endless Forms Most Beautiful
+S|i|The Web of Life
+S|i|Indra's Net
+S|i|The Pale Blue Dot
+S|i|Awe
+T|Live well|habits, time, friends|8A6A3A|Small, well-tested ideas about everyday happiness: balance, habits, attention and giving.
+S|i|The Golden Mean
+S|i|Habit, the Flywheel
+S|i|The Hedonic Treadmill
+S|i|Simplify
+S|i|Flow
+S|i|Savouring
+S|i|Gratitude
+S|i|Giving Makes Us Happier
