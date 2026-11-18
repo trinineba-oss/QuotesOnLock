@@ -1,6 +1,25 @@
 package com.trinineba.quotesonlock
 
 import android.content.Context
+import android.app.Activity
+import android.content.res.Configuration
+import android.view.WindowManager
+import androidx.compose.foundation.horizontalScroll
+import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.foundation.pager.HorizontalPager
+import androidx.compose.foundation.pager.rememberPagerState
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.DropdownMenu
+import androidx.compose.material3.DropdownMenuItem
+import androidx.compose.material3.FilterChip
+import androidx.compose.runtime.DisposableEffect
+import androidx.compose.runtime.key
+import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.ui.platform.LocalConfiguration
+import kotlinx.coroutines.launch
 import android.content.Intent
 import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.layout.Arrangement
@@ -258,6 +277,33 @@ private fun NoteEditor(id: Long, prefs: QuotePrefs, bundled: List<Quote>, onBack
     var picking by remember { mutableStateOf<Boolean?>(null) } // true: ideas and myths, false: quotes
     var opened by remember { mutableStateOf<Quote?>(null) }
     var confirmDelete by remember { mutableStateOf(false) }
+    var reading by rememberSaveable(id) { mutableStateOf(false) }
+    val landscape = LocalConfiguration.current.orientation == Configuration.ORIENTATION_LANDSCAPE
+    // While reading, the screen shrinks above the keyboard so both the reader and the note stay in view.
+    if (reading) {
+        val window = (context as? Activity)?.window
+        DisposableEffect(window) {
+            val before = window?.attributes?.softInputMode
+            window?.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE)
+            onDispose { if (before != null) window?.setSoftInputMode(before) }
+        }
+    }
+    /** Writes a line into the note where the cursor is, with its author, on a line of its own. */
+    fun quoteIt(q: Quote) {
+        val line = buildString {
+            q.title?.let { append(it).append(": ") }
+            append(q.shownText)
+            q.byline?.let { append(" \u2014 ").append(it) }
+        }
+        val t = body.text
+        val at = body.selection.max.coerceIn(0, t.length)
+        val before = t.substring(0, at)
+        val after = t.substring(at)
+        val lead = if (before.isEmpty() || before.endsWith("\n")) "" else "\n"
+        val tail = if (after.startsWith("\n")) "" else "\n"
+        val s = before + lead + line + tail + after
+        body = TextFieldValue(s, TextRange((before + lead + line + tail).length))
+    }
 
     fun persist() {
         val n = Note(id, title.trim(), body.text.trimEnd(), refs, pinned, System.currentTimeMillis())
@@ -291,8 +337,15 @@ private fun NoteEditor(id: Long, prefs: QuotePrefs, bundled: List<Quote>, onBack
         bottomBar = {
             Surface(color = MaterialTheme.colorScheme.surfaceContainerHigh) {
                 Row(Modifier.fillMaxWidth().padding(horizontal = 6.dp, vertical = 4.dp), horizontalArrangement = Arrangement.SpaceAround) {
-                    TextButton(onClick = { picking = false }) { Text("❝ Add a quote") }
-                    TextButton(onClick = { picking = true }) { Text("Add an idea") }
+                    TextButton(
+                        onClick = { reading = !reading },
+                        colors = if (reading) ButtonDefaults.textButtonColors(
+                            containerColor = MaterialTheme.colorScheme.primary,
+                            contentColor = MaterialTheme.colorScheme.onPrimary,
+                        ) else ButtonDefaults.textButtonColors(),
+                    ) { Text(if (reading) "📖 Reading" else "📖 Read") }
+                    TextButton(onClick = { picking = false }) { Text(if (reading || !landscape) "❝ Add" else "❝ Add a quote") }
+                    if (!reading) TextButton(onClick = { picking = true }) { Text("Add an idea") }
                     TextButton(onClick = {
                         val t = body.text
                         val add = if (t.isEmpty() || t.endsWith("\n")) "• " else "\n• "
@@ -310,66 +363,206 @@ private fun NoteEditor(id: Long, prefs: QuotePrefs, bundled: List<Quote>, onBack
             }
         },
     ) { inner ->
-        LazyColumn(
-            Modifier.fillMaxSize().padding(inner),
-            contentPadding = PaddingValues(16.dp),
-            verticalArrangement = Arrangement.spacedBy(8.dp),
-        ) {
-            item {
-                Row(verticalAlignment = Alignment.CenterVertically) {
-                    BackArrow(leave)
-                    Box(Modifier.weight(1f))
-                    TextButton(onClick = { pinned = !pinned; persist() }) { Text(if (pinned) "📌 Pinned" else "Pin") }
-                    TextButton(onClick = { confirmDelete = true }) { Text("Delete") }
-                    TextButton(onClick = leave) { Text("Done") }
+        val noteBody: @Composable (Modifier) -> Unit = { mod ->
+            LazyColumn(
+                mod,
+                contentPadding = PaddingValues(16.dp),
+                verticalArrangement = Arrangement.spacedBy(8.dp),
+            ) {
+                item {
+                    Row(verticalAlignment = Alignment.CenterVertically) {
+                        BackArrow(leave)
+                        Box(Modifier.weight(1f))
+                        TextButton(onClick = { pinned = !pinned; persist() }) { Text(if (pinned) "📌 Pinned" else "Pin") }
+                        TextButton(onClick = { confirmDelete = true }) { Text("Delete") }
+                        TextButton(onClick = leave) { Text("Done") }
+                    }
+                }
+                item {
+                    TextField(
+                        value = title,
+                        onValueChange = { title = it },
+                        placeholder = { Text("Title", fontFamily = FontFamily.Serif, fontSize = 22.sp) },
+                        textStyle = MaterialTheme.typography.headlineSmall.copy(fontFamily = FontFamily.Serif),
+                        singleLine = true,
+                        colors = clearFieldColors(),
+                        modifier = Modifier.fillMaxWidth(),
+                    )
+                }
+                item {
+                    TextField(
+                        value = body,
+                        onValueChange = { body = it },
+                        placeholder = { Text("Write anything…") },
+                        textStyle = MaterialTheme.typography.bodyLarge,
+                        colors = clearFieldColors(),
+                        modifier = Modifier.fillMaxWidth().heightIn(min = 160.dp),
+                    )
+                }
+                items(refs, key = { it }) { ref ->
+                    val q = remember(ref) { Notes.resolve(bundled, ref) }
+                    Surface(
+                        onClick = { if (q != null) opened = q },
+                        shape = RoundedCornerShape(12.dp),
+                        color = MaterialTheme.colorScheme.surfaceContainerHighest,
+                        modifier = Modifier.fillMaxWidth(),
+                    ) {
+                        Row(verticalAlignment = Alignment.Top) {
+                            Column(Modifier.weight(1f).padding(12.dp), verticalArrangement = Arrangement.spacedBy(4.dp)) {
+                                if (q == null) {
+                                    Text("This line is no longer in the collection.", style = MaterialTheme.typography.bodySmall)
+                                } else {
+                                    q.title?.let { Text(it, fontFamily = FontFamily.Serif, fontWeight = FontWeight.SemiBold) }
+                                    Text(
+                                        if (q.title != null) q.text else "“${q.text}”",
+                                        fontFamily = FontFamily.Serif,
+                                        style = MaterialTheme.typography.bodyMedium,
+                                        maxLines = 6,
+                                        overflow = TextOverflow.Ellipsis,
+                                    )
+                                    q.byline?.let { Text("— $it ›", fontFamily = FontFamily.Serif, style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.primary) }
+                                }
+                            }
+                            TextButton(onClick = { refs = refs - ref; persist() }) { Text("✕") }
+                        }
+                    }
                 }
             }
-            item {
-                TextField(
-                    value = title,
-                    onValueChange = { title = it },
-                    placeholder = { Text("Title", fontFamily = FontFamily.Serif, fontSize = 22.sp) },
-                    textStyle = MaterialTheme.typography.headlineSmall.copy(fontFamily = FontFamily.Serif),
-                    singleLine = true,
-                    colors = clearFieldColors(),
-                    modifier = Modifier.fillMaxWidth(),
-                )
+        }
+        val reader: @Composable (Modifier) -> Unit = { mod ->
+            NoteReader(
+                bundled = bundled,
+                prefs = prefs,
+                refs = refs,
+                onQuote = { quoteIt(it) },
+                onTuck = { q -> val r = Notes.refOf(q); if (r !in refs) refs = refs + r },
+                onOpen = { opened = it },
+                onClose = { reading = false },
+                modifier = mod,
+            )
+        }
+        when {
+            !reading -> noteBody(Modifier.fillMaxSize().padding(inner))
+            landscape -> Row(Modifier.fillMaxSize().padding(inner)) {
+                reader(Modifier.weight(0.46f).fillMaxHeight())
+                noteBody(Modifier.weight(0.54f).fillMaxHeight())
             }
-            item {
-                TextField(
-                    value = body,
-                    onValueChange = { body = it },
-                    placeholder = { Text("Write anything…") },
-                    textStyle = MaterialTheme.typography.bodyLarge,
-                    colors = clearFieldColors(),
-                    modifier = Modifier.fillMaxWidth().heightIn(min = 160.dp),
-                )
+            else -> Column(Modifier.fillMaxSize().padding(inner)) {
+                reader(Modifier.weight(0.44f).fillMaxWidth())
+                noteBody(Modifier.weight(0.56f).fillMaxWidth())
             }
-            items(refs, key = { it }) { ref ->
-                val q = remember(ref) { Notes.resolve(bundled, ref) }
-                Surface(
-                    onClick = { if (q != null) opened = q },
-                    shape = RoundedCornerShape(12.dp),
-                    color = MaterialTheme.colorScheme.surfaceContainerHighest,
-                    modifier = Modifier.fillMaxWidth(),
-                ) {
-                    Row(verticalAlignment = Alignment.Top) {
-                        Column(Modifier.weight(1f).padding(12.dp), verticalArrangement = Arrangement.spacedBy(4.dp)) {
-                            if (q == null) {
-                                Text("This line is no longer in the collection.", style = MaterialTheme.typography.bodySmall)
-                            } else {
-                                q.title?.let { Text(it, fontFamily = FontFamily.Serif, fontWeight = FontWeight.SemiBold) }
-                                Text(
-                                    if (q.title != null) q.text else "“${q.text}”",
-                                    fontFamily = FontFamily.Serif,
-                                    style = MaterialTheme.typography.bodyMedium,
-                                    maxLines = 6,
-                                    overflow = TextOverflow.Ellipsis,
-                                )
-                                q.byline?.let { Text("— $it ›", fontFamily = FontFamily.Serif, style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.primary) }
-                            }
+        }
+    }
+}
+
+/** The reading pane beside a note: lines from the collection to read, quote or tuck in while you write. */
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+private fun NoteReader(
+    bundled: List<Quote>,
+    prefs: QuotePrefs,
+    refs: List<String>,
+    onQuote: (Quote) -> Unit,
+    onTuck: (Quote) -> Unit,
+    onOpen: (Quote) -> Unit,
+    onClose: () -> Unit,
+    modifier: Modifier,
+) {
+    val context = LocalContext.current
+    // "mix", "fav", "note", "search" or "subject:<key>"; kept while you write, and across a turn of the phone.
+    var source by rememberSaveable { mutableStateOf("mix") }
+    var query by rememberSaveable { mutableStateOf("") }
+    var seed by rememberSaveable { mutableLongStateOf(System.currentTimeMillis()) }
+    var subjectMenu by remember { mutableStateOf(false) }
+    val enabled = remember { prefs.enabledCategories }
+    val pool: List<Quote> = remember(source, query, seed, if (source == "note") refs else null) {
+        fun on(q: Quote) = q.category == null || q.category in enabled
+        when {
+            source == "fav" -> QuoteRepository(context).favorites().reversed()
+            source == "note" -> refs.mapNotNull { Notes.resolve(bundled, it) }
+            source == "search" -> query.trim().let { w ->
+                if (w.length < 2) {
+                    emptyList()
+                } else {
+                    bundled.asSequence().filter {
+                        on(it) && (it.text.contains(w, true) || it.byline?.contains(w, true) == true || it.title?.contains(w, true) == true)
+                    }.take(200).toList()
+                }
+            }
+            source.startsWith("subject:") -> source.removePrefix("subject:").let { k ->
+                bundled.filter { on(it) && k in it.subjects }.shuffled(java.util.Random(seed))
+            }
+            else -> bundled.filter { on(it) && it.text.length <= 400 }.shuffled(java.util.Random(seed)).take(300)
+        }
+    }
+    Surface(color = MaterialTheme.colorScheme.surfaceContainer, modifier = modifier) {
+        Column(Modifier.padding(horizontal = 12.dp, vertical = 4.dp), verticalArrangement = Arrangement.spacedBy(4.dp)) {
+            Row(verticalAlignment = Alignment.CenterVertically) {
+                Text("Reading", style = MaterialTheme.typography.titleSmall, modifier = Modifier.weight(1f))
+                if (source == "mix" || source.startsWith("subject:")) TextButton(onClick = { seed = System.currentTimeMillis() }) { Text("Shuffle") }
+                TextButton(onClick = onClose) { Text("✕") }
+            }
+            Row(Modifier.horizontalScroll(rememberScrollState()), horizontalArrangement = Arrangement.spacedBy(6.dp)) {
+                FilterChip(selected = source == "mix", onClick = { source = "mix" }, label = { Text("Mix") })
+                FilterChip(selected = source == "fav", onClick = { source = "fav" }, label = { Text("Favourites") })
+                if (refs.isNotEmpty()) FilterChip(selected = source == "note", onClick = { source = "note" }, label = { Text("In this note") })
+                Box {
+                    val subject = Subject.entries.firstOrNull { "subject:${it.key}" == source }
+                    FilterChip(selected = subject != null, onClick = { subjectMenu = true }, label = { Text((subject?.label ?: "Subject") + " ▾") })
+                    DropdownMenu(expanded = subjectMenu, onDismissRequest = { subjectMenu = false }) {
+                        Subject.entries.forEach { s ->
+                            DropdownMenuItem(text = { Text(s.label) }, onClick = { subjectMenu = false; source = "subject:${s.key}" })
                         }
-                        TextButton(onClick = { refs = refs - ref; persist() }) { Text("✕") }
+                    }
+                }
+                FilterChip(selected = source == "search", onClick = { source = "search" }, label = { Text("🔍 Search") })
+            }
+            if (source == "search") {
+                OutlinedTextField(
+                    value = query,
+                    onValueChange = { query = it },
+                    placeholder = { Text("Words or author") },
+                    singleLine = true,
+                    modifier = Modifier.fillMaxWidth(),
+                )
+            }
+            if (pool.isEmpty()) {
+                Box(Modifier.weight(1f).fillMaxWidth(), contentAlignment = Alignment.Center) {
+                    Text(
+                        when (source) {
+                            "fav" -> "No favourites yet. Tap ♡ on a quote to keep it here."
+                            "search" -> if (query.trim().length < 2) "Type a few letters to search." else "Nothing found."
+                            else -> "Nothing here yet."
+                        },
+                        style = MaterialTheme.typography.bodySmall,
+                    )
+                }
+            } else {
+                val scope = rememberCoroutineScope()
+                // A fresh pager for each list, so a new source starts at its first line.
+                key(source, query, seed) {
+                    val pager = rememberPagerState { pool.size }
+                    HorizontalPager(pager, Modifier.weight(1f).fillMaxWidth(), pageSpacing = 16.dp) { page ->
+                        val q = pool[page]
+                        Column(
+                            Modifier.fillMaxSize().verticalScroll(rememberScrollState()),
+                            verticalArrangement = Arrangement.spacedBy(6.dp, Alignment.CenterVertically),
+                        ) {
+                            q.title?.let { Text(it, fontFamily = FontFamily.Serif, fontWeight = FontWeight.SemiBold, style = MaterialTheme.typography.titleMedium) }
+                            Text(q.shownText, fontFamily = FontFamily.Serif, style = MaterialTheme.typography.bodyLarge)
+                            q.byline?.let { Text("— $it", fontFamily = FontFamily.Serif, style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.primary) }
+                        }
+                    }
+                    val page = pager.currentPage.coerceIn(0, pool.size - 1)
+                    val q = pool[page]
+                    Row(verticalAlignment = Alignment.CenterVertically) {
+                        TextButton(onClick = { scope.launch { pager.animateScrollToPage(page - 1) } }, enabled = page > 0) { Text("‹") }
+                        Text("${page + 1}/${pool.size}", style = MaterialTheme.typography.labelSmall)
+                        TextButton(onClick = { scope.launch { pager.animateScrollToPage(page + 1) } }, enabled = page < pool.size - 1) { Text("›") }
+                        Box(Modifier.weight(1f))
+                        TextButton(onClick = { onOpen(q) }) { Text("Open") }
+                        if (source != "note") TextButton(onClick = { onTuck(q) }) { Text(if (Notes.refOf(q) in refs) "Tucked ✓" else "Tuck in") }
+                        Button(onClick = { onQuote(q) }) { Text("Quote it") }
                     }
                 }
             }
