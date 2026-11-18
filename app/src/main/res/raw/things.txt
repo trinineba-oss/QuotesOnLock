@@ -14,13 +14,32 @@ G|Around the home|2E8B74
 S|How Soap Cleans|Soap|🧼
 S|The LED Bulb|The LED bulb|💡
 S|Electricity at the Socket|The socket|🔌
-S|The Thermostat|The thermostat|🌡️
-S|The Flushing Toilet|The flush|🚽
 S|The Smoke Alarm|Smoke alarms|🚨
 S|The Pin Tumbler Lock|Lock and key|🔑
-S|Air Conditioning|Air conditioning|🏢
 S|The Vacuum Cleaner|The vacuum|🧹
 S|The Mirror|Mirrors|🪞
+G|Plumbing|2F7FA8
+S|The Flushing Toilet|The flush|🚽
+S|Water Towers|Water towers|🗼
+S|Home Water Tanks and Pumps|Tanks and pumps|🛢️
+S|The Tap|The tap|🚰
+S|Drain Traps and Vents|Traps and vents|〰️
+S|The Water Heater|Water heater|♨️
+S|The Septic Tank|Septic tanks|🪣
+S|Water Hammer|Banging pipes|🔨
+S|Clean Tap Water|Clean water|💧
+G|Cooling and heating|4A9BB5
+S|Air Conditioning|Air conditioning|🏢
+S|The Thermostat|The thermostat|🌡️
+S|Heat Pumps|Heat pumps|🔁
+S|Inverter Air Conditioners|Inverter AC|📉
+S|Humidity and Comfort|Humidity|🥵
+S|Evaporative Coolers|Evaporative coolers|🌫️
+S|The Dehumidifier|Dehumidifiers|💧
+S|Ceiling Fans|Ceiling fans|🪭
+S|Insulation|Insulation|🧱
+S|Refrigerants and the Ozone Layer|Refrigerants|🌍
+S|Car Air Conditioning|Car AC|🚘
 G|In your pocket|3C78C8
 S|The Touchscreen|Touchscreens|📱
 S|GPS|GPS|🛰️
@@ -39,13 +58,24 @@ G|Getting around|7A5ADC
 S|How a Plane Flies|How a plane flies|✈️
 S|Bicycle Balance|Bicycle balance|🚲
 S|Why Ships Float|Why ships float|⚓
-S|The Car Engine|The car engine|🚗
 S|The Electric Motor|Electric motors|⚙️
-S|Seatbelts|Seatbelts|🛡️
 S|The Lift|The lift|🛗
 S|The Helicopter|Helicopters|🚁
 S|The Hot-Air Balloon|Hot-air balloons|🎈
 S|The Rocket|Rockets|🚀
+G|Cars|A0522D
+S|The Car Engine|The car engine|🚗
+S|Seatbelts|Seatbelts|🛡️
+S|The Gearbox|Gears|🕹️
+S|Hydraulic Brakes|Brakes|🛑
+S|Anti-lock Brakes|ABS|⚠️
+S|The Differential|Differential|⚙️
+S|The Turbocharger|Turbochargers|🌪️
+S|The Catalytic Converter|Catalytic converter|🧪
+S|Airbags|Airbags|🎈
+S|Tyres and Grip|Tyres|🛞
+S|The Electric Car|Electric cars|🔌
+S|The Hybrid Car|Hybrids|🔋
 G|Your body|B3402E
 S|Vaccines|Vaccines|💉
 S|Caffeine|Caffeine|☕
