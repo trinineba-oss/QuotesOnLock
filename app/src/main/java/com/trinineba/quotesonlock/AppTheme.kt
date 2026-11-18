@@ -142,6 +142,10 @@ enum class AppTheme(
         "drop", "A single drop", "A drop falling into still water", R.drawable.notif_frame_drop, 0xFF0A1A24.toInt(),
         0xFFF2F4F2.toInt(), 0xFFF2B66B.toInt(),
     ),
+    JELLY(
+        "jelly", "The deep", "A jellyfish swimming in the deep", R.drawable.notif_frame_jelly, 0xFF030A14.toInt(),
+        0xFFEEF4FA.toInt(), 0xFF8FD6FF.toInt(),
+    ),
     BLOSSOM(
         "blossom", "Falling blossoms", "Petals drifting down", R.drawable.notif_frame_blossom, 0xFFFBF1F5.toInt(),
         0xFF4A2A38.toInt(), 0xFFB0446A.toInt(),
@@ -349,6 +353,7 @@ fun AppTheme.colorScheme(cardOpacity: Float): ColorScheme? = when (this) {
     AppTheme.LEAVES -> calmScheme(true, 0xFFF2B266, 0xFF3A2414, 0xFFFFF4E6, 0xFFE6D2BC, cardOpacity)
     AppTheme.SEA -> calmScheme(true, 0xFF9FE3F2, 0xFF082A40, 0xFFEFFAFF, 0xFFC4DCE6, cardOpacity)
     AppTheme.DROP -> calmScheme(true, 0xFFF2B66B, 0xFF0A1A24, 0xFFF0F2F0, 0xFFC9D3D6, cardOpacity)
+    AppTheme.JELLY -> calmScheme(true, 0xFF8FD6FF, 0xFF030A14, 0xFFEEF4FA, 0xFFBFCCDA, cardOpacity)
     AppTheme.ZEN -> calmScheme(true, 0xFFF0B98C, 0xFF2A1E14, 0xFFF3EEE4, 0xFFD8C9B2, cardOpacity)
     AppTheme.BUTTERFLY -> lightColorScheme(
         primary = Color(0xFFC2185B),
@@ -397,7 +402,7 @@ fun AppTheme.typography(base: Typography): Typography = when (this) {
     AppTheme.CLASSIC -> base
     AppTheme.BLACK -> base.map(headings = { it.copy(fontFamily = FontFamily.Serif) }, all = { it })
     AppTheme.STARRY, AppTheme.AURORA, AppTheme.SPACE, AppTheme.WATER, AppTheme.RAIN, AppTheme.RAIN_NIGHT,
-    AppTheme.SNOW, AppTheme.CANDLE, AppTheme.FIREFLIES, AppTheme.WAVES, AppTheme.DROP, AppTheme.MOUNTAINS, AppTheme.LANTERNS, AppTheme.LEAVES, AppTheme.SEA -> base.map(
+    AppTheme.SNOW, AppTheme.CANDLE, AppTheme.FIREFLIES, AppTheme.WAVES, AppTheme.DROP, AppTheme.JELLY, AppTheme.MOUNTAINS, AppTheme.LANTERNS, AppTheme.LEAVES, AppTheme.SEA -> base.map(
         headings = { it.copy(fontFamily = FontFamily.Serif) },
         all = { it.copy(shadow = Shadow(Color(0xE6000000), Offset(0f, 2f), 8f)) },
     )
@@ -436,6 +441,7 @@ fun ThemedBackground(theme: AppTheme, animate: Boolean, auroraIntensity: Float =
         AppTheme.SPACE -> SpaceBackground(animate)
         AppTheme.WATER -> WaterBackground(animate)
         AppTheme.DROP -> DropBackground(animate)
+        AppTheme.JELLY -> JellyBackground(animate)
         AppTheme.RAIN -> RainBackground(animate, night = false)
         AppTheme.RAIN_NIGHT -> RainBackground(animate, night = true)
         AppTheme.SNOW, AppTheme.CANDLE, AppTheme.FIREFLIES, AppTheme.LAVENDER, AppTheme.CLOUDS, AppTheme.WAVES, AppTheme.BAMBOO, AppTheme.ZEN, AppTheme.BLOSSOM, AppTheme.MOUNTAINS, AppTheme.LANTERNS, AppTheme.LEAVES, AppTheme.SEA -> CalmBackground(theme, animate)
@@ -501,6 +507,30 @@ private fun DropBackground(animate: Boolean) {
     }
 }
 
+@Composable
+private fun JellyBackground(animate: Boolean) {
+    // If the GPU can't build the shader, show the still picture rather than fail.
+    val shader = if (animate && Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+        remember { runCatching { RuntimeShader(JellyArt.SHADER) }.getOrNull() }
+    } else {
+        null
+    }
+    if (shader != null && Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+        FallingDrop(shader)
+    } else {
+        Box(Modifier.fillMaxSize().background(Color(0xFF02060D))) {
+            Image(
+                painter = painterResource(R.drawable.jelly_still),
+                contentDescription = null,
+                modifier = Modifier.fillMaxSize(),
+                // Fit, not crop, so a wide screen keeps the whole jellyfish in a wider dark.
+                contentScale = ContentScale.Fit,
+            )
+        }
+    }
+}
+
+/** Draws a time-driven GPU scene (the drop, the jellyfish): uniforms res and time, in seconds. */
 @RequiresApi(Build.VERSION_CODES.TIRAMISU)
 @Composable
 private fun FallingDrop(shader: RuntimeShader) {

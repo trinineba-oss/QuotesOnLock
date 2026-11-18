@@ -1,0 +1,10 @@
+<html><body style="margin:0;background:#000"><canvas id="c"></canvas>
+<script>
+const C=document.getElementById('c');C.width=innerWidth;C.height=innerHeight;const gl=document.getElementById('c').getContext('webgl');
+const vs='attribute vec2 p;void main(){gl_Position=vec4(p,0,1);}';
+function sh(t,s){const o=gl.createShader(t);gl.shaderSource(o,s);gl.compileShader(o);if(!gl.getShaderParameter(o,gl.COMPILE_STATUS))document.title='ERR '+gl.getShaderInfoLog(o);return o;}
+window.setup=function(fs){const pr=gl.createProgram();gl.attachShader(pr,sh(gl.VERTEX_SHADER,vs));gl.attachShader(pr,sh(gl.FRAGMENT_SHADER,fs));gl.linkProgram(pr);gl.useProgram(pr);
+const b=gl.createBuffer();gl.bindBuffer(gl.ARRAY_BUFFER,b);gl.bufferData(gl.ARRAY_BUFFER,new Float32Array([-1,-1,1,-1,-1,1,1,1]),gl.STATIC_DRAW);
+const l=gl.getAttribLocation(pr,'p');gl.enableVertexAttribArray(l);gl.vertexAttribPointer(l,2,gl.FLOAT,false,0,0);window.pr=pr;}
+window.frame=function(t){gl.uniform2f(gl.getUniformLocation(pr,'res'),C.width,C.height);gl.viewport(0,0,C.width,C.height);gl.uniform1f(gl.getUniformLocation(pr,'time'),t);gl.drawArrays(gl.TRIANGLE_STRIP,0,4);}
+</script></body></html>

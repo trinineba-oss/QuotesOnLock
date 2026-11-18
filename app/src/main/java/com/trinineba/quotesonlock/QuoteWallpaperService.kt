@@ -33,7 +33,7 @@ class QuoteWallpaperService : WallpaperService() {
         const val PANEL_ASPECT = 0.56f
 
         /** Pictures that are themselves wide, which fill a wide screen edge to edge. */
-        val FULL_WIDTH = setOf(AppTheme.STARRY, AppTheme.CLOUDS, AppTheme.BLACK)
+        val FULL_WIDTH = setOf(AppTheme.STARRY, AppTheme.CLOUDS, AppTheme.BLACK, AppTheme.JELLY)
     }
 
     override fun onCreateEngine(): Engine = QuoteEngine()
@@ -126,6 +126,7 @@ class QuoteWallpaperService : WallpaperService() {
                 AppTheme.BUTTERFLY -> ButterflyArt.draw(canvas, width.toFloat(), height.toFloat(), if (moving()) t else 3f, resources.displayMetrics.density)
                 AppTheme.WATER -> drawWater(canvas, t)
                 AppTheme.DROP -> drawDrop(canvas, t)
+                AppTheme.JELLY -> drawJelly(canvas, t)
                 AppTheme.RAIN -> drawRain(canvas, t, night = false)
                 AppTheme.RAIN_NIGHT -> drawRain(canvas, t, night = true)
                 AppTheme.SNOW, AppTheme.CANDLE, AppTheme.FIREFLIES, AppTheme.LAVENDER, AppTheme.CLOUDS, AppTheme.WAVES, AppTheme.BAMBOO, AppTheme.ZEN, AppTheme.BOOK, AppTheme.BLOSSOM, AppTheme.MOUNTAINS, AppTheme.LANTERNS, AppTheme.LEAVES, AppTheme.SEA -> {
@@ -311,6 +312,36 @@ class QuoteWallpaperService : WallpaperService() {
                 canvas.drawRect(0f, 0f, width.toFloat(), height.toFloat(), Paint().apply { this.shader = shader })
             } else {
                 drawCover(canvas, bitmap(R.drawable.drop_still))
+            }
+        }
+
+        private var jellyShader: RuntimeShader? = null
+        private var jellyShaderFailed = false
+
+        /** The lone jellyfish on the GPU (Android 13+, hardware canvas); otherwise the still, whole and centred in the dark. */
+        private fun drawJelly(canvas: Canvas, t: Float) {
+            val shader = if (moving() && !jellyShaderFailed && Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU && canvas.isHardwareAccelerated) {
+                jellyShader ?: runCatching { RuntimeShader(JellyArt.SHADER) }.getOrNull().also {
+                    jellyShader = it
+                    jellyShaderFailed = it == null
+                }
+            } else {
+                null
+            }
+            if (shader != null && Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+                shader.setFloatUniform("res", width.toFloat(), height.toFloat())
+                shader.setFloatUniform("time", t % 3600f)
+                canvas.drawRect(0f, 0f, width.toFloat(), height.toFloat(), Paint().apply { this.shader = shader })
+            } else if (width > height) {
+                // The wallpaper is full width in landscape: fit the tall still by height on matching dark water.
+                val still = bitmap(R.drawable.jelly_still)
+                canvas.drawColor(0xFF02060D.toInt())
+                val s = height / still.height.toFloat()
+                val dw = still.width * s
+                val left = (width - dw) / 2f
+                canvas.drawBitmap(still, null, android.graphics.RectF(left, 0f, left + dw, height.toFloat()), Paint(Paint.FILTER_BITMAP_FLAG))
+            } else {
+                drawCover(canvas, bitmap(R.drawable.jelly_still))
             }
         }
 

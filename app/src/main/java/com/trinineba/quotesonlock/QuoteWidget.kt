@@ -210,6 +210,7 @@ object QuoteWidgets {
         AppTheme.BAMBOO -> R.drawable.bamboo_frame
         AppTheme.ZEN -> R.drawable.zen_frame
         AppTheme.DROP -> R.drawable.drop_frame
+        AppTheme.JELLY -> R.drawable.jelly_frame
         AppTheme.BLOSSOM -> R.drawable.blossom_frame
         AppTheme.MOUNTAINS -> R.drawable.mountains_frame
         AppTheme.LANTERNS -> R.drawable.lanterns_frame
