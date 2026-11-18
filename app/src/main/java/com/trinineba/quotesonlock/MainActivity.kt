@@ -113,6 +113,15 @@ class MainActivity : ComponentActivity() {
     companion object {
         /** Opens About & sources, where the update card is (from the "update available" notification). */
         const val EXTRA_OPEN_UPDATES = "open_updates"
+        const val EXTRA_OPEN_LEARN = "open_learn"
+    }
+
+    /** Counts taps on the daily notification's "Today's lesson", so the screen opens Learn each time. */
+    private val learnRequests = androidx.compose.runtime.mutableIntStateOf(0)
+
+    override fun onNewIntent(intent: Intent) {
+        super.onNewIntent(intent)
+        if (intent.getBooleanExtra(EXTRA_OPEN_LEARN, false)) learnRequests.intValue++
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -139,6 +148,7 @@ class MainActivity : ComponentActivity() {
         if (prefs.enabled || QuoteWidgets.hasAny(this)) QuoteScheduler.ensureScheduled(this, prefs.intervalMinutes)
         Updater.schedule(this, prefs.updateCheck)
         val openUpdates = intent.getBooleanExtra(EXTRA_OPEN_UPDATES, false)
+        if (savedInstanceState == null && intent.getBooleanExtra(EXTRA_OPEN_LEARN, false)) learnRequests.intValue++
         CalmScene.load(this)
         setContent {
             var theme by remember { mutableStateOf(prefs.theme) }
@@ -164,6 +174,7 @@ class MainActivity : ComponentActivity() {
                     auroraIntensity = auroraIntensity,
                     onAuroraIntensity = { auroraIntensity = it },
                     openUpdates = openUpdates,
+                    learnRequest = learnRequests.intValue,
                 )
                 WordSheetHost()
             }
@@ -232,6 +243,8 @@ private fun QuotesScreen(
     auroraIntensity: Float,
     onAuroraIntensity: (Float) -> Unit,
     openUpdates: Boolean = false,
+    /** Goes up each time the daily notification's "Today's lesson" is tapped: open Discover › Learn. */
+    learnRequest: Int = 0,
 ) {
     val context = LocalContext.current
     var enabled by remember { mutableStateOf(prefs.enabled) }
@@ -334,6 +347,12 @@ private fun QuotesScreen(
     }
     // Open pages of the quote browser, innermost last; empty means the main screen.
     var browse by rememberSaveable(stateSaver = androidx.compose.runtime.saveable.listSaver<List<String>, String>(save = { it }, restore = { it })) { mutableStateOf(emptyList<String>()) }
+    LaunchedEffect(learnRequest) {
+        if (learnRequest > 0) {
+            page = Page.DISCOVER
+            browse = listOf("learn")
+        }
+    }
 
     // The notification's "Next quote" button changes the quote while the app is in the background.
     LifecycleEventEffect(Lifecycle.Event.ON_RESUME) {
@@ -1165,7 +1184,7 @@ private fun QuotesScreen(
             ToolRow(R.drawable.ic_edit_note, "Journal", if (journal.isEmpty()) "Your reflections on quotes, kept on this phone" else "${journal.size} reflection" + if (journal.size == 1) "" else "s") { page = Page.JOURNAL }
         }
         item(key = "y-notes") {
-            val n = remember(page) { noteCount(context) }
+            val n = remember(page, browse) { noteCount(context) }
             ToolRow(R.drawable.ic_edit, "Notes", if (n == 0) "Your own notebook: thoughts, lists, ideas" else "Your own notebook · $n note" + if (n == 1) "" else "s") { browse = listOf("notes") }
         }
         item(key = "y-mine") {

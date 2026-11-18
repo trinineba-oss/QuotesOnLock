@@ -13,7 +13,9 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.CornerRadius
 import androidx.compose.ui.geometry.Offset
@@ -105,8 +107,15 @@ fun LessonDiagram(ref: String) {
 
 @Composable
 fun DiagramView(d: Diagram, key: String) {
-    val progress = remember(key) { Animatable(0f) }
-    LaunchedEffect(key) { progress.animateTo(1f, tween(1600, easing = FastOutSlowInEasing)) }
+    // Draws in the first time it is seen, then stays drawn (also after scrolling away and back).
+    var played by androidx.compose.runtime.saveable.rememberSaveable(key) { androidx.compose.runtime.mutableStateOf(false) }
+    val progress = remember(key) { Animatable(if (played) 1f else 0f) }
+    LaunchedEffect(key) {
+        if (!played) {
+            progress.animateTo(1f, tween(1600, easing = FastOutSlowInEasing))
+            played = true
+        }
+    }
     val measurer = rememberTextMeasurer()
     val cs = MaterialTheme.colorScheme
     val palette = Palette(cs.onSurface, cs.primary, Color(0xFF2E8B74), Color(0xFFB3402E), cs.onSurfaceVariant, cs.surfaceVariant, cs.outlineVariant)

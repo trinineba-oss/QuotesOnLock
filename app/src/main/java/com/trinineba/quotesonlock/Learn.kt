@@ -131,9 +131,11 @@ object Learn {
     fun answer(prefs: QuotePrefs, ref: String, right: Boolean) {
         val o = state(prefs)
         val items = o.optJSONObject("items") ?: JSONObject().also { o.put("items", it) }
+        val day = today()
+        // Answering the same idea again on the same day (today's lesson twice, then a topic) counts only once.
+        if (items.optJSONObject(ref)?.optLong("seen") == day) return
         val before = items.optJSONObject(ref)?.optInt("box") ?: 0
         val box = if (right) (before + 1).coerceAtMost(LEARNED) else 1
-        val day = today()
         items.put(ref, JSONObject().put("box", box).put("due", if (box >= LEARNED) Long.MAX_VALUE / 2 else day + INTERVALS[box]).put("seen", day))
         save(prefs, o)
     }
@@ -194,7 +196,7 @@ object Learn {
 
 private sealed class LearnView {
     data object Hub : LearnView()
-    data class Lesson(val ref: String) : LearnView()
+    data class Lesson(val ref: String, val today: Boolean = true) : LearnView()
     data object Review : LearnView()
     data object Feed : LearnView()
     data class TopicPage(val title: String) : LearnView()
@@ -210,9 +212,9 @@ fun LearnScreen(onBack: () -> Unit, onOpenAuthor: (String) -> Unit, onOpenPaths:
     var refresh by remember { mutableIntStateOf(0) }
     val toHub: () -> Unit = { view = LearnView.Hub; refresh++ }
     when (val v = view) {
-        is LearnView.Lesson -> { LessonScreen(v.ref, prefs, bundled, onBack = toHub, onOpenAuthor = onOpenAuthor); return }
+        is LearnView.Lesson -> { LessonScreen(v.ref, prefs, bundled, v.today, onBack = toHub, onOpenAuthor = onOpenAuthor); return }
         LearnView.Review -> { ReviewScreen(prefs, bundled, onBack = toHub); return }
-        LearnView.Feed -> { FeedScreen(prefs, bundled, onBack = toHub, onLearn = { view = LearnView.Lesson(it) }, onOpenAuthor = onOpenAuthor); return }
+        LearnView.Feed -> { FeedScreen(prefs, bundled, onBack = toHub, onLearn = { view = LearnView.Lesson(it, today = false) }, onOpenAuthor = onOpenAuthor); return }
         is LearnView.TopicPage -> { TopicScreen(v.title, prefs, bundled, onBack = toHub, onOpenAuthor = onOpenAuthor); return }
         LearnView.Hub -> Unit
     }
@@ -225,7 +227,6 @@ fun LearnScreen(onBack: () -> Unit, onOpenAuthor: (String) -> Unit, onOpenPaths:
     val topics = allTopics.filter { !it.course }
     val courses = allTopics.filter { it.course }
     val learned = progress.count { it.value.box >= Learn.LEARNED }
-    val going = allTopics.count { val s = Learn.topicStep(prefs, it.title); s in 1 until it.steps.size }
     ToolScreen("Learn", onBack) {
         item {
             Text(
@@ -385,7 +386,7 @@ internal fun QuestionBlock(lesson: Lesson, onAnswered: (Boolean) -> Unit) {
                 Modifier.fillMaxWidth().clip(RoundedCornerShape(14.dp))
                     .border(if (shown && isRight) 2.dp else 1.dp, border, RoundedCornerShape(14.dp))
                     .background(if (shown && isRight) Color(0xFF4F8A5B).copy(alpha = 0.10f) else Color.Transparent)
-                    .clickable(enabled = !shown) { picked = c; onAnswered(isRight) }
+                    .clickable(enabled = !shown, onClickLabel = "Choose this answer") { picked = c; onAnswered(isRight) }
                     .padding(horizontal = 14.dp, vertical = 12.dp),
             ) { Text((if (shown && isRight) "✓  " else "") + c, style = MaterialTheme.typography.bodyLarge) }
         }
@@ -404,7 +405,7 @@ internal fun QuestionBlock(lesson: Lesson, onAnswered: (Boolean) -> Unit) {
 
 /** Today's lesson (or any lesson): read the idea and its takeaway, then one question. */
 @Composable
-private fun LessonScreen(ref: String, prefs: QuotePrefs, bundled: List<Quote>, onBack: () -> Unit, onOpenAuthor: (String) -> Unit) {
+private fun LessonScreen(ref: String, prefs: QuotePrefs, bundled: List<Quote>, today: Boolean, onBack: () -> Unit, onOpenAuthor: (String) -> Unit) {
     val context = LocalContext.current
     val lesson = remember(ref) { Learn.lessonFor(context, ref) }
     val idea = remember(ref) { Learn.idea(bundled, ref) }
@@ -412,7 +413,8 @@ private fun LessonScreen(ref: String, prefs: QuotePrefs, bundled: List<Quote>, o
     var right by remember(ref) { mutableStateOf<Boolean?>(null) }
     var opened by remember { mutableStateOf<Quote?>(null) }
     opened?.let { q -> QuotePageSheet(quote = q, onDismiss = { opened = null }, onOpenAuthor = { opened = null; onOpenAuthor(it) }) }
-    ToolScreen(if (idea?.category?.group == QuoteGroup.MYTHS) "Today's myth" else "Today's lesson", onBack) {
+    val myth = idea?.category?.group == QuoteGroup.MYTHS
+    ToolScreen(if (today) (if (myth) "Today's myth" else "Today's lesson") else (if (myth) "A myth" else "A lesson"), onBack) {
         if (lesson == null || idea == null) {
             item { Text("This lesson isn't available.") }
             return@ToolScreen

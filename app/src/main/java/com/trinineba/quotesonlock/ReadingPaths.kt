@@ -245,6 +245,16 @@ private fun PathScreen(path: ReadingPath, prefs: QuotePrefs, onBack: () -> Unit,
                         .background(MaterialTheme.colorScheme.primary.copy(alpha = 0.10f)).padding(14.dp),
                 )
             }
+            // Ideas and myths with a lesson in Learn can be checked here too; it counts towards your reviews.
+            val lesson = if (step.isIdea) Learn.lessonFor(context, step.ref) else null
+            if (lesson != null) item(key = "check-${path.title}-$at") {
+                var checking by remember(path.title, at) { mutableStateOf(false) }
+                if (!checking) {
+                    TextButton(onClick = { checking = true }) { Text("Check myself ›") }
+                } else {
+                    QuestionBlock(lesson) { ok -> Learn.answer(prefs, step.ref, ok) }
+                }
+            }
             if (quote != null) item {
                 OutlinedButton(onClick = { opened = quote }, modifier = Modifier.fillMaxWidth()) {
                     Text(if (quote.isIdea) "Open this ${if (quote.category?.group == QuoteGroup.MYTHS) "myth" else "idea"}" else "Open quote page (About, Context…)")

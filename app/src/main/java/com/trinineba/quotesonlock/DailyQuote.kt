@@ -69,6 +69,19 @@ object DailyQuote {
             .setContentText(body)
             .setStyle(NotificationCompat.BigTextStyle().bigText(body))
             .setContentIntent(open)
+            .apply {
+                // A second button for today's two-minute lesson, until it has been done.
+                val lesson = runCatching { if (Learn.todayDone(prefs)) null else Learn.todays(prefs, app) }.getOrNull()
+                if (lesson != null) {
+                    val learn = PendingIntent.getActivity(
+                        app, 8,
+                        Intent(app, MainActivity::class.java).putExtra(MainActivity.EXTRA_OPEN_LEARN, true)
+                            .addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP or Intent.FLAG_ACTIVITY_CLEAR_TOP),
+                        PendingIntent.FLAG_IMMUTABLE or PendingIntent.FLAG_UPDATE_CURRENT,
+                    )
+                    addAction(0, "Today's lesson: " + lesson.ref, learn)
+                }
+            }
             .setAutoCancel(true)
             .setPriority(NotificationCompat.PRIORITY_DEFAULT)
             .build()

@@ -266,6 +266,11 @@ private fun NoteEditor(id: Long, prefs: QuotePrefs, bundled: List<Quote>, onBack
             if (n.isEmpty) Notes.delete(prefs, id) else Notes.put(prefs, n)
         }
     }
+    // Saved a moment after each change, so nothing is lost if the app is closed mid-sentence.
+    androidx.compose.runtime.LaunchedEffect(title, body.text, refs, pinned) {
+        kotlinx.coroutines.delay(700)
+        persist()
+    }
     val leave = { persist(); onBack() }
     BackHandler(onBack = leave)
 
