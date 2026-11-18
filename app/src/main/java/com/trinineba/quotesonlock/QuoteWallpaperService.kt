@@ -1,5 +1,6 @@
 package com.trinineba.quotesonlock
 
+import android.app.WallpaperColors
 import android.content.SharedPreferences
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
@@ -7,6 +8,7 @@ import android.graphics.BitmapShader
 import android.graphics.Canvas
 import android.graphics.Matrix
 import android.graphics.Paint
+import android.graphics.Picture
 import android.graphics.RuntimeShader
 import android.graphics.Shader
 import android.os.Build
@@ -24,6 +26,9 @@ import kotlin.math.max
  */
 class QuoteWallpaperService : WallpaperService() {
     private companion object {
+        /** How long a new quote takes to fade in over the old one. */
+        const val CARD_FADE_MS = 600f
+
         /** Width to height of the centred panel a tall scene is drawn in on a wide screen. */
         const val PANEL_ASPECT = 0.56f
 
@@ -96,18 +101,21 @@ class QuoteWallpaperService : WallpaperService() {
             val canvas = (if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) runCatching { holder.lockHardwareCanvas() }.getOrNull() else null)
                 ?: runCatching { holder.lockCanvas() }.getOrNull()
                 ?: return
+            var fading = false
             try {
                 val now = SystemClock.elapsedRealtime()
                 clock += ((now - lastFrame) / 1000f).coerceAtMost(0.1f) * prefs.motionSpeed
                 lastFrame = now
                 val t = clock
                 if (panelled()) drawPanelled(canvas, t) else drawScene(canvas, t)
-                if (prefs.wallpaperShowQuote) drawQuote(canvas)
+                fading = prefs.wallpaperShowQuote && drawQuote(canvas)
             } finally {
                 holder.unlockCanvasAndPost(canvas)
             }
+            checkColors()
             handler.removeCallbacks(frame)
-            if (visible && moving()) handler.postDelayed(frame, 33)
+            // Still themes draw only when something changes, plus the few frames of a quote's fade.
+            if (visible && (moving() || fading)) handler.postDelayed(frame, 33)
         }
 
         /** The theme's artwork at the current [width] x [height]. */
@@ -334,16 +342,102 @@ class QuoteWallpaperService : WallpaperService() {
                 resources.displayMetrics.density, blur = canvas.isHardwareAccelerated,
             )
 
-        private fun drawQuote(canvas: Canvas) {
-            val quote = QuoteRepository(this@QuoteWallpaperService, prefs).current() ?: return
+        private val repo by lazy { QuoteRepository(this@QuoteWallpaperService, prefs) }
+
+        // The quote card is laid out once per quote (and style, size, theme) and recorded as a picture;
+        // each frame just replays it. When the quote changes, the old card fades into the new one.
+        private var card: Picture? = null
+        private var cardKey = ""
+        private var cardText = ""
+        private var oldCard: Picture? = null
+        private var fadeStart = 0L
+
+        /** Draws the quote card; returns true while a change of quote is still fading in. */
+        private fun drawQuote(canvas: Canvas): Boolean {
+            val quote = repo.current() ?: return false
             val metrics = resources.displayMetrics
-            // On the wallpaper an idea shows its name and text; the explanation would crowd the screen.
-            val body = quote.title?.let { "$it\n\n${quote.shownText}" }
-            QuoteArt.drawQuoteCard(
-                canvas, width, height, metrics.density, android.util.TypedValue.applyDimension(android.util.TypedValue.COMPLEX_UNIT_SP, 1f, metrics), theme, prefs.style,
-                quote.text, quote.byline, prefs.cardOpacity, prefs.wallpaperQuotePosition, prefs.cardSoftness,
-                body = body,
-            )
+            val key = listOf(quote.text, quote.byline, width, height, theme.key, prefs.style, prefs.cardOpacity,
+                prefs.wallpaperQuotePosition, prefs.cardSoftness, metrics.density, resources.configuration.fontScale).joinToString("|")
+            val now = SystemClock.elapsedRealtime()
+            if (key != cardKey || card == null) {
+                val picture = Picture()
+                val rec = picture.beginRecording(width, height)
+                // On the wallpaper an idea shows its name and text; the explanation would crowd the screen.
+                val body = quote.title?.let { "$it\n\n${quote.shownText}" }
+                QuoteArt.drawQuoteCard(
+                    rec, width, height, metrics.density, android.util.TypedValue.applyDimension(android.util.TypedValue.COMPLEX_UNIT_SP, 1f, metrics), theme, prefs.style,
+                    quote.text, quote.byline, prefs.cardOpacity, prefs.wallpaperQuotePosition, prefs.cardSoftness,
+                    body = body,
+                )
+                picture.endRecording()
+                // Only a new quote fades; a change of size or style simply redraws.
+                if (card != null && cardText.isNotEmpty() && cardText != quote.text && visible) {
+                    oldCard = card
+                    fadeStart = now
+                } else {
+                    oldCard = null
+                }
+                card = picture
+                cardKey = key
+                cardText = quote.text
+            }
+            val f = if (oldCard == null) 1f else ((now - fadeStart) / CARD_FADE_MS).coerceIn(0f, 1f)
+            val eased = f * f * (3f - 2f * f)
+            oldCard?.let { old ->
+                if (eased < 1f) {
+                    canvas.saveLayerAlpha(null, ((1f - eased) * 255).toInt())
+                    canvas.drawPicture(old)
+                    canvas.restore()
+                }
+            }
+            card?.let { c ->
+                if (eased >= 1f) {
+                    canvas.drawPicture(c)
+                } else {
+                    canvas.saveLayerAlpha(null, (eased * 255).toInt())
+                    canvas.drawPicture(c)
+                    canvas.restore()
+                }
+            }
+            if (f >= 1f) oldCard = null
+            return oldCard != null
+        }
+
+        // ---- colours for the system ----------------------------------------------------------
+
+        private var colorsTheme: AppTheme? = null
+
+        /**
+         * Tells Android the wallpaper's colours (from a small still of the scene), so the lock-screen
+         * clock and the status icons pick dark text on light themes and light text on dark ones.
+         */
+        override fun onComputeColors(): WallpaperColors? {
+            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O_MR1) return null
+            val sw = 108
+            val sh = if (width > 0 && height > 0) (sw * height / width.toFloat()).toInt().coerceIn(60, 400) else 234
+            val small = runCatching { Bitmap.createBitmap(sw, sh, Bitmap.Config.ARGB_8888) }.getOrNull() ?: return null
+            val savedW = width
+            val savedH = height
+            width = sw
+            height = sh
+            stillOnly = true
+            try {
+                runCatching { drawScene(Canvas(small), CalmArt.stillTime(theme)) }
+            } finally {
+                stillOnly = false
+                width = savedW
+                height = savedH
+            }
+            return runCatching { WallpaperColors.fromBitmap(small) }.getOrNull().also { small.recycle() }
+        }
+
+        /** Asks Android to read the colours again when the theme changes. */
+        private fun checkColors() {
+            val t = theme
+            if (t != colorsTheme) {
+                colorsTheme = t
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O_MR1) runCatching { notifyColorsChanged() }
+            }
         }
     }
 }
