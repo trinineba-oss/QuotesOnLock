@@ -110,3 +110,50 @@ S|i|Hindsight Bias
 S|i|Mere Exposure
 S|i|The Gambler's Fallacy
 S|i|The Confidence of Ignorance
+T|Learning to die well|a course in 8 steps|6E6A8C|Eight steps through what philosophers and myths have said about mortality, from Epicurus to Pascal, and why thinking about death can make a life clearer, braver and more grateful. Gentle, not grim.|course
+S|i|Death Is Nothing to Us
+S|i|To Philosophise Is to Learn to Die
+S|i|Memento Mori
+S|i|Nachiketas and Death
+S|i|The Silence of Infinite Spaces
+S|i|Calypso's Offer
+S|i|The Pity of Things
+S|i|Happiness Takes a Lifetime
+T|The Eastern way in ten ideas|a course in 10 steps|B0703A|Ten ideas from India, China and Japan, from the Upanishads and the Buddha to Confucius, Mencius and Zen: one a day, each with a question to try it out.|course
+S|i|Thou Art That
+S|i|Act Without Craving the Fruit
+S|i|No Fixed Self
+S|i|Dependent Origination
+S|i|Ren
+S|i|The Four Sprouts
+S|i|The Rectification of Names
+S|i|Harmony, Not Sameness
+S|i|Mushin
+S|i|Ma
+T|How society works|a course in 8 steps|3E7D6A|Eight ideas for seeing the hidden machinery of social life: unseen costs, self-fulfilling beliefs, silent majorities, incentives that backfire and the strange wisdom of crowds.|course
+S|i|What Is Seen and What Is Not Seen
+S|i|The Thomas Theorem
+S|i|The Spiral of Silence
+S|i|Social Capital
+S|i|The Cobra Effect
+S|i|The Jevons Paradox
+S|i|The Wisdom of Crowds
+S|i|Groupthink
+T|The cosmos in eight ideas|a course in 8 steps|2A3F7A|From the dark night sky to the accelerating universe: eight steps through how we came to know the size, age and fate of the cosmos.|course
+S|i|Looking Back in Time
+S|i|Why the Night Is Dark
+S|i|The Doppler Effect
+S|i|The Primeval Atom
+S|i|The Copernican Principle
+S|i|The Relativity of Simultaneity
+S|i|Dark Energy
+S|i|The Drake Equation
+T|Heroes at the crossroads|a course in 8 steps|A2553C|Eight moments when a hero of myth must choose, from Greece, Troy, India, Norse legend and Arthur's Britain, and what each choice says about how to live.|course
+S|i|The Choice of Heracles
+S|i|Daedalus' Warning
+S|i|Calypso's Offer
+S|i|Priam and Achilles
+S|i|Odin's Eye
+S|i|Hanuman's Leap
+S|i|The Sword in the Stone
+S|i|Gawain and the Green Knight
