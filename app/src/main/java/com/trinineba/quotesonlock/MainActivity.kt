@@ -815,6 +815,10 @@ private fun QuotesScreen(
             NotesScreen(onBack = { browse = browse.dropLast(1) }, onOpenAuthor = { browse = browse + BrowsePage.author(it) })
             return
         }
+        "things" -> {
+            HowThingsScreen(onBack = { browse = browse.dropLast(1) }, onOpenAuthor = { browse = browse + BrowsePage.author(it) })
+            return
+        }
         "paths" -> {
             ReadingPathsScreen(onBack = { browse = browse.dropLast(1) }, onOpenAuthor = { browse = browse + BrowsePage.author(it) })
             return
@@ -1115,6 +1119,9 @@ private fun QuotesScreen(
         }
         item(key = "d-paths") {
             JourneyCard("Reading paths", "Guided journeys: existentialism, the Stoics, myths of love, wonder and more", Color(0xFF2E8B74)) { browse = listOf("paths") }
+        }
+        item(key = "d-things") {
+            JourneyCard("How things work", "The microwave, GPS, soap, rainbows: the everyday world, explained in a few minutes each", Color(0xFFC0682E)) { browse = listOf("things") }
         }
         item(key = "d-themes") {
             JourneyCard("One idea, many hands", "Time, the self, love, death… 20 great themes traced across the centuries", Color(0xFF7A5ADC)) { browse = listOf("themes") }

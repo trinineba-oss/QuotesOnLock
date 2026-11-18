@@ -157,3 +157,12 @@ S|i|Odin's Eye
 S|i|Hanuman's Leap
 S|i|The Sword in the Stone
 S|i|Gawain and the Green Knight
+T|How everyday things work|a course in 8 steps|C0682E|Eight everyday wonders, from the kitchen to the sky: what really happens inside the fridge, the phone and the plane, and why the sky is blue. One a day, each with a diagram.|course
+S|i|The Refrigerator
+S|i|The Microwave Oven
+S|i|How Soap Cleans
+S|i|The Touchscreen
+S|i|GPS
+S|i|How a Plane Flies
+S|i|Vaccines
+S|i|Why the Sky Is Blue

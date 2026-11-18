@@ -34,6 +34,7 @@ import androidx.compose.ui.text.rememberTextMeasurer
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.Constraints
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.graphics.drawscope.clipRect
 import kotlin.math.PI
 import kotlin.math.cos
 import kotlin.math.exp
@@ -475,6 +476,11 @@ private class DiagramPainter(val ds: DrawScope, val tm: TextMeasurer, val c: Pal
             "doubleslit" -> doubleSlit()
             "goldilocks" -> goldilocks()
             "iceberg" -> iceberg()
+            "gps" -> gps()
+            "wing" -> wing()
+            "raindrop" -> raindrop()
+            "tides" -> tides()
+            "seasons" -> seasons()
         }
     }
 
@@ -725,6 +731,109 @@ private class DiagramPainter(val ds: DrawScope, val tm: TextMeasurer, val c: Pal
         text("just right", sx + 130f, sy + 92f, c.good, 11.5f, TextAlign.Center, alpha = e, bold = true)
         text("too cold", sx + 200f, sy + 118f, sky, 11f, TextAlign.Center, alpha = e)
         text("liquid water possible", sx + 130f, sy - 92f, c.good, 11f, TextAlign.Center, alpha = e)
+    }
+
+    fun gps() {
+        // Three satellites; each circle's radius is that satellite's true distance to "you", so all three meet there.
+        val you = Offset(165f, 120f)
+        val sats = listOf(Offset(45f, 40f) to c.good, Offset(285f, 30f) to c.accent, Offset(230f, 175f) to sky)
+        ds.clipRect(0f, 0f, 320f * s, 200f * s) { sats.forEachIndexed { i, (p, col) ->
+            val g = part(0.1f + i * 0.2f, 0.45f + i * 0.2f)
+            ds.drawCircle(col.copy(alpha = part(i * 0.15f, 0.1f + i * 0.15f)), 6f * s, o(p.x, p.y))
+            val r = sqrt((you.x - p.x) * (you.x - p.x) + (you.y - p.y) * (you.y - p.y))
+            ds.drawArc(col.copy(alpha = 0.8f), 0f, 360f * g, false, o(p.x - r, p.y - r), Size(2 * r * s, 2 * r * s),
+                style = Stroke(1.6f * s, pathEffect = PathEffect.dashPathEffect(floatArrayOf(5f * s, 4f * s))))
+        } }
+        val e = part(0.8f, 1f)
+        ds.drawCircle(c.ink.copy(alpha = e), 5.5f * s, o(you.x, you.y))
+        text("you", you.x + 10f, you.y - 2f, c.ink, 12f, alpha = e, bold = true)
+    }
+
+    fun wing() {
+        // An airfoil tilted slightly up; streamlines bend over it and leave pointing down.
+        val a = part(0f, 0.3f)
+        val top = List(25) { k -> val t = k / 24f; Offset(90f + 150f * t, 100f - 34f * sin(PI.toFloat() * t.pow(0.75f)) + 16f * t) }
+        val bottom = List(25) { k -> val t = k / 24f; Offset(90f + 150f * t, 100f + 6f * sin(PI.toFloat() * t) + 16f * t) }
+        poly(top + bottom.reversed(), a, c.ink, 2.2f, close = true, fill = c.soft)
+        for (k in 0..3) {
+            val g = part(0.25f + k * 0.1f, 0.6f + k * 0.1f)
+            val y0 = 40f + k * 30f + (if (k >= 2) 30f else 0f)
+            val pts = List(40) { i ->
+                val x = 10f + 300f * i / 39f
+                val over = k < 2
+                val bump = if (over) -(18f - k * 6f) * exp(-((x - 150f) / 60f).pow(2)) else 8f * exp(-((x - 160f) / 70f).pow(2))
+                val down = 30f * (1f / (1f + exp(-(x - 200f) / 25f)))
+                Offset(x, y0 + bump + down)
+            }
+            poly(pts, g, sky.copy(alpha = 0.8f), 1.6f)
+        }
+        val e = part(0.75f, 1f)
+        arrow(Offset(160f, 74f), Offset(160f, 30f), c.good, e)
+        text("lift", 168f, 38f, c.good, 12f, alpha = e, bold = true)
+        text("air turned downward", 300f, 170f, sky, 11f, TextAlign.End, alpha = e)
+        text("lower pressure above", 20f, 22f, c.muted, 10.5f, alpha = e)
+    }
+
+    fun raindrop() {
+        val cx = 170f; val cy = 100f; val r = 72f
+        val a = part(0f, 0.25f)
+        ds.drawCircle(sky.copy(alpha = 0.15f * a), r * s, o(cx, cy))
+        ds.drawCircle(sky.copy(alpha = a), r * s, o(cx, cy), style = Stroke(1.8f * s))
+        // Sunlight enters on the upper left, reflects at the back, exits lower left, splitting slightly.
+        val inP = Offset(cx - r * 0.55f, cy - r * 0.835f)
+        val back = Offset(cx + r * 0.95f, cy + r * 0.3f)
+        val g1 = part(0.2f, 0.45f)
+        arrow(Offset(10f, inP.y), inP, sun, g1)
+        text("sunlight", 12f, inP.y - 12f, sunText, 11f, alpha = g1)
+        val g2 = part(0.4f, 0.65f)
+        line(inP, Offset(inP.x + (back.x - inP.x) * g2, inP.y + (back.y - inP.y) * g2), c.ink.copy(alpha = 0.7f), 1.6f)
+        val g3 = part(0.6f, 0.85f)
+        val outRed = Offset(cx - r * 0.75f, cy + r * 0.66f)
+        val outViolet = Offset(cx - r * 0.62f, cy + r * 0.785f)
+        listOf(Triple(outRed, Color(0xFFD2453A), Offset(20f, 190f)), Triple(outViolet, Color(0xFF7A5ADC), Offset(45f, 205f))).forEach { (pt, col, end) ->
+            line(back, Offset(back.x + (pt.x - back.x) * g3, back.y + (pt.y - back.y) * g3), col.copy(alpha = 0.9f), 1.6f)
+            if (g3 >= 1f) line(pt, Offset(pt.x + (end.x - pt.x) * part(0.85f, 1f), pt.y + (end.y - pt.y) * part(0.85f, 1f)), col, 2f)
+        }
+        val e = part(0.85f, 1f)
+        text("reflects at the back", back.x + 8f, back.y, c.muted, 10.5f, alpha = e, width = 72f)
+        text("red", 30f, 172f, Color(0xFFD2453A), 11f, alpha = e)
+        text("violet", 70f, 196f, Color(0xFF7A5ADC), 11f, alpha = e)
+    }
+
+    fun tides() {
+        val ex = 120f; val ey = 95f; val er = 42f
+        val a = part(0f, 0.3f)
+        // Ocean stretched into two bulges along the Earth-Moon line.
+        val ocean = List(73) { k -> val t = k / 72f * 2f * PI.toFloat(); val rr = er + 8f + 16f * cos(t) * cos(t); Offset(ex + rr * cos(t), ey + rr * sin(t)) }
+        poly(ocean, part(0.25f, 0.6f), sky, 2f, close = true, fill = sky.copy(alpha = 0.18f))
+        ds.drawCircle(c.good.copy(alpha = 0.55f * a), er * s, o(ex, ey))
+        ds.drawCircle(c.ink.copy(alpha = a), er * s, o(ex, ey), style = Stroke(1.5f * s))
+        val m = part(0.1f, 0.35f)
+        ds.drawCircle(c.muted.copy(alpha = m), 14f * s, o(280f, ey))
+        text("Moon", 280f, ey + 26f, c.muted, 11f, TextAlign.Center, alpha = m)
+        val e = part(0.65f, 1f)
+        text("high tide", ex + 70f, ey - 20f, sky, 11f, TextAlign.Center, alpha = e)
+        text("high tide", ex - 70f, ey - 20f, sky, 11f, TextAlign.Center, alpha = e)
+        text("low tide", ex, ey - 66f, c.muted, 11f, TextAlign.Center, alpha = e)
+        text("low tide", ex, ey + 68f, c.muted, 11f, TextAlign.Center, alpha = e)
+    }
+
+    fun seasons() {
+        val cy = 95f
+        val a = part(0f, 0.25f)
+        ds.drawCircle(sun.copy(alpha = a), 20f * s, o(160f, cy))
+        // Earth on either side of the Sun; its axis keeps pointing the same way (tilted towards the upper right).
+        val tilt = 23.4f * PI.toFloat() / 180f
+        listOf(Offset(260f, cy) to "December: north leans away", Offset(60f, cy) to "June: north leans towards the Sun").forEachIndexed { i, (p, label) ->
+            val g = part(0.2f + i * 0.25f, 0.5f + i * 0.25f)
+            ds.drawCircle(sky.copy(alpha = 0.6f * g), 22f * s, o(p.x, p.y))
+            val dx = 34f * sin(tilt); val dy = 34f * cos(tilt)
+            // From the south pole (lower left) to the north pole (upper right).
+            val south = Offset(p.x - dx, p.y + dy); val north = Offset(p.x + dx, p.y - dy)
+            line(south, Offset(south.x + (north.x - south.x) * g, south.y + (north.y - south.y) * g), c.ink, 2f)
+            text("N", north.x + 3f, north.y - 6f, c.ink, 10.5f, alpha = g)
+            text(label, if (i == 0) 250f else 72f, cy + 62f, c.ink, 11f, TextAlign.Center, alpha = part(0.7f, 1f), width = 130f)
+        }
     }
 
     fun iceberg() {
@@ -1052,6 +1161,85 @@ object Diagrams {
 
     private val all: Map<String, Diagram> by lazy {
         mapOf(
+            // ---- How things work ----
+            "The Microwave Oven" to Diagram.Flow(listOf("Microwaves, 2.45 billion waves a second", "Water molecules twist back and forth", "They jostle their neighbours", "The food heats, from the outer layers in"), highlight = 1,
+                caption = "Heat is made inside the food's outer centimetre or two; the middle warms by conduction."),
+            "The Refrigerator" to Diagram.Flow(listOf("evaporates inside: takes in heat", "compressor squeezes the gas", "coils at the back give off heat", "valve drops the pressure"), cycle = true, highlight = 0,
+                caption = "A fridge doesn't make cold. It pumps heat from inside to outside, round and round."),
+            "Bread Rising" to Diagram.Flow(listOf("Yeast eat sugars", "They breathe out carbon dioxide", "Gluten's stretchy web traps the bubbles", "The dough swells", "The oven sets the foam"), highlight = 2,
+                caption = "Without gluten to hold the gas, it would simply escape."),
+            "The Induction Hob" to Diagram.Flow(listOf("Coil under the glass: alternating current", "A rapidly changing magnetic field", "Swirling currents in the iron pan", "The pan heats itself"), highlight = 3,
+                caption = "The glass only gets warm from the pan sitting on it."),
+            "The Pressure Cooker" to Diagram.Bars(
+                listOf(Diagram.Bar("open pan", 100f / 125f, Tone.MUTED, "100 °C"), Diagram.Bar("pressure cooker", 120f / 125f, Tone.ACCENT, "about 120 °C"), Diagram.Bar("on Everest", 70f / 125f, Tone.MUTED, "about 70 °C")),
+                caption = "Where water boils: higher pressure, higher boiling point, faster cooking. Lower pressure, the opposite."),
+            "Why Onions Make You Cry" to Diagram.Flow(listOf("The knife breaks the onion's cells", "Enzymes meet sulphur compounds", "An irritating gas forms and drifts up", "It reaches your eyes", "Tears wash it away"), highlight = 2,
+                caption = "Kept apart in the whole onion, the chemicals only meet when cells break."),
+            "How Soap Cleans" to Diagram.Rings(listOf("oily tails dig into the grease", "water-loving heads face outward"), "grease",
+                caption = "Soap molecules wrap a droplet of grease into a tiny ball, a micelle, which water can rinse away."),
+            "The LED Bulb" to Diagram.Bars(
+                listOf(Diagram.Bar("filament bulb", 1f, Tone.BAD, "60 W"), Diagram.Bar("LED", 0.15f, Tone.GOOD, "about 9 W")),
+                caption = "Power needed for about the same light. The filament bulb turns most of its energy into heat."),
+            "Electricity at the Socket" to Diagram.Flow(listOf("Generator at a power station", "Transformer steps the voltage up", "High-voltage lines over long distances", "Transformers step it down near you", "Your socket: 230 V or 120 V"), highlight = 2,
+                caption = "High voltage means low current, and much less energy lost as heat in the cables."),
+            "The Thermostat" to Diagram.Flow(listOf("too cold", "heating on", "warm enough", "heating off"), cycle = true, highlight = 0,
+                caption = "Measure, compare, correct: the same loop steadies autopilots and your own body temperature."),
+            "The Flushing Toilet" to Diagram.Flow(listOf("Water rushes from the cistern", "The bowl's level rises over the bend", "The pipe fills: a siphon starts", "The bowl empties with a gurgle", "Air breaks the siphon; it refills"), highlight = 2,
+                caption = "Many toilets work this way. The water left in the bend seals out sewer smells."),
+            "The Smoke Alarm" to Diagram.Flow(listOf("A light beam crosses a dark chamber, missing the sensor", "Smoke drifts in", "Its particles scatter light onto the sensor", "The alarm sounds"), highlight = 2,
+                caption = "A photoelectric alarm. Ionisation alarms sense smoke disturbing a tiny electric current instead."),
+            "The Touchscreen" to Diagram.Flow(listOf("A grid of invisible electrodes under the glass", "Your fingertip draws away a little charge", "The controller finds where the change is", "The phone knows where you touched"), highlight = 1,
+                caption = "It senses conductors, which is why ordinary gloves don't work."),
+            "GPS" to Diagram.Picture("gps", "Each satellite's signal says how far away it is. Only one point fits all the distances; a fourth satellite corrects your phone's clock.", height = 200f),
+            "Wi-Fi" to Diagram.Flow(listOf("Data: ones and zeros", "The router shapes radio waves", "Waves cross the room at light speed", "Your device's antenna catches them", "Patterns become ones and zeros again"), highlight = 1,
+                caption = "Walls, metal and water weaken the waves, so the far room gets less."),
+            "The Digital Camera" to Diagram.Flow(listOf("The lens focuses light", "Millions of photosites on the sensor", "Light frees electrons in each", "The camera counts them", "Colour filters and software make pixels"), highlight = 2,
+                caption = "Steven Sasson's first digital camera, in 1975, took 23 seconds to record one tiny black-and-white image."),
+            "Noise-Cancelling Headphones" to Diagram.Lines(
+                listOf(
+                    Diagram.Series(curve(60) { x -> 0.5f + 0.32f * sin(x * 6f * PI.toFloat()) }, "noise", Tone.MUTED),
+                    Diagram.Series(curve(60) { x -> 0.5f - 0.32f * sin(x * 6f * PI.toFloat()) }, "the opposite wave", Tone.ACCENT, dashed = true),
+                    Diagram.Series(curve(60) { _ -> 0.5f }, "what you hear", Tone.GOOD),
+                ),
+                caption = "Peaks meet troughs and the two waves cancel. Steady drones cancel best.", height = 190f,
+            ),
+            "The Lithium-Ion Battery" to Diagram.Flow(listOf("charging: ions move into graphite", "energy stored", "in use: ions flow back", "electrons power the phone"), cycle = true, highlight = 3,
+                caption = "The ions take the short way inside; the electrons take the long way, and do the work."),
+            "How a Plane Flies" to Diagram.Picture("wing", "The wing turns the airflow downward; the air pushes the wing up. Pressure is lower above the wing than below.", height = 190f),
+            "Bicycle Balance" to Diagram.Flow(listOf("the bike leans", "the wheel steers into the lean", "wheels move back under you", "upright again"), cycle = true, highlight = 1,
+                caption = "Like balancing a broom on your hand: you move the support under the fall."),
+            "Why Ships Float" to Diagram.Scale("ship's weight", "balanced: it floats", "weight of the water pushed aside",
+                caption = "A steel hull full of air pushes aside a lot of water. It settles until the two weights match."),
+            "The Car Engine" to Diagram.Flow(listOf("intake", "compression", "power", "exhaust"), cycle = true, highlight = 2,
+                caption = "Otto's four-stroke cycle. Only the power stroke pushes; most of the fuel's energy leaves as heat."),
+            "The Electric Motor" to Diagram.Flow(listOf("Current flows through a coil", "The magnet's field pushes the wire sideways", "The coil turns", "The current is switched each half turn", "It keeps on spinning"), highlight = 1,
+                caption = "Turned by hand, the same machine is a generator."),
+            "Seatbelts" to Diagram.Bars(
+                listOf(Diagram.Bar("stopped in 0.01 s", 1f, Tone.BAD, "force × 10"), Diagram.Bar("stopped in 0.1 s", 0.1f, Tone.GOOD, "force × 1")),
+                caption = "Same change in speed, ten times the stopping time, a tenth of the force. A belt also spreads it over hips and ribs."),
+            "Vaccines" to Diagram.Flow(listOf("A harmless piece of a germ", "The immune system learns it", "Memory cells remain", "The real germ arrives", "A fast, strong defence"), highlight = 2,
+                caption = "The memory is what lasts. Edward Jenner first showed it with cowpox in 1796."),
+            "Caffeine" to Diagram.Flow(listOf("Adenosine builds up while you're awake", "It settles on receptors: sleepiness", "Caffeine blocks the receptors", "You feel alert", "It wears off; the adenosine lands"), highlight = 2,
+                caption = "Caffeine hides the tiredness signal rather than removing it."),
+            "Sunscreen" to Diagram.Bars(
+                listOf(Diagram.Bar("SPF 15", 0.93f, Tone.MUTED, "93%"), Diagram.Bar("SPF 30", 0.967f, Tone.ACCENT, "97%"), Diagram.Bar("SPF 50", 0.98f, Tone.ACCENT, "98%")),
+                caption = "Share of burning UVB blocked, when enough is applied. Higher numbers bring smaller gains."),
+            "How Aspirin Eases Pain" to Diagram.Flow(listOf("An injury", "COX enzymes make prostaglandins", "Nerves become sensitive: pain and swelling", "Aspirin or ibuprofen blocks COX", "Fewer pain signals"), highlight = 3,
+                caption = "John Vane discovered how aspirin works in 1971, more than 70 years after it went on sale."),
+            "How Muscles Pull" to Diagram.Flow(listOf("myosin grabs actin", "power stroke: it pulls", "ATP releases it", "it re-cocks"), cycle = true, highlight = 1,
+                caption = "Millions of tiny tugs slide the filaments past each other. Muscles can only pull."),
+            "Goosebumps" to Diagram.Flow(listOf("Cold, fear or a moving song", "Tiny muscles at each hair tighten", "Hairs stand up, skin bumps", "For furry ancestors: warmth, or looking bigger"), highlight = 1,
+                caption = "A reflex that outlived the fur that made it useful."),
+            "Rainbows" to Diagram.Picture("raindrop", "Light bends entering the drop, reflects off the back and bends again leaving. Red comes out at about 42°, violet at about 40°.", height = 200f),
+            "Why the Sky Is Blue" to Diagram.Bars(
+                listOf(Diagram.Bar("red light", 1f / 5.9f, Tone.BAD, "×1"), Diagram.Bar("green", 3.0f / 5.9f, Tone.GOOD, "×3"), Diagram.Bar("blue", 1f, Tone.ACCENT, "×6")),
+                caption = "How strongly air scatters each colour. Blue light is bounced across the whole sky."),
+            "Tides" to Diagram.Picture("tides", "The Moon stretches the oceans into two bulges. Turning beneath them, most coasts get two high tides a day.", height = 190f),
+            "Thunder and Lightning" to Diagram.Flow(listOf("Ice and hail collide in the cloud", "Charges separate", "Lightning: a giant spark", "Air heated to about 30,000 °C", "It expands explosively: thunder"), highlight = 2,
+                caption = "Count the seconds to the thunder and divide by three: that's the distance in kilometres."),
+            "The Seasons" to Diagram.Picture("seasons", "The tilted axis points the same way all year. In June the north leans towards the Sun; in December, away.", height = 190f),
+            "How Clouds Form" to Diagram.Flow(listOf("The sun warms the ground", "Moist air rises", "It cools as it rises", "Vapour condenses on specks of dust and salt", "Tiny droplets: a cloud"), highlight = 3,
+                caption = "Luke Howard named the clouds in 1802: cumulus, stratus, cirrus and nimbus."),
             "Survivorship Bias" to Diagram.Picture("plane", "Hits on the wings didn't bring planes down. Planes hit in the green areas never returned, so the armour goes there."),
             "Exponential Growth" to Diagram.Lines(
                 listOf(

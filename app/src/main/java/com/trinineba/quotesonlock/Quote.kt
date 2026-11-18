@@ -261,6 +261,7 @@ enum class Category(val key: String, val label: String, val group: QuoteGroup) {
     IDEA_MATH("ideamath", "Mathematics & logic", QuoteGroup.IDEAS),
     IDEA_EAST("ideaeast", "Eastern thought", QuoteGroup.IDEAS),
     IDEA_ART("ideaart", "Art & aesthetics", QuoteGroup.IDEAS),
+    IDEA_THINGS("ideahow", "How things work", QuoteGroup.IDEAS),
     MYTH_GREEK("mythgreek", "Greek & Roman", QuoteGroup.MYTHS),
     MYTH_NORSE("mythnorse", "Norse", QuoteGroup.MYTHS),
     MYTH_ANCIENT("mythancient", "Egypt & Mesopotamia", QuoteGroup.MYTHS),

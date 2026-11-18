@@ -54,6 +54,24 @@ class DiscoverFilesTest {
         }
     }
 
+    @Test fun everyEverydayThingIsExplainedTaughtAndDrawn() {
+        val ideas = raw("ideas.txt").useLines { QuoteData.parseIdeas(it) }
+        val lessons = raw("lessons.txt").useLines { Learn.parseLessons(it) }.map { it.ref }.toSet()
+        val sections = raw("things.txt").useLines { Things.parse(it) }
+        assertTrue("too few sections: ${sections.size}", sections.size >= 6)
+        val things = sections.flatMap { it.things }
+        assertEquals("a thing is listed twice", things.size, things.map { it.ref }.toSet().size)
+        things.forEach { t ->
+            val idea = ideas.firstOrNull { it.title == t.ref }
+            assertTrue("no explanation for ${t.ref}", idea != null)
+            assertEquals("${t.ref}: not in How things work", Category.IDEA_THINGS, idea?.category)
+            assertTrue("${t.ref}: no fuller explanation", !idea?.more.isNullOrBlank())
+            assertTrue("${t.ref}: no lesson", t.ref in lessons)
+            assertTrue("${t.ref}: no diagram", Diagrams.of(t.ref) != null)
+        }
+        assertEquals("an explanation missing from things.txt", ideas.count { it.category == Category.IDEA_THINGS }, things.size)
+    }
+
     @Test fun everyDiagramIllustratesAnIdea() {
         val ideas = raw("ideas.txt").useLines { QuoteData.parseIdeas(it) }.mapNotNull { it.title }.toSet()
         assertTrue("too few diagrams: ${Diagrams.titles.size}", Diagrams.titles.size >= 80)

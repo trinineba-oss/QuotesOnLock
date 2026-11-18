@@ -1,0 +1,43 @@
+# How things work: G|section title|tint (hex) then S|idea title|short label for the tile|emoji. The explanations are ideas (category ideahow) in ideas.txt.
+G|In the kitchen|C0682E
+S|The Microwave Oven|Microwave oven|🍲
+S|The Refrigerator|The fridge|🧊
+S|Bread Rising|Bread rising|🍞
+S|The Induction Hob|Induction hob|🍳
+S|The Pressure Cooker|Pressure cooker|♨️
+S|Why Onions Make You Cry|Crying at onions|🧅
+G|Around the home|2E8B74
+S|How Soap Cleans|Soap|🧼
+S|The LED Bulb|The LED bulb|💡
+S|Electricity at the Socket|The socket|🔌
+S|The Thermostat|The thermostat|🌡️
+S|The Flushing Toilet|The flush|🚽
+S|The Smoke Alarm|Smoke alarms|🚨
+G|In your pocket|3C78C8
+S|The Touchscreen|Touchscreens|📱
+S|GPS|GPS|🛰️
+S|Wi-Fi|Wi-Fi|📶
+S|The Digital Camera|The camera|📷
+S|Noise-Cancelling Headphones|Noise cancelling|🎧
+S|The Lithium-Ion Battery|Your battery|🔋
+G|Getting around|7A5ADC
+S|How a Plane Flies|How a plane flies|✈️
+S|Bicycle Balance|Bicycle balance|🚲
+S|Why Ships Float|Why ships float|⚓
+S|The Car Engine|The car engine|🚗
+S|The Electric Motor|Electric motors|⚙️
+S|Seatbelts|Seatbelts|🛡️
+G|Your body|B3402E
+S|Vaccines|Vaccines|💉
+S|Caffeine|Caffeine|☕
+S|Sunscreen|Sunscreen|🧴
+S|How Aspirin Eases Pain|Painkillers|💊
+S|How Muscles Pull|Muscles|💪
+S|Goosebumps|Goosebumps|🥶
+G|Sky and weather|5B7FB0
+S|Rainbows|Rainbows|🌈
+S|Why the Sky Is Blue|Blue sky|🌤️
+S|Tides|Tides|🌊
+S|Thunder and Lightning|Thunder|⚡
+S|The Seasons|The seasons|🍂
+S|How Clouds Form|Clouds|☁️
