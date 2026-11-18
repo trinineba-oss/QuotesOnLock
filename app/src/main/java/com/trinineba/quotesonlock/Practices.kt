@@ -275,7 +275,7 @@ fun PracticeScreen(practice: Practice, repo: QuoteRepository, today: Quote?, onB
             }
         }
         item {
-            Text("Saved to your Journal, on this phone only. You can leave any question blank.", style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
+            Text("Saved to Notes & journal, on this phone only. You can leave any question blank.", style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
         }
         item {
             Button(
@@ -283,7 +283,7 @@ fun PracticeScreen(practice: Practice, repo: QuoteRepository, today: Quote?, onB
                     val text = practice.questions.indices.filter { answers[it].isNotBlank() }
                         .joinToString("\n\n") { practice.questions[it] + "\n" + answers[it].trim() }
                     if (text.isNotBlank()) {
-                        Journal.add(prefs, line ?: Quote(text = practice.intro, author = null), practice.title, text)
+                        Journal.add(prefs, line, practice.title, text)
                     }
                     QuoteVoice.stop()
                     onFinished()

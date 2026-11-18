@@ -15,6 +15,11 @@ import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.FilterChip
+import androidx.compose.material3.Switch
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.imePadding
+import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.key
 import androidx.compose.runtime.rememberCoroutineScope
@@ -80,9 +85,16 @@ data class Note(
     val refs: List<String>,
     val pinned: Boolean,
     val edited: Long,
+    /** "reflection" for a journal entry (an answer to a question about a quote), else "" for a plain note. */
+    val kind: String = "",
+    /** For a reflection: the quote it is about, as shown ("“…” — author"), kept as text so it always reads. */
+    val about: String? = null,
 ) {
+    val isReflection: Boolean get() = kind == KIND_REFLECTION
+
     fun toJson(): JSONObject = JSONObject().put("id", id).put("title", title).put("body", body)
         .put("refs", JSONArray(refs)).put("pinned", pinned).put("edited", edited)
+        .apply { if (kind.isNotEmpty()) put("kind", kind); about?.let { put("about", it) } }
 
     val isEmpty: Boolean get() = title.isBlank() && body.isBlank() && refs.isEmpty()
 
@@ -91,13 +103,18 @@ data class Note(
             o.optLong("id"), o.optString("title"), o.optString("body"),
             o.optJSONArray("refs")?.let { a -> (0 until a.length()).map { a.optString(it) }.filter { it.isNotBlank() } }.orEmpty(),
             o.optBoolean("pinned"), o.optLong("edited"),
+            o.optString("kind"), o.optString("about").ifBlank { null },
         )
+
+        const val KIND_REFLECTION = "reflection"
     }
 }
 
 /** The notebook in Yours: your own notes, kept only on this phone (and in your backups). */
 object Notes {
-    fun all(prefs: QuotePrefs): List<Note> = prefs.notesJson?.let { raw ->
+    fun all(prefs: QuotePrefs): List<Note> = Journal.moveIntoNotes(prefs).let { allStored(prefs) }
+
+    private fun allStored(prefs: QuotePrefs): List<Note> = prefs.notesJson?.let { raw ->
         runCatching { JSONArray(raw).let { a -> (0 until a.length()).map { Note.fromJson(a.getJSONObject(it)) } } }.getOrNull()
     }.orEmpty().sortedWith(compareByDescending<Note> { it.pinned }.thenByDescending { it.edited })
 
@@ -128,7 +145,7 @@ object Notes {
 
     /** Adds the backup's notes that aren't here yet (matched by id); returns how many. */
     fun merge(prefs: QuotePrefs, incoming: List<Note>): Int {
-        val have = all(prefs)
+        val have = allStored(prefs)
         val ids = have.map { it.id }.toSet()
         val new = incoming.filter { it.id !in ids && !it.isEmpty }
         if (new.isNotEmpty()) save(prefs, have + new)
@@ -159,7 +176,8 @@ private fun whenText(time: Long): String {
     }
 }
 
-/** The notebook: search, pinned notes first, a button for a new one. */
+/** The notebook and journal: search, All / Notes / Reflections, pinned notes first, a button for a new one. */
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun NotesScreen(onBack: () -> Unit, onOpenAuthor: (String) -> Unit) {
     val context = LocalContext.current
@@ -173,10 +191,15 @@ fun NotesScreen(onBack: () -> Unit, onOpenAuthor: (String) -> Unit) {
     }
     BackHandler(onBack = onBack)
     var query by rememberSaveable { mutableStateOf("") }
+    // "all", "notes" or "reflections"
+    var filter by rememberSaveable { mutableStateOf("all") }
+    var reflectOn by remember { mutableStateOf(prefs.reflectPrompt) }
     val notes = remember(refresh) { Notes.all(prefs) }
     val shown = notes.filter { n ->
         val q = query.trim()
-        q.isEmpty() || n.title.contains(q, true) || n.body.contains(q, true) || n.refs.any { Notes.label(bundled, it).contains(q, true) }
+        (filter == "all" || (filter == "reflections") == n.isReflection) &&
+            (q.isEmpty() || n.title.contains(q, true) || n.body.contains(q, true) || n.about?.contains(q, true) == true ||
+                n.refs.any { Notes.label(bundled, it).contains(q, true) })
     }
     Scaffold(
         floatingActionButton = {
@@ -191,23 +214,51 @@ fun NotesScreen(onBack: () -> Unit, onOpenAuthor: (String) -> Unit) {
             item {
                 Row(verticalAlignment = Alignment.CenterVertically) {
                     BackArrow(onBack)
-                    Text("Notes", style = MaterialTheme.typography.headlineMedium, modifier = Modifier.padding(start = 14.dp))
+                    Text("Notes & journal", style = MaterialTheme.typography.headlineMedium, modifier = Modifier.padding(start = 14.dp))
                 }
             }
             if (notes.isNotEmpty()) item {
                 OutlinedTextField(
                     value = query,
                     onValueChange = { query = it },
-                    placeholder = { Text("Search your notes") },
+                    placeholder = { Text("Search notes and reflections") },
                     singleLine = true,
                     shape = RoundedCornerShape(24.dp),
                     modifier = Modifier.fillMaxWidth(),
                 )
             }
+            item {
+                Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                    FilterChip(selected = filter == "all", onClick = { filter = "all" }, label = { Text("All") })
+                    FilterChip(selected = filter == "notes", onClick = { filter = "notes" }, label = { Text("Notes") })
+                    FilterChip(selected = filter == "reflections", onClick = { filter = "reflections" }, label = { Text("Reflections") })
+                }
+            }
+            if (filter == "reflections") item {
+                SoftCard(Modifier.fillMaxWidth()) {
+                    Row(Modifier.padding(horizontal = 14.dp, vertical = 10.dp), verticalAlignment = Alignment.CenterVertically) {
+                        Column(Modifier.weight(1f)) {
+                            Text("A question under the home-screen quote", style = MaterialTheme.typography.bodyMedium)
+                            Text(
+                                "Tap Reflect to write; it is never required. Quote pages, echoes and Calm practices save their reflections here too.",
+                                style = MaterialTheme.typography.bodySmall,
+                                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                            )
+                        }
+                        Switch(checked = reflectOn, onCheckedChange = { reflectOn = it; prefs.reflectPrompt = it })
+                    }
+                }
+            }
             if (notes.isEmpty()) item {
                 Text(
-                    "Your own notebook: thoughts, lists, plans, questions for someone. Tuck in a quote or an idea from the " +
-                        "collection as you write. Notes stay on this phone and are included in your backups.",
+                    "Your own notebook and journal: thoughts, lists, plans, and your reflections on quotes. Tuck in a quote or an " +
+                        "idea from the collection as you write. Everything stays on this phone and is included in your backups.",
+                    style = MaterialTheme.typography.bodyMedium,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                )
+            } else if (filter == "reflections" && notes.none { it.isReflection }) item {
+                Text(
+                    "No reflections yet. Tap Reflect under a quote on the home screen, or Journal on a quote page, to write a few lines about it.",
                     style = MaterialTheme.typography.bodyMedium,
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
                 )
@@ -216,10 +267,10 @@ fun NotesScreen(onBack: () -> Unit, onOpenAuthor: (String) -> Unit) {
             if (pinned.isNotEmpty()) {
                 item { NotesLabel("Pinned") }
                 items(pinned, key = { "p${it.id}" }) { NoteCard(it, bundled) { open = it.id } }
-                item { NotesLabel("All notes") }
+                item { NotesLabel("All") }
             }
             items(shown.filter { !it.pinned }, key = { it.id }) { NoteCard(it, bundled) { open = it.id } }
-            if (notes.isNotEmpty() && shown.isEmpty()) item {
+            if (query.isNotBlank() && shown.isEmpty()) item {
                 Text("No notes match \"${query.trim()}\".", style = MaterialTheme.typography.bodyMedium)
             }
         }
@@ -235,12 +286,24 @@ private fun NotesLabel(text: String) {
 private fun NoteCard(note: Note, bundled: List<Quote>, onClick: () -> Unit) {
     SoftCard(Modifier.fillMaxWidth(), onClick = onClick) {
         Column(Modifier.padding(14.dp), verticalArrangement = Arrangement.spacedBy(4.dp)) {
+            if (note.isReflection) NotesLabel("Reflection · " + DateFormat.getDateInstance(DateFormat.MEDIUM).format(Date(note.id)))
             Text(
                 (if (note.pinned) "📌 " else "") + note.title.ifBlank { note.body.lineSequence().firstOrNull { it.isNotBlank() }?.take(40) ?: "Untitled" },
                 fontWeight = FontWeight.SemiBold,
-                maxLines = 1,
+                maxLines = if (note.isReflection) 2 else 1,
                 overflow = TextOverflow.Ellipsis,
             )
+            note.about?.let {
+                Text(
+                    it,
+                    fontFamily = FontFamily.Serif,
+                    fontStyle = FontStyle.Italic,
+                    style = MaterialTheme.typography.bodySmall,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    maxLines = 1,
+                    overflow = TextOverflow.Ellipsis,
+                )
+            }
             if (note.body.isNotBlank()) Text(
                 note.body.replace('\n', ' '),
                 style = MaterialTheme.typography.bodyMedium,
@@ -279,14 +342,13 @@ private fun NoteEditor(id: Long, prefs: QuotePrefs, bundled: List<Quote>, onBack
     var confirmDelete by remember { mutableStateOf(false) }
     var reading by rememberSaveable(id) { mutableStateOf(false) }
     val landscape = LocalConfiguration.current.orientation == Configuration.ORIENTATION_LANDSCAPE
-    // While reading, the screen shrinks above the keyboard so both the reader and the note stay in view.
-    if (reading) {
-        val window = (context as? Activity)?.window
-        DisposableEffect(window) {
-            val before = window?.attributes?.softInputMode
-            window?.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE)
-            onDispose { if (before != null) window?.setSoftInputMode(before) }
-        }
+    // The editor shrinks above the keyboard (imePadding on the Scaffold below), so the note, the bar and the
+    // reader stay in view. Android 15 draws apps under the keyboard and only reports its size with adjustResize.
+    val window = (context as? Activity)?.window
+    DisposableEffect(window) {
+        val before = window?.attributes?.softInputMode
+        window?.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE)
+        onDispose { if (before != null) window?.setSoftInputMode(before) }
     }
     /** Writes a line into the note where the cursor is, with its author, on a line of its own. */
     fun quoteIt(q: Quote) {
@@ -306,7 +368,7 @@ private fun NoteEditor(id: Long, prefs: QuotePrefs, bundled: List<Quote>, onBack
     }
 
     fun persist() {
-        val n = Note(id, title.trim(), body.text.trimEnd(), refs, pinned, System.currentTimeMillis())
+        val n = Note(id, title.trim(), body.text.trimEnd(), refs, pinned, System.currentTimeMillis(), start.kind, start.about)
         val before = Notes.get(prefs, id)
         if (before == null || before.title != n.title || before.body != n.body || before.refs != n.refs || before.pinned != n.pinned) {
             if (n.isEmpty) Notes.delete(prefs, id) else Notes.put(prefs, n)
@@ -334,6 +396,7 @@ private fun NoteEditor(id: Long, prefs: QuotePrefs, bundled: List<Quote>, onBack
     }
 
     Scaffold(
+        modifier = Modifier.imePadding(),
         bottomBar = {
             Surface(color = MaterialTheme.colorScheme.surfaceContainerHigh) {
                 Row(Modifier.fillMaxWidth().padding(horizontal = 6.dp, vertical = 4.dp), horizontalArrangement = Arrangement.SpaceAround) {
@@ -389,11 +452,26 @@ private fun NoteEditor(id: Long, prefs: QuotePrefs, bundled: List<Quote>, onBack
                         modifier = Modifier.fillMaxWidth(),
                     )
                 }
+                start.about?.let { about ->
+                    item {
+                        Row(Modifier.fillMaxWidth().padding(horizontal = 16.dp)) {
+                            Box(Modifier.width(3.dp).heightIn(min = 24.dp).fillMaxHeight().background(MaterialTheme.colorScheme.outlineVariant))
+                            Text(
+                                about,
+                                fontFamily = FontFamily.Serif,
+                                fontStyle = FontStyle.Italic,
+                                style = MaterialTheme.typography.bodyMedium,
+                                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                                modifier = Modifier.padding(start = 10.dp),
+                            )
+                        }
+                    }
+                }
                 item {
                     TextField(
                         value = body,
                         onValueChange = { body = it },
-                        placeholder = { Text("Write anything…") },
+                        placeholder = { Text(if (start.isReflection) "A few honest lines…" else "Write anything…") },
                         textStyle = MaterialTheme.typography.bodyLarge,
                         colors = clearFieldColors(),
                         modifier = Modifier.fillMaxWidth().heightIn(min = 160.dp),

@@ -20,7 +20,7 @@ import androidx.compose.ui.unit.dp
 import org.json.JSONArray
 import org.json.JSONObject
 
-/** One reflection: what you wrote, the question you answered, and the quote it was about. */
+/** One reflection as the old journal stored it (and older backups still hold); see [Journal.moveIntoNotes]. */
 data class JournalEntry(val time: Long, val quote: String, val author: String?, val prompt: String, val text: String) {
     fun toJson(): JSONObject = JSONObject().put("time", time).put("quote", quote).put("prompt", prompt).put("text", text)
         .apply { author?.let { put("author", it) } }
@@ -32,7 +32,7 @@ data class JournalEntry(val time: Long, val quote: String, val author: String?, 
     }
 }
 
-/** The private journal: reflections on quotes, kept only on this phone (and in your backups). */
+/** The journal: questions to reflect on quotes with. Reflections are saved as notes (see [Notes]), kept only on this phone. */
 object Journal {
     /** Gentle questions to think with; one is chosen for each quote. */
     val PROMPTS = listOf(
@@ -57,33 +57,42 @@ object Journal {
     /** The same quote always gets the same question, so the home screen doesn't keep changing its mind. */
     fun promptFor(quote: Quote): String = PROMPTS[Math.floorMod(quote.text.hashCode(), PROMPTS.size)]
 
-    fun entries(prefs: QuotePrefs): List<JournalEntry> = prefs.journalJson?.let { raw ->
-        runCatching { JSONArray(raw).let { a -> (0 until a.length()).map { JournalEntry.fromJson(a.getJSONObject(it)) } } }.getOrNull()
-    }.orEmpty().sortedByDescending { it.time }
-
-    private fun save(prefs: QuotePrefs, list: List<JournalEntry>) {
-        prefs.journalJson = JSONArray().apply { list.sortedBy { it.time }.forEach { put(it.toJson()) } }.toString()
-    }
-
-    fun add(prefs: QuotePrefs, quote: Quote, prompt: String, text: String) {
+    /** Saves a reflection into the notebook, as a note titled with its question and showing the quote it is about. */
+    fun add(prefs: QuotePrefs, quote: Quote?, prompt: String, text: String) {
         if (text.isBlank()) return
-        save(prefs, entries(prefs) + JournalEntry(System.currentTimeMillis(), quote.text, quote.author, prompt, text.trim()))
+        val now = System.currentTimeMillis()
+        Notes.put(prefs, Note(now, prompt, text.trim(), emptyList(), false, now, Note.KIND_REFLECTION, quote?.let(::aboutOf)))
     }
 
-    fun update(prefs: QuotePrefs, time: Long, text: String) {
-        save(prefs, entries(prefs).map { if (it.time == time) it.copy(text = text.trim()) else it }.filter { it.text.isNotBlank() })
+    private fun aboutOf(quote: Quote): String = buildString {
+        quote.title?.let { append(it).append(": ") }
+        append(quote.shownText)
+        quote.byline?.let { append(" \u2014 ").append(it) }
     }
 
-    fun delete(prefs: QuotePrefs, time: Long) = save(prefs, entries(prefs).filter { it.time != time })
+    private fun JournalEntry.toNote(): Note = Note(
+        time, prompt, text, emptyList(), false, time, Note.KIND_REFLECTION,
+        quote.takeIf { it.isNotBlank() }?.let { "\u201C$it\u201D" + (author?.let { a -> " \u2014 $a" } ?: "") },
+    )
 
-    /** Adds entries from a backup that aren't here yet (matched by when they were written); returns how many. */
-    fun merge(prefs: QuotePrefs, incoming: List<JournalEntry>): Int {
-        val have = entries(prefs)
-        val times = have.map { it.time }.toSet()
-        val new = incoming.filter { it.time !in times && it.text.isNotBlank() }
-        if (new.isNotEmpty()) save(prefs, have + new)
-        return new.size
+    private fun parse(raw: String?): List<JournalEntry> = raw?.let {
+        runCatching { JSONArray(it).let { a -> (0 until a.length()).map { i -> JournalEntry.fromJson(a.getJSONObject(i)) } } }.getOrNull()
+    }.orEmpty().filter { it.text.isNotBlank() }
+
+    /**
+     * The journal used to be kept apart; its entries now live in the notebook. Moves any old entries over once
+     * (each keeps its date as its id, so doing it twice adds nothing).
+     */
+    fun moveIntoNotes(prefs: QuotePrefs) {
+        val raw = prefs.journalJson ?: return
+        prefs.journalJson = null
+        val old = parse(raw)
+        if (old.isNotEmpty()) Notes.merge(prefs, old.map { it.toNote() })
     }
+
+    /** Adds the reflections from an older backup's journal (as notes) that aren't here yet; returns how many. */
+    fun merge(prefs: QuotePrefs, incoming: List<JournalEntry>): Int =
+        Notes.merge(prefs, incoming.filter { it.text.isNotBlank() }.map { it.toNote() })
 }
 
 /** Writing (or editing) a reflection. */

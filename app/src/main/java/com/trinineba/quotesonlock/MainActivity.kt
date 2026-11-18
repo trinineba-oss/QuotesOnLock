@@ -275,9 +275,6 @@ private fun QuotesScreen(
     var favFilter by rememberSaveable { mutableStateOf<String?>(null) }
     var noteFor by remember { mutableStateOf<Quote?>(null) }
     var listsFor by remember { mutableStateOf<Quote?>(null) }
-    // The journal: reflections on quotes, kept on the phone.
-    var journal by remember { mutableStateOf(Journal.entries(prefs)) }
-    var reflectOn by remember { mutableStateOf(prefs.reflectPrompt) }
     var writingAbout by remember { mutableStateOf<Quote?>(null) }
     var writingPair by remember { mutableStateOf<Pair<Quote, Quote>?>(null) }
     // The quote page (a tap on a quote), with the tab it opens on.
@@ -287,7 +284,6 @@ private fun QuotesScreen(
     var lastTab by rememberSaveable { mutableStateOf(Page.HOME) }
     // Appearance opened straight from a tab's palette button goes back to that tab, not to Settings.
     var appearanceFromTab by rememberSaveable { mutableStateOf(false) }
-    var editingEntry by remember { mutableStateOf<JournalEntry?>(null) }
     var favoritesOnly by remember { mutableStateOf(prefs.favoritesOnly) }
     var newText by rememberSaveable { mutableStateOf("") }
     var newAuthor by rememberSaveable { mutableStateOf("") }
@@ -347,6 +343,8 @@ private fun QuotesScreen(
     }
     // Open pages of the quote browser, innermost last; empty means the main screen.
     var browse by rememberSaveable(stateSaver = androidx.compose.runtime.saveable.listSaver<List<String>, String>(save = { it }, restore = { it })) { mutableStateOf(emptyList<String>()) }
+    // The question under the home quote; its switch is in Notes & journal, so read it again on coming back.
+    val reflectOn = remember(page, browse) { prefs.reflectPrompt }
     LaunchedEffect(learnRequest) {
         if (learnRequest > 0) {
             page = Page.DISCOVER
@@ -565,7 +563,7 @@ private fun QuotesScreen(
             quoteText = a.shownText,
             prompt = prompt,
             initial = "",
-            onSave = { text -> Journal.add(prefs, a, prompt, text); journal = Journal.entries(prefs); writingPair = null },
+            onSave = { text -> Journal.add(prefs, a, prompt, text); writingPair = null },
             onDelete = null,
             onDismiss = { writingPair = null },
         )
@@ -576,19 +574,9 @@ private fun QuotesScreen(
             quoteText = q.shownText,
             prompt = prompt,
             initial = "",
-            onSave = { text -> Journal.add(prefs, q, prompt, text); journal = Journal.entries(prefs); writingAbout = null },
+            onSave = { text -> Journal.add(prefs, q, prompt, text); writingAbout = null },
             onDelete = null,
             onDismiss = { writingAbout = null },
-        )
-    }
-    editingEntry?.let { e ->
-        JournalDialog(
-            quoteText = e.quote,
-            prompt = e.prompt,
-            initial = e.text,
-            onSave = { text -> Journal.update(prefs, e.time, text); journal = Journal.entries(prefs); editingEntry = null },
-            onDelete = { Journal.delete(prefs, e.time); journal = Journal.entries(prefs); editingEntry = null },
-            onDismiss = { editingEntry = null },
         )
     }
     quotePage?.let { (q, startTab) ->
@@ -602,7 +590,7 @@ private fun QuotesScreen(
                 browse = emptyList()
                 page = Page.HOME
             },
-            onChanged = { refreshFavorites(); journal = Journal.entries(prefs) },
+            onChanged = { refreshFavorites() },
             onOpenAuthor = { browse = listOf(BrowsePage.author(it)) },
             startTab = startTab,
         )
@@ -798,7 +786,7 @@ private fun QuotesScreen(
                     ?.let { g -> GuideScreen(g, onBack = { tool = null }, onFinished = { rateTool = t; tool = null }) }
                     ?: run { tool = null }
                 t.startsWith("practice:") -> Practices.byKey(t.removePrefix("practice:"))
-                    ?.let { pr -> PracticeScreen(pr, repo, current, onBack = { tool = null }, onFinished = { rateTool = t; tool = null; journal = Journal.entries(prefs) }) }
+                    ?.let { pr -> PracticeScreen(pr, repo, current, onBack = { tool = null }, onFinished = { rateTool = t; tool = null }) }
                     ?: run { tool = null }
                 else -> tool = null
             }
@@ -1180,12 +1168,9 @@ private fun QuotesScreen(
                 }
             }
         }
-        item(key = "y-journal") {
-            ToolRow(R.drawable.ic_edit_note, "Journal", if (journal.isEmpty()) "Your reflections on quotes, kept on this phone" else "${journal.size} reflection" + if (journal.size == 1) "" else "s") { page = Page.JOURNAL }
-        }
         item(key = "y-notes") {
             val n = remember(page, browse) { noteCount(context) }
-            ToolRow(R.drawable.ic_edit, "Notes", if (n == 0) "Your own notebook: thoughts, lists, ideas" else "Your own notebook · $n note" + if (n == 1) "" else "s") { browse = listOf("notes") }
+            ToolRow(R.drawable.ic_edit_note, "Notes & journal", if (n == 0) "Your notebook: thoughts, lists and reflections on quotes" else "Your notebook · $n note" + if (n == 1) "" else "s") { browse = listOf("notes") }
         }
         item(key = "y-mine") {
             ToolRow(R.drawable.ic_edit, "My own quotes", if (custom.isEmpty()) "Add lines of your own" else "${custom.size} added") { page = Page.MINE }
@@ -1949,55 +1934,6 @@ private fun QuotesScreen(
         }
     }
 
-    fun LazyListScope.journalPage() {
-        item(key = "j-settings") {
-            SettingsCard("Reflection") {
-                Row(verticalAlignment = Alignment.CenterVertically) {
-                    Column(Modifier.weight(1f)) {
-                        Text("A question under the quote")
-                        Text(
-                            "A short question to think with appears under the home-screen quote. Tap Reflect to write; it is never required.",
-                            style = MaterialTheme.typography.bodySmall,
-                        )
-                    }
-                    Switch(checked = reflectOn, onCheckedChange = { reflectOn = it; prefs.reflectPrompt = it })
-                }
-                Text(
-                    "Your journal is kept only on this phone. It is included when you save a backup in About & updates.",
-                    style = MaterialTheme.typography.bodySmall,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant,
-                )
-            }
-        }
-        if (journal.isEmpty()) {
-            item(key = "j-empty") {
-                Text(
-                    "No reflections yet. Tap Reflect under a quote on the home screen to write a few lines about it.",
-                    style = MaterialTheme.typography.bodyMedium,
-                )
-            }
-        }
-        items(journal, key = { "j-" + it.time }) { e ->
-            SoftCard(Modifier.fillMaxWidth(), onClick = { editingEntry = e }) {
-                Column(Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(6.dp)) {
-                    Text(
-                        java.text.DateFormat.getDateInstance(java.text.DateFormat.LONG).format(java.util.Date(e.time)),
-                        style = MaterialTheme.typography.labelMedium,
-                        color = MaterialTheme.colorScheme.primary,
-                    )
-                    Text(
-                        "\u201C" + e.quote.take(180) + (if (e.quote.length > 180) "…" else "") + "\u201D" + (e.author?.let { " — " + authorName(it) } ?: ""),
-                        style = MaterialTheme.typography.bodySmall,
-                        fontStyle = androidx.compose.ui.text.font.FontStyle.Italic,
-                        color = MaterialTheme.colorScheme.onSurfaceVariant,
-                    )
-                    Text(e.prompt, style = MaterialTheme.typography.labelLarge)
-                    Text(e.text, style = MaterialTheme.typography.bodyLarge)
-                }
-            }
-        }
-    }
-
     fun LazyListScope.toolboxPage() {
         tabHeader("Calm")
         item(key = "tb-intro") {
@@ -2272,7 +2208,6 @@ private fun QuotesScreen(
                 Page.FAVORITES -> favoritesPage()
                 Page.MINE -> minePage()
                 Page.TOOLBOX -> toolboxPage()
-                Page.JOURNAL -> journalPage()
                 Page.ABOUT -> aboutPage()
             }
         }
@@ -2291,7 +2226,6 @@ private enum class Page(val title: String) {
     SCHEDULE("Lock screen & daily quote"),
     FAVORITES("Favourites"),
     MINE("My quotes"),
-    JOURNAL("Journal"),
     ABOUT("About, backup & updates"),
 }
 
@@ -2301,7 +2235,7 @@ private val TABS = setOf(Page.HOME, Page.DISCOVER, Page.YOURS, Page.TOOLBOX)
 /** Where Back goes from [page]: settings pages to Settings, your things to Yours, Settings to the tab it was opened from. */
 private fun parentOf(page: Page, lastTab: Page): Page = when (page) {
     Page.QUOTES, Page.THEMES, Page.SCHEDULE, Page.ABOUT -> Page.SETTINGS
-    Page.FAVORITES, Page.MINE, Page.JOURNAL -> Page.YOURS
+    Page.FAVORITES, Page.MINE -> Page.YOURS
     Page.SETTINGS -> lastTab
     else -> Page.HOME
 }

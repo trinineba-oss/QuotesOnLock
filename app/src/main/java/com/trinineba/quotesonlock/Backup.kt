@@ -47,7 +47,6 @@ object Backup {
             .put("saved", System.currentTimeMillis())
             .put("favorites", prefs.favoritesJson?.let { JSONArray(it) } ?: JSONArray())
             .put("custom", prefs.customJson?.let { JSONArray(it) } ?: JSONArray())
-            .put("journal", JSONArray().apply { Journal.entries(prefs).forEach { put(it.toJson()) } })
             .put("notes", JSONArray().apply { Notes.all(prefs).forEach { put(it.toJson()) } })
             .put("learn", prefs.learnJson?.let { runCatching { JSONObject(it) }.getOrNull() } ?: JSONObject())
             .put("settings", settings)
@@ -114,7 +113,7 @@ object Backup {
             }
         }
         prefs.customJson = custom.toString()
-        // Journal entries are added, never replaced.
+        // An older backup's journal entries are added to the notebook as reflections, never replacing anything.
         json.optJSONArray("journal")?.let { arr ->
             Journal.merge(prefs, (0 until arr.length()).mapNotNull { arr.optJSONObject(it)?.let(JournalEntry::fromJson) })
         }
