@@ -6,6 +6,10 @@ S|Bread Rising|Bread rising|🍞
 S|The Induction Hob|Induction hob|🍳
 S|The Pressure Cooker|Pressure cooker|♨️
 S|Why Onions Make You Cry|Crying at onions|🧅
+S|The Electric Kettle|The kettle|🫖
+S|The Toaster|The toaster|🔥
+S|Why Food Browns|Browning|🥩
+S|The Espresso Machine|Espresso|🫘
 G|Around the home|2E8B74
 S|How Soap Cleans|Soap|🧼
 S|The LED Bulb|The LED bulb|💡
@@ -13,6 +17,10 @@ S|Electricity at the Socket|The socket|🔌
 S|The Thermostat|The thermostat|🌡️
 S|The Flushing Toilet|The flush|🚽
 S|The Smoke Alarm|Smoke alarms|🚨
+S|The Pin Tumbler Lock|Lock and key|🔑
+S|Air Conditioning|Air conditioning|🏢
+S|The Vacuum Cleaner|The vacuum|🧹
+S|The Mirror|Mirrors|🪞
 G|In your pocket|3C78C8
 S|The Touchscreen|Touchscreens|📱
 S|GPS|GPS|🛰️
@@ -20,6 +28,13 @@ S|Wi-Fi|Wi-Fi|📶
 S|The Digital Camera|The camera|📷
 S|Noise-Cancelling Headphones|Noise cancelling|🎧
 S|The Lithium-Ion Battery|Your battery|🔋
+G|The connected world|2F8F9D
+S|The Internet|The internet|🌐
+S|Bluetooth|Bluetooth|🔗
+S|QR Codes|QR codes|🔳
+S|Barcodes|Barcodes|🏷️
+S|Contactless Payment|Tap to pay|💳
+S|Atomic Clocks|Atomic clocks|⏱️
 G|Getting around|7A5ADC
 S|How a Plane Flies|How a plane flies|✈️
 S|Bicycle Balance|Bicycle balance|🚲
@@ -27,6 +42,10 @@ S|Why Ships Float|Why ships float|⚓
 S|The Car Engine|The car engine|🚗
 S|The Electric Motor|Electric motors|⚙️
 S|Seatbelts|Seatbelts|🛡️
+S|The Lift|The lift|🛗
+S|The Helicopter|Helicopters|🚁
+S|The Hot-Air Balloon|Hot-air balloons|🎈
+S|The Rocket|Rockets|🚀
 G|Your body|B3402E
 S|Vaccines|Vaccines|💉
 S|Caffeine|Caffeine|☕
@@ -34,6 +53,11 @@ S|Sunscreen|Sunscreen|🧴
 S|How Aspirin Eases Pain|Painkillers|💊
 S|How Muscles Pull|Muscles|💪
 S|Goosebumps|Goosebumps|🥶
+S|How We See Colour|Colour vision|👁️
+S|Fever|Fever|🤒
+S|How Antibiotics Work|Antibiotics|🦠
+S|How Hearing Works|Hearing|👂
+S|Sore Muscles After Exercise|Sore muscles|🏋️
 G|Sky and weather|5B7FB0
 S|Rainbows|Rainbows|🌈
 S|Why the Sky Is Blue|Blue sky|🌤️
@@ -41,3 +65,12 @@ S|Tides|Tides|🌊
 S|Thunder and Lightning|Thunder|⚡
 S|The Seasons|The seasons|🍂
 S|How Clouds Form|Clouds|☁️
+S|Snowflakes|Snowflakes|❄️
+S|Wind|Wind|🌬️
+S|The Phases of the Moon|Moon phases|🌗
+G|Power and the planet|C9962F
+S|Solar Panels|Solar panels|☀️
+S|Wind Turbines|Wind turbines|🌀
+S|Nuclear Power|Nuclear power|⚛️
+S|Recycling Aluminium|Recycling cans|♻️
+S|Earthquakes|Earthquakes|🌋
