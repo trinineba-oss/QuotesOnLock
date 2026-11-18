@@ -122,8 +122,8 @@ fun QuoteBrowser(
     val subject = if (page.startsWith("t:")) Subject.fromKey(page.removePrefix("t:")) else null
     val feeling = if (page.startsWith("f:")) Feeling.fromKey(page.removePrefix("f:")) else null
     val group = if (page.startsWith("g:")) QuoteGroup.entries.firstOrNull { it.name == page.removePrefix("g:") } else null
-    // Idea and myth pages get chips to move between the group's types.
-    val chipGroup = group ?: category?.group?.takeIf { it == QuoteGroup.IDEAS || it == QuoteGroup.MYTHS }
+    // Idea, myth and folklore pages get chips to move between the group's types.
+    val chipGroup = group ?: category?.group?.takeIf { it == QuoteGroup.IDEAS || it == QuoteGroup.MYTHS || it == QuoteGroup.FOLKLORE }
     val searching = page == BrowsePage.SEARCH
     val all = remember(page) {
         when {
@@ -217,6 +217,7 @@ fun QuoteBrowser(
                             searching && query.isBlank() -> "${all.size} quotes by ${authors.size} authors. Type a word, a phrase or a name."
                             query.isBlank() && feeling != null -> "${all.size} to read slowly"
                             query.isBlank() && chipGroup == QuoteGroup.MYTHS -> "${all.size} myths"
+                            query.isBlank() && chipGroup == QuoteGroup.FOLKLORE -> "${all.size} tales"
                             query.isBlank() && chipGroup == QuoteGroup.IDEAS -> "${all.size} ideas"
                             query.isBlank() -> "${all.size} quotes"
                             else -> "${shown.size} of ${all.size} quotes"
@@ -262,7 +263,7 @@ fun QuoteBrowser(
                 item {
                     Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
                         val groupCounts = remember { repo.bundled().groupingBy { it.category?.group }.eachCount() }
-                        val shelves = listOf(QuoteGroup.IDEAS, QuoteGroup.MYTHS).filter { (groupCounts[it] ?: 0) > 0 }
+                        val shelves = listOf(QuoteGroup.IDEAS, QuoteGroup.MYTHS, QuoteGroup.FOLKLORE).filter { (groupCounts[it] ?: 0) > 0 }
                         Text("Discover", style = MaterialTheme.typography.titleMedium)
                         FlowRow(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
                             SuggestionChip(onClick = { onOpenPage("dialogues") }, label = { Text("Dialogues across time") })

@@ -413,8 +413,8 @@ private fun LessonScreen(ref: String, prefs: QuotePrefs, bundled: List<Quote>, t
     var right by remember(ref) { mutableStateOf<Boolean?>(null) }
     var opened by remember { mutableStateOf<Quote?>(null) }
     opened?.let { q -> QuotePageSheet(quote = q, onDismiss = { opened = null }, onOpenAuthor = { opened = null; onOpenAuthor(it) }) }
-    val myth = idea?.category?.group == QuoteGroup.MYTHS
-    ToolScreen(if (today) (if (myth) "Today's myth" else "Today's lesson") else (if (myth) "A myth" else "A lesson"), onBack) {
+    val kind = when (idea?.category?.group) { QuoteGroup.MYTHS -> "myth"; QuoteGroup.FOLKLORE -> "tale"; else -> "lesson" }
+    ToolScreen(if (today) "Today's $kind" else "A $kind", onBack) {
         if (lesson == null || idea == null) {
             item { Text("This lesson isn't available.") }
             return@ToolScreen
@@ -635,7 +635,7 @@ private fun TopicScreen(title: String, prefs: QuotePrefs, bundled: List<Quote>, 
             SoftCard(Modifier.fillMaxWidth(), onClick = { if (q != null) opened = q }) {
                 Column(Modifier.padding(horizontal = 14.dp, vertical = 11.dp)) {
                     Text(
-                        (if (q?.isIdea == true) (if (q.category?.group == QuoteGroup.MYTHS) "MYTH · " else "IDEA · ") + (q.category?.label ?: "").uppercase()
+                        (if (q?.isIdea == true) (when (q.category?.group) { QuoteGroup.MYTHS -> "MYTH · "; QuoteGroup.FOLKLORE -> "TALE · "; else -> "IDEA · " }) + (q.category?.label ?: "").uppercase()
                         else "QUOTE · " + (authorName(q?.byline) ?: "").uppercase()),
                         style = MaterialTheme.typography.labelSmall, color = MaterialTheme.colorScheme.primary, letterSpacing = 1.sp,
                     )

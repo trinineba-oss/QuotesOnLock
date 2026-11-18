@@ -23,7 +23,7 @@ class QuoteFilesTest {
         ideas.forEach { idea ->
             assertTrue("${idea.title}: no fuller explanation", !idea.more.isNullOrBlank())
             if (!idea.explained) assertTrue("${idea.title}: quoted idea without a brief", !idea.brief.isNullOrBlank())
-            assertTrue("${idea.title}: not in an idea or myth group", idea.category?.group == QuoteGroup.IDEAS || idea.category?.group == QuoteGroup.MYTHS)
+            assertTrue("${idea.title}: not in an idea, myth or folklore group", idea.category?.group == QuoteGroup.IDEAS || idea.category?.group == QuoteGroup.MYTHS || idea.category?.group == QuoteGroup.FOLKLORE)
         }
     }
 

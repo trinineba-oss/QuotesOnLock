@@ -67,7 +67,8 @@ internal object QuoteData {
      */
     fun mixedPick(all: List<Quote>, ideasMix: Int, mythsMix: Int, roll: Float): List<Quote> {
         val ideas = all.filter { it.category?.group == QuoteGroup.IDEAS }
-        val myths = all.filter { it.category?.group == QuoteGroup.MYTHS }
+        // The myths mix covers folklore too: both are stories.
+        val myths = all.filter { it.category?.group == QuoteGroup.MYTHS || it.category?.group == QuoteGroup.FOLKLORE }
         val pIdeas = ideasMix.takeIf { it > 0 && ideas.isNotEmpty() }?.let { 1f / it } ?: 0f
         val pMyths = mythsMix.takeIf { it > 0 && myths.isNotEmpty() }?.let { 1f / it } ?: 0f
         if (pIdeas == 0f && pMyths == 0f) return all
@@ -75,7 +76,7 @@ internal object QuoteData {
             roll < pIdeas -> ideas
             roll < pIdeas + pMyths -> myths
             else -> all.filter {
-                (pIdeas == 0f || it.category?.group != QuoteGroup.IDEAS) && (pMyths == 0f || it.category?.group != QuoteGroup.MYTHS)
+                (pIdeas == 0f || it.category?.group != QuoteGroup.IDEAS) && (pMyths == 0f || (it.category?.group != QuoteGroup.MYTHS && it.category?.group != QuoteGroup.FOLKLORE))
             }.ifEmpty { all }
         }
     }

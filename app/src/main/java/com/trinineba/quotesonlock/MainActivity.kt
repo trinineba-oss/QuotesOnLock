@@ -1144,8 +1144,12 @@ private fun QuotesScreen(
                     TileCard(Tile(R.drawable.ic_spa, "Mythology", "${groupCounts[QuoteGroup.MYTHS] ?: 0} myths") { browse = listOf(BrowsePage.group(QuoteGroup.MYTHS)) }, Modifier.weight(1f))
                 }
                 Row(horizontalArrangement = Arrangement.spacedBy(12.dp)) {
+                    TileCard(Tile(R.drawable.ic_menu_book, "Folklore", "${groupCounts[QuoteGroup.FOLKLORE] ?: 0} fables, fairy tales and legends") { browse = listOf(BrowsePage.group(QuoteGroup.FOLKLORE)) }, Modifier.weight(1f))
                     TileCard(Tile(R.drawable.ic_label, "Subjects", "Love, time, nature…") { browse = listOf(BrowsePage.SEARCH) }, Modifier.weight(1f))
+                }
+                Row(horizontalArrangement = Arrangement.spacedBy(12.dp)) {
                     TileCard(Tile(R.drawable.ic_format_quote, "Authors A–Z", "Every voice in the app") { browse = listOf(BrowsePage.SEARCH) }, Modifier.weight(1f))
+                    Box(Modifier.weight(1f))
                 }
             }
         }
@@ -1239,22 +1243,22 @@ private fun QuotesScreen(
                 val counts = repo.bundled().groupingBy { it.category }.eachCount()
                 fun count(c: Category) = if (c == Category.CUSTOM) custom.size else counts[c] ?: 0
                 val onTotal = Category.entries.filter { it in categories }.sumOf { count(it) }.coerceAtLeast(1)
-                fun share(group: QuoteGroup): Int {
-                    val n = Category.entries.filter { it.group == group && it in categories }.sumOf { count(it) }
+                fun share(vararg groups: QuoteGroup): Int {
+                    val n = Category.entries.filter { it.group in groups && it in categories }.sumOf { count(it) }
                     return if (n == 0) 0 else (onTotal / n).coerceAtLeast(1)
                 }
-                share(QuoteGroup.IDEAS) to share(QuoteGroup.MYTHS)
+                share(QuoteGroup.IDEAS) to share(QuoteGroup.MYTHS, QuoteGroup.FOLKLORE)
             }
             if (ideasShare > 0 || mythsShare > 0) {
                 SettingsCard("Mix") {
                     Text(
-                        "How often great ideas and myths come up on the lock screen and in the app. " +
+                        "How often great ideas, and myths and folktales, come up on the lock screen and in the app. " +
                             "\"Usual\" gives them their share of everything switched on.",
                         style = MaterialTheme.typography.bodySmall,
                     )
                     listOf(
                         Triple("Great ideas", ideasShare, ideasMix),
-                        Triple("Mythology", mythsShare, mythsMix),
+                        Triple("Myths & folklore", mythsShare, mythsMix),
                     ).forEach { (label, natural, value) ->
                         if (natural == 0) return@forEach
                         Text(label, style = MaterialTheme.typography.labelLarge)

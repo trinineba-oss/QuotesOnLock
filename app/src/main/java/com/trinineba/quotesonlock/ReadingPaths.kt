@@ -257,7 +257,7 @@ private fun PathScreen(path: ReadingPath, prefs: QuotePrefs, onBack: () -> Unit,
             }
             if (quote != null) item {
                 OutlinedButton(onClick = { opened = quote }, modifier = Modifier.fillMaxWidth()) {
-                    Text(if (quote.isIdea) "Open this ${if (quote.category?.group == QuoteGroup.MYTHS) "myth" else "idea"}" else "Open quote page (About, Context…)")
+                    Text(if (quote.isIdea) "Open this ${when (quote.category?.group) { QuoteGroup.MYTHS -> "myth"; QuoteGroup.FOLKLORE -> "tale"; else -> "idea" }}" else "Open quote page (About, Context…)")
                 }
             }
             item {

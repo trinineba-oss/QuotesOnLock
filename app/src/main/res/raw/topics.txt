@@ -166,3 +166,12 @@ S|i|GPS
 S|i|How a Plane Flies
 S|i|Vaccines
 S|i|Why the Sky Is Blue
+T|Fables to live by|a course in 8 steps|6E8B3D|Eight short fables, from Aesop to the Panchatantra and Andersen, each told in a minute and each with a lesson people have lived by for centuries.|course
+S|i|The North Wind and the Sun
+S|i|The Lion and the Mouse
+S|i|The Fox and the Grapes
+S|i|The Oak and the Reeds
+S|i|The Boy and the Filberts
+S|i|The Monkey and the Crocodile
+S|i|The Emperor's New Clothes
+S|i|The Old Man and His Grandson
