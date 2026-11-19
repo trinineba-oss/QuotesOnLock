@@ -229,3 +229,182 @@ Q|The sea sounded like a thousand secrets, all whispered at the same time.
 P|And Ingrid Persaud, with a Trinidadian's practical wisdom, offered the simplest prescription of all.
 Q|People busy swallowing one set of drugs to cope with life when what they need is a regular dose of the sea.
 P|A regular dose of the sea. Anyone who has stood at the edge of it on a hard day, letting the waves do what the mind cannot, knows exactly what she means.
+E|The thing with feathers|Dickinson, Pandora, Proverbs, Kierkegaard, Helen Keller, J. J. Thomas, Heaney, Solnit and King on hope|3C78C8|Through hard times
+P|Hope has a strange reputation. It is praised as a virtue and mocked as a weakness, called the last thing to die and the first thing to deceive us. The Greeks could not decide either. In Hesiod's telling, when Pandora opened the jar and every evil flew out into the world, one thing stayed inside, caught under the lid.
+I|Pandora and Hope
+P|Was hope left behind as a comfort for us, or kept back as one more torment? Readers have argued for nearly three thousand years. The Book of Proverbs knew both faces of it in a single sentence.
+Q|Hope deferred maketh the heart sick: but when the desire cometh, it is a tree of life.
+P|Hope that keeps being postponed sickens us; hope fulfilled is a tree of life. Kierkegaard, who could make a whole philosophy out of a broken engagement, gave hope a face that charms and disappoints at once.
+Q|Hope is a lovely girl who slips away between your hands; recollection is a beautiful old woman who is never of any use in the moment; repetition is a beloved wife one never tires of, for it is only the new that one tires of.
+P|And yet. Emily Dickinson, writing in an upstairs room in Amherst around 1861, found a different image, one that has lodged itself in the language because it is exactly right.
+Q|Hope is the thing with feathers that perches in the soul.
+P|Not a plan, not a prediction: a small bird that sings without words, and asks nothing for itself. Helen Keller, who lost her sight and hearing before she was two and wrote an essay called Optimism while still a student, knew hope as something closer to a sighting than a feeling.
+Q|I have had a glimpse of the shore, and can now live by the hope of reaching it.
+P|J. J. Thomas, the self-taught Trinidadian scholar who in 1889 answered a famous English historian's contempt for the West Indies with a whole book, closed with a motto that could serve any long struggle.
+Q|Within the short time that we had to compass all that we have achieved, there could not have arisen opportunities for doing more than we have effected. Meanwhile our present device is: "Work, Hope, and Wait!"
+P|Work, hope and wait. A century later, Seamus Heaney, writing a version of a Greek tragedy for a Northern Ireland still at war with itself, let a chorus say what the long-suffering rarely dare to.
+Q|History says, Don't hope\nOn this side of the grave,\nBut then, once in a lifetime\nThe longed-for tidal wave\nOf justice can rise up\nAnd hope and history rhyme.
+P|Rebecca Solnit, writing in a dark time of her own, warned against the kind of hope that demands everything at once and despairs when it cannot have it.
+Q|Perfection is a stick with which to beat the possible.
+P|Hope, she argued, is not optimism; it is an acknowledgement that the future is not yet written and that what we do still matters. Martin Luther King Jr., on the eve of his death, in a Memphis church, said the most hopeful thing anyone can say about despair.
+Q|But I know, somehow, that only when it is dark enough can you see the stars.
+P|Perhaps that is why hope stayed in Pandora's jar. Not to taunt us, but because it was the one thing that had to survive everything else.
+E|What we fear|Seneca, Roosevelt, Mark Twain, Shakespeare, Khayyam and the mind's tricks|8A5A3A|The Stoics in a week
+P|Fear is meant to save us. It quickens the heart and sharpens the eyes when there is a lion in the grass. The trouble is that most of what we fear is not in the grass but in our heads, and the body cannot tell the difference. The wisest writers about fear have mostly been trying to help us tell the difference ourselves.
+P|Seneca, writing to a young friend who was anxious about troubles that had not yet arrived, made the distinction in a single line.
+Q|We suffer more often in imagination than in reality.
+P|Look at each fear, he advised, and ask whether it is here now or only foreseen. Many dreaded things never come; the ones that do are rarely as we pictured them. Psychologists have since found one reason we overrate our fears: losses loom larger in the mind than equal gains.
+I|Loss Aversion
+P|Franklin Roosevelt, taking office in 1933 with a quarter of American workers unemployed and banks failing, told a frightened nation something that sounded almost too simple.
+Q|The only thing we have to fear is fear itself.
+P|He was not denying the danger. He was naming what made it worse: the panic that freezes action and turns a crisis into a collapse. Mark Twain, in one of the calendar maxims he gave the sharp-witted lawyer Pudd'nhead Wilson, defined courage in a way that takes fear seriously.
+Q|Courage is resistance to fear, mastery of fear, not absence of fear.
+P|The brave are not the fearless. They are the ones who feel the fear and act anyway. Shakespeare gave Julius Caesar the most famous version of this thought, on the morning he was warned not to go to the Senate.
+Q|Cowards die many times before their deaths;\nThe valiant never taste of death but once.
+P|Fear lived over and over can cost more than the thing feared. And in Measure for Measure, he named the smaller fear that ruins more lives than any great danger: the fear of trying.
+Q|Our doubts are traitors,\nAnd make us lose the good we oft might win\nBy fearing to attempt.
+P|Doubt does not announce itself as fear; it calls itself prudence. Psychologists have also studied how repeated failure can teach us to stop trying even when escape is possible.
+I|Learned Helplessness
+P|The good news in that research is that what has been learned can be unlearned. Omar Khayyam, in Edward FitzGerald's famous version, offered the oldest remedy of all: to live in the day we actually have.
+Q|Ah, my Beloved, fill the Cup that clears\nTO-DAY of past Regrets and future Fears:\nTo-morrow—Why, To-morrow I may be\nMyself with Yesterday's Sev'n thousand Years.
+P|Not as an escape, but as a recovery of proportion. Today is real; most of tomorrow's fears are not yet. It is in today that courage has its only chance to act.
+E|Growing old|Cicero, Browning, Montaigne, La Rochefoucauld, Seneca, Yeats, Homer and Zhuangzi|6E6A8C|The examined life
+P|Our culture has very little good to say about growing old. Advertising promises to delay it; conversation treats it as a series of losses. It is worth knowing that some of the greatest minds who ever lived thought otherwise, and that one of the most beautiful books of antiquity is a defence of old age.
+P|Cicero wrote On Old Age in his sixties, in the last turbulent years of the Roman Republic, putting his arguments in the mouth of the elder Cato. He answers each complaint against age in turn, and begins by placing the trouble where it belongs.
+Q|Men, of course, who have no resources in themselves for securing a good and happy life find every age burdensome. But those who look for all happiness from within can never think anything bad which nature makes inevitable.
+P|Age does not make an empty life empty; it only reveals it. And it brings its own strengths, which youth lacks.
+Q|The great affairs of life are not performed by physical strength, or activity, or nimbleness of body, but by deliberation, character, expression of opinion.
+P|Robert Browning, in his fifties and recently widowed, gave the same thought its most famous English form, in the voice of a medieval Jewish scholar.
+Q|Grow old along with me!\nThe best is yet to be,\nThe last of life, for which the first was made:\nOur times are in His hand\nWho saith "A whole I planned,\nYouth shows but half; trust God: see all nor be afraid!"
+P|The last of life, for which the first was made: as if youth were the draft and age the finished work. Montaigne, in his late essays, refused to let his mind grow old with his body.
+Q|Seeing it is the privilege of the mind to rescue itself from old age, I advise mine to it with all the power I have; let it meanwhile continue green, and flourish if it can, like mistletoe upon a dead tree.
+P|La Rochefoucauld, the sharpest observer of the French court, was less sentimental, and perhaps more honest.
+Q|Few know how to be old.
+P|It is a skill, then, not a sentence. And it can be done badly or well. Seneca warned against measuring a life by its wrinkles: some who have lived long have not lived at all, and some who die young have lived fully. Yeats, writing in his twenties to the woman he loved, imagined her old by the fire, and saw that the one who truly loved her had loved the changing face, not only the young one.
+Q|When you are old and gray and full of sleep,\nAnd nodding by the fire, take down this book,\nAnd slowly read, and dream of the soft look\nYour eyes had once, and of their shadows deep;
+P|There is a tenderness in age that youth cannot have, and Homer knew it. When Odysseus and Penelope are finally reunited after twenty years, her grief is not for the wars or the dangers but for something quieter.
+Q|We have suffered, both of us. Heaven has denied us the happiness of spending our youth, and of growing old, together.
+P|To grow old together is, in the end, one of the deepest human hopes. And Zhuangzi, the Daoist sage, saw each stage of life, including the last, as a gift of the same Way.
+Q|Tao gives me this form, this toil in manhood, this repose in old age, this rest in death. And surely that which is such a kind arbiter of my life is the best arbiter of my death.
+P|Toil in youth, repose in age: each season with its own work, and its own peace.
+E|Friendship|Aristotle, Montaigne, Emerson, Seneca, Epicurus, Simone Weil, Anaïs Nin and Ingrid Persaud|D2A050|
+P|Of all our loves, friendship is the least celebrated and perhaps the most necessary. There are few songs about it, few ceremonies, no vows. Yet Aristotle, who thought harder about friendship than almost anyone, gave it two of the ten books of his Ethics, and said that no one would choose to live without friends, even if he had every other good.
+P|He also noticed that most friendships are not quite what they seem. We are friends with those who are useful to us, or pleasant to us, and when the use or the pleasure goes, so does the friendship.
+Q|Now it is the nature of utility not to be permanent but constantly varying: so, of course, when the motive which made them friends is vanished, the Friendship likewise dissolves; since it existed only relatively to those circumstances.
+P|The rarest kind, he said, is the friendship of good people who love each other for who they are.
+Q|Rare it is probable Friendships of this kind will be, because men of this kind are rare.
+P|Montaigne had one such friendship, with the young poet Étienne de La Boétie, who died at thirty-two. Years later, trying to explain what they had been to each other, Montaigne gave up explaining.
+Q|If a man should importune me to give a reason why I loved him, I find it could no otherwise be expressed, than by making answer: because it was he, because it was I. There is, beyond all that I am able to say, I know not what inexplicable and fated power that brought on this union.
+P|Because it was he, because it was I. Emerson, in his essay on friendship, found the simplest definition of all.
+Q|A friend is a person with whom I may be sincere.
+P|To be able to think aloud with someone, without performing: that may be friendship's great gift. Seneca, who wrote his richest letters to his friend Lucilius, gave practical advice about how such trust is built.
+Q|Ponder for a long time whether you shall admit a given person to your friendship; but when you have decided to admit him, welcome him with all your heart and soul.
+P|Take your time choosing; then trust wholly. Epicurus, who made friendship the centre of his philosophy and lived with his friends in a garden outside Athens, gave it a lovelier image.
+Q|Friendship goes dancing round the world proclaiming to us all to awake to the praises of a happy life.
+P|Anaïs Nin saw that a friend does not merely accompany us but brings part of us into being.
+Q|Each friend represents a world in us, a world possibly not born until they arrive, and it is only by this meeting that a new world is born.
+P|Simone Weil, characteristically, insisted that friendship is not something to wait for but something to practise.
+Q|Friendship is not to be sought, not to be dreamed, not to be desired; it is to be exercised (it is a virtue).
+P|And Ingrid Persaud, the Trinidadian novelist, puts it as a neighbour might over a fence.
+Q|Not every day you can carry your own bag of cocoa. That's why we have friends.
+P|The Norse sayings of the High One remember the same truth from a much colder country: the wanderer who finds a comrade feels rich.
+I|Man Is Man's Delight
+E|Small wonders|Blake, Bashō, Chesterton, Whitman, Neruda, mono no aware and Carl Sagan|4E8A4A|Nature as teacher
+P|We tend to think of wonder as something that needs a mountain, a cathedral or a galaxy. But the writers who have taught us most about wonder keep pointing in the other direction, toward the very small: a grain of sand, a frog, a blade of grass. The trouble, they suggest, is not that the world has run out of marvels. It is that we have stopped looking.
+P|G. K. Chesterton, who wrote a whole book of essays on what he called tremendous trifles, put the diagnosis in one sentence.
+Q|The world will never starve for want of wonders; but only for want of wonder.
+P|William Blake, the engraver who spent his life on the tiniest of lines, showed what looking could do.
+Q|To see a World in a grain of sand,\nAnd a Heaven in a wild flower,\nHold Infinity in the palm of your hand,\nAnd Eternity in an hour.
+P|Matsuo Bashō, living in a small hut by a river in Edo, wrote the most famous small poem in the world about an even smaller event.
+Q|The old pond!\nA frog leapt into —\nList, the water sound!
+P|No moon, no mountains: a frog, a splash and the silence after. Bashō's genius was to stay with a single sound long enough for it to open. Walt Whitman, looking at the grass of the American earth, made the same claim with his usual exuberance.
+Q|I believe a leaf of grass is no less than the journey work of the stars,\nAnd the pismire is equally perfect, and a grain of sand, and the egg of the wren,\nAnd the tree-toad is a chef-d’œuvre for the highest,\nAnd the running blackberry would adorn the parlors of heaven,\nAnd the narrowest hinge in my hand puts to scorn all machinery,\nAnd the cow crunching with depress’d head surpasses any statue,\nAnd a mouse is miracle enough to stagger sextillions of infidels.
+P|He was nearer the truth than he could have known: the carbon in that grass was indeed forged in stars. Carl Sagan, who spent his life explaining such things, insisted that knowing how a thing works does not shrink the wonder of it.
+Q|There are wonders enough out there without our inventing any.
+P|Pablo Neruda found the universe in a lover's presence, in the most ordinary days.
+Q|Every day you play with the light of the universe.
+P|Japanese aesthetics has a name for the bittersweet feeling small, passing things can stir in us, the cherry blossom that matters because it falls.
+I|The Pity of Things
+P|Wonder, then, is not a rare event but a habit of attention. It costs nothing, and the world will supply the material, a frog, a leaf, a face, for as long as we keep looking.
+E|What freedom is|Rousseau, Epictetus, Frankl, Sartre, Charlotte Brontë, Tagore, Marcus Aurelius and Mandela|7A5ADC|An introduction to existentialism
+P|Everyone wants freedom, and almost no one agrees on what it is. For some it means being left alone; for others, being able to choose; for others again, being free of our own fears and appetites. The voices that have thought hardest about it often turn the question inward, and then back out again.
+P|Jean-Jacques Rousseau opened his most famous book with a sentence that has been shouted at barricades ever since.
+Q|Man is born free, and everywhere he is in chains.
+P|But the Stoics had already found a freedom that no chain could reach. Epictetus, who was born a slave and walked with a limp his master may have given him, said that real freedom is inward.
+Q|Freedom is the name of virtue: Slavery, of vice.
+P|Viktor Frankl tested that claim in the most terrible place imaginable, and found it held.
+Q|Everything can be taken from a man but one thing: the last of the human freedoms—to choose one's attitude in any given set of circumstances, to choose one's own way.
+P|Jean-Paul Sartre, speaking in Paris just after the war, turned freedom from a prize into a burden: we are free whether we like it or not, and responsible for what we make of it.
+Q|Man is condemned to be free. Condemned because he did not create himself, yet is nevertheless at liberty, and from the moment he is thrown into this world he is responsible for everything he does.
+P|Charlotte Brontë gave the same claim a heroine. Jane Eyre, poor, plain and in love, refuses to belong to anyone on terms that would cost her self-respect.
+Q|I am no bird; and no net ensnares me; I am a free human being with an independent will, which I now exert to leave you.
+P|Rabindranath Tagore admitted what most of us feel: that the chains we complain of are also the ones we cling to.
+Q|Obstinate are the trammels, but my heart aches when I try to break them. Freedom is all I want, but to hope for it I feel ashamed.
+P|Marcus Aurelius, who had more power than anyone in his world, saw that freedom includes the freedom to change our minds.
+Q|Remember that to change your course, and to follow any man who can set you right is no compromise of your freedom. The act is your own, performed on your own impulse and judgment, and according to your own understanding.
+P|And Nelson Mandela, who spent twenty-seven years in prison and emerged without vengeance, gave freedom its fullest meaning, one that turns outward again.
+Q|For to be free is not merely to cast off one's chains, but to live in a way that respects and enhances the freedom of others.
+P|Freedom, in the end, is not only what we have but what we allow others: a gift that grows by being given.
+E|Faith and doubt|Pascal, Kierkegaard, William James, Tolstoy, Dostoevsky, Rilke, Gibran and Keats|5A6B8C|The examined life
+P|We tend to treat faith and doubt as opposite camps, the believers and the sceptics, with nothing to say to each other. The writers who have thought most deeply about faith rarely saw it that way. For many of them doubt was not the enemy of faith but its companion, the thing that kept it honest.
+P|Blaise Pascal, a mathematician who helped invent probability, knew reason better than almost anyone, and also its limits.
+Q|The heart has its reasons, which reason does not know.
+P|He even tried to reason his way to faith, with a famous bet: if God exists, believing gains everything; if not, little is lost.
+I|Pascal's Wager
+P|Søren Kierkegaard thought no argument could ever carry us there. Faith, for him, was not a conclusion but a passion, and a lifelong task.
+Q|Faith is the highest passion in a human being. There are perhaps many in every generation who never even come to it, but no one goes further.
+P|A leap, then, not a proof.
+I|The Leap of Faith
+P|William James, the American psychologist, defended the right to believe in questions that evidence alone cannot settle, when the choice is real and cannot be avoided.
+I|The Will to Believe
+P|Leo Tolstoy gave the struggle a character. At the end of Anna Karenina, Levin, who has tormented himself with doubt, admits that he had been looking for the wrong kind of proof.
+Q|And I looked out for miracles, complained that I did not see a miracle which would convince me. A material miracle would have persuaded me. And here is a miracle, the sole miracle possible, continually existing, surrounding me on all sides, and I never noticed it!
+P|What he finds instead is not a miracle but a knowledge of goodness he had always had. Dostoevsky, in the Grand Inquisitor's speech, saw the danger in demanding signs.
+Q|But Thou didst not know that when man rejects miracle he rejects God too; for man seeks not so much God as the miraculous.
+P|Kahlil Gibran located faith somewhere thinking cannot travel.
+Q|Faith is an oasis in the heart which will never be reached by the caravan of thinking.
+P|Rainer Maria Rilke, in his Book of Hours, wrote prayers that are full of questions, and of a faith turned toward the unsaid.
+Q|I believe in everything never yet said.\nI want to set my most devout feelings free.\nWhat no one yet dared to will\nwill one day be second nature to me.
+P|John Keats, who never wrote a word of theology, gave the most useful name to the condition all of these voices share: the capacity to live with uncertainty without forcing an answer.
+I|Negative Capability
+P|Perhaps faith and doubt are not two camps after all, but two hands holding the same question.
+E|Carnival and joy|Earl Lovelace, Bakhtin, Durkheim, the moko jumbie, Nietzsche, Gibran and Ingrid Persaud|C0682E|Stories of the Caribbean
+P|Every year, for two days before Lent, Trinidad and Tobago turns its streets into a stage. Steelbands roll through Port of Spain, the masqueraders take over the roads, and for a while the ordinary order of things is suspended. Carnival is often described to outsiders as a party. Those who know it understand it as something closer to a philosophy of joy, and a history of resistance.
+P|Earl Lovelace, whose novel The Dragon Can't Dance is set among the masqueraders of a Port of Spain hillside, has written about where that culture came from.
+Q|When we woke up to the realization that we were independent and that independence meant having a culture that we could call our own, we discovered that all we had that might be termed indigenous or native was what had been created or reassembled and maintained here by those at the bottom of the economic ladder.
+P|Calypso, steelpan, the old mas characters: the culture of the nation was made by the poor, out of what had been forbidden or thrown away. The Russian thinker Mikhail Bakhtin, studying the carnivals of medieval Europe, saw the same power in laughter.
+I|The Carnivalesque
+P|The world turned upside down, the mighty mocked, the body celebrated. And the French sociologist Émile Durkheim described the electric feeling of a crowd moving as one, the feeling that a band on the road on Carnival Monday knows.
+I|Collective Effervescence
+P|Lovelace's fiction catches what the festival does to a single person, a woman made new by it.
+Q|The sun had tanned her so that the rich velvety blackness of her skin glistened and she felt so much herself on those days of Carnival, soaked so deeply with a sense of her own beauty, that after the festival, she continued to keep her hair in the same fashion and wear her skin with the same pride, the result being that men took her for a foreign woman.
+P|Above the crowd, the stilt-walking moko jumbie, inherited from West Africa, dances as a guardian, high enough to see danger coming.
+I|The Moko Jumbie
+P|Carnival's joy is not naive. It has always carried sorrow inside it: the history of slavery and indenture, the mocking of power, the defiance of people told their culture was worthless. Kahlil Gibran understood that joy and sorrow come from the same well.
+Q|Your joy is your sorrow unmasked. And the selfsame well from which your laughter rises was oftentimes filled with your tears.
+P|Friedrich Nietzsche, who wished he could believe in a god who danced, saw that creation needs a little disorder.
+Q|I tell you: one must still have chaos in one, to give birth to a dancing star.
+P|And Ingrid Persaud, in a novel set in contemporary Trinidad, gives a character the line that could be Carnival's motto for the rest of the year.
+Q|If I drop down dead today I want to know I didn't hide from life.
+P|That may be the deepest meaning of the festival: not escape from life, but the refusal to hide from it.
+E|Memory|Proust, Faulkner, Kundera, Marcus Aurelius, Gibran, C. S. Lewis, Susan Sontag and Sankofa|8A6A3A|
+P|We think of memory as a storehouse: experiences go in, and later, if we are lucky, we take them out again. The writers who have thought hardest about memory describe something stranger and more alive, a thing that changes each time we touch it, that ambushes us, and that shapes who we are and what we owe.
+P|Marcel Proust, in the most famous scene in modern fiction, dipped a little cake called a madeleine into his tea and found his whole childhood rising up in him, unbidden. Trying to understand it, he looked first at the cup.
+Q|It is plain that the object of my quest, the truth, lies not in the cup but in myself.
+P|Memory, for Proust, is not something we fetch but something that comes to us, when it chooses. Psychologists have since borne out his instinct that memory is not a recording.
+I|Remembering Is Rebuilding
+P|Each time we remember, we rebuild. William Faulkner saw that the past also rebuilds us.
+Q|The past is never dead. It's not even past.
+P|A family, a town, a nation lives inside its history whether it acknowledges it or not. Milan Kundera, watching a communist regime rewrite the past, saw remembering as a form of resistance.
+Q|The struggle of man against power is the struggle of memory against forgetting.
+P|The Akan people of Ghana have a symbol for the wisdom of looking back: a bird turning its head to carry an egg.
+I|Sankofa
+P|It is not wrong to go back for what we have forgotten. But memory can also wound. C. S. Lewis, in his last novel, let his narrator discover how once she began to write down her past, it would not let her go.
+Q|What began the change was the very writing itself. Let no one lightly set about such a work. Memory, once waked, will play the tyrant.
+P|Susan Sontag, writing about photographs of war, asked whether remembering is always enough.
+Q|Perhaps too much value is assigned to memory, not enough to thinking. Remembering is an ethical act, has ethical value in and of itself. Memory is, achingly, the only relation we can have with the dead.
+P|Memory without understanding can become grievance. Kahlil Gibran gave memory its most delicate image.
+Q|And now I only remember my dead Joy in remembering my dead Sorrow. But memory is an autumn leaf that murmurs a while in the wind and then is heard no more.
+P|And Marcus Aurelius, writing on campaign, gave it its most humbling one.
+Q|All things are for a day, both what remembers and what is remembered.
+P|Perhaps that is why memory matters so much: because it, too, is mortal. To remember well is to keep faith, for a while, with what would otherwise vanish.
