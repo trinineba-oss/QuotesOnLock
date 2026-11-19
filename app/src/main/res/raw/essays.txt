@@ -1,0 +1,80 @@
+# Essays (written for the app): E|title|voices (shown under the title)|tint|related reading path, then P|paragraph, Q|exact quote text (\n for line breaks), I|idea or myth title
+E|What grief knows|Lewis, Tennyson, Seneca, Dostoevsky, Akhmatova and the Buddha on carrying loss|5A6B8C|Through hard times
+P|Grief arrives as though no one had ever felt it before. It seems to belong only to us, and to this one loss, and to no one else in the long history of the world. And yet the oldest writing we have is full of it. Read the mourners across the centuries side by side and something surprising happens: they begin to agree. Not on comfort, exactly, but on what grief is, and on what it is made of.
+P|The first thing many of them notice is that grief is a bodily thing before it is a thought. C. S. Lewis, a man who had spent his life arguing about faith in clear, confident prose, began the notebook he kept after his wife died with a sentence of almost clinical surprise.
+Q|No one ever told me that grief felt so like fear. I am not afraid, but the sensation is like being afraid. The same fluttering in the stomach, the same restlessness, the yawning. I keep on swallowing.
+P|It is a strange relief to read that. Much of the panic of early mourning is the panic of not recognising ourselves, the restlessness, the swallowing, the inability to sit still. Lewis does not explain it away; he simply names it, and naming it makes it a little less lonely. A few pages later he finds the image that so many bereaved people have recognised since.
+Q|Her absence is like the sky, spread over everything.
+P|Loss is not in one place. It is not only at the empty chair or on the anniversary; it is overhead, in the weather of every ordinary day. Two thousand years earlier Seneca, writing to a mother who had lost her son, refused to tell her to stop. He made a careful, generous distinction instead.
+Q|Nature demands from us a certain amount of grief, our imagination adds some more to it; but I will never forbid you to mourn at all.
+P|There is the grief that love requires, and there is the grief we add with our imagination, rehearsing what might have been, punishing ourselves with what we should have said. Seneca does not ask us to give up the first. Only, gently, to notice the second. The psychiatrist Irvin Yalom, after a lifetime of sitting with the dying and the bereaved, put the first kind more plainly still.
+Q|Mourning is the price we pay for having the courage to love others.
+P|A price is not a punishment. It is what something costs. Tolstoy saw the same exchange from the other side: the capacity for great grief, he wrote, belongs to those who loved greatly, and the same need to love that wounds them is what eventually draws them back to life.
+Q|Only those who can love strongly can experience an overwhelming grief. Yet their very need of loving sometimes serves to throw off their grief from them and to save them. The moral nature of man is more tenacious of life than the physical, and grief never kills.
+P|Tennyson knew that cost intimately. He spent seventeen years writing In Memoriam for his friend Arthur Hallam, who died at twenty-two, and somewhere early in those years, still raw, he wrote the stanza that has been half-quoted at weddings ever since. Read whole, it is not about romance at all.
+Q|I hold it true, whate'er befall;\nI feel it, when I sorrow most;\n'Tis better to have loved and lost\nThan never to have loved at all.
+P|It is a refusal, made in the middle of pain, to wish the love away in order to escape the loss. Anna Akhmatova, writing Requiem during the years her son was imprisoned under Stalin, shows how fierce that refusal can be, and how tempting its opposite.
+Q|Today I have so much to do:\nI must kill memory once and for all,\nI must turn my soul to stone,\nI must learn to live again—
+P|To kill memory, to turn the soul to stone: who has not wished for that? And yet the stanza turns, in its last line, from numbness toward life. She must learn to live again. Not forget; live. That is the turn every one of these voices makes in the end, and Dostoevsky, who buried a child of his own, gave it to his wise old monk as a promise.
+Q|It’s the great mystery of human life that old grief passes gradually into quiet, tender joy.
+P|Not quickly, and not by being argued with. Gradually. Which is perhaps why the Buddha, when a mother came to him begging him to revive her child, did not give her a sermon. He gave her an errand.
+I|The Mustard Seed
+P|She went from house to house looking for one that death had never entered, and found none. She came back without her mustard seed, and with something the seed could never have given her: company. Every voice in this essay is, in the end, one of those houses. Grief feels like the loneliest thing in the world. It turns out to be one of the most shared.
+E|Home, and leaving it|Homer, Walcott, Selvon, Naipaul, Baldwin, Brand and Okri on belonging|2E8B74|Stories of the Caribbean
+P|The first great story of homecoming in Western literature is also a story of how hard it is to get there. Odysseus spends ten years at war and ten more trying to return, and when at last the Phaeacians leave him asleep on the shore of Ithaca, he does not recognise his own island. When he finally does, Homer gives him a gesture rather than a speech.
+Q|Then Ulysses rejoiced at finding himself again in his own land, and kissed the bounteous soil.
+P|What makes the moment moving is what he gave up to reach it. On her island the nymph Calypso had offered him immortality, if only he would stay. He chose instead a mortal wife, an ageing body and a small rocky kingdom. Home, in the Odyssey, is the place worth giving up forever for.
+I|Calypso's Offer
+P|But for many people home has never been as simple as an island waiting at the end of a voyage. The writers of the Caribbean, whose islands were built by people carried there against their will, by indenture and empire and trade, have had to ask what home even means. Tobago tells of Gang Gang Sara, who flew in on the wind from Africa and could never fly back.
+I|Gang Gang Sara
+P|Salt made her too heavy to return. It is a legend that holds a whole people's longing in a single image. A century and more later, the young West Indians who sailed to London after the war found a different kind of weight. Sam Selvon, writing in the music of Trinidadian speech, watched the bright talk of the boys in the cold city and saw underneath it something sadder.
+Q|Under the kiff-kiff laughter, behind the ballad and the episode, the what-happening, the summer-is-hearts, he could see a great aimlessness, a great restless, swaying movement that leaving you standing in the same spot.
+P|Movement that leaves you in the same spot: it is one of the most exact descriptions of exile ever written. V. S. Naipaul, who left Trinidad for Oxford at eighteen and spent much of his life writing about the leaving, saw the other side of it, the way a departure looks to those left behind.
+Q|A departure can feel like a desertion, a judgement on the place and people left behind.
+P|And going back, he found, is no cure. The place has stayed and you have changed, and you look at it through new lenses, now too sharp, now too blurred. James Baldwin, who left Harlem for Paris and spent his life between them, came to suspect that home is not a location at all.
+Q|Perhaps home is not a place but simply an irrevocable condition.
+P|An irrevocable condition: something you carry rather than something you return to. Derek Walcott, born on St Lucia and making his life in Trinidad, gave that thought its proudest form in the voice of Shabine, the poor sailor of mixed blood in The Schooner Flight, who belongs to no single race or flag.
+Q|I had no nation now but the imagination.
+P|It sounds like loss, and it is also freedom. Dionne Brand, born in Trinidad and living in Canada, goes further still, and asks whether belonging is worth the weight we give it, when we know what the tall ships were carrying.
+Q|I am not nostalgic. Belonging does not interest me. I had once thought that it did. Until I examined the underpinnings. One is misled when one looks at the sails and majesty of tall ships instead of their cargo.
+P|Between Odysseus kissing the soil and Brand refusing nostalgia lies the whole range of human feeling about home. Perhaps they are not opposites. Perhaps both are ways of answering the same longing. Ben Okri, the Nigerian novelist, offers a third answer, the one the wanderers of every century have half-hoped for.
+Q|Do you know what the luckiest thing is?''No.''It is to be at home everywhere.
+P|It may be the hardest homecoming of all, and the most generous: not to find the one place where we belong, but to become someone who can belong, a little, wherever we are.
+E|Is happiness the point?|Aristotle, Epicurus, Marcus Aurelius, Mill, Frankl, Camus and Mary Oliver|B0703A|The examined life
+P|Ask almost anyone what they want from life and the answer will be some version of happiness. Ask them what happiness is, and the conversation gets interesting. For two and a half thousand years philosophers have been circling the same question, and the strange thing is how often the wisest of them end up warning us not to chase it too hard.
+P|Aristotle, who thought happiness was the whole aim of a human life, defined it not as a feeling but as a way of living, and insisted it could only be judged over time.
+Q|As it is not one swallow or one fine day that makes a spring, so it is not one day or a short time that makes a man blessed and happy.
+P|One good day is not a good life, and one bad day doesn't ruin one. That alone takes some of the pressure off. Epicurus, whose name has been unfairly turned into a byword for luxury, actually taught something closer to the opposite: that most unhappiness comes from wanting more than we have.
+Q|Do not spoil what you have by desiring what you have not.
+P|His own idea of luxury, as Nietzsche fondly put it, was a garden, figs, a little cheese and a few good friends. Marcus Aurelius, who had the entire Roman Empire at his disposal, reminded himself of the same thing in his private notebook, as if he kept forgetting it.
+Q|Very little is needed to make a happy life; it is all within yourself, in your way of thinking.
+P|If happiness is so simple, why is it so hard to hold? John Stuart Mill found one answer after a breakdown in his twenties. He had been raised as a kind of thinking machine, educated for the greatest happiness of the greatest number, and discovered that aiming at happiness directly made it vanish.
+Q|Ask yourself whether you are happy, and you cease to be so.
+P|Viktor Frankl, who survived Auschwitz and spent the rest of his life helping people find meaning, said the same thing more sharply. Happiness, he argued, cannot be pursued; it ensues, as a side effect of giving ourselves to something or someone beyond ourselves.
+Q|It is the very pursuit of happiness that thwarts happiness.
+P|Which brings us to the most famous paradox in modern philosophy. Albert Camus imagined Sisyphus, condemned by the gods to roll a boulder up a hill forever, and refused to pity him. The task has no point, he admitted. And then he said something that has puzzled and consoled readers ever since.
+Q|The struggle itself towards the heights is enough to fill a man's heart. One must imagine Sisyphus happy.
+P|Camus is not saying Sisyphus should feel cheerful. He is saying that a life fully lived, eyes open, without false hope, can be enough. Seneca had a quieter version of the same courage: happiest is the one who can await tomorrow without dread.
+Q|That man is happiest, and is secure in his own possession of himself, who can await the morrow without apprehension.
+P|So is happiness the point? These voices suggest it is more like a by-product: of good habits over a lifetime, of wanting less, of attention, of meaning, of love. Mary Oliver, who spent her life walking the woods and ponds of Massachusetts with a notebook, described it not as a goal but as something that ambushes us daily if we are paying attention.
+Q|Every day\nI see or hear\nsomething\nthat more or less\n\nkills me\nwith delight,\nthat leaves me\nlike a needle\n\nin the haystack\nof light.\nIt was what I was born for–\nto look, to listen,\n\nto lose myself\ninside this soft world
+P|Perhaps the point is not to be happy, but to be awake enough that happiness can find us.
+E|The courage to be ordinary|Marcus Aurelius, Wordsworth, George Eliot, Kierkegaard, Camus, Szymborska and Mary Oliver|7A5ADC|Courage
+P|We tell stories about heroes because heroism is rare and dramatic and easy to see. But most of the goodness in the world happens out of sight: in kitchens and hospital corridors, in patience with a difficult relative, in a job done well when no one is checking. Several of the wisest writers we have argue that this ordinary goodness is not a lesser thing. It may be the main thing.
+P|Marcus Aurelius, who ruled an empire, wrote a reminder to himself that cuts through all the philosophy he loved.
+Q|Waste no more time arguing about what a good man should be. Be one.
+P|It is a rebuke to the part of us that would rather read about kindness than practise it. Wordsworth, revisiting the Wye valley a few miles above Tintern Abbey, found the best of a person's life not in great deeds but in small ones he barely remembered.
+Q|Feelings too\nOf unremembered pleasure: such, perhaps,\nAs have no slight or trivial influence\nOn that best portion of a good man's life,\nHis little, nameless, unremembered, acts\nOf kindness and of love.
+P|Little, nameless, unremembered acts. George Eliot ended Middlemarch, her great novel of provincial life, by turning that thought into a kind of faith. Her heroine, Dorothea, never becomes the reformer she dreamed of being. And Eliot refuses to call her life a failure.
+Q|For the growing good of the world is partly dependent on unhistoric acts; and that things are not so ill with you and me as they might have been, is half owing to the number who lived faithfully a hidden life, and rest in unvisited tombs.
+P|It is one of the most consoling sentences in English. The world is held together by people whose names will be forgotten. Søren Kierkegaard, the most intense of philosophers, imagined the greatest hero of faith not as a martyr or a saint but as someone you might pass in the street without noticing.
+I|The Knight of Faith
+P|He looks like a tax collector, Kierkegaard said, and enjoys his dinner. The extraordinary lives inside the ordinary, unseen. Albert Camus came to the same respect from the opposite direction, from unbelief. In The Plague, the narrator, a doctor who simply keeps doing his work while the city dies around him, admits to suspicion of heroes.
+Q|But, you know, I feel more fellowship with the defeated than with saints. Heroism and sanctity don't really appeal to me, I imagine. What interests me is being a man.
+P|Being a man, being a decent human being, turns out to be harder and rarer than heroism. Thich Nhat Hanh, the Vietnamese monk who spent decades in exile working for peace, put the challenge in a single sentence.
+Q|You are not an observer, you are a participant.
+P|There is no audience seat. Each ordinary day we are already taking part. Wisława Szymborska saw why that matters: no day comes twice, and none of us gets a rehearsal.
+Q|Nothing can ever happen twice.\nIn consequence, the sorry fact is\nthat we arrive here improvised\nand leave without the chance to practice.
+P|We arrive improvised. Mary Oliver, at the end of a poem about a grasshopper eating sugar from her hand and an afternoon spent simply paying attention, turns to the reader with the question that all of these voices are, in their way, asking.
+Q|Tell me, what else should I have done?\nDoesn't everything die at last, and too soon?\nTell me, what is it you plan to do\nwith your one wild and precious life?
+P|The courage to be ordinary is the courage to answer that question in small, daily, unremarkable ways, and to trust, as Eliot did, that it counts.

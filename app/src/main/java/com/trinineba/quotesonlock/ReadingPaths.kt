@@ -84,14 +84,15 @@ object ReadingPaths {
 }
 
 @Composable
-fun ReadingPathsScreen(onBack: () -> Unit, onOpenAuthor: (String) -> Unit) {
+fun ReadingPathsScreen(onBack: () -> Unit, onOpenAuthor: (String) -> Unit, start: String? = null) {
     val context = LocalContext.current
     val prefs = remember { QuotePrefs(context) }
     val paths = remember { ReadingPaths.all(context) }
-    var open by rememberSaveable { mutableStateOf<String?>(null) }
+    var open by rememberSaveable { mutableStateOf(start) }
     var refresh by remember { mutableIntStateOf(0) }
     paths.firstOrNull { it.title == open }?.let { path ->
-        PathScreen(path, prefs, onBack = { open = null; refresh++ }, onOpenAuthor = onOpenAuthor)
+        // Opened straight into a path (from an essay): Back returns to where it came from.
+        PathScreen(path, prefs, onBack = { if (start != null) onBack() else { open = null; refresh++ } }, onOpenAuthor = onOpenAuthor)
         return
     }
     BackHandler(onBack = onBack)

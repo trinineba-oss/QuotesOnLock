@@ -823,10 +823,26 @@ private fun QuotesScreen(
             ReadingPathsScreen(onBack = { browse = browse.dropLast(1) }, onOpenAuthor = { browse = browse + BrowsePage.author(it) })
             return
         }
+        "essays" -> {
+            EssaysScreen(
+                onBack = { browse = browse.dropLast(1) },
+                onOpenAuthor = { browse = browse + BrowsePage.author(it) },
+                onOpenPath = { browse = browse + "paths:$it" },
+            )
+            return
+        }
         "themes" -> {
             ThemesScreen(onBack = { browse = browse.dropLast(1) }, onOpenAuthor = { browse = browse + BrowsePage.author(it) })
             return
         }
+    }
+    browse.lastOrNull()?.takeIf { it.startsWith("paths:") }?.let { route ->
+        ReadingPathsScreen(
+            onBack = { browse = browse.dropLast(1) },
+            onOpenAuthor = { browse = browse + BrowsePage.author(it) },
+            start = route.removePrefix("paths:"),
+        )
+        return
     }
     browse.lastOrNull()?.takeIf { it == "influences" || it.startsWith("influences:") }?.let { route ->
         InfluencesScreen(
@@ -1119,6 +1135,9 @@ private fun QuotesScreen(
         }
         item(key = "d-paths") {
             JourneyCard("Reading paths", "Guided journeys: existentialism, the Stoics, myths of love, wonder and more", Color(0xFF2E8B74)) { browse = listOf("paths") }
+        }
+        item(key = "d-essays") {
+            JourneyCard("Essays", "One question, many voices: grief, home, happiness and ordinary courage, with lines from across the centuries", Color(0xFF5A6B8C)) { browse = listOf("essays") }
         }
         item(key = "d-things") {
             JourneyCard("How things work", "The microwave, GPS, soap, rainbows: the everyday world, explained in a few minutes each", Color(0xFFC0682E)) { browse = listOf("things") }

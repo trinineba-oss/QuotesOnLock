@@ -54,6 +54,22 @@ class DiscoverFilesTest {
         }
     }
 
+    @Test fun everyEssayLinePointsIntoTheCollection() {
+        val ideas = raw("ideas.txt").useLines { QuoteData.parseIdeas(it) }
+        val all = quotes + ideas
+        val essays = raw("essays.txt").useLines { Essays.parse(it) }
+        val paths = raw("paths.txt").useLines { ReadingPaths.parse(it) }.map { it.title }.toSet()
+        assertTrue("too few essays: ${essays.size}", essays.size >= 4)
+        essays.forEach { e ->
+            assertTrue("${e.title}: too short", e.parts.count { it is EssayPart.Para } >= 8)
+            assertTrue("${e.title}: too few voices", e.parts.count { it !is EssayPart.Para } >= 6)
+            assertTrue("${e.title}: unknown path ${e.path}", e.path.isEmpty() || e.path in paths)
+            e.parts.filter { it !is EssayPart.Para }.forEach { p ->
+                assertTrue("${e.title}: line not found: ${(p as? EssayPart.Line)?.text?.take(50) ?: (p as EssayPart.Idea).title}", Essays.resolve(all, p) != null)
+            }
+        }
+    }
+
     @Test fun everyEverydayThingIsExplainedTaughtAndDrawn() {
         val ideas = raw("ideas.txt").useLines { QuoteData.parseIdeas(it) }
         val lessons = raw("lessons.txt").useLines { Learn.parseLessons(it) }.map { it.ref }.toSet()
