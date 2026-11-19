@@ -10,6 +10,8 @@ S|The Electric Kettle|The kettle|🫖
 S|The Toaster|The toaster|🔥
 S|Why Food Browns|Browning|🥩
 S|The Espresso Machine|Espresso|🫘
+S|The Rice Cooker|Rice cooker|🍚
+S|Non-Stick Pans|Non-stick|🍳
 G|Around the home|2E8B74
 S|How Soap Cleans|Soap|🧼
 S|The LED Bulb|The LED bulb|💡
@@ -18,6 +20,8 @@ S|The Smoke Alarm|Smoke alarms|🚨
 S|The Pin Tumbler Lock|Lock and key|🔑
 S|The Vacuum Cleaner|The vacuum|🧹
 S|The Mirror|Mirrors|🪞
+S|The Washing Machine|Washing machine|🧺
+S|Circuit Breakers|Circuit breakers|⚡
 G|Plumbing|2F7FA8
 S|The Flushing Toilet|The flush|🚽
 S|Water Towers|Water towers|🗼
@@ -47,6 +51,7 @@ S|Wi-Fi|Wi-Fi|📶
 S|The Digital Camera|The camera|📷
 S|Noise-Cancelling Headphones|Noise cancelling|🎧
 S|The Lithium-Ion Battery|Your battery|🔋
+S|Mobile Phone Calls|Phone calls|📞
 G|The connected world|2F8F9D
 S|The Internet|The internet|🌐
 S|Bluetooth|Bluetooth|🔗
@@ -54,6 +59,9 @@ S|QR Codes|QR codes|🔳
 S|Barcodes|Barcodes|🏷️
 S|Contactless Payment|Tap to pay|💳
 S|Atomic Clocks|Atomic clocks|⏱️
+S|Email|Email|📧
+S|Encryption|Encryption|🔐
+S|Search Engines|Search engines|🔎
 G|Getting around|7A5ADC
 S|How a Plane Flies|How a plane flies|✈️
 S|Bicycle Balance|Bicycle balance|🚲
@@ -63,6 +71,8 @@ S|The Lift|The lift|🛗
 S|The Helicopter|Helicopters|🚁
 S|The Hot-Air Balloon|Hot-air balloons|🎈
 S|The Rocket|Rockets|🚀
+S|Traffic Lights|Traffic lights|🚦
+S|Bridges|Bridges|🌉
 G|Cars|A0522D
 S|The Car Engine|The car engine|🚗
 S|Seatbelts|Seatbelts|🛡️
@@ -88,6 +98,9 @@ S|Fever|Fever|🤒
 S|How Antibiotics Work|Antibiotics|🦠
 S|How Hearing Works|Hearing|👂
 S|Sore Muscles After Exercise|Sore muscles|🏋️
+S|How Wounds Heal|Healing|🩹
+S|Blood Types|Blood types|🩸
+S|The Heart|The heart|❤️
 G|Sky and weather|5B7FB0
 S|Rainbows|Rainbows|🌈
 S|Why the Sky Is Blue|Blue sky|🌤️
@@ -98,9 +111,12 @@ S|How Clouds Form|Clouds|☁️
 S|Snowflakes|Snowflakes|❄️
 S|Wind|Wind|🌬️
 S|The Phases of the Moon|Moon phases|🌗
+S|Hurricanes|Hurricanes|🌀
+S|Eclipses|Eclipses|🌑
 G|Power and the planet|C9962F
 S|Solar Panels|Solar panels|☀️
 S|Wind Turbines|Wind turbines|🌀
 S|Nuclear Power|Nuclear power|⚛️
 S|Recycling Aluminium|Recycling cans|♻️
 S|Earthquakes|Earthquakes|🌋
+S|Hydroelectric Power|Hydropower|🏞️

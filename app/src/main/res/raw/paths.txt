@@ -87,3 +87,22 @@ S|i|The Three Sisters|Growing together|Corn, beans and squash, planted together 
 S|q|Consider the lilies of the field, how they grow; they toil not, neither do they spin: And yet I say unto you, That even Solomon in all his glory was not arrayed like one of these.|Without anxiety|In the Sermon on the Mount, the lilies teach freedom from worry: they neither toil nor spin, yet are dressed more finely than Solomon.
 S|i|Silent Spring|Caring for it|Rachel Carson showed how poisons travel through the web Muir described, and turned wonder into responsibility. To learn from nature is also to look after it.
 S|q|Heaven is under our feet as well as over our heads.|Under our feet|Thoreau again, to close: we needn't look up or away for wonder. It is in the ground we stand on.
+P|Courage|What the wise have said about being brave|B0703A
+S|q|Courage is resistance to fear, mastery of fear, not absence of fear.|What courage is|Mark Twain, who knew plenty of fear, puts it plainly: courage isn't the absence of fear but the mastery of it. This path walks through what the wise have said about being brave.
+S|i|The Choice of Heracles|The hard road|The Greek parable of the crossroads: ease on one side, effort and honour on the other. Courage often begins with choosing the harder path.
+S|q|It is the part of grovellers and cowards to follow the safe track; courage loves a lofty path.|The lofty path|Seneca, who lived dangerously close to Nero, says the same in a sentence: courage loves a lofty path.
+S|q|And if it is a fear you would dispel, the seat of that fear is in your heart and not in the hand of the feared.|Where fear lives|Gibran turns inward: the seat of a fear is in our own heart, not in the thing we fear. That is where courage does its work.
+S|q|Our doubts are traitors,\nAnd make us lose the good we oft might win\nBy fearing to attempt.|Daring to try|Shakespeare's Lucio urges Isabella to go and plead for her brother. Doubt, he says, makes us lose what we might win, simply by fearing to attempt it.
+S|i|The Courage to Be|Courage in the face of anxiety|The theologian Paul Tillich widened courage beyond the battlefield: affirming your life in spite of anxiety about death, meaninglessness and guilt.
+S|q|Remember, therefore, for the future, upon all occasions of sorrow, to use the maxim: this thing is not misfortune, but to bear it bravely is good fortune.|Bearing it bravely|Marcus Aurelius gives a maxim for hard days: this is not misfortune, but to bear it bravely is good fortune.
+S|i|Gawain and the Green Knight|Courage and honesty|Gawain keeps his word and faces the axe, yet keeps the green girdle to save himself. The poem honours him all the same: courage includes owning our failures.
+P|Stories of the Caribbean|Anansi, Papa Bois, Mama Dlo and the spirits of the night|2F8F9D
+S|i|How Anansi Got the Stories|Where the stories come from|Caribbean storytelling begins in West Africa, with Anansi the spider, who won all the world's stories from the sky god by his wits. Enslaved Akan people carried him across the Atlantic.
+S|i|Jack Mantora|How a story ends|In Jamaica every Anansi story ended with the same words, a gentle way of telling the listeners that the tale's punishments weren't meant for them.
+S|i|Papa Bois|The keeper of the forest|Trinidad and Tobago's forest guardian protects the animals from greedy hunters. Greet him politely, and never stare at his feet.
+S|i|Mama Dlo|The mother of the waters|Half woman, half great snake, she guards the rivers and punishes those who foul them. Papa Bois and Mama Dlo together keep forest and river.
+S|i|La Diablesse|A stranger on the road|The beautiful woman in the wide hat, with one cow's hoof beneath her skirt: a warning against following strangers into the night.
+S|i|The Soucouyant|The fireball in the night|The old woman who sheds her skin and flies as a ball of fire. The defences are delightfully practical: salt for her skin, rice for her to count.
+S|i|The Douens|Feet turned backwards|Spirits of unbaptised children in big straw hats, whose backward feet lead followers astray. The stories kept children near home at dusk.
+S|i|Gang Gang Sara|A longing for home|Tobago's legend of the African woman who flew in on the wind and, having eaten salt, could not fly home again: a story holding a whole people's memory of Africa.
+S|i|The Moko Jumbie|The guardian on stilts|The path ends in Carnival, where the moko jumbie still dances high over the crowd, a living folklore that children learn today.
