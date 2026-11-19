@@ -14616,3 +14616,12 @@ sienkiewicz|For me, the Stoics are fools; but stoicism tempers men, at least, wh
 livy|It has been so ordained by nature, that he who addresses a multitude for his own private interest, is more pleasing than the man whose mind has nothing in view but the public interest.|Livy, The History of Rome (tr. D. Spillan)|society
 spenser|Vertue giues her selfe light, through darkenesse for to wade.|Edmund Spenser, The Faerie Queene|courage
 spenser|For of the soule the bodie forme doth take,\nFor soule is forme and doth the bodie make.|Edmund Spenser, An Hymne in Honour of Beautie|self,art
+mlk|How long? Not long, because the arc of the moral universe is long, but it bends toward justice.|Martin Luther King Jr., Our God Is Marching On (1965)|hope,society
+auden|Thousands have lived without love, not one without water.|W. H. Auden, First Things First|love,nature
+nabokov|Caress the detail, the divine detail.|Vladimir Nabokov, Lectures on Literature|art,books
+achebe|When the moon is shining the cripple becomes hungry for a walk.|Chinua Achebe, Things Fall Apart|joy,nature
+cortazar|Nothing is lost if one at last has the courage to proclaim that everything is lost and we must begin again.|Julio Cortázar, Hopscotch (tr. Claude)|hope,courage
+selvon|Under the kiff-kiff laughter, behind the ballad and the episode, the what-happening, the summer-is-hearts, he could see a great aimlessness, a great restless, swaying movement that leaving you standing in the same spot.|Sam Selvon, The Lonely Londoners|meaning,journey
+vallejo|There are blows in life so hard... I don't know!\nBlows as if from the hatred of God; as if before them\nthe undertow of everything suffered\nwere pooling in the soul... I don't know!|César Vallejo, The Black Heralds (tr. Claude)|suffering,sacred
+brodsky|There are worse crimes than burning books. One of them is not reading them.|Joseph Brodsky|books
+walcott|I had no nation now but the imagination.|Derek Walcott, The Schooner Flight|journey,self,dreams
