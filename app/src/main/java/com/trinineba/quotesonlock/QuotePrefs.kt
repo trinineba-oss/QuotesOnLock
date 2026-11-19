@@ -45,8 +45,9 @@ class QuotePrefs(context: Context) {
             editor.apply()
         }
 
+    /** The app's theme; The Starry Night until one is chosen. */
     var theme: AppTheme
-        get() = AppTheme.fromKey(prefs.getString("theme", null))
+        get() = AppTheme.fromKey(prefs.getString("theme", AppTheme.STARRY.key))
         set(value) = prefs.edit().putString("theme", value.key).apply()
 
     /** How solid (0–1) the cards behind quotes are in the themed looks, in the app and on the lock screen. */

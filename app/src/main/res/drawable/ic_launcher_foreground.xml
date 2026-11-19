@@ -1,16 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- App icon: a golden padlock whose keyhole is a pair of quotation marks, under a crescent moon and stars. -->
+<!-- App icon: a golden padlock whose keyhole is a pair of quotation marks, set low over the great swirl of van Gogh's The Starry Night (the background). -->
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:aapt="http://schemas.android.com/aapt"
     android:width="108dp"
     android:height="108dp"
     android:viewportWidth="108"
     android:viewportHeight="108">
-    <path android:fillColor="#FFFFF1C9" android:pathData="M79,22 a9,9 0 1 0 8.5,12.2 a7,7 0 1 1 -8.5,-12.2 Z" />
-    <path android:fillColor="#FFFFF6DD" android:pathData="M27.00,28.80 L27.83,32.17 L31.20,33.00 L27.83,33.83 L27.00,37.20 L26.17,33.83 L22.80,33.00 L26.17,32.17 Z" />
-    <path android:fillColor="#FFFFF6DD" android:pathData="M84.00,54.40 L84.51,56.49 L86.60,57.00 L84.51,57.51 L84.00,59.60 L83.49,57.51 L81.40,57.00 L83.49,56.49 Z" />
-    <path android:fillColor="#FFFFF6DD" android:pathData="M25.00,59.80 L25.44,61.56 L27.20,62.00 L25.44,62.44 L25.00,64.20 L24.56,62.44 L22.80,62.00 L24.56,61.56 Z" />
-    <path android:fillColor="#FFFFF6DD" android:pathData="M64.00,18.20 L64.36,19.64 L65.80,20.00 L64.36,20.36 L64.00,21.80 L63.64,20.36 L62.20,20.00 L63.64,19.64 Z" />
+    <group android:pivotX="54" android:pivotY="58" android:scaleX="0.58" android:scaleY="0.58" android:translateY="14">
+    <path android:fillColor="#5906102E" android:pathData="M40,49 L68,49 Q77,49 77,57 L77,76 Q77,85 68,85 L40,85 Q31,85 31,76 L31,57 Q31,49 40,49 Z" />
     <path
         android:strokeWidth="6"
         android:strokeLineCap="round"
@@ -30,5 +27,6 @@
             </gradient>
         </aapt:attr>
     </path>
-    <path android:fillColor="#FF2A1F55" android:pathData="M53.70,59.00 C53.70,66.80 49.54,71.74 43.30,73.82 L42.52,72.00 C46.16,69.92 48.50,67.32 48.50,64.20 A5.2,5.2 0 1 1 53.70,59.00 Z M66.70,59.00 C66.70,66.80 62.54,71.74 56.30,73.82 L55.52,72.00 C59.16,69.92 61.50,67.32 61.50,64.20 A5.2,5.2 0 1 1 66.70,59.00 Z" />
+    <path android:fillColor="#FF1A2A6B" android:pathData="M53.70,59.00 C53.70,66.80 49.54,71.74 43.30,73.82 L42.52,72.00 C46.16,69.92 48.50,67.32 48.50,64.20 A5.2,5.2 0 1 1 53.70,59.00 Z M66.70,59.00 C66.70,66.80 62.54,71.74 56.30,73.82 L55.52,72.00 C59.16,69.92 61.50,67.32 61.50,64.20 A5.2,5.2 0 1 1 66.70,59.00 Z" />
+    </group>
 </vector>
