@@ -18,6 +18,7 @@ object Backup {
         "widget_theme", "allow_repeats", "favorites_only", "update_check", "card_softness", "card_opacity",
         "motion_speed", "aurora_intensity", "animate_background", "wallpaper_show_quote", "wallpaper_quote_position", "swipe_card", "ideas_mix", "myths_mix", "random_theme", "sound_volume", "sound_timer", "breathe_sound", "saved_mixes", "calm_wallpaper", "calm_theme", "calm_still", "calm_log", "winddown_minutes", "winddown_sound", "voice_rate", "voice_name", "natural_voice", "notif_read", "fav_collections", "reflect_prompt", "daily_enabled", "daily_hour", "daily_minute",
         "lifeline_letter", "lifeline_helps", "lifeline_people", "lifeline_places", "lifeline_reasons", "lifeline_notes",
+        "letters_read", "letters_last", "paths_done",
     )
 
     class Result(val favoritesAdded: Int, val customAdded: Int, val hasSettings: Boolean)

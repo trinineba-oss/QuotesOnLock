@@ -68,18 +68,18 @@ object Things {
 
 /** The sections of everyday things, each a row of tiles; a tile opens the thing's page. */
 @Composable
-fun HowThingsScreen(onBack: () -> Unit, onOpenAuthor: (String) -> Unit) {
+fun HowThingsScreen(onBack: () -> Unit, onOpenAuthor: (String) -> Unit, start: String? = null) {
     val context = LocalContext.current
     val prefs = remember { QuotePrefs(context) }
     val bundled = remember { QuoteRepository(context).bundled() }
     val sections = remember { Things.sections(context) }
     val all = remember(sections) { sections.flatMap { s -> s.things.map { s to it } } }
-    var open by rememberSaveable { mutableStateOf<Int?>(null) }
+    var open by rememberSaveable { mutableStateOf(start?.let { r -> all.indexOfFirst { it.second.ref == r }.takeIf { it >= 0 } }) }
     var refresh by remember { mutableIntStateOf(0) }
     open?.let { i ->
         // A fresh screen for each thing, so it opens at the top.
         androidx.compose.runtime.key(i) {
-            ThingScreen(all, i, prefs, bundled, onGo = { open = it }, onBack = { open = null; refresh++ }, onOpenAuthor = onOpenAuthor)
+            ThingScreen(all, i, prefs, bundled, onGo = { open = it }, onBack = { if (start != null) onBack() else { open = null; refresh++ } }, onOpenAuthor = onOpenAuthor)
         }
         return
     }

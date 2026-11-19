@@ -763,6 +763,8 @@ private fun QuotesScreen(
                             prefs.welcomeDone = true
                             welcome = false
                             if (current == null) nextQuote()
+                            // Once, after the welcome: where would you like to begin?
+                            browse = listOf("start")
                         },
                         modifier = Modifier.fillMaxWidth().height(52.dp),
                     ) { Text("Start reading") }
@@ -839,6 +841,51 @@ private fun QuotesScreen(
             ThemesScreen(onBack = { browse = browse.dropLast(1) }, onOpenAuthor = { browse = browse + BrowsePage.author(it) })
             return
         }
+    }
+    browse.lastOrNull()?.takeIf { it == "find" }?.let {
+        FindScreen(
+            onBack = { browse = browse.dropLast(1) },
+            onOpenEssay = { browse = browse + "essays:$it" },
+            onOpenLetter = { browse = browse + "letters:$it" },
+            onOpenThing = { browse = browse + "things:$it" },
+            onOpenPath = { browse = browse + "paths:$it" },
+            onOpenAuthor = { browse = browse + BrowsePage.author(it) },
+            onOpenPage = { browse = browse + it },
+            onShow = { quote ->
+                current = repo.show(quote)
+                canGoBack = repo.hasPrevious()
+                if (enabled) QuoteNotifier.show(context, quote)
+                browse = emptyList()
+                page = Page.HOME
+            },
+        )
+        return
+    }
+    browse.lastOrNull()?.takeIf { it == "start" }?.let {
+        StartHereScreen(
+            onBack = { browse = browse.dropLast(1) },
+            onGo = { browse = browse + it },
+            onCalm = { browse = emptyList(); page = Page.TOOLBOX },
+            onOpenAuthor = { browse = browse + BrowsePage.author(it) },
+        )
+        return
+    }
+    browse.lastOrNull()?.takeIf { it.startsWith("essays:") }?.let { route ->
+        EssaysScreen(
+            onBack = { browse = browse.dropLast(1) },
+            onOpenAuthor = { browse = browse + BrowsePage.author(it) },
+            onOpenPath = { browse = browse + if (it == "letters") "letters" else "paths:$it" },
+            start = route.removePrefix("essays:"),
+        )
+        return
+    }
+    browse.lastOrNull()?.takeIf { it.startsWith("letters:") }?.let { route ->
+        LettersScreen(onBack = { browse = browse.dropLast(1) }, onOpenAuthor = { browse = browse + BrowsePage.author(it) }, start = route.removePrefix("letters:"))
+        return
+    }
+    browse.lastOrNull()?.takeIf { it.startsWith("things:") }?.let { route ->
+        HowThingsScreen(onBack = { browse = browse.dropLast(1) }, onOpenAuthor = { browse = browse + BrowsePage.author(it) }, start = route.removePrefix("things:"))
+        return
     }
     browse.lastOrNull()?.takeIf { it.startsWith("paths:") }?.let { route ->
         ReadingPathsScreen(
@@ -1121,11 +1168,11 @@ private fun QuotesScreen(
     fun LazyListScope.discoverPage() {
         tabHeader("Discover")
         item(key = "d-search") {
-            SoftCard(Modifier.fillMaxWidth(), onClick = { browse = listOf(BrowsePage.SEARCH) }) {
+            SoftCard(Modifier.fillMaxWidth(), onClick = { browse = listOf("find") }) {
                 Row(Modifier.padding(horizontal = 18.dp, vertical = 14.dp), verticalAlignment = Alignment.CenterVertically) {
                     Icon(painterResource(R.drawable.ic_search), contentDescription = null, tint = MaterialTheme.colorScheme.onSurfaceVariant)
                     Text(
-                        "Search ${"%,d".format(repo.bundled().size)} quotes and authors",
+                        "Search everything: quotes, essays, letters, ideas…",
                         style = MaterialTheme.typography.bodyLarge,
                         color = MaterialTheme.colorScheme.onSurfaceVariant,
                         modifier = Modifier.padding(start = 12.dp),
@@ -1133,33 +1180,47 @@ private fun QuotesScreen(
                 }
             }
         }
-        item(key = "d-journeys") { Text("JOURNEYS", style = MaterialTheme.typography.labelMedium, color = MaterialTheme.colorScheme.primary, letterSpacing = 1.2.sp) }
-        item(key = "d-learn") {
-            JourneyCard("Learn", "Two minutes a day: one idea, one question, gentle reviews · topics to start from", Color(0xFF8A6A3A)) { browse = listOf("learn") }
-        }
-        item(key = "d-paths") {
-            JourneyCard("Reading paths", "Guided journeys: existentialism, the Stoics, myths of love, wonder and more", Color(0xFF2E8B74)) { browse = listOf("paths") }
-        }
-        item(key = "d-essays") {
-            JourneyCard("Essays", "One question, many voices: grief, hope, fear, friendship, freedom, memory, Carnival and more, with lines from across the centuries", Color(0xFF5A6B8C)) { browse = listOf("essays") }
-        }
-        item(key = "d-letters") {
-            JourneyCard("Van Gogh's letters", "His letters to his brother Theo, from the young art dealer to the painter of Arles: read them in full, with a note on where he was", Color(0xFF2B4C8C)) { browse = listOf("letters") }
-        }
-        item(key = "d-things") {
-            JourneyCard("How things work", "The microwave, GPS, soap, rainbows: the everyday world, explained in a few minutes each", Color(0xFFC0682E)) { browse = listOf("things") }
-        }
-        item(key = "d-themes") {
-            JourneyCard("One idea, many hands", "Time, the self, love, death… 20 great themes traced across the centuries", Color(0xFF7A5ADC)) { browse = listOf("themes") }
-        }
-        item(key = "d-pair1") {
-            Row(horizontalArrangement = Arrangement.spacedBy(12.dp)) {
-                JourneyCard("Influences", "Threads of who read whom", Color(0xFF3C78C8), Modifier.weight(1f)) { browse = listOf("influences") }
-                JourneyCard("Dialogues", "Voices answering across time", Color(0xFFC86EA0), Modifier.weight(1f)) { browse = listOf("dialogues") }
+        item(key = "d-start") { StartHereCard { browse = listOf("start") } }
+        item(key = "d-resume") {
+            // Pick up where you left off: a letter or reading path in progress, and today's lesson if not yet done.
+            val resume = remember(page, browse) {
+                buildList {
+                    val letters = runCatching { Letters.groups(context).flatMap { it.letters } }.getOrDefault(emptyList())
+                    prefs.lastLetter?.let { id -> letters.firstOrNull { it.id == id && id !in prefs.lettersRead } }?.let { l ->
+                        add(Triple(l.title, "Van Gogh's letters · ${l.minutes} min", "letters:" + l.id))
+                    }
+                    prefs.lastPath?.takeIf { it !in prefs.pathsDone }?.let { add(Triple(it, "Reading path", "paths:$it")) }
+                    if (!Learn.todayDone(prefs)) runCatching { Learn.todays(prefs, context) }.getOrNull()?.let { add(Triple("Today's lesson: ${it.ref}", "Learn · 2 min", "learn")) }
+                }
+            }
+            if (resume.isNotEmpty()) Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
+                Text("PICK UP WHERE YOU LEFT OFF", style = MaterialTheme.typography.labelMedium, color = MaterialTheme.colorScheme.primary, letterSpacing = 1.2.sp)
+                resume.forEach { (t, m, route) -> ResumeRow(t, m) { browse = listOf(route) } }
             }
         }
-        item(key = "d-timeline") {
-            JourneyCard("Who was alive together", "Every author on one timeline", Color(0xFFD2A050)) { browse = listOf("timeline") }
+        item(key = "d-journeys") { Text("JOURNEYS", style = MaterialTheme.typography.labelMedium, color = MaterialTheme.colorScheme.primary, letterSpacing = 1.2.sp) }
+        item(key = "d-grid") {
+            val essayCount = remember { runCatching { Essays.all(context).size }.getOrDefault(0) }
+            val letterCount = remember { runCatching { Letters.groups(context).sumOf { it.letters.size } }.getOrDefault(0) }
+            val tiles = listOf(
+                Triple("Learn", "Two minutes a day: one idea, one question", 0xFF8A6A3A) to "learn",
+                Triple("Reading paths", "Guided journeys: the Stoics, wonder, love…", 0xFF2E8B74) to "paths",
+                Triple("Essays", "$essayCount · one question, many voices", 0xFF5A6B8C) to "essays",
+                Triple("Van Gogh's letters", "$letterCount · in his own words", 0xFF2B4C8C) to "letters",
+                Triple("How things work", "The microwave, GPS, rainbows…", 0xFFC0682E) to "things",
+                Triple("One idea, many hands", "Great themes across the centuries", 0xFF7A5ADC) to "themes",
+                Triple("Influences", "Threads of who read whom", 0xFF3C78C8) to "influences",
+                Triple("Dialogues", "Voices answering across time", 0xFFC86EA0) to "dialogues",
+                Triple("Who was alive together", "Every author on one timeline", 0xFFD2A050) to "timeline",
+            )
+            Column(verticalArrangement = Arrangement.spacedBy(10.dp)) {
+                tiles.chunked(2).forEach { row ->
+                    Row(horizontalArrangement = Arrangement.spacedBy(10.dp)) {
+                        row.forEach { (t, route) -> JourneyTile(t.first, t.second, Color(t.third), Modifier.weight(1f)) { browse = listOf(route) } }
+                        if (row.size == 1) Box(Modifier.weight(1f))
+                    }
+                }
+            }
         }
         item(key = "d-browse") { Text("BROWSE", style = MaterialTheme.typography.labelMedium, color = MaterialTheme.colorScheme.primary, letterSpacing = 1.2.sp) }
         item(key = "d-shelves") {

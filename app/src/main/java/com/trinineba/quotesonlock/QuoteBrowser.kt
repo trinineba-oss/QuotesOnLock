@@ -124,7 +124,7 @@ fun QuoteBrowser(
     val group = if (page.startsWith("g:")) QuoteGroup.entries.firstOrNull { it.name == page.removePrefix("g:") } else null
     // Idea, myth and folklore pages get chips to move between the group's types.
     val chipGroup = group ?: category?.group?.takeIf { it == QuoteGroup.IDEAS || it == QuoteGroup.MYTHS || it == QuoteGroup.FOLKLORE }
-    val searching = page == BrowsePage.SEARCH
+    val searching = page.startsWith(BrowsePage.SEARCH)
     val all = remember(page) {
         when {
             searching -> repo.custom() + repo.bundled()
@@ -136,7 +136,7 @@ fun QuoteBrowser(
             else -> (repo.custom() + repo.bundled()).filter { authorName(it.author) == author }
         }
     }
-    var query by rememberSaveable(page) { mutableStateOf("") }
+    var query by rememberSaveable(page) { mutableStateOf(if (searching) page.removePrefix(BrowsePage.SEARCH) else "") }
     var favorites by remember { mutableStateOf(repo.favorites().map { it.text }.toSet()) }
     var opened by remember { mutableStateOf<Quote?>(null) }
     opened?.let { q ->

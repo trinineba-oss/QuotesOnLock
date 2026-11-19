@@ -92,12 +92,12 @@ object Essays {
 
 /** The list of essays; tapping one opens it to read. */
 @Composable
-fun EssaysScreen(onBack: () -> Unit, onOpenAuthor: (String) -> Unit, onOpenPath: (String) -> Unit) {
+fun EssaysScreen(onBack: () -> Unit, onOpenAuthor: (String) -> Unit, onOpenPath: (String) -> Unit, start: String? = null) {
     val context = LocalContext.current
     val essays = remember { Essays.all(context) }
-    var open by rememberSaveable { mutableStateOf<String?>(null) }
+    var open by rememberSaveable { mutableStateOf(start) }
     essays.firstOrNull { it.title == open }?.let { e ->
-        EssayScreen(e, onBack = { open = null }, onOpenAuthor = onOpenAuthor, onOpenPath = onOpenPath)
+        EssayScreen(e, onBack = { if (start != null) onBack() else open = null }, onOpenAuthor = onOpenAuthor, onOpenPath = onOpenPath)
         return
     }
     BackHandler(onBack = onBack)
@@ -135,7 +135,7 @@ fun EssaysScreen(onBack: () -> Unit, onOpenAuthor: (String) -> Unit, onOpenPath:
 
 /** One essay: paragraphs in a reading serif, the collection's lines as tappable cards, then the voices and where to go next. */
 @Composable
-private fun EssayScreen(essay: Essay, onBack: () -> Unit, onOpenAuthor: (String) -> Unit, onOpenPath: (String) -> Unit) {
+internal fun EssayScreen(essay: Essay, onBack: () -> Unit, onOpenAuthor: (String) -> Unit, onOpenPath: (String) -> Unit) {
     BackHandler(onBack = onBack)
     val context = LocalContext.current
     val bundled = remember { QuoteRepository(context).bundled() }

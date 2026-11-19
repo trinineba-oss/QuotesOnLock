@@ -124,16 +124,16 @@ private val Gold = Color(0xFFD4A72C)
 
 /** The letters, grouped by where he lived, with "Continue" to pick up where you left off. */
 @Composable
-fun LettersScreen(onBack: () -> Unit, onOpenAuthor: (String) -> Unit) {
+fun LettersScreen(onBack: () -> Unit, onOpenAuthor: (String) -> Unit, start: String? = null) {
     val context = LocalContext.current
     val prefs = remember { QuotePrefs(context) }
     val groups = remember { Letters.groups(context) }
     val all = remember(groups) { groups.flatMap { it.letters } }
-    var open by rememberSaveable { mutableStateOf<String?>(null) }
+    var open by rememberSaveable { mutableStateOf(start) }
     var refresh by remember { mutableIntStateOf(0) }
     all.indexOfFirst { it.id == open }.takeIf { it >= 0 }?.let { i ->
         androidx.compose.runtime.key(i) {
-            LetterScreen(all, i, prefs, onGo = { open = all[it].id }, onBack = { open = null; refresh++ }, onOpenAuthor = onOpenAuthor)
+            LetterScreen(all, i, prefs, onGo = { open = all[it].id }, onBack = { if (start != null) onBack() else { open = null; refresh++ } }, onOpenAuthor = onOpenAuthor)
         }
         return
     }
@@ -210,7 +210,7 @@ fun LettersScreen(onBack: () -> Unit, onOpenAuthor: (String) -> Unit) {
 
 /** One letter: a note on where he was, the letter itself in a reading serif with the collection's lines underlined, and previous and next. */
 @Composable
-private fun LetterScreen(all: List<Letter>, index: Int, prefs: QuotePrefs, onGo: (Int) -> Unit, onBack: () -> Unit, onOpenAuthor: (String) -> Unit) {
+internal fun LetterScreen(all: List<Letter>, index: Int, prefs: QuotePrefs, onGo: (Int) -> Unit, onBack: () -> Unit, onOpenAuthor: (String) -> Unit) {
     BackHandler(onBack = onBack)
     val context = LocalContext.current
     val letter = all[index]
