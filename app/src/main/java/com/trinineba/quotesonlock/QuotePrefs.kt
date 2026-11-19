@@ -353,6 +353,16 @@ class QuotePrefs(context: Context) {
     fun pathStep(title: String): Int = prefs.getInt("path_step:$title", 0)
     fun setPathStep(title: String, step: Int) = prefs.edit().putInt("path_step:$title", step).apply()
 
+    /** Van Gogh's letters read to the end (by letter id). */
+    var lettersRead: Set<String>
+        get() = prefs.getStringSet("letters_read", null)?.toSet() ?: emptySet()
+        set(value) = prefs.edit().putStringSet("letters_read", value).apply()
+
+    /** The letter last opened, shown under "Continue". */
+    var lastLetter: String?
+        get() = prefs.getString("letters_last", null)
+        set(value) = prefs.edit().putString("letters_last", value).apply()
+
     /** Reading paths walked to the end. */
     var pathsDone: Set<String>
         get() = prefs.getStringSet("paths_done", null) ?: emptySet()

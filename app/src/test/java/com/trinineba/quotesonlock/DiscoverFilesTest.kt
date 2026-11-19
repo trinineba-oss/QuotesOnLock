@@ -63,11 +63,26 @@ class DiscoverFilesTest {
         essays.forEach { e ->
             assertTrue("${e.title}: too short", e.parts.count { it is EssayPart.Para } >= 8)
             assertTrue("${e.title}: too few voices", e.parts.count { it !is EssayPart.Para } >= 6)
-            assertTrue("${e.title}: unknown path ${e.path}", e.path.isEmpty() || e.path in paths)
+            assertTrue("${e.title}: unknown path ${e.path}", e.path.isEmpty() || e.path == "letters" || e.path in paths)
             e.parts.filter { it !is EssayPart.Para }.forEach { p ->
                 assertTrue("${e.title}: line not found: ${(p as? EssayPart.Line)?.text?.take(50) ?: (p as EssayPart.Idea).title}", Essays.resolve(all, p) != null)
             }
         }
+    }
+
+    @Test fun vanGoghLettersAreWholeAndUnderlineTheCollection() {
+        val groups = raw("letters.txt").useLines { Letters.parse(it) }
+        val letters = groups.flatMap { it.letters }
+        assertTrue("too few letters: ${letters.size}", letters.size >= 40)
+        assertEquals("a letter id is used twice", letters.size, letters.map { it.id }.toSet().size)
+        letters.forEach { l ->
+            assertTrue("${l.id}: no note", l.note.length > 40)
+            assertTrue("${l.id}: unknown source", l.source == Letters.SOURCE_BONGER || l.source == Letters.SOURCE_LUDOVICI)
+            assertTrue("${l.id}: empty", l.paras.isNotEmpty() && l.paras.all { it.isNotBlank() })
+            l.paras.forEach { p -> assertTrue("${l.id}: stray characters in: ${p.take(60)}", p.none { it in "|_@{}[]<>#*~°¢" }) }
+        }
+        val underlined = letters.sumOf { l -> l.paras.sumOf { Letters.linesIn(quotes, it).size } }
+        assertTrue("too few of his lines underlined: $underlined", underlined >= 60)
     }
 
     @Test fun everyEverydayThingIsExplainedTaughtAndDrawn() {

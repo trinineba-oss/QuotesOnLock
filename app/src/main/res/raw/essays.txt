@@ -408,3 +408,27 @@ Q|And now I only remember my dead Joy in remembering my dead Sorrow. But memory 
 P|And Marcus Aurelius, writing on campaign, gave it its most humbling one.
 Q|All things are for a day, both what remembers and what is remembered.
 P|Perhaps that is why memory matters so much: because it, too, is mortal. To remember well is to keep faith, for a while, with what would otherwise vanish.
+E|A great fire in the soul|Vincent van Gogh, in his own words, from the miners' villages to the starry night|2B4C8C|letters
+P|Vincent van Gogh painted for about ten years. In that time he made some eight hundred and fifty paintings and more than a thousand drawings, and he sold almost nothing. Almost everything we know of what went on inside him we know from his letters, more than six hundred of them to his younger brother Theo, who sent him money every month, kept every page, and believed in him when almost no one else did.
+P|In the summer of 1880 Vincent was twenty-seven, and nothing he had tried had worked. He had been dismissed from the art dealers where he began, failed at teaching and bookselling, given up his studies for the ministry, and lost his post as a lay preacher among the coal miners of the Borinage in Belgium. He had not written to Theo for many months. When he finally did, he tried to explain how a person can look idle from the outside while burning within.
+Q|There may be a great fire in our soul, and no one ever comes to warm himself at it, and the passers by see only a little bit of smoke coming through the chimney, and pass on their way.
+P|In the same long letter he reached for an image of himself that anyone who has felt stuck will recognise: a bird in a cage in spring, who knows there is something he is meant to do, and cannot yet do it.
+Q|A caged bird in spring knows quite well that he might serve to some end; he feels quite well that there is something for him to do, but he cannot do it. What is it? He does not remember quite well.
+P|What he decided, in that letter and the ones after it, was to become an artist. He had almost no training. He began by copying prints and drawing the miners, and the letters of the next years are full of the slow, unglamorous labour of learning. He described it as tunnelling, not leaping.
+Q|What is drawing? How does one learn it? It is working through an invisible iron wall that seems to stand between what one feels and what one can do. How must one get through that wall—as pounding against it is of no use? One must undermine that wall and file through it slowly and patiently.
+Q|For the great things are not done only by impulse, but are a series of small things brought together.
+P|It is easy to think of van Gogh as a wild genius, all instinct. The letters show something closer to a craftsman, and a deeply moral one. Again and again he comes back to love, not as a feeling but as a way of paying attention, the root of both art and goodness.
+Q|It is good to love many things, for therein lies the true strength, and whosoever loves much performs much, and can accomplish much, and what is done in love, is well done.
+Q|There is nothing more truly artistic than to love people.
+P|He was often poor, often ill, often lonely, and he did not hide it from his brother. But the letters are not a record of despair. They are a record of a man who kept turning his eyes outward, to the peasants in the fields, the colours of the sky, the light in a cottage window, and who believed his sorrow could be answered by work.
+Q|Mysteries remain, sorrow or melancholy remain, but that everlasting negative is balanced by the positive work which thus is achieved after all.
+P|In 1888 he went south, to Arles, and the colour came. Sunflowers, orchards in blossom, the yellow house he rented, the café terrace at night. He was fascinated by the night, and wrote to Theo that it seemed to him more alive than the day.
+Q|I often think that the night is more alive and more richly colored than the day.
+Q|For my part I know nothing with any certainty, but the sight of the stars makes me dream.
+P|The next year, after a breakdown, he went of his own will to the asylum at Saint-Rémy. From the window of his room there he watched the sky before dawn, and in June 1889 he painted The Starry Night: the cypress like a dark flame, the village asleep, the stars turning in their great swirls. It is the painting behind this app's theme and icon. He was not sure it had succeeded.
+P|He died in July 1890, at thirty-seven, in the village of Auvers north of Paris. Theo died six months later. It was Theo's widow, Jo van Gogh-Bonger, who made Vincent's name: she exhibited his paintings, kept his letters together, published them in 1914, and spent years translating them into English. Without her we would have the pictures but not the man.
+P|He seems to have known that the world might be slow to see what he was doing, and he had an answer for it, as plain as the fields he painted.
+Q|If I am worth anything later, I am worth something now. For wheat is wheat, even if people think it is a grass in the beginning.
+P|And perhaps his simplest advice is the one most worth carrying away from him. It asks nothing but attention, and it is the whole of his art.
+Q|Admire as much as you can. Most people do not admire enough.
+P|His letters are in the app to read in full, from the young clerk in The Hague to the painter in the south.

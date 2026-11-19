@@ -827,8 +827,12 @@ private fun QuotesScreen(
             EssaysScreen(
                 onBack = { browse = browse.dropLast(1) },
                 onOpenAuthor = { browse = browse + BrowsePage.author(it) },
-                onOpenPath = { browse = browse + "paths:$it" },
+                onOpenPath = { browse = browse + if (it == "letters") "letters" else "paths:$it" },
             )
+            return
+        }
+        "letters" -> {
+            LettersScreen(onBack = { browse = browse.dropLast(1) }, onOpenAuthor = { browse = browse + BrowsePage.author(it) })
             return
         }
         "themes" -> {
@@ -1138,6 +1142,9 @@ private fun QuotesScreen(
         }
         item(key = "d-essays") {
             JourneyCard("Essays", "One question, many voices: grief, hope, fear, friendship, freedom, memory, Carnival and more, with lines from across the centuries", Color(0xFF5A6B8C)) { browse = listOf("essays") }
+        }
+        item(key = "d-letters") {
+            JourneyCard("Van Gogh's letters", "His letters to his brother Theo, from the young art dealer to the painter of Arles: read them in full, with a note on where he was", Color(0xFF2B4C8C)) { browse = listOf("letters") }
         }
         item(key = "d-things") {
             JourneyCard("How things work", "The microwave, GPS, soap, rainbows: the everyday world, explained in a few minutes each", Color(0xFFC0682E)) { browse = listOf("things") }
