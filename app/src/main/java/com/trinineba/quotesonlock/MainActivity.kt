@@ -1137,7 +1137,7 @@ private fun QuotesScreen(
             JourneyCard("Reading paths", "Guided journeys: existentialism, the Stoics, myths of love, wonder and more", Color(0xFF2E8B74)) { browse = listOf("paths") }
         }
         item(key = "d-essays") {
-            JourneyCard("Essays", "One question, many voices: grief, home, happiness and ordinary courage, with lines from across the centuries", Color(0xFF5A6B8C)) { browse = listOf("essays") }
+            JourneyCard("Essays", "One question, many voices: grief, solitude, time, love, anger, the sea and more, with lines from across the centuries", Color(0xFF5A6B8C)) { browse = listOf("essays") }
         }
         item(key = "d-things") {
             JourneyCard("How things work", "The microwave, GPS, soap, rainbows: the everyday world, explained in a few minutes each", Color(0xFFC0682E)) { browse = listOf("things") }

@@ -78,3 +78,154 @@ Q|Nothing can ever happen twice.\nIn consequence, the sorry fact is\nthat we arr
 P|We arrive improvised. Mary Oliver, at the end of a poem about a grasshopper eating sugar from her hand and an afternoon spent simply paying attention, turns to the reader with the question that all of these voices are, in their way, asking.
 Q|Tell me, what else should I have done?\nDoesn't everything die at last, and too soon?\nTell me, what is it you plan to do\nwith your one wild and precious life?
 P|The courage to be ordinary is the courage to answer that question in small, daily, unremarkable ways, and to trust, as Eliot did, that it counts.
+E|How to be alone|Pascal, Thoreau, Weil, Rollo May, Gibran, Lao Tzu and Rilke on solitude|2E8B74|How to be alone
+P|We live in an age that treats being alone as a problem to be solved. A spare minute is filled with a screen; an empty evening feels like evidence that something has gone wrong. And yet many of the people who thought hardest about how to live came to see solitude not as an absence but as a skill, perhaps the one on which the others depend.
+P|Blaise Pascal, writing in the seventeenth century long before anyone could scroll, diagnosed the restlessness exactly.
+Q|I have discovered that all the unhappiness of men arises from one single fact, that they cannot stay quietly in their own chamber. A man who has enough to live on, if he knew how to stay with pleasure at home, would not leave it to go to sea or to besiege a town.
+P|It sounds like an exaggeration until we try it. Sitting quietly in a room, with nothing to do and no one to distract us, brings up everything we have been outrunning: our mortality, our unfinished business, our own company. Pascal thought most of what we call diversion was a flight from that.
+I|Sitting Quietly in a Room
+P|Thoreau went to Walden Pond partly to stop running. But he did not go there to become a hermit, and his furniture tells the story better than any manifesto.
+Q|I had three chairs in my house; one for solitude, two for friendship, three for society.
+P|One chair for solitude, two for friendship, three for society. Solitude is not the opposite of company; it is one room in a well-proportioned life. The psychologist Rollo May, who spent his career on anxiety and creativity, saw why the first chair matters so much.
+Q|The fear of being alone derives much of its terror from our anxiety lest we lose our awareness of ourselves.
+P|We fear solitude, May suggests, because we fear not finding anyone there. The cure is not to avoid being alone but to learn that someone is indeed at home. Simone Weil, who could be severe about almost everything, put the stakes more starkly: the crowd, for her, was Plato's cave, full of shadows we mistake for reality.
+Q|Society is the cave. The way out is solitude.
+P|Not because other people are shadows, but because we cannot see them clearly, or ourselves, until we have stepped outside the noise for a while. Lao Tzu offered an image that anyone who has ever stirred a pond will recognise.
+Q|Who can make the muddy water clear? Let it be still, and it will gradually become clear. Who can secure the condition of rest? Let movement go on, and the condition of rest will gradually arise.
+P|Let it be still, and it clears by itself. Kahlil Gibran, who knew loneliness in New York as an immigrant, found something fiercer in it than calm: a storm that clears out what is dead.
+Q|Solitude is a silent storm that breaks down all our dead branches; Yet it sends our living roots deeper into the living heart of the living earth.
+P|It is a hopeful image. The same solitude that strips us also sends our roots deeper. Rollo May, again, saw that every creative life depends on it.
+Q|In order to be open to creativity, one must have the capacity for constructive use of solitude. One must overcome the fear of being alone.
+P|To be alone well is not to be lonely. It is to discover that we are, after all, reasonable company, and to return to the other chairs with more to give.
+E|Time, and how we spend it|Seneca, Marcus Aurelius, the Psalms, Thoreau, Annie Dillard, Herrick and Borges|B4643C|The examined life
+P|Almost everyone says they don't have enough time. Seneca, writing to his friend Paulinus two thousand years ago, thought this was the wrong complaint. The trouble, he argued, is not the length of our lives but what we do with them.
+Q|It is not that we have a short time to live, but that we waste a lot of it.
+P|His essay On the Shortness of Life is an inventory of the ways we give our hours away: to other people's errands, to ambition, to worry, to waiting for a future we keep postponing. We guard our money carefully, he noticed, and spend our time as though it were free.
+Q|Life is a matter which does not admit of waste, and we have no spare time to throw away.
+P|Marcus Aurelius, who ruled Rome a century later and carried a copy of the Stoics in his head, reached for an image of motion rather than scarcity.
+Q|Time is a river, a violent torrent of things coming into being.
+P|Everything is swept along: we cannot hold a single moment still. Long before either of them, the Psalmist made of the same awareness not a terror but a prayer.
+Q|So teach us to number our days, that we may apply our hearts unto wisdom.
+P|To number our days is not to count them anxiously, but to know they are numbered, and to let that knowledge make us wiser. The Stoics practised the same thing deliberately, as a daily remembering.
+I|Memento Mori
+P|Thoreau, at Walden, turned the question from quantity to attention. Time we do not notice is time we did not live.
+Q|Only that day dawns to which we are awake.
+P|Annie Dillard, in a slim book about writing, put it in a sentence so simple it is easy to read past.
+Q|How we spend our days is, of course, how we spend our lives. What we do with this hour, and that one, is what we are doing.
+P|Not the grand plans, not the life we will have once things settle down: this hour, and the next. The poet Robert Herrick, in the seventeenth century, turned the same truth into a song for the young.
+Q|Gather ye rosebuds while ye may,\nOld time is still a-flying:\nAnd this same flower that smiles to-day\nTo-morrow will be dying.
+P|And Jorge Luis Borges, near the end of an essay arguing that time does not exist, admitted that he could not escape it, because he is made of it.
+Q|Time is the substance I am made of. Time is a river which sweeps me along, but I am the river; it is a tiger which destroys me, but I am the tiger; it is a fire which consumes me, but I am the fire.
+P|Perhaps that is the deepest answer to the complaint that we have no time. We do not have time; we are time. What we spend it on is what we become.
+E|Love that lets go|Gibran, Blake, Fromm, Krishnamurti, Plato, Neruda and the Psyche myth|C8506E|Love in many forms
+P|We speak of love as holding: holding hands, holding on, holding someone close. And yet some of the wisest writing about love insists on the opposite gesture, that the deepest love is the one that gives room, the one that does not grasp.
+P|Kahlil Gibran's The Prophet, written in New York and published in 1923, has been read at countless weddings, often by couples who may not notice how little it says about togetherness and how much about space.
+Q|But let there be spaces in your togetherness, and let the winds of the heavens dance between you.
+P|He goes further, and almost reverses the vows.
+Q|Love one another, but make not a bond of love: let it rather be a moving sea between the shores of your souls.
+P|A moving sea between the shores of two souls: not a wall, not a chain, but water that connects by keeping apart. For Gibran, love is not something we own.
+Q|Love gives naught but itself and takes naught but from itself. Love possesses not nor would it be possessed; for love is sufficient unto love.
+P|Erich Fromm, the psychoanalyst who wrote The Art of Loving, gave the same idea a sharper edge. A love that clings to one person and is indifferent to everyone else, he warned, is not love at all.
+Q|If a person loves only one other person and is indifferent to all others, his love is not love but a symbiotic attachment, or an enlarged egotism.
+P|J. Krishnamurti saw how often love becomes a trade, kept in balance like an account.
+Q|Freedom and love go together. Love is not a reaction. If I love you because you love me, that is mere trade, a thing to be bought in the market; it is not love. To love is not to ask anything in return, not even to feel that you are giving something- and it is only such love that can know freedom.
+P|The oldest version of this teaching may be a myth. Psyche, married to an unseen husband, is told she must never look at him. She lights a lamp to see, and loses him.
+I|Psyche's Doubt
+P|Love cannot live with suspicion: trying to possess certainty, she loses the beloved. And yet she wins him back, not by holding tighter, but by faithful labour. William Blake gave the generous love his clearest song, in the voice of a little clod of clay.
+Q|‘Love seeketh not itself to please,\nNor for itself hath any care,\nBut for another gives its ease,\nAnd builds a heaven in hell’s despair.’
+P|Gibran's most startling lines on letting go are about children, and parents have quarrelled with them for a century.
+Q|Your children are not your children. They are the sons and daughters of Life’s longing for itself.
+P|They are not ours to keep; they are life's longing for itself. It is a hard teaching for anyone who loves. But perhaps it is the only kind of love that does not, in the end, have to be lost: the kind that never tried to own what it loved.
+E|Work and craft|Gibran, Chaucer, Aristotle, Franklin, Nabokov, Marcus Aurelius and the idea of flow|A2553C|The Stoics in a week
+P|Most of our waking life is spent working, and much of the advice we are given about it is either grim or glossy: work hard, or follow your passion. The older voices on work say something more interesting. They talk about craft, about patience, about what work does to the person doing it.
+P|Kahlil Gibran began with the most generous claim of all.
+Q|Work is love made visible.
+P|The bread baked with care, the house built well, the patient teaching of a child: work, done with attention, is how love takes shape in the world. Six centuries earlier Geoffrey Chaucer, opening a dream poem about love, borrowed an old saying about the doctor's art, and it has described every craft since.
+Q|The life so short, the craft so long to learn,\nTh'assay so hard, so sharp the conquering,\nThe dreadful joy, alway that flits so yern.
+P|Any real skill takes longer than seems fair. Aristotle saw why that is not a burden but a gift: we become what we repeatedly do.
+I|We Become What We Do
+P|Benjamin Franklin, a printer before he was a statesman, put the slow arithmetic of mastery in homely images.
+Q|Constant dropping wears away stones; and by diligence and patience the mouse ate in two the cable; and little strokes fell great oaks.
+P|Little strokes fell great oaks. The psychologist Mihaly Csikszentmihalyi, studying rock climbers, surgeons and chess players, found that the happiest working moments come when a challenge is just at the edge of our skill, and we lose ourselves in it.
+I|Flow
+P|Craft is also a way of seeing. Vladimir Nabokov, who taught literature at Cornell before Lolita made him famous, told his students what to look for.
+Q|Caress the detail, the divine detail.
+P|Care for the small things is not fussiness; it is respect, for the material and for the person who will one day use what we make. Marcus Aurelius, who wrote much of his notebook in army camps on the Danube frontier, placed happiness in the work itself rather than in what others thought of it.
+Q|The vain-glorious man places his happiness in the action of others. The sensualist finds it in his own sensations. The wise man realizes it in his own work.
+P|The wise realise it in their own work: not in praise, not in reward, but in the doing of it well. That may be the best definition of craft there is.
+E|The night sky and our smallness|The Psalms, Pascal, Kant, Hopkins, Annie Dillard and Carl Sagan|2A3F7A|Wonder: the universe and us
+P|Stand under a dark sky away from city lights and something happens that has happened to human beings for as long as there have been human beings. We feel small. What we make of that smallness is one of the oldest questions in literature.
+P|For the Psalmist, the heavens were not silent at all.
+Q|The heavens declare the glory of God; and the firmament sheweth his handywork. Day unto day uttereth speech, and night unto night sheweth knowledge.
+P|And yet the same awe raised a question that has never quite gone away.
+Q|When I consider thy heavens, the work of thy fingers, the moon and the stars, which thou hast ordained; What is man, that thou art mindful of him? and the son of man, that thou visitest him?
+P|What is man, that thou art mindful of him? Two thousand years later Blaise Pascal, a mathematician who helped invent probability, looked into the same sky made newly vast by the telescope, and felt not praise but vertigo.
+Q|The eternal silence of these infinite spaces frightens me.
+P|Immanuel Kant, a century after, found his way back to wonder by placing two vastnesses side by side, one above and one within.
+I|The Starry Heavens and the Moral Law
+P|Gerard Manley Hopkins, a Jesuit priest who wrote poems almost no one read in his lifetime, could not contain himself under a clear night.
+Q|Look at the stars! look, look up at the skies!\nO look at all the fire-folk sitting in the air!\nThe bright boroughs, the circle-citadels there!
+P|Annie Dillard reminded us of something we forget in brightly lit cities: that we cannot see the stars without the dark.
+Q|You do not have to sit outside in the dark. If, however, you want to look at the stars, you will find that darkness is necessary. But the stars neither require nor demand it.
+P|Carl Sagan, who spent his life explaining the universe on television, came at our smallness from the other side. The atoms of our bodies were forged in stars that died before the Sun was born.
+Q|The nitrogen in our DNA, the calcium in our teeth, the iron in our blood, the carbon in our apple pies were made in the interiors of collapsing stars. We are made of starstuff.
+P|When Voyager 1, leaving the solar system, turned its camera back in 1990, it caught the Earth as a single pale dot in a beam of sunlight. Sagan asked us to look again.
+Q|Look again at that dot. That's here. That's home. That's us. On it everyone you love, everyone you know, everyone you ever heard of, every human being who ever was, lived out their lives.
+P|Small, then, but not nothing: a fragile home for everyone we have ever loved, and the place where the universe, for a while, has come to wonder at itself.
+E|Anger and forgiveness|Seneca, the Dhammapada, Proverbs, Marcus Aurelius, the Buddha, Martin Luther King Jr. and Hammarskjöld|B3402E|Through hard times
+P|Anger feels like strength. In the moment it arrives it seems to clarify everything: who was wrong, what must be done, why we are right. And yet nearly every tradition that has thought about how to live treats anger with deep suspicion, not because injustice doesn't matter, but because anger so often fails to fix it.
+P|Seneca wrote a whole book, On Anger, to a brother who had asked how to master it. His most practical advice was about time.
+Q|If you will do so at some time, how better is it that you should abandon anger than that anger should abandon you?
+P|Anger will pass anyway. Better to be the one who lets it go than the one it drops, exhausted and ashamed. The Book of Proverbs, older still, ranks this kind of self-mastery above conquest.
+Q|He that is slow to anger is better than the mighty; and he that ruleth his spirit than he that taketh a city.
+P|And it offers a technique as useful in a family kitchen as in diplomacy.
+Q|A soft answer turneth away wrath: but grievous words stir up anger.
+P|Marcus Aurelius, wronged often enough as emperor, found a form of revenge that costs nothing and changes everything.
+Q|The best revenge is not to copy him that wronged you.
+P|The Buddha's image for anger is the second arrow: the first is the injury; the second is the one we fire into ourselves by dwelling on it.
+I|The Second Arrow
+P|The Dhammapada states the principle without compromise.
+Q|Hatred does not cease by hatred, but only by love; this is the eternal rule.
+P|Martin Luther King Jr., leading a movement against real and brutal injustice, took that teaching into the streets. He did not ask people to stop resisting; he asked them to refuse hatred as a weapon.
+Q|Darkness cannot drive out darkness: only light can do that. Hate cannot drive out hate: only love can do that.
+P|Forgiveness, for King, was not a single act of pardon but a stance toward life.
+Q|Forgiveness is not an occasional act; it is a permanent attitude.
+P|Dag Hammarskjöld, the Secretary-General of the United Nations who wrote a private journal of the spirit, found in forgiveness something close to a miracle.
+Q|Forgiveness is the answer to the child's dream of a miracle by which what is broken is made whole again, what is soiled is made clean again.
+P|Not that the wrong is undone, but that it no longer has the last word.
+E|What we owe strangers|Martin Luther King Jr., Auden, Dickens, Aesop, the Golden Rule and Ubuntu|3C78C8|Courage
+P|Most moral teaching begins close to home: with family, friends, neighbours. The harder question has always been the stranger: the person we will never see again, who has no claim on us except being human. Almost every tradition has had to answer it.
+P|The oldest answer is a rule found, in one form or another, in nearly every culture.
+I|The Golden Rule
+P|Martin Luther King Jr. told the parable of the Good Samaritan in the last speech of his life, the night before he was killed, and noticed something about the people who walked past the wounded man.
+Q|The first question which the priest and the Levite asked was: "If I stop to help this man, what will happen to me?" But the good Samaritan reversed the question: "If I do not stop to help this man, what will happen to him?"
+P|The Samaritan reversed the question: not what will happen to me if I stop, but what will happen to him if I do not. King saw that our fates are already tied together whether we admit it or not.
+Q|Injustice anywhere is a threat to justice everywhere. We are caught in an inescapable network of mutuality, tied in a single garment of destiny.
+P|Southern Africa gives the same insight a single word: a person is a person through other people.
+I|Ubuntu
+P|W. H. Auden, writing as war began in 1939, put it in a line so stark he later grew uneasy with it.
+Q|We must love one another or die.
+P|Charles Dickens made the same discovery a story. Jacob Marley's ghost, weighed down by chains forged from a life of indifference, tells Scrooge what his real business ought to have been.
+Q|Mankind was my business. The common welfare was my business; charity, mercy, forbearance, and benevolence, were, all, my business. The dealings of my trade were but a drop of water in the comprehensive ocean of my business!
+P|And the smallest version of the teaching is one of the oldest, attributed to a storyteller who was himself said to have been a slave.
+Q|No act of kindness, no matter how small, is ever wasted.
+P|We cannot help every stranger. But we can let the question change, as the Samaritan's did: from what it will cost me to stop, to what it will cost them if I don't.
+E|The sea|Walcott, Byron, Melville, Tennyson, Dionne Brand, Monique Roffey, Ingrid Persaud and Mama Dlo|1F6E8C|Stories of the Caribbean
+P|For people who live on islands, the sea is not scenery. It is the road that brought their ancestors, the horizon of every day, the food on the table and the storm that comes in September. Writers from the Caribbean have returned to it again and again, and so have the poets of every coast.
+P|Derek Walcott, asked where the Caribbean's history and monuments were, pointed past the land altogether.
+Q|Where are your monuments, your battles, martyrs?\nWhere is your tribal memory? Sirs,\nin that gray vault. The sea. The sea\nhas locked them up. The sea is History.
+P|The sea is History: the Middle Passage, the drowned, everything that was never written down lies under it. Byron, two centuries earlier, saw the ocean as the one thing human beings could not ruin.
+Q|Roll on, thou deep and dark blue Ocean—roll!\nTen thousand fleets sweep over thee in vain;\nMan marks the earth with ruin—his control\nStops with the shore;
+P|We know better now, and that makes his lines more poignant, not less. Melville sent Ishmael to sea when he felt the November in his soul, and his book begins with the most famous three words in American fiction.
+Q|Call me Ishmael.
+P|Tennyson, grieving his friend Arthur Hallam, stood on a shore and found the waves saying what he could not.
+Q|Break, break, break,\nOn thy cold gray stones, O Sea!\nAnd I would that my tongue could utter\nThe thoughts that arise in me.
+P|Trinidad and Tobago's folklore gives the waters a guardian of their own, half woman and half great snake, who punishes those who foul them.
+I|Mama Dlo
+P|The novelists of Trinidad and Tobago write the sea as something alive. Monique Roffey, who wrote a whole novel about a mermaid in the waters of a small Caribbean island, made it a woman.
+Q|The sea was the giant woman of the planet, fluid and contrary.
+P|Dionne Brand, born near the sea at Guayaguayare, heard in it something like a crowd of voices.
+Q|The sea sounded like a thousand secrets, all whispered at the same time.
+P|And Ingrid Persaud, with a Trinidadian's practical wisdom, offered the simplest prescription of all.
+Q|People busy swallowing one set of drugs to cope with life when what they need is a regular dose of the sea.
+P|A regular dose of the sea. Anyone who has stood at the edge of it on a hard day, letting the waves do what the mind cannot, knows exactly what she means.
