@@ -63,7 +63,7 @@ class DiscoverFilesTest {
         essays.forEach { e ->
             assertTrue("${e.title}: too short", e.parts.count { it is EssayPart.Para } >= 8)
             assertTrue("${e.title}: too few voices", e.parts.count { it !is EssayPart.Para } >= 6)
-            assertTrue("${e.title}: unknown path ${e.path}", e.path.isEmpty() || e.path == "letters" || e.path in paths)
+            assertTrue("${e.title}: unknown path ${e.path}", e.path.isEmpty() || e.path == "letters" || e.path == "leonardo" || e.path in paths)
             e.parts.filter { it !is EssayPart.Para }.forEach { p ->
                 assertTrue("${e.title}: line not found: ${(p as? EssayPart.Line)?.text?.take(50) ?: (p as EssayPart.Idea).title}", Essays.resolve(all, p) != null)
             }
@@ -83,6 +83,23 @@ class DiscoverFilesTest {
         }
         val underlined = letters.sumOf { l -> l.paras.sumOf { Letters.linesIn(quotes, it).size } }
         assertTrue("too few of his lines underlined: $underlined", underlined >= 60)
+    }
+
+    @Test fun leonardoHighlightsAreCompleteAndUnderlineTheCollection() {
+        val book = raw("leonardo.txt").useLines { Leonardo.parse(it) }
+        val all = book.all
+        assertTrue("too few themes: ${book.themes.size}", book.themes.size >= 8)
+        assertTrue("too few highlights: ${all.size}", all.size >= 80)
+        assertEquals("a highlight id is used twice", all.size, all.map { it.id }.toSet().size)
+        all.forEach { h ->
+            assertTrue("${h.id}: no note", h.note.length > 15)
+            assertTrue("${h.id}: no text", h.paras.any { !Leonardo.isHeading(it) && it != "…" })
+            assertTrue("${h.id}: unknown drawing ${h.drawing}", h.drawing == null || h.drawing in book.drawings)
+            h.paras.forEach { p -> assertTrue("${h.id}: stray characters in: ${p.take(60)}", p.none { it in "|_{}<>#*~" }) }
+        }
+        assertEquals("every drawing is used", book.drawings.keys, all.mapNotNull { it.drawing }.toSet())
+        val underlined = all.sumOf { h -> h.paras.sumOf { Leonardo.linesIn(quotes, it).size } }
+        assertTrue("too few of his lines underlined: $underlined", underlined >= 20)
     }
 
     @Test fun everyEverydayThingIsExplainedTaughtAndDrawn() {

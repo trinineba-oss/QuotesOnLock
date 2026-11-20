@@ -432,3 +432,24 @@ Q|If I am worth anything later, I am worth something now. For wheat is wheat, ev
 P|And perhaps his simplest advice is the one most worth carrying away from him. It asks nothing but attention, and it is the whole of his art.
 Q|Admire as much as you can. Most people do not admire enough.
 P|His letters are in the app to read in full, from the young clerk in The Hague to the painter in the south.
+E|The curious eye|Leonardo da Vinci's notebooks, with Einstein, Forster and Pessoa on looking closely|9A5A1E|leonardo
+P|When Leonardo da Vinci died in France in 1519, he left behind a handful of paintings, many of them unfinished, and thousands of pages of notes. Some seven thousand pages survive. They are written from right to left, in mirror image, in the small, even hand of a left-handed man, and they cover almost everything: painting, light, water, flight, anatomy, the moon, fossils, fables, jokes, shopping lists. Reading them is like being allowed to watch a mind at work.
+P|He was born in 1452 in the Tuscan village of Vinci, the son of a notary and a young woman who was not his wife. He had little formal schooling and little Latin, the language of learning, and called himself a man without letters. Where others quoted ancient authorities, he went and looked.
+Q|Any one who in discussion relies upon authority uses, not his understanding, but rather his memory.
+Q|Experience never errs; it is only your judgments that err by promising themselves effects such as are not caused by your experiments.
+P|Apprenticed as a boy to the Florentine painter and sculptor Verrocchio, he learned the craft of the workshop: grinding colours, casting bronze, drawing from life. But he wanted more than skill. He wanted to know why things look as they do, and he had no patience for painters who copied without understanding.
+Q|The painter who draws merely by practice and by eye, without any reason, is like a mirror which copies every thing placed in front of it without being conscious of their existence.
+P|So he studied light falling on a face as evening came on, and how shadows soften at their edges. Out of that study came the smoky blending of tones for which his paintings are famous.
+I|Sfumato
+P|E. M. Forster, writing four centuries later, caught the effect of those soft, half-hidden faces in a single sentence about one of his characters.
+Q|She was like a woman of Leonardo da Vinci’s, whom we love not so much for herself as for the things that she will not tell us.
+P|Curiosity carried him far beyond painting. He dissected bodies at night to see how the heart worked, watched birds to learn how a man might fly, and found sea shells high in the mountains and reasoned, correctly, that the sea had once been there. He helped his friend the mathematician Luca Pacioli illustrate a book on the proportion that seemed to govern beauty.
+I|The Golden Ratio
+P|He believed that knowing a thing and loving it were bound together: that we cannot love what we do not first understand. Fernando Pessoa, the Portuguese poet, thought this one of the most false and most telling things ever said.
+Q|To understand, I destroyed myself. To understand is to forget about loving. I know nothing more simultaneously false and telling than the statement by Leonardo da Vinci that we cannot love or hate something until we've understood it.
+P|Albert Einstein, who also distrusted learning by rote, said something Leonardo might have written in one of his margins.
+Q|I have no special talents. I am only passionately curious.
+P|Leonardo's notebooks were never put in order. He left them to his pupil Francesco Melzi, and after Melzi's death they were sold, split up and scattered across Europe. What survives reads less like a finished book than like advice to anyone who wants to keep their mind alive.
+Q|Just as iron rusts unless it is used, and water putrifies or, in cold, turns to ice, so our intellect spoils unless it is kept in use.
+Q|Nature has beneficently provided that throughout the world you may find something to imitate.
+P|A hundred or so of his notes are in the app, in Jean Paul Richter's translation, to read slowly, one at a time, the way he wrote them.

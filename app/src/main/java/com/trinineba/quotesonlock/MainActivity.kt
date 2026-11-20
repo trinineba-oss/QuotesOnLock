@@ -829,7 +829,7 @@ private fun QuotesScreen(
             EssaysScreen(
                 onBack = { browse = browse.dropLast(1) },
                 onOpenAuthor = { browse = browse + BrowsePage.author(it) },
-                onOpenPath = { browse = browse + if (it == "letters") "letters" else "paths:$it" },
+                onOpenPath = { browse = browse + if (it == "letters" || it == "leonardo") it else "paths:$it" },
             )
             return
         }
@@ -874,8 +874,16 @@ private fun QuotesScreen(
         EssaysScreen(
             onBack = { browse = browse.dropLast(1) },
             onOpenAuthor = { browse = browse + BrowsePage.author(it) },
-            onOpenPath = { browse = browse + if (it == "letters") "letters" else "paths:$it" },
+            onOpenPath = { browse = browse + if (it == "letters" || it == "leonardo") it else "paths:$it" },
             start = route.removePrefix("essays:"),
+        )
+        return
+    }
+    browse.lastOrNull()?.takeIf { it == "leonardo" || it.startsWith("leonardo:") }?.let { route ->
+        LeonardoScreen(
+            onBack = { browse = browse.dropLast(1) },
+            onOpenAuthor = { browse = browse + BrowsePage.author(it) },
+            start = route.substringAfter(':', "").ifEmpty { null },
         )
         return
     }
@@ -1202,11 +1210,13 @@ private fun QuotesScreen(
         item(key = "d-grid") {
             val essayCount = remember { runCatching { Essays.all(context).size }.getOrDefault(0) }
             val letterCount = remember { runCatching { Letters.groups(context).sumOf { it.letters.size } }.getOrDefault(0) }
+            val leoCount = remember { runCatching { Leonardo.book(context).all.size }.getOrDefault(0) }
             val tiles = listOf(
                 Triple("Learn", "Two minutes a day: one idea, one question", 0xFF8A6A3A) to "learn",
                 Triple("Reading paths", "Guided journeys: the Stoics, wonder, love…", 0xFF2E8B74) to "paths",
                 Triple("Essays", "$essayCount · one question, many voices", 0xFF5A6B8C) to "essays",
                 Triple("Van Gogh's letters", "$letterCount · in his own words", 0xFF2B4C8C) to "letters",
+                Triple("Leonardo's notebooks", "$leoCount highlights, in mirror script", 0xFF9A5A1E) to "leonardo",
                 Triple("How things work", "The microwave, GPS, rainbows…", 0xFFC0682E) to "things",
                 Triple("One idea, many hands", "Great themes across the centuries", 0xFF7A5ADC) to "themes",
                 Triple("Influences", "Threads of who read whom", 0xFF3C78C8) to "influences",
