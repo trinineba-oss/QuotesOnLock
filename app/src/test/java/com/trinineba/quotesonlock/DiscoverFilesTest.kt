@@ -98,6 +98,13 @@ class DiscoverFilesTest {
             s.paras.forEach { p -> assertTrue("${s.id}: stray characters in: ${p.take(60)}", p.none { it in "|_{}<>#*~" }) }
         }
         assertTrue("the cave is missing", scenes.any { it.title.contains("cave") })
+        val essays = raw("essays.txt").useLines { Essays.parse(it) }.map { it.title }.toSet()
+        dialogues.forEach { d ->
+            val a = d.analysis
+            assertTrue("${d.title}: no analysis", a != null && a.sections.size >= 4 && a.questions.size >= 2)
+            assertTrue("${d.title}: key scene ${a!!.keyScene} not found", d.scenes.any { it.title == a.keyScene })
+            assertTrue("${d.title}: essay ${a.essay} not found", a.essay in essays)
+        }
         assertTrue("speakers are not recognised", scenes.flatMap { it.paras }.count { Plato.speaker(it) != null } > 100)
         val underlined = scenes.sumOf { s -> s.paras.sumOf { Plato.linesIn(quotes, it).size } }
         assertTrue("too few of his lines underlined: $underlined", underlined >= 20)

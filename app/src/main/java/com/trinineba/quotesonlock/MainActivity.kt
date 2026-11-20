@@ -884,6 +884,7 @@ private fun QuotesScreen(
             onBack = { browse = browse.dropLast(1) },
             onOpenAuthor = { browse = browse + BrowsePage.author(it) },
             start = route.substringAfter(':', "").ifEmpty { null },
+            onOpenEssay = { browse = browse + "essays:$it" },
         )
         return
     }

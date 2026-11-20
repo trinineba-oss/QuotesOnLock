@@ -3,6 +3,7 @@ package com.trinineba.quotesonlock
 import android.content.Context
 import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -54,7 +55,12 @@ class PlatoScene(val id: String, val dialogue: String, val title: String, val no
     val minutes: Int get() = (words / 200).coerceAtLeast(1)
 }
 
-class PlatoDialogue(val title: String, val tagline: String, val setting: String, val who: String, val scenes: List<PlatoScene>)
+/** A guide to one dialogue, written for the app: sections of (heading, paragraphs), questions to take away, its key scene and a related essay. */
+class PlatoAnalysis(val sections: List<Pair<String, List<String>>>, val questions: List<String>, val keyScene: String, val essay: String) {
+    val minutes: Int get() = (sections.sumOf { s -> s.second.sumOf { it.split(' ').size } } / 200).coerceAtLeast(1)
+}
+
+class PlatoDialogue(val title: String, val tagline: String, val setting: String, val who: String, val scenes: List<PlatoScene>, val analysis: PlatoAnalysis? = null)
 
 /** Plato's dialogues (res/raw/plato.txt), in Benjamin Jowett's public-domain translation. */
 object Plato {
@@ -66,6 +72,9 @@ object Plato {
         var scenes = mutableListOf<PlatoScene>()
         var scene: List<String>? = null
         var paras = mutableListOf<String>()
+        var sections = mutableListOf<Pair<String, MutableList<String>>>()
+        var questions = mutableListOf<String>()
+        var next: List<String>? = null
         fun flushScene() {
             val h = head
             scene?.let { s -> if (h != null && paras.isNotEmpty()) scenes += PlatoScene("${h[1]}/${scenes.size + 1}", h[1], s[1], s.getOrElse(2) { "" }, paras) }
@@ -73,14 +82,23 @@ object Plato {
         }
         fun flushDialogue() {
             flushScene()
-            head?.let { h -> if (scenes.isNotEmpty()) out += PlatoDialogue(h[1], h.getOrElse(2) { "" }, h.getOrElse(3) { "" }, h.getOrElse(4) { "" }, scenes) }
-            head = null; scenes = mutableListOf()
+            val analysis = if (sections.isEmpty()) null else PlatoAnalysis(sections.map { it.first to it.second.toList() }, questions, next?.getOrNull(1) ?: "", next?.getOrNull(2) ?: "")
+            head?.let { h -> if (scenes.isNotEmpty()) out += PlatoDialogue(h[1], h.getOrElse(2) { "" }, h.getOrElse(3) { "" }, h.getOrElse(4) { "" }, scenes, analysis) }
+            head = null; scenes = mutableListOf(); sections = mutableListOf(); questions = mutableListOf(); next = null
         }
         lines.filter { it.isNotBlank() && !it.startsWith("#") }.forEach { line ->
             when (line.substringBefore('|')) {
                 "D" -> { flushDialogue(); head = line.split('|') }
                 "S" -> { flushScene(); scene = line.split('|') }
                 "T" -> paras += line.substringAfter('|')
+                "A" -> {
+                    val f = line.split('|', limit = 3)
+                    if (f.size == 3) {
+                        if (sections.lastOrNull()?.first == f[1]) sections.last().second += f[2] else sections += f[1] to mutableListOf(f[2])
+                    }
+                }
+                "K" -> questions += line.substringAfter('|')
+                "X" -> next = line.split('|')
             }
         }
         flushDialogue()
@@ -143,12 +161,19 @@ private fun PCard(title: String, meta: String, sub: String? = null, onClick: () 
 
 /** The dialogues, a scene to start with, then each dialogue's scenes; [start] opens a scene by id ("Republic/5"). */
 @Composable
-fun PlatoScreen(onBack: () -> Unit, onOpenAuthor: (String) -> Unit, start: String? = null) {
+fun PlatoScreen(onBack: () -> Unit, onOpenAuthor: (String) -> Unit, start: String? = null, onOpenEssay: (String) -> Unit = {}) {
     val context = LocalContext.current
     val dialogues = remember { Plato.dialogues(context) }
     val scenes = remember(dialogues) { dialogues.flatMap { it.scenes } }
     var dialogue by rememberSaveable { mutableStateOf<String?>(null) }
     var open by rememberSaveable { mutableStateOf(start) }
+    var reading by rememberSaveable { mutableStateOf<String?>(null) }
+    dialogues.firstOrNull { it.title == reading }?.let { d ->
+        d.analysis?.let { a ->
+            PlatoAnalysisScreen(d, a, onBack = { reading = null }, onOpenScene = { title -> d.scenes.firstOrNull { it.title == title }?.let { open = it.id } }, onOpenEssay = onOpenEssay)
+            return
+        }
+    }
     scenes.firstOrNull { it.id == open }?.let { s ->
         val list = dialogues.firstOrNull { it.title == s.dialogue }?.scenes ?: listOf(s)
         androidx.compose.runtime.key(s.id) {
@@ -160,6 +185,24 @@ fun PlatoScreen(onBack: () -> Unit, onOpenAuthor: (String) -> Unit, start: Strin
         ToolScreen(d.title, { dialogue = null }) {
             item { Text(d.setting, style = MaterialTheme.typography.bodyMedium, color = PSoft) }
             item { PNote("Who's there.", d.who) }
+            d.analysis?.let { a ->
+                item {
+                    val accent = PAccent
+                    Column(
+                        Modifier.fillMaxWidth().clip(RoundedCornerShape(16.dp))
+                            .background(androidx.compose.ui.graphics.Brush.linearGradient(listOf(accent.copy(alpha = 0.22f), MaterialTheme.colorScheme.surfaceContainerHigh)))
+                            .border(1.dp, accent.copy(alpha = 0.4f), RoundedCornerShape(16.dp))
+                            .clickable(onClickLabel = "Read the introduction to ${d.title}") { reading = d.title }.padding(14.dp),
+                        verticalArrangement = Arrangement.spacedBy(3.dp),
+                    ) {
+                        Text("Reading the ${d.title}", fontFamily = FontFamily.Serif, fontSize = 17.sp)
+                        Text(
+                            "An introduction: the question, the argument, why it still matters, and questions to take with you · ${a.minutes} min",
+                            style = MaterialTheme.typography.bodySmall, color = PSoft,
+                        )
+                    }
+                }
+            }
             item { PLabel("Scenes") }
             items(d.scenes, key = { it.id }) { s ->
                 PCard(s.title, "${s.minutes} min", s.note) { open = s.id }
@@ -264,5 +307,41 @@ private fun PlatoSceneScreen(s: PlatoScene, list: List<PlatoScene>, onGo: (Plato
                 Text("Tr. Benjamin Jowett · Underlined lines are in the collection: tap one to open it.", style = MaterialTheme.typography.bodySmall, color = PSoft)
             }
         }
+    }
+}
+
+/** The guide to one dialogue: short sections, questions to take away, then its key scene and a related essay. */
+@Composable
+private fun PlatoAnalysisScreen(d: PlatoDialogue, a: PlatoAnalysis, onBack: () -> Unit, onOpenScene: (String) -> Unit, onOpenEssay: (String) -> Unit) {
+    ToolScreen("", onBack) {
+        item {
+            Column(verticalArrangement = Arrangement.spacedBy(6.dp)) {
+                PLabel("${d.title} · An introduction")
+                Text("Reading the ${d.title}", fontFamily = FontFamily.Serif, fontSize = 28.sp, lineHeight = 34.sp)
+                Text("${a.minutes} min · written for the app", style = MaterialTheme.typography.bodySmall, color = PSoft)
+            }
+        }
+        a.sections.forEach { (heading, paras) ->
+            item(key = "h-$heading") {
+                Text(heading, fontFamily = FontFamily.Serif, fontSize = 20.sp, color = PAccent, modifier = Modifier.padding(top = 8.dp))
+            }
+            itemsIndexed(paras, key = { i, _ -> "p-$heading-$i" }) { _, p ->
+                Text(p, fontFamily = FontFamily.Serif, fontSize = 17.sp, lineHeight = 27.sp)
+            }
+        }
+        if (a.questions.isNotEmpty()) {
+            item(key = "q-h") { Text("Questions to take with you", fontFamily = FontFamily.Serif, fontSize = 20.sp, color = PAccent, modifier = Modifier.padding(top = 8.dp)) }
+            itemsIndexed(a.questions, key = { i, _ -> "q-$i" }) { _, q ->
+                Row(horizontalArrangement = Arrangement.spacedBy(10.dp)) {
+                    Text("·", fontFamily = FontFamily.Serif, fontSize = 20.sp, color = PAccent)
+                    Text(q, fontFamily = FontFamily.Serif, fontSize = 16.sp, lineHeight = 24.sp, modifier = Modifier.weight(1f))
+                }
+            }
+        }
+        item(key = "next") { PLabel("Read next", Modifier.padding(top = 8.dp)) }
+        d.scenes.firstOrNull { it.title == a.keyScene }?.let { s ->
+            item(key = "next-scene") { PCard(s.title, "${d.title} · ${s.minutes} min") { onOpenScene(s.title) } }
+        }
+        if (a.essay.isNotEmpty()) item(key = "next-essay") { PCard(a.essay, "Essay") { onOpenEssay(a.essay) } }
     }
 }
