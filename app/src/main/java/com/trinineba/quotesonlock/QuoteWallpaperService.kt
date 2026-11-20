@@ -134,6 +134,14 @@ class QuoteWallpaperService : WallpaperService() {
                     runCatching { CalmArt.draw(theme, canvas, width.toFloat(), height.toFloat(), if (moving()) t else CalmArt.stillTime(theme), resources.displayMetrics.density) }
                         .onFailure { CalmArt.reset() }
                 }
+                AppTheme.VITRUVIAN -> {
+                    drawCover(canvas, bitmap(R.drawable.vitruvian))
+                    if (moving()) {
+                        val glow = bitmap(R.drawable.vitruvian_glow)
+                        val a = 0.335f + 0.215f * kotlin.math.sin(t * 2f * PI.toFloat() / 9f)
+                        canvas.drawBitmap(glow, coverMatrix(glow), Paint(Paint.FILTER_BITMAP_FLAG).apply { alpha = (a * 255).toInt() })
+                    }
+                }
                 AppTheme.SPACE -> SpaceArt.draw(canvas, width.toFloat(), height.toFloat(), if (moving()) t else 20f, resources.displayMetrics.density, bitmap(R.drawable.nebula))
                 else -> drawStarry(canvas, t * 2f * PI.toFloat() / 6f)
             }

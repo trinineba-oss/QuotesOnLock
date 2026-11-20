@@ -49,6 +49,7 @@ object QuoteShare {
         when (theme) {
             AppTheme.BLACK -> canvas.drawColor(android.graphics.Color.BLACK)
             AppTheme.STARRY -> cover(canvas, BitmapFactory.decodeResource(context.resources, R.drawable.starry_night))
+            AppTheme.VITRUVIAN -> cover(canvas, BitmapFactory.decodeResource(context.resources, R.drawable.vitruvian))
             AppTheme.AURORA -> QuoteArt.drawAurora(canvas, w, h, 1.2f, false, prefs.auroraIntensity, density)
             AppTheme.BOOK -> cover(canvas, BitmapFactory.decodeResource(context.resources, R.drawable.paper))
             AppTheme.BUTTERFLY -> ButterflyArt.draw(canvas, w, h, 3f, density)

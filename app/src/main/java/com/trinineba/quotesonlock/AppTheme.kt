@@ -44,6 +44,7 @@ import androidx.compose.ui.graphics.asAndroidBitmap
 import androidx.compose.ui.graphics.drawscope.drawIntoCanvas
 import androidx.compose.ui.graphics.nativeCanvas
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.res.imageResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
@@ -165,13 +166,18 @@ enum class AppTheme(
     SEA(
         "sea", "Light under the sea", "Sunbeams and swaying kelp", R.drawable.notif_frame_sea, 0xFF082A40.toInt(),
         0xFFEFFAFF.toInt(), 0xFF9FE3F2.toInt(),
+    ),
+    /** Leonardo's Vitruvian Man, from a photograph of the drawing; the circle and square can glow softly, as if by candlelight. */
+    VITRUVIAN(
+        "vitruvian", "Vitruvian Man", "A slow breath of candlelight", R.drawable.notif_frame_vitruvian, 0xFFF6ECD6.toInt(),
+        0xFF2E2012.toInt(), 0xFF7A4A1E.toInt(),
     );
 
     /** The calm themes drawn by [CalmArt]. */
     val isCalm: Boolean get() = this == SNOW || this == CANDLE || this == FIREFLIES || this == LAVENDER || this == CLOUDS || this == WAVES || this == BAMBOO || this == ZEN
 
     /** Light themes use dark text. */
-    val isLight: Boolean get() = this == BLOSSOM || this == BOOK || this == BUTTERFLY || this == LAVENDER || this == CLOUDS || this == BAMBOO
+    val isLight: Boolean get() = this == VITRUVIAN || this == BLOSSOM || this == BOOK || this == BUTTERFLY || this == LAVENDER || this == CLOUDS || this == BAMBOO
 
     companion object {
         fun fromKey(key: String?): AppTheme = entries.firstOrNull { it.key == key } ?: CLASSIC
@@ -244,6 +250,25 @@ fun AppTheme.colorScheme(cardOpacity: Float): ColorScheme? = when (this) {
         surfaceVariant = Color(0xFF1C2E3A),
         outline = Color(0xFF6CF5C8),
         outlineVariant = Color(0x662B5F6E),
+    )
+    AppTheme.VITRUVIAN -> lightColorScheme(
+        primary = Color(0xFF7A4A1E),
+        onPrimary = Color(0xFFF7EEDB),
+        primaryContainer = Color(0xFFDCC59C),
+        onPrimaryContainer = Color(0xFF2E2012),
+        secondary = Color(0xFF6B4F2A),
+        onSecondary = Color(0xFFF7EEDB),
+        secondaryContainer = Color(0xFFDCC59C),
+        onSecondaryContainer = Color(0xFF2E2012),
+        background = Color.Transparent,
+        onBackground = Color(0xFF2E2012),
+        surface = Color(0xFFF3E7CC),
+        onSurface = Color(0xFF2E2012),
+        onSurfaceVariant = Color(0xFF55402A),
+        surfaceContainerHighest = Color(0xFFF8EFDA).copy(alpha = cardOpacity),
+        surfaceVariant = Color(0xFFE4D3AE),
+        outline = Color(0xFF8B6B45),
+        outlineVariant = Color(0x668B6B45),
     )
     AppTheme.BOOK -> lightColorScheme(
         primary = Color(0xFF7A2E1F),
@@ -407,7 +432,7 @@ fun AppTheme.typography(base: Typography): Typography = when (this) {
         all = { it.copy(shadow = Shadow(Color(0xE6000000), Offset(0f, 2f), 8f)) },
     )
     AppTheme.BOOK -> base.map(headings = { it }, all = { it.copy(fontFamily = FontFamily.Serif) })
-    AppTheme.BUTTERFLY, AppTheme.LAVENDER, AppTheme.CLOUDS, AppTheme.BAMBOO, AppTheme.ZEN, AppTheme.BLOSSOM -> base.map(headings = { it.copy(fontFamily = FontFamily.Serif) }, all = { it })
+    AppTheme.BUTTERFLY, AppTheme.LAVENDER, AppTheme.CLOUDS, AppTheme.BAMBOO, AppTheme.ZEN, AppTheme.BLOSSOM, AppTheme.VITRUVIAN -> base.map(headings = { it.copy(fontFamily = FontFamily.Serif) }, all = { it })
 }
 
 private fun Typography.map(headings: (TextStyle) -> TextStyle, all: (TextStyle) -> TextStyle) = Typography(
@@ -435,6 +460,7 @@ fun ThemedBackground(theme: AppTheme, animate: Boolean, auroraIntensity: Float =
         AppTheme.CLASSIC -> Unit
         AppTheme.BLACK -> Box(Modifier.fillMaxSize().background(Color.Black))
         AppTheme.STARRY -> StarryBackground(animate)
+        AppTheme.VITRUVIAN -> VitruvianBackground(animate)
         AppTheme.AURORA -> AuroraBackground(animate, auroraIntensity)
         AppTheme.BOOK -> CalmBackground(theme, animate)
         AppTheme.BUTTERFLY -> ButterflyBackground(animate)
@@ -608,6 +634,36 @@ private fun ButterflyBackground(animate: Boolean) {
     Canvas(Modifier.fillMaxSize()) {
         val t = time.value
         drawIntoCanvas { ButterflyArt.draw(it.nativeCanvas, size.width, size.height, t, density) }
+    }
+}
+
+/** The Vitruvian Man; when moving, the circle and square slowly brighten and fade, about one breath every nine seconds. */
+@Composable
+private fun VitruvianBackground(animate: Boolean) {
+    Box(Modifier.fillMaxSize().background(Color(0xFFC9B48C))) {
+        Image(
+            painter = painterResource(R.drawable.vitruvian),
+            contentDescription = null,
+            modifier = Modifier.fillMaxSize(),
+            contentScale = ContentScale.Crop,
+        )
+        if (animate) {
+            val breath by androidx.compose.animation.core.rememberInfiniteTransition(label = "breath").animateFloat(
+                initialValue = 0.12f,
+                targetValue = 0.55f,
+                animationSpec = androidx.compose.animation.core.infiniteRepeatable(
+                    androidx.compose.animation.core.tween(4500, easing = androidx.compose.animation.core.FastOutSlowInEasing),
+                    androidx.compose.animation.core.RepeatMode.Reverse,
+                ),
+                label = "glow",
+            )
+            Image(
+                painter = painterResource(R.drawable.vitruvian_glow),
+                contentDescription = null,
+                modifier = Modifier.fillMaxSize().then(Modifier.graphicsLayer { alpha = breath }),
+                contentScale = ContentScale.Crop,
+            )
+        }
     }
 }
 
