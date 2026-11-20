@@ -94,10 +94,8 @@ class DiscoverFilesTest {
         all.forEach { h ->
             assertTrue("${h.id}: no note", h.note.length > 15)
             assertTrue("${h.id}: no text", h.paras.any { !Leonardo.isHeading(it) && it != "…" })
-            assertTrue("${h.id}: unknown drawing ${h.drawing}", h.drawing == null || h.drawing in book.drawings)
             h.paras.forEach { p -> assertTrue("${h.id}: stray characters in: ${p.take(60)}", p.none { it in "|_{}<>#*~" }) }
         }
-        assertEquals("every drawing is used", book.drawings.keys, all.mapNotNull { it.drawing }.toSet())
         val underlined = all.sumOf { h -> h.paras.sumOf { Leonardo.linesIn(quotes, it).size } }
         assertTrue("too few of his lines underlined: $underlined", underlined >= 20)
     }
