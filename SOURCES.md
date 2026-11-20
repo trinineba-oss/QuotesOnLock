@@ -426,3 +426,7 @@ The letters section (`res/raw/letters.txt`) gives whole letters to Theo from *Th
 ## Leonardo's notebooks
 
 The notebooks section (`res/raw/leonardo.txt`) quotes *The Notebooks of Leonardo da Vinci*, translated by Jean Paul Richter (1883; Project Gutenberg #5000), word for word, with Richter's passage numbers. Richter's footnotes, line references and editorial introductions are left out; his own words in square brackets, which clarify the text, are kept, and "…" marks where passages from one page or letter were skipped. The titles, themes and notes are written for the app.
+
+## Wit & humour
+
+Douglas Adams, Terry Pratchett and Kurt Vonnegut are still in copyright, so they appear only as short lines, each checked against published sources and labelled with its book; one Adams line whose book is disputed is labelled with his name alone, and popular lines that could not be traced to the books were left out. P. G. Wodehouse's lines are quoted word for word from his public-domain texts on Project Gutenberg (Right Ho, Jeeves #10554; My Man Jeeves #8164; The Man Upstairs #6768; Something New #2042); he is grouped with the modern authors because his work is still in copyright outside the United States. The Wit & humour subject also gathers wry lines already in the collection from Mark Twain, Oscar Wilde, Jerome K. Jerome, Samuel Butler, G. K. Chesterton and Ambrose Bierce.

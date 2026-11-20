@@ -99,7 +99,7 @@ object Find {
         "age" to Subject.YOUTH, "old" to Subject.YOUTH, "aging" to Subject.YOUTH, "ageing" to Subject.YOUTH, "imagination" to Subject.DREAMS,
         "silence" to Subject.SOLITUDE, "alone" to Subject.SOLITUDE, "loneliness" to Subject.SOLITUDE, "beauty" to Subject.ART,
         "reading" to Subject.BOOKS, "writing" to Subject.BOOKS, "past" to Subject.MEMORY, "war" to Subject.SOCIETY, "power" to Subject.SOCIETY,
-        "craft" to Subject.WORK, "discipline" to Subject.WORK, "change" to Subject.TIME, "absurd" to Subject.MEANING,
+        "craft" to Subject.WORK, "humor" to Subject.HUMOUR, "funny" to Subject.HUMOUR, "jokes" to Subject.HUMOUR, "wit" to Subject.HUMOUR, "laughter" to Subject.HUMOUR, "discipline" to Subject.WORK, "change" to Subject.TIME, "absurd" to Subject.MEANING,
     )
 
     fun subjectFor(query: String): Subject? {

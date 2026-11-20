@@ -29,7 +29,8 @@ enum class Subject(val key: String, val label: String) {
     SOCIETY("society", "Power, society & war"),
     JOURNEY("journey", "Journeys & home"),
     DREAMS("dreams", "Dreams & imagination"),
-    YOUTH("youth", "Youth & age");
+    YOUTH("youth", "Youth & age"),
+    HUMOUR("humour", "Wit & humour");
 
     companion object {
         fun fromKey(key: String?): Subject? = entries.firstOrNull { it.key == key }

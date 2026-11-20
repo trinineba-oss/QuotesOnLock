@@ -1,5 +1,5 @@
 # One quote per line: category|text|author|subjects   (a literal \n in the text is a line break)
-# Categories: motivation, thought, observe, stoic, kindness, gibran, rilke, nietzsche, dostoevsky, tolstoy, kafka, plato, laotzu, kierkegaard, camus, hesse, confucius, dhammapada, rumi, khayyam, suntzu, tagore, einstein, murakami, shakespeare, whitman, dickinson, blake, leopardi, baudelaire, gita, upanishads, frankl, pessoa, borges, cioran, weil, neruda, oliver, szymborska, kundera, sartre, kabir, ecclesiastes, zhuangzi, melville, turgenev, chekhov, dante, freud, jung, creative, lucretius, schopenhauer, heraclitus, montaigne, pascal, hume, augustine, goethe, tragedians, yeats, keats, wordsworth, milton, eliot, holderlin, hardy, eckhart, conrad, bronte, woolf, wilde, wittgenstein, watts, krishnamurti, murdoch, becker, hafiz, haiku, suttanipata, psalms, bukowski, nin, aphorists, lichtenberg, browne, unamuno, wjames, proust, cavafy, metaphysical, hopkins, victorians, romantics, symbolists, tangpoets, russianpoets, georgeeliot, hugo, joyce, mann, spinoza, emerson, thoreau, epictetus, kazantzakis, buber, arendt, beauvoir, beckett, fromm, may, merton, nhathanh, yalom, vangogh, campbell, musashi, sontag, desiderata, kipling, amiel, boethius, novalis, machado, chesterton, johnson, bacon, homer, sappho, baldwin, saintexupery, cslewis, zweig, lispector, hammarskjold, marquez, rousseau, traherne, attar, leonardo, petrarch, michelangelo, flaubert, lorca, paz, calvino, saramago, akhmatova, tsvetaeva, milosz, transtromer, celan, sebald, bachelard, teilhard, bulgakov, hamsun, naipaul, walcott, aristotle, cicero, plutarch, virgil, ovid, thucydides, teresa, johncross, hildegard, mencius, zenpoets, cervantes, maryshelley, austen, dickens, stendhal, balzac, gogol, twain, henryjames, voltaire, kant, bergson, mandelstam, pasternak, brodsky, heaney, jackgilbert, seferis, wendellberry, cohen, dillard, leguin, morrison, solnit, eco, huxley, solzhenitsyn, vuong, hadot, sagan, kafkaletters, vangoghlate, poe, goncharov, shestov, rozanov, buchner, pirandello, svevo, strindberg, jaspers, heidegger, marcel, berdyaev, ortega, tillich, percy, ellison, musil, malraux, ionesco, burton, ruskin, hazlitt, chomei, kenko, hanshan, saadi, gracian, ghalib, horace, abelard, cloud, silesius, ebrowning, frost, becquer, tyutchev, tolkien, jefferies, maeterlinck, muir, housman, edwardthomas, cather, hearn, macdonald, teasdale, forster, santayana, russell, jacobsen, odonohue, mrobinson, mlk, mandela, ali, williamson, gandhi, douglass, lincoln, wollstonecraft, angelou, tutu, dalailama, eleanor, rossetti, mirabai, mistral, carroll, grahame, tyson, feynman, fitzgerald, hemingway, faulkner, hughes, hawthorne, chaucer, schiller, heine, ibsen, shaw, moliere, racine, ferdowsi, nizami, kalidasa, tulsidas, murasaki, soseki, burns, sterne, rabelais, boccaccio, camoes, achebe, soyinka, okri, plath, auden, larkin, bishop, vallejo, steinbeck, nabokov, cortazar, kawabata, mishima, jjthomas, maxwellphilip, selvon, lovelace, clrjames, brand, roffey, persaud, defoe, fielding, goldsmith, burney, thackeray, trollope, gaskell, collins, meredith, gissing, wells, spenser, marlowe, jonson, herrick, pope, cowper, clare, hood, bunyan, walton, spectator, pepys, lamb, dequincey, carlyle, newman, synge, irving, cooper, stowe, alcott, bierce, crane, ohenry, wheatley, equiano, dunbar, jwjohnson, mckay, herodotus, xenophon, tacitus, livy, pindar, catullus, juvenal, martial, dumas, zola, maupassant, manzoni, gorky, calderon, lessing, sienkiewicz, capek, andersen, mickiewicz, lagerlof, herzen, schnitzler, tasso, kleist, hoffmann, shonagon, rizal, ramayana, mahabharata, redchamber, nights, marti, sorjuana, dario, petofi, galdos, eca, quevedo, hasek, chikamatsu, sushi, liqingzhao, mahfouz, quran, machadoassis, rodo, hernandez
+# Categories: motivation, thought, observe, stoic, kindness, gibran, rilke, nietzsche, dostoevsky, tolstoy, kafka, plato, laotzu, kierkegaard, camus, hesse, confucius, dhammapada, rumi, khayyam, suntzu, tagore, einstein, murakami, shakespeare, whitman, dickinson, blake, leopardi, baudelaire, gita, upanishads, frankl, pessoa, borges, cioran, weil, neruda, oliver, szymborska, kundera, sartre, kabir, ecclesiastes, zhuangzi, melville, turgenev, chekhov, dante, freud, jung, creative, lucretius, schopenhauer, heraclitus, montaigne, pascal, hume, augustine, goethe, tragedians, yeats, keats, wordsworth, milton, eliot, holderlin, hardy, eckhart, conrad, bronte, woolf, wilde, wittgenstein, watts, krishnamurti, murdoch, becker, hafiz, haiku, suttanipata, psalms, bukowski, nin, aphorists, lichtenberg, browne, unamuno, wjames, proust, cavafy, metaphysical, hopkins, victorians, romantics, symbolists, tangpoets, russianpoets, georgeeliot, hugo, joyce, mann, spinoza, emerson, thoreau, epictetus, kazantzakis, buber, arendt, beauvoir, beckett, fromm, may, merton, nhathanh, yalom, vangogh, campbell, musashi, sontag, desiderata, kipling, amiel, boethius, novalis, machado, chesterton, johnson, bacon, homer, sappho, baldwin, saintexupery, cslewis, zweig, lispector, hammarskjold, marquez, rousseau, traherne, attar, leonardo, petrarch, michelangelo, flaubert, lorca, paz, calvino, saramago, akhmatova, tsvetaeva, milosz, transtromer, celan, sebald, bachelard, teilhard, bulgakov, hamsun, naipaul, walcott, aristotle, cicero, plutarch, virgil, ovid, thucydides, teresa, johncross, hildegard, mencius, zenpoets, cervantes, maryshelley, austen, dickens, stendhal, balzac, gogol, twain, henryjames, voltaire, kant, bergson, mandelstam, pasternak, brodsky, heaney, jackgilbert, seferis, wendellberry, cohen, dillard, leguin, morrison, solnit, eco, huxley, solzhenitsyn, vuong, hadot, sagan, kafkaletters, vangoghlate, poe, goncharov, shestov, rozanov, buchner, pirandello, svevo, strindberg, jaspers, heidegger, marcel, berdyaev, ortega, tillich, percy, ellison, musil, malraux, ionesco, burton, ruskin, hazlitt, chomei, kenko, hanshan, saadi, gracian, ghalib, horace, abelard, cloud, silesius, ebrowning, frost, becquer, tyutchev, tolkien, jefferies, maeterlinck, muir, housman, edwardthomas, cather, hearn, macdonald, teasdale, forster, santayana, russell, jacobsen, odonohue, mrobinson, mlk, mandela, ali, williamson, gandhi, douglass, lincoln, wollstonecraft, angelou, tutu, dalailama, eleanor, rossetti, mirabai, mistral, carroll, grahame, tyson, feynman, fitzgerald, hemingway, faulkner, hughes, hawthorne, chaucer, schiller, heine, ibsen, shaw, moliere, racine, ferdowsi, nizami, kalidasa, tulsidas, murasaki, soseki, burns, sterne, rabelais, boccaccio, camoes, achebe, soyinka, okri, plath, auden, larkin, bishop, vallejo, steinbeck, nabokov, cortazar, kawabata, mishima, jjthomas, maxwellphilip, selvon, lovelace, clrjames, brand, roffey, persaud, defoe, fielding, goldsmith, burney, thackeray, trollope, gaskell, collins, meredith, gissing, wells, spenser, marlowe, jonson, herrick, pope, cowper, clare, hood, bunyan, walton, spectator, pepys, lamb, dequincey, carlyle, newman, synge, irving, cooper, stowe, alcott, bierce, crane, ohenry, wheatley, equiano, dunbar, jwjohnson, mckay, herodotus, xenophon, tacitus, livy, pindar, catullus, juvenal, martial, dumas, zola, maupassant, manzoni, gorky, calderon, lessing, sienkiewicz, capek, andersen, mickiewicz, lagerlof, herzen, schnitzler, tasso, kleist, hoffmann, shonagon, rizal, ramayana, mahabharata, redchamber, nights, marti, sorjuana, dario, petofi, galdos, eca, quevedo, hasek, chikamatsu, sushi, liqingzhao, mahfouz, quran, machadoassis, rodo, hernandez, adams, pratchett, vonnegut, wodehouse
 motivation|A journey of a thousand miles begins with a single step.|Lao Tzu|journey
 motivation|Nothing great was ever achieved without enthusiasm.|Ralph Waldo Emerson|
 motivation|Well done is better than well said.|Benjamin Franklin|
@@ -197,9 +197,9 @@ thought|Heaven is under our feet as well as over our heads.|Henry David Thoreau,
 thought|What a man thinks of himself, that it is which determines, or rather indicates, his fate.|Henry David Thoreau, Walden|self
 thought|A man is rich in proportion to the number of things which he can afford to let alone.|Henry David Thoreau, Walden|freedom,wisdom
 thought|Only that day dawns to which we are awake.|Henry David Thoreau, Walden|time,meaning
-thought|One of the most striking differences between a cat and a lie is that a cat has only nine lives.|Mark Twain, Pudd'nhead Wilson|truth
-thought|He did not want the apple for the apple's sake, he wanted it only because it was forbidden.|Mark Twain, Pudd'nhead Wilson|self
-thought|When angry, count four; when very angry, swear.|Mark Twain, Pudd'nhead Wilson|courage
+thought|One of the most striking differences between a cat and a lie is that a cat has only nine lives.|Mark Twain, Pudd'nhead Wilson|truth,humour
+thought|He did not want the apple for the apple's sake, he wanted it only because it was forbidden.|Mark Twain, Pudd'nhead Wilson|self,humour
+thought|When angry, count four; when very angry, swear.|Mark Twain, Pudd'nhead Wilson|courage,humour
 thought|There is only one thing in the world worse than being talked about, and that is not being talked about.|Oscar Wilde, The Picture of Dorian Gray|society
 thought|To define is to limit.|Oscar Wilde, The Picture of Dorian Gray|truth
 thought|Every portrait that is painted with feeling is a portrait of the artist, not of the sitter.|Oscar Wilde, The Picture of Dorian Gray|art,self
@@ -219,8 +219,8 @@ thought|I had three chairs in my house; one for solitude, two for friendship, th
 thought|We are in great haste to construct a magnetic telegraph from Maine to Texas; but Maine and Texas, it may be, have nothing important to communicate.|Henry David Thoreau, Walden|society
 thought|Every ultimate fact is only the first of a new series.|Ralph Waldo Emerson, Essays: First Series|truth
 thought|The perfect man ignores self; the divine man ignores action; the true sage ignores reputation.|Zhuangzi|self,wisdom
-thought|Put all your eggs in the one basket and--watch that basket.|Mark Twain, Pudd'nhead Wilson|wisdom
-thought|Even popularity can be overdone.|Mark Twain, Pudd'nhead Wilson|society
+thought|Put all your eggs in the one basket and--watch that basket.|Mark Twain, Pudd'nhead Wilson|wisdom,humour
+thought|Even popularity can be overdone.|Mark Twain, Pudd'nhead Wilson|society,humour
 thought|All silencing of discussion is an assumption of infallibility.|John Stuart Mill, On Liberty|truth,freedom
 thought|The worth of a State, in the long run, is the worth of the individuals composing it.|John Stuart Mill, On Liberty|society
 thought|You must bring out of each word its practical cash-value, set it at work within the stream of your experience.|William James, Pragmatism|truth
@@ -241,19 +241,19 @@ observe|The more refined the more unhappy.|Anton Chekhov, Note-Book (tr. S. S. K
 observe|It is easier to ask of the poor than of the rich.|Anton Chekhov, Note-Book (tr. S. S. Koteliansky and Leonard Woolf)|society
 observe|One cannot resist evil, but one can resist good.|Anton Chekhov, Note-Book (tr. S. S. Koteliansky and Leonard Woolf)|self
 observe|A savings bank: the clerk, a very nice man, looks down on the bank, considers it useless—and yet goes on working there.|Anton Chekhov, Note-Book (tr. S. S. Koteliansky and Leonard Woolf)|work
-observe|Life is the art of drawing sufficient conclusions from insufficient premises.|Samuel Butler, Note-Books|wisdom
-observe|All progress is based upon a universal innate desire on the part of every organism to live beyond its income.|Samuel Butler, Note-Books|society
-observe|Life is like music, it must be composed by ear, feeling and instinct, not by rule.|Samuel Butler, Note-Books|art
-observe|I do not mind lying, but I hate inaccuracy.|Samuel Butler, Note-Books|truth
-observe|The great pleasure of a dog is that you may make a fool of yourself with him and not only will he not scold you, but he will make a fool of himself too.|Samuel Butler, Note-Books|friendship,joy
-observe|It is impossible to enjoy idling thoroughly unless one has plenty of work to do.|Jerome K. Jerome, Idle Thoughts of an Idle Fellow|work
-observe|Love is like the measles; we all have to go through it.|Jerome K. Jerome, Idle Thoughts of an Idle Fellow|love
-observe|I can enjoy feeling melancholy, and there is a good deal of satisfaction about being thoroughly miserable; but nobody likes a fit of the blues.|Jerome K. Jerome, Idle Thoughts of an Idle Fellow|suffering
-observe|We drink one another's healths and spoil our own.|Jerome K. Jerome, Idle Thoughts of an Idle Fellow|society
-observe|It is not that I object to the work, mind you; I like work: it fascinates me.|Jerome K. Jerome, Three Men in a Boat|work
-observe|It is a most extraordinary thing, but I never read a patent medicine advertisement without being impelled to the conclusion that I am suffering from the particular disease therein dealt with in its most virulent form.|Jerome K. Jerome, Three Men in a Boat|self
-observe|Let your boat of life be light, packed with only what you need—a homely home and simple pleasures, one or two friends, worth the name, someone to love and someone to love you, a cat, a dog, and a pipe or two, enough to eat and enough to wear, and a little more than enough to drink; for thirst is a dangerous thing.|Jerome K. Jerome, Three Men in a Boat|joy,journey
-observe|It always does seem to me that I am doing more work than I should do.|Jerome K. Jerome, Three Men in a Boat|work
+observe|Life is the art of drawing sufficient conclusions from insufficient premises.|Samuel Butler, Note-Books|wisdom,humour
+observe|All progress is based upon a universal innate desire on the part of every organism to live beyond its income.|Samuel Butler, Note-Books|society,humour
+observe|Life is like music, it must be composed by ear, feeling and instinct, not by rule.|Samuel Butler, Note-Books|art,humour
+observe|I do not mind lying, but I hate inaccuracy.|Samuel Butler, Note-Books|truth,humour
+observe|The great pleasure of a dog is that you may make a fool of yourself with him and not only will he not scold you, but he will make a fool of himself too.|Samuel Butler, Note-Books|friendship,joy,humour
+observe|It is impossible to enjoy idling thoroughly unless one has plenty of work to do.|Jerome K. Jerome, Idle Thoughts of an Idle Fellow|work,humour
+observe|Love is like the measles; we all have to go through it.|Jerome K. Jerome, Idle Thoughts of an Idle Fellow|love,humour
+observe|I can enjoy feeling melancholy, and there is a good deal of satisfaction about being thoroughly miserable; but nobody likes a fit of the blues.|Jerome K. Jerome, Idle Thoughts of an Idle Fellow|suffering,humour
+observe|We drink one another's healths and spoil our own.|Jerome K. Jerome, Idle Thoughts of an Idle Fellow|society,humour
+observe|It is not that I object to the work, mind you; I like work: it fascinates me.|Jerome K. Jerome, Three Men in a Boat|work,humour
+observe|It is a most extraordinary thing, but I never read a patent medicine advertisement without being impelled to the conclusion that I am suffering from the particular disease therein dealt with in its most virulent form.|Jerome K. Jerome, Three Men in a Boat|self,humour
+observe|Let your boat of life be light, packed with only what you need—a homely home and simple pleasures, one or two friends, worth the name, someone to love and someone to love you, a cat, a dog, and a pipe or two, enough to eat and enough to wear, and a little more than enough to drink; for thirst is a dangerous thing.|Jerome K. Jerome, Three Men in a Boat|joy,journey,humour
+observe|It always does seem to me that I am doing more work than I should do.|Jerome K. Jerome, Three Men in a Boat|work,humour
 observe|Little do ye know your own blessedness; for to travel hopefully is a better thing than to arrive, and the true success is to labour.|Robert Louis Stevenson, Virginibus Puerisque|journey,work
 observe|There is no duty we so much underrate as the duty of being happy.|Robert Louis Stevenson, Virginibus Puerisque|joy
 observe|Extreme busyness, whether at school or college, kirk or market, is a symptom of deficient vitality; and a faculty for idleness implies a catholic appetite and a strong sense of personal identity.|Robert Louis Stevenson, Virginibus Puerisque|work,self
@@ -262,26 +262,26 @@ observe|Books are good enough in their own way, but they are a mighty bloodless 
 observe|The cruellest lies are often told in silence.|Robert Louis Stevenson, Virginibus Puerisque|truth
 observe|Perpetual devotion to what a man calls his business, is only to be sustained by perpetual neglect of many other things.|Robert Louis Stevenson, Virginibus Puerisque|work
 observe|A happy man or woman is a better thing to find than a five-pound note.|Robert Louis Stevenson, Virginibus Puerisque|joy
-observe|Noise proves nothing. Often a hen who has merely laid an egg cackles as if she had laid an asteroid.|Mark Twain, Following the Equator|wisdom
-observe|It is your human environment that makes climate.|Mark Twain, Following the Equator|society
-observe|The timid man yearns for full value and asks a tenth. The bold man strikes for double value and compromises on par.|Mark Twain, Following the Equator|courage
-observe|It is easier to stay out than get out.|Mark Twain, Following the Equator|wisdom
-observe|“Classic.” A book which people praise and don't read.|Mark Twain, Following the Equator|books
-observe|Man is the Only Animal that Blushes. Or needs to.|Mark Twain, Following the Equator|self
-observe|The universal brotherhood of man is our most precious possession, what there is of it.|Mark Twain, Following the Equator|society
-observe|By trying we can easily learn to endure adversity. Another man's, I mean.|Mark Twain, Following the Equator|suffering
-observe|It takes your enemy and your friend, working together, to hurt you to the heart; the one to slander you and the other to get the news to you.|Mark Twain, Following the Equator|friendship
-observe|The Autocrat of Russia possesses more power than any other man in the earth; but he cannot stop a sneeze.|Mark Twain, Following the Equator|society
-observe|Make it a point to do something every day that you don't want to do. This is the golden rule for acquiring the habit of doing your duty without pain.|Mark Twain, Following the Equator|work
-observe|Often, the surest way to convey misinformation is to tell the strict truth.|Mark Twain, Following the Equator|truth
-observe|There are no people who are quite so vulgar as the over-refined ones.|Mark Twain, Following the Equator|society
-observe|If he had been a great and wise philosopher, like the writer of this book, he would now have comprehended that Work consists of whatever a body is obliged to do, and that Play consists of whatever a body is not obliged to do.|Mark Twain, The Adventures of Tom Sawyer|work,joy
-observe|In order to make a man or a boy covet a thing, it is only necessary to make the thing difficult to attain.|Mark Twain, The Adventures of Tom Sawyer|self
-observe|To love oneself is the beginning of a life-long romance.|Oscar Wilde, Phrases and Philosophies for the Use of the Young|love,self
-observe|Wickedness is a myth invented by good people to account for the curious attractiveness of others.|Oscar Wilde, Phrases and Philosophies for the Use of the Young|society
-observe|We make our friends; we make our enemies; but God makes our next-door neighbour.|G. K. Chesterton, Heretics|friendship
-observe|The man who lives in a small community lives in a much larger world.|G. K. Chesterton, Heretics|society
-observe|An adventure is only an inconvenience rightly considered.|G. K. Chesterton, All Things Considered|courage,journey
+observe|Noise proves nothing. Often a hen who has merely laid an egg cackles as if she had laid an asteroid.|Mark Twain, Following the Equator|wisdom,humour
+observe|It is your human environment that makes climate.|Mark Twain, Following the Equator|society,humour
+observe|The timid man yearns for full value and asks a tenth. The bold man strikes for double value and compromises on par.|Mark Twain, Following the Equator|courage,humour
+observe|It is easier to stay out than get out.|Mark Twain, Following the Equator|wisdom,humour
+observe|“Classic.” A book which people praise and don't read.|Mark Twain, Following the Equator|books,humour
+observe|Man is the Only Animal that Blushes. Or needs to.|Mark Twain, Following the Equator|self,humour
+observe|The universal brotherhood of man is our most precious possession, what there is of it.|Mark Twain, Following the Equator|society,humour
+observe|By trying we can easily learn to endure adversity. Another man's, I mean.|Mark Twain, Following the Equator|suffering,humour
+observe|It takes your enemy and your friend, working together, to hurt you to the heart; the one to slander you and the other to get the news to you.|Mark Twain, Following the Equator|friendship,humour
+observe|The Autocrat of Russia possesses more power than any other man in the earth; but he cannot stop a sneeze.|Mark Twain, Following the Equator|society,humour
+observe|Make it a point to do something every day that you don't want to do. This is the golden rule for acquiring the habit of doing your duty without pain.|Mark Twain, Following the Equator|work,humour
+observe|Often, the surest way to convey misinformation is to tell the strict truth.|Mark Twain, Following the Equator|truth,humour
+observe|There are no people who are quite so vulgar as the over-refined ones.|Mark Twain, Following the Equator|society,humour
+observe|If he had been a great and wise philosopher, like the writer of this book, he would now have comprehended that Work consists of whatever a body is obliged to do, and that Play consists of whatever a body is not obliged to do.|Mark Twain, The Adventures of Tom Sawyer|work,joy,humour
+observe|In order to make a man or a boy covet a thing, it is only necessary to make the thing difficult to attain.|Mark Twain, The Adventures of Tom Sawyer|self,humour
+observe|To love oneself is the beginning of a life-long romance.|Oscar Wilde, Phrases and Philosophies for the Use of the Young|love,self,humour
+observe|Wickedness is a myth invented by good people to account for the curious attractiveness of others.|Oscar Wilde, Phrases and Philosophies for the Use of the Young|society,humour
+observe|We make our friends; we make our enemies; but God makes our next-door neighbour.|G. K. Chesterton, Heretics|friendship,humour
+observe|The man who lives in a small community lives in a much larger world.|G. K. Chesterton, Heretics|society,humour
+observe|An adventure is only an inconvenience rightly considered.|G. K. Chesterton, All Things Considered|courage,journey,humour
 observe|It is a truth universally acknowledged, that a single man in possession of a good fortune must be in want of a wife.|Jane Austen, Pride and Prejudice|love,society
 stoic|Waste no more time arguing about what a good man should be. Be one.|Marcus Aurelius|
 stoic|If it is not right, do not do it; if it is not true, do not say it.|Marcus Aurelius|
@@ -5830,17 +5830,17 @@ wilde|How else may man make straight his plan\nAnd cleanse his soul from Sin?\nH
 wilde|There is no Mystery so great as Misery.|Oscar Wilde, The Happy Prince and Other Tales|suffering
 wilde|Sweet is the scent of the hawthorn, and sweet are the bluebells that hide in the valley, and the heather that blows on the hill. Yet Love is better than Life, and what is the heart of a bird compared to the heart of a man?|Oscar Wilde, The Happy Prince and Other Tales|love
 wilde|You let me play once in your garden, to-day you shall come with me to my garden, which is Paradise.|Oscar Wilde, The Happy Prince and Other Tales|nature
-wilde|I think that life is far too important a thing ever to talk seriously about it.|Oscar Wilde, Lady Windermere's Fan|
-wilde|Do you know I am afraid that good people do a great deal of harm in this world. Certainly the greatest harm they do is that they make badness of such extraordinary importance. It is absurd to divide people into good and bad. People are either charming or tedious.|Oscar Wilde, Lady Windermere's Fan|society,courage,meaning
-wilde|It is not the perfect, but the imperfect, who have need of love. It is when we are wounded by our own hands, or by the hands of others, that love should come to cure us—else what use is love at all?|Oscar Wilde, An Ideal Husband|love,suffering
-wilde|All I do know is that life cannot be understood without much charity, cannot be lived without much charity. It is love, and not German philosophy, that is the true explanation of this world, whatever may be the explanation of the next.|Oscar Wilde, An Ideal Husband|friendship,love,wisdom
-wilde|Women are not meant to judge us, but to forgive us when we need forgiveness. Pardon, not punishment, is their mission.|Oscar Wilde, An Ideal Husband|friendship
-wilde|But there is one thing worse than an absolutely loveless marriage. A marriage in which there is love, but on one side only; faith, but on one side only; devotion, but on one side only, and in which of the two hearts one is sure to be broken.|Oscar Wilde, An Ideal Husband|love
-wilde|Morality is simply the attitude we adopt towards people whom we personally dislike.|Oscar Wilde, An Ideal Husband|
+wilde|I think that life is far too important a thing ever to talk seriously about it.|Oscar Wilde, Lady Windermere's Fan|humour
+wilde|Do you know I am afraid that good people do a great deal of harm in this world. Certainly the greatest harm they do is that they make badness of such extraordinary importance. It is absurd to divide people into good and bad. People are either charming or tedious.|Oscar Wilde, Lady Windermere's Fan|society,courage,meaning,humour
+wilde|It is not the perfect, but the imperfect, who have need of love. It is when we are wounded by our own hands, or by the hands of others, that love should come to cure us—else what use is love at all?|Oscar Wilde, An Ideal Husband|love,suffering,humour
+wilde|All I do know is that life cannot be understood without much charity, cannot be lived without much charity. It is love, and not German philosophy, that is the true explanation of this world, whatever may be the explanation of the next.|Oscar Wilde, An Ideal Husband|friendship,love,wisdom,humour
+wilde|Women are not meant to judge us, but to forgive us when we need forgiveness. Pardon, not punishment, is their mission.|Oscar Wilde, An Ideal Husband|friendship,humour
+wilde|But there is one thing worse than an absolutely loveless marriage. A marriage in which there is love, but on one side only; faith, but on one side only; devotion, but on one side only, and in which of the two hearts one is sure to be broken.|Oscar Wilde, An Ideal Husband|love,humour
+wilde|Morality is simply the attitude we adopt towards people whom we personally dislike.|Oscar Wilde, An Ideal Husband|humour
 wilde|The only difference between the saint and the sinner is that every saint has a past, and every sinner has a future.|Oscar Wilde, A Woman of No Importance|
 wilde|You love the beauty that you can see and touch and handle, the beauty that you can destroy, and do destroy, but of the unseen beauty of life, of the unseen beauty of a higher life, you know nothing. You have lost life's secret.|Oscar Wilde, A Woman of No Importance|art,love
 wilde|There is no secret of life. Life's aim, if it has one, is simply to be always looking for temptations.|Oscar Wilde, A Woman of No Importance|
-wilde|The truth is rarely pure and never simple. Modern life would be very tedious if it were either, and modern literature a complete impossibility!|Oscar Wilde, The Importance of Being Earnest|books,truth
+wilde|The truth is rarely pure and never simple. Modern life would be very tedious if it were either, and modern literature a complete impossibility!|Oscar Wilde, The Importance of Being Earnest|books,truth,humour
 wittgenstein|The world is everything that is the case.|Ludwig Wittgenstein, Tractatus Logico-Philosophicus (tr. C. K. Ogden)|
 wittgenstein|The object of philosophy is the logical clarification of thoughts. Philosophy is not a theory but an activity.|Ludwig Wittgenstein, Tractatus Logico-Philosophicus (tr. C. K. Ogden)|wisdom
 wittgenstein|Language disguises the thought; so that from the external form of the clothes one cannot infer the form of the thought they clothe, because the external form of the clothes is constructed with quite another object than to let the form of the body be recognized.|Ludwig Wittgenstein, Tractatus Logico-Philosophicus (tr. C. K. Ogden)|art
@@ -11020,13 +11020,13 @@ gogol|How little humane feeling after all was to be found in men's hearts; how m
 gogol|Although his body suffered from this abstinence, his spirit derived all the richer nutriment from perpetually thinking about his new cloak.|Nikolai Gogol, The Mantle (tr. Claud Field)|suffering
 gogol|Whither, then, are you speeding, O Russia of mine? Whither? Answer me! But no answer comes—only the weird sound of your collar-bells.|Nikolai Gogol, Dead Souls (tr. D. J. Hogarth)|journey
 gogol|And you, Russia of mine—are not you also speeding like a troika which nought can overtake?|Nikolai Gogol, Dead Souls (tr. D. J. Hogarth)|journey
-twain|Training is everything. The peach was once a bitter almond; cauliflower is nothing but cabbage with a college education.|Mark Twain, Pudd'nhead Wilson|
-twain|Let us endeavor so to live that when we come to die even the undertaker will be sorry.|Mark Twain, Pudd'nhead Wilson|death
-twain|Habit is habit, and not to be flung out of the window by any man, but coaxed down-stairs a step at a time.|Mark Twain, Pudd'nhead Wilson|
-twain|The holy passion of Friendship is of so sweet and steady and loyal and enduring a nature that it will last through a whole lifetime, if not asked to lend money.|Mark Twain, Pudd'nhead Wilson|love,sacred,friendship
-twain|Nothing so needs reforming as other people's habits.|Mark Twain, Pudd'nhead Wilson|
-twain|Few things are harder to put up with than the annoyance of a good example.|Mark Twain, Pudd'nhead Wilson|
-twain|It were not best that we should all think alike; it is difference of opinion that makes horse-races.|Mark Twain, Pudd'nhead Wilson|
+twain|Training is everything. The peach was once a bitter almond; cauliflower is nothing but cabbage with a college education.|Mark Twain, Pudd'nhead Wilson|humour
+twain|Let us endeavor so to live that when we come to die even the undertaker will be sorry.|Mark Twain, Pudd'nhead Wilson|death,humour
+twain|Habit is habit, and not to be flung out of the window by any man, but coaxed down-stairs a step at a time.|Mark Twain, Pudd'nhead Wilson|humour
+twain|The holy passion of Friendship is of so sweet and steady and loyal and enduring a nature that it will last through a whole lifetime, if not asked to lend money.|Mark Twain, Pudd'nhead Wilson|love,sacred,friendship,humour
+twain|Nothing so needs reforming as other people's habits.|Mark Twain, Pudd'nhead Wilson|humour
+twain|Few things are harder to put up with than the annoyance of a good example.|Mark Twain, Pudd'nhead Wilson|humour
+twain|It were not best that we should all think alike; it is difference of opinion that makes horse-races.|Mark Twain, Pudd'nhead Wilson|humour
 twain|A man may have no bad habits and have worse.|Mark Twain, Following the Equator|
 twain|When in doubt, tell the truth.|Mark Twain, Following the Equator|truth
 twain|It is more trouble to make a maxim than it is to do right.|Mark Twain, Following the Equator|
@@ -14162,21 +14162,21 @@ alcott|The best of us have a spice of perversity in us, especially when we are y
 alcott|I give you entire liberty, but I trust you to make an honest use of it.|Louisa May Alcott, Little Women|freedom,truth
 alcott|I’m not so good as you make me, but I have tried to do right.|Louisa May Alcott, Little Women|
 alcott|For the parents who had taught one child to meet death without fear, were trying now to teach another to accept life without despondency or distrust, and to use its beautiful opportunities with gratitude and power.|Louisa May Alcott, Little Women|death,art,courage
-bierce|Absurdity, n. A statement or belief manifestly inconsistent with one's own opinion.|Ambrose Bierce, The Devil's Dictionary|
-bierce|Acquaintance, n. A person whom we know well enough to borrow from, but not well enough to lend to.|Ambrose Bierce, The Devil's Dictionary|
-bierce|Admiration, n. Our polite recognition of another's resemblance to ourselves.|Ambrose Bierce, The Devil's Dictionary|
-bierce|Bore, n. A person who talks when you wish him to listen.|Ambrose Bierce, The Devil's Dictionary|
-bierce|Conversation, n. A fair for the display of the minor mental commodities, each exhibitor being too intent upon the arrangement of his own wares to observe those of his neighbor.|Ambrose Bierce, The Devil's Dictionary|society
-bierce|Cynic, n. A blackguard whose faulty vision sees things as they are, not as they ought to be.|Ambrose Bierce, The Devil's Dictionary|dreams
-bierce|Diplomacy, n. The patriotic art of lying for one's country.|Ambrose Bierce, The Devil's Dictionary|art
-bierce|Education, n. That which discloses to the wise and disguises from the foolish their lack of understanding.|Ambrose Bierce, The Devil's Dictionary|wisdom
-bierce|Egotist, n. A person of low taste, more interested in himself than in me.|Ambrose Bierce, The Devil's Dictionary|
-bierce|Experience, n. The wisdom that enables us to recognize as an undesirable old acquaintance the folly that we have already embraced.|Ambrose Bierce, The Devil's Dictionary|wisdom
-bierce|Future, n. That period of time in which our affairs prosper, our friends are true and our happiness is assured.|Ambrose Bierce, The Devil's Dictionary|joy,friendship
-bierce|Friendship, n. A ship big enough to carry two in fair weather, but only one in foul.|Ambrose Bierce, The Devil's Dictionary|friendship
-bierce|Hope, n. Desire and expectation rolled into one.|Ambrose Bierce, The Devil's Dictionary|hope
-bierce|Patience, n. A minor form of despair, disguised as a virtue.|Ambrose Bierce, The Devil's Dictionary|suffering,wisdom,work
-bierce|Past, n. That part of Eternity with some small fraction of which we have a slight and regrettable acquaintance.|Ambrose Bierce, The Devil's Dictionary|time
+bierce|Absurdity, n. A statement or belief manifestly inconsistent with one's own opinion.|Ambrose Bierce, The Devil's Dictionary|humour
+bierce|Acquaintance, n. A person whom we know well enough to borrow from, but not well enough to lend to.|Ambrose Bierce, The Devil's Dictionary|humour
+bierce|Admiration, n. Our polite recognition of another's resemblance to ourselves.|Ambrose Bierce, The Devil's Dictionary|humour
+bierce|Bore, n. A person who talks when you wish him to listen.|Ambrose Bierce, The Devil's Dictionary|humour
+bierce|Conversation, n. A fair for the display of the minor mental commodities, each exhibitor being too intent upon the arrangement of his own wares to observe those of his neighbor.|Ambrose Bierce, The Devil's Dictionary|society,humour
+bierce|Cynic, n. A blackguard whose faulty vision sees things as they are, not as they ought to be.|Ambrose Bierce, The Devil's Dictionary|dreams,humour
+bierce|Diplomacy, n. The patriotic art of lying for one's country.|Ambrose Bierce, The Devil's Dictionary|art,humour
+bierce|Education, n. That which discloses to the wise and disguises from the foolish their lack of understanding.|Ambrose Bierce, The Devil's Dictionary|wisdom,humour
+bierce|Egotist, n. A person of low taste, more interested in himself than in me.|Ambrose Bierce, The Devil's Dictionary|humour
+bierce|Experience, n. The wisdom that enables us to recognize as an undesirable old acquaintance the folly that we have already embraced.|Ambrose Bierce, The Devil's Dictionary|wisdom,humour
+bierce|Future, n. That period of time in which our affairs prosper, our friends are true and our happiness is assured.|Ambrose Bierce, The Devil's Dictionary|joy,friendship,humour
+bierce|Friendship, n. A ship big enough to carry two in fair weather, but only one in foul.|Ambrose Bierce, The Devil's Dictionary|friendship,humour
+bierce|Hope, n. Desire and expectation rolled into one.|Ambrose Bierce, The Devil's Dictionary|hope,humour
+bierce|Patience, n. A minor form of despair, disguised as a virtue.|Ambrose Bierce, The Devil's Dictionary|suffering,wisdom,work,humour
+bierce|Past, n. That part of Eternity with some small fraction of which we have a slight and regrettable acquaintance.|Ambrose Bierce, The Devil's Dictionary|time,humour
 crane|I saw a man pursuing the horizon;\nRound and round they sped.\nI was disturbed at this;\nI accosted the man.\n"It is futile," I said,\n"You can never"—\n\n"You lie," he cried,\nAnd ran on.|Stephen Crane, The Black Riders|nature,truth
 crane|In the desert\nI saw a creature, naked, bestial,\nWho, squatting upon the ground,\nHeld his heart in his hands,\nAnd ate of it.\nI said, "Is it good, friend?"\n"It is bitter—bitter," he answered;\n"But I like it\nBecause it is bitter,\nAnd because it is my heart."|Stephen Crane, The Black Riders|suffering,friendship
 crane|"Think as I think," said a man,\n"Or you are abominably wicked;\n"You are a toad."\n\nAnd after I had thought of it,\nI said, "I will, then, be a toad."|Stephen Crane, The Black Riders|
@@ -14625,3 +14625,57 @@ selvon|Under the kiff-kiff laughter, behind the ballad and the episode, the what
 vallejo|There are blows in life so hard... I don't know!\nBlows as if from the hatred of God; as if before them\nthe undertow of everything suffered\nwere pooling in the soul... I don't know!|César Vallejo, The Black Heralds (tr. Claude)|suffering,sacred
 brodsky|There are worse crimes than burning books. One of them is not reading them.|Joseph Brodsky|books
 walcott|I had no nation now but the imagination.|Derek Walcott, The Schooner Flight|journey,self,dreams
+wodehouse|I don’t know if you have had the same experience, but the snag I always come up against when I’m telling a story is this dashed difficult problem of where to begin it.|P. G. Wodehouse, Right Ho, Jeeves|humour
+wodehouse|The face was pale, the eyes gooseberry-like, the ears drooping, and the whole aspect that of a man who has passed through the furnace and been caught in the machinery.|P. G. Wodehouse, Right Ho, Jeeves|humour
+wodehouse|I have always found that in moments of heart-bowed-downness there is nothing that calms the bruised spirit like a good go at the soap and water.|P. G. Wodehouse, Right Ho, Jeeves|humour
+wodehouse|The fact that he was fifty quid in the red and expecting Civilisation to take a toss at any moment had caused Uncle Tom, who always looked a bit like a pterodactyl with a secret sorrow, to take on a deeper melancholy.|P. G. Wodehouse, Right Ho, Jeeves|humour
+wodehouse|It is never any use trying to reason with Jeeves on these occasions.|P. G. Wodehouse, Right Ho, Jeeves|humour
+wodehouse|I am never at my best when the situation seems to call for a certain soupiness, and I’ve heard other members of the Drones say the same thing about themselves.|P. G. Wodehouse, Right Ho, Jeeves|humour
+wodehouse|It is a good rule in life never to apologize. The right sort of people do not want apologies, and the wrong sort take a mean advantage of them.|P. G. Wodehouse, The Man Upstairs|humour
+wodehouse|He moves from point to point with as little uproar as a jelly fish.|P. G. Wodehouse, My Man Jeeves|humour
+wodehouse|I’m not absolutely certain of my facts, but I rather fancy it’s Shakespeare—or, if not, it’s some equally brainy lad—who says that it’s always just when a chappie is feeling particularly top-hole, and more than usually braced with things in general that Fate sneaks up behind him with a bit of lead piping.|P. G. Wodehouse, My Man Jeeves|humour
+wodehouse|Butlers as a class seem to grow less and less like anything human in proportion to the magnificence of their surroundings.|P. G. Wodehouse, Something New|humour
+wodehouse|She was a pretty enough girl in a droopy, blonde, saucer-eyed way, but not the sort of breath-taker that takes the breath.|P. G. Wodehouse, Right Ho, Jeeves|humour
+adams|The ships hung in the sky in much the same way that bricks don’t.|Douglas Adams, The Hitchhiker's Guide to the Galaxy|humour
+adams|Time is an illusion. Lunchtime doubly so.|Douglas Adams, The Hitchhiker's Guide to the Galaxy|humour
+adams|In the beginning the Universe was created. This has made a lot of people very angry and been widely regarded as a bad move.|Douglas Adams, The Restaurant at the End of the Universe|humour
+adams|I love deadlines. I love the whooshing noise they make as they go by.|Douglas Adams, The Salmon of Doubt|humour
+adams|Nothing travels faster than the speed of light with the possible exception of bad news, which obeys its own special laws.|Douglas Adams, Mostly Harmless|humour
+adams|A common mistake that people make when trying to design something completely foolproof is to underestimate the ingenuity of complete fools.|Douglas Adams, Mostly Harmless|humour
+adams|There is a theory which states that if ever anyone discovers exactly what the Universe is for and why it is here, it will instantly disappear and be replaced by something even more bizarre and inexplicable. There is another theory which states that this has already happened.|Douglas Adams, The Restaurant at the End of the Universe|humour
+adams|He felt that his whole life was some kind of dream and he sometimes wondered whose it was and whether they were enjoying it.|Douglas Adams, The Hitchhiker's Guide to the Galaxy|humour
+adams|Many were increasingly of the opinion that they’d all made a big mistake in coming down from the trees in the first place. And some said that even the trees had been a bad move, and that no one should ever have left the oceans.|Douglas Adams, The Hitchhiker's Guide to the Galaxy|humour
+adams|It is a mistake to think you can solve any major problems just with potatoes.|Douglas Adams|humour
+adams|There is an art, it says, or rather, a knack to flying. The knack lies in learning how to throw yourself at the ground and miss.|Douglas Adams, Life, the Universe and Everything|humour
+adams|I may not have gone where I intended to go, but I think I have ended up where I needed to be.|Douglas Adams, The Long Dark Tea-Time of the Soul|humour
+adams|Isn’t it enough to see that a garden is beautiful without having to believe that there are fairies at the bottom of it too?|Douglas Adams, The Hitchhiker's Guide to the Galaxy|humour
+adams|“This must be Thursday,” said Arthur to himself, sinking low over his beer. “I never could get the hang of Thursdays.”|Douglas Adams, The Hitchhiker's Guide to the Galaxy|humour
+adams|Human beings, who are almost unique in having the ability to learn from the experience of others, are also remarkable for their apparent disinclination to do so.|Douglas Adams, Last Chance to See|humour
+adams|You live and learn. At any rate, you live.|Douglas Adams, Mostly Harmless|humour
+adams|Reality is frequently inaccurate.|Douglas Adams, The Restaurant at the End of the Universe|humour
+adams|Space is big. You just won’t believe how vastly, hugely, mind-bogglingly big it is. I mean, you may think it’s a long way down the road to the chemist’s, but that’s just peanuts to space.|Douglas Adams, The Hitchhiker's Guide to the Galaxy|humour
+adams|Let’s think the unthinkable, let’s do the undoable. Let us prepare to grapple with the ineffable itself, and see if we may not eff it after all.|Douglas Adams, Dirk Gently's Holistic Detective Agency|humour
+adams|For instance, on the planet Earth, man had always assumed that he was more intelligent than dolphins because he had achieved so much—the wheel, New York, wars and so on—whilst all the dolphins had ever done was muck about in the water having a good time. But conversely, the dolphins had always believed that they were far more intelligent than man—for precisely the same reasons.|Douglas Adams, The Hitchhiker's Guide to the Galaxy|humour
+adams|Don’t Panic.|Douglas Adams, The Hitchhiker's Guide to the Galaxy|humour
+pratchett|The trouble with having an open mind, of course, is that people will insist on coming along and trying to put things in it.|Terry Pratchett, Diggers|humour
+pratchett|Real stupidity beats artificial intelligence every time.|Terry Pratchett, Hogfather|humour
+pratchett|Light thinks it travels faster than anything but it is wrong. No matter how fast light travels, it finds the darkness has always got there first, and is waiting for it.|Terry Pratchett, Reaper Man|humour
+pratchett|Five exclamation marks, the sure sign of an insane mind.|Terry Pratchett, Reaper Man|humour
+pratchett|Coming back to where you started is not the same as never leaving.|Terry Pratchett, A Hat Full of Sky|humour
+pratchett|If you trust in yourself... and believe in your dreams... and follow your star... you’ll still get beaten by people who spent their time working hard and learning things and weren’t so lazy.|Terry Pratchett, The Wee Free Men|humour
+pratchett|The truth may be out there, but the lies are inside your head.|Terry Pratchett, Hogfather|humour
+pratchett|Humans need fantasy to be human. To be the place where the falling angel meets the rising ape.|Terry Pratchett, Hogfather|humour
+pratchett|Most of the great triumphs and tragedies of history are caused, not by people being fundamentally good or fundamentally bad, but by people being fundamentally people.|Terry Pratchett, Good Omens (with Neil Gaiman)|humour
+pratchett|And sin, young man, is when you treat people as things. Including yourself. That’s what sin is.|Terry Pratchett, Carpe Jugulum|humour
+pratchett|The intelligence of that creature known as a crowd is the square root of the number of people in it.|Terry Pratchett, Jingo|humour
+pratchett|Million-to-one chances crop up nine times out of ten.|Terry Pratchett, Mort|humour
+pratchett|Always be wary of any helpful item that weighs less than its operating manual.|Terry Pratchett, Jingo|humour
+pratchett|Time is a drug. Too much of it kills you.|Terry Pratchett, Small Gods|humour
+pratchett|Some humans would do anything to see if it was possible to do it. If you put a large switch in some cave somewhere, with a sign on it saying ‘End-of-the-World Switch. PLEASE DO NOT TOUCH’, the paint wouldn’t even have time to dry.|Terry Pratchett, Thief of Time|humour
+vonnegut|We are what we pretend to be, so we must be careful about what we pretend to be.|Kurt Vonnegut, Mother Night|humour
+vonnegut|Peculiar travel suggestions are dancing lessons from God.|Kurt Vonnegut, Cat's Cradle|humour
+vonnegut|Science is magic that works.|Kurt Vonnegut, Cat's Cradle|humour
+vonnegut|Live by the foma that make you brave and kind and healthy and happy.|Kurt Vonnegut, Cat's Cradle|humour
+vonnegut|There’s only one rule that I know of, babies—God damn it, you’ve got to be kind.|Kurt Vonnegut, God Bless You, Mr. Rosewater|humour
+vonnegut|I urge you to please notice when you are happy, and exclaim or murmur or think at some point, ‘If this isn’t nice, I don’t know what is.’|Kurt Vonnegut, A Man Without a Country|humour
+vonnegut|Everything was beautiful and nothing hurt.|Kurt Vonnegut, Slaughterhouse-Five|humour

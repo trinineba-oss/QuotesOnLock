@@ -453,3 +453,30 @@ P|Leonardo's notebooks were never put in order. He left them to his pupil France
 Q|Just as iron rusts unless it is used, and water putrifies or, in cold, turns to ice, so our intellect spoils unless it is kept in use.
 Q|Nature has beneficently provided that throughout the world you may find something to imitate.
 P|A hundred or so of his notes are in the app, in Jean Paul Richter's translation, to read slowly, one at a time, the way he wrote them.
+E|When the fire burns low|Burnout, with Seneca, Kierkegaard, Dostoevsky, Hesse, Camus, Tagore and the lilies of the field|B5652E|Through hard times
+P|The word is newer than the feeling. In 1974 the psychologist Herbert Freudenberger, who ran a free clinic in New York, noticed that the most devoted volunteers, himself among them, were the ones who ended up empty: tired past the point that sleep could mend, cynical about the work they had once loved, and convinced that nothing they did made any difference. He called it burnout. Later researchers, led by Christina Maslach, found the same three signs everywhere they looked: exhaustion, a growing distance from the work and the people in it, and a fading sense that one's efforts count.
+P|It is tempting to think of this as a modern illness, the price of email and long commutes. But two thousand years ago Seneca watched busy Romans hurrying from one obligation to the next and saw the same thing: lives so crowded that they had no room left to look at themselves.
+Q|It is the privilege of a tranquil and peaceful mind to review all the parts of its life: but the minds of busy men are like animals under the yoke, and cannot bend aside or look back.
+P|Søren Kierkegaard, in Copenhagen, was sharper still. He thought most busyness was a way of not facing what matters, a frantic carrying-out of the wrong things from a burning house.
+Q|What, I wonder, do these busy folks get done? Are they not to be classed with the woman who in her confusion about the house being on fire carried out the fire-tongs? What things of greater account, do you suppose, will they rescue from life's great conflagration?
+P|Busyness is only part of it, though. People burn out most surely when the work feels pointless, or when no amount of effort seems to change anything. Dostoevsky, who spent four years in a Siberian prison camp, understood this better than any management book. Hard labour, he noticed, could be borne; what crushed a man was work with no sense in it.
+Q|It once came into my head that if it were desired to reduce a man to nothing—to punish him atrociously, to crush him in such a manner that the most hardened murderer would tremble before such a punishment, and take fright beforehand—it would be necessary to give to his work a character of complete uselessness, even to absurdity.
+P|The Greeks had a myth for it: a king condemned forever to roll a boulder up a hill and watch it roll down again.
+I|Sisyphus
+P|Hermann Hesse's early novel Beneath the Wheel is about a gifted schoolboy pushed by ambitious adults until he breaks. The title is a warning his headmaster gives him, meaning it kindly.
+Q|Only don't let yourself grow weary, or you'll end up under the wheel.
+P|Vincent van Gogh, in one of the letters in this app, described himself as an old cab horse, always going back to the same shafts when he longed to be out in the fields. Albert Camus, who knew the fever of work as well as anyone, said what the cab horse longs for.
+Q|Always there comes an hour when one is weary of one's work and devotion to duty, and all one craves for is a loved face, the warmth and wonder of a loving heart.
+P|If burnout is old, so is the wisdom against it, and much of it says the same simple thing: rest is not a reward for finishing, it is part of the work. Seneca, again, put it plainly.
+Q|Men’s minds ought to have relaxation: they rise up better and more vigorous after rest.
+P|Robert Louis Stevenson went further, and turned the usual judgement upside down. Constant busyness, he thought, is not a sign of strength but of something missing.
+Q|Extreme busyness, whether at school or college, kirk or market, is a symptom of deficient vitality; and a faculty for idleness implies a catholic appetite and a strong sense of personal identity.
+P|Kahlil Gibran made the same point with the old fable of the ant and the grasshopper, and took the grasshopper's side.
+Q|How narrow is the vision that exalts the busyness of the ant above the singing of the grasshopper.
+P|Zhuangzi, the Daoist sage, told of a gnarled tree so useless to carpenters that it lived to a great age and gave shade to everyone. There is a kind of usefulness that only comes from not being used up.
+I|The Usefulness of the Useless
+P|And there is the oldest counsel of all, from the Sermon on the Mount, which asks us to look at something that does no work at all and is not diminished by it.
+Q|Consider the lilies of the field, how they grow; they toil not, neither do they spin: And yet I say unto you, That even Solomon in all his glory was not arrayed like one of these.
+P|Rabindranath Tagore, who worked prodigiously all his life, still found a kind of peace about the days he thought he had wasted.
+Q|On many an idle day have I grieved over lost time. But it is never lost, my lord. Thou hast taken every moment of my life in thine own hands.
+P|None of this is a cure. Burnout often needs real changes: less work, different work, help from others, sometimes a doctor's care, and if the tiredness has turned into hopelessness it is worth talking to someone soon. But the old voices offer something too: permission. The fire burns low for a reason. It is not asking to be stoked harder. It is asking to be tended.
