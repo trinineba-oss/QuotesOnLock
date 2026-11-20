@@ -430,3 +430,7 @@ The notebooks section (`res/raw/leonardo.txt`) quotes *The Notebooks of Leonardo
 ## Wit & humour
 
 Douglas Adams, Terry Pratchett and Kurt Vonnegut are still in copyright, so they appear only as short lines, each checked against published sources and labelled with its book; one Adams line whose book is disputed is labelled with his name alone, and popular lines that could not be traced to the books were left out. P. G. Wodehouse's lines are quoted word for word from his public-domain texts on Project Gutenberg (Right Ho, Jeeves #10554; My Man Jeeves #8164; The Man Upstairs #6768; Something New #2042); he is grouped with the modern authors because his work is still in copyright outside the United States. The Wit & humour subject also gathers wry lines already in the collection from Mark Twain, Oscar Wilde, Jerome K. Jerome, Samuel Butler, G. K. Chesterton and Ambrose Bierce.
+
+## Plato's dialogues
+
+The Plato section (`res/raw/plato.txt`) quotes Benjamin Jowett's translations from Project Gutenberg word for word: Euthyphro (#1642), Apology (#1656), Crito (#1657), Meno (#1643), Symposium (#1600), Phaedrus (#1636) and the Republic (#1497). Each scene is a run of whole paragraphs, except Aristophanes' speech in the Symposium, which is cut to its best-known part. Jowett's introductions and notes are left out; the scene titles, the introductions to each dialogue and the notes are written for the app. The Phaedo and the Apology's closing reflections on death are not included.

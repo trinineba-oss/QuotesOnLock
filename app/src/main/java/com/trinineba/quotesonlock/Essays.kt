@@ -215,7 +215,7 @@ internal fun EssayScreen(essay: Essay, onBack: () -> Unit, onOpenAuthor: (String
             }
             if (essay.path.isNotEmpty()) item {
                 OutlinedButton(onClick = { onOpenPath(essay.path) }, modifier = Modifier.fillMaxWidth().padding(top = 8.dp)) {
-                    Text(when (essay.path) { "letters" -> "Keep going: read his letters"; "leonardo" -> "Keep going: Leonardo's notebooks"; else -> "Keep going: the reading path ${essay.path}" })
+                    Text(when (essay.path) { "letters" -> "Keep going: read his letters"; "leonardo" -> "Keep going: Leonardo's notebooks"; "plato" -> "Keep going: Plato's dialogues"; else -> "Keep going: the reading path ${essay.path}" })
                 }
             }
         }

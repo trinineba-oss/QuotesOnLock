@@ -63,7 +63,7 @@ class DiscoverFilesTest {
         essays.forEach { e ->
             assertTrue("${e.title}: too short", e.parts.count { it is EssayPart.Para } >= 8)
             assertTrue("${e.title}: too few voices", e.parts.count { it !is EssayPart.Para } >= 6)
-            assertTrue("${e.title}: unknown path ${e.path}", e.path.isEmpty() || e.path == "letters" || e.path == "leonardo" || e.path in paths)
+            assertTrue("${e.title}: unknown path ${e.path}", e.path.isEmpty() || e.path == "letters" || e.path == "leonardo" || e.path == "plato" || e.path in paths)
             e.parts.filter { it !is EssayPart.Para }.forEach { p ->
                 assertTrue("${e.title}: line not found: ${(p as? EssayPart.Line)?.text?.take(50) ?: (p as EssayPart.Idea).title}", Essays.resolve(all, p) != null)
             }
@@ -83,6 +83,24 @@ class DiscoverFilesTest {
         }
         val underlined = letters.sumOf { l -> l.paras.sumOf { Letters.linesIn(quotes, it).size } }
         assertTrue("too few of his lines underlined: $underlined", underlined >= 60)
+    }
+
+    @Test fun platoScenesAreCompleteAndUnderlineTheCollection() {
+        val dialogues = raw("plato.txt").useLines { Plato.parse(it) }
+        val scenes = dialogues.flatMap { it.scenes }
+        assertTrue("too few dialogues: ${dialogues.size}", dialogues.size >= 7)
+        assertTrue("too few scenes: ${scenes.size}", scenes.size >= 25)
+        assertEquals("a scene id is used twice", scenes.size, scenes.map { it.id }.toSet().size)
+        dialogues.forEach { d -> assertTrue("${d.title}: no introduction", d.setting.isNotBlank() && d.who.length > 30) }
+        scenes.forEach { s ->
+            assertTrue("${s.id}: no note", s.note.length > 30)
+            assertTrue("${s.id}: empty", s.paras.isNotEmpty())
+            s.paras.forEach { p -> assertTrue("${s.id}: stray characters in: ${p.take(60)}", p.none { it in "|_{}<>#*~" }) }
+        }
+        assertTrue("the cave is missing", scenes.any { it.title.contains("cave") })
+        assertTrue("speakers are not recognised", scenes.flatMap { it.paras }.count { Plato.speaker(it) != null } > 100)
+        val underlined = scenes.sumOf { s -> s.paras.sumOf { Plato.linesIn(quotes, it).size } }
+        assertTrue("too few of his lines underlined: $underlined", underlined >= 20)
     }
 
     @Test fun leonardoHighlightsAreCompleteAndUnderlineTheCollection() {

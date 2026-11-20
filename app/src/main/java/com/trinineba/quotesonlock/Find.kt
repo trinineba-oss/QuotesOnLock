@@ -64,6 +64,7 @@ sealed class Hit {
     class EssayHit(val essay: Essay, val snippet: String?) : Hit()
     class LetterHit(val letter: Letter, val snippet: String?) : Hit()
     class LeoHit(val item: LeoHighlight, val snippet: String?) : Hit()
+    class PlatoHit(val scene: PlatoScene, val snippet: String?) : Hit()
     /** A great idea, myth or folktale. */
     class ItemHit(val quote: Quote) : Hit()
     class ThingHit(val thing: Thing, val section: String) : Hit()
@@ -78,6 +79,7 @@ class FindResults(
     val essays: List<Hit.EssayHit> = emptyList(),
     val letters: List<Hit.LetterHit> = emptyList(),
     val leonardo: List<Hit.LeoHit> = emptyList(),
+    val plato: List<Hit.PlatoHit> = emptyList(),
     val items: List<Hit.ItemHit> = emptyList(),
     val things: List<Hit.ThingHit> = emptyList(),
     val paths: List<Hit.PathHit> = emptyList(),
@@ -86,7 +88,7 @@ class FindResults(
     val subjects: List<Hit.SubjectHit> = emptyList(),
     val feelings: List<Hit.FeelingHit> = emptyList(),
 ) {
-    val total: Int get() = essays.size + letters.size + leonardo.size + items.size + things.size + paths.size + quotes.size + authors.size + subjects.size + feelings.size
+    val total: Int get() = essays.size + letters.size + leonardo.size + plato.size + items.size + things.size + paths.size + quotes.size + authors.size + subjects.size + feelings.size
 }
 
 /** Search across everything: quotes, essays, letters, ideas, myths and tales, how things work, reading paths, authors and subjects. */
@@ -145,6 +147,12 @@ object Find {
                 else -> h.paras.firstNotNullOfOrNull { snippet(it, q) }?.let { Hit.LeoHit(h, it) }
             }
         }
+        val plato = runCatching { Plato.dialogues(context).flatMap { it.scenes } }.getOrDefault(emptyList()).mapNotNull { s ->
+            when {
+                has(s.title) || has(s.note) || has(s.dialogue) -> Hit.PlatoHit(s, s.note)
+                else -> s.paras.firstNotNullOfOrNull { snippet(it, q) }?.let { Hit.PlatoHit(s, it) }
+            }
+        }
         val items = bundled.filter { it.isIdea && (has(it.title) || has(it.text) || has(it.brief) || has(it.author)) }
             .sortedByDescending { has(it.title) }
             .map { Hit.ItemHit(it) }
@@ -164,11 +172,11 @@ object Find {
             .map { s -> Hit.SubjectHit(s, bundled.count { s.key in it.subjects }) }
         val feelings = Feeling.entries.filter { has(it.label) || (subject == Subject.SUFFERING && it == Feeling.GRIEVING && q.equals("grief", true)) }
             .map { Hit.FeelingHit(it) }
-        return FindResults(essays, letters, leonardo, items, things, paths, quotes, authors, subjects, feelings)
+        return FindResults(essays, letters, leonardo, plato, items, things, paths, quotes, authors, subjects, feelings)
     }
 }
 
-private enum class FindKind(val label: String) { ALL("All"), QUOTES("Quotes"), ESSAYS("Essays"), LETTERS("Letters"), LEONARDO("Leonardo"), IDEAS("Ideas, myths & tales"), THINGS("How things work"), PATHS("Paths"), AUTHORS("Authors") }
+private enum class FindKind(val label: String) { ALL("All"), QUOTES("Quotes"), ESSAYS("Essays"), LETTERS("Letters"), LEONARDO("Leonardo"), PLATO("Plato"), IDEAS("Ideas, myths & tales"), THINGS("How things work"), PATHS("Paths"), AUTHORS("Authors") }
 
 private val Gold = Color(0xFFD4A72C)
 
@@ -259,7 +267,7 @@ fun FindScreen(
                     val li = paneLetter?.let { id -> letters.indexOfFirst { it.id == id } }?.takeIf { it >= 0 }
                     when {
                         essay != null -> androidx.compose.runtime.key(essay.title) {
-                            EssayScreen(essay, onBack = { paneEssay = null }, onOpenAuthor = onOpenAuthor, onOpenPath = { onOpenPage(if (it == "letters" || it == "leonardo") it else "paths:$it") })
+                            EssayScreen(essay, onBack = { paneEssay = null }, onOpenAuthor = onOpenAuthor, onOpenPath = { onOpenPage(if (it == "letters" || it == "leonardo" || it == "plato") it else "paths:$it") })
                         }
                         li != null -> androidx.compose.runtime.key(li) {
                             LetterScreen(letters, li, prefs, onGo = { paneLetter = letters[it].id }, onBack = { paneLetter = null }, onOpenAuthor = onOpenAuthor)
@@ -311,7 +319,7 @@ private fun LazyListScope.findResults(
     onOpenPage: (String) -> Unit,
 ) {
     val counts = listOf(
-        FindKind.ALL to r.total, FindKind.QUOTES to r.quotes.size, FindKind.ESSAYS to r.essays.size, FindKind.LETTERS to r.letters.size, FindKind.LEONARDO to r.leonardo.size,
+        FindKind.ALL to r.total, FindKind.QUOTES to r.quotes.size, FindKind.ESSAYS to r.essays.size, FindKind.LETTERS to r.letters.size, FindKind.LEONARDO to r.leonardo.size, FindKind.PLATO to r.plato.size,
         FindKind.IDEAS to r.items.size, FindKind.THINGS to r.things.size, FindKind.PATHS to r.paths.size, FindKind.AUTHORS to r.authors.size,
     ).filter { it.second > 0 || it.first == FindKind.ALL }
     item(key = "f-chips") {
@@ -378,6 +386,12 @@ private fun LazyListScope.findResults(
         section(FindKind.LEONARDO, "Leonardo's notebooks", r.leonardo.size, 3)
         items(cap(r.leonardo, 3), key = { "v-" + it.item.id }) { h ->
             FindCard(h.item.title, "${h.item.theme} · No. ${h.item.number}", h.snippet, q, false) { onOpenPage("leonardo:" + h.item.id) }
+        }
+    }
+    if ((all || kind == FindKind.PLATO) && r.plato.isNotEmpty()) {
+        section(FindKind.PLATO, "Plato's dialogues", r.plato.size, 3)
+        items(cap(r.plato, 3), key = { "pl-" + it.scene.id }) { h ->
+            FindCard(h.scene.title, "${h.scene.dialogue} · ${h.scene.minutes} min", h.snippet, q, false) { onOpenPage("plato:" + h.scene.id) }
         }
     }
     if ((all || kind == FindKind.IDEAS) && r.items.isNotEmpty()) {
