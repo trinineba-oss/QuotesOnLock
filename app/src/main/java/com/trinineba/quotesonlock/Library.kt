@@ -67,7 +67,7 @@ object Books {
     @Volatile private var all: List<Book>? = null
 
     /** Every book, in shelf order. */
-    val files: List<Int> get() = listOf(R.raw.book_tao)
+    val files: List<Int> get() = listOf(R.raw.book_tao, R.raw.book_meditations, R.raw.book_prophet, R.raw.book_gitanjali)
 
     fun parse(lines: Sequence<String>): Book? {
         var head: List<String>? = null

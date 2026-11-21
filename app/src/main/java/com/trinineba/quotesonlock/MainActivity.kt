@@ -1239,7 +1239,7 @@ private fun QuotesScreen(
                 Triple("Learn", "Two minutes a day: one idea, one question", 0xFF8A6A3A) to "learn",
                 Triple("Reading paths", "Guided journeys: the Stoics, wonder, love…", 0xFF2E8B74) to "paths",
                 Triple("Essays", "$essayCount · one question, many voices", 0xFF5A6B8C) to "essays",
-                Triple("Library", "$roomCount rooms: Plato, Van Gogh, Leonardo, the Tao…", 0xFF6A4A8C) to "library",
+                Triple("Library", "$roomCount rooms: Plato, Marcus Aurelius, Gibran, Tagore…", 0xFF6A4A8C) to "library",
                 Triple("How things work", "The microwave, GPS, rainbows…", 0xFFC0682E) to "things",
                 Triple("One idea, many hands", "Great themes across the centuries", 0xFF7A5ADC) to "themes",
                 Triple("Influences", "Threads of who read whom", 0xFF3C78C8) to "influences",

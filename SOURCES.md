@@ -440,3 +440,6 @@ The Plato section (`res/raw/plato.txt`) quotes Benjamin Jowett's translations fr
 The Library gathers the long reads (Plato's dialogues, Van Gogh's letters, Leonardo's notebooks) with whole public-domain books, read in one shared reader. Each book is a file `res/raw/book_<id>.txt`; its text is copied word for word from Project Gutenberg, and its introduction, guide and questions are written for the app.
 
 - *Tao Te Ching*, Lao Tzu, tr. James Legge (1891), Project Gutenberg #216 (`book_tao.txt`): all 81 chapters, with Legge's chapter titles.
+- *Meditations*, Marcus Aurelius, tr. George Long (1862), Project Gutenberg #15877 (`book_meditations.txt`): all twelve books. Long's footnotes, Greek words and bracket marks are left out; words he supplied in brackets are kept without the brackets.
+- *The Prophet*, Kahlil Gibran (New York: Knopf, 1923; public domain in the United States), Project Gutenberg #58585 (`book_prophet.txt`): all 28 sections, without the illustrations.
+- *Gitanjali*, Rabindranath Tagore, translated by the author (1912), Project Gutenberg #7164 (`book_gitanjali.txt`): all 103 songs. Yeats's introduction is not included.
