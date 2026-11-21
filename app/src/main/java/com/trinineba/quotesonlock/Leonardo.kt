@@ -27,6 +27,7 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -225,6 +226,12 @@ private fun LeoPage(
 ) {
     BackHandler(onBack = onBack)
     val context = LocalContext.current
+    val rprefs = remember { QuotePrefs(context) }
+    LaunchedEffect(h.id) {
+        Reading.load(rprefs)
+        val all = Leonardo.book(context).all
+        Reading.record(rprefs, Reading.Place("leonardo", h.id, "${h.theme} · ${h.title}", "Leonardo's notebooks", "leonardo:${h.id}", all.indexOfFirst { it.id == h.id }, all.size, System.currentTimeMillis()))
+    }
     val bundled = remember { QuoteRepository(context).bundled() }
     var answerShown by rememberSaveable(h.id) { mutableStateOf(false) }
     var opened by remember { mutableStateOf<Quote?>(null) }
@@ -233,20 +240,19 @@ private fun LeoPage(
     val accent = Accent
     Scaffold(
         bottomBar = {
-            Row(
-                Modifier.fillMaxWidth().background(MaterialTheme.colorScheme.surfaceContainer).navigationBarsPadding().padding(horizontal = 6.dp, vertical = 2.dp),
-                verticalAlignment = Alignment.CenterVertically,
-            ) {
-                TextButton(onClick = { list.getOrNull(i - 1)?.let(onGo) }, enabled = i > 0, modifier = Modifier.weight(1f)) {
-                    Text("‹ " + (list.getOrNull(i - 1)?.title ?: ""), maxLines = 1, overflow = TextOverflow.Ellipsis)
-                }
-                Text("${i + 1} / ${list.size}", style = MaterialTheme.typography.bodySmall)
-                TextButton(onClick = { list.getOrNull(i + 1)?.let(onGo) }, enabled = i < list.size - 1, modifier = Modifier.weight(1f)) {
-                    Text((list.getOrNull(i + 1)?.title ?: "") + " ›", maxLines = 1, overflow = TextOverflow.Ellipsis)
-                }
-            }
+            val bkey = Reading.bookmarkKey("leonardo", h.id)
+            var marked by remember(bkey) { mutableStateOf(bkey in rprefs.readerBookmarks) }
+            ReaderBar(
+                prevLabel = list.getOrNull(i - 1)?.title, nextLabel = list.getOrNull(i + 1)?.title,
+                onPrev = { list.getOrNull(i - 1)?.let(onGo) }, onNext = { list.getOrNull(i + 1)?.let(onGo) },
+                listenKey = "leo-${h.id}", listenTitle = h.title,
+                paragraphs = h.paras.filter { !Leonardo.isHeading(it) },
+                bookmarked = marked,
+                onBookmark = { rprefs.readerBookmarks = if (marked) rprefs.readerBookmarks - bkey else rprefs.readerBookmarks + bkey; marked = !marked },
+            )
         },
     ) { inner ->
+        PassageSelection("Leonardo da Vinci, Notebooks (tr. J. P. Richter)", "Leonardo's notebooks") {
         LazyColumn(
             Modifier.fillMaxSize().padding(inner),
             contentPadding = PaddingValues(start = 20.dp, end = 20.dp, top = 16.dp, bottom = 24.dp),
@@ -280,7 +286,7 @@ private fun LeoPage(
                                 }
                             }
                         }
-                        Text(text, fontFamily = FontFamily.Serif, fontSize = 17.sp, lineHeight = 27.sp)
+                        Text(text, fontFamily = FontFamily.Serif, fontSize = readerSize(17f), lineHeight = readerSize(27f))
                     }
                 }
             }
@@ -306,6 +312,7 @@ private fun LeoPage(
                     )
                 }
             }
+        }
         }
     }
 }

@@ -353,6 +353,26 @@ class QuotePrefs(context: Context) {
     fun pathStep(title: String): Int = prefs.getInt("path_step:$title", 0)
     fun setPathStep(title: String, step: Int) = prefs.edit().putInt("path_step:$title", step).apply()
 
+    /** Text size in the Library's readers, as a multiple of the normal size. */
+    var readerScale: Float
+        get() = prefs.getFloat("reader_scale", 1f)
+        set(value) = prefs.edit().putFloat("reader_scale", value).apply()
+
+    /** Where you are in each Library room (JSON list, newest first), for Continue reading. */
+    var readerRecent: String?
+        get() = prefs.getString("reader_recent", null)
+        set(value) = prefs.edit().putString("reader_recent", value).apply()
+
+    /** Bookmarked pages in the Library ("room|item"). */
+    var readerBookmarks: Set<String>
+        get() = prefs.getStringSet("reader_bookmarks", null)?.toSet() ?: emptySet()
+        set(value) = prefs.edit().putStringSet("reader_bookmarks", value).apply()
+
+    /** Pages read to the end in the Library's books ("book|chapter"). */
+    var readerDone: Set<String>
+        get() = prefs.getStringSet("reader_done", null)?.toSet() ?: emptySet()
+        set(value) = prefs.edit().putStringSet("reader_done", value).apply()
+
     /** Van Gogh's letters read to the end (by letter id). */
     var lettersRead: Set<String>
         get() = prefs.getStringSet("letters_read", null)?.toSet() ?: emptySet()

@@ -27,6 +27,7 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -241,6 +242,12 @@ fun PlatoScreen(onBack: () -> Unit, onOpenAuthor: (String) -> Unit, start: Strin
 private fun PlatoSceneScreen(s: PlatoScene, list: List<PlatoScene>, onGo: (PlatoScene) -> Unit, onBack: () -> Unit, onOpenAuthor: (String) -> Unit) {
     BackHandler(onBack = onBack)
     val context = LocalContext.current
+    val rprefs = remember { QuotePrefs(context) }
+    LaunchedEffect(s.id) {
+        Reading.load(rprefs)
+        val all = Plato.dialogues(context).flatMap { it.scenes }
+        Reading.record(rprefs, Reading.Place("plato", s.id, "${s.dialogue} · ${s.title}", "Plato's dialogues", "plato:${s.id}", all.indexOfFirst { it.id == s.id }, all.size, System.currentTimeMillis()))
+    }
     val bundled = remember { QuoteRepository(context).bundled() }
     var opened by remember { mutableStateOf<Quote?>(null) }
     opened?.let { q -> QuotePageSheet(quote = q, onDismiss = { opened = null }, onOpenAuthor = { opened = null; onOpenAuthor(it) }) }
@@ -248,20 +255,19 @@ private fun PlatoSceneScreen(s: PlatoScene, list: List<PlatoScene>, onGo: (Plato
     val accent = PAccent
     Scaffold(
         bottomBar = {
-            Row(
-                Modifier.fillMaxWidth().background(MaterialTheme.colorScheme.surfaceContainer).navigationBarsPadding().padding(horizontal = 6.dp, vertical = 2.dp),
-                verticalAlignment = Alignment.CenterVertically,
-            ) {
-                TextButton(onClick = { list.getOrNull(i - 1)?.let(onGo) }, enabled = i > 0, modifier = Modifier.weight(1f)) {
-                    Text("‹ " + (list.getOrNull(i - 1)?.title ?: ""), maxLines = 1, overflow = TextOverflow.Ellipsis)
-                }
-                Text("${i + 1} / ${list.size}", style = MaterialTheme.typography.bodySmall)
-                TextButton(onClick = { list.getOrNull(i + 1)?.let(onGo) }, enabled = i < list.size - 1, modifier = Modifier.weight(1f)) {
-                    Text((list.getOrNull(i + 1)?.title ?: "") + " ›", maxLines = 1, overflow = TextOverflow.Ellipsis)
-                }
-            }
+            val bkey = Reading.bookmarkKey("plato", s.id)
+            var marked by remember(bkey) { mutableStateOf(bkey in rprefs.readerBookmarks) }
+            ReaderBar(
+                prevLabel = list.getOrNull(i - 1)?.title, nextLabel = list.getOrNull(i + 1)?.title,
+                onPrev = { list.getOrNull(i - 1)?.let(onGo) }, onNext = { list.getOrNull(i + 1)?.let(onGo) },
+                listenKey = "plato-${s.id}", listenTitle = "${s.dialogue}. ${s.title}",
+                paragraphs = s.paras.map { p -> Plato.speaker(p)?.let { (who, w) -> if (who == "SCENE") w else "${who.lowercase().replaceFirstChar { it.uppercase() }}: $w" } ?: p },
+                bookmarked = marked,
+                onBookmark = { rprefs.readerBookmarks = if (marked) rprefs.readerBookmarks - bkey else rprefs.readerBookmarks + bkey; marked = !marked },
+            )
         },
     ) { inner ->
+        PassageSelection("Plato, ${s.dialogue} (tr. Benjamin Jowett)", s.dialogue) {
         LazyColumn(
             Modifier.fillMaxSize().padding(inner),
             contentPadding = PaddingValues(start = 20.dp, end = 20.dp, top = 16.dp, bottom = 24.dp),
@@ -299,13 +305,14 @@ private fun PlatoSceneScreen(s: PlatoScene, list: List<PlatoScene>, onGo: (Plato
                 }
                 Column(verticalArrangement = Arrangement.spacedBy(2.dp)) {
                     turn?.let { Text(it.first, style = MaterialTheme.typography.labelMedium, letterSpacing = 1.2.sp, color = accent) }
-                    Text(text, fontFamily = FontFamily.Serif, fontSize = 17.sp, lineHeight = 27.sp)
+                    Text(text, fontFamily = FontFamily.Serif, fontSize = readerSize(17f), lineHeight = readerSize(27f))
                 }
             }
             if (s.note.isNotEmpty()) item { PNote("What's at stake.", s.note) }
             item {
                 Text("Tr. Benjamin Jowett · Underlined lines are in the collection: tap one to open it.", style = MaterialTheme.typography.bodySmall, color = PSoft)
             }
+        }
         }
     }
 }

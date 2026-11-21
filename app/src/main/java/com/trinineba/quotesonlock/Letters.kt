@@ -212,8 +212,12 @@ fun LettersScreen(onBack: () -> Unit, onOpenAuthor: (String) -> Unit, start: Str
 @Composable
 internal fun LetterScreen(all: List<Letter>, index: Int, prefs: QuotePrefs, onGo: (Int) -> Unit, onBack: () -> Unit, onOpenAuthor: (String) -> Unit) {
     BackHandler(onBack = onBack)
-    val context = LocalContext.current
     val letter = all[index]
+    LaunchedEffect(letter.id) {
+        Reading.load(prefs)
+        Reading.record(prefs, Reading.Place("letters", letter.id, letter.title, "Van Gogh's letters", "letters:${letter.id}", index, all.size, System.currentTimeMillis()))
+    }
+    val context = LocalContext.current
     val bundled = remember { QuoteRepository(context).bundled() }
     var opened by remember { mutableStateOf<Quote?>(null) }
     opened?.let { q -> QuotePageSheet(quote = q, onDismiss = { opened = null }, onOpenAuthor = { opened = null; onOpenAuthor(it) }) }
@@ -227,20 +231,19 @@ internal fun LetterScreen(all: List<Letter>, index: Int, prefs: QuotePrefs, onGo
     }
     Scaffold(
         bottomBar = {
-            Row(
-                Modifier.fillMaxWidth().background(MaterialTheme.colorScheme.surfaceContainer).padding(horizontal = 8.dp, vertical = 4.dp),
-                verticalAlignment = Alignment.CenterVertically,
-            ) {
-                TextButton(onClick = { onGo(index - 1) }, enabled = index > 0, modifier = Modifier.weight(1f)) {
-                    Text("‹ " + (all.getOrNull(index - 1)?.title ?: ""), maxLines = 1, overflow = TextOverflow.Ellipsis, color = if (index > 0) Gold else Color.Unspecified)
-                }
-                Text("${index + 1} / ${all.size}", style = MaterialTheme.typography.bodySmall)
-                TextButton(onClick = { onGo(index + 1) }, enabled = index < all.size - 1, modifier = Modifier.weight(1f)) {
-                    Text((all.getOrNull(index + 1)?.title ?: "") + " ›", maxLines = 1, overflow = TextOverflow.Ellipsis, color = if (index < all.size - 1) Gold else Color.Unspecified)
-                }
-            }
+            val bkey = Reading.bookmarkKey("letters", letter.id)
+            var marked by remember(bkey) { mutableStateOf(bkey in prefs.readerBookmarks) }
+            ReaderBar(
+                prevLabel = all.getOrNull(index - 1)?.title, nextLabel = all.getOrNull(index + 1)?.title,
+                onPrev = { if (index > 0) onGo(index - 1) }, onNext = { if (index < all.size - 1) onGo(index + 1) },
+                listenKey = "letter-${letter.id}", listenTitle = letter.title,
+                paragraphs = letter.paras,
+                bookmarked = marked,
+                onBookmark = { prefs.readerBookmarks = if (marked) prefs.readerBookmarks - bkey else prefs.readerBookmarks + bkey; marked = !marked },
+            )
         },
     ) { inner ->
+        PassageSelection("Vincent van Gogh, " + (if (letter.source == Letters.SOURCE_LUDOVICI) "Letters (tr. Anthony M. Ludovici)" else "Letters to His Brother (tr. Jo van Gogh-Bonger)"), "Van Gogh's letters") {
         LazyColumn(
             Modifier.fillMaxSize().padding(inner),
             state = state,
@@ -289,7 +292,7 @@ internal fun LetterScreen(all: List<Letter>, index: Int, prefs: QuotePrefs, onGo
                         }
                     }
                 }
-                Text(text, fontFamily = FontFamily.Serif, fontSize = 17.sp, lineHeight = 27.sp)
+                Text(text, fontFamily = FontFamily.Serif, fontSize = readerSize(17f), lineHeight = readerSize(27f))
             }
             item {
                 Text(
@@ -301,6 +304,7 @@ internal fun LetterScreen(all: List<Letter>, index: Int, prefs: QuotePrefs, onGo
                 )
             }
             item { Spacer(Modifier.height(8.dp)) }
+        }
         }
     }
 }

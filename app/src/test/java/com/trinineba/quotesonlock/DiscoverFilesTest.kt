@@ -110,6 +110,29 @@ class DiscoverFilesTest {
         assertTrue("too few of his lines underlined: $underlined", underlined >= 20)
     }
 
+    @Test fun libraryBooksAreCompleteWithIntroductionAndGuide() {
+        val essays = raw("essays.txt").useLines { Essays.parse(it) }.map { it.title }.toSet()
+        val books = File("src/main/res/raw").listFiles { f -> f.name.startsWith("book_") }!!.sortedBy { it.name }.map { f -> f.useLines { Books.parse(it) }!! }
+        assertTrue("no books", books.isNotEmpty())
+        assertEquals("a book id is used twice", books.size, books.map { it.id }.toSet().size)
+        books.forEach { b ->
+            assertTrue("${b.id}: no introduction", b.intro.sumOf { it.length } > 200)
+            assertTrue("${b.id}: no translation credit", b.translation.isNotBlank() && b.author.isNotBlank())
+            assertTrue("${b.id}: too few chapters", b.chapters.size >= 10)
+            assertEquals("${b.id}: a chapter id is used twice", b.chapters.size, b.chapters.map { it.id }.toSet().size)
+            b.chapters.forEach { c ->
+                assertTrue("${b.id}/${c.id}: empty", c.paras.isNotEmpty() && c.title.isNotBlank())
+                c.paras.forEach { p -> assertTrue("${b.id}/${c.id}: stray characters in: ${p.take(60)}", p.none { it in "|_{}<>#*~[]" }) }
+            }
+            val g = b.guide
+            assertTrue("${b.id}: no guide", g != null && g.sections.size >= 4 && g.questions.size >= 2)
+            assertTrue("${b.id}: key chapter ${g!!.keyScene} not found", b.chapters.any { it.title == g.keyScene })
+            assertTrue("${b.id}: essay ${g.essay} not found", g.essay in essays)
+        }
+        val tao = books.first { it.id == "tao" }
+        assertEquals("the Tao Te Ching has 81 chapters", 81, tao.chapters.size)
+    }
+
     @Test fun leonardoHighlightsAreCompleteAndUnderlineTheCollection() {
         val book = raw("leonardo.txt").useLines { Leonardo.parse(it) }
         val all = book.all

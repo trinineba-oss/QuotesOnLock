@@ -434,3 +434,9 @@ Douglas Adams, Terry Pratchett and Kurt Vonnegut are still in copyright, so they
 ## Plato's dialogues
 
 The Plato section (`res/raw/plato.txt`) quotes Benjamin Jowett's translations from Project Gutenberg word for word: Euthyphro (#1642), Apology (#1656), Crito (#1657), Phaedo (#1658), Meno (#1643), Symposium (#1600), Phaedrus (#1636) and the Republic (#1497). Each scene is a run of whole paragraphs, except Aristophanes' speech in the Symposium, which is cut to its best-known part. Jowett's introductions and notes are left out; the scene titles, the introductions to each dialogue, the guides (Reading the …) and the notes are written for the app.
+
+## The Library
+
+The Library gathers the long reads (Plato's dialogues, Van Gogh's letters, Leonardo's notebooks) with whole public-domain books, read in one shared reader. Each book is a file `res/raw/book_<id>.txt`; its text is copied word for word from Project Gutenberg, and its introduction, guide and questions are written for the app.
+
+- *Tao Te Ching*, Lao Tzu, tr. James Legge (1891), Project Gutenberg #216 (`book_tao.txt`): all 81 chapters, with Legge's chapter titles.

@@ -837,6 +837,10 @@ private fun QuotesScreen(
             LettersScreen(onBack = { browse = browse.dropLast(1) }, onOpenAuthor = { browse = browse + BrowsePage.author(it) })
             return
         }
+        "library" -> {
+            LibraryScreen(onBack = { browse = browse.dropLast(1) }, onOpen = { browse = browse + it })
+            return
+        }
         "themes" -> {
             ThemesScreen(onBack = { browse = browse.dropLast(1) }, onOpenAuthor = { browse = browse + BrowsePage.author(it) })
             return
@@ -877,6 +881,18 @@ private fun QuotesScreen(
             onOpenPath = { browse = browse + if (it == "letters" || it == "leonardo" || it == "plato") it else "paths:$it" },
             start = route.removePrefix("essays:"),
         )
+        return
+    }
+    browse.lastOrNull()?.takeIf { it.startsWith("book:") }?.let { route ->
+        val r = route.removePrefix("book:")
+        androidx.compose.runtime.key(r) {
+            BookScreen(
+                bookId = r.substringBefore('/'),
+                onBack = { browse = browse.dropLast(1) },
+                onOpenEssay = { browse = browse + "essays:$it" },
+                start = r.substringAfter('/', "").ifEmpty { null },
+            )
+        }
         return
     }
     browse.lastOrNull()?.takeIf { it == "plato" || it.startsWith("plato:") }?.let { route ->
@@ -1218,16 +1234,12 @@ private fun QuotesScreen(
         item(key = "d-journeys") { Text("JOURNEYS", style = MaterialTheme.typography.labelMedium, color = MaterialTheme.colorScheme.primary, letterSpacing = 1.2.sp) }
         item(key = "d-grid") {
             val essayCount = remember { runCatching { Essays.all(context).size }.getOrDefault(0) }
-            val letterCount = remember { runCatching { Letters.groups(context).sumOf { it.letters.size } }.getOrDefault(0) }
-            val leoCount = remember { runCatching { Leonardo.book(context).all.size }.getOrDefault(0) }
-            val platoCount = remember { runCatching { Plato.dialogues(context).sumOf { it.scenes.size } }.getOrDefault(0) }
+            val roomCount = remember { 3 + runCatching { Books.all(context).size }.getOrDefault(0) }
             val tiles = listOf(
                 Triple("Learn", "Two minutes a day: one idea, one question", 0xFF8A6A3A) to "learn",
                 Triple("Reading paths", "Guided journeys: the Stoics, wonder, love…", 0xFF2E8B74) to "paths",
                 Triple("Essays", "$essayCount · one question, many voices", 0xFF5A6B8C) to "essays",
-                Triple("Van Gogh's letters", "$letterCount · in his own words", 0xFF2B4C8C) to "letters",
-                Triple("Leonardo's notebooks", "$leoCount highlights from his notebooks", 0xFF9A5A1E) to "leonardo",
-                Triple("Plato's dialogues", "$platoCount scenes: the cave, the gadfly, the charioteer", 0xFF4A6A8C) to "plato",
+                Triple("Library", "$roomCount rooms: Plato, Van Gogh, Leonardo, the Tao…", 0xFF6A4A8C) to "library",
                 Triple("How things work", "The microwave, GPS, rainbows…", 0xFFC0682E) to "things",
                 Triple("One idea, many hands", "Great themes across the centuries", 0xFF7A5ADC) to "themes",
                 Triple("Influences", "Threads of who read whom", 0xFF3C78C8) to "influences",
