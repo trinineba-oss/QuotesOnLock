@@ -501,3 +501,95 @@ Q|Nobody ever figures out what life is all about, and it doesn't matter. Explore
 P|Plato, who founded the Academy in Athens some years after his teacher's death, spent his life writing conversations in which Socrates asks and others answer, and many of them end without an answer at all. That is not a failure. It is an invitation to keep asking, which is what Socrates himself asked of his friends.
 Q|And I would ask you to be thinking of the truth and not of Socrates: agree with me, if I seem to you to be speaking the truth; or if not, withstand me might and main, that I may not deceive you as well as myself in my enthusiasm, and like the bee, leave my sting in you before I die.
 P|The great scenes of those dialogues are in the app, from the trial to the cave, to be read the way they were written: as a conversation you are invited to join.
+E|Enough|Contentment, with Lao Tzu, Epicurus, Seneca, Thoreau, Tolstoy, Blake and the fisherman's wife|8A6A3A|The examined life
+P|Almost everything around us is built to make us want a little more: a bigger screen, a newer phone, one more episode, one more thing in the basket. It is easy to think this restlessness is modern. It is not. The oldest wisdom we have keeps returning to a single, unfashionable word, and to the strange fact that people who have plenty so often feel they have nothing.
+P|The Tao Te Ching, written in China more than two thousand years ago, put it as bluntly as any economist could.
+Q|There is no guilt greater than to sanction ambition; no calamity greater than to be discontented with one's lot; no fault greater than the wish to be getting. Therefore the sufficiency of contentment is an enduring and unchanging sufficiency.
+P|Modern psychologists have a name for the trap. When something good happens to us, a raise, a new house, a long-wanted purchase, we are delighted for a while, and then the delight fades and we are back where we started, wanting the next thing.
+I|The Hedonic Treadmill
+P|Epicurus, who is often remembered as a philosopher of pleasure, was in fact a philosopher of very simple pleasures: bread, water, friends and conversation in a garden. He thought the question was not how much you have but what you need it for.
+Q|Poverty, when measured by the natural purpose of life, is great wealth, but unlimited wealth is great poverty.
+P|Seneca, who was one of the richest men in Rome and knew exactly what he was talking about, turned the usual meaning of poverty around.
+Q|It is not the man who has too little, but the man who craves more, that is poor.
+P|Eighteen centuries later, Henry David Thoreau built a cabin by Walden Pond for twenty-eight dollars and twelve and a half cents, and kept careful accounts to prove how little a good life required. His measure of wealth is the opposite of a bank balance.
+Q|A man is rich in proportion to the number of things which he can afford to let alone.
+P|Folk tales understood all this long before the philosophers. In the Grimms' story, a poor fisherman catches a magic fish, and his wife sends him back to it again and again: for a cottage, then a castle, then a crown. Each wish is granted, and each leaves her hungrier than before.
+I|The Fisherman and His Wife
+P|Tolstoy told the same story about land. His peasant Pahom is offered all the ground he can walk around between sunrise and sunset, and cannot bear to turn back while there is more to claim. He staggers back to the starting point just as the sun goes down, and falls dead. Tolstoy's title asks how much land a man needs. The last line answers.
+Q|His servant picked up the spade and dug a grave long enough for Pahom to lie in, and buried him in it. Six feet from his head to his heels was all he needed.
+P|None of this means wanting nothing. William Blake, who loved excess as much as he loved wisdom, suggested that we sometimes learn where the edge is only by going past it.
+Q|You never know what is enough unless you know what is more than enough.
+P|And Jerome K. Jerome, in the middle of a comic novel about three friends rowing up the Thames, stopped joking long enough to describe what enough might actually look like.
+Q|Let your boat of life be light, packed with only what you need—a homely home and simple pleasures, one or two friends, worth the name, someone to love and someone to love you, a cat, a dog, and a pipe or two, enough to eat and enough to wear, and a little more than enough to drink; for thirst is a dangerous thing.
+P|The Buddha's sayings in the Dhammapada list the same kind of riches, none of which can be bought.
+Q|Health is the greatest of gifts, contentedness the best riches; trust is the best of relationships, Nirvana the highest happiness.
+P|Kahlil Gibran, who grew up poor in the mountains of Lebanon and later knew success in New York, kept the whole matter in proportion.
+Q|The difference between the richest man and the poorest is but a day of hunger and an hour of thirst.
+P|Enough is not a number. It is a way of looking: noticing what is already here before reaching for what is not. The old voices do not promise that it is easy. They only suggest that the one who is satisfied with his lot is, in the Tao Te Ching's words, rich.
+E|Soft and strong|Water, with Lao Tzu, Heraclitus, Confucius, Marcus Aurelius, Tolstoy and Tagore|2E6E8C|The way of the East
+P|Of all the things the old philosophers watched, none taught them more than water. It is the softest thing there is: it takes the shape of any cup, gives way to a finger, runs to the lowest place it can find. And yet it carves canyons, splits rock when it freezes, and outlasts every wall that is built to hold it back.
+P|No book loved water more than the Tao Te Ching. Its eighth chapter holds it up as the very image of the good.
+Q|The highest excellence is like that of water. The excellence of water appears in its benefiting all things, and in its occupying, without striving to the contrary, the low place which all men dislike.
+P|Later the book makes the paradox explicit: the softest thing in the world overcomes the hardest. Everyone knows this, it adds, and almost no one lives by it.
+I|The Way of Water
+P|Water also teaches patience. Stir a pool and it turns to mud; leave it alone and it clears by itself. The Tao Te Ching makes this a lesson for troubled minds, and it is hard to find better advice for a bad day.
+Q|Who can make the muddy water clear? Let it be still, and it will gradually become clear. Who can secure the condition of rest? Let movement go on, and the condition of rest will gradually arise.
+P|The sea, the book goes on, is the greatest of all waters because it lies lowest, so that every river runs into it. Humility, in this picture, is not weakness but a kind of gravity.
+I|The Lowly Sea
+P|In Greece, Heraclitus watched a river and saw the whole of reality in it: always moving, never the same twice, yet always recognisably itself.
+Q|You cannot step twice into the same rivers; for fresh waters are ever flowing in upon you.
+P|Confucius, who is usually remembered for duty and ritual, also loved to stand by a stream. He paired the wise with water, quick and joyful, and the good with mountains, still and lasting.
+Q|The wise find pleasure in water; the virtuous find pleasure in hills. The wise are active; the virtuous are tranquil. The wise are joyful; the virtuous are long-lived.
+P|Not every image of water is about yielding. Marcus Aurelius, writing in an army camp, wanted to be the rock the sea breaks on rather than the sea. The two pictures are not as different as they look: both are about not being moved by what rages around you.
+Q|Be like a promontory against which the waves are always breaking. It stands fast, and stills the waters that rage around it. "Wretched am I," says one, "that this has befallen me."
+P|Tolstoy used rivers to describe people, and to warn against judging them by a single stretch of the current.
+Q|Men are like rivers: the water is the same in each, and alike in all; but every river is narrow here, is more rapid there, here slower, there broader, now clear, now cold, now dull, now warm. It is the same with men. Every man carries in himself the germs of every human quality, and sometimes one manifests itself, sometimes another, and the man often becomes unlike himself, while still remaining the same man.
+P|And Tagore, in Gitanjali, felt the same water in his own body as in the world around him: one stream of life, running through veins and leaves and the ocean of birth and death alike.
+I|The Stream of Life
+P|To be like water is not to be weak. It is to be supple where others are rigid, patient where others force, and willing to go low. Water gets everywhere in the end. It just never pushes.
+E|Keeping silence|Pascal, Lao Tzu, Rumi, Gibran, Nietzsche and the rests in music|4A5A7A|How to be alone
+P|We live in more noise than any people before us. Even when the room is quiet, the phone is not, and when the phone is quiet, the mind fills the gap with plans and replays and arguments. Silence has become something we have to go looking for, and when we find it many of us feel uneasy and reach for the nearest sound.
+P|Blaise Pascal noticed the unease three and a half centuries ago, long before radio or screens. Much of human trouble, he thought, comes from one simple inability.
+I|Sitting Quietly in a Room
+P|The sages of almost every tradition treat silence not as an absence but as a place where something important happens. The Tao Te Ching is wary of anyone too eager to explain the Way.
+Q|He who knows the Tao does not care to speak about it; he who is ever ready to speak about it does not know it.
+P|The Psalms put it as a command, and a promise.
+Q|Be still, and know that I am God: I will be exalted among the heathen, I will be exalted in the earth.
+P|Rumi, the great Persian poet, wrote thousands of verses and still kept telling himself to stop talking. For him silence was a way of listening to what words cannot carry.
+Q|Keep silence, that you may hear Him speaking\nWords unutterable by tongue in speech.\nKeep silence, that you may hear from that Sun\nThings inexpressible in books and discourses.
+P|Kahlil Gibran thought silence was where the truest part of us lives, and that speech, however useful, is mostly what we have picked up along the way.
+Q|The real in us is silent; the acquired is talkative.
+P|In The Prophet he goes further, and suggests that the silence comes first and the song grows out of it.
+Q|Only when you drink from the river of silence shall you indeed sing. And when you have reached the mountain top, then you shall begin to climb. And when the earth shall claim your limbs, then shall you truly dance.
+P|Musicians know this in their bones. A melody is shaped as much by its rests as by its notes; take away the silences and you are left with noise.
+I|The Music of Silence
+P|In 1952 the composer John Cage pushed the idea as far as it would go, with a piece in which the pianist plays nothing at all. What the audience discovered was that silence is never really empty.
+I|Silence Is Never Silent
+P|Silence is also where strength gathers before it acts. Nietzsche, a man of storms, put it in a short poem.
+Q|He who has much to tell, keeps much\nSilent and unavowed.\nHe who with lightning-flash would touch\nMust long remain a cloud!
+P|The Buddha's sayings set the whole question in proportion: words are worth exactly as much as the quiet they bring.
+Q|Even though a speech be a thousand (of words), but made up of senseless words, one word of sense is better, which if a man hears, he becomes quiet.
+P|None of this asks us to become hermits. It asks for something smaller: a few minutes with nothing playing, a walk without headphones, a pause before answering. In those small silences, the old voices promise, we may hear what all the noise was covering up.
+E|Beginning the day|Mornings, with Marcus Aurelius, Thoreau, Tagore, Confucius, Blake, Gibran and Mary Oliver|C08A3A|The Stoics in a week
+P|How a day begins has a way of deciding how it goes. Many of us start ours already behind: an alarm, a glance at the phone, the inbox, the news, and before we are fully awake the world has set the agenda. The old writers had no phones, but they knew the difficulty of mornings, and many of them left advice about how to meet one.
+P|Marcus Aurelius, emperor of Rome, did not find it easy to get out of bed. In his private notebook he argued with himself about it, like anyone else on a cold morning.
+Q|In the morning, when you find yourself unwilling to rise, have this thought at hand: I arise to the proper business of man, and shall I repine at setting about that work for which I was born and brought into the world? Am I equipped for nothing but to lie among the bed-clothes and keep warm?
+P|He also used the first minutes of the day to prepare for the people he would meet, the difficult ones included, so that they would not catch him off guard.
+I|The Morning Rehearsal
+P|Henry David Thoreau, at Walden Pond, treated each morning as a fresh start, and used to bathe in the pond at dawn as a kind of religious exercise. For him the hour of the day mattered less than whether we were really awake for it.
+Q|Only that day dawns to which we are awake.
+Q|Every morning was a cheerful invitation to make my life of equal simplicity, and I may say innocence, with Nature herself.
+P|Rabindranath Tagore asked for something harder still: to see each morning as if it had never happened before, not as one more in a long series.
+Q|Do not say, "It is morning," and dismiss it with a name of yesterday. See it for the first time as a new-born child that has no name.
+Q|His own mornings are new surprises to God.
+P|William Blake, practical for once, gave the day its order in a single line of his Proverbs of Hell.
+Q|Think in the morning, act in the noon, eat in the evening, sleep in the night.
+P|Confucius set a higher bar. The morning, for him, was a time to learn something that matters, and to learn it so well that the rest of life would be at peace.
+Q|If a man in the morning hear the right way, he may die in the evening without regret.
+P|Not every morning is bright. Kahlil Gibran knew mornings that came while the night was still in him, and his advice for them is simple courage.
+Q|When night comes and you too are dark, lie down and be dark with a will. And when morning comes and you are still dark stand up and say to the day with a will, "I am still dark."
+P|He also saw how small the things are that can rescue a morning.
+Q|For in the dew of little things the heart finds its morning and is refreshed.
+P|Mary Oliver, who walked the woods near her home before dawn for most of her life, put the whole matter in a few lines.
+Q|It is a serious thing\njust to be alive\non this fresh morning\nin this broken world.
+P|None of this needs an hour of rituals. It might be a minute at the window before reaching for the phone, a single thought chosen on purpose, a question for the day. The morning will come either way. The old voices only ask that we be there when it does.
