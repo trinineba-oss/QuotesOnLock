@@ -354,6 +354,10 @@ class QuotePrefs(context: Context) {
     fun setPathStep(title: String, step: Int) = prefs.edit().putInt("path_step:$title", step).apply()
 
     /** Text size in the Library's readers, as a multiple of the normal size. */
+    /** Whether "Start here" has been opened; after that Discover shows it as a small link. */
+    var startUsed: Boolean get() = prefs.getBoolean("start_used", false) set(value) = prefs.edit().putBoolean("start_used", value).apply()
+    /** When the home screen's swipe hint was first shown; it is shown for the first few days only. */
+    var homeHintSince: Long get() = prefs.getLong("home_hint_since", 0L) set(value) = prefs.edit().putLong("home_hint_since", value).apply()
     var readerScale: Float
         get() = prefs.getFloat("reader_scale", 1f)
         set(value) = prefs.edit().putFloat("reader_scale", value).apply()

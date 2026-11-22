@@ -250,7 +250,7 @@ fun DialoguesScreen(onBack: () -> Unit, onOpenAuthor: (String) -> Unit) {
     val shown = all.filter { theme == null || it.theme == theme }
     var at by rememberSaveable(theme) { mutableIntStateOf(0) }
     val d = shown.getOrNull(at.coerceIn(0, (shown.size - 1).coerceAtLeast(0)))
-    ToolScreen("Dialogues", onBack) {
+    ToolScreen("Conversations across time", onBack) {
         item {
             Text(
                 "Two voices across the centuries, answering each other.",

@@ -809,6 +809,24 @@ private fun QuotesScreen(
             DialoguesScreen(onBack = { browse = browse.dropLast(1) }, onOpenAuthor = { browse = browse + BrowsePage.author(it) })
             return
         }
+        "connections" -> {
+            ToolScreen("How the voices connect", onBack = { browse = browse.dropLast(1) }) {
+                item { Text("The same questions asked across centuries, and the threads between the people who asked them.", style = MaterialTheme.typography.bodyMedium, color = MaterialTheme.colorScheme.onSurfaceVariant) }
+                item { ToolRow(R.drawable.ic_hub, "One idea, many hands", "Great themes across the centuries") { browse = browse + "themes" } }
+                item { ToolRow(R.drawable.ic_explore, "Influences", "Threads of who read whom") { browse = browse + "influences" } }
+                item { ToolRow(R.drawable.ic_format_quote, "Conversations across time", "Voices answering one another across the centuries") { browse = browse + "dialogues" } }
+                item { ToolRow(R.drawable.ic_schedule, "Who was alive together", "Every author on one timeline") { browse = browse + "timeline" } }
+            }
+            return
+        }
+        "myths" -> {
+            val counts = remember { repo.bundled().groupingBy { it.category?.group }.eachCount() }
+            ToolScreen("Myths & folklore", onBack = { browse = browse.dropLast(1) }) {
+                item { ToolRow(R.drawable.ic_spa, "Mythology", "${counts[QuoteGroup.MYTHS] ?: 0} myths from Greece, the Norse, Egypt, India and more") { browse = browse + BrowsePage.group(QuoteGroup.MYTHS) } }
+                item { ToolRow(R.drawable.ic_menu_book, "Folklore", "${counts[QuoteGroup.FOLKLORE] ?: 0} fables, fairy tales and legends") { browse = browse + BrowsePage.group(QuoteGroup.FOLKLORE) } }
+            }
+            return
+        }
         "timeline" -> {
             TimelineScreen(onBack = { browse = browse.dropLast(1) }, onOpenAuthor = { browse = browse + BrowsePage.author(it) })
             return
@@ -874,6 +892,7 @@ private fun QuotesScreen(
         return
     }
     browse.lastOrNull()?.takeIf { it == "start" }?.let {
+        LaunchedEffect(Unit) { prefs.startUsed = true }
         StartHereScreen(
             onBack = { browse = browse.dropLast(1) },
             onGo = { browse = browse + it },
@@ -1138,7 +1157,6 @@ private fun QuotesScreen(
                             Text(brief, style = MaterialTheme.typography.bodyMedium, color = textColor)
                         }
                         quote.more?.let { MoreAbout(quote.text, it, textColor) }
-                        if (quote.isIdea) ReadAtLength(quote)
                         if (quote.isIdea) {
                             Text(
                                 if (quote.explained) "Written for the app" else "Explanation written for the app",
@@ -1178,7 +1196,10 @@ private fun QuotesScreen(
                 }
             }
         }
-        if (current != null) item(key = "home-hint") {
+        // The hint is for newcomers: shown for the first three days, then the card speaks for itself.
+        val hintSince = prefs.homeHintSince.let { if (it == 0L) System.currentTimeMillis().also { now -> prefs.homeHintSince = now } else it }
+        val showHint = System.currentTimeMillis() - hintSince < 3L * 24 * 60 * 60 * 1000
+        if (current != null && showHint) item(key = "home-hint") {
             Text(
                 if (swipeCard) "Swipe for the next quote · tap it to open" else "Tap the quote to open it",
                 style = MaterialTheme.typography.labelSmall,
@@ -1210,80 +1231,90 @@ private fun QuotesScreen(
     fun LazyListScope.discoverPage() {
         tabHeader("Discover")
         item(key = "d-search") {
-            SoftCard(Modifier.fillMaxWidth(), onClick = { browse = listOf("find") }) {
-                Row(Modifier.padding(horizontal = 18.dp, vertical = 14.dp), verticalAlignment = Alignment.CenterVertically) {
-                    Icon(painterResource(R.drawable.ic_search), contentDescription = null, tint = MaterialTheme.colorScheme.onSurfaceVariant)
-                    Text(
-                        "Search everything: quotes, essays, letters, ideas…",
-                        style = MaterialTheme.typography.bodyLarge,
-                        color = MaterialTheme.colorScheme.onSurfaceVariant,
-                        modifier = Modifier.padding(start = 12.dp),
-                    )
+            val startUsed = remember(page, browse) { prefs.startUsed }
+            Column(verticalArrangement = Arrangement.spacedBy(10.dp)) {
+                SoftCard(Modifier.fillMaxWidth(), onClick = { browse = listOf("find") }) {
+                    Row(Modifier.padding(horizontal = 18.dp, vertical = 14.dp), verticalAlignment = Alignment.CenterVertically) {
+                        Icon(painterResource(R.drawable.ic_search), contentDescription = null, tint = MaterialTheme.colorScheme.onSurfaceVariant)
+                        Text(
+                            "Search everything",
+                            style = MaterialTheme.typography.bodyLarge,
+                            color = MaterialTheme.colorScheme.onSurfaceVariant,
+                            modifier = Modifier.padding(start = 12.dp).weight(1f),
+                        )
+                        if (startUsed) Text(
+                            "Start here ›",
+                            style = MaterialTheme.typography.labelLarge,
+                            color = MaterialTheme.colorScheme.primary,
+                            modifier = Modifier.clip(RoundedCornerShape(12.dp)).clickable(onClickLabel = "Start here") { browse = listOf("start") }.padding(6.dp),
+                        )
+                    }
                 }
+                if (!startUsed) StartHereCard { browse = listOf("start") }
             }
         }
-        item(key = "d-start") { StartHereCard { browse = listOf("start") } }
         item(key = "d-resume") {
-            // Pick up where you left off: a letter or reading path in progress, and today's lesson if not yet done.
+            // Continue: the latest place in each Library room, a reading path in progress, and today's lesson if not yet done.
             val resume = remember(page, browse) {
                 buildList {
-                    val letters = runCatching { Letters.groups(context).flatMap { it.letters } }.getOrDefault(emptyList())
-                    prefs.lastLetter?.let { id -> letters.firstOrNull { it.id == id && id !in prefs.lettersRead } }?.let { l ->
-                        add(Triple(l.title, "Van Gogh's letters · ${l.minutes} min", "letters:" + l.id))
+                    val places = Reading.recent(prefs)
+                    places.take(2).forEach { p ->
+                        add(Triple(p.title, p.subtitle + if (p.total > 1) " · ${p.index + 1} of ${p.total}" else "", p.route))
+                    }
+                    if (places.none { it.room == "letters" }) {
+                        val letters = runCatching { Letters.groups(context).flatMap { it.letters } }.getOrDefault(emptyList())
+                        prefs.lastLetter?.let { id -> letters.firstOrNull { it.id == id && id !in prefs.lettersRead } }?.let { l ->
+                            add(Triple(l.title, "Van Gogh's letters · ${l.minutes} min", "letters:" + l.id))
+                        }
                     }
                     prefs.lastPath?.takeIf { it !in prefs.pathsDone }?.let { add(Triple(it, "Reading path", "paths:$it")) }
                     if (!Learn.todayDone(prefs)) runCatching { Learn.todays(prefs, context) }.getOrNull()?.let { add(Triple("Today's lesson: ${it.ref}", "Learn · 2 min", "learn")) }
                 }
             }
             if (resume.isNotEmpty()) Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
-                Text("PICK UP WHERE YOU LEFT OFF", style = MaterialTheme.typography.labelMedium, color = MaterialTheme.colorScheme.primary, letterSpacing = 1.2.sp)
+                DiscoverLabel("Continue")
                 resume.forEach { (t, m, route) -> ResumeRow(t, m) { browse = listOf(route) } }
             }
         }
-        item(key = "d-journeys") { Text("JOURNEYS", style = MaterialTheme.typography.labelMedium, color = MaterialTheme.colorScheme.primary, letterSpacing = 1.2.sp) }
-        item(key = "d-grid") {
+        item(key = "d-read") {
             val essayCount = remember { runCatching { Essays.all(context).size }.getOrDefault(0) }
             val roomCount = remember { 3 + runCatching { Books.all(context).size }.getOrDefault(0) }
             val tiles = listOf(
-                Triple("Learn", "Two minutes a day: one idea, one question", 0xFF8A6A3A) to "learn",
-                Triple("Reading paths", "Guided journeys: the Stoics, wonder, love…", 0xFF2E8B74) to "paths",
+                Triple("Library", "Whole books and letters · $roomCount rooms", 0xFF6A4A8C) to "library",
                 Triple("Essays", "$essayCount · one question, many voices", 0xFF5A6B8C) to "essays",
-                Triple("Library", "$roomCount rooms: Plato, Marcus Aurelius, Gibran, Tagore…", 0xFF6A4A8C) to "library",
-                Triple("How things work", "The microwave, GPS, rainbows…", 0xFFC0682E) to "things",
-                Triple("One idea, many hands", "Great themes across the centuries", 0xFF7A5ADC) to "themes",
-                Triple("Influences", "Threads of who read whom", 0xFF3C78C8) to "influences",
-                Triple("Dialogues", "Voices answering across time", 0xFFC86EA0) to "dialogues",
-                Triple("Who was alive together", "Every author on one timeline", 0xFFD2A050) to "timeline",
+                Triple("Reading paths", "Guided journeys: the Stoics, wonder, love…", 0xFF2E8B74) to "paths",
+                Triple("Learn", "Two minutes a day: one idea, one question", 0xFF8A6A3A) to "learn",
             )
             Column(verticalArrangement = Arrangement.spacedBy(10.dp)) {
+                DiscoverLabel("Read")
                 tiles.chunked(2).forEach { row ->
                     Row(horizontalArrangement = Arrangement.spacedBy(10.dp)) {
                         row.forEach { (t, route) -> JourneyTile(t.first, t.second, Color(t.third), Modifier.weight(1f)) { browse = listOf(route) } }
-                        if (row.size == 1) Box(Modifier.weight(1f))
                     }
                 }
             }
         }
-        item(key = "d-browse") { Text("BROWSE", style = MaterialTheme.typography.labelMedium, color = MaterialTheme.colorScheme.primary, letterSpacing = 1.2.sp) }
-        item(key = "d-shelves") {
+        item(key = "d-explore") {
             val groupCounts = remember { repo.bundled().groupingBy { it.category?.group }.eachCount() }
             Column(verticalArrangement = Arrangement.spacedBy(12.dp)) {
+                DiscoverLabel("Explore")
                 Row(horizontalArrangement = Arrangement.spacedBy(12.dp)) {
                     TileCard(Tile(R.drawable.ic_psychology, "Great ideas", "${groupCounts[QuoteGroup.IDEAS] ?: 0} ideas") { browse = listOf(BrowsePage.group(QuoteGroup.IDEAS)) }, Modifier.weight(1f))
-                    TileCard(Tile(R.drawable.ic_spa, "Mythology", "${groupCounts[QuoteGroup.MYTHS] ?: 0} myths") { browse = listOf(BrowsePage.group(QuoteGroup.MYTHS)) }, Modifier.weight(1f))
+                    TileCard(Tile(R.drawable.ic_spa, "Myths & folklore", "${(groupCounts[QuoteGroup.MYTHS] ?: 0) + (groupCounts[QuoteGroup.FOLKLORE] ?: 0)} myths, fables and tales") { browse = listOf("myths") }, Modifier.weight(1f))
                 }
                 Row(horizontalArrangement = Arrangement.spacedBy(12.dp)) {
-                    TileCard(Tile(R.drawable.ic_menu_book, "Folklore", "${groupCounts[QuoteGroup.FOLKLORE] ?: 0} fables, fairy tales and legends") { browse = listOf(BrowsePage.group(QuoteGroup.FOLKLORE)) }, Modifier.weight(1f))
-                    TileCard(Tile(R.drawable.ic_label, "Subjects", "Love, time, nature…") { browse = listOf(BrowsePage.SEARCH) }, Modifier.weight(1f))
-                }
-                Row(horizontalArrangement = Arrangement.spacedBy(12.dp)) {
-                    TileCard(Tile(R.drawable.ic_format_quote, "Authors A–Z", "Every voice in the app") { browse = listOf(BrowsePage.SEARCH) }, Modifier.weight(1f))
-                    Box(Modifier.weight(1f))
+                    TileCard(Tile(R.drawable.ic_explore, "How things work", "The microwave, GPS, rainbows…") { browse = listOf("things") }, Modifier.weight(1f))
+                    TileCard(Tile(R.drawable.ic_format_quote, "Authors & subjects", "Every voice, every theme") { browse = listOf(BrowsePage.SEARCH) }, Modifier.weight(1f))
                 }
             }
         }
+        item(key = "d-connect") {
+            Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
+                DiscoverLabel("Connections")
+                ToolRow(R.drawable.ic_hub, "How the voices connect", "One idea, many hands · Influences · Conversations across time · Who was alive together") { browse = listOf("connections") }
+            }
+        }
     }
-
     fun LazyListScope.yoursPage() {
         tabHeader("Yours")
         item(key = "y-fav") {
@@ -1311,6 +1342,12 @@ private fun QuotesScreen(
         item(key = "y-notes") {
             val n = remember(page, browse) { noteCount(context) }
             ToolRow(R.drawable.ic_edit_note, "Notes & journal", if (n == 0) "Your notebook: thoughts, lists and reflections on quotes" else "Your notebook · $n note" + if (n == 1) "" else "s") { browse = listOf("notes") }
+        }
+        item(key = "y-bookmarks") {
+            val n = remember(page, browse) { prefs.readerBookmarks.size }
+            ToolRow(R.drawable.ic_bookmark, "Library bookmarks", if (n == 0) "Tap ☆ while reading to keep a page here" else "$n bookmarked page" + if (n == 1) "" else "s") {
+                page = Page.DISCOVER; browse = listOf("library")
+            }
         }
         item(key = "y-mine") {
             ToolRow(R.drawable.ic_edit, "My own quotes", if (custom.isEmpty()) "Add lines of your own" else "${custom.size} added") { page = Page.MINE }
@@ -1776,6 +1813,17 @@ private fun QuotesScreen(
                 }
             }
         }
+        item(key = "ap-calm-wallpaper") {
+            var open by rememberSaveable { mutableStateOf(false) }
+            SettingsCard("Calm wallpaper") {
+                Text(
+                    "The Calm tab shows a slow, calm scene behind it, matching the sound you play.",
+                    style = MaterialTheme.typography.bodySmall,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                )
+                if (open) CalmWallpaperSettings() else TextButton(onClick = { open = true }) { Text("Change") }
+            }
+        }
         item(key = "t-wallpaper") {
             SettingsCard("Live wallpaper") {
                 Row(verticalAlignment = Alignment.CenterVertically) {
@@ -2082,17 +2130,16 @@ private fun QuotesScreen(
         item(key = "tb-checkin") {
             CheckInCard(onOpen = { tool = it }, onWords = { browse = listOf(BrowsePage.feeling(it)) })
         }
-        item(key = "tb-guides-h") {
-            Text("GUIDED SESSIONS · READ ALOUD", style = MaterialTheme.typography.labelLarge, color = MaterialTheme.colorScheme.primary)
+        item(key = "tb-playing") {
+            val sound by SoundPlayer.state.collectAsState()
+            sound.sound?.takeIf { !sound.forBreathe }?.let { playing ->
+                ToolRow(
+                    if (sound.playing) R.drawable.ic_pause else R.drawable.ic_play_arrow,
+                    SoundMix.label(sound.layers),
+                    if (sound.playing) "Playing · tap for sounds" else "Paused · tap for sounds",
+                ) { tool = "sounds" }
+            }
         }
-        item(key = "tb-guides") { GuideRow { tool = it } }
-        item(key = "tb-winddown") {
-            TileCard(Tile(R.drawable.ic_spa, "Wind down for sleep", "A dim screen, slow reading, sounds that fade away") { tool = "winddown" }, Modifier.fillMaxWidth(), wide = true)
-        }
-        item(key = "tb-wise-h") {
-            Text("FROM THE WISE", style = MaterialTheme.typography.labelLarge, color = MaterialTheme.colorScheme.primary)
-        }
-        item(key = "tb-wise") { PracticeRow { tool = it } }
         item(key = "tb-quick-h") {
             Text("QUICK TOOLS", style = MaterialTheme.typography.labelLarge, color = MaterialTheme.colorScheme.primary)
         }
@@ -2108,34 +2155,25 @@ private fun QuotesScreen(
                 TileCard(Tile(R.drawable.ic_psychology, "Look at a thought", "What would you tell a friend?") { tool = "reframe" }, Modifier.weight(1f))
             }
         }
+        item(key = "tb-guides-h") {
+            Text("GUIDED SESSIONS · READ ALOUD", style = MaterialTheme.typography.labelLarge, color = MaterialTheme.colorScheme.primary)
+        }
+        item(key = "tb-guides") { GuideRow { tool = it } }
+        item(key = "tb-winddown") {
+            TileCard(Tile(R.drawable.ic_spa, "Wind down for sleep", "A dim screen, slow reading, sounds that fade away") { tool = "winddown" }, Modifier.fillMaxWidth(), wide = true)
+        }
+        item(key = "tb-wise-h") {
+            Text("FROM THE WISE", style = MaterialTheme.typography.labelLarge, color = MaterialTheme.colorScheme.primary)
+        }
+        item(key = "tb-wise") { PracticeRow { tool = it } }
         item(key = "tb-feel") {
-            SettingsCard("Gentle words for when you feel") {
+            Column(verticalArrangement = Arrangement.spacedBy(6.dp)) {
+                Text("Gentle words for when you feel…", style = MaterialTheme.typography.bodyMedium, color = MaterialTheme.colorScheme.onSurfaceVariant)
                 FeelingChips { browse = listOf(BrowsePage.feeling(it)) }
             }
         }
         item(key = "tb-lifeline") { ToolRow(R.drawable.ic_volunteer_activism, "My lifeline", "A letter to yourself, kept thoughts, what helps") { tool = "lifeline" } }
-        item(key = "tb-playing") {
-            val sound by SoundPlayer.state.collectAsState()
-            sound.sound?.takeIf { !sound.forBreathe }?.let { playing ->
-                ToolRow(
-                    if (sound.playing) R.drawable.ic_pause else R.drawable.ic_play_arrow,
-                    SoundMix.label(sound.layers),
-                    if (sound.playing) "Playing · tap for sounds" else "Paused · tap for sounds",
-                ) { tool = "sounds" }
-            }
-        }
         item(key = "tb-helps") { WhatHelpsCard() }
-        item(key = "tb-wallpaper") {
-            var open by rememberSaveable { mutableStateOf(false) }
-            SettingsCard("Calm wallpaper") {
-                Text(
-                    "Calm shows a slow, calm scene behind it, matching the sound you play.",
-                    style = MaterialTheme.typography.bodySmall,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant,
-                )
-                if (open) CalmWallpaperSettings() else TextButton(onClick = { open = true }) { Text("Change") }
-            }
-        }
         item(key = "tb-note") {
             Text(
                 "These are gentle companions, not a replacement for care from people who know you or from a professional.",
@@ -2378,4 +2416,10 @@ private fun parentOf(page: Page, lastTab: Page): Page = when (page) {
     Page.FAVORITES, Page.MINE -> Page.YOURS
     Page.SETTINGS -> lastTab
     else -> Page.HOME
+}
+
+/** A section label on Discover. */
+@Composable
+private fun DiscoverLabel(text: String) {
+    Text(text.uppercase(), style = MaterialTheme.typography.labelMedium, color = MaterialTheme.colorScheme.primary, letterSpacing = 1.2.sp)
 }

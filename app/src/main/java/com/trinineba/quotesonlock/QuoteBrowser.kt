@@ -266,7 +266,7 @@ fun QuoteBrowser(
                         val shelves = listOf(QuoteGroup.IDEAS, QuoteGroup.MYTHS, QuoteGroup.FOLKLORE).filter { (groupCounts[it] ?: 0) > 0 }
                         Text("Discover", style = MaterialTheme.typography.titleMedium)
                         FlowRow(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-                            SuggestionChip(onClick = { onOpenPage("dialogues") }, label = { Text("Dialogues across time") })
+                            SuggestionChip(onClick = { onOpenPage("dialogues") }, label = { Text("Conversations across time") })
                             SuggestionChip(onClick = { onOpenPage("timeline") }, label = { Text("Who was alive together") })
                             SuggestionChip(onClick = { onOpenPage("themes") }, label = { Text("One idea, many hands") })
                             SuggestionChip(onClick = { onOpenPage("influences") }, label = { Text("Influences") })
