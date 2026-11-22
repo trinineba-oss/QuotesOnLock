@@ -114,14 +114,18 @@ class MainActivity : ComponentActivity() {
         /** Opens About & sources, where the update card is (from the "update available" notification). */
         const val EXTRA_OPEN_UPDATES = "open_updates"
         const val EXTRA_OPEN_LEARN = "open_learn"
+        /** Opens worry time (from its reminder). */
+        const val EXTRA_OPEN_WORRY = "open_worry"
     }
 
     /** Counts taps on the daily notification's "Today's lesson", so the screen opens Learn each time. */
     private val learnRequests = androidx.compose.runtime.mutableIntStateOf(0)
+    private val worryRequests = androidx.compose.runtime.mutableIntStateOf(0)
 
     override fun onNewIntent(intent: Intent) {
         super.onNewIntent(intent)
         if (intent.getBooleanExtra(EXTRA_OPEN_LEARN, false)) learnRequests.intValue++
+        if (intent.getBooleanExtra(EXTRA_OPEN_WORRY, false)) worryRequests.intValue++
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -149,6 +153,7 @@ class MainActivity : ComponentActivity() {
         Updater.schedule(this, prefs.updateCheck)
         val openUpdates = intent.getBooleanExtra(EXTRA_OPEN_UPDATES, false)
         if (savedInstanceState == null && intent.getBooleanExtra(EXTRA_OPEN_LEARN, false)) learnRequests.intValue++
+        if (savedInstanceState == null && intent.getBooleanExtra(EXTRA_OPEN_WORRY, false)) worryRequests.intValue++
         CalmScene.load(this)
         setContent {
             var theme by remember { mutableStateOf(prefs.theme) }
@@ -175,6 +180,7 @@ class MainActivity : ComponentActivity() {
                     onAuroraIntensity = { auroraIntensity = it },
                     openUpdates = openUpdates,
                     learnRequest = learnRequests.intValue,
+                    worryRequest = worryRequests.intValue,
                 )
                 WordSheetHost()
             }
@@ -245,6 +251,7 @@ private fun QuotesScreen(
     openUpdates: Boolean = false,
     /** Goes up each time the daily notification's "Today's lesson" is tapped: open Discover › Learn. */
     learnRequest: Int = 0,
+    worryRequest: Int = 0,
 ) {
     val context = LocalContext.current
     var enabled by remember { mutableStateOf(prefs.enabled) }
@@ -351,6 +358,13 @@ private fun QuotesScreen(
             LibraryLinks.open.value = null
             browse = if (page == Page.DISCOVER) browse + route else listOf(route)
             page = Page.DISCOVER
+        }
+    }
+    LaunchedEffect(worryRequest) {
+        if (worryRequest > 0) {
+            page = Page.TOOLBOX
+            browse = emptyList()
+            tool = "worrytime"
         }
     }
     LaunchedEffect(learnRequest) {
@@ -783,8 +797,19 @@ private fun QuotesScreen(
     }
 
     // The toolbox's tools open full screen, over the page.
+    val askWorryNotify = rememberLauncherForActivityResult(ActivityResultContracts.RequestPermission()) { }
     tool?.let { t ->
         when (t) {
+            "sos" -> SosScreen(onBack = { tool = null }, onTool = { tool = it })
+            "worry" -> WorryScreen(
+                prefs, onBack = { tool = null }, onStart = { tool = "worrytime" },
+                askNotifications = {
+                    if (Build.VERSION.SDK_INT >= 33 &&
+                        ContextCompat.checkSelfPermission(context, Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED
+                    ) askWorryNotify.launch(Manifest.permission.POST_NOTIFICATIONS)
+                },
+            )
+            "worrytime" -> WorryTimeScreen(prefs) { tool = null }
             "breathe" -> BreatheScreen(repo) { tool = null }
             "ground" -> GroundScreen(onBack = { tool = null }, onBreathe = { tool = "breathe" })
             "reframe" -> ReframeScreen(prefs) { tool = null }
@@ -794,6 +819,9 @@ private fun QuotesScreen(
             else -> when {
                 t.startsWith("guide:") -> Guides.byKey(context, t.removePrefix("guide:"))
                     ?.let { g -> GuideScreen(g, onBack = { tool = null }, onFinished = { rateTool = t; tool = null }) }
+                    ?: run { tool = null }
+                t.startsWith("look:") -> Looking.all(context).firstOrNull { it.key == t.removePrefix("look:") }
+                    ?.let { sc -> LookScreen(sc, onBack = { tool = null }, onFinished = { rateTool = t; tool = null }) }
                     ?: run { tool = null }
                 t.startsWith("practice:") -> Practices.byKey(t.removePrefix("practice:"))
                     ?.let { pr -> PracticeScreen(pr, repo, current, onBack = { tool = null }, onFinished = { rateTool = t; tool = null }) }
@@ -2124,6 +2152,7 @@ private fun QuotesScreen(
 
     fun LazyListScope.toolboxPage() {
         tabHeader("Calm")
+        item(key = "tb-sos") { SosButton { tool = "sos" } }
         item(key = "tb-intro") {
             Text("Take a moment. What would help right now? Nothing here is saved unless you choose to.", style = MaterialTheme.typography.bodyMedium)
         }
@@ -2155,6 +2184,10 @@ private fun QuotesScreen(
                 TileCard(Tile(R.drawable.ic_psychology, "Look at a thought", "What would you tell a friend?") { tool = "reframe" }, Modifier.weight(1f))
             }
         }
+        item(key = "tb-worry") {
+            val n = remember(page, tool) { Worries.all(prefs).size }
+            ToolRow(R.drawable.ic_edit_note, "Put the worry down", if (n == 0) "Write it down now, look at it later" else "$n kept for your worry time") { tool = "worry" }
+        }
         item(key = "tb-guides-h") {
             Text("GUIDED SESSIONS · READ ALOUD", style = MaterialTheme.typography.labelLarge, color = MaterialTheme.colorScheme.primary)
         }
@@ -2162,6 +2195,10 @@ private fun QuotesScreen(
         item(key = "tb-winddown") {
             TileCard(Tile(R.drawable.ic_spa, "Wind down for sleep", "A dim screen, slow reading, sounds that fade away") { tool = "winddown" }, Modifier.fillMaxWidth(), wide = true)
         }
+        item(key = "tb-look-h") {
+            Text("SLOW LOOKING", style = MaterialTheme.typography.labelLarge, color = MaterialTheme.colorScheme.primary)
+        }
+        item(key = "tb-look") { LookingRows { tool = "look:$it" } }
         item(key = "tb-wise-h") {
             Text("FROM THE WISE", style = MaterialTheme.typography.labelLarge, color = MaterialTheme.colorScheme.primary)
         }

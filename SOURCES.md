@@ -445,3 +445,7 @@ The Library gathers the long reads (Plato's dialogues, Van Gogh's letters, Leona
 - *Gitanjali*, Rabindranath Tagore, translated by the author (1912), Project Gutenberg #7164 (`book_gitanjali.txt`): all 103 songs. Yeats's introduction is not included.
 
 Great ideas from the Library: 31 ideas quote the Library's own texts word for word (Meditations in Long's translation, the Tao Te Ching in Legge's, *The Prophet*, *Gitanjali*, Van Gogh's letters in Jo van Gogh-Bonger's translation and Leonardo in Richter's); their briefs and fuller explanations are written for the app. The app finds where each idea and quote sits in the Library by comparing words, so an idea's page can open its chapter and a chapter can underline the lines that are in the collection.
+
+## Slow looking
+
+The photographs in Calm › Slow looking are by Carol M. Highsmith, who gave her archive to the Library of Congress for the public domain (Carol M. Highsmith Archive, Prints and Photographs Division, "no known restrictions on publication"): the Teton Range reflected in a stream, Grand Teton National Park (LC-HS503-5450); the Maroon Bells and Maroon Lake, Colorado (LC-HS503-3695); the Pacific coast at Big Sur, California (LC-HS503-3822); and Monument Valley, Arizona (LC-HS503-4002). They are resized and compressed for the app. The steps are written for the app; the closing lines are from the collection.

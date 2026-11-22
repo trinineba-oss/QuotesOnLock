@@ -159,6 +159,19 @@ class DiscoverFilesTest {
         found.forEach { (credit, n) -> assertTrue("too few great ideas from $credit: $n", n >= 3) }
     }
 
+    @Test fun slowLookingScenesAreCompleteAndQuoteTheCollection() {
+        val scenes = raw("looking.txt").useLines { Looking.parse(it) }
+        assertTrue("too few scenes: ${scenes.size}", scenes.size >= 3)
+        assertEquals("a scene key is used twice", scenes.size, scenes.map { it.key }.toSet().size)
+        scenes.forEach { s ->
+            assertTrue("${s.key}: too few steps", s.steps.size >= 4)
+            assertTrue("${s.key}: no picture", File("src/main/res/drawable-nodpi/look_${s.key}.webp").exists())
+            assertTrue("${s.key}: no credit", s.credit.contains("public domain"))
+            assertTrue("${s.key}: closing line not in the collection: ${s.quote.take(40)}", quotes.any { it.text == s.quote && it.author == s.quoteBy })
+            s.steps.forEach { (label, text) -> assertTrue("${s.key}: empty step", label.isNotBlank() && text.length > 40) }
+        }
+    }
+
     @Test fun leonardoHighlightsAreCompleteAndUnderlineTheCollection() {
         val book = raw("leonardo.txt").useLines { Leonardo.parse(it) }
         val all = book.all

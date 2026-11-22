@@ -144,7 +144,11 @@ object CalmLog {
     fun name(context: Context, tool: String): String = when {
         tool.startsWith("guide:") -> Guides.byKey(context, tool.removePrefix("guide:"))?.title ?: "A guided session"
         tool.startsWith("practice:") -> Practices.byKey(tool.removePrefix("practice:"))?.title ?: "A practice"
+        tool.startsWith("look:") -> Looking.all(context).firstOrNull { it.key == tool.removePrefix("look:") }?.title ?: "Slow looking"
         else -> when (tool) {
+            "sos" -> "Breathing, when it was too much"
+            "worry" -> "Put the worry down"
+            "worrytime" -> "Worry time"
             "breathe" -> "Breathe"
             "ground" -> "Ground yourself"
             "reframe" -> "Look at a thought"
@@ -156,8 +160,8 @@ object CalmLog {
     }
 
     /** Tools that ask "how do you feel now?" when you leave them. */
-    fun rated(tool: String): Boolean = tool.startsWith("guide:") || tool.startsWith("practice:") ||
-        tool in setOf("breathe", "ground", "reframe", "winddown")
+    fun rated(tool: String): Boolean = tool.startsWith("guide:") || tool.startsWith("practice:") || tool.startsWith("look:") ||
+        tool in setOf("breathe", "ground", "reframe", "winddown", "sos", "worrytime")
 
     /** For each tool, how often it helped and how often it was rated, over the last [days]. */
     fun helped(context: Context, days: Int = 30): List<Triple<String, Int, Int>> {

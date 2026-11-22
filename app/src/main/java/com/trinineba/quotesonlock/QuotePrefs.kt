@@ -353,6 +353,17 @@ class QuotePrefs(context: Context) {
     fun pathStep(title: String): Int = prefs.getInt("path_step:$title", 0)
     fun setPathStep(title: String, step: Int) = prefs.edit().putInt("path_step:$title", step).apply()
 
+    /** Worries kept for later, as JSON (see Worries). */
+    var worries: String?
+        get() = prefs.getString("worries", null)
+        set(value) = prefs.edit().putString("worries", value).apply()
+    /** The daily worry time, or -1 for no reminder. */
+    var worryHour: Int
+        get() = prefs.getInt("worry_hour", -1)
+        set(value) = prefs.edit().putInt("worry_hour", value).apply()
+    var worryMinute: Int
+        get() = prefs.getInt("worry_minute", 0)
+        set(value) = prefs.edit().putInt("worry_minute", value).apply()
     /** Whether "Start here" has been opened; after that Discover shows it as a small link. */
     var startUsed: Boolean
         get() = prefs.getBoolean("start_used", false)
