@@ -55,6 +55,9 @@ import androidx.compose.ui.BiasAlignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.scale
+import androidx.compose.ui.draw.shadow
+import androidx.compose.ui.graphics.graphicsLayer
+import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
@@ -181,8 +184,13 @@ fun SosButton(onClick: () -> Unit) {
 // Slow looking: a few quiet minutes with one painting of a nature scene.
 // ---------------------------------------------------------------------------------------------
 
+/** Where a step looks: a point across the painting (0 to 1) and how close; zoom 1 shows the whole. */
+class LookFocus(val x: Float, val y: Float, val zoom: Float) {
+    companion object { val WHOLE = LookFocus(0.5f, 0.5f, 1f) }
+}
+
 /** One painted scene and its steps; [quote] and [quoteBy] close the session. */
-class LookScene(val key: String, val title: String, val place: String, val credit: String, val quote: String, val quoteBy: String, val steps: List<Pair<String, String>>) {
+class LookScene(val key: String, val title: String, val place: String, val credit: String, val quote: String, val quoteBy: String, val steps: List<Pair<String, String>>, val focus: List<LookFocus>) {
     val minutes: Int get() = (steps.sumOf { it.second.split(' ').size } / 60 + steps.size / 2).coerceAtLeast(3)
 }
 
@@ -193,12 +201,17 @@ object Looking {
         val out = mutableListOf<LookScene>()
         var head: List<String>? = null
         var steps = mutableListOf<Pair<String, String>>()
-        fun flush() { head?.let { h -> out += LookScene(h[1], h[2], h[3], h[4], h[5], h[6], steps) }; head = null; steps = mutableListOf() }
+        var focus = mutableListOf<LookFocus>()
+        fun flush() { head?.let { h -> out += LookScene(h[1], h[2], h[3], h[4], h[5], h[6], steps, focus) }; head = null; steps = mutableListOf(); focus = mutableListOf() }
         lines.filter { it.isNotBlank() && !it.startsWith("#") }.forEach { line ->
             val f = line.split('|')
             when (f[0]) {
                 "V" -> { flush(); head = f }
-                "S" -> if (f.size >= 3) steps += f[1] to f[2]
+                "S" -> if (f.size >= 3) {
+                    steps += f[1] to f[2]
+                    val x = f.getOrNull(3)?.toFloatOrNull(); val y = f.getOrNull(4)?.toFloatOrNull(); val z = f.getOrNull(5)?.toFloatOrNull()
+                    focus += if (x != null && y != null && z != null) LookFocus(x, y, z) else LookFocus.WHOLE
+                }
             }
         }
         flush()
@@ -243,18 +256,18 @@ fun LookingRows(onOpen: (String) -> Unit) {
 }
 
 /**
- * The painting fills the screen and drifts very slowly from side to side; one step at a time is shown and read
- * aloud. The last step adds a line from the collection about such places.
+ * The painting hangs whole in a thin gilt frame on a dark wall, never cropped: the words sit below it when the screen
+ * is upright and beside it when sideways. A step can name a spot in the painting, and the view glides in to it and
+ * back out for the whole. Tapping the painting shows it on its own. The last step adds a line from the collection.
  */
 @Composable
 fun LookScreen(scene: LookScene, onBack: () -> Unit, onFinished: () -> Unit) {
-    BackHandler(onBack = onBack)
     val context = LocalContext.current
     val view = LocalView.current
     var step by rememberSaveable(scene.key) { mutableIntStateOf(0) }
     var voice by rememberSaveable { mutableStateOf(true) }
-    val drift = rememberInfiniteTransition(label = "drift")
-    val bias by drift.animateFloat(-1f, 1f, infiniteRepeatable(tween(60_000, easing = LinearEasing), RepeatMode.Reverse), label = "bias")
+    var alone by rememberSaveable { mutableStateOf(false) }
+    BackHandler { if (alone) alone = false else onBack() }
     val (label, text) = scene.steps[step]
     val last = step == scene.steps.lastIndex
     val voiceKey = "look-${scene.key}"
@@ -272,22 +285,26 @@ fun LookScreen(scene: LookScene, onBack: () -> Unit, onFinished: () -> Unit) {
             QuoteVoice.speakParts(context, voiceKey, parts, slower = 0.9f)
         } else if (QuoteVoice.speaking.value == voiceKey) QuoteVoice.stop()
     }
-    Box(Modifier.fillMaxSize().background(Color.Black)) {
-        Image(
-            painterResource(Looking.image(scene.key)), contentDescription = scene.title,
-            contentScale = ContentScale.Crop, alignment = BiasAlignment(bias, 0f), modifier = Modifier.fillMaxSize(),
-        )
+    val painter = painterResource(Looking.image(scene.key))
+    val ratio = painter.intrinsicSize.let { if (it.height > 0f) it.width / it.height else 1.5f }
+    val focus = scene.focus.getOrElse(step) { LookFocus.WHOLE }
+    val glide = tween<Float>(2600)
+    val zoom by animateFloatAsState(focus.zoom, glide, label = "zoom")
+    val fx by animateFloatAsState(focus.x, glide, label = "fx")
+    val fy by animateFloatAsState(focus.y, glide, label = "fy")
+
+    if (alone) {
         Box(
-            Modifier.align(Alignment.TopStart).statusBarsPadding().padding(12.dp).size(44.dp).clip(CircleShape)
-                .background(Color.Black.copy(alpha = 0.35f)).clickable(onClickLabel = "Back", onClick = onBack),
+            Modifier.fillMaxSize().background(Color.Black).clickable(onClickLabel = "Back to the steps") { alone = false },
             contentAlignment = Alignment.Center,
-        ) { Text("←", color = Color.White, fontSize = 22.sp) }
-        Column(
-            Modifier.align(Alignment.BottomCenter).fillMaxWidth()
-                .background(Brush.verticalGradient(listOf(Color.Transparent, Night.copy(alpha = 0.92f), Night)))
-                .navigationBarsPadding().padding(start = 20.dp, end = 20.dp, top = 48.dp, bottom = 12.dp),
-            verticalArrangement = Arrangement.spacedBy(8.dp),
         ) {
+            Image(painter, contentDescription = scene.title, contentScale = ContentScale.Fit, modifier = Modifier.fillMaxSize())
+        }
+        return
+    }
+
+    val words: @Composable (Modifier) -> Unit = { mod ->
+        Column(mod, verticalArrangement = Arrangement.spacedBy(8.dp)) {
             Text("STEP ${step + 1} OF ${scene.steps.size} · ${label.uppercase()}", color = Color(0xFFF2C94C), style = MaterialTheme.typography.labelSmall, letterSpacing = 1.3.sp)
             Text(text, color = Color.White, fontFamily = FontFamily.Serif, fontSize = 18.sp, lineHeight = 27.sp)
             if (last) {
@@ -302,7 +319,65 @@ fun LookScreen(scene: LookScene, onBack: () -> Unit, onFinished: () -> Unit) {
             }
         }
     }
+    // The framed painting, as large as [maxW] x [maxH] allows at its own shape, showing the focused part.
+    val framed: @Composable (Modifier) -> Unit = { mod ->
+        Box(mod, contentAlignment = Alignment.Center) {
+            androidx.compose.foundation.layout.BoxWithConstraints(Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
+                val w = minOf(maxWidth, maxHeight * ratio)
+                val h = w / ratio
+                Box(
+                    Modifier.size(w, h)
+                        .androidxShadow()
+                        .border(5.dp, Color(0xFF2A2418))
+                        .border(6.dp, Color(0xFF8A7140).copy(alpha = 0.8f))
+                        .padding(6.dp)
+                        .clip(RoundedCornerShape(1.dp))
+                        .clickable(onClickLabel = "See the painting on its own") { alone = true },
+                ) {
+                    Image(
+                        painter, contentDescription = scene.title, contentScale = ContentScale.FillBounds,
+                        modifier = Modifier.fillMaxSize().graphicsLayer {
+                            // Move the focus point to the middle, without letting an edge of the painting show.
+                            val limitX = (zoom - 1f) * size.width / 2f
+                            val limitY = (zoom - 1f) * size.height / 2f
+                            scaleX = zoom
+                            scaleY = zoom
+                            translationX = (-(fx - 0.5f) * size.width * zoom).coerceIn(-limitX, limitX)
+                            translationY = (-(fy - 0.5f) * size.height * zoom).coerceIn(-limitY, limitY)
+                        },
+                    )
+                }
+            }
+        }
+    }
+    androidx.compose.foundation.layout.BoxWithConstraints(Modifier.fillMaxSize().background(Night)) {
+        val sideways = maxWidth > maxHeight
+        if (sideways) {
+            Row(Modifier.fillMaxSize().statusBarsPadding().navigationBarsPadding()) {
+                framed(Modifier.weight(1f).fillMaxSize().padding(24.dp))
+                words(
+                    Modifier.width(minOf(340.dp, maxWidth * 0.38f)).fillMaxSize()
+                        .background(Color(0xFF0E1530)).padding(horizontal = 20.dp, vertical = 16.dp)
+                        .wrapContentHeight(),
+                )
+            }
+        } else {
+            Column(Modifier.fillMaxSize().statusBarsPadding().navigationBarsPadding()) {
+                Spacer(Modifier.height(56.dp))
+                framed(Modifier.weight(1f).fillMaxWidth().padding(horizontal = 20.dp, vertical = 12.dp))
+                words(Modifier.fillMaxWidth().padding(start = 20.dp, end = 20.dp, top = 8.dp, bottom = 12.dp))
+            }
+        }
+        Box(
+            Modifier.statusBarsPadding().padding(12.dp).size(44.dp).clip(CircleShape)
+                .background(Color.White.copy(alpha = 0.08f)).clickable(onClickLabel = "Back", onClick = onBack),
+            contentAlignment = Alignment.Center,
+        ) { Text("←", color = Color.White, fontSize = 22.sp) }
+    }
 }
+
+/** A soft shadow under the frame, as if it hung on the wall. */
+private fun Modifier.androidxShadow(): Modifier = this.shadow(16.dp, RoundedCornerShape(2.dp), clip = false)
 
 // ---------------------------------------------------------------------------------------------
 // Put the worry down: write worries down, and come back to them at a worry time.

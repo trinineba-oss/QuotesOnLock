@@ -1,26 +1,26 @@
 # Slow looking: a few quiet minutes with one painting of a nature scene (painted for the app from a public-domain photograph), read aloud step by step. Steps are written for the app.
-# V|key|title|place|credit|closing quote (exact text in quotes.txt)|its author ; S|step label|what to notice
+# V|key|title|place|credit|closing quote (exact text in quotes.txt)|its author ; S|step label|what to notice|optional focus: x|y (0 to 1 across the painting)|zoom
 V|tetons|Mountains in still water|Grand Teton National Park, Wyoming|Painted for the app from a photograph by Carol M. Highsmith, Library of Congress, public domain|Nevermore, however weary, should one faint by the way who gains the blessings of one mountain day; whatever his fate, long life, short life, stormy or calm, he is rich forever.|John Muir, My First Summer in the Sierra
 S|Arriving|Let your shoulders drop, and take one slow breath. There is nothing to do here except look. Let your eyes rest wherever they land first.
 S|The colours|Now follow the colours. The deep blue of the sky, the white of the clouds, the soft gold of the autumn trees along the water. See how the gold sits between the blue above and the blue below.
-S|The reflection|Look at the lower half of the picture. The water is so still that it holds the clouds and the mountains upside down. Let your eyes move slowly from a cloud in the sky to the same cloud in the stream.
-S|One small thing|Find the line of snow on the peaks. Follow it slowly along the ridge, from left to right, as if you were walking it. Take your time; the mountains have been there a long while.
+S|The reflection|Look at the lower half of the picture. The water is so still that it holds the clouds and the mountains upside down. Let your eyes move slowly from a cloud in the sky to the same cloud in the stream.|.5|.72|1.6
+S|One small thing|Find the line of snow on the peaks. Follow it slowly along the ridge, from left to right, as if you were walking it. Take your time; the mountains have been there a long while.|.33|.45|2.4
 S|The whole|Now let your eyes soften and take in the whole scene at once: sky, peaks, trees and water, all quiet together. Breathe out slowly, and let a little of that stillness stay with you.
 V|maroon|A lake below two peaks|The Maroon Bells and Maroon Lake, Colorado|Painted for the app from a photograph by Carol M. Highsmith, Library of Congress, public domain|Nothing so fair, so pure, and at the same time so large, as a lake, perchance, lies on the surface of the earth.|Henry David Thoreau, Walden
 S|Arriving|Settle where you are, and let your breathing slow. You are standing at the edge of a mountain lake, early in the day. Just look.
 S|The colours|Notice the many greens: the dark green of the pines, the bright green of the slopes, the green-brown of the shallow water near the shore. Above them, the two peaks are a soft red-grey, streaked with snow.
-S|The stillness|Look at the lake. Hardly a ripple. The peaks, the trees and the sky are all there again, upside down and a little darker, as if the water were remembering them.
-S|One small thing|Find the grasses at the lower right, right at the water's edge. Each blade is lit by the sun. Let your eyes rest there for a few breaths.
+S|The stillness|Look at the lake. Hardly a ripple. The peaks, the trees and the sky are all there again, upside down and a little darker, as if the water were remembering them.|.55|.74|1.5
+S|One small thing|Find the grasses at the lower right, right at the water's edge. Each blade is lit by the sun. Let your eyes rest there for a few breaths.|.88|.86|2.6
 S|The whole|Now take in the whole valley at once, from the bright sky down to the dark, clear water. Breathe in the cool mountain air, and breathe out slowly.
 V|bigsur|Where the land meets the sea|The Pacific coast at Big Sur, California|Painted for the app from a photograph by Carol M. Highsmith, Library of Congress, public domain|Leisure in its activity is work. The stillness of the sea stirs in waves.|Rabindranath Tagore
 S|Arriving|Take a slow breath, and imagine the sound of the sea far below you. There is nothing you need to do. Just look.
 S|The colours|Follow the colours from top to bottom: the pale, hazy sky, the deep blue of the open sea, the white of the surf, and the warm browns and greens of the cliffs.
-S|The edge|Look at where the waves meet the shore. A line of white foam curves along the beach and breaks against the rocks. It has been doing this, wave after wave, for thousands of years.
-S|One small thing|Find the small dark rock out at sea, standing alone in the blue. Let your eyes rest on it. The water moves all around it, and it stays.
+S|The edge|Look at where the waves meet the shore. A line of white foam curves along the beach and breaks against the rocks. It has been doing this, wave after wave, for thousands of years.|.62|.8|1.8
+S|One small thing|Find the small dark rock out at sea, standing alone in the blue. Let your eyes rest on it. The water moves all around it, and it stays.|.86|.56|3.0
 S|The whole|Now let your eyes take in the whole coast, the headlands fading one behind another into the haze. Breathe in, and as you breathe out, let your shoulders soften like the far hills.
 V|monument|Red rock under an open sky|Monument Valley, on the Arizona and Utah border|Painted for the app from a photograph by Carol M. Highsmith, Library of Congress, public domain|So extravagant is Nature with her choicest treasures, spending plant beauty as she spends sunshine, pouring it forth into land and sea, garden and desert.|John Muir, My First Summer in the Sierra
 S|Arriving|Let your breath slow down. This is a wide, quiet place, with a great deal of sky. Let your eyes wander across it without hurrying.
 S|The colours|Notice the warm reds and oranges of the sand and rock, and the cool blue of the sky above them. The two seem to rest against each other.
-S|The sky|Look up at the clouds: hundreds of small, soft patches, like ripples on sand. See how they thin out towards the horizon.
-S|One small thing|Find the tufts of dry grass in the foreground, pale gold against the red earth. Life grows here too, slowly, with very little water.
+S|The sky|Look up at the clouds: hundreds of small, soft patches, like ripples on sand. See how they thin out towards the horizon.|.5|.2|1.6
+S|One small thing|Find the tufts of dry grass in the foreground, pale gold against the red earth. Life grows here too, slowly, with very little water.|.76|.82|2.4
 S|The whole|Now take in the whole valley: the tall rocks, the open ground and the great sky over them. They have stood here for millions of years. Breathe out slowly, and let the space settle in you.

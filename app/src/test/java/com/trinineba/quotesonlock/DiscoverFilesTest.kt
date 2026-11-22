@@ -169,6 +169,10 @@ class DiscoverFilesTest {
             assertTrue("${s.key}: no credit", s.credit.contains("public domain"))
             assertTrue("${s.key}: closing line not in the collection: ${s.quote.take(40)}", quotes.any { it.text == s.quote && it.author == s.quoteBy })
             s.steps.forEach { (label, text) -> assertTrue("${s.key}: empty step", label.isNotBlank() && text.length > 40) }
+            assertEquals("${s.key}: a focus for every step", s.steps.size, s.focus.size)
+            s.focus.forEach { f -> assertTrue("${s.key}: focus out of the painting", f.x in 0f..1f && f.y in 0f..1f && f.zoom in 1f..4f) }
+            assertTrue("${s.key}: no step looks closely at a detail", s.focus.any { it.zoom > 1.5f })
+            assertTrue("${s.key}: the last step should show the whole painting", s.focus.last().zoom == 1f)
         }
     }
 
