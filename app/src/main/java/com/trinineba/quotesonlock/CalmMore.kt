@@ -178,10 +178,10 @@ fun SosButton(onClick: () -> Unit) {
 }
 
 // ---------------------------------------------------------------------------------------------
-// Slow looking: a few quiet minutes with one photograph of nature.
+// Slow looking: a few quiet minutes with one painting of a nature scene.
 // ---------------------------------------------------------------------------------------------
 
-/** One photograph and its steps; [quote] and [quoteBy] close the session. */
+/** One painted scene and its steps; [quote] and [quoteBy] close the session. */
 class LookScene(val key: String, val title: String, val place: String, val credit: String, val quote: String, val quoteBy: String, val steps: List<Pair<String, String>>) {
     val minutes: Int get() = (steps.sumOf { it.second.split(' ').size } / 60 + steps.size / 2).coerceAtLeast(3)
 }
@@ -243,7 +243,7 @@ fun LookingRows(onOpen: (String) -> Unit) {
 }
 
 /**
- * The photograph fills the screen and drifts very slowly from side to side; one step at a time is shown and read
+ * The painting fills the screen and drifts very slowly from side to side; one step at a time is shown and read
  * aloud. The last step adds a line from the collection about such places.
  */
 @Composable
