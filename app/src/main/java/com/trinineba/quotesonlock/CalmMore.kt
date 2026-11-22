@@ -352,11 +352,12 @@ fun LookScreen(scene: LookScene, onBack: () -> Unit, onFinished: () -> Unit) {
     }
     androidx.compose.foundation.layout.BoxWithConstraints(Modifier.fillMaxSize().background(Night)) {
         val sideways = maxWidth > maxHeight
+        val columnWidth = minOf(340.dp, maxWidth * 0.38f)
         if (sideways) {
             Row(Modifier.fillMaxSize().statusBarsPadding().navigationBarsPadding()) {
                 framed(Modifier.weight(1f).fillMaxSize().padding(24.dp))
                 words(
-                    Modifier.width(minOf(340.dp, maxWidth * 0.38f)).fillMaxSize()
+                    Modifier.width(columnWidth).fillMaxSize()
                         .background(Color(0xFF0E1530)).padding(horizontal = 20.dp, vertical = 16.dp)
                         .wrapContentHeight(),
                 )
