@@ -133,6 +133,32 @@ class DiscoverFilesTest {
         assertEquals("the Tao Te Ching has 81 chapters", 81, tao.chapters.size)
     }
 
+    @Test fun theLibrarysGreatIdeasAreFoundInTheirRooms() {
+        val ideas = raw("ideas.txt").useLines { QuoteData.parseIdeas(it) }
+        fun key(paras: List<String>) = QuoteData.wordsKey(paras.joinToString(" "))
+        val books = File("src/main/res/raw").listFiles { f -> f.name.startsWith("book_") }!!.map { f -> f.useLines { Books.parse(it) }!! }
+        val rooms = books.associate { b -> "${b.author}, ${b.title}" to b.chapters.map { key(it.paras) } } +
+            mapOf(
+                "Vincent van Gogh, Letters" to raw("letters.txt").useLines { Letters.parse(it) }.flatMap { it.letters }.map { key(it.paras) },
+                "Leonardo da Vinci, Notebooks" to raw("leonardo.txt").useLines { Leonardo.parse(it) }.all.map { key(it.paras) },
+            )
+        val credits = mapOf(
+            "Marcus Aurelius, Meditations (tr. George Long)" to "Marcus Aurelius, Meditations",
+            "Lao Tzu, Tao Te Ching (tr. James Legge)" to "Lao Tzu, Tao Te Ching",
+            "Kahlil Gibran, The Prophet" to "Kahlil Gibran, The Prophet",
+            "Rabindranath Tagore, Gitanjali" to "Rabindranath Tagore, Gitanjali",
+            "Vincent van Gogh, Letters to His Brother (tr. Jo van Gogh-Bonger)" to "Vincent van Gogh, Letters",
+            "Leonardo da Vinci, Notebooks (tr. J. P. Richter)" to "Leonardo da Vinci, Notebooks",
+        )
+        val found = credits.mapValues { (credit, room) ->
+            val chapters = rooms[room] ?: error("no room $room")
+            ideas.filter { it.author == credit }.onEach { idea ->
+                assertTrue("${idea.title}: not word for word in $room", chapters.any { QuoteData.wordsKey(idea.text) in it })
+            }.size
+        }
+        found.forEach { (credit, n) -> assertTrue("too few great ideas from $credit: $n", n >= 3) }
+    }
+
     @Test fun leonardoHighlightsAreCompleteAndUnderlineTheCollection() {
         val book = raw("leonardo.txt").useLines { Leonardo.parse(it) }
         val all = book.all

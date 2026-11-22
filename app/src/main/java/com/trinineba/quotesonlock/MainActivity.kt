@@ -345,6 +345,14 @@ private fun QuotesScreen(
     var browse by rememberSaveable(stateSaver = androidx.compose.runtime.saveable.listSaver<List<String>, String>(save = { it }, restore = { it })) { mutableStateOf(emptyList<String>()) }
     // The question under the home quote; its switch is in Notes & journal, so read it again on coming back.
     val reflectOn = remember(page, browse) { prefs.reflectPrompt }
+    val libraryRequest by LibraryLinks.open.collectAsState()
+    LaunchedEffect(libraryRequest) {
+        libraryRequest?.let { route ->
+            LibraryLinks.open.value = null
+            browse = if (page == Page.DISCOVER) browse + route else listOf(route)
+            page = Page.DISCOVER
+        }
+    }
     LaunchedEffect(learnRequest) {
         if (learnRequest > 0) {
             page = Page.DISCOVER
@@ -1130,6 +1138,7 @@ private fun QuotesScreen(
                             Text(brief, style = MaterialTheme.typography.bodyMedium, color = textColor)
                         }
                         quote.more?.let { MoreAbout(quote.text, it, textColor) }
+                        if (quote.isIdea) ReadAtLength(quote)
                         if (quote.isIdea) {
                             Text(
                                 if (quote.explained) "Written for the app" else "Explanation written for the app",

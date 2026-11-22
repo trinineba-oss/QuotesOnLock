@@ -294,6 +294,7 @@ internal fun LetterScreen(all: List<Letter>, index: Int, prefs: QuotePrefs, onGo
                 }
                 Text(text, fontFamily = FontFamily.Serif, fontSize = readerSize(17f), lineHeight = readerSize(27f))
             }
+            item { ChapterIdeas("letters", letter.id) { opened = it } }
             item {
                 Text(
                     "From ${if (letter.source == Letters.SOURCE_LUDOVICI) "The Letters of a Post-Impressionist (1913)" else "The Letters of Vincent van Gogh to His Brother, 1872–1886 (1927)"}, ${Letters.sourceName(letter.source)}." +

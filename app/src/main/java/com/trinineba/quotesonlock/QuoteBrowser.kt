@@ -323,6 +323,7 @@ fun QuoteBrowser(
                         Text(readingText(quote), modifier = Modifier.opensQuote { opened = quote })
                         quote.brief?.let { Text("In brief: $it", style = MaterialTheme.typography.bodySmall) }
                         quote.more?.let { MoreAbout(quote.text, it) }
+                        if (quote.isIdea) ReadAtLength(quote)
                         quote.byline?.let { label ->
                             val name = authorName(label)
                             // In a quote type's list, tapping the author opens everything by them.

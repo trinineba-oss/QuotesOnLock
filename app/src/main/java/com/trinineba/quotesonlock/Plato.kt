@@ -309,6 +309,7 @@ private fun PlatoSceneScreen(s: PlatoScene, list: List<PlatoScene>, onGo: (Plato
                 }
             }
             if (s.note.isNotEmpty()) item { PNote("What's at stake.", s.note) }
+            item { ChapterIdeas("plato", s.id) { opened = it } }
             item {
                 Text("Tr. Benjamin Jowett · Underlined lines are in the collection: tap one to open it.", style = MaterialTheme.typography.bodySmall, color = PSoft)
             }

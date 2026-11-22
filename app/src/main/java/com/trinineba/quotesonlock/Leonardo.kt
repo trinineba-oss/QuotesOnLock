@@ -300,6 +300,7 @@ private fun LeoPage(
                     ) { Text("What is it? Tap for the answer", style = MaterialTheme.typography.labelLarge, color = accent) }
                 }
             }
+            item { ChapterIdeas("leonardo", h.id) { opened = it } }
             if (h.note.isNotEmpty()) item {
                 Row(Modifier.fillMaxWidth().height(IntrinsicSize.Min).clip(RoundedCornerShape(12.dp)).background(accent.copy(alpha = 0.10f))) {
                     Box(Modifier.width(3.dp).fillMaxHeight().background(accent))

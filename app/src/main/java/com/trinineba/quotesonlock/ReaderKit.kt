@@ -81,6 +81,7 @@ object Reading {
                 .put("route", p.route).put("index", p.index).put("total", p.total).put("at", p.at))
         }
         prefs.readerRecent = a.toString()
+        LibraryLinks.here.value = place.route
     }
 
     fun bookmarkKey(room: String, item: String) = "$room|$item"
@@ -211,7 +212,7 @@ fun ReaderBar(
     val speaking by QuoteVoice.speaking.collectAsState()
     val scale by Reading.scale.collectAsState()
     androidx.compose.runtime.DisposableEffect(listenKey) {
-        onDispose { if (QuoteVoice.speaking.value == listenKey) QuoteVoice.stop() }
+        onDispose { if (QuoteVoice.speaking.value == listenKey) QuoteVoice.stop(); LibraryLinks.here.value = null }
     }
     Row(
         Modifier.fillMaxWidth().background(MaterialTheme.colorScheme.surfaceContainer).navigationBarsPadding().padding(horizontal = 4.dp, vertical = 2.dp),

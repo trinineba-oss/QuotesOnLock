@@ -35,7 +35,12 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.LinkAnnotation
+import androidx.compose.ui.text.SpanStyle
+import androidx.compose.ui.text.TextLinkStyles
+import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontStyle
+import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -220,8 +225,18 @@ fun BookScreen(bookId: String, onBack: () -> Unit, onOpenEssay: (String) -> Unit
         }
         return
     }
+    var lines by rememberSaveable { mutableStateOf(false) }
+    if (lines) {
+        BookLinesScreen(book, onBack = { lines = false }, onOpenChapter = { id -> open = id; lines = false })
+        return
+    }
     if (guide && book.guide != null) {
-        BookGuideScreen(book, book.guide, onBack = { guide = false }, onOpenChapter = { t -> book.chapters.firstOrNull { it.title == t }?.let { open = it.id; guide = false } }, onOpenEssay = onOpenEssay)
+        BookGuideScreen(
+            book, book.guide, onBack = { guide = false },
+            onOpenChapter = { t -> book.chapters.firstOrNull { it.title == t }?.let { open = it.id; guide = false } },
+            onOpenEssay = onOpenEssay,
+            onOpenLines = { lines = true },
+        )
         return
     }
     val done = remember(refresh) { prefs.readerDone }
@@ -277,6 +292,12 @@ private fun BookChapterScreen(book: Book, index: Int, onGo: (Int) -> Unit, onBac
     val prefs = remember { QuotePrefs(context) }
     LaunchedEffect(Unit) { Reading.load(prefs) }
     val c = book.chapters[index]
+    val accent = MaterialTheme.colorScheme.primary
+    val inBook = roomLines(book.id)
+    val here = remember(inBook, c.id) { inBook.filter { it.second.item == c.id }.map { it.first } }
+    val underlined = remember(here) { c.paras.flatMap { p -> LibraryLinks.linesIn(here, p).map { it.third } }.distinct().size }
+    var opened by remember { mutableStateOf<Quote?>(null) }
+    opened?.let { q -> QuotePageSheet(quote = q, onDismiss = { opened = null }) }
     val key = Reading.bookmarkKey(book.id, c.id)
     var marked by remember(key) { mutableStateOf(key in prefs.readerBookmarks) }
     LaunchedEffect(key) {
@@ -316,14 +337,37 @@ private fun BookChapterScreen(book: Book, index: Int, onGo: (Int) -> Unit, onBac
                 }
                 itemsIndexed(c.paras) { _, p ->
                     val verse = p.contains('\n')
+                    val marks = remember(p, here) { LibraryLinks.linesIn(here, p) }
+                    val text = remember(p, marks, accent) {
+                        buildAnnotatedString {
+                            append(p)
+                            marks.forEach { (a, b, q) ->
+                                addLink(
+                                    LinkAnnotation.Clickable(
+                                        tag = "line-${q.text.hashCode()}",
+                                        styles = TextLinkStyles(style = SpanStyle(textDecoration = TextDecoration.Underline, color = accent)),
+                                        linkInteractionListener = { opened = q },
+                                    ),
+                                    a, b,
+                                )
+                            }
+                        }
+                    }
                     Text(
-                        p, fontFamily = FontFamily.Serif, fontSize = readerSize(17f), lineHeight = readerSize(if (verse) 25f else 27f),
+                        text, fontFamily = FontFamily.Serif, fontSize = readerSize(17f), lineHeight = readerSize(if (verse) 25f else 27f),
                         fontStyle = if (verse) FontStyle.Italic else FontStyle.Normal,
                         modifier = if (verse) Modifier.padding(start = 14.dp) else Modifier,
                     )
                 }
                 if (c.note.isNotEmpty()) item {
                     Text(c.note, style = MaterialTheme.typography.bodyMedium, color = MaterialTheme.colorScheme.onSurfaceVariant)
+                }
+                item { ChapterIdeas(book.id, c.id) { opened = it } }
+                if (underlined > 0) item {
+                    Text(
+                        if (underlined == 1) "1 line here is in your collection · tap it to open it" else "$underlined lines here are in your collection · tap one to open it",
+                        style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    )
                 }
                 item { Text("${book.author} · ${book.translation}", style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant) }
             }
@@ -332,8 +376,15 @@ private fun BookChapterScreen(book: Book, index: Int, onGo: (Int) -> Unit, onBac
 }
 
 /** A book's guide, laid out like the Plato guides. */
+@OptIn(androidx.compose.foundation.layout.ExperimentalLayoutApi::class)
 @Composable
-private fun BookGuideScreen(book: Book, g: PlatoAnalysis, onBack: () -> Unit, onOpenChapter: (String) -> Unit, onOpenEssay: (String) -> Unit) {
+private fun BookGuideScreen(book: Book, g: PlatoAnalysis, onBack: () -> Unit, onOpenChapter: (String) -> Unit, onOpenEssay: (String) -> Unit, onOpenLines: () -> Unit) {
+    val found = roomLines(book.id)
+    val order = remember(book) { book.chapters.withIndex().associate { (i, c) -> c.id to i } }
+    val ideas = remember(found) { found.filter { it.first.isIdea }.sortedBy { order[it.second.item] ?: 0 } }
+    val quoted = remember(found) { found.filter { !it.first.isIdea } }
+    var opened by remember { mutableStateOf<Quote?>(null) }
+    opened?.let { q -> QuotePageSheet(quote = q, onDismiss = { opened = null }) }
     ToolScreen("", onBack) {
         item {
             Column(verticalArrangement = Arrangement.spacedBy(6.dp)) {
@@ -355,6 +406,35 @@ private fun BookGuideScreen(book: Book, g: PlatoAnalysis, onBack: () -> Unit, on
                 }
             }
         }
+        if (ideas.isNotEmpty()) {
+            item(key = "ih") { LibLabel("Great ideas in this book") }
+            item(key = "ideas") {
+                androidx.compose.foundation.layout.FlowRow(horizontalArrangement = Arrangement.spacedBy(8.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
+                    ideas.forEach { (q, spot) ->
+                        val ch = book.chapters.firstOrNull { it.id == spot.item }
+                        Text(
+                            q.title + (ch?.let { " · " + it.title.substringBefore(" · ") } ?: ""),
+                            fontFamily = FontFamily.Serif, fontSize = 14.sp,
+                            modifier = Modifier.clip(RoundedCornerShape(18.dp)).border(1.dp, MaterialTheme.colorScheme.primary.copy(alpha = 0.5f), RoundedCornerShape(18.dp))
+                                .clickable(onClickLabel = "Open ${q.title}") { opened = q }.padding(horizontal = 12.dp, vertical = 7.dp),
+                        )
+                    }
+                }
+            }
+        }
+        if (quoted.isNotEmpty()) {
+            item(key = "lh") { LibLabel("From this book in the collection") }
+            item(key = "lines") {
+                Column(
+                    Modifier.fillMaxWidth().clip(RoundedCornerShape(14.dp)).background(MaterialTheme.colorScheme.surfaceContainerHigh)
+                        .clickable(onClickLabel = "See the lines from this book", onClick = onOpenLines).padding(14.dp),
+                ) {
+                    val chapters = quoted.map { it.second.item }.toSet().size
+                    Text("${quoted.size} ${if (quoted.size == 1) "line" else "lines"} across $chapters ${if (chapters == 1) "chapter" else "chapters"} ›", fontFamily = FontFamily.Serif, fontSize = 16.sp)
+                    Text("The book's lines that are in your collection, in order", style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
+                }
+            }
+        }
         item(key = "next") { LibLabel("Read next") }
         if (g.keyScene.isNotEmpty()) item(key = "ch") {
             Text(
@@ -369,6 +449,38 @@ private fun BookGuideScreen(book: Book, g: PlatoAnalysis, onBack: () -> Unit, on
                 modifier = Modifier.fillMaxWidth().clip(RoundedCornerShape(12.dp)).background(MaterialTheme.colorScheme.surfaceContainerHigh)
                     .clickable { onOpenEssay(g.essay) }.padding(14.dp),
             )
+        }
+    }
+}
+
+/** The book's lines that are in the collection, chapter by chapter; tap a line to open it, a heading to read the chapter. */
+@Composable
+private fun BookLinesScreen(book: Book, onBack: () -> Unit, onOpenChapter: (String) -> Unit) {
+    BackHandler(onBack = onBack)
+    val found = roomLines(book.id)
+    val groups = remember(found) {
+        val order = book.chapters.withIndex().associate { (i, c) -> c.id to i }
+        found.filter { !it.first.isIdea }.groupBy { it.second.item }.toList().sortedBy { order[it.first] ?: 0 }
+    }
+    var opened by remember { mutableStateOf<Quote?>(null) }
+    opened?.let { q -> QuotePageSheet(quote = q, onDismiss = { opened = null }) }
+    ToolScreen(book.title, onBack) {
+        item { Text("Lines from ${book.title} that are in your collection. Tap one to open it, or a chapter to read it whole.", style = MaterialTheme.typography.bodyMedium, color = MaterialTheme.colorScheme.onSurfaceVariant) }
+        groups.forEach { (chapterId, list) ->
+            val ch = book.chapters.firstOrNull { it.id == chapterId }
+            item(key = "c-$chapterId") {
+                Text(
+                    (ch?.title ?: chapterId) + " ›", fontFamily = FontFamily.Serif, fontSize = 15.sp, color = MaterialTheme.colorScheme.primary,
+                    modifier = Modifier.padding(top = 8.dp).clickable(onClickLabel = "Read this chapter") { onOpenChapter(chapterId) },
+                )
+            }
+            items(list, key = { "q-" + it.first.text.hashCode() }) { (q, _) ->
+                Text(
+                    "“${q.text}”", fontFamily = FontFamily.Serif, fontSize = 16.sp, lineHeight = 24.sp,
+                    modifier = Modifier.fillMaxWidth().clip(RoundedCornerShape(12.dp)).background(MaterialTheme.colorScheme.surfaceContainerHigh)
+                        .clickable(onClickLabel = "Open this line") { opened = q }.padding(12.dp),
+                )
+            }
         }
     }
 }
