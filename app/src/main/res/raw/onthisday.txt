@@ -1,4 +1,4 @@
-# On this day. D|MM-DD|year|kind (e = event, b = born, d = died)|title|text written for the app|author page|idea title. Birth and death dates are checked against Wikidata and the app's timeline (only for people born after the modern calendar began in 1582).
+# On this day. D|MM-DD|year|kind (e = event, b = born, d = died)|title|text written for the app|author page|idea title. A birth or death date is kept only when Wikidata and Wikipedia (through DBpedia) give the same day, and only from 1752, when Britain and its colonies joined the modern calendar.
 D|11-23|1654|e|Pascal's night of fire|On the night of Monday 23 November 1654, from about half past ten until half past midnight, Blaise Pascal, already famous as a mathematician and inventor, had an overwhelming religious experience. He wrote it down on a scrap of parchment headed "FIRE" and sewed it into the lining of his coat, where a servant found it after his death eight years later.|Blaise Pascal|Sitting Quietly in a Room
 D|11-24|1859|e|On the Origin of Species is published|Charles Darwin's book on evolution by natural selection went on sale in London. Its first printing sold out to booksellers on the day, and biology has never been the same.|Charles Darwin|Natural Selection
 D|07-04|1845|e|Thoreau moves to Walden Pond|Henry David Thoreau began living in the small cabin he had built by Walden Pond, near Concord, Massachusetts. He stayed two years and two months, and turned the experience into Walden.|Henry David Thoreau|Living Deliberately
@@ -34,22 +34,11 @@ D|05-06|1859|d|Alexander von Humboldt dies|Prussian naturalist and explorer (176
 D|04-05|1837|b|Algernon Charles Swinburne is born|English poet (1837–1909) known for his musical, rebellious verse.|Algernon Charles Swinburne|
 D|04-10|1909|d|Algernon Charles Swinburne dies|English poet (1837–1909) known for his musical, rebellious verse.|Algernon Charles Swinburne|
 D|06-24|1842|b|Ambrose Bierce is born|American writer (1842–c. 1914) of The Devil's Dictionary and "An Occurrence at Owl Creek Bridge", famous for his biting wit.|Ambrose Bierce|
-D|02-21|1903|b|Anaïs Nin is born|French-Cuban-American writer (1903–1977) famous for her diaries.|Anaïs Nin|
-D|01-14|1977|d|Anaïs Nin dies|French-Cuban-American writer (1903–1977) famous for her diaries.|Anaïs Nin|
-D|03-31|1621|b|Andrew Marvell is born|English poet (1621–1678) of "To His Coy Mistress" and "The Garden".|Andrew Marvell|
-D|08-16|1678|d|Andrew Marvell dies|English poet (1621–1678) of "To His Coy Mistress" and "The Garden".|Andrew Marvell|
-D|11-03|1901|b|André Malraux is born|French novelist and statesman (1901–1976) of Man's Fate.|André Malraux|
-D|11-23|1976|d|André Malraux dies|French novelist and statesman (1901–1976) of Man's Fate.|André Malraux|
-D|12-25|1624|b|Angelus Silesius is born|German mystic and poet (1624–1677) of The Cherubinic Wanderer.|Angelus Silesius|
-D|07-09|1677|d|Angelus Silesius dies|German mystic and poet (1624–1677) of The Cherubinic Wanderer.|Angelus Silesius|
-D|06-23|1889|b|Anna Akhmatova is born|Russian poet (1889–1966) whose Requiem bore witness to Stalin's terror.|Anna Akhmatova|
 D|03-05|1966|d|Anna Akhmatova dies|Russian poet (1889–1966) whose Requiem bore witness to Stalin's terror.|Anna Akhmatova|
 D|04-10|1954|b|Anne Lamott is born|American writer (born 1954) whose Bird by Bird is a warm, funny guide to writing and to life.|Anne Lamott|
 D|04-30|1945|b|Annie Dillard is born|American writer (born 1945) of Pilgrim at Tinker Creek and The Writing Life, whose prose looks at nature with fierce attention.|Annie Dillard|
 D|04-24|1815|b|Anthony Trollope is born|English novelist (1815–1882) of the Barsetshire and Palliser novels, who wrote 47 novels while working for the Post Office.|Anthony Trollope|
 D|12-06|1882|d|Anthony Trollope dies|English novelist (1815–1882) of the Barsetshire and Palliser novels, who wrote 47 novels while working for the Post Office.|Anthony Trollope|
-D|06-29|1900|b|Antoine de Saint-Exupéry is born|French writer and aviator (1900–1944) of The Little Prince and Wind, Sand and Stars, lost on a reconnaissance flight in the war.|Antoine de Saint-Exupéry|
-D|07-31|1944|d|Antoine de Saint-Exupéry dies|French writer and aviator (1900–1944) of The Little Prince and Wind, Sand and Stars, lost on a reconnaissance flight in the war.|Antoine de Saint-Exupéry|
 D|01-29|1860|b|Anton Chekhov is born|Russian playwright, short-story writer and doctor (1860–1904) of The Seagull and The Cherry Orchard, master of quiet tragedy and compassion.|Anton Chekhov|
 D|07-15|1904|d|Anton Chekhov dies|Russian playwright, short-story writer and doctor (1860–1904) of The Seagull and The Cherry Orchard, master of quiet tragedy and compassion.|Anton Chekhov|
 D|07-26|1875|b|Antonio Machado is born|Spanish poet (1875–1939): "Traveller, there is no road; the road is made by walking."|Antonio Machado|
@@ -65,17 +54,10 @@ D|09-21|1860|d|Arthur Schopenhauer dies|German philosopher (1788–1860) who saw
 D|11-12|1840|b|Auguste Rodin is born|French sculptor (1840–1917) of The Thinker and The Kiss.|Auguste Rodin|
 D|11-17|1917|d|Auguste Rodin dies|French sculptor (1840–1917) of The Thinker and The Kiss.|Auguste Rodin|
 D|06-16|1983|b|Austin Kleon is born|American writer and artist (born 1983), author of Steal Like an Artist.|Austin Kleon|
-D|01-08|1601|b|Baltasar Gracián is born|Spanish Jesuit writer (1601–1658) of The Art of Worldly Wisdom.|Baltasar Gracián|
-D|12-06|1658|d|Baltasar Gracián dies|Spanish Jesuit writer (1601–1658) of The Art of Worldly Wisdom.|Baltasar Gracián|
 D|03-15|1959|b|Ben Okri is born|Nigerian-born poet and novelist (born 1959) whose The Famished Road weaves dream and reality.|Ben Okri|
-D|05-10|1843|b|Benito Pérez Galdós is born|Spanish novelist (1843–1920) of Fortunata and Jacinta and Doña Perfecta, often ranked second only to Cervantes.|Benito Pérez Galdós|
-D|01-04|1920|d|Benito Pérez Galdós dies|Spanish novelist (1843–1920) of Fortunata and Jacinta and Doña Perfecta, often ranked second only to Cervantes.|Benito Pérez Galdós|
-D|01-17|1706|b|Benjamin Franklin is born|American printer, writer, scientist and statesman (1706–1790). His Poor Richard's Almanack and Autobiography made thrift, industry and self-improvement into American proverbs.|Benjamin Franklin|
 D|04-17|1790|d|Benjamin Franklin dies|American printer, writer, scientist and statesman (1706–1790). His Poor Richard's Almanack and Autobiography made thrift, industry and self-improvement into American proverbs.|Benjamin Franklin|
 D|05-18|1872|b|Bertrand Russell is born|British philosopher, logician and Nobel laureate in literature (1872–1970), who also wrote warmly and plainly about happiness and how to live.|Bertrand Russell|
 D|02-02|1970|d|Bertrand Russell dies|British philosopher, logician and Nobel laureate in literature (1872–1970), who also wrote warmly and plainly about happiness and how to live.|Bertrand Russell|
-D|06-19|1623|b|Blaise Pascal is born|French mathematician, physicist and religious thinker (1623–1662) whose unfinished Pensées explore human greatness and misery.|Blaise Pascal|
-D|08-19|1662|d|Blaise Pascal dies|French mathematician, physicist and religious thinker (1623–1662) whose unfinished Pensées explore human greatness and misery.|Blaise Pascal|
 D|04-05|1856|b|Booker T. Washington is born|American educator and writer (1856–1915), born into slavery, who founded the Tuskegee Institute and wrote the autobiography Up from Slavery.|Booker T. Washington|
 D|11-14|1915|d|Booker T. Washington dies|American educator and writer (1856–1915), born into slavery, who founded the Tuskegee Institute and wrote the autobiography Up from Slavery.|Booker T. Washington|
 D|01-04|1901|b|C. L. R. James is born|Trinidadian historian, thinker and cricket writer (1901–1989), author of The Black Jacobins and Beyond a Boundary.|C. L. R. James|
@@ -96,8 +78,6 @@ D|02-07|1812|b|Charles Dickens is born|English novelist (1812–1870), author of
 D|06-09|1870|d|Charles Dickens dies|English novelist (1812–1870), author of Great Expectations, David Copperfield and A Christmas Carol, champion of the poor and the greatest storyteller of his age.|Charles Dickens|
 D|02-10|1775|b|Charles Lamb is born|English essayist (1775–1834) of the Essays of Elia, gentle, witty and melancholy pieces about London, friendship and memory.|Charles Lamb|
 D|12-27|1834|d|Charles Lamb dies|English essayist (1775–1834) of the Essays of Elia, gentle, witty and melancholy pieces about London, friendship and memory.|Charles Lamb|
-D|04-21|1816|b|Charlotte Brontë is born|English novelist (1816–1855) of Jane Eyre and Villette.|Charlotte Brontë|
-D|03-31|1855|d|Charlotte Brontë dies|English novelist (1816–1855) of Jane Eyre and Villette.|Charlotte Brontë|
 D|07-03|1860|b|Charlotte Perkins Gilman is born|American writer, lecturer and reformer (1860–1935), author of The Yellow Wallpaper and Herland.|Charlotte Perkins Gilman|
 D|08-17|1935|d|Charlotte Perkins Gilman dies|American writer, lecturer and reformer (1860–1935), author of The Yellow Wallpaper and Herland.|Charlotte Perkins Gilman|
 D|11-16|1930|b|Chinua Achebe is born|Nigerian novelist (1930–2013) whose Things Fall Apart told the story of Africa from the inside.|Chinua Achebe|
@@ -108,19 +88,12 @@ D|12-10|1920|b|Clarice Lispector is born|Brazilian writer (1920–1977) of inten
 D|12-09|1977|d|Clarice Lispector dies|Brazilian writer (1920–1977) of intense, inward novels such as The Passion According to G.H.|Clarice Lispector|
 D|09-15|1889|b|Claude McKay is born|Jamaican-American poet and novelist (1889–1948) of Harlem Shadows and "If We Must Die", a founder of the Harlem Renaissance.|Claude McKay|
 D|05-22|1948|d|Claude McKay dies|Jamaican-American poet and novelist (1889–1948) of Harlem Shadows and "If We Must Die", a founder of the Harlem Renaissance.|Claude McKay|
-D|03-16|1892|b|César Vallejo is born|Peruvian poet (1892–1938), one of the great innovators of 20th-century poetry in Spanish.|César Vallejo|
-D|04-15|1938|d|César Vallejo dies|Peruvian poet (1892–1938), one of the great innovators of 20th-century poetry in Spanish.|César Vallejo|
-D|07-29|1905|b|Dag Hammarskjöld is born|Swedish diplomat (1905–1961), UN Secretary-General, whose spiritual diary Markings was found after his death.|Dag Hammarskjöld|
-D|09-18|1961|d|Dag Hammarskjöld dies|Swedish diplomat (1905–1961), UN Secretary-General, whose spiritual diary Markings was found after his death.|Dag Hammarskjöld|
 D|01-23|1930|b|Derek Walcott is born|Saint Lucian poet and playwright (1930–2017) of Omeros. Nobel Prize 1992.|Derek Walcott|
-D|03-17|2017|d|Derek Walcott dies|Saint Lucian poet and playwright (1930–2017) of Omeros. Nobel Prize 1992.|Derek Walcott|
 D|10-07|1931|b|Desmond Tutu is born|South African Anglican archbishop (1931–2021), Nobel Peace laureate, who opposed apartheid and chaired the Truth and Reconciliation Commission.|Desmond Tutu|
 D|12-26|2021|d|Desmond Tutu dies|South African Anglican archbishop (1931–2021), Nobel Peace laureate, who opposed apartheid and chaired the Truth and Reconciliation Commission.|Desmond Tutu|
 D|01-07|1953|b|Dionne Brand is born|Trinidad-born poet and novelist (born 1953) living in Canada, author of A Map to the Door of No Return.|Dionne Brand|
 D|07-11|1899|b|E. B. White is born|American writer (1899–1985) of Charlotte's Web and co-author of The Elements of Style.|E. B. White|
 D|10-01|1985|d|E. B. White dies|American writer (1899–1985) of Charlotte's Web and co-author of The Elements of Style.|E. B. White|
-D|01-01|1879|b|E. M. Forster is born|English novelist (1879–1970) of A Room with a View, Howards End and A Passage to India, who wrote of connection across class and culture.|E. M. Forster|
-D|06-07|1970|d|E. M. Forster dies|English novelist (1879–1970) of A Room with a View, Howards End and A Passage to India, who wrote of connection across class and culture.|E. M. Forster|
 D|01-24|1776|b|E. T. A. Hoffmann is born|German writer, composer and judge (1776–1822) of fantastic tales such as "The Sandman" and "The Nutcracker".|E. T. A. Hoffmann|
 D|06-25|1822|d|E. T. A. Hoffmann dies|German writer, composer and judge (1776–1822) of fantastic tales such as "The Sandman" and "The Nutcracker".|E. T. A. Hoffmann|
 D|07-13|1935|b|Earl Lovelace is born|Trinidadian novelist and playwright (born 1935) of Carnival, community and dignity, author of The Dragon Can't Dance and Salt.|Earl Lovelace|
@@ -132,59 +105,40 @@ D|03-03|1878|b|Edward Thomas is born|English poet and nature writer (1878–1917
 D|04-09|1917|d|Edward Thomas dies|English poet and nature writer (1878–1917), friend of Robert Frost, killed at the Battle of Arras.|Edward Thomas|
 D|10-11|1884|b|Eleanor Roosevelt is born|American diplomat and activist (1884–1962), First Lady from 1933 to 1945, who chaired the drafting of the Universal Declaration of Human Rights.|Eleanor Roosevelt|
 D|11-07|1962|d|Eleanor Roosevelt dies|American diplomat and activist (1884–1962), First Lady from 1933 to 1945, who chaired the drafting of the Universal Declaration of Human Rights.|Eleanor Roosevelt|
-D|03-06|1806|b|Elizabeth Barrett Browning is born|English poet (1806–1861) of Sonnets from the Portuguese and Aurora Leigh.|Elizabeth Barrett Browning|
-D|06-30|1861|d|Elizabeth Barrett Browning dies|English poet (1806–1861) of Sonnets from the Portuguese and Aurora Leigh.|Elizabeth Barrett Browning|
 D|02-08|1911|b|Elizabeth Bishop is born|American poet (1911–1979) of exact, quietly astonishing observation, author of One Art.|Elizabeth Bishop|
 D|10-06|1979|d|Elizabeth Bishop dies|American poet (1911–1979) of exact, quietly astonishing observation, author of One Art.|Elizabeth Bishop|
 D|09-29|1810|b|Elizabeth Gaskell is born|English novelist (1810–1865) of Cranford and North and South, who wrote with compassion about industrial Manchester and village life.|Elizabeth Gaskell|
 D|11-12|1865|d|Elizabeth Gaskell dies|English novelist (1810–1865) of Cranford and North and South, who wrote with compassion about industrial Manchester and village life.|Elizabeth Gaskell|
 D|07-18|1969|b|Elizabeth Gilbert is born|American writer (born 1969) of Eat, Pray, Love and Big Magic, on creativity and courage.|Elizabeth Gilbert|
-D|07-30|1818|b|Emily Brontë is born|English novelist and poet (1818–1848) of Wuthering Heights.|Emily Brontë|
-D|12-19|1848|d|Emily Brontë dies|English novelist and poet (1818–1848) of Wuthering Heights.|Emily Brontë|
 D|12-10|1830|b|Emily Dickinson is born|American poet (1830–1886) who lived quietly in Amherst and wrote nearly 1,800 short, startling poems about death, nature and the inner life, almost none published in her lifetime.|Emily Dickinson|
 D|05-15|1886|d|Emily Dickinson dies|American poet (1830–1886) who lived quietly in Amherst and wrote nearly 1,800 short, startling poems about death, nature and the inner life, almost none published in her lifetime.|Emily Dickinson|
 D|09-27|1924|b|Ernest Becker is born|American anthropologist (1924–1974) whose The Denial of Death argued that our cultures are defences against mortality.|Ernest Becker|
 D|03-06|1974|d|Ernest Becker dies|American anthropologist (1924–1974) whose The Denial of Death argued that our cultures are defences against mortality.|Ernest Becker|
 D|07-21|1899|b|Ernest Hemingway is born|American novelist (1899–1961) of The Old Man and the Sea. Nobel Prize 1954.|Ernest Hemingway|
 D|07-02|1961|d|Ernest Hemingway dies|American novelist (1899–1961) of The Old Man and the Sea. Nobel Prize 1954.|Ernest Hemingway|
-D|11-26|1909|b|Eugène Ionesco is born|Romanian-French playwright (1909–1994) of the Theatre of the Absurd.|Eugène Ionesco|
-D|03-28|1994|d|Eugène Ionesco dies|Romanian-French playwright (1909–1994) of the Theatre of the Absurd.|Eugène Ionesco|
 D|09-24|1896|b|F. Scott Fitzgerald is born|American novelist (1896–1940) of the Jazz Age, whose The Great Gatsby is a lament for the American dream.|F. Scott Fitzgerald|
 D|12-21|1940|d|F. Scott Fitzgerald dies|American novelist (1896–1940) of the Jazz Age, whose The Great Gatsby is a lament for the American dream.|F. Scott Fitzgerald|
-D|06-05|1898|b|Federico García Lorca is born|Spanish poet and playwright (1898–1936) of the Gypsy Ballads and Blood Wedding, killed in the Civil War.|Federico García Lorca|
-D|08-17|1936|d|Federico García Lorca dies|Spanish poet and playwright (1898–1936) of the Gypsy Ballads and Blood Wedding, killed in the Civil War.|Federico García Lorca|
 D|06-13|1888|b|Fernando Pessoa is born|Portuguese poet (1888–1935) who wrote under dozens of invented personas, or heteronyms. His Book of Disquiet was published after his death.|Fernando Pessoa|
 D|11-30|1935|d|Fernando Pessoa dies|Portuguese poet (1888–1935) who wrote under dozens of invented personas, or heteronyms. His Book of Disquiet was published after his death.|Fernando Pessoa|
 D|07-03|1883|b|Franz Kafka is born|Prague-born German-language writer (1883–1924) of The Trial and The Metamorphosis, whose stories of anxiety and absurd authority gave us the word "Kafkaesque".|Franz Kafka|
 D|06-03|1924|d|Franz Kafka dies|Prague-born German-language writer (1883–1924) of The Trial and The Metamorphosis, whose stories of anxiety and absurd authority gave us the word "Kafkaesque".|Franz Kafka|
 D|02-14|1818|b|Frederick Douglass is born|American writer, orator and statesman (c. 1818–1895). He escaped slavery and became the most powerful voice of the abolitionist movement.|Frederick Douglass|
 D|02-20|1895|d|Frederick Douglass dies|American writer, orator and statesman (c. 1818–1895). He escaped slavery and became the most powerful voice of the abolitionist movement.|Frederick Douglass|
-D|03-20|1770|b|Friedrich Hölderlin is born|German poet (1770–1843) of hymns and elegies longing for the lost gods of Greece, who spent his last decades in mental illness.|Friedrich Hölderlin|
-D|06-07|1843|d|Friedrich Hölderlin dies|German poet (1770–1843) of hymns and elegies longing for the lost gods of Greece, who spent his last decades in mental illness.|Friedrich Hölderlin|
 D|10-15|1844|b|Friedrich Nietzsche is born|German philosopher (1844–1900) who declared the death of God and asked how we might create new values. His books include Thus Spake Zarathustra and Beyond Good and Evil.|Friedrich Nietzsche|
 D|08-25|1900|d|Friedrich Nietzsche dies|German philosopher (1844–1900) who declared the death of God and asked how we might create new values. His books include Thus Spake Zarathustra and Beyond Good and Evil.|Friedrich Nietzsche|
 D|11-10|1759|b|Friedrich Schiller is born|German poet, playwright and philosopher (1759–1805), author of the "Ode to Joy" and On the Aesthetic Education of Man.|Friedrich Schiller|
 D|05-09|1805|d|Friedrich Schiller dies|German poet, playwright and philosopher (1759–1805), author of the "Ode to Joy" and On the Aesthetic Education of Man.|Friedrich Schiller|
-D|12-05|1803|b|Fyodor Tyutchev is born|Russian poet and diplomat (1803–1873) of nature, night and the soul.|Fyodor Tyutchev|
-D|07-27|1873|d|Fyodor Tyutchev dies|Russian poet and diplomat (1803–1873) of nature, night and the soul.|Fyodor Tyutchev|
-D|05-29|1874|b|G. K. Chesterton is born|English writer (1874–1936) of paradox, the Father Brown stories and Orthodoxy.|G. K. Chesterton|
-D|06-14|1936|d|G. K. Chesterton dies|English writer (1874–1936) of paradox, the Father Brown stories and Orthodoxy.|G. K. Chesterton|
-D|03-06|1927|b|Gabriel García Márquez is born|Colombian novelist (1927–2014) of One Hundred Years of Solitude and Love in the Time of Cholera. Nobel Prize 1982.|Gabriel García Márquez|
-D|04-17|2014|d|Gabriel García Márquez dies|Colombian novelist (1927–2014) of One Hundred Years of Solitude and Love in the Time of Cholera. Nobel Prize 1982.|Gabriel García Márquez|
 D|12-07|1889|b|Gabriel Marcel is born|French Christian existentialist philosopher and playwright (1889–1973).|Gabriel Marcel|
 D|10-08|1973|d|Gabriel Marcel dies|French Christian existentialist philosopher and playwright (1889–1973).|Gabriel Marcel|
 D|04-07|1889|b|Gabriela Mistral is born|Chilean poet, teacher and diplomat (1889–1957), the first Latin American to win the Nobel Prize in Literature (1945).|Gabriela Mistral|
 D|01-10|1957|d|Gabriela Mistral dies|Chilean poet, teacher and diplomat (1889–1957), the first Latin American to win the Nobel Prize in Literature (1945).|Gabriela Mistral|
 D|06-27|1884|b|Gaston Bachelard is born|French philosopher (1884–1962) of The Poetics of Space.|Gaston Bachelard|
 D|10-16|1962|d|Gaston Bachelard dies|French philosopher (1884–1962) of The Poetics of Space.|Gaston Bachelard|
-D|07-01|1742|b|Georg Christoph Lichtenberg is born|German physicist and aphorist (1742–1799) whose "waste books" are full of wit and insight.|Georg Christoph Lichtenberg|
 D|02-24|1799|d|Georg Christoph Lichtenberg dies|German physicist and aphorist (1742–1799) whose "waste books" are full of wit and insight.|Georg Christoph Lichtenberg|
 D|07-26|1856|b|George Bernard Shaw is born|Irish playwright and critic (1856–1950), Nobel laureate, author of Pygmalion and a master of the paradox.|George Bernard Shaw|
 D|11-02|1950|d|George Bernard Shaw dies|Irish playwright and critic (1856–1950), Nobel laureate, author of Pygmalion and a master of the paradox.|George Bernard Shaw|
 D|11-22|1819|b|George Eliot is born|Pen name of Mary Ann Evans (1819–1880), English novelist of Middlemarch and The Mill on the Floss, famed for her moral depth and sympathy.|George Eliot|
 D|12-22|1880|d|George Eliot dies|Pen name of Mary Ann Evans (1819–1880), English novelist of Middlemarch and The Mill on the Floss, famed for her moral depth and sympathy.|George Eliot|
-D|04-03|1593|b|George Herbert is born|English poet and priest (1593–1633) of The Temple.|George Herbert|
-D|03-01|1633|d|George Herbert dies|English poet and priest (1593–1633) of The Temple.|George Herbert|
 D|12-10|1824|b|George MacDonald is born|Scottish novelist, poet and minister (1824–1905), a pioneer of fantasy with Phantastes and The Princess and the Goblin, whose work inspired C. S. Lewis and Tolkien.|George MacDonald|
 D|09-18|1905|d|George MacDonald dies|Scottish novelist, poet and minister (1824–1905), a pioneer of fantasy with Phantastes and The Princess and the Goblin, whose work inspired C. S. Lewis and Tolkien.|George MacDonald|
 D|02-12|1828|b|George Meredith is born|English novelist and poet (1828–1909) of The Egoist and Modern Love, admired for his wit and psychological insight.|George Meredith|
@@ -195,16 +149,11 @@ D|12-16|1863|b|George Santayana is born|Spanish-born philosopher, poet and novel
 D|09-26|1952|d|George Santayana dies|Spanish-born philosopher, poet and novelist (1863–1952) who taught at Harvard; he wrote on beauty, reason and the life of the spirit.|George Santayana|
 D|06-29|1798|b|Giacomo Leopardi is born|Italian poet and philosopher (1798–1837) of the Canti and the Zibaldone, whose lucid pessimism is matched by the beauty of his verse.|Giacomo Leopardi|
 D|06-14|1837|d|Giacomo Leopardi dies|Italian poet and philosopher (1798–1837) of the Canti and the Zibaldone, whose lucid pessimism is matched by the beauty of his verse.|Giacomo Leopardi|
-D|01-22|1729|b|Gotthold Ephraim Lessing is born|German dramatist and critic (1729–1781) of Nathan the Wise, a plea for religious tolerance.|Gotthold Ephraim Lessing|
 D|02-15|1781|d|Gotthold Ephraim Lessing dies|German dramatist and critic (1729–1781) of Nathan the Wise, a plea for religious tolerance.|Gotthold Ephraim Lessing|
 D|12-12|1821|b|Gustave Flaubert is born|French novelist (1821–1880) of Madame Bovary, obsessed with finding the exact word.|Gustave Flaubert|
 D|05-08|1880|d|Gustave Flaubert dies|French novelist (1821–1880) of Madame Bovary, obsessed with finding the exact word.|Gustave Flaubert|
-D|02-17|1836|b|Gustavo Adolfo Bécquer is born|Spanish Romantic poet (1836–1870) of the Rimas.|Gustavo Adolfo Bécquer|
-D|12-22|1870|d|Gustavo Adolfo Bécquer dies|Spanish Romantic poet (1836–1870) of the Rimas.|Gustavo Adolfo Bécquer|
 D|08-05|1850|b|Guy de Maupassant is born|French writer (1850–1893) of some 300 short stories, including "Boule de Suif" and "The Necklace".|Guy de Maupassant|
 D|07-06|1893|d|Guy de Maupassant dies|French writer (1850–1893) of some 300 short stories, including "Boule de Suif" and "The Necklace".|Guy de Maupassant|
-D|09-21|1866|b|H. G. Wells is born|English writer (1866–1946) of The Time Machine and The War of the Worlds, a founder of science fiction and a campaigner for a better world.|H. G. Wells|
-D|08-13|1946|d|H. G. Wells dies|English writer (1866–1946) of The Time Machine and The War of the Worlds, a founder of science fiction and a campaigner for a better world.|H. G. Wells|
 D|10-14|1906|b|Hannah Arendt is born|German-American political thinker (1906–1975) of The Human Condition and Eichmann in Jerusalem.|Hannah Arendt|
 D|12-04|1975|d|Hannah Arendt dies|German-American political thinker (1906–1975) of The Human Condition and Eichmann in Jerusalem.|Hannah Arendt|
 D|04-02|1805|b|Hans Christian Andersen is born|Danish writer (1805–1875) of fairy tales such as "The Ugly Duckling", "The Little Mermaid" and "The Snow Queen".|Hans Christian Andersen|
@@ -220,29 +169,21 @@ D|06-27|1880|b|Helen Keller is born|American author and activist (1880–1968). 
 D|06-01|1968|d|Helen Keller dies|American author and activist (1880–1968). Deaf and blind from infancy, she learned to read, write and speak with her teacher Anne Sullivan and became a world-famous voice for optimism and social justice.|Helen Keller|
 D|10-18|1859|b|Henri Bergson is born|French philosopher (1859–1941) of time, memory and creative evolution. Nobel Prize 1927.|Henri Bergson|
 D|01-04|1941|d|Henri Bergson dies|French philosopher (1859–1941) of time, memory and creative evolution. Nobel Prize 1927.|Henri Bergson|
-D|09-27|1821|b|Henri-Frédéric Amiel is born|Swiss philosopher (1821–1881) whose vast Journal Intime is a classic of introspection.|Henri-Frédéric Amiel|
-D|05-11|1881|d|Henri-Frédéric Amiel dies|Swiss philosopher (1821–1881) whose vast Journal Intime is a classic of introspection.|Henri-Frédéric Amiel|
 D|03-20|1828|b|Henrik Ibsen is born|Norwegian playwright (1828–1906), father of modern drama, whose A Doll's House and Ghosts shook the conscience of Europe.|Henrik Ibsen|
 D|05-23|1906|d|Henrik Ibsen dies|Norwegian playwright (1828–1906), father of modern drama, whose A Doll's House and Ghosts shook the conscience of Europe.|Henrik Ibsen|
 D|07-12|1817|b|Henry David Thoreau is born|American essayist and naturalist (1817–1862) who lived two years in a cabin by Walden Pond and wrote Walden and "Civil Disobedience".|Henry David Thoreau|
 D|05-06|1862|d|Henry David Thoreau dies|American essayist and naturalist (1817–1862) who lived two years in a cabin by Walden Pond and wrote Walden and "Civil Disobedience".|Henry David Thoreau|
-D|04-22|1707|b|Henry Fielding is born|English novelist, playwright and magistrate (1707–1754), author of the comic masterpiece Tom Jones.|Henry Fielding|
 D|10-08|1754|d|Henry Fielding dies|English novelist, playwright and magistrate (1707–1754), author of the comic masterpiece Tom Jones.|Henry Fielding|
 D|04-15|1843|b|Henry James is born|American-British novelist (1843–1916) of The Portrait of a Lady and The Ambassadors, master of psychological subtlety.|Henry James|
 D|02-28|1916|d|Henry James dies|American-British novelist (1843–1916) of The Portrait of a Lady and The Ambassadors, master of psychological subtlety.|Henry James|
-D|04-17|1621|b|Henry Vaughan is born|Welsh poet and physician (1621–1695) of mystical poems of light and eternity.|Henry Vaughan|
-D|04-28|1695|d|Henry Vaughan dies|Welsh poet and physician (1621–1695) of mystical poems of light and eternity.|Henry Vaughan|
 D|05-05|1846|b|Henryk Sienkiewicz is born|Polish novelist (1846–1916) of Quo Vadis, who won the Nobel Prize in 1905.|Henryk Sienkiewicz|
 D|11-15|1916|d|Henryk Sienkiewicz dies|Polish novelist (1846–1916) of Quo Vadis, who won the Nobel Prize in 1905.|Henryk Sienkiewicz|
 D|08-01|1819|b|Herman Melville is born|American novelist and poet (1819–1891), author of Moby-Dick, whose voyages became meditations on obsession, evil and the unknowable.|Herman Melville|
 D|09-28|1891|d|Herman Melville dies|American novelist and poet (1819–1891), author of Moby-Dick, whose voyages became meditations on obsession, evil and the unknowable.|Herman Melville|
 D|07-02|1877|b|Hermann Hesse is born|German-Swiss novelist and poet (1877–1962) of Siddhartha, Steppenwolf and The Glass Bead Game, about the search for the self. Nobel Prize 1946.|Hermann Hesse|
 D|08-09|1962|d|Hermann Hesse dies|German-Swiss novelist and poet (1877–1962) of Siddhartha, Steppenwolf and The Glass Bead Game, about the search for the self. Nobel Prize 1946.|Hermann Hesse|
-D|05-20|1799|b|Honoré de Balzac is born|French novelist (1799–1850) of the Human Comedy.|Honoré de Balzac|
-D|08-18|1850|d|Honoré de Balzac dies|French novelist (1799–1850) of the Human Comedy.|Honoré de Balzac|
 D|07-16|1862|b|Ida B. Wells is born|American investigative journalist and civil rights leader (1862–1931), who exposed lynching in the American South.|Ida B. Wells|
 D|03-25|1931|d|Ida B. Wells dies|American investigative journalist and civil rights leader (1862–1931), who exposed lynching in the American South.|Ida B. Wells|
-D|04-22|1724|b|Immanuel Kant is born|German philosopher (1724–1804) of the Critiques, who asked what we can know, what we ought to do and what we may hope.|Immanuel Kant|
 D|02-12|1804|d|Immanuel Kant dies|German philosopher (1724–1804) of the Critiques, who asked what we can know, what we ought to do and what we may hope.|Immanuel Kant|
 D|07-15|1919|b|Iris Murdoch is born|Irish-British novelist and philosopher (1919–1999) who wrote about goodness, attention and love.|Iris Murdoch|
 D|02-08|1999|d|Iris Murdoch dies|Irish-British novelist and philosopher (1919–1999) who wrote about goodness, attention and love.|Iris Murdoch|
@@ -251,76 +192,43 @@ D|12-19|1861|b|Italo Svevo is born|Italian novelist (1861–1928) of Zeno's Cons
 D|09-13|1928|d|Italo Svevo dies|Italian novelist (1861–1928) of Zeno's Conscience.|Italo Svevo|
 D|11-09|1818|b|Ivan Turgenev is born|Russian novelist and storyteller (1818–1883) of Fathers and Sons and A Sportsman's Sketches, known for his gentle realism and melancholy.|Ivan Turgenev|
 D|09-03|1883|d|Ivan Turgenev dies|Russian novelist and storyteller (1818–1883) of Fathers and Sons and A Sportsman's Sketches, known for his gentle realism and melancholy.|Ivan Turgenev|
-D|08-09|1593|b|Izaak Walton is born|English writer (1593–1683) of The Compleat Angler, a gentle celebration of fishing, friendship and the contemplative life.|Izaak Walton|
-D|12-15|1683|d|Izaak Walton dies|English writer (1593–1683) of The Compleat Angler, a gentle celebration of fishing, friendship and the contemplative life.|Izaak Walton|
 D|01-03|1892|b|J. R. R. Tolkien is born|English writer and philologist (1892–1973) of The Hobbit and The Lord of the Rings.|J. R. R. Tolkien|
 D|09-02|1973|d|J. R. R. Tolkien dies|English writer and philologist (1892–1973) of The Hobbit and The Lord of the Rings.|J. R. R. Tolkien|
-D|02-28|1925|b|Jack Gilbert is born|American poet (1925–2012) of love, loss and joy.|Jack Gilbert|
 D|11-13|2012|d|Jack Gilbert dies|American poet (1925–2012) of love, loss and joy.|Jack Gilbert|
 D|11-28|1864|b|James Allen is born|British writer (1864–1912) whose little book As a Man Thinketh (1903) taught that our thoughts shape our character and our lives.|James Allen|
 D|01-24|1912|d|James Allen dies|British writer (1864–1912) whose little book As a Man Thinketh (1903) taught that our thoughts shape our character and our lives.|James Allen|
 D|08-02|1924|b|James Baldwin is born|American novelist and essayist (1924–1987) of Go Tell It on the Mountain and The Fire Next Time, who wrote about race, love and identity with prophetic force.|James Baldwin|
-D|12-01|1987|d|James Baldwin dies|American novelist and essayist (1924–1987) of Go Tell It on the Mountain and The Fire Next Time, who wrote about race, love and identity with prophetic force.|James Baldwin|
 D|09-15|1789|b|James Fenimore Cooper is born|American novelist (1789–1851) of The Last of the Mohicans and the Leatherstocking Tales of the frontier.|James Fenimore Cooper|
 D|09-14|1851|d|James Fenimore Cooper dies|American novelist (1789–1851) of The Last of the Mohicans and the Leatherstocking Tales of the frontier.|James Fenimore Cooper|
 D|06-17|1871|b|James Weldon Johnson is born|American writer and activist (1871–1938) who wrote "Lift Every Voice and Sing" and The Autobiography of an Ex-Colored Man.|James Weldon Johnson|
 D|06-26|1938|d|James Weldon Johnson dies|American writer and activist (1871–1938) who wrote "Lift Every Voice and Sing" and The Autobiography of an Ex-Colored Man.|James Weldon Johnson|
 D|12-16|1775|b|Jane Austen is born|English novelist (1775–1817), author of Pride and Prejudice and Emma, whose ironic comedies of manners are also studies of judgement and feeling.|Jane Austen|
 D|07-18|1817|d|Jane Austen dies|English novelist (1775–1817), author of Pride and Prejudice and Emma, whose ironic comedies of manners are also studies of judgement and feeling.|Jane Austen|
-D|04-30|1883|b|Jaroslav Hašek is born|Czech writer (1883–1923) of The Good Soldier Švejk, the great comic novel of the First World War.|Jaroslav Hašek|
-D|01-03|1923|d|Jaroslav Hašek dies|Czech writer (1883–1923) of The Good Soldier Švejk, the great comic novel of the First World War.|Jaroslav Hašek|
-D|12-22|1639|b|Jean Racine is born|French tragic poet (1639–1699) whose Phaedra is the summit of French classical tragedy.|Jean Racine|
-D|04-21|1699|d|Jean Racine dies|French tragic poet (1639–1699) whose Phaedra is the summit of French classical tragedy.|Jean Racine|
-D|06-28|1712|b|Jean-Jacques Rousseau is born|Geneva-born philosopher and writer (1712–1778) whose Social Contract, Emile and Confessions shaped modern politics, education and the idea of the self.|Jean-Jacques Rousseau|
 D|07-02|1778|d|Jean-Jacques Rousseau dies|Geneva-born philosopher and writer (1712–1778) whose Social Contract, Emile and Confessions shaped modern politics, education and the idea of the self.|Jean-Jacques Rousseau|
 D|06-21|1905|b|Jean-Paul Sartre is born|French philosopher, novelist and playwright (1905–1980), leading voice of existentialism, who held that we are condemned to be free.|Jean-Paul Sartre|
 D|04-15|1980|d|Jean-Paul Sartre dies|French philosopher, novelist and playwright (1905–1980), leading voice of existentialism, who held that we are condemned to be free.|Jean-Paul Sartre|
 D|12-05|1934|b|Joan Didion is born|American essayist and novelist (1934–2021) of Slouching Towards Bethlehem and The Year of Magical Thinking.|Joan Didion|
 D|12-23|2021|d|Joan Didion dies|American essayist and novelist (1934–2021) of Slouching Towards Bethlehem and The Year of Magical Thinking.|Joan Didion|
-D|11-28|1628|b|John Bunyan is born|English preacher and writer (1628–1688) whose allegory The Pilgrim's Progress was for centuries the most read book in English after the Bible.|John Bunyan|
-D|08-31|1688|d|John Bunyan dies|English preacher and writer (1628–1688) whose allegory The Pilgrim's Progress was for centuries the most read book in English after the Bible.|John Bunyan|
 D|07-13|1793|b|John Clare is born|English poet (1793–1864), a farm labourer from Northamptonshire who wrote with unique closeness about birds, fields and village life.|John Clare|
 D|05-20|1864|d|John Clare dies|English poet (1793–1864), a farm labourer from Northamptonshire who wrote with unique closeness about birds, fields and village life.|John Clare|
 D|02-21|1801|b|John Henry Newman is born|English theologian and writer (1801–1890), leader of the Oxford Movement, author of the Apologia and The Idea of a University.|John Henry Newman|
 D|08-11|1890|d|John Henry Newman dies|English theologian and writer (1801–1890), leader of the Oxford Movement, author of the Apologia and The Idea of a University.|John Henry Newman|
 D|10-31|1795|b|John Keats is born|English Romantic poet (1795–1821) of the great odes, who died of tuberculosis at 25. His letters are as loved as his poems.|John Keats|
 D|02-23|1821|d|John Keats dies|English Romantic poet (1795–1821) of the great odes, who died of tuberculosis at 25. His letters are as loved as his poems.|John Keats|
-D|12-09|1608|b|John Milton is born|English poet (1608–1674) who, blind, dictated Paradise Lost, the epic of the Fall.|John Milton|
-D|11-08|1674|d|John Milton dies|English poet (1608–1674) who, blind, dictated Paradise Lost, the epic of the Fall.|John Milton|
 D|04-21|1838|b|John Muir is born|Scottish-American naturalist and writer (1838–1914), "father of the national parks", who walked and wrote the Sierra Nevada.|John Muir|
 D|12-24|1914|d|John Muir dies|Scottish-American naturalist and writer (1838–1914), "father of the national parks", who walked and wrote the Sierra Nevada.|John Muir|
 D|01-01|1956|b|John O'Donohue is born|Irish poet, philosopher and former priest (1956–2008) of Anam Cara and To Bless the Space Between Us, rooted in Celtic spirituality.|John O'Donohue|
-D|01-03|2008|d|John O'Donohue dies|Irish poet, philosopher and former priest (1956–2008) of Anam Cara and To Bless the Space Between Us, rooted in Celtic spirituality.|John O'Donohue|
 D|02-08|1819|b|John Ruskin is born|English art critic and social thinker (1819–1900) of Modern Painters and Unto This Last.|John Ruskin|
 D|01-20|1900|d|John Ruskin dies|English art critic and social thinker (1819–1900) of Modern Painters and Unto This Last.|John Ruskin|
 D|02-27|1902|b|John Steinbeck is born|American novelist (1902–1968), Nobel laureate, author of The Grapes of Wrath and East of Eden.|John Steinbeck|
 D|12-20|1968|d|John Steinbeck dies|American novelist (1902–1968), Nobel laureate, author of The Grapes of Wrath and East of Eden.|John Steinbeck|
 D|05-20|1806|b|John Stuart Mill is born|English philosopher (1806–1873) of On Liberty and Utilitarianism.|John Stuart Mill|
-D|05-08|1873|d|John Stuart Mill dies|English philosopher (1806–1873) of On Liberty and Utilitarianism.|John Stuart Mill|
-D|11-30|1667|b|Jonathan Swift is born|Anglo-Irish satirist, essayist and clergyman (1667–1745), author of Gulliver's Travels and A Modest Proposal.|Jonathan Swift|
-D|10-19|1745|d|Jonathan Swift dies|Anglo-Irish satirist, essayist and clergyman (1667–1745), author of Gulliver's Travels and A Modest Proposal.|Jonathan Swift|
 D|08-24|1899|b|Jorge Luis Borges is born|Argentine writer (1899–1986) of labyrinths, mirrors and infinite libraries, whose short stories in Ficciones and The Aleph are puzzles about time and reality.|Jorge Luis Borges|
-D|03-26|1986|d|Jorge Luis Borges dies|Argentine writer (1899–1986) of labyrinths, mirrors and infinite libraries, whose short stories in Ficciones and The Aleph are puzzles about time and reality.|Jorge Luis Borges|
 D|05-24|1940|b|Joseph Brodsky is born|Russian-American poet (1940–1996), exiled from the USSR. Nobel Prize 1987.|Joseph Brodsky|
 D|01-28|1996|d|Joseph Brodsky dies|Russian-American poet (1940–1996), exiled from the USSR. Nobel Prize 1987.|Joseph Brodsky|
 D|03-26|1904|b|Joseph Campbell is born|American mythologist (1904–1987) of The Hero with a Thousand Faces.|Joseph Campbell|
-D|10-30|1987|d|Joseph Campbell dies|American mythologist (1904–1987) of The Hero with a Thousand Faces.|Joseph Campbell|
 D|12-03|1857|b|Joseph Conrad is born|Polish-born British novelist (1857–1924) of Heart of Darkness and Lord Jim, who wrote in his third language about the sea and moral darkness.|Joseph Conrad|
 D|08-03|1924|d|Joseph Conrad dies|Polish-born British novelist (1857–1924) of Heart of Darkness and Lord Jim, who wrote in his third language about the sea and moral darkness.|Joseph Conrad|
-D|07-15|1871|b|José Enrique Rodó is born|Uruguayan essayist (1871–1917) whose Ariel urged the youth of Latin America to cultivate the spirit, beauty and disinterested thought.|José Enrique Rodó|
-D|05-01|1917|d|José Enrique Rodó dies|Uruguayan essayist (1871–1917) whose Ariel urged the youth of Latin America to cultivate the spirit, beauty and disinterested thought.|José Enrique Rodó|
-D|11-10|1834|b|José Hernández is born|Argentine poet (1834–1886) of Martín Fierro, the epic of the gaucho.|José Hernández|
-D|10-21|1886|d|José Hernández dies|Argentine poet (1834–1886) of Martín Fierro, the epic of the gaucho.|José Hernández|
-D|01-28|1853|b|José Martí is born|Cuban poet, journalist and national hero (1853–1895), author of Versos sencillos and leader of Cuba's fight for independence.|José Martí|
-D|05-19|1895|d|José Martí dies|Cuban poet, journalist and national hero (1853–1895), author of Versos sencillos and leader of Cuba's fight for independence.|José Martí|
-D|05-09|1883|b|José Ortega y Gasset is born|Spanish philosopher (1883–1955): "I am I and my circumstance."|José Ortega y Gasset|
-D|10-18|1955|d|José Ortega y Gasset dies|Spanish philosopher (1883–1955): "I am I and my circumstance."|José Ortega y Gasset|
-D|06-19|1861|b|José Rizal is born|Filipino patriot, doctor and novelist (1861–1896) whose novels Noli Me Tangere and El Filibusterismo inspired the Philippine revolution.|José Rizal|
-D|12-30|1896|d|José Rizal dies|Filipino patriot, doctor and novelist (1861–1896) whose novels Noli Me Tangere and El Filibusterismo inspired the Philippine revolution.|José Rizal|
-D|11-16|1922|b|José Saramago is born|Portuguese novelist (1922–2010) of Blindness. Nobel Prize 1998.|José Saramago|
-D|06-18|2010|d|José Saramago dies|Portuguese novelist (1922–2010) of Blindness. Nobel Prize 1998.|José Saramago|
-D|08-26|1914|b|Julio Cortázar is born|Argentine writer (1914–1984) of playful, labyrinthine fiction, author of Hopscotch.|Julio Cortázar|
-D|02-12|1984|d|Julio Cortázar dies|Argentine writer (1914–1984) of playful, labyrinthine fiction, author of Hopscotch.|Julio Cortázar|
 D|01-06|1883|b|Kahlil Gibran is born|Lebanese-American poet, writer and painter (1883–1931) whose book The Prophet, a series of poetic sermons on love, work, joy and death, has been read by millions.|Kahlil Gibran|
 D|04-10|1931|d|Kahlil Gibran dies|Lebanese-American poet, writer and painter (1883–1931) whose book The Prophet, a series of poetic sermons on love, work, joy and death, has been read by millions.|Kahlil Gibran|
 D|02-23|1883|b|Karl Jaspers is born|German psychiatrist and existentialist philosopher (1883–1969).|Karl Jaspers|
@@ -337,13 +245,11 @@ D|06-27|1850|b|Lafcadio Hearn is born|Greek-Irish writer (1850–1904) who settl
 D|09-26|1904|d|Lafcadio Hearn dies|Greek-Irish writer (1850–1904) who settled in Japan, took the name Koizumi Yakumo, and wrote some of the first and most loving accounts of its ghosts, beliefs and quiet beauty.|Lafcadio Hearn|
 D|02-01|1901|b|Langston Hughes is born|American poet (1901–1967) and leading voice of the Harlem Renaissance, who brought jazz and the blues into verse.|Langston Hughes|
 D|05-22|1967|d|Langston Hughes dies|American poet (1901–1967) and leading voice of the Harlem Renaissance, who brought jazz and the blues into verse.|Langston Hughes|
-D|11-24|1713|b|Laurence Sterne is born|Irish-born English clergyman and novelist (1713–1768) whose playful Tristram Shandy broke every rule of the novel.|Laurence Sterne|
 D|03-18|1768|d|Laurence Sterne dies|Irish-born English clergyman and novelist (1713–1768) whose playful Tristram Shandy broke every rule of the novel.|Laurence Sterne|
 D|09-09|1828|b|Leo Tolstoy is born|Russian novelist (1828–1910) of War and Peace and Anna Karenina, who later turned to a radical Christian ethic of nonviolence and simplicity.|Leo Tolstoy|
 D|11-20|1910|d|Leo Tolstoy dies|Russian novelist (1828–1910) of War and Peace and Anna Karenina, who later turned to a radical Christian ethic of nonviolence and simplicity.|Leo Tolstoy|
 D|09-21|1934|b|Leonard Cohen is born|Canadian poet, novelist and songwriter (1934–2016) of "Suzanne" and "Hallelujah", whose songs mix the sacred and the sensual.|Leonard Cohen|
 D|11-07|2016|d|Leonard Cohen dies|Canadian poet, novelist and songwriter (1934–2016) of "Suzanne" and "Hallelujah", whose songs mix the sacred and the sensual.|Leonard Cohen|
-D|02-05|1866|b|Lev Shestov is born|Russian existentialist philosopher (1866–1938) who set faith against reason.|Lev Shestov|
 D|11-19|1938|d|Lev Shestov dies|Russian existentialist philosopher (1866–1938) who set faith against reason.|Lev Shestov|
 D|01-27|1832|b|Lewis Carroll is born|English writer, mathematician and photographer (1832–1898), author of Alice's Adventures in Wonderland and Through the Looking-Glass.|Lewis Carroll|
 D|01-14|1898|d|Lewis Carroll dies|English writer, mathematician and photographer (1832–1898), author of Alice's Adventures in Wonderland and Through the Looking-Glass.|Lewis Carroll|
@@ -371,8 +277,6 @@ D|10-08|1892|b|Marina Tsvetaeva is born|Russian poet (1892–1941) of passionate
 D|08-31|1941|d|Marina Tsvetaeva dies|Russian poet (1892–1941) of passionate, fierce lyrics.|Marina Tsvetaeva|
 D|11-30|1835|b|Mark Twain is born|American writer and humorist (1835–1910), author of Tom Sawyer and Huckleberry Finn, whose wit hid a sharp eye for human folly.|Mark Twain|
 D|04-21|1910|d|Mark Twain dies|American writer and humorist (1835–1910), author of Tom Sawyer and Huckleberry Finn, whose wit hid a sharp eye for human folly.|Mark Twain|
-D|02-08|1878|b|Martin Buber is born|Austrian-Israeli philosopher (1878–1965) of I and Thou.|Martin Buber|
-D|06-13|1965|d|Martin Buber dies|Austrian-Israeli philosopher (1878–1965) of I and Thou.|Martin Buber|
 D|09-26|1889|b|Martin Heidegger is born|German philosopher (1889–1976) of Being and Time.|Martin Heidegger|
 D|05-26|1976|d|Martin Heidegger dies|German philosopher (1889–1976) of Being and Time.|Martin Heidegger|
 D|01-15|1929|b|Martin Luther King Jr. is born|American minister and civil rights leader (1929–1968) who led the movement against segregation through nonviolence; Nobel Peace Prize 1964.|Martin Luther King Jr.|
@@ -381,12 +285,8 @@ D|09-10|1935|b|Mary Oliver is born|American poet (1935–2019) of close attentio
 D|01-17|2019|d|Mary Oliver dies|American poet (1935–2019) of close attention to the natural world, who asked "what is it you plan to do with your one wild and precious life?"|Mary Oliver|
 D|08-30|1797|b|Mary Shelley is born|English novelist (1797–1851) who wrote Frankenstein at nineteen.|Mary Shelley|
 D|02-01|1851|d|Mary Shelley dies|English novelist (1797–1851) who wrote Frankenstein at nineteen.|Mary Shelley|
-D|04-27|1759|b|Mary Wollstonecraft is born|English writer and philosopher (1759–1797) whose A Vindication of the Rights of Woman founded modern feminism; mother of Mary Shelley.|Mary Wollstonecraft|
-D|09-10|1797|d|Mary Wollstonecraft dies|English writer and philosopher (1759–1797) whose A Vindication of the Rights of Woman founded modern feminism; mother of Mary Shelley.|Mary Wollstonecraft|
 D|12-24|1822|b|Matthew Arnold is born|English poet and critic (1822–1888) of "Dover Beach".|Matthew Arnold|
-D|04-15|1888|d|Matthew Arnold dies|English poet and critic (1822–1888) of "Dover Beach".|Matthew Arnold|
 D|08-29|1862|b|Maurice Maeterlinck is born|Belgian poet, playwright and essayist (1862–1949) of The Blue Bird and The Treasure of the Humble. Nobel Prize 1911.|Maurice Maeterlinck|
-D|05-05|1949|d|Maurice Maeterlinck dies|Belgian poet, playwright and essayist (1862–1949) of The Blue Bird and The Treasure of the Humble. Nobel Prize 1911.|Maurice Maeterlinck|
 D|09-26|1872|b|Max Ehrmann is born|American poet and lawyer (1872–1945), author of "Desiderata".|Max Ehrmann|
 D|09-09|1945|d|Max Ehrmann dies|American poet and lawyer (1872–1945), author of "Desiderata".|Max Ehrmann|
 D|04-04|1928|b|Maya Angelou is born|American poet and memoirist (1928–2014), author of I Know Why the Caged Bird Sings.|Maya Angelou|
@@ -397,33 +297,24 @@ D|05-15|1891|b|Mikhail Bulgakov is born|Russian writer (1891–1940) of The Mast
 D|03-10|1940|d|Mikhail Bulgakov dies|Russian writer (1891–1940) of The Master and Margarita.|Mikhail Bulgakov|
 D|04-01|1929|b|Milan Kundera is born|Czech-born French novelist (1929–2023) of The Unbearable Lightness of Being, who mixed love stories with reflections on history and fate.|Milan Kundera|
 D|07-11|2023|d|Milan Kundera dies|Czech-born French novelist (1929–2023) of The Unbearable Lightness of Being, who mixed love stories with reflections on history and fate.|Milan Kundera|
-D|04-24|1965|b|Monique Roffey is born|Trinidadian-British novelist (born 1965), author of The Mermaid of Black Conch.|Monique Roffey|
 D|01-17|1942|b|Muhammad Ali is born|American boxer (1942–2016), three-time world heavyweight champion, who refused the Vietnam draft on conscience and became a voice for civil rights and peace.|Muhammad Ali|
 D|06-03|2016|d|Muhammad Ali dies|American boxer (1942–2016), three-time world heavyweight champion, who refused the Vietnam draft on conscience and became a voice for civil rights and peace.|Muhammad Ali|
 D|12-11|1911|b|Naguib Mahfouz is born|Egyptian novelist (1911–2006) of the Cairo Trilogy, the first Arabic-language writer to win the Nobel Prize in Literature.|Naguib Mahfouz|
 D|08-30|2006|d|Naguib Mahfouz dies|Egyptian novelist (1911–2006) of the Cairo Trilogy, the first Arabic-language writer to win the Nobel Prize in Literature.|Naguib Mahfouz|
 D|07-04|1804|b|Nathaniel Hawthorne is born|American novelist (1804–1864) of guilt and conscience in Puritan New England, author of The Scarlet Letter.|Nathaniel Hawthorne|
 D|05-19|1864|d|Nathaniel Hawthorne dies|American novelist (1804–1864) of guilt and conscience in Puritan New England, author of The Scarlet Letter.|Nathaniel Hawthorne|
-D|02-09|1867|b|Natsume Sōseki is born|Japanese novelist (1867–1916) of the modern self and its loneliness, author of Kokoro and Kusamakura.|Natsume Sōseki|
-D|12-09|1916|d|Natsume Sōseki dies|Japanese novelist (1867–1916) of the modern self and its loneliness, author of Kokoro and Kusamakura.|Natsume Sōseki|
 D|11-10|1960|b|Neil Gaiman is born|English writer (born 1960) of The Sandman, American Gods and Coraline.|Neil Gaiman|
 D|10-05|1958|b|Neil deGrasse Tyson is born|American astrophysicist (born 1958), director of the Hayden Planetarium and host of Cosmos: A Spacetime Odyssey.|Neil deGrasse Tyson|
 D|07-18|1918|b|Nelson Mandela is born|South African anti-apartheid leader (1918–2013), imprisoned for 27 years, who became his country's first democratically elected president; Nobel Peace Prize 1993.|Nelson Mandela|
 D|12-05|2013|d|Nelson Mandela dies|South African anti-apartheid leader (1918–2013), imprisoned for 27 years, who became his country's first democratically elected president; Nobel Peace Prize 1993.|Nelson Mandela|
 D|03-18|1874|b|Nikolai Berdyaev is born|Russian religious philosopher (1874–1948) of freedom and creativity.|Nikolai Berdyaev|
-D|03-23|1948|d|Nikolai Berdyaev dies|Russian religious philosopher (1874–1948) of freedom and creativity.|Nikolai Berdyaev|
-D|03-02|1883|b|Nikos Kazantzakis is born|Greek writer (1883–1957) of Zorba the Greek.|Nikos Kazantzakis|
 D|10-26|1957|d|Nikos Kazantzakis dies|Greek writer (1883–1957) of Zorba the Greek.|Nikos Kazantzakis|
 D|05-02|1772|b|Novalis is born|German Romantic poet (1772–1801) of the Hymns to the Night.|Novalis|
 D|03-25|1801|d|Novalis dies|German Romantic poet (1772–1801) of the Hymns to the Night.|Novalis|
-D|09-11|1862|b|O. Henry is born|American short-story writer (1862–1910) of "The Gift of the Magi", famous for his warmth and twist endings.|O. Henry|
-D|06-05|1910|d|O. Henry dies|American short-story writer (1862–1910) of "The Gift of the Magi", famous for his warmth and twist endings.|O. Henry|
 D|10-14|1988|b|Ocean Vuong is born|Vietnamese-American poet and novelist (born 1988) of On Earth We're Briefly Gorgeous.|Ocean Vuong|
 D|03-31|1914|b|Octavio Paz is born|Mexican poet and essayist (1914–1998) of The Labyrinth of Solitude. Nobel Prize 1990.|Octavio Paz|
-D|04-20|1998|d|Octavio Paz dies|Mexican poet and essayist (1914–1998) of The Labyrinth of Solitude. Nobel Prize 1990.|Octavio Paz|
 D|03-24|1855|b|Olive Schreiner is born|South African novelist and campaigner (1855–1920), author of The Story of an African Farm.|Olive Schreiner|
 D|12-11|1920|d|Olive Schreiner dies|South African novelist and campaigner (1855–1920), author of The Story of an African Farm.|Olive Schreiner|
-D|11-10|1728|b|Oliver Goldsmith is born|Irish novelist, playwright and poet (1728–1774), author of The Vicar of Wakefield, She Stoops to Conquer and The Deserted Village.|Oliver Goldsmith|
 D|04-04|1774|d|Oliver Goldsmith dies|Irish novelist, playwright and poet (1728–1774), author of The Vicar of Wakefield, She Stoops to Conquer and The Deserted Village.|Oliver Goldsmith|
 D|07-12|1904|b|Pablo Neruda is born|Chilean poet and diplomat (1904–1973), author of Twenty Love Poems and a Song of Despair and the Odes to common things. Nobel Prize 1971.|Pablo Neruda|
 D|09-23|1973|d|Pablo Neruda dies|Chilean poet and diplomat (1904–1973), author of Twenty Love Poems and a Song of Despair and the Odes to common things. Nobel Prize 1971.|Pablo Neruda|
@@ -431,22 +322,15 @@ D|11-23|1920|b|Paul Celan is born|Romanian-born German-language poet (1920–197
 D|04-20|1970|d|Paul Celan dies|Romanian-born German-language poet (1920–1970) of "Death Fugue", who wrote in the shadow of the Holocaust.|Paul Celan|
 D|06-27|1872|b|Paul Laurence Dunbar is born|American poet (1872–1906) of "We Wear the Mask" and "Sympathy", one of the first Black writers to win national fame.|Paul Laurence Dunbar|
 D|02-09|1906|d|Paul Laurence Dunbar dies|American poet (1872–1906) of "We Wear the Mask" and "Sympathy", one of the first Black writers to win national fame.|Paul Laurence Dunbar|
-D|08-20|1886|b|Paul Tillich is born|German-American theologian (1886–1965) of The Courage to Be.|Paul Tillich|
-D|10-22|1965|d|Paul Tillich dies|German-American theologian (1886–1965) of The Courage to Be.|Paul Tillich|
 D|03-30|1844|b|Paul Verlaine is born|French Symbolist poet (1844–1896) of musical, melancholy verse.|Paul Verlaine|
 D|01-08|1896|d|Paul Verlaine dies|French Symbolist poet (1844–1896) of musical, melancholy verse.|Paul Verlaine|
-D|01-17|1600|b|Pedro Calderón de la Barca is born|Spanish playwright (1600–1681) of Life Is a Dream, a master of the Golden Age theatre.|Pedro Calderón de la Barca|
-D|05-25|1681|d|Pedro Calderón de la Barca dies|Spanish playwright (1600–1681) of Life Is a Dream, a master of the Golden Age theatre.|Pedro Calderón de la Barca|
 D|08-04|1792|b|Percy Bysshe Shelley is born|English Romantic poet (1792–1822) of "Ozymandias" and Prometheus Unbound, radical and idealist, who drowned at 29.|Percy Bysshe Shelley|
 D|07-08|1822|d|Percy Bysshe Shelley dies|English Romantic poet (1792–1822) of "Ozymandias" and Prometheus Unbound, radical and idealist, who drowned at 29.|Percy Bysshe Shelley|
 D|08-09|1922|b|Philip Larkin is born|English poet and librarian (1922–1985) whose plain, rueful poems find tenderness in ordinary life.|Philip Larkin|
 D|12-02|1985|d|Philip Larkin dies|English poet and librarian (1922–1985) whose plain, rueful poems find tenderness in ordinary life.|Philip Larkin|
-D|05-08|1753|b|Phillis Wheatley is born|West African-born American poet (c. 1753–1784), the first African American to publish a book of poetry.|Phillis Wheatley|
 D|12-05|1784|d|Phillis Wheatley dies|West African-born American poet (c. 1753–1784), the first African American to publish a book of poetry.|Phillis Wheatley|
 D|02-21|1922|b|Pierre Hadot is born|French philosopher and historian (1922–2010) who showed ancient philosophy as a way of life.|Pierre Hadot|
-D|04-25|2010|d|Pierre Hadot dies|French philosopher and historian (1922–2010) who showed ancient philosophy as a way of life.|Pierre Hadot|
 D|05-01|1881|b|Pierre Teilhard de Chardin is born|French Jesuit priest and palaeontologist (1881–1955) who saw evolution moving toward spirit.|Pierre Teilhard de Chardin|
-D|04-10|1955|d|Pierre Teilhard de Chardin dies|French Jesuit priest and palaeontologist (1881–1955) who saw evolution moving toward spirit.|Pierre Teilhard de Chardin|
 D|12-04|1875|b|Rainer Maria Rilke is born|Bohemian-Austrian poet (1875–1926) of the Duino Elegies and Sonnets to Orpheus, whose Letters to a Young Poet are a guide to solitude and inner life.|Rainer Maria Rilke|
 D|12-29|1926|d|Rainer Maria Rilke dies|Bohemian-Austrian poet (1875–1926) of the Duino Elegies and Sonnets to Orpheus, whose Letters to a Young Poet are a guide to solitude and inner life.|Rainer Maria Rilke|
 D|05-25|1803|b|Ralph Waldo Emerson is born|American essayist and poet (1803–1882), leader of Transcendentalism. His essays, such as "Self-Reliance" and "Nature", urged trust in one's own intuition and in the divine in nature.|Ralph Waldo Emerson|
@@ -461,28 +345,19 @@ D|05-07|1812|b|Robert Browning is born|English poet (1812–1889), master of the
 D|12-12|1889|d|Robert Browning dies|English poet (1812–1889), master of the dramatic monologue.|Robert Browning|
 D|01-25|1759|b|Robert Burns is born|Scotland's national poet (1759–1796), a ploughman's son who wrote Auld Lang Syne and A Red, Red Rose.|Robert Burns|
 D|07-21|1796|d|Robert Burns dies|Scotland's national poet (1759–1796), a ploughman's son who wrote Auld Lang Syne and A Red, Red Rose.|Robert Burns|
-D|08-24|1591|b|Robert Herrick is born|English poet (1591–1674) of Hesperides, songs of flowers, festivals and love such as "To the Virgins, to Make Much of Time".|Robert Herrick|
-D|10-12|1674|d|Robert Herrick dies|English poet (1591–1674) of Hesperides, songs of flowers, festivals and love such as "To the Virgins, to Make Much of Time".|Robert Herrick|
 D|11-13|1850|b|Robert Louis Stevenson is born|Scottish writer (1850–1894) of Treasure Island and Dr Jekyll and Mr Hyde, and of fine essays on life and travel.|Robert Louis Stevenson|
 D|12-03|1894|d|Robert Louis Stevenson dies|Scottish writer (1850–1894) of Treasure Island and Dr Jekyll and Mr Hyde, and of fine essays on life and travel.|Robert Louis Stevenson|
 D|11-06|1880|b|Robert Musil is born|Austrian novelist (1880–1942) of The Man Without Qualities.|Robert Musil|
 D|04-15|1942|d|Robert Musil dies|Austrian novelist (1880–1942) of The Man Without Qualities.|Robert Musil|
 D|04-21|1909|b|Rollo May is born|American existential psychologist (1909–1994) of Love and Will.|Rollo May|
 D|10-22|1994|d|Rollo May dies|American existential psychologist (1909–1994) of Love and Will.|Rollo May|
-D|01-18|1867|b|Rubén Darío is born|Nicaraguan poet (1867–1916), the father of modernismo, who renewed poetry in the Spanish language.|Rubén Darío|
-D|02-06|1916|d|Rubén Darío dies|Nicaraguan poet (1867–1916), the father of modernismo, who renewed poetry in the Spanish language.|Rubén Darío|
-D|11-02|1758|b|Ryōkan is born|Japanese Zen monk and poet (1758–1831) who lived as a hermit and played with village children.|Ryōkan|
-D|02-18|1831|d|Ryōkan dies|Japanese Zen monk and poet (1758–1831) who lived as a hermit and played with village children.|Ryōkan|
 D|05-20|1923|b|Sam Selvon is born|Trinidadian novelist (1923–1994) whose The Lonely Londoners told the Windrush generation's story in the music of Caribbean speech.|Sam Selvon|
 D|04-16|1994|d|Sam Selvon dies|Trinidadian novelist (1923–1994) whose The Lonely Londoners told the Windrush generation's story in the music of Caribbean speech.|Sam Selvon|
 D|04-13|1906|b|Samuel Beckett is born|Irish writer (1906–1989) of Waiting for Godot. Nobel Prize 1969.|Samuel Beckett|
 D|12-22|1989|d|Samuel Beckett dies|Irish writer (1906–1989) of Waiting for Godot. Nobel Prize 1969.|Samuel Beckett|
 D|12-04|1835|b|Samuel Butler is born|English novelist and satirist (1835–1902) of Erewhon and The Way of All Flesh, whose Note-Books are full of sharp observations.|Samuel Butler|
 D|06-18|1902|d|Samuel Butler dies|English novelist and satirist (1835–1902) of Erewhon and The Way of All Flesh, whose Note-Books are full of sharp observations.|Samuel Butler|
-D|09-18|1709|b|Samuel Johnson is born|English writer and critic (1709–1784), compiler of the great Dictionary of the English Language, essayist of The Rambler, and subject of Boswell's famous Life.|Samuel Johnson|
 D|12-13|1784|d|Samuel Johnson dies|English writer and critic (1709–1784), compiler of the great Dictionary of the English Language, essayist of The Rambler, and subject of Boswell's famous Life.|Samuel Johnson|
-D|02-23|1633|b|Samuel Pepys is born|English naval administrator (1633–1703) whose diary records the Restoration, the Great Plague and the Great Fire of London.|Samuel Pepys|
-D|05-26|1703|d|Samuel Pepys dies|English naval administrator (1633–1703) whose diary records the Restoration, the Great Plague and the Great Fire of London.|Samuel Pepys|
 D|12-23|1812|b|Samuel Smiles is born|Scottish writer and reformer (1812–1904) whose Self-Help (1859), full of stories of perseverance, became one of the best-selling books of the Victorian age.|Samuel Smiles|
 D|04-16|1904|d|Samuel Smiles dies|Scottish writer and reformer (1812–1904) whose Self-Help (1859), full of stories of perseverance, became one of the best-selling books of the Victorian age.|Samuel Smiles|
 D|10-21|1772|b|Samuel Taylor Coleridge is born|English poet and critic (1772–1834) of "The Rime of the Ancient Mariner" and "Kubla Khan", co-founder of English Romanticism.|Samuel Taylor Coleridge|
@@ -493,34 +368,18 @@ D|02-13|1879|b|Sarojini Naidu is born|Indian poet and political leader (1879–1
 D|03-02|1949|d|Sarojini Naidu dies|Indian poet and political leader (1879–1949), called "the Nightingale of India".|Sarojini Naidu|
 D|04-13|1939|b|Seamus Heaney is born|Irish poet (1939–2013) of earth, memory and the Troubles. Nobel Prize 1995.|Seamus Heaney|
 D|08-30|2013|d|Seamus Heaney dies|Irish poet (1939–2013) of earth, memory and the Troubles. Nobel Prize 1995.|Seamus Heaney|
-D|11-20|1858|b|Selma Lagerlöf is born|Swedish novelist (1858–1940) of Gösta Berling's Saga and Nils Holgersson, the first woman to win the Nobel Prize in Literature.|Selma Lagerlöf|
-D|03-16|1940|d|Selma Lagerlöf dies|Swedish novelist (1858–1940) of Gösta Berling's Saga and Nils Holgersson, the first woman to win the Nobel Prize in Literature.|Selma Lagerlöf|
 D|05-06|1856|b|Sigmund Freud is born|Austrian neurologist (1856–1939), founder of psychoanalysis, who explored the unconscious, dreams and desire.|Sigmund Freud|
 D|09-23|1939|d|Sigmund Freud dies|Austrian neurologist (1856–1939), founder of psychoanalysis, who explored the unconscious, dreams and desire.|Sigmund Freud|
 D|02-03|1909|b|Simone Weil is born|French philosopher, mystic and activist (1909–1943) who wrote on attention, affliction and grace in Gravity and Grace.|Simone Weil|
-D|08-24|1943|d|Simone Weil dies|French philosopher, mystic and activist (1909–1943) who wrote on attention, affliction and grace in Gravity and Grace.|Simone Weil|
-D|01-09|1908|b|Simone de Beauvoir is born|French philosopher and novelist (1908–1986) of The Second Sex.|Simone de Beauvoir|
-D|04-14|1986|d|Simone de Beauvoir dies|French philosopher and novelist (1908–1986) of The Second Sex.|Simone de Beauvoir|
-D|11-12|1648|b|Sor Juana Inés de la Cruz is born|Mexican nun, poet and scholar (1648–1695), "the Tenth Muse", who defended women's right to learn.|Sor Juana Inés de la Cruz|
-D|04-17|1695|d|Sor Juana Inés de la Cruz dies|Mexican nun, poet and scholar (1648–1695), "the Tenth Muse", who defended women's right to learn.|Sor Juana Inés de la Cruz|
-D|11-28|1881|b|Stefan Zweig is born|Austrian writer (1881–1942) of novellas, biographies and the memoir The World of Yesterday.|Stefan Zweig|
-D|02-22|1942|d|Stefan Zweig dies|Austrian writer (1881–1942) of novellas, biographies and the memoir The World of Yesterday.|Stefan Zweig|
 D|01-23|1783|b|Stendhal is born|French novelist (1783–1842) of The Red and the Black.|Stendhal|
 D|03-23|1842|d|Stendhal dies|French novelist (1783–1842) of The Red and the Black.|Stendhal|
 D|11-01|1871|b|Stephen Crane is born|American writer (1871–1900) of The Red Badge of Courage and the spare, startling poems of The Black Riders.|Stephen Crane|
 D|06-05|1900|d|Stephen Crane dies|American writer (1871–1900) of The Red Badge of Courage and the spare, startling poems of The Black Riders.|Stephen Crane|
 D|09-21|1947|b|Stephen King is born|American novelist (born 1947) of horror and suspense, whose memoir On Writing is a classic guide to the craft.|Stephen King|
 D|09-01|1943|b|Steven Pressfield is born|American novelist (born 1943) whose The War of Art is about overcoming resistance to creative work.|Steven Pressfield|
-D|03-18|1842|b|Stéphane Mallarmé is born|French Symbolist poet (1842–1898).|Stéphane Mallarmé|
-D|09-09|1898|d|Stéphane Mallarmé dies|French Symbolist poet (1842–1898).|Stéphane Mallarmé|
 D|01-16|1933|b|Susan Sontag is born|American essayist (1933–2004) of Against Interpretation and On Photography.|Susan Sontag|
 D|12-28|2004|d|Susan Sontag dies|American essayist (1933–2004) of Against Interpretation and On Photography.|Susan Sontag|
 D|10-27|1932|b|Sylvia Plath is born|American poet and novelist (1932–1963), author of Ariel and The Bell Jar, writer of fierce and luminous intensity.|Sylvia Plath|
-D|02-11|1963|d|Sylvia Plath dies|American poet and novelist (1932–1963), author of Ariel and The Bell Jar, writer of fierce and luminous intensity.|Sylvia Plath|
-D|01-01|1823|b|Sándor Petőfi is born|Hungarian national poet (1823–1849) and hero of the 1848 revolution.|Sándor Petőfi|
-D|07-31|1849|d|Sándor Petőfi dies|Hungarian national poet (1823–1849) and hero of the 1848 revolution.|Sándor Petőfi|
-D|05-05|1813|b|Søren Kierkegaard is born|Danish philosopher and theologian (1813–1855), often called the father of existentialism. He wrote about anxiety, despair, faith and the single individual.|Søren Kierkegaard|
-D|11-11|1855|d|Søren Kierkegaard dies|Danish philosopher and theologian (1813–1855), often called the father of existentialism. He wrote about anxiety, despair, faith and the single individual.|Søren Kierkegaard|
 D|09-26|1888|b|T. S. Eliot is born|American-British poet (1888–1965) of The Waste Land and Four Quartets. Nobel Prize 1948.|T. S. Eliot|
 D|01-04|1965|d|T. S. Eliot dies|American-British poet (1888–1965) of The Waste Land and Four Quartets. Nobel Prize 1948.|T. S. Eliot|
 D|10-27|1858|b|Theodore Roosevelt is born|26th President of the United States (1858–1919), naturalist, soldier and prolific writer, who preached "the strenuous life" of effort and courage.|Theodore Roosevelt|
@@ -530,19 +389,11 @@ D|02-05|1881|d|Thomas Carlyle dies|Scottish essayist and historian (1795–1881)
 D|08-15|1785|b|Thomas De Quincey is born|English essayist (1785–1859) whose Confessions of an English Opium-Eater explored addiction, dreams and the mind.|Thomas De Quincey|
 D|12-08|1859|d|Thomas De Quincey dies|English essayist (1785–1859) whose Confessions of an English Opium-Eater explored addiction, dreams and the mind.|Thomas De Quincey|
 D|06-02|1840|b|Thomas Hardy is born|English novelist and poet (1840–1928) of Tess of the d'Urbervilles and Jude the Obscure, whose poems face loss and indifferent fate.|Thomas Hardy|
-D|01-28|1928|d|Thomas Hardy dies|English novelist and poet (1840–1928) of Tess of the d'Urbervilles and Jude the Obscure, whose poems face loss and indifferent fate.|Thomas Hardy|
-D|04-05|1588|b|Thomas Hobbes is born|English philosopher (1588–1679) of Leviathan.|Thomas Hobbes|
-D|12-04|1679|d|Thomas Hobbes dies|English philosopher (1588–1679) of Leviathan.|Thomas Hobbes|
 D|05-23|1799|b|Thomas Hood is born|English poet and humorist (1799–1845) of "I Remember, I Remember" and "The Song of the Shirt", a protest against sweated labour.|Thomas Hood|
 D|05-03|1845|d|Thomas Hood dies|English poet and humorist (1799–1845) of "I Remember, I Remember" and "The Song of the Shirt", a protest against sweated labour.|Thomas Hood|
 D|06-06|1875|b|Thomas Mann is born|German novelist (1875–1955) of The Magic Mountain. Nobel Prize 1929.|Thomas Mann|
 D|08-12|1955|d|Thomas Mann dies|German novelist (1875–1955) of The Magic Mountain. Nobel Prize 1929.|Thomas Mann|
-D|02-09|1737|b|Thomas Paine is born|English-born American writer and revolutionary (1737–1809), whose Common Sense, The American Crisis and Rights of Man argued for independence, democracy and human rights.|Thomas Paine|
 D|06-08|1809|d|Thomas Paine dies|English-born American writer and revolutionary (1737–1809), whose Common Sense, The American Crisis and Rights of Man argued for independence, democracy and human rights.|Thomas Paine|
-D|10-10|1636|b|Thomas Traherne is born|English poet and clergyman (1636–1674) whose Centuries of Meditations, rediscovered in 1896, are full of childlike wonder at the world.|Thomas Traherne|
-D|10-10|1674|d|Thomas Traherne dies|English poet and clergyman (1636–1674) whose Centuries of Meditations, rediscovered in 1896, are full of childlike wonder at the world.|Thomas Traherne|
-D|04-15|1931|b|Tomas Tranströmer is born|Swedish poet (1931–2015) of luminous, dreamlike images. Nobel Prize 2011.|Tomas Tranströmer|
-D|03-26|2015|d|Tomas Tranströmer dies|Swedish poet (1931–2015) of luminous, dreamlike images. Nobel Prize 2011.|Tomas Tranströmer|
 D|02-18|1931|b|Toni Morrison is born|American novelist (1931–2019) of Beloved and Song of Solomon, who wrote the inner lives of Black Americans with mythic power. Nobel Prize 1993.|Toni Morrison|
 D|08-05|2019|d|Toni Morrison dies|American novelist (1931–2019) of Beloved and Song of Solomon, who wrote the inner lives of Black Americans with mythic power. Nobel Prize 1993.|Toni Morrison|
 D|03-04|1856|b|Toru Dutt is born|Indian poet (1856–1877) who wrote in English and French, and died at twenty-one.|Toru Dutt|
@@ -575,8 +426,6 @@ D|08-04|1839|b|Walter Pater is born|English critic and essayist (1839–1894) wh
 D|07-30|1894|d|Walter Pater dies|English critic and essayist (1839–1894) whose Studies in the History of the Renaissance urged us "to burn always with this hard, gem-like flame".|Walter Pater|
 D|04-03|1783|b|Washington Irving is born|American writer (1783–1859) of "Rip Van Winkle" and "The Legend of Sleepy Hollow", the first American author famous in Europe.|Washington Irving|
 D|11-28|1859|d|Washington Irving dies|American writer (1783–1859) of "Rip Van Winkle" and "The Legend of Sleepy Hollow", the first American author famous in Europe.|Washington Irving|
-D|12-04|1866|b|Wassily Kandinsky is born|Russian painter and theorist (1866–1944), a pioneer of abstract art, author of Concerning the Spiritual in Art.|Wassily Kandinsky|
-D|12-14|1944|d|Wassily Kandinsky dies|Russian painter and theorist (1866–1944), a pioneer of abstract art, author of Concerning the Spiritual in Art.|Wassily Kandinsky|
 D|08-05|1934|b|Wendell Berry is born|American farmer, poet and essayist (born 1934) who writes about land, community and care.|Wendell Berry|
 D|01-08|1824|b|Wilkie Collins is born|English novelist (1824–1889), author of The Woman in White and The Moonstone, a founder of the detective and sensation novel.|Wilkie Collins|
 D|09-23|1889|d|Wilkie Collins dies|English novelist (1824–1889), author of The Woman in White and The Moonstone, a founder of the detective and sensation novel.|Wilkie Collins|
@@ -584,8 +433,6 @@ D|12-07|1873|b|Willa Cather is born|American novelist (1873–1947) of My Ánton
 D|04-24|1947|d|Willa Cather dies|American novelist (1873–1947) of My Ántonia and O Pioneers!, who wrote of the prairie, its immigrant families and the pull of memory. Pulitzer Prize 1923.|Willa Cather|
 D|11-28|1757|b|William Blake is born|English poet, painter and visionary (1757–1827) of the Songs of Innocence and of Experience, who saw "a world in a grain of sand".|William Blake|
 D|08-12|1827|d|William Blake dies|English poet, painter and visionary (1757–1827) of the Songs of Innocence and of Experience, who saw "a world in a grain of sand".|William Blake|
-D|11-26|1731|b|William Cowper is born|English poet (1731–1800) of The Task and the hymn "God moves in a mysterious way", who wrote of quiet country life.|William Cowper|
-D|04-26|1800|d|William Cowper dies|English poet (1731–1800) of The Task and the hymn "God moves in a mysterious way", who wrote of quiet country life.|William Cowper|
 D|09-25|1897|b|William Faulkner is born|American novelist (1897–1962) of the Mississippi South, Nobel laureate, author of The Sound and the Fury.|William Faulkner|
 D|07-06|1962|d|William Faulkner dies|American novelist (1897–1962) of the Mississippi South, Nobel laureate, author of The Sound and the Fury.|William Faulkner|
 D|04-10|1778|b|William Hazlitt is born|English essayist and critic (1778–1830) of Table-Talk.|William Hazlitt|
@@ -596,12 +443,8 @@ D|07-18|1811|b|William Makepeace Thackeray is born|English novelist (1811–1863
 D|12-24|1863|d|William Makepeace Thackeray dies|English novelist (1811–1863) of Vanity Fair, a satire of ambition and snobbery with the unforgettable Becky Sharp.|William Makepeace Thackeray|
 D|04-07|1770|b|William Wordsworth is born|English Romantic poet (1770–1850) of The Prelude and "Tintern Abbey", who found the divine in nature and memory.|William Wordsworth|
 D|04-23|1850|d|William Wordsworth dies|English Romantic poet (1770–1850) of The Prelude and "Tintern Abbey", who found the divine in nature and memory.|William Wordsworth|
-D|07-02|1923|b|Wisława Szymborska is born|Polish poet (1923–2012) whose witty, wondering poems look at ordinary things with fresh eyes. Nobel Prize 1996.|Wisława Szymborska|
-D|02-01|2012|d|Wisława Szymborska dies|Polish poet (1923–2012) whose witty, wondering poems look at ordinary things with fresh eyes. Nobel Prize 1996.|Wisława Szymborska|
 D|07-13|1934|b|Wole Soyinka is born|Nigerian playwright and poet (born 1934), the first African Nobel laureate in literature, imprisoned for speaking against tyranny.|Wole Soyinka|
 D|06-11|1899|b|Yasunari Kawabata is born|Japanese novelist (1899–1972), the first Japanese Nobel laureate in literature, author of Snow Country.|Yasunari Kawabata|
 D|04-16|1972|d|Yasunari Kawabata dies|Japanese novelist (1899–1972), the first Japanese Nobel laureate in literature, author of Snow Country.|Yasunari Kawabata|
 D|01-14|1925|b|Yukio Mishima is born|Japanese novelist and playwright (1925–1970), author of The Temple of the Golden Pavilion.|Yukio Mishima|
 D|11-25|1970|d|Yukio Mishima dies|Japanese novelist and playwright (1925–1970), author of The Temple of the Golden Pavilion.|Yukio Mishima|
-D|04-02|1840|b|Émile Zola is born|French novelist (1840–1902) of Germinal and the Rougon-Macquart cycle, and author of "J'accuse".|Émile Zola|
-D|09-29|1902|d|Émile Zola dies|French novelist (1840–1902) of Germinal and the Rougon-Macquart cycle, and author of "J'accuse".|Émile Zola|

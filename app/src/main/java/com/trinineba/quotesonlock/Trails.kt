@@ -1,7 +1,6 @@
 package com.trinineba.quotesonlock
 
 import android.content.Context
-import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
@@ -202,7 +201,6 @@ fun TrailScreen(trailId: String, start: Int, onBack: () -> Unit, onOpenAuthor: (
     if (trail == null) { ToolScreen("Curiosity trails", onBack) { item { Text("This trail isn't available.") } }; return }
     val bundled = remember { QuoteRepository(context).bundled() }
     var at by rememberSaveable(trailId) { mutableIntStateOf(start.coerceIn(0, trail.stops.size - 1)) }
-    BackHandler { if (at > 0) at-- else onBack() }
     val (title, bridge) = trail.stops[at]
     val idea = remember(title) { Learn.idea(bundled, title) }
     val prevIdea = remember(at) { trail.stops.getOrNull(at - 1)?.let { Learn.idea(bundled, it.first) } }

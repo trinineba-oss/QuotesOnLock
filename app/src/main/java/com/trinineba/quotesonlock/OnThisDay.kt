@@ -66,8 +66,10 @@ object OnThisDay {
 @Composable
 fun OnThisDayCard(onOpen: () -> Unit) {
     val context = LocalContext.current
-    val today = remember { Calendar.getInstance() }
-    val entries = remember { runCatching { OnThisDay.on(context, today) }.getOrDefault(emptyList()) }
+    // Worked out afresh each time Today is shown, so the card turns over at midnight.
+    val today = Calendar.getInstance()
+    val day = OnThisDay.key(today)
+    val entries = remember(day) { runCatching { OnThisDay.on(context, today) }.getOrDefault(emptyList()) }
     val first = entries.firstOrNull() ?: return
     val accent = MaterialTheme.colorScheme.primary
     Column(

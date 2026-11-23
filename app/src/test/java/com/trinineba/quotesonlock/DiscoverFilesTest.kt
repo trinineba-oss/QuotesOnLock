@@ -205,7 +205,7 @@ class DiscoverFilesTest {
             assertTrue("${e.title}: no text", e.text.length > 20)
             assertTrue("${e.title}: unknown author page ${e.author}", e.author.isEmpty() || e.author in pages)
             assertTrue("${e.title}: unknown idea ${e.idea}", e.idea.isEmpty() || e.idea in ideas)
-            if (e.kind != "e") assertTrue("${e.title}: birth or death before the modern calendar", e.year >= 1583)
+            if (e.kind != "e") assertTrue("${e.title}: birth or death before Britain's change of calendar", e.year >= 1752)
         }
     }
 
