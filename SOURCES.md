@@ -449,3 +449,7 @@ Great ideas from the Library: 31 ideas quote the Library's own texts word for wo
 ## Slow looking
 
 The paintings in Calm › Slow looking were painted for the app, as oil brushstrokes laid over by a small program, from photographs by Carol M. Highsmith, who gave her archive to the Library of Congress for the public domain (Carol M. Highsmith Archive, Prints and Photographs Division, "no known restrictions on publication"): the Teton Range reflected in a stream, Grand Teton National Park (LC-DIG-highsm-35450); the Maroon Bells and Maroon Lake, Colorado (LC-DIG-highsm-33695); the Pacific coast at Big Sur, California (LC-DIG-highsm-13822); and Monument Valley, Arizona (LC-DIG-highsm-04002). The scenes themselves are unchanged. The steps are written for the app; the closing lines are from the collection.
+
+## Down the well (Murakami essay)
+
+F. Scott Fitzgerald's *The Great Gatsby* (1925, public domain in the United States) is quoted word for word from Project Gutenberg #64317. Haruki Murakami's works are in copyright, so the essay uses only short lines, each checked against its book and now credited to it: *Kafka on the Shore* (tr. Philip Gabriel), *Norwegian Wood* (tr. Jay Rubin), *Blind Willow, Sleeping Woman*, and *What I Talk About When I Talk About Running* (tr. Philip Gabriel), where "Pain is inevitable. Suffering is optional." is a runner's mantra Murakami quotes. The essay itself is written for the app.

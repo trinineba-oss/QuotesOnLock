@@ -2782,18 +2782,18 @@ einstein|We are in the position of a little child entering a huge library, whose
 einstein|I believe that Gandhi’s views were the most enlightened of all the political men in our time. We should strive to do things in his spirit: not to use violence in fighting for our cause, but by non-participation in anything you believe is evil.|Albert Einstein|sacred
 einstein|I believe in Spinoza's God, who reveals Himself in the lawful harmony of the world, not in a God who concerns Himself with the fate and the doings of mankind.|Albert Einstein|sacred
 einstein|Anyone who doesn't take truth seriously in small matters cannot be trusted in large ones either.|Albert Einstein|truth
-murakami|If you only read the books that everyone else is reading, you can only think what everyone else is thinking.|Haruki Murakami|books
-murakami|Memories warm you up from the inside. But they also tear you apart.|Haruki Murakami|memory
-murakami|Pain is inevitable. Suffering is optional.|Haruki Murakami|suffering
+murakami|If you only read the books that everyone else is reading, you can only think what everyone else is thinking.|Haruki Murakami, Norwegian Wood (tr. Jay Rubin)|books
+murakami|Memories warm you up from the inside. But they also tear you apart.|Haruki Murakami, Kafka on the Shore (tr. Philip Gabriel)|memory
+murakami|Pain is inevitable. Suffering is optional.|Haruki Murakami, What I Talk About When I Talk About Running (tr. Philip Gabriel)|suffering
 murakami|Why do people have to be this lonely? What's the point of it all? Millions of people in this world, all of them yearning, looking to others to satisfy them, yet isolating themselves. Why? Was the earth put here just to nourish human loneliness?|Haruki Murakami|solitude,meaning
 murakami|Sometimes when I look at you, I feel I'm gazing at a distant star. It's dazzling, but the light is from tens of thousands of years ago.Maybe the star doesn't even exist any more. Yet sometimes that light seems more real to me than anything.|Haruki Murakami|nature
 murakami|It's like Tolstoy said. Happiness is an allegory, unhappiness a story.|Haruki Murakami|joy
 murakami|Anyone who falls in love is searching for the missing pieces of themselves. So anyone who's in love gets sad when they think of their lover. It's like stepping back inside a room you have fond memories of, one you haven't seen in a long time.|Haruki Murakami|love,memory
-murakami|Silence, I discover, is something you can actually hear.|Haruki Murakami|solitude
+murakami|Silence, I discover, is something you can actually hear.|Haruki Murakami, Kafka on the Shore (tr. Philip Gabriel)|solitude
 murakami|Unfortunately, the clock is ticking, the hours are going by. The past increases, the future recedes. Possibilities decreasing, regrets mounting.|Haruki Murakami|time
-murakami|Every one of us is losing something precious to us. Lost opportunities, lost possibilities, feelings we can never get back again. That's part of what it means to be alive.|Haruki Murakami|
+murakami|Every one of us is losing something precious to us. Lost opportunities, lost possibilities, feelings we can never get back again. That's part of what it means to be alive.|Haruki Murakami, Kafka on the Shore (tr. Philip Gabriel)|
 murakami|Death is not the opposite of life, but a part of it.|Haruki Murakami|death
-murakami|I sometimes think that people's hearts are like deep wells. Nobody knows what's at the bottom. All you can do is imagine by what comes floating to the surface every once in a while.|Haruki Murakami|dreams
+murakami|I sometimes think that people's hearts are like deep wells. Nobody knows what's at the bottom. All you can do is imagine by what comes floating to the surface every once in a while.|Haruki Murakami, Blind Willow, Sleeping Woman|dreams
 murakami|In everybody's life there's a point of no return. And in a very few cases, a point where you can't go forward anymore. And when we reach that point, all we can do is quietly accept the fact. That's how we survive.|Haruki Murakami|meaning
 murakami|I can bear any pain as long as it has meaning.|Haruki Murakami|suffering,meaning
 murakami|In this world, there are things you can only do alone, and things you can only do with somebody else. It's important to combine the two in just the right amount.|Haruki Murakami|
@@ -14679,3 +14679,5 @@ vonnegut|Live by the foma that make you brave and kind and healthy and happy.|Ku
 vonnegut|There’s only one rule that I know of, babies—God damn it, you’ve got to be kind.|Kurt Vonnegut, God Bless You, Mr. Rosewater|humour
 vonnegut|I urge you to please notice when you are happy, and exclaim or murmur or think at some point, ‘If this isn’t nice, I don’t know what is.’|Kurt Vonnegut, A Man Without a Country|humour
 vonnegut|Everything was beautiful and nothing hurt.|Kurt Vonnegut, Slaughterhouse-Five|humour
+observe|So we beat on, boats against the current, borne back ceaselessly into the past.|F. Scott Fitzgerald, The Great Gatsby|time,memory
+observe|“Whenever you feel like criticizing anyone,” he told me, “just remember that all the people in this world haven’t had the advantages that you’ve had.”|F. Scott Fitzgerald, The Great Gatsby|wisdom
