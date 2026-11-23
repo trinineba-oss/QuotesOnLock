@@ -209,6 +209,17 @@ class DiscoverFilesTest {
         }
     }
 
+    @Test fun whereToStartNamesRealAuthors() {
+        val names = quotes.mapNotNull { authorName(it.author) }.toSet()
+        val lines = raw("authorstart.txt").readLines().filter { !it.startsWith("#") && '|' in it }
+        assertTrue("too few authors with a place to start: ${lines.size}", lines.size >= 30)
+        lines.forEach { l ->
+            val name = l.substringBefore('|')
+            assertTrue("no such author: $name", name in names)
+            assertTrue("$name: no suggestion", l.substringAfter('|').length > 40)
+        }
+    }
+
     @Test fun leonardoHighlightsAreCompleteAndUnderlineTheCollection() {
         val book = raw("leonardo.txt").useLines { Leonardo.parse(it) }
         val all = book.all

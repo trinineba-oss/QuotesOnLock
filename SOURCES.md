@@ -463,3 +463,9 @@ On this day (`res/raw/onthisday.txt`): a birth or death date of one of the colle
 ## Naming the book
 
 1,204 public-domain lines that named only their author now name their book and translator too (for example "Rabindranath Tagore, Stray Birds" or "Confucius, The Analects (tr. James Legge)"). The book was taken from the source passage each line is checked against, and only when that passage is from the author's own work; lines found in anthologies, or quoted in another writer's book, keep their author alone.
+
+## Checking the modern authors' lines
+
+Lines by authors still in copyright are kept short and, where possible, credited to their book. Each line that named only its author was looked up on the author's Wikiquote page; when it was found under one of their books (not under "Misattributed", "Disputed" or "About"), it now names that book, checked by hand (281 lines). Unverified passages longer than forty words were removed (347), as were the Haruki Murakami lines that could not be traced to a book (49), except where an essay, path or note uses them.
+
+Marcus Aurelius: 169 lines are word for word from George W. Chrystal's translation (1902, Project Gutenberg #55317, a new rendering based on the Foulis translation of 1742) and now say so; four are Meric Casaubon's; and three popular modern wordings (one from a translation still in copyright) were replaced with George Long's text of the same passages.

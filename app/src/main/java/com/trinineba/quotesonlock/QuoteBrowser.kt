@@ -137,6 +137,8 @@ fun QuoteBrowser(
         }
     }
     var query by rememberSaveable(page) { mutableStateOf(if (searching) page.removePrefix(BrowsePage.SEARCH) else "") }
+    // On an author's page, one of their books chosen from "Their books here" shows only its lines.
+    var book by rememberSaveable(page) { mutableStateOf<String?>(null) }
     var favorites by remember { mutableStateOf(repo.favorites().map { it.text }.toSet()) }
     var opened by remember { mutableStateOf<Quote?>(null) }
     opened?.let { q ->
@@ -148,12 +150,13 @@ fun QuoteBrowser(
             onOpenAuthor = { if (it != author) onOpenAuthor(it) },
         )
     }
-    val shown = remember(all, query) {
+    val shown = remember(all, query, book) {
         val q = query.trim()
+        val inBook = if (book != null && author != null) all.filter { AuthorPages.bookOf(it.author, author) == book } else all
         when {
             q.isEmpty() && searching -> emptyList()
-            q.isEmpty() -> all
-            else -> all.filter {
+            q.isEmpty() -> inBook
+            else -> inBook.filter {
                 it.text.contains(q, ignoreCase = true) || it.author?.contains(q, ignoreCase = true) == true ||
                     it.title?.contains(q, ignoreCase = true) == true
             }
@@ -212,6 +215,7 @@ fun QuoteBrowser(
                         }
                     }
                     if (author != null) AuthorInfluences(author) { onOpenPage("influences:$it") }
+                    if (author != null) AuthorExtras(author, all, book, onBook = { book = it }, onOpenPage = onOpenPage)
                     Text(
                         when {
                             searching && query.isBlank() -> "${all.size} quotes by ${authors.size} authors. Type a word, a phrase or a name."
@@ -219,6 +223,7 @@ fun QuoteBrowser(
                             query.isBlank() && chipGroup == QuoteGroup.MYTHS -> "${all.size} myths"
                             query.isBlank() && chipGroup == QuoteGroup.FOLKLORE -> "${all.size} tales"
                             query.isBlank() && chipGroup == QuoteGroup.IDEAS -> "${all.size} ideas"
+                            query.isBlank() && book != null -> "${shown.size} of ${all.size} quotes, from $book"
                             query.isBlank() -> "${all.size} quotes"
                             else -> "${shown.size} of ${all.size} quotes"
                         },

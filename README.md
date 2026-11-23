@@ -12,6 +12,7 @@ Android doesn't let normal apps draw on the lock screen, so the app posts the qu
 - Rotation every 15 minutes up to daily (WorkManager).
 - The quote comes back after a reboot.
 - Choosing a theme: the themes are grouped by mood (Night skies, Water, Nature, Art & quiet, Plain), with filters for light, dark, moving and still themes, a sample quote on each tile, the three most recently used at the top, and an undo after each change. The lock screen and the widget each have one line, "same as the app" or a theme of their own, opening the same picker.
+- Author pages: under each author's life, "Where to start" reading (for the forty most-quoted authors), links to where they appear elsewhere in the app (a Library room, essays), and "Their books here", which shows how many lines come from each book and filters the list to one. Most lines now name their book and translator.
 - On this day: a small card under the day's quote with something from the collection's past on today's date (an author's birth or death, or a famous day such as Pascal's night of fire), opening a page you can move through day by day.
 - No internet permission, no accounts, no network access.
 
