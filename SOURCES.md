@@ -453,3 +453,9 @@ The paintings in Calm › Slow looking were painted for the app, as oil brushstr
 ## Down the well (Murakami essay)
 
 F. Scott Fitzgerald's *The Great Gatsby* (1925, public domain in the United States) is quoted word for word from Project Gutenberg #64317. Haruki Murakami's works are in copyright, so the essay uses only short lines, each checked against its book and now credited to it: *Kafka on the Shore* (tr. Philip Gabriel), *Norwegian Wood* (tr. Jay Rubin), *Blind Willow, Sleeping Woman*, and *What I Talk About When I Talk About Running* (tr. Philip Gabriel), where "Pain is inevitable. Suffering is optional." is a runner's mantra Murakami quotes. The essay itself is written for the app.
+
+## Curiosity trails and On this day
+
+The fifteen curiosity trails (`res/raw/trails.txt`) are written for the app: each stop is a great idea already in the collection, and the sentence joining it to the stop before is written for the app.
+
+On this day (`res/raw/onthisday.txt`): birth and death dates of the collection's authors come from Wikidata, kept only when Wikidata's birth year agrees with the app's own timeline and the date is given to the day, and only for people born from 1583, after the Gregorian calendar began. The short descriptions are the app's own author notes. The sixteen famous days (Pascal's night of fire, the publication of On the Origin of Species, the Pale Blue Dot photograph and others) are described in notes written for the app.

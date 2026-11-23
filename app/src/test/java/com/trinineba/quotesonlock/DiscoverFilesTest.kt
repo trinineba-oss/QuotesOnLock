@@ -176,6 +176,39 @@ class DiscoverFilesTest {
         }
     }
 
+    @Test fun curiosityTrailsWalkThroughRealIdeas() {
+        val ideas = raw("ideas.txt").useLines { QuoteData.parseIdeas(it) }.mapNotNull { it.title }.toSet()
+        val trails = raw("trails.txt").useLines { Trails.parse(it) }
+        assertTrue("too few trails: ${trails.size}", trails.size >= 10)
+        assertEquals("a trail id is used twice", trails.size, trails.map { it.id }.toSet().size)
+        trails.forEach { t ->
+            assertTrue("${t.id}: too few stops", t.stops.size >= 5)
+            assertEquals("${t.id}: an idea twice in one trail", t.stops.size, t.stops.map { it.first }.toSet().size)
+            t.stops.forEach { (title, bridge) ->
+                assertTrue("${t.id}: no such idea: $title", title in ideas)
+                assertTrue("${t.id}/$title: no thread to it", bridge.length > 30)
+            }
+        }
+    }
+
+    @Test fun onThisDayDatesAreValidAndLinkToTheCollection() {
+        val ideas = raw("ideas.txt").useLines { QuoteData.parseIdeas(it) }.mapNotNull { it.title }.toSet()
+        val pages = raw("timeline.txt").readLines().filter { !it.startsWith("#") && it.isNotBlank() }.map { it.split('|')[1] }.toSet()
+        val entries = raw("onthisday.txt").useLines { OnThisDay.parse(it) }
+        assertEquals("a line did not load", raw("onthisday.txt").readLines().count { it.startsWith("D|") }, entries.size)
+        val days = entries.map { it.monthDay }.toSet()
+        assertTrue("too few days covered: ${days.size}", days.size >= 250)
+        entries.forEach { e ->
+            val (m, d) = e.monthDay.split('-').map { it.toInt() }
+            assertTrue("bad date ${e.monthDay}", m in 1..12 && d in 1..31)
+            assertTrue("${e.title}: unknown kind", e.kind in setOf("e", "b", "d"))
+            assertTrue("${e.title}: no text", e.text.length > 20)
+            assertTrue("${e.title}: unknown author page ${e.author}", e.author.isEmpty() || e.author in pages)
+            assertTrue("${e.title}: unknown idea ${e.idea}", e.idea.isEmpty() || e.idea in ideas)
+            if (e.kind != "e") assertTrue("${e.title}: birth or death before the modern calendar", e.year >= 1583)
+        }
+    }
+
     @Test fun leonardoHighlightsAreCompleteAndUnderlineTheCollection() {
         val book = raw("leonardo.txt").useLines { Leonardo.parse(it) }
         val all = book.all

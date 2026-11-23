@@ -1,0 +1,110 @@
+# Curiosity trails, written for the app. R|id|title|who and what you meet on the way|tint; then S|idea title (exact)|the thread from the stop before (for the first stop, how the trail begins)
+R|self|Are you the same person you were?|Theseus's ship, Heraclitus, Hume, the Buddha, a mended bowl|5A6B8C
+S|The Ship of Theseus|Start with an old puzzle about a ship, and see where it leads.
+S|Everything Flows|Long before the ship, Heraclitus said you can't step into the same river twice: nothing stays the same, including you.
+S|Remembering Is Rebuilding|If your planks keep changing, perhaps memory is what keeps you you. But memory is rebuilt each time you recall it.
+S|The Bundle of Perceptions|If memory shifts too, is there anything fixed underneath? Hume looked inside for it and found only a stream of perceptions.
+S|No Fixed Self|The Buddha had reached the same conclusion more than two thousand years earlier, and found it freeing rather than frightening.
+S|Kintsugi|So perhaps a self is less like a statue than a mended bowl: broken, repaired, changed, and more itself for it.
+R|apple|From a falling apple to the edge of the universe|Newton, the tides, Kepler, Einstein, black holes|2B4C8C
+S|Universal Gravitation|It begins with an apple, and Newton's thought that the force pulling it down might reach all the way to the Moon.
+S|Tides|If the Moon pulls on the Earth, it pulls on the seas too: twice a day the oceans rise and fall to its rhythm.
+S|Kepler's Laws|Newton's gravity explained something Kepler had found by patient measurement: the planets move in ellipses, not circles.
+S|Spacetime Curves|Two centuries later Einstein asked what gravity really is, and answered that mass bends space and time themselves.
+S|Black Holes|Bend spacetime enough and something astonishing happens: a region from which not even light can escape.
+S|A Picture of a Black Hole|For a century black holes were only mathematics. In 2019 we finally saw the shadow of one.
+S|The Observable Universe|That picture came from 55 million light years away. How far can we see at all? Only as far as light has had time to travel.
+R|stories|Why do we tell the same stories?|The hero's journey, Gilgamesh, Orpheus, Izanagi, Anansi|8A5A3A
+S|The Hero's Journey|Joseph Campbell noticed that myths all over the world follow the same shape. Let's test it.
+S|Gilgamesh and Enkidu|The oldest story we have already has it: a hero, a friend, a loss, and a journey to the edge of the world.
+S|Orpheus Looks Back|Gilgamesh failed to bring back what death took. Many centuries later, the Greeks told of Orpheus, who nearly did.
+S|Izanagi and Izanami|On the other side of the world, in Japan, a god follows his dead wife into the underworld, and he too looks back.
+S|How Anansi Got the Stories|Why do such stories travel so far? West Africa has an answer: the spider Anansi won them all from the sky god.
+S|Lost in a Story|Modern psychology has its own answer: when a story absorbs us, it quietly changes how we see the world.
+R|small|How small things change the world|The butterfly effect, chaos, doubling, the first step, habit|2E8B74
+S|The Butterfly Effect|Can the flap of a butterfly's wings set off a tornado? A weather scientist found out by accident.
+S|Chaos Is Not Randomness|What Lorenz found was not randomness: simple, exact rules that still can't be predicted far ahead.
+S|Exponential Growth|Small changes can also grow by doubling, slowly and then all at once, like rice on a chessboard.
+S|The Journey of a Thousand Li|If small things can grow so large, the place to start is small. The Tao Te Ching said it first.
+S|Kaizen|Japanese factories turned the thousand-li journey into a method: improve a little, every day.
+S|Habit, the Flywheel|And what we do every day becomes who we are. William James called habit the great flywheel of society.
+R|goodlife|What is a good life?|Aristotle, Epicurus, ikigai, flow, the hedonic treadmill|C08A3A
+S|Eudaimonia|The oldest question in ethics: what does it mean to live well? Aristotle's answer was flourishing.
+S|The Golden Mean|For Aristotle, flourishing needs good character, and good character is a matter of balance.
+S|Ataraxia|His near-contemporary Epicurus thought balance was not enough: the good life is above all free of fear.
+S|Ikigai|Japan has a word for the small daily reasons that make a life worth living.
+S|Flow|Psychologists found one of those reasons: being so absorbed in a worthwhile challenge that time disappears.
+S|The Hedonic Treadmill|They also found why chasing pleasure rarely works: we get used to every gain.
+S|Happiness Takes a Lifetime|Which brings us back to Aristotle: happiness is not a moment but a whole life lived well.
+R|seeing|Seeing is not believing|Plato's cave, a gorilla, a swapped stranger, Bacon, the blind men|7A5ADC
+S|Plato's Cave|Plato imagined prisoners who mistake shadows for the real world. Could we be making the same mistake?
+S|Inattentional Blindness|Two and a half thousand years later, psychologists showed that people counting passes miss a gorilla walking past.
+S|Change Blindness|We miss even more than that: swap the stranger someone is talking to, and most people don't notice.
+S|Confirmation Bias|And what we do notice, we bend to fit what we already believe. Francis Bacon described it four centuries ago.
+S|The Map Is Not the Territory|So everything we know is a kind of map: useful, but never the land itself.
+S|The Blind Men and the Elephant|An old Indian story says the same thing, and adds a kindness: each of us holds a true piece of something larger.
+R|fire|Who stole the fire?|Prometheus, Coyote, Raven, the stars, a leaf in sunlight|C0682E
+S|Prometheus' Fire|Almost every culture tells how people first got fire, and many say it was stolen.
+S|Coyote Brings Fire|In North America it was Coyote who snatched it from those who hoarded it, and the animals passed it hand to hand.
+S|Raven Steals the Light|On the Pacific coast, Raven went further and stole the sun, moon and stars themselves.
+S|How Stars Shine|So where does the light really come from? Deep inside stars, hydrogen fuses into helium.
+S|We Are Made of Star-Stuff|The same stars forged the carbon and iron in our bodies. In a sense, the fire is in us.
+S|Photosynthesis|And every green leaf catches that starlight and turns it into the food and air we live on.
+R|nothing|The power of nothing|Zero, emptiness, the hub of a wheel, ma, John Cage, the vacuum|3A4A6A
+S|Zero|What could be more useful than nothing? Indian mathematicians made a number of it.
+S|Emptiness|In the same land, Buddhist philosophers taught that emptiness is not nothingness but openness.
+S|The Use of Emptiness|In China the Tao Te Ching noticed that a wheel turns on its empty hub, and a bowl is useful because it is hollow.
+S|Ma|Japan named the meaningful gap: the pause, the empty part of the room, that shapes everything else.
+S|Negative Space|Painters know it too: what you leave out of a picture shapes what you see.
+S|Silence Is Never Silent|In 1952 John Cage wrote a piece of nothing, and the audience heard the whole world.
+S|The Restless Vacuum|And physics has the last word: even perfectly empty space is never truly empty.
+R|cooperate|Why do we help each other?|The prisoner's dilemma, tit for tat, kin, Kropotkin, ubuntu, Ostrom|2E6E8C
+S|The Prisoner's Dilemma|If everyone looks after themselves, why does anyone cooperate? Start with a famous puzzle.
+S|Tit for Tat|When the game is played again and again, the winning strategy is simple: be nice first, then do what the other did.
+S|Cooperation Evolves|Biologists found that natural selection itself can favour returning kindness.
+S|Kin Selection|And helping relatives spreads the genes you share, which is why a bee will die for its hive.
+S|Mutual Aid|A Russian prince and naturalist saw it in the Siberian winter: animals survive by helping each other.
+S|Ubuntu|Southern Africa put it as a philosophy: a person is a person through other persons.
+S|The Commons Can Be Governed|And Elinor Ostrom showed that communities really can share fish, forests and water well, for centuries.
+R|death|Learning not to fear death|Memento mori, Montaigne, Lucretius, Heidegger, Savitri, Tagore|4A3A5A
+S|Memento Mori|"Remember that you will die." Why would anyone want to? The thinkers on this trail say it helps us live.
+S|To Philosophise Is to Learn to Die|Montaigne thought that by getting to know death, we take away its power to terrify.
+S|Death Is Nothing to Us|The Epicureans went further: where death is, we are not, so what is there to fear?
+S|Being-Towards-Death|Heidegger argued that facing our own death honestly is what lets us own our lives.
+S|Savitri and Yama|In India's great epic, a princess follows the god of death himself, and wins her husband back by her wisdom.
+S|Death as a Guest|And Tagore imagined death knocking at the door, and decided to welcome it like a guest.
+R|tricks|The mind's favourite tricks|Anchors, losses, sunk costs, late plans, two systems|8C4A6A
+S|Anchoring|Our minds take shortcuts, and some of them lead us astray. The first: whatever number you hear first.
+S|Loss Aversion|Another: losing something hurts about twice as much as gaining it pleases.
+S|The Sunk Cost Fallacy|Which is why we keep pouring money into things that are failing: stopping feels like losing.
+S|The Planning Fallacy|We also think our own plans will go smoothly, even when we know others never do.
+S|Two Systems|Kahneman explained it: a fast, intuitive mind does most of our thinking, and a slow, careful one rarely gets asked.
+S|Hanlon's Razor|And when other people's fast minds trip them up, a kind rule of thumb helps: assume a mistake, not malice.
+R|tiny|Tiny lives, huge consequences|Germs, penicillin, vaccines, the microbiome, the cell, the wood wide web|3C78C8
+S|Germ Theory|For most of history no one knew what made us ill. The answer was too small to see.
+S|Antibiotics|If microbes cause disease, perhaps other microbes can fight them: a mould on a forgotten dish did exactly that.
+S|Vaccination|We can also teach the body to fight them itself, which is how smallpox was wiped from the Earth.
+S|The Microbiome|But most microbes are not enemies at all: trillions of them live in us and help keep us well.
+S|Symbiosis and the Cell|Some moved in so long ago that they became part of our cells, the tiny power stations inside them.
+S|The Wood Wide Web|And under every forest, fungi link the trees into a network that shares food and messages.
+R|infinity|To infinity and beyond|Zeno, calculus, the primes, Cantor, Hilbert's hotel, Indra's net|5A4A8C
+S|Zeno's Paradoxes|An ancient Greek argued that you can never cross a room. The answer took two thousand years.
+S|Calculus|Newton and Leibniz finally tamed the infinitely small, and with it described all motion.
+S|Infinitely Many Primes|The infinitely large is older still: Euclid proved the primes never run out.
+S|Different Sizes of Infinity|Then Cantor showed something astonishing: some infinities are bigger than others.
+S|The Prisoner and the Infinite Hotel|Hilbert made it vivid with a hotel that is full and still has room.
+S|Space Has No Bound|Is the universe itself infinite? Lucretius argued it must be, since any edge would need something beyond it.
+S|Indra's Net|And Buddhist sages imagined an infinite net of jewels, each reflecting all the others.
+R|effortless|Doing by not doing|Wu wei, water, a useless tree, no-mind, flow, the shower|3A6A4A
+S|Doing by Not-Doing|What if the best way to get something done is to stop forcing it? The Tao Te Ching called it wu wei.
+S|The Way of Water|Its favourite image is water, which yields to everything and wears away stone.
+S|The Usefulness of the Useless|Zhuangzi added a crooked tree that lived for centuries because no one could use it.
+S|Mushin|Japanese swordsmen trained for a mind so clear it didn't cling to any thought: no-mind.
+S|Flow|Modern psychology found the same state in climbers, painters and surgeons, and called it flow.
+S|The Incubation Effect|And it found one more piece of wisdom: when you're stuck, walk away; the mind keeps working underneath.
+R|others|Who are we to each other?|Theory of mind, the looking-glass self, Sartre, Buber, ubuntu|C86EA0
+S|Theory of Mind|Around the age of four, every child makes a discovery: other people have minds of their own.
+S|The Looking-Glass Self|From then on we come to know ourselves partly through how we imagine others see us.
+S|Hell Is Other People|Sartre showed how that can trap us: three people in a room, each needing the others' approval.
+S|I and Thou|Buber showed the way out: meet others as whole persons, not as mirrors or tools.
+S|Ubuntu|And southern Africa says it most simply: a person is a person through other persons.

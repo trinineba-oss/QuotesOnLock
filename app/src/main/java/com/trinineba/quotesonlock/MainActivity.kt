@@ -837,6 +837,14 @@ private fun QuotesScreen(
             DialoguesScreen(onBack = { browse = browse.dropLast(1) }, onOpenAuthor = { browse = browse + BrowsePage.author(it) })
             return
         }
+        "trails" -> {
+            TrailsScreen(onBack = { browse = browse.dropLast(1) }, onOpen = { browse = browse + it })
+            return
+        }
+        "onthisday" -> {
+            OnThisDayScreen(onBack = { browse = browse.dropLast(1) }, onOpenAuthor = { browse = browse + BrowsePage.author(it) })
+            return
+        }
         "connections" -> {
             ToolScreen("How the voices connect", onBack = { browse = browse.dropLast(1) }) {
                 item { Text("The same questions asked across centuries, and the threads between the people who asked them.", style = MaterialTheme.typography.bodyMedium, color = MaterialTheme.colorScheme.onSurfaceVariant) }
@@ -936,6 +944,19 @@ private fun QuotesScreen(
             onOpenPath = { browse = browse + if (it == "letters" || it == "leonardo" || it == "plato") it else "paths:$it" },
             start = route.removePrefix("essays:"),
         )
+        return
+    }
+    browse.lastOrNull()?.takeIf { it.startsWith("trail:") }?.let { route ->
+        val r = route.removePrefix("trail:")
+        androidx.compose.runtime.key(r) {
+            TrailScreen(
+                trailId = r.substringBefore('/'),
+                start = r.substringAfter('/', "0").toIntOrNull() ?: 0,
+                onBack = { browse = browse.dropLast(1) },
+                onOpenAuthor = { browse = browse + BrowsePage.author(it) },
+                onOpen = { browse = browse + it },
+            )
+        }
         return
     }
     browse.lastOrNull()?.takeIf { it.startsWith("book:") }?.let { route ->
@@ -1236,6 +1257,7 @@ private fun QuotesScreen(
                 textAlign = androidx.compose.ui.text.style.TextAlign.Center,
             )
         }
+        item(key = "home-otd") { OnThisDayCard { LibraryLinks.open.value = "onthisday" } }
         if (reflectOn) current?.let { q ->
             item(key = "home-reflect") {
                 // A quiet question to think with; writing is optional and stays on the phone.
@@ -1335,6 +1357,9 @@ private fun QuotesScreen(
                     TileCard(Tile(R.drawable.ic_format_quote, "Authors & subjects", "Every voice, every theme") { browse = listOf(BrowsePage.SEARCH) }, Modifier.weight(1f))
                 }
             }
+        }
+        item(key = "d-trails") {
+            ToolRow(R.drawable.ic_explore, "Curiosity trails", "Follow one thread from idea to idea: the Ship of Theseus to a mended bowl, a falling apple to the edge of the universe") { browse = listOf("trails") }
         }
         item(key = "d-connect") {
             Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
