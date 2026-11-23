@@ -459,3 +459,7 @@ F. Scott Fitzgerald's *The Great Gatsby* (1925, public domain in the United Stat
 The fifteen curiosity trails (`res/raw/trails.txt`) are written for the app: each stop is a great idea already in the collection, and the sentence joining it to the stop before is written for the app.
 
 On this day (`res/raw/onthisday.txt`): a birth or death date of one of the collection's authors is kept only when Wikidata and Wikipedia (through DBpedia) give the same day, Wikidata's birth year matches the app's own timeline, and the date falls in or after 1752, when Britain and its colonies joined the Gregorian calendar. Dates in the Russian Empire before 1918 were checked by hand against the New Style calendar; any that could not be settled were left out. The short descriptions are the app's own author notes. The sixteen famous days (Pascal's night of fire, the publication of On the Origin of Species, the Pale Blue Dot photograph and others) are described in notes written for the app.
+
+## Naming the book
+
+1,204 public-domain lines that named only their author now name their book and translator too (for example "Rabindranath Tagore, Stray Birds" or "Confucius, The Analects (tr. James Legge)"). The book was taken from the source passage each line is checked against, and only when that passage is from the author's own work; lines found in anthologies, or quoted in another writer's book, keep their author alone.
