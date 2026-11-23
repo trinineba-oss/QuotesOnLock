@@ -1636,17 +1636,14 @@ private fun QuotesScreen(
         }
         item(key = "ap-theme") {
             SettingsCard("Theme") {
-                AppTheme.entries.chunked(3).forEach { row ->
-                    Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-                        row.forEach { option ->
-                            ThemePreview(option, selected = theme == option, modifier = Modifier.weight(1f)) {
-                                prefs.theme = option
-                                onTheme(option)
-                                refreshNotification()
-                            }
-                        }
-                        repeat(3 - row.size) { Spacer(Modifier.weight(1f)) }
-                    }
+                val recentThemes = remember(theme) { ThemeGroups.recent(prefs) }
+                ThemePicker(selected = theme, appTheme = theme, recent = recentThemes, allowSame = false) { picked ->
+                    val option = picked ?: return@ThemePicker
+                    ThemeGroups.remember(prefs, theme)
+                    ThemeGroups.remember(prefs, option)
+                    prefs.theme = option
+                    onTheme(option)
+                    refreshNotification()
                 }
                 var randomTheme by remember { mutableStateOf(prefs.randomTheme) }
                 Text("Random theme", style = MaterialTheme.typography.labelLarge)
@@ -1808,23 +1805,13 @@ private fun QuotesScreen(
                     "The theme for the lock-screen card (its frame shows when the notification is expanded) and the live wallpaper.",
                     style = MaterialTheme.typography.bodySmall,
                 )
-                (listOf<AppTheme?>(null) + AppTheme.entries).chunked(5).forEach { row ->
-                    Row(horizontalArrangement = Arrangement.spacedBy(6.dp)) {
-                        row.forEach { option ->
-                            LockThemeTile(option, selected = lockTheme == option, modifier = Modifier.weight(1f)) {
-                                prefs.lockTheme = option
-                                lockTheme = option
-                                refreshNotification()
-                            }
-                        }
-                        repeat(5 - row.size) { Spacer(Modifier.weight(1f)) }
-                    }
+                var lockOpen by rememberSaveable { mutableStateOf(false) }
+                ThemePlaceRow("Lock screen & live wallpaper", lockTheme, theme, lockOpen) { lockOpen = !lockOpen }
+                if (lockOpen) ThemePicker(selected = lockTheme, appTheme = theme, recent = emptyList(), allowSame = true) { option ->
+                    prefs.lockTheme = option
+                    lockTheme = option
+                    refreshNotification()
                 }
-                Text(
-                    "Now: " + (lockTheme?.label ?: "same as the app (${theme.label})"),
-                    style = MaterialTheme.typography.bodySmall,
-                    color = MaterialTheme.colorScheme.primary,
-                )
             }
         }
         item(key = "ap-widget") {
@@ -1834,23 +1821,16 @@ private fun QuotesScreen(
                         "Tap a widget's quote to open the app.",
                     style = MaterialTheme.typography.bodySmall,
                 )
-                (listOf<AppTheme?>(null) + AppTheme.entries).chunked(5).forEach { row ->
-                    Row(horizontalArrangement = Arrangement.spacedBy(6.dp)) {
-                        row.forEach { option ->
-                            LockThemeTile(option, selected = widgetTheme == option, modifier = Modifier.weight(1f)) {
-                                prefs.widgetTheme = option
-                                widgetTheme = option
-                                QuoteWidgets.refresh(context)
-                            }
-                        }
-                        repeat(5 - row.size) { Spacer(Modifier.weight(1f)) }
+                var widgetOpen by rememberSaveable { mutableStateOf(false) }
+                ThemePlaceRow("Widget", widgetTheme, theme, widgetOpen) { widgetOpen = !widgetOpen }
+                if (widgetOpen) {
+                    ThemePicker(selected = widgetTheme, appTheme = theme, recent = emptyList(), allowSame = true) { option ->
+                        prefs.widgetTheme = option
+                        widgetTheme = option
+                        QuoteWidgets.refresh(context)
                     }
+                    Text("Moving themes show a still picture on the widget.", style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
                 }
-                Text(
-                    "Now: " + (widgetTheme?.label ?: "same as the app (${theme.label})") + ". Moving themes show a still picture.",
-                    style = MaterialTheme.typography.bodySmall,
-                    color = MaterialTheme.colorScheme.primary,
-                )
                 Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
                     listOf(false to "Add large", true to "Add small").forEach { (small, label) ->
                         OutlinedButton(onClick = {

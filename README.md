@@ -11,6 +11,7 @@ Android doesn't let normal apps draw on the lock screen, so the app posts the qu
 - Choose the font (six built-in Android families), size and text color of the quote. The notification uses a custom layout for this; Android still draws the background, so colors can clash with your light or dark theme ("System default" always works).
 - Rotation every 15 minutes up to daily (WorkManager).
 - The quote comes back after a reboot.
+- Choosing a theme: the themes are grouped by mood (Night skies, Water, Nature, Art & quiet, Plain), with filters for light, dark, moving and still themes, a sample quote on each tile, the three most recently used at the top, and an undo after each change. The lock screen and the widget each have one line, "same as the app" or a theme of their own, opening the same picker.
 - On this day: a small card under the day's quote with something from the collection's past on today's date (an author's birth or death, or a famous day such as Pascal's night of fire), opening a page you can move through day by day.
 - No internet permission, no accounts, no network access.
 
