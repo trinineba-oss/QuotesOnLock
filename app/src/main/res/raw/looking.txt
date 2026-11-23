@@ -12,7 +12,7 @@ S|The colours|Notice the many greens: the dark green of the pines, the bright gr
 S|The stillness|Look at the lake. Hardly a ripple. The peaks, the trees and the sky are all there again, upside down and a little darker, as if the water were remembering them.|.55|.74|1.5
 S|One small thing|Find the grasses at the lower right, right at the water's edge. Each blade is lit by the sun. Let your eyes rest there for a few breaths.|.88|.86|2.6
 S|The whole|Now take in the whole valley at once, from the bright sky down to the dark, clear water. Breathe in the cool mountain air, and breathe out slowly.
-V|bigsur|Where the land meets the sea|The Pacific coast at Big Sur, California|Painted for the app from a photograph by Carol M. Highsmith, Library of Congress, public domain|Leisure in its activity is work. The stillness of the sea stirs in waves.|Rabindranath Tagore
+V|bigsur|Where the land meets the sea|The Pacific coast at Big Sur, California|Painted for the app from a photograph by Carol M. Highsmith, Library of Congress, public domain|Leisure in its activity is work. The stillness of the sea stirs in waves.|Rabindranath Tagore, Stray Birds
 S|Arriving|Take a slow breath, and imagine the sound of the sea far below you. There is nothing you need to do. Just look.
 S|The colours|Follow the colours from top to bottom: the pale, hazy sky, the deep blue of the open sea, the white of the surf, and the warm browns and greens of the cliffs.
 S|The edge|Look at where the waves meet the shore. A line of white foam curves along the beach and breaks against the rocks. It has been doing this, wave after wave, for thousands of years.|.62|.8|1.8
