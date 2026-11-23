@@ -12,6 +12,8 @@ S|Why Food Browns|Browning|🥩
 S|The Espresso Machine|Espresso|🫘
 S|The Rice Cooker|Rice cooker|🍚
 S|Non-Stick Pans|Non-stick|🍳
+S|The Dishwasher|Dishwasher|🍽️
+S|The Vacuum Flask|Vacuum flask|☕
 G|Around the home|2E8B74
 S|How Soap Cleans|Soap|🧼
 S|The LED Bulb|The LED bulb|💡
@@ -22,6 +24,9 @@ S|The Vacuum Cleaner|The vacuum|🧹
 S|The Mirror|Mirrors|🪞
 S|The Washing Machine|Washing machine|🧺
 S|Circuit Breakers|Circuit breakers|⚡
+S|The Zip|Zip|🧥
+S|Velcro|Velcro|🪝
+S|Glass|Glass|🪟
 G|Plumbing|2F7FA8
 S|The Flushing Toilet|The flush|🚽
 S|Water Towers|Water towers|🗼
@@ -52,6 +57,7 @@ S|The Digital Camera|The camera|📷
 S|Noise-Cancelling Headphones|Noise cancelling|🎧
 S|The Lithium-Ion Battery|Your battery|🔋
 S|Mobile Phone Calls|Phone calls|📞
+S|Fingerprint Sensors|Fingerprint sensor|👆
 G|The connected world|2F8F9D
 S|The Internet|The internet|🌐
 S|Bluetooth|Bluetooth|🔗
@@ -73,6 +79,9 @@ S|The Hot-Air Balloon|Hot-air balloons|🎈
 S|The Rocket|Rockets|🚀
 S|Traffic Lights|Traffic lights|🚦
 S|Bridges|Bridges|🌉
+S|The Compass|Compass|🧭
+S|How Trains Stay on the Rails|Train wheels|🚆
+S|Sailing Against the Wind|Sailing upwind|⛵
 G|Cars|A0522D
 S|The Car Engine|The car engine|🚗
 S|Seatbelts|Seatbelts|🛡️
@@ -101,6 +110,8 @@ S|Sore Muscles After Exercise|Sore muscles|🏋️
 S|How Wounds Heal|Healing|🩹
 S|Blood Types|Blood types|🩸
 S|The Heart|The heart|❤️
+S|Spectacles|Spectacles|👓
+S|Hiccups|Hiccups|😮
 G|Sky and weather|5B7FB0
 S|Rainbows|Rainbows|🌈
 S|Why the Sky Is Blue|Blue sky|🌤️
@@ -120,3 +131,4 @@ S|Nuclear Power|Nuclear power|⚛️
 S|Recycling Aluminium|Recycling cans|♻️
 S|Earthquakes|Earthquakes|🌋
 S|Hydroelectric Power|Hydropower|🏞️
+S|Why the Sea Is Salty|Salty sea|🌊

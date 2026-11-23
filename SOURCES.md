@@ -466,6 +466,15 @@ On this day (`res/raw/onthisday.txt`): a birth or death date of one of the colle
 
 ## Checking the modern authors' lines
 
-Lines by authors still in copyright are kept short and, where possible, credited to their book. Each line that named only its author was looked up on the author's Wikiquote page; when it was found under one of their books (not under "Misattributed", "Disputed" or "About"), it now names that book, checked by hand (281 lines). Unverified passages longer than forty words were removed (347), as were the Haruki Murakami lines that could not be traced to a book (49), except where an essay, path or note uses them.
+Lines by authors still in copyright are kept short and, where possible, credited to their book. Each line that named only its author was looked up on the author's Wikiquote page; when it was found under one of their books (not under "Misattributed", "Disputed" or "About"), it now names that book, checked by hand (281 lines). Unverified passages longer than forty words were removed (347), except where an essay, path or note uses them. Haruki Murakami's lines were all kept, including those not yet traced to a book.
 
 Marcus Aurelius: 169 lines are word for word from George W. Chrystal's translation (1902, Project Gutenberg #55317, a new rendering based on the Foulis translation of 1742) and now say so; four are Meric Casaubon's; and three popular modern wordings (one from a translation still in copyright) were replaced with George Long's text of the same passages.
+
+## More modern voices, and Shakespeare's places
+
+New lines by authors still in copyright were taken only from their Wikiquote pages, from sections headed by a book, story, essay or lecture (never "Misattributed", "Disputed" or "About"), kept short and credited to that work: Toni Morrison (15 more), Neil Gaiman (24 more, now a theme of his own), and Ursula K. Le Guin, James Baldwin, Kurt Vonnegut, Annie Dillard, Rebecca Solnit, Maya Angelou and Carl Sagan (41 between them). The Coraline line about dragons is Gaiman's paraphrase of G. K. Chesterton and says so.
+
+Shakespeare's lines now name the play, act and scene, or the sonnet, located in the Project Gutenberg Complete Works (#100); 34 more passages were cut word for word from the same text.
+
+The essay "The stories that hold us" is written for the app and quotes only lines already in the collection.
+
