@@ -14,6 +14,8 @@ S|The Rice Cooker|Rice cooker|🍚
 S|Non-Stick Pans|Non-stick|🍳
 S|The Dishwasher|Dishwasher|🍽️
 S|The Vacuum Flask|Vacuum flask|☕
+S|Popcorn|Popcorn|🍿
+S|Making Ice Cream|Ice cream|🍨
 G|Around the home|2E8B74
 S|How Soap Cleans|Soap|🧼
 S|The LED Bulb|The LED bulb|💡
@@ -27,6 +29,8 @@ S|Circuit Breakers|Circuit breakers|⚡
 S|The Zip|Zip|🧥
 S|Velcro|Velcro|🪝
 S|Glass|Glass|🪟
+S|The Mechanical Clock|Clock|🕰️
+S|Candles|Candle|🕯️
 G|Plumbing|2F7FA8
 S|The Flushing Toilet|The flush|🚽
 S|Water Towers|Water towers|🗼
@@ -58,6 +62,8 @@ S|Noise-Cancelling Headphones|Noise cancelling|🎧
 S|The Lithium-Ion Battery|Your battery|🔋
 S|Mobile Phone Calls|Phone calls|📞
 S|Fingerprint Sensors|Fingerprint sensor|👆
+S|The Quartz Watch|Quartz watch|⌚
+S|The Accelerometer|Which way up|📱
 G|The connected world|2F8F9D
 S|The Internet|The internet|🌐
 S|Bluetooth|Bluetooth|🔗
@@ -68,6 +74,7 @@ S|Atomic Clocks|Atomic clocks|⏱️
 S|Email|Email|📧
 S|Encryption|Encryption|🔐
 S|Search Engines|Search engines|🔎
+S|Fibre-Optic Cables|Fibre optics|💡
 G|Getting around|7A5ADC
 S|How a Plane Flies|How a plane flies|✈️
 S|Bicycle Balance|Bicycle balance|🚲
@@ -82,6 +89,7 @@ S|Bridges|Bridges|🌉
 S|The Compass|Compass|🧭
 S|How Trains Stay on the Rails|Train wheels|🚆
 S|Sailing Against the Wind|Sailing upwind|⛵
+S|Submarines|Submarine|🌊
 G|Cars|A0522D
 S|The Car Engine|The car engine|🚗
 S|Seatbelts|Seatbelts|🛡️
@@ -112,6 +120,8 @@ S|Blood Types|Blood types|🩸
 S|The Heart|The heart|❤️
 S|Spectacles|Spectacles|👓
 S|Hiccups|Hiccups|😮
+S|How Sleep Comes|Sleep|😴
+S|Sneezing|Sneezing|🤧
 G|Sky and weather|5B7FB0
 S|Rainbows|Rainbows|🌈
 S|Why the Sky Is Blue|Blue sky|🌤️
@@ -124,6 +134,8 @@ S|Wind|Wind|🌬️
 S|The Phases of the Moon|Moon phases|🌗
 S|Hurricanes|Hurricanes|🌀
 S|Eclipses|Eclipses|🌑
+S|The Northern Lights|Northern lights|🌌
+S|Shooting Stars|Shooting stars|🌠
 G|Power and the planet|C9962F
 S|Solar Panels|Solar panels|☀️
 S|Wind Turbines|Wind turbines|🌀

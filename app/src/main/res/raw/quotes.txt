@@ -14667,3 +14667,4 @@ psalms|O death, where is thy sting? O grave, where is thy victory?|1 Corinthians
 psalms|I have fought a good fight, I have finished my course, I have kept the faith|2 Timothy|courage,journey
 hopkins|Elected Silence, sing to me\nAnd beat upon my whorled ear,\nPipe me to pastures still and be\nThe music that I care to hear.\nShape nothing, lips; be lovely-dumb:\nIt is the shut, the curfew sent\nFrom there where all surrenders come\nWhich only makes you eloquent.|Gerard Manley Hopkins, The Habit of Perfection|sacred,solitude
 hopkins|This seeing the sick endears them to us, us too it endears.\nMy tongue had taught thee comfort, touch had quenched thy tears,\nThy tears that touched my heart, child, Felix, poor Felix Randal;|Gerard Manley Hopkins, Felix Randal|love,death
+warpoets|Above all, this book is not concerned with Poetry.\nThe subject of it is War, and the pity of War.\nThe Poetry is in the pity.|Wilfred Owen, Preface to Poems|death,art,suffering
