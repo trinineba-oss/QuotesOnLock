@@ -286,6 +286,8 @@ enum class Category(val key: String, val label: String, val group: QuoteGroup) {
     HEARN("hearn", "Lafcadio Hearn", QuoteGroup.WRITERS),
     MACDONALD("macdonald", "George MacDonald", QuoteGroup.WRITERS),
     TEASDALE("teasdale", "Sara Teasdale", QuoteGroup.POETS),
+    MILLAY("millay", "Edna St. Vincent Millay", QuoteGroup.POETS),
+    WARPOETS("warpoets", "Owen, Brooke & the poets of the Great War", QuoteGroup.POETS),
     FORSTER("forster", "E. M. Forster", QuoteGroup.WRITERS),
     SANTAYANA("santayana", "George Santayana", QuoteGroup.THINKERS),
     RUSSELL("russell", "Bertrand Russell", QuoteGroup.THINKERS),

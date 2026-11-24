@@ -500,3 +500,7 @@ All cut word for word from Project Gutenberg texts:
 | Émile Zola | Germinal | Havelock Ellis | Project Gutenberg #56528 |
 
 Lines were chosen from these books directly and from the authors' Wikiquote pages, always taking the wording of the Gutenberg translation.
+
+## More of the great lines
+
+Word for word from Project Gutenberg texts: *The Oxford Book of English Verse* (#66619) and *The Golden Treasury* (#32373) for Marlowe, Marvell, Donne, Herbert, Keats, Wordsworth, Shelley and Shakespeare's Sonnet 66; Blake's *Songs of Innocence and of Experience* (#1934) and *The Marriage of Heaven and Hell* (#45315); Emily Dickinson's *Poems, Three Series* (#12242); Christina Rossetti's *Goblin Market … and Other Poems* (#16950); Housman's *A Shropshire Lad* (#5720); Rupert Brooke's *Collected Poems* (#262); Wilfred Owen's *Poems* (1920, #1034); John McCrae's *In Flanders Fields* (#353); Edna St. Vincent Millay's *Poems* (#59167) and *The Harp-Weaver* (#59474); Langston Hughes, *The Weary Blues* (1926, #74745); Whitman's *Leaves of Grass* (#1322); Hopkins's *Poems* (#22403); Kant's *Critique of Practical Reason* (tr. Abbott, #5683); Nietzsche's *Beyond Good and Evil* (tr. Zimmern, #4363) and *The Twilight of the Idols* (tr. Ludovici, #52263); Pope's *An Essay on Criticism* (#7409); and the King James Bible (#10), with verse numbers left out. In "Mother to Son" the Gutenberg text's misprint "a-cimbin’" is printed as in the 1926 edition, "a-climbin’".
