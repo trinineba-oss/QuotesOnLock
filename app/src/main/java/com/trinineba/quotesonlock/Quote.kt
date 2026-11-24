@@ -406,6 +406,7 @@ enum class Category(val key: String, val label: String, val group: QuoteGroup) {
     DUMAS("dumas", "Alexandre Dumas", QuoteGroup.WRITERS),
     ZOLA("zola", "Émile Zola", QuoteGroup.WRITERS),
     MAUPASSANT("maupassant", "Guy de Maupassant", QuoteGroup.WRITERS),
+    FRENCHMORE("frenchmore", "La Fontaine, Sand, Anatole France & Rostand", QuoteGroup.WRITERS),
     MANZONI("manzoni", "Alessandro Manzoni", QuoteGroup.WRITERS),
     GORKY("gorky", "Maxim Gorky", QuoteGroup.WRITERS),
     CALDERON("calderon", "Pedro Calderón de la Barca", QuoteGroup.WRITERS),

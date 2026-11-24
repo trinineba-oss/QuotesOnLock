@@ -478,3 +478,25 @@ Shakespeare's lines now name the play, act and scene, or the sonnet, located in 
 
 The essay "The stories that hold us" is written for the app and quotes only lines already in the collection.
 
+
+## More French and Russian literature
+
+All cut word for word from Project Gutenberg texts:
+
+| Author | Work | Translation | Where |
+|---|---|---|---|
+| Anton Chekhov | Note-Book; Letters; Three Sisters and The Cherry Orchard; Ward No. 6, Ariadne | S. S. Koteliansky and Leonard Woolf; Constance Garnett; Julius West; Constance Garnett | Project Gutenberg #12494, #6408, #7986, #57333 |
+| Maxim Gorky | Twenty-Six Men and a Girl, Chelkash, My Fellow-Traveller; Twenty-six and One | J. K. M. Shirazi; anonymous | Project Gutenberg #1466, #14480 |
+| Alexander Herzen | My Past and Thoughts, vols. 3–6 | Constance Garnett | Project Gutenberg #78336, #78360, #78361, #78377 |
+| Leo Tolstoy | The Death of Ivan Ilyitch; Family Happiness | Constance Garnett | Project Gutenberg #79990 |
+| Ivan Turgenev | Fathers and Sons | C. J. Hogarth | Project Gutenberg #47935 |
+| Jean de La Bruyère | Characters | Henri Van Laun | Project Gutenberg #46633 |
+| Jean de La Fontaine | Fables | Elizur Wright | Project Gutenberg #7241 |
+| Anatole France | The Crime of Sylvestre Bonnard | Lafcadio Hearn | Project Gutenberg #2123 |
+| George Sand | The Devil's Pool | Ellery Sedgwick | Project Gutenberg #21993 |
+| Edmond Rostand | Cyrano de Bergerac | Gladys Thomas and Mary F. Guillemard | Project Gutenberg #1254 |
+| Guy de Maupassant | Bel-Ami | anonymous | Project Gutenberg #3733 |
+| Alexandre Dumas | The Three Musketeers; The Count of Monte Cristo | anonymous | Project Gutenberg #1257, #1184 |
+| Émile Zola | Germinal | Havelock Ellis | Project Gutenberg #56528 |
+
+Lines were chosen from these books directly and from the authors' Wikiquote pages, always taking the wording of the Gutenberg translation.
