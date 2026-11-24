@@ -516,3 +516,5 @@ The Library's *Enchiridion* is Thomas Wentworth Higginson's translation (1865) a
 ## Julia Cameron and creative block
 
 Julia Cameron's books are in copyright, so she appears only in short lines, each found on her Wikiquote page under the book it comes from (*The Artist's Way*, 1992; *Inspirations: Meditations from The Artist's Way*, 2001; *Blessings*, 1998). Her ideas (morning pages, the artist date, filling the well, the inner censor, shadow artists) are described in the app's own words. The Morning pages practice and the essay "Getting something down" are written for the app; its other voices are lines already in the collection.
+
+Unstuck (Calm), for writer's and creative block, is written for the app: the six kinds of block, the reasons and things to try draw on common advice from working writers and artists and on Cameron's *The Artist's Way*; the prompt cards are the app's own; each block's line is from the collection.

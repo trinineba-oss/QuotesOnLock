@@ -46,4 +46,19 @@ class CalmContentTest {
         WIND_DOWN.forEach { start -> lines += quotes.first { it.text.startsWith(start) }.text }
         lines.forEach { assertTrue("not recorded: ${it.take(60)}", normal(it) in index) }
     }
+
+    @Test fun unstuckBlocksQuoteTheCollectionAndOfferThingsToTry() {
+        val data = raw("unstuck.txt").useLines { Unstuck.parse(it) }
+        val ideas = raw("ideas.txt").useLines { QuoteData.parseIdeas(it) }.mapNotNull { it.title }.toSet()
+        assertEquals(setOf("blank", "critic", "empty", "big", "later", "joy"), data.blocks.map { it.key }.toSet())
+        data.blocks.forEach { b ->
+            assertTrue("${b.key}: line not in the collection", quotes.any { it.text == b.line && it.author == b.lineBy })
+            assertTrue("${b.key}: too few things to try", b.tries.size >= 2)
+            b.ideas.forEach { assertTrue("${b.key}: no such idea: $it", it in ideas) }
+        }
+        val finish = data.finish
+        assertNotNull("no closing line", finish)
+        assertTrue("closing line not in the collection", quotes.any { it.text == finish!!.first && it.author == finish.second })
+        listOf("writing", "art", "music").forEach { m -> assertTrue("too few $m prompts", (data.prompts[m]?.size ?: 0) >= 8) }
+    }
 }

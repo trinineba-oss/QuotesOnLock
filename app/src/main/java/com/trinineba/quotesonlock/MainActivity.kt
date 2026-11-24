@@ -810,6 +810,11 @@ private fun QuotesScreen(
                 },
             )
             "worrytime" -> WorryTimeScreen(prefs) { tool = null }
+            "unstuck" -> UnstuckScreen(
+                prefs, onBack = { tool = null }, onTool = { tool = it },
+                onRoute = { tool = null; LibraryLinks.open.value = it },
+                onFinished = { rateTool = "unstuck"; tool = null },
+            )
             "breathe" -> BreatheScreen(repo) { tool = null }
             "ground" -> GroundScreen(onBack = { tool = null }, onBreathe = { tool = "breathe" })
             "reframe" -> ReframeScreen(prefs) { tool = null }
@@ -2158,6 +2163,7 @@ private fun QuotesScreen(
     fun LazyListScope.toolboxPage() {
         tabHeader("Calm")
         item(key = "tb-sos") { SosButton { tool = "sos" } }
+        item(key = "tb-unstuck") { UnstuckCard { tool = "unstuck" } }
         item(key = "tb-intro") {
             Text("Take a moment. What would help right now? Nothing here is saved unless you choose to.", style = MaterialTheme.typography.bodyMedium)
         }

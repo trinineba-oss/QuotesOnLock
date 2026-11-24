@@ -149,6 +149,7 @@ object CalmLog {
             "sos" -> "Breathing, when it was too much"
             "worry" -> "Put the worry down"
             "worrytime" -> "Worry time"
+            "unstuck" -> "Unstuck"
             "breathe" -> "Breathe"
             "ground" -> "Ground yourself"
             "reframe" -> "Look at a thought"

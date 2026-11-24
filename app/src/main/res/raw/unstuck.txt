@@ -1,0 +1,58 @@
+# Unstuck, for writer's and creative block; written for the app. B|key|emoji|name|how it feels|why it happens|line (exact text in quotes.txt)|its credit (exact); then T|try this|why it helps (one or more per block); D|line and credit for the finish; P|writing, art or music|a prompt card.
+B|blank|📄|The blank page|I don't know what to make|An empty page asks for everything at once, so the mind freezes. You don't need a good idea to begin; you need any idea, and a few minutes. Ideas tend to arrive while working, not before.|Art is not about thinking something up. It is the opposite — getting something down.|Julia Cameron, The Artist's Way
+T|Draw a prompt card and follow it for ten minutes, wherever it goes.|A small, arbitrary starting point takes away the pressure to choose the perfect one.
+T|Describe what is in front of you right now, using all five senses.|Close attention to something real is the oldest way into a piece of work.
+T|Make a list of twenty tiny things you could make. Pick the silliest.|Quantity beats quality at the start; the silly ones are often alive.
+B|critic|🗯️|The critic|Nothing I make is good enough|The critic speaks before the work exists. It isn't the truth about your talent; it's fear in a judge's robe. You can't argue it away, but you can work while it talks.|If you hear a voice within you saying: "you are no painter," then paint by all means, lad, and that voice will be silenced, but only by working.|Vincent van Gogh, Letters to His Brother (tr. Mrs. J. van Gogh-Bonger)
+T|Write the worst opening sentence you can. Then the worst second one.|Bad on purpose: the critic has nothing to grip.
+T|Give the critic a name and a silly voice, then thank it and carry on.|Treating it as a character, not as yourself, takes the sting out of what it says.
+T|Make something you promise to throw away when the timer ends.|When nothing will be kept, there is nothing to judge.
+B|empty|🪫|Running on empty|I've got nothing left to give|Making draws on a store of images, feelings and experience. When you have spent more than you have taken in, the well runs dry. That is not a lack of talent; it is a need for input and rest.|How rich art is, if one can only remember what one has seen, one is never idle or truly lonely, never alone.|Vincent van Gogh, Letters to His Brother (tr. Mrs. J. van Gogh-Bonger)
+T|Take a twenty-minute walk alone and notice ten things you've never noticed before.|Julia Cameron's artist date: fill the well with new impressions, for delight, not for use.
+T|Spend ten minutes with one painting, piece of music or poem, and do nothing else.|Taking in something made with care quietly restocks your own store.
+T|No making today. Rest, on purpose, and come back tomorrow.|Permission to stop is sometimes the fastest way back.
+B|big|⛰️|It's too big|I don't know where to start|A whole novel, album or exhibition can't be started, only a sentence, a bar or a corner can. The mind balks at the size of the whole. Shrink the next step until it's almost too small to bother with.|For the great things are not done only by impulse, but are a series of small things brought together.|Vincent van Gogh, Letters to His Brother (tr. Mrs. J. van Gogh-Bonger)
+T|Shrink it: one paragraph, one bar of music, one corner of the page.|A small, finishable piece builds momentum and trust.
+T|Write down the very next physical step, like 'open the file' or 'sharpen the pencil', and do only that.|Starting is the hardest part; make the start tiny.
+T|Work on the part you most want to do, not the part that comes first.|Nothing says you have to begin at the beginning.
+B|later|⏳|Putting it off|I keep finding other things to do|Putting off creative work is usually not laziness but a way of avoiding a feeling: doubt, boredom or the fear that it won't be good. The feeling shrinks once you've started; the trick is to start before you feel ready.|It is not that we have a short time to live, but that we waste a lot of it.|Seneca
+T|Two-minute start: open the work and do just two minutes. You may stop after that.|Most of the resistance is at the threshold; once over it, you often keep going.
+T|Choose a set time and place for tomorrow, and write it down now.|A habit at a fixed time removes the daily decision to begin.
+T|Put the phone in another room for the next ten minutes.|Make the easy distraction a little harder to reach.
+B|joy|🎈|Lost the joy|It's become a chore|When the work becomes all about the result, praise, sales or getting it right, the play drains out of it. Joy usually comes back through the side door, when nothing is at stake.|Focused on process, our creative life retains a sense of adventure. Focused on product, the same creative life can feel foolish or barren.|Julia Cameron, Inspirations: Meditations from The Artist's Way
+T|Make something only for yourself, that no one will ever see.|With no audience, you can play again.
+T|Try a different medium for ten minutes: if you write, draw; if you paint, hum.|A beginner's hands remember why making was fun.
+T|Copy, by hand, a few lines or a sketch by someone you love.|Making in someone else's footsteps, for pleasure, reminds you why you started.
+D|This is how you do it: you sit down at the keyboard and you put one word after another until its done. It's that easy, and that hard.|Neil Gaiman
+P|writing|Describe the room you're in as if you've just been released from prison.
+P|writing|Write a letter to someone you'll never send it to.
+P|writing|Begin with: 'I was not supposed to be there that night.'
+P|writing|Write about a smell from your childhood, and where it takes you.
+P|writing|Tell the story of an ordinary object in your bag, from its point of view.
+P|writing|Write the last page of a book that doesn't exist yet.
+P|writing|List ten things you know that nobody taught you.
+P|writing|Write a conversation between two people who want different things.
+P|writing|Describe the weather as if it were a person you know.
+P|writing|Write about a door you never opened.
+P|writing|Write a recipe for a feeling.
+P|writing|Start with the sentence you'd least like anyone to read, then keep going.
+P|art|Draw your hand ten times, quickly, in ten different positions.
+P|art|Draw the view from your window using only five lines.
+P|art|Fill a page with circles, each one slightly different.
+P|art|Draw an object without looking at the paper.
+P|art|Paint or colour the mood of today, with no shapes allowed.
+P|art|Draw the shadows in the room, not the things that cast them.
+P|art|Make a map of a place you remember from childhood.
+P|art|Draw your breakfast as if it were a landscape.
+P|art|Sketch someone nearby in under a minute; then do it again.
+P|art|Draw something very small, very large.
+P|music|Hum a tune that matches the rhythm of your footsteps.
+P|music|Play or sing only three notes, in as many orders as you can find.
+P|music|Make a sound with every object on your desk; keep the best three.
+P|music|Write a melody for the words of a street sign.
+P|music|Play something you know, but twice as slowly.
+P|music|Record a minute of the sounds around you, and listen for a beat.
+P|music|Make up a lullaby for someone you love.
+P|music|Play one chord and let it ring until it's completely quiet.
+P|music|Write a song title, then the first line, then stop.
+P|music|Turn a sentence you heard today into a rhythm.
