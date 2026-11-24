@@ -47,6 +47,7 @@ object AuthorPages {
         "Leonardo da Vinci" -> "leonardo" to "Leonardo's notebooks"
         "Lao Tzu" -> "book:tao" to "Tao Te Ching"
         "Marcus Aurelius" -> "book:meditations" to "Meditations"
+        "Epictetus" -> "book:enchiridion" to "The Enchiridion"
         "Kahlil Gibran" -> "book:prophet" to "The Prophet"
         "Rabindranath Tagore" -> "book:gitanjali" to "Gitanjali"
         else -> null

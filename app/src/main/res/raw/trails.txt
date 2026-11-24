@@ -108,3 +108,16 @@ S|The Looking-Glass Self|From then on we come to know ourselves partly through h
 S|Hell Is Other People|Sartre showed how that can trap us: three people in a room, each needing the others' approval.
 S|I and Thou|Buber showed the way out: meet others as whole persons, not as mirrors or tools.
 S|Ubuntu|And southern Africa says it most simply: a person is a person through other persons.
+R|stoic|How would a Stoic face it?|A shipwrecked merchant, a slave's two lists, an archer, a dog and a cart, an emperor's view from above|5A6B7A
+S|The Painted Porch|Begin with a shipwreck: a merchant loses everything and finds philosophy in a painted colonnade in Athens.
+S|What Is in Our Power|The first lesson of the school, taught best by a man who had been a slave: sort what you can control from what you can't.
+S|It's How We See Things|Even what we can't control reaches us through the story we tell about it, and the story is ours.
+S|The Archer|So put all your skill into the aim, and let the hit belong to the world.
+S|Fate Permitting|The Stoics even built that into their plans: I will sail, they said, unless something prevents me.
+S|Rehearsing Misfortune|And they practised for the things that might prevent them, picturing losses calmly in advance so they would not be shattered.
+S|Voluntary Discomfort|Seneca went further: live roughly for a few days, and ask whether this is what you were afraid of.
+S|The Dog and the Cart|What happens will happen; the dog tied to the cart can only choose whether to run or be dragged.
+S|Amor Fati|Better still than running willingly is loving the road: wanting what actually happens.
+S|Hierocles' Circles|Stoicism was never only about enduring. Its widest idea is love, drawn outward in circles to every human being.
+S|The View from Above|Marcus Aurelius would picture the whole earth from high above, and see his troubles, and his enemies, at their true size.
+S|The Stoic Roots of Therapy|Two thousand years later, therapists found the same method in Epictetus, and it is helping people still.
