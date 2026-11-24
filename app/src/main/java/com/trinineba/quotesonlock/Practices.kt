@@ -179,6 +179,21 @@ object Practices {
             minutes = 3,
         ),
         Practice(
+            "pages", "Morning pages", "Julia Cameron",
+            "Art is not about thinking something up. It is the opposite — getting something down.",
+            "Julia Cameron, The Artist's Way",
+            "Julia Cameron's first tool for anyone who wants to create, or feels stuck: three pages of writing first thing in the morning, about anything at all. They are not meant to be good, and no one will read them. Write fast, don't stop to correct, and if you can't think of anything, write that.",
+            spoken = listOf(
+                "Before the day begins, before you check anything, sit down with your pages.",
+                "Write whatever is in your head. Worries, lists, dreams, complaints. It all counts.",
+                "Don't stop to fix a word. Don't read back. Keep the hand moving.",
+                "If the critic in your head says this is pointless, write that down too, and keep going.",
+                "Three pages, or as many as you can. Then close the book, and begin your day a little lighter.",
+            ),
+            questions = listOf("Write whatever comes. Three pages, or as much as you can, without stopping to judge."),
+            minutes = 15,
+        ),
+        Practice(
             "slowread", "Slow reading", "One line, read three times",
             null, null,
             "An old way of reading, used by monks for centuries: one short passage, read slowly three times, listening for the word that speaks to you. The line is one of your saved favourites, or today's quote.",

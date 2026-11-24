@@ -512,3 +512,7 @@ The essays "The work of attention" and "The pity of war" are written for the app
 Zeno of Citium, Cleanthes and Chrysippus are quoted from Diogenes Laertius, *The Lives and Opinions of Eminent Philosophers* (tr. C. D. Yonge, 1853; Project Gutenberg #57342), which records their sayings; Cleanthes's *Hymn to Zeus* and other verses, and two maxims of Musonius Rufus, are from E. Vernon Arnold's translations in *Roman Stoicism* (1911, #64488); two more Musonius sayings are as Epictetus reports them (Crossley, #871; Long, #10661). No public-domain translation of Hierocles was found, so his circles appear as a great idea rather than a quotation.
 
 The Library's *Enchiridion* is Thomas Wentworth Higginson's translation (1865) as reprinted by the Liberal Arts Press in 1948 (#45109), with that edition's introduction and editor's notes left out. The essay "What the Stoics knew", the curiosity trail "How would a Stoic face it?" and the eleven new Stoic ideas are written for the app.
+
+## Julia Cameron and creative block
+
+Julia Cameron's books are in copyright, so she appears only in short lines, each found on her Wikiquote page under the book it comes from (*The Artist's Way*, 1992; *Inspirations: Meditations from The Artist's Way*, 2001; *Blessings*, 1998). Her ideas (morning pages, the artist date, filling the well, the inner censor, shadow artists) are described in the app's own words. The Morning pages practice and the essay "Getting something down" are written for the app; its other voices are lines already in the collection.

@@ -14692,3 +14692,16 @@ stoic|Rufus used to say, If you have leisure to praise me, what I say is naught.
 stoic|A person said to Rufus when Galba was murdered: Is the world now governed by Providence? But Rufus replied: Did I ever incidentally form an argument from Galba that the world is governed by Providence?|Musonius Rufus (in Epictetus, Discourses, tr. George Long)|sacred,wisdom
 stoic|Live each day as if your last.|Musonius Rufus (tr. E. Vernon Arnold)|time,death
 stoic|Nothing is more pleasurable than temperance.|Musonius Rufus (tr. E. Vernon Arnold)|joy,wisdom
+creative|Nothing dies harder than a bad idea. And few ideas are worse than the ones we have about art.|Julia Cameron, The Artist's Way|art,truth
+creative|Anger is meant to be acted on. It is not meant to be acted out.|Julia Cameron, The Artist's Way|courage,self
+creative|Growth is an erratic forward movement: two steps forward, one step back. Remember that and be very gentle with yourself.|Julia Cameron, The Artist's Way|hope,self
+creative|Perfectionism is not a quest for the best. It is a pursuit of the worst in ourselves, the part that tells us that nothing we do will ever be good enough — that we should try again.|Julia Cameron, The Artist's Way|art,self
+creative|What we really want to do is what we are really meant to do.|Julia Cameron, The Artist's Way|meaning,work
+creative|Each of us has an inner dream that we can unfold if we will just have the courage to admit what it is. And the faith to trust our own admission.|Julia Cameron, The Artist's Way|dreams,courage
+creative|Creativity — like human life itself — begins in darkness.|Julia Cameron, The Artist's Way|art
+creative|The creative process is a process of surrender, not control.|Julia Cameron, The Artist's Way|art,freedom
+creative|Mystery is at the heart of creativity. That, and surprise.|Julia Cameron, The Artist's Way|art,joy
+creative|I have learned, as a rule of thumb, never to ask whether you can do something. Say, instead, that you are doing it. Then fasten your seat belt. The most remarkable things follow.|Julia Cameron, The Artist's Way|courage,work
+creative|Art is an act of the soul, not of the intellect.|Julia Cameron, Inspirations: Meditations from The Artist's Way|art,sacred
+creative|Focused on process, our creative life retains a sense of adventure. Focused on product, the same creative life can feel foolish or barren.|Julia Cameron, Inspirations: Meditations from The Artist's Way|art,work
+creative|Life is a creative endeavor. It is active, not passive.|Julia Cameron, Blessings|meaning

@@ -708,3 +708,26 @@ I|Hierocles' Circles
 P|The school faded with the ancient world, but its books never stopped being read, and in the twentieth century they returned in an unexpected place. The psychologists who founded modern cognitive therapy found in Epictetus the core of their method: that our judgements can be examined, and changed.
 I|The Stoic Roots of Therapy
 P|What did the Stoics know? That we cannot choose what happens, but we can choose who we are while it happens. That the archer can only aim; the hit belongs to the world. That fear is usually larger than its object, and time shorter than we think. And that the person who has lost a cargo may find, as Zeno did, that the voyage has brought them somewhere better.
+E|Getting something down|Julia Cameron, Van Gogh, Leonardo, Keats, Virginia Woolf, Neil Gaiman and Maya Angelou on beginning, and beginning again|B0703A|
+P|Every maker knows the moment: the blank page, the clean canvas, the silent instrument, and the sudden certainty that there is nothing in us worth putting there. We tend to think of creativity as a matter of having ideas, and of the block as a lack of them. Julia Cameron, who has spent her life teaching blocked artists, turned that picture upside down.
+Q|Art is not about thinking something up. It is the opposite — getting something down.
+P|Getting something down is a different task from thinking something up. It does not need inspiration; it needs a pen and a little time. That is the thinking behind the practice she made famous: three pages of longhand, first thing each morning, about anything at all, not to be shown to anyone.
+I|Morning Pages
+P|The pages work partly because they are allowed to be bad. What stops most of us is not emptiness but a voice that judges every sentence before it is written. Cameron calls it the censor, and she has a sharp word for its favourite disguise.
+Q|Perfectionism is not a quest for the best. It is a pursuit of the worst in ourselves, the part that tells us that nothing we do will ever be good enough — that we should try again.
+P|Vincent van Gogh knew that voice well. He began to paint late, without training, and was told again and again that he had no gift. His advice to himself, in a letter to his brother, is the most practical thing ever said about creative doubt.
+Q|If you hear a voice within you saying: "you are no painter," then paint by all means, lad, and that voice will be silenced, but only by working.
+P|Only by working. Not by arguing with the voice, or waiting for it to go away, but by painting while it talks. Van Gogh was candid that the work itself was hard, and that the gap between what we feel and what we can do does not close by wishing.
+Q|What is drawing? How does one learn it? It is working through an invisible iron wall that seems to stand between what one feels and what one can do.
+P|Sometimes, though, the block is not fear but emptiness: we have given out more than we have taken in. Leonardo filled thousands of notebook pages with water, birds, faces and machines, and believed that a mind left unused would seize up.
+Q|Just as iron rusts unless it is used, and water putrifies or, in cold, turns to ice, so our intellect spoils unless it is kept in use.
+P|Cameron's answer to emptiness is not to push harder but to go out and play: to take the imagination on a date, alone, to somewhere that delights it, and so restock the inner store that all work draws upon.
+I|Filling the Well
+P|There is also a block that is simply part of the process, the dark time before something new appears. Keats called the capacity to stay in that uncertainty without forcing it 'negative capability', and Cameron reminds us that every work, like every life, has its hidden beginning.
+Q|Creativity — like human life itself — begins in darkness.
+P|Which is why the best advice from working writers is so plain. Neil Gaiman, asked how he writes a book, gave an answer that is almost disappointing in its simplicity, and entirely true.
+Q|This is how you do it: you sit down at the keyboard and you put one word after another until its done. It's that easy, and that hard.
+P|That easy, and that hard. And the reward for doing it is not only the finished thing. Maya Angelou saw that creativity is not a fixed stock that can run out, but something that grows as it is spent.
+Q|You can’t use up creativity. The more you use, the more you have.
+P|So if you are stuck, it may help to remember that you are in good company, and that the way out is usually small: a page of bad sentences, a sketch of the cup in front of you, an hour of looking at something you love. Virginia Woolf, who suffered more than most, wrote in her diary the vow that every maker needs: not to be great, but to be herself.
+Q|I am I: and I must follow that furrow, not copy another. That is the only justification for my writing, living.
