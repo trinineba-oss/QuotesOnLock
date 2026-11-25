@@ -731,3 +731,32 @@ P|That easy, and that hard. And the reward for doing it is not only the finished
 Q|You can’t use up creativity. The more you use, the more you have.
 P|So if you are stuck, it may help to remember that you are in good company, and that the way out is usually small: a page of bad sentences, a sketch of the cup in front of you, an hour of looking at something you love. Virginia Woolf, who suffered more than most, wrote in her diary the vow that every maker needs: not to be great, but to be herself.
 Q|I am I: and I must follow that furrow, not copy another. That is the only justification for my writing, living.
+E|How it began, how it ends|Genesis, the Rig Veda, the Eddas, the Book of the Dead, the Bundahishn, Revelation, Ovid, Frost and Carl Sagan on the first and last things|2A3F7A|
+P|Every people we know of has told a story about how the world began, and most have told one about how it will end. They had no telescopes and no physics, but they were asking the same questions we still ask under a night sky: where did all this come from, and where is it going? Read side by side, their answers turn out to be not only different but strangely in conversation, as if humanity had been holding one long argument with itself about the first and last things.
+P|Many begin with water and darkness. In the Hebrew Bible there is a deep, and a spirit moving over it, and then a voice.
+I|In the Beginning
+P|Creation here is calm, a world spoken into order and called good, day after day. Other peoples imagined something more violent. In Babylon the god Marduk split the sea-monster Tiamat in two to make the sky and the earth; in the north, the sons of Bor killed the first giant and built the world out of his body.
+I|The World Made from Ymir
+P|The image of the world as a body, flesh for earth and skull for sky, appears again in China, where the giant Pangu becomes the mountains and rivers, and in India, where the cosmic person Purusha is offered up and becomes the sun, the moon and the four quarters. It is as if people everywhere sensed that the world is not a machine but something more like a creature, and that it was made at a cost.
+I|Purusha, the Cosmic Person
+P|The most daring of all the creation stories is also one of the oldest. A Vedic poet, some three thousand years ago, described the time before being and not-being, and then, instead of giving an answer, admitted that he did not know, and wondered whether even the highest god knew.
+I|The Hymn of Creation
+P|That humility is not so far from where modern science has arrived. Our own creation story begins with an expanding universe some fourteen billion years ago, and goes on to the forging of the elements inside stars. Carl Sagan, who quoted the Vedic hymn in Cosmos, liked to tell the story as a homecoming.
+Q|The nitrogen in our DNA, the calcium in our teeth, the iron in our blood, the carbon in our apple pies were made in the interiors of collapsing stars. We are made of starstuff.
+P|Creation stories also explain what is hard about being alive, above all death. The Zulu tell of a creator who sent a chameleon to tell people they would live for ever, and a lizard to say they would die; the chameleon stopped to eat berries, and the lizard arrived first.
+I|The Chameleon and the Lizard
+P|If the world began, could it end? Many traditions answered with a flood, a return to the waters of the beginning. In the Greek version, two good people survive and repeople the empty earth by throwing stones over their shoulders, the bones of their great mother. In the Bible, the flood ends in a promise, with a rainbow as its sign.
+I|Noah and the Rainbow
+P|The Egyptians had a quieter, stranger vision. In a passage of the Book of the Dead, the creator Atum tells a dead man that one day he will undo everything he has made, and the world will sink back into the waters, with only him remaining, coiled like a serpent no god will see.
+I|Atum's Promise
+P|The Norse saw the end as a last battle, in which even the gods die: the wolf swallows the sun, the earth sinks into the sea, and fire leaps to the sky. Robert Frost, a thousand years later, put the choice between endings in nine short lines.
+Q|Some say the world will end in fire,\nSome say in ice.\nFrom what I've tasted of desire\nI hold with those who favor fire.\nBut if it had to perish twice,\nI think I know enough of hate\nTo say that for destruction ice\nIs also great\nAnd would suffice.
+P|And yet the striking thing about most myths of the end is that they are not really about the end at all. After Ragnarök the earth rises again from the sea, green and fair, and the surviving gods find the golden game pieces of the old world in the grass.
+I|The World Reborn
+P|The Persians foresaw a river of molten metal that would feel like warm milk to the good, after which families would meet again and ask each other where they had been all those years. The Bible's last book ends with a new heaven and a new earth, and a promise that there will be no more tears.
+Q|And God shall wipe away all tears from their eyes; and there shall be no more death, neither sorrow, nor crying, neither shall there be any more pain: for the former things are passed away.
+P|In India time is a wheel, not a line: the world is made and unmade through the endless days and nights of Brahma, and even our own dark age will end with the coming of Kalki and a new age of truth. The Buddhists, too, wait for Maitreya, a Buddha yet to come.
+I|The Days and Nights of Brahma
+P|Perhaps that is what these stories have always been for. Not to predict how the cosmos will finish, which physics now tells us in its own way, in a slow cooling or a great tearing billions of years from now, but to say something about how we should live inside time. Ovid, who gathered the myths of Greece and Rome into a single poem of endless change, put the lesson as simply as anyone.
+Q|All things are ever changing; nothing perishes.
+P|We stand between a beginning we did not see and an end we will not witness. The myths do not tell us the facts of either. They tell us that the world is a gift and a mystery, that endings are rarely the last word, and that, as the Vedic poet knew, the honest place to stand before the first and last things is wonder.
