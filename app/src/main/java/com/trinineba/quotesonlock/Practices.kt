@@ -260,7 +260,7 @@ fun PracticeScreen(practice: Practice, repo: QuoteRepository, today: Quote?, onB
             item {
                 SoftCard(Modifier.fillMaxWidth()) {
                     Column(Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(6.dp)) {
-                        Text("“" + q.text.replace("\\n", "\n") + "”", fontFamily = FontFamily.Serif, fontSize = 17.sp, lineHeight = 25.sp)
+                        Text("“" + q.text.replace("\\n", "\n") + "”", fontFamily = BookSerif, fontSize = 17.sp, lineHeight = 25.sp)
                         q.author?.let { Text("— $it", fontStyle = FontStyle.Italic, style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.primary) }
                     }
                 }

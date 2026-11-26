@@ -353,7 +353,11 @@ internal fun readSources(context: Context): List<Pair<Int, String>> {
 
 internal val HEX_COLOR = Regex("[0-9A-Fa-f]{6}")
 
-internal fun fontFamilyOf(font: QuoteFont) = FontFamily(Typeface.create(font.family, Typeface.NORMAL))
+internal fun fontFamilyOf(font: QuoteFont) = when (font) {
+    QuoteFont.SERIF -> BookSerif
+    QuoteFont.SANS -> UiSans
+    else -> FontFamily(Typeface.create(font.family, Typeface.NORMAL))
+}
 
 @Composable
 internal fun ColorSwatch(label: String, color: Color?, selected: Boolean, onClick: () -> Unit) {
@@ -391,7 +395,7 @@ internal fun JourneyCard(title: String, subtitle: String, tint: Color, modifier:
                 .padding(16.dp),
         ) {
             Column(verticalArrangement = Arrangement.spacedBy(4.dp)) {
-                Text(title, style = MaterialTheme.typography.titleMedium, fontFamily = androidx.compose.ui.text.font.FontFamily.Serif, fontWeight = androidx.compose.ui.text.font.FontWeight.SemiBold)
+                Text(title, style = MaterialTheme.typography.titleMedium, fontFamily = androidx.compose.ui.text.font.BookSerif, fontWeight = androidx.compose.ui.text.font.FontWeight.SemiBold)
                 Text(subtitle, style = MaterialTheme.typography.bodySmall)
             }
         }

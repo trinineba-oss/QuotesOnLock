@@ -79,7 +79,7 @@ fun OnThisDayCard(onOpen: () -> Unit) {
         verticalArrangement = Arrangement.spacedBy(4.dp),
     ) {
         Text("ON THIS DAY · ${OnThisDay.label(today).uppercase()}", style = MaterialTheme.typography.labelSmall, letterSpacing = 1.2.sp, color = accent)
-        Text("${first.yearLabel}: ${first.title}", fontFamily = FontFamily.Serif, fontSize = 17.sp)
+        Text("${first.yearLabel}: ${first.title}", fontFamily = BookSerif, fontSize = 17.sp)
         Text(first.text, style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant, maxLines = 3, overflow = androidx.compose.ui.text.style.TextOverflow.Ellipsis)
         Text(if (entries.size > 1) "And ${entries.size - 1} more ›" else "More ›", style = MaterialTheme.typography.labelLarge, color = accent)
     }
@@ -101,7 +101,7 @@ fun OnThisDayScreen(onBack: () -> Unit, onOpenAuthor: (String) -> Unit) {
                 TextButton(onClick = { shift-- }) { Text("‹") }
                 Text(
                     OnThisDay.label(cal) + if (shift == 0) " · today" else "",
-                    fontFamily = FontFamily.Serif, fontSize = 20.sp, modifier = Modifier.weight(1f),
+                    fontFamily = BookSerif, fontSize = 20.sp, modifier = Modifier.weight(1f),
                     textAlign = androidx.compose.ui.text.style.TextAlign.Center,
                 )
                 TextButton(onClick = { shift++ }) { Text("›") }
@@ -120,7 +120,7 @@ fun OnThisDayScreen(onBack: () -> Unit, onOpenAuthor: (String) -> Unit) {
                         when (e.kind) { "b" -> "BORN · ${e.yearLabel}"; "d" -> "DIED · ${e.yearLabel}"; else -> e.yearLabel },
                         style = MaterialTheme.typography.labelSmall, letterSpacing = 1.2.sp, color = MaterialTheme.colorScheme.primary,
                     )
-                    Text(e.title, fontFamily = FontFamily.Serif, fontSize = 17.sp)
+                    Text(e.title, fontFamily = BookSerif, fontSize = 17.sp)
                     Text(e.text, style = MaterialTheme.typography.bodyMedium, color = MaterialTheme.colorScheme.onSurfaceVariant)
                     Row(horizontalArrangement = Arrangement.spacedBy(4.dp)) {
                         if (e.author.isNotEmpty()) TextButton(onClick = { onOpenAuthor(e.author) }) { Text("${e.author} ›") }

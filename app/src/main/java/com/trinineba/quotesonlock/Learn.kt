@@ -331,7 +331,7 @@ private const val REVIEW_MAX = 5
 private fun Stat(value: String, label: String, modifier: Modifier) {
     SoftCard(modifier) {
         Column(Modifier.fillMaxWidth().padding(vertical = 10.dp), horizontalAlignment = Alignment.CenterHorizontally) {
-            Text(value, fontFamily = FontFamily.Serif, fontSize = 24.sp)
+            Text(value, fontFamily = BookSerif, fontSize = 24.sp)
             Text(label, style = MaterialTheme.typography.labelSmall, color = MaterialTheme.colorScheme.onSurfaceVariant, maxLines = 1)
         }
     }
@@ -347,9 +347,9 @@ private fun LearnLabel(text: String) {
 internal fun IdeaCard(q: Quote, onOpen: () -> Unit) {
     SoftCard(Modifier.fillMaxWidth(), onClick = onOpen) {
         Column(Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
-            q.title?.let { Text(it, fontFamily = FontFamily.Serif, fontSize = 23.sp) }
-            Text(q.shownText, fontFamily = FontFamily.Serif, fontSize = 16.5.sp, lineHeight = 24.sp)
-            q.byline?.let { Text("— $it ›", fontFamily = FontFamily.Serif, fontSize = 13.5.sp, color = MaterialTheme.colorScheme.primary) }
+            q.title?.let { Text(it, fontFamily = BookSerif, fontSize = 23.sp) }
+            Text(q.shownText, fontFamily = BookSerif, fontSize = 16.5.sp, lineHeight = 24.sp)
+            q.byline?.let { Text("— $it ›", fontFamily = BookSerif, fontSize = 13.5.sp, color = MaterialTheme.colorScheme.primary) }
         }
     }
 }
@@ -373,7 +373,7 @@ private fun Takeaway(text: String) {
 internal fun QuestionBlock(lesson: Lesson, onAnswered: (Boolean) -> Unit) {
     var picked by remember(lesson.ref) { mutableStateOf<String?>(null) }
     Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
-        Text(lesson.question, fontFamily = FontFamily.Serif, fontSize = 18.sp, lineHeight = 26.sp)
+        Text(lesson.question, fontFamily = BookSerif, fontSize = 18.sp, lineHeight = 26.sp)
         lesson.choices.forEach { c ->
             val isRight = c == lesson.answer
             val shown = picked != null
@@ -451,7 +451,7 @@ private fun LessonScreen(ref: String, prefs: QuotePrefs, bundled: List<Quote>, t
                 }
             }
             else -> {
-                item { Text(idea.title ?: "", fontFamily = FontFamily.Serif, fontSize = 23.sp) }
+                item { Text(idea.title ?: "", fontFamily = BookSerif, fontSize = 23.sp) }
                 item {
                     Text(
                         if (right == true) "Added to what you've learned. It will come back for a quick review tomorrow, then after 3, 7 and 21 days."
@@ -557,13 +557,13 @@ private fun FeedScreen(prefs: QuotePrefs, bundled: List<Quote>, onBack: () -> Un
                         (if (q.isIdea) q.category?.label ?: "" else "Quote") + (q.era?.let { " · $it" } ?: ""),
                         style = MaterialTheme.typography.labelMedium, letterSpacing = 1.2.sp, color = MaterialTheme.colorScheme.onPrimaryContainer.copy(alpha = 0.8f),
                     )
-                    q.title?.let { Text(it, fontFamily = FontFamily.Serif, fontSize = 26.sp, color = MaterialTheme.colorScheme.onPrimaryContainer) }
+                    q.title?.let { Text(it, fontFamily = BookSerif, fontSize = 26.sp, color = MaterialTheme.colorScheme.onPrimaryContainer) }
                     Text(
                         q.shownText,
-                        fontFamily = FontFamily.Serif, fontSize = 18.sp, lineHeight = 27.sp, color = MaterialTheme.colorScheme.onPrimaryContainer,
+                        fontFamily = BookSerif, fontSize = 18.sp, lineHeight = 27.sp, color = MaterialTheme.colorScheme.onPrimaryContainer,
                         modifier = Modifier.weight(1f, fill = false), overflow = TextOverflow.Ellipsis,
                     )
-                    q.byline?.let { Text("— $it", fontFamily = FontFamily.Serif, fontSize = 14.sp, color = MaterialTheme.colorScheme.onPrimaryContainer.copy(alpha = 0.85f)) }
+                    q.byline?.let { Text("— $it", fontFamily = BookSerif, fontSize = 14.sp, color = MaterialTheme.colorScheme.onPrimaryContainer.copy(alpha = 0.85f)) }
                     Spacer(Modifier.weight(1f))
                     Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
                         TextButton(onClick = { repo.toggleFavorite(q); savedTick++ }) { Text(if (saved) "♥ Saved" else "♡ Save") }

@@ -176,7 +176,7 @@ fun LettersScreen(onBack: () -> Unit, onOpenAuthor: (String) -> Unit, start: Str
                         verticalArrangement = Arrangement.spacedBy(3.dp),
                     ) {
                         Row(verticalAlignment = Alignment.CenterVertically) {
-                            Text(l.title, fontFamily = FontFamily.Serif, fontSize = 17.sp, modifier = Modifier.weight(1f))
+                            Text(l.title, fontFamily = BookSerif, fontSize = 17.sp, modifier = Modifier.weight(1f))
                             if (l.id in read) Text("✓", color = Gold, style = MaterialTheme.typography.labelLarge)
                         }
                         Text(
@@ -254,7 +254,7 @@ internal fun LetterScreen(all: List<Letter>, index: Int, prefs: QuotePrefs, onGo
             item {
                 Column(verticalArrangement = Arrangement.spacedBy(6.dp)) {
                     Text(letter.heading.uppercase(), style = MaterialTheme.typography.labelMedium, color = Gold, letterSpacing = 1.2.sp)
-                    Text(letter.title, fontFamily = FontFamily.Serif, fontSize = 26.sp, lineHeight = 32.sp)
+                    Text(letter.title, fontFamily = BookSerif, fontSize = 26.sp, lineHeight = 32.sp)
                     Text(
                         "${letter.minutes} min · ${Letters.sourceName(letter.source)}",
                         style = MaterialTheme.typography.bodySmall,
@@ -292,7 +292,7 @@ internal fun LetterScreen(all: List<Letter>, index: Int, prefs: QuotePrefs, onGo
                         }
                     }
                 }
-                Text(text, fontFamily = FontFamily.Serif, fontSize = readerSize(17f), lineHeight = readerSize(27f))
+                Text(text, fontFamily = BookSerif, fontSize = readerSize(17f), lineHeight = readerSize(27f))
             }
             item { ChapterIdeas("letters", letter.id) { opened = it } }
             item {

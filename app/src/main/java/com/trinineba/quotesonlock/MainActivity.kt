@@ -160,6 +160,7 @@ class MainActivity : ComponentActivity() {
         if (savedInstanceState == null && intent.getBooleanExtra(EXTRA_OPEN_WORRY, false)) worryRequests.intValue++
         if (savedInstanceState == null && intent.getBooleanExtra(EXTRA_OPEN_AFFIRM, false)) affirmRequests.intValue++
         CalmScene.load(this)
+        QuoteTypefaces.init(this)
         setContent {
             var theme by remember { mutableStateOf(prefs.theme) }
             var animate by remember { mutableStateOf(prefs.animateBackground) }
@@ -214,7 +215,7 @@ private fun QuotesTheme(
         dark -> darkColorScheme()
         else -> lightColorScheme()
     }
-    MaterialTheme(colorScheme = colors, typography = shownTheme.typography(Typography())) {
+    MaterialTheme(colorScheme = colors, typography = shownTheme.typography(appTypography())) {
         CompositionLocalProvider(LocalMotionSpeed provides motionSpeed, LocalCardSoftness provides cardSoftness) {
             Box(Modifier.fillMaxSize()) {
                 androidx.compose.animation.Crossfade(

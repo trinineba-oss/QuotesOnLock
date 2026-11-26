@@ -137,7 +137,7 @@ fun IdeaCard(label: String, idea: Quote, onClick: () -> Unit) {
         verticalArrangement = Arrangement.spacedBy(3.dp),
     ) {
         Text(label.uppercase(), style = MaterialTheme.typography.labelSmall, letterSpacing = 1.2.sp, color = accent)
-        Text("${idea.title} ›", fontFamily = FontFamily.Serif, fontSize = 17.sp)
+        Text("${idea.title} ›", fontFamily = BookSerif, fontSize = 17.sp)
         idea.brief?.let { Text(it, style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant) }
     }
 }
@@ -170,7 +170,7 @@ fun ReadAtLength(quote: Quote, onGo: () -> Unit = {}) {
         verticalArrangement = Arrangement.spacedBy(3.dp),
     ) {
         Text("READ IT AT LENGTH", style = MaterialTheme.typography.labelSmall, letterSpacing = 1.2.sp, color = accent)
-        Text("${s.label} ›", fontFamily = FontFamily.Serif, fontSize = 16.sp)
+        Text("${s.label} ›", fontFamily = BookSerif, fontSize = 16.sp)
         Text("In the Library, with its guide", style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
     }
 }

@@ -79,13 +79,13 @@ fun QuotePageSheet(
             Modifier.fillMaxWidth().padding(horizontal = 20.dp).padding(bottom = 28.dp).verticalScroll(rememberScrollState()),
             verticalArrangement = Arrangement.spacedBy(12.dp),
         ) {
-            quote.title?.let { Text(it, style = MaterialTheme.typography.titleLarge, fontFamily = FontFamily.Serif) }
-            Text(readingText(quote), fontFamily = if (quote.explained) null else FontFamily.Serif, fontSize = 19.sp, lineHeight = 28.sp)
+            quote.title?.let { Text(it, style = MaterialTheme.typography.titleLarge, fontFamily = BookSerif) }
+            Text(readingText(quote), fontFamily = if (quote.explained) null else BookSerif, fontSize = 19.sp, lineHeight = 28.sp)
             quote.byline?.let { by ->
                 val name = authorName(by)
                 Text(
                     if (name != null && onOpenAuthor != null) "— $by ›" else "— $by",
-                    fontFamily = FontFamily.Serif,
+                    fontFamily = BookSerif,
                     fontSize = 14.sp,
                     color = MaterialTheme.colorScheme.primary,
                     modifier = if (name != null && onOpenAuthor != null) Modifier.clickable { onDismiss(); onOpenAuthor(name) } else Modifier,
@@ -113,8 +113,8 @@ fun QuotePageSheet(
                             modifier = Modifier.fillMaxWidth(),
                         ) {
                             Column(Modifier.padding(horizontal = 14.dp, vertical = 10.dp), verticalArrangement = Arrangement.spacedBy(4.dp)) {
-                                Text(m.title?.let { "$it. ${m.text}" } ?: "“${m.text}”", fontFamily = FontFamily.Serif, fontSize = 15.sp, lineHeight = 21.sp, maxLines = 4, overflow = TextOverflow.Ellipsis)
-                                m.byline?.let { Text("— $it", fontSize = 13.sp, fontFamily = FontFamily.Serif, color = MaterialTheme.colorScheme.primary, maxLines = 1, overflow = TextOverflow.Ellipsis) }
+                                Text(m.title?.let { "$it. ${m.text}" } ?: "“${m.text}”", fontFamily = BookSerif, fontSize = 15.sp, lineHeight = 21.sp, maxLines = 4, overflow = TextOverflow.Ellipsis)
+                                m.byline?.let { Text("— $it", fontSize = 13.sp, fontFamily = BookSerif, color = MaterialTheme.colorScheme.primary, maxLines = 1, overflow = TextOverflow.Ellipsis) }
                             }
                         }
                     }
@@ -128,9 +128,9 @@ fun QuotePageSheet(
                     ) {
                         Column(Modifier.padding(14.dp), verticalArrangement = Arrangement.spacedBy(4.dp)) {
                             Row(horizontalArrangement = Arrangement.spacedBy(12.dp)) {
-                                Text(w.original, fontSize = 24.sp, fontFamily = FontFamily.Serif)
+                                Text(w.original, fontSize = 24.sp, fontFamily = BookSerif)
                                 Column {
-                                    if (w.romanised != w.original) Text(w.romanised, fontStyle = FontStyle.Italic, fontFamily = FontFamily.Serif)
+                                    if (w.romanised != w.original) Text(w.romanised, fontStyle = FontStyle.Italic, fontFamily = BookSerif)
                                     Text("${w.language} · ${w.meaning}", style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.primary)
                                 }
                             }

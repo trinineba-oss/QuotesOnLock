@@ -465,10 +465,10 @@ private fun FindCard(title: String, meta: String, snippet: String?, q: String, s
             .clickable(onClick = onClick).padding(horizontal = 14.dp, vertical = 10.dp),
         verticalArrangement = Arrangement.spacedBy(2.dp),
     ) {
-        Text(marked(title, q), fontFamily = FontFamily.Serif, fontSize = 16.sp)
+        Text(marked(title, q), fontFamily = BookSerif, fontSize = 16.sp)
         if (meta.isNotEmpty()) Text(meta, style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
         snippet?.let {
-            Text(marked(it, q), fontFamily = FontFamily.Serif, fontStyle = FontStyle.Italic, fontSize = 14.sp, lineHeight = 20.sp, maxLines = 3, overflow = TextOverflow.Ellipsis)
+            Text(marked(it, q), fontFamily = BookSerif, fontStyle = FontStyle.Italic, fontSize = 14.sp, lineHeight = 20.sp, maxLines = 3, overflow = TextOverflow.Ellipsis)
         }
     }
 }
@@ -482,7 +482,7 @@ private fun FindQuote(quote: Quote, via: Subject?, q: String, onClick: () -> Uni
     ) {
         val text = quote.shownText.replace("\\n", " ").replace('\n', ' ')
         val shown = if (text.length > 260) (Find.snippet(text, q, 240) ?: text.take(240) + "…") else text
-        Text(marked(shown, q), fontFamily = FontFamily.Serif, fontStyle = FontStyle.Italic, fontSize = 15.sp, lineHeight = 21.sp)
+        Text(marked(shown, q), fontFamily = BookSerif, fontStyle = FontStyle.Italic, fontSize = 15.sp, lineHeight = 21.sp)
         Text(
             (quote.byline ?: "") + (via?.let { " · matches the subject ${it.label.lowercase()}" } ?: ""),
             style = MaterialTheme.typography.bodySmall,
@@ -509,7 +509,7 @@ fun StartHereScreen(
     ToolScreen("Start here", onBack) {
         item {
             Column(verticalArrangement = Arrangement.spacedBy(4.dp)) {
-                Text("Where would you like to begin?", fontFamily = FontFamily.Serif, fontSize = 24.sp, lineHeight = 30.sp)
+                Text("Where would you like to begin?", fontFamily = BookSerif, fontSize = 24.sp, lineHeight = 30.sp)
                 Text(
                     "Pick whatever fits right now. You can come back any time from Discover.",
                     style = MaterialTheme.typography.bodyMedium,
@@ -542,7 +542,7 @@ private fun MoodCard(icon: String, title: String, subtitle: String, tint: Color,
     ) {
         Text(icon, fontSize = 24.sp, modifier = Modifier.width(36.dp))
         Column(Modifier.padding(start = 6.dp)) {
-            Text(title, fontFamily = FontFamily.Serif, fontSize = 18.sp, color = Color.White)
+            Text(title, fontFamily = BookSerif, fontSize = 18.sp, color = Color.White)
             Text(subtitle, style = MaterialTheme.typography.bodySmall, color = Color.White.copy(alpha = 0.88f))
         }
     }
@@ -618,7 +618,7 @@ private fun AppTour(onBack: () -> Unit) {
                     Modifier.fillMaxWidth().clip(RoundedCornerShape(16.dp)).background(MaterialTheme.colorScheme.surfaceContainerHigh).padding(14.dp),
                     verticalArrangement = Arrangement.spacedBy(3.dp),
                 ) {
-                    Text(name, fontFamily = FontFamily.Serif, fontSize = 19.sp)
+                    Text(name, fontFamily = BookSerif, fontSize = 19.sp)
                     Text(line, style = MaterialTheme.typography.labelLarge, color = Gold)
                     Text(text, style = MaterialTheme.typography.bodyMedium)
                 }
@@ -653,7 +653,7 @@ internal fun StartHereCard(onClick: () -> Unit) {
             .clickable(onClickLabel = "Start here", onClick = onClick).padding(14.dp),
         verticalArrangement = Arrangement.spacedBy(3.dp),
     ) {
-        Text("Start here ›", fontFamily = FontFamily.Serif, fontSize = 18.sp)
+        Text("Start here ›", fontFamily = BookSerif, fontSize = 18.sp)
         Text(
             "New to the app, or not sure where to go? Say what you're in the mood for and we'll point the way.",
             style = MaterialTheme.typography.bodySmall,
@@ -668,7 +668,7 @@ internal fun ResumeRow(title: String, meta: String, onClick: () -> Unit) {
         Modifier.fillMaxWidth().clip(RoundedCornerShape(14.dp)).background(MaterialTheme.colorScheme.surfaceContainerHigh)
             .clickable(onClickLabel = "Continue $title", onClick = onClick).padding(horizontal = 14.dp, vertical = 10.dp),
     ) {
-        Text(title, fontFamily = FontFamily.Serif, fontSize = 15.sp, maxLines = 1, overflow = TextOverflow.Ellipsis)
+        Text(title, fontFamily = BookSerif, fontSize = 15.sp, maxLines = 1, overflow = TextOverflow.Ellipsis)
         Text(meta, style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
     }
 }

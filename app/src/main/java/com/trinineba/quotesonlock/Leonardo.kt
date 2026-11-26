@@ -181,7 +181,7 @@ fun LeonardoScreen(onBack: () -> Unit, onOpenAuthor: (String) -> Unit, start: St
                 Modifier.fillMaxWidth().clip(RoundedCornerShape(14.dp)).background(MaterialTheme.colorScheme.surfaceContainerHigh)
                     .clickable(onClickLabel = "Read ${today.title}") { open = today.id }.padding(14.dp),
             ) {
-                Text(today.title, fontFamily = FontFamily.Serif, fontSize = 17.sp)
+                Text(today.title, fontFamily = BookSerif, fontSize = 17.sp)
                 Text("${today.theme} · No. ${today.number}", style = MaterialTheme.typography.bodySmall, color = Soft)
             }
         }
@@ -204,7 +204,7 @@ private fun LeoThemeScreen(theme: LeoTheme, onOpen: (LeoHighlight) -> Unit, onBa
                     .clickable(onClickLabel = "Read ${h.title}") { onOpen(h) }.padding(horizontal = 14.dp, vertical = 11.dp),
                 verticalArrangement = Arrangement.spacedBy(3.dp),
             ) {
-                Text(h.title, fontFamily = FontFamily.Serif, fontSize = 16.sp)
+                Text(h.title, fontFamily = BookSerif, fontSize = 16.sp)
                 Text(
                     h.paras.firstOrNull { !Leonardo.isHeading(it) } ?: "",
                     style = MaterialTheme.typography.bodySmall, color = Soft, maxLines = 2, overflow = TextOverflow.Ellipsis,
@@ -262,12 +262,12 @@ private fun LeoPage(
             item {
                 Column(verticalArrangement = Arrangement.spacedBy(6.dp)) {
                     Label("${h.theme} · No. ${h.number}")
-                    Text(h.title, fontFamily = FontFamily.Serif, fontSize = 26.sp, lineHeight = 32.sp)
+                    Text(h.title, fontFamily = BookSerif, fontSize = 26.sp, lineHeight = 32.sp)
                 }
             }
             items(h.paras) { p ->
                 when {
-                    p == "…" -> Text("…", fontFamily = FontFamily.Serif, fontSize = 18.sp, color = Soft)
+                    p == "…" -> Text("…", fontFamily = BookSerif, fontSize = 18.sp, color = Soft)
                     Leonardo.isHeading(p) -> Text(p, style = MaterialTheme.typography.labelMedium, letterSpacing = 1.sp, color = accent)
                     else -> {
                         val lines = remember(p) { Leonardo.linesIn(bundled, p) }
@@ -286,13 +286,13 @@ private fun LeoPage(
                                 }
                             }
                         }
-                        Text(text, fontFamily = FontFamily.Serif, fontSize = readerSize(17f), lineHeight = readerSize(27f))
+                        Text(text, fontFamily = BookSerif, fontSize = readerSize(17f), lineHeight = readerSize(27f))
                     }
                 }
             }
             if (h.answers.isNotEmpty()) item {
                 if (answerShown) {
-                    Text("Answer: " + h.answers.joinToString(" "), fontFamily = FontFamily.Serif, fontStyle = FontStyle.Italic, fontSize = 16.sp, color = accent)
+                    Text("Answer: " + h.answers.joinToString(" "), fontFamily = BookSerif, fontStyle = FontStyle.Italic, fontSize = 16.sp, color = accent)
                 } else {
                     Box(
                         Modifier.clip(RoundedCornerShape(18.dp)).border(1.dp, accent.copy(alpha = 0.6f), RoundedCornerShape(18.dp))

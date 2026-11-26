@@ -119,7 +119,7 @@ internal object QuoteArt {
         val dark = !theme.isLight
         val textColor = style.color ?: theme.notificationText ?: Color.WHITE
         val authorColor = style.color ?: theme.notificationAuthor ?: Color.WHITE
-        val typeface = Typeface.create(style.font.family, Typeface.NORMAL)
+        val typeface = QuoteTypefaces.of(style.font)
         val base = style.size.sizeSp + 4f
         // On a wide screen the card keeps a readable width instead of stretching edge to edge.
         val margin = if (w > h) max(w * 0.09f, (w - 560f * density) / 2f) else w * 0.09f

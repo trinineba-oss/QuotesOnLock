@@ -220,7 +220,7 @@ fun AffirmCard(onClick: () -> Unit) {
             .background(Brush.linearGradient(listOf(Color(0xFFC08A3A), Color(0xFF8A4A6A))))
             .clickable(onClickLabel = "Open Words to stand on", onClick = onClick).padding(horizontal = 16.dp, vertical = 14.dp),
     ) {
-        Text("Words to stand on ›", color = Color.White, fontFamily = FontFamily.Serif, fontSize = 18.sp)
+        Text("Words to stand on ›", color = Color.White, fontFamily = BookSerif, fontSize = 18.sp)
         Text("Affirmations from people who lived them. Say one, keep one, make your own.", color = Color.White.copy(alpha = 0.88f), style = MaterialTheme.typography.bodySmall)
     }
 }
@@ -238,7 +238,7 @@ fun AffirmTodayCard(onOpen: () -> Unit) {
         verticalArrangement = Arrangement.spacedBy(4.dp),
     ) {
         Text("TODAY'S AFFIRMATION", style = MaterialTheme.typography.labelSmall, letterSpacing = 1.2.sp, color = accent)
-        Text(Affirm.shown(line.text), fontFamily = FontFamily.Serif, fontSize = 17.sp, maxLines = 4, overflow = androidx.compose.ui.text.style.TextOverflow.Ellipsis)
+        Text(Affirm.shown(line.text), fontFamily = BookSerif, fontSize = 17.sp, maxLines = 4, overflow = androidx.compose.ui.text.style.TextOverflow.Ellipsis)
         Text("${line.by} · say it with me ›", style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
     }
 }
@@ -266,7 +266,7 @@ fun AffirmScreen(prefs: QuotePrefs, onBack: () -> Unit, onFinished: () -> Unit, 
     when (stage) {
         AffirmStage.SETS -> ToolScreen("Words to stand on", onBack) {
             item {
-                Text("What do you need today?", fontFamily = FontFamily.Serif, fontSize = 24.sp)
+                Text("What do you need today?", fontFamily = BookSerif, fontSize = 24.sp)
                 Text("Each line was first said by someone who needed it too.", style = MaterialTheme.typography.bodyMedium, color = MaterialTheme.colorScheme.onSurfaceVariant)
             }
             sets.forEach { s ->
@@ -295,7 +295,7 @@ fun AffirmScreen(prefs: QuotePrefs, onBack: () -> Unit, onFinished: () -> Unit, 
                                 .heightIn(min = 300.dp).padding(horizontal = 22.dp, vertical = 30.dp),
                             verticalArrangement = Arrangement.Center,
                         ) {
-                            Text("“${Affirm.shown(a.text)}”", color = Color.White, fontFamily = FontFamily.Serif, fontSize = if (a.text.length > 160) 20.sp else 25.sp, lineHeight = if (a.text.length > 160) 29.sp else 34.sp)
+                            Text("“${Affirm.shown(a.text)}”", color = Color.White, fontFamily = BookSerif, fontSize = if (a.text.length > 160) 20.sp else 25.sp, lineHeight = if (a.text.length > 160) 29.sp else 34.sp)
                             Text(a.by, color = Color.White.copy(alpha = 0.75f), style = MaterialTheme.typography.bodySmall, modifier = Modifier.padding(top = 12.dp))
                         }
                     }
@@ -333,7 +333,7 @@ fun AffirmScreen(prefs: QuotePrefs, onBack: () -> Unit, onFinished: () -> Unit, 
             ToolScreen("Make it mine", onBack = { stage = if (setKey == null) AffirmStage.SETS else AffirmStage.LINES }) {
                 if (sayText.isNotBlank()) item {
                     Text("From ${sayBy.substringBefore(',')}:", style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
-                    Text("“${Affirm.shown(sayText)}”", fontFamily = FontFamily.Serif, fontSize = 16.sp, modifier = Modifier.padding(top = 4.dp))
+                    Text("“${Affirm.shown(sayText)}”", fontFamily = BookSerif, fontSize = 16.sp, modifier = Modifier.padding(top = 4.dp))
                 }
                 item {
                     Text("In your own words, as true for you today:", style = MaterialTheme.typography.bodyMedium)
@@ -446,7 +446,7 @@ private fun SayWithMe(text: String, by: String, onDone: () -> Unit) {
         ) {
             if (finished) {
                 Text("🌱", fontSize = 40.sp)
-                Text("Carry it with you today.", fontFamily = FontFamily.Serif, fontSize = 22.sp, modifier = Modifier.padding(top = 8.dp, bottom = 18.dp))
+                Text("Carry it with you today.", fontFamily = BookSerif, fontSize = 22.sp, modifier = Modifier.padding(top = 8.dp, bottom = 18.dp))
             } else {
                 Text(
                     if (yourTurn) "Round $round of 3 · your turn" else "Round $round of 3 · listen",
@@ -459,7 +459,7 @@ private fun SayWithMe(text: String, by: String, onDone: () -> Unit) {
                     contentAlignment = Alignment.Center,
                 ) { Text(if (yourTurn) "say it aloud" else "listen", style = MaterialTheme.typography.bodyMedium, color = MaterialTheme.colorScheme.onSurfaceVariant) }
             }
-            Text(Affirm.shown(text), fontFamily = FontFamily.Serif, fontSize = 21.sp, lineHeight = 30.sp, textAlign = TextAlign.Center)
+            Text(Affirm.shown(text), fontFamily = BookSerif, fontSize = 21.sp, lineHeight = 30.sp, textAlign = TextAlign.Center)
             if (by.isNotBlank()) Text(by, style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant, modifier = Modifier.padding(top = 8.dp))
             Spacer(Modifier.height(24.dp))
             Row(horizontalArrangement = Arrangement.spacedBy(10.dp)) {

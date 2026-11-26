@@ -107,7 +107,7 @@ private fun MatchCard(quote: Quote, modifier: Modifier = Modifier, lines: Int = 
         Column(Modifier.padding(horizontal = 14.dp, vertical = 11.dp), verticalArrangement = Arrangement.spacedBy(5.dp)) {
             Text(
                 cardText(quote),
-                fontFamily = FontFamily.Serif,
+                fontFamily = BookSerif,
                 fontSize = 15.sp,
                 lineHeight = 21.sp,
                 maxLines = lines,
@@ -116,7 +116,7 @@ private fun MatchCard(quote: Quote, modifier: Modifier = Modifier, lines: Int = 
             quote.byline?.let {
                 Text(
                     "— $it",
-                    fontFamily = FontFamily.Serif,
+                    fontFamily = BookSerif,
                     fontSize = 13.sp,
                     color = MaterialTheme.colorScheme.primary,
                     maxLines = 1,
@@ -177,8 +177,8 @@ fun MoreLikeThisSheet(start: Quote, onDismiss: () -> Unit, onFavoritesChanged: (
                 ) {
                     Column(Modifier.padding(14.dp), verticalArrangement = Arrangement.spacedBy(6.dp)) {
                         current.title?.let { Text(it, style = MaterialTheme.typography.titleSmall) }
-                        Text(readingText(current), fontFamily = FontFamily.Serif, fontSize = 16.sp, lineHeight = 23.sp)
-                        current.byline?.let { Text("— $it", fontFamily = FontFamily.Serif, fontSize = 13.sp, color = MaterialTheme.colorScheme.primary) }
+                        Text(readingText(current), fontFamily = BookSerif, fontSize = 16.sp, lineHeight = 23.sp)
+                        current.byline?.let { Text("— $it", fontFamily = BookSerif, fontSize = 13.sp, color = MaterialTheme.colorScheme.primary) }
                         Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.End) {
                             ReadAloudButton(current)
                             ContextListAction(current)
@@ -283,8 +283,8 @@ fun EchoNote(quote: Quote, favorites: List<Quote>, onReflect: (Quote, Quote) -> 
     ) {
         Column(Modifier.padding(horizontal = 12.dp, vertical = 10.dp), verticalArrangement = Arrangement.spacedBy(4.dp)) {
             Text(heading.uppercase(), style = MaterialTheme.typography.labelSmall, letterSpacing = 0.6.sp, color = MaterialTheme.colorScheme.tertiary)
-            Text(cardText(echo), fontFamily = FontFamily.Serif, fontSize = 14.sp, lineHeight = 20.sp, maxLines = 4, overflow = TextOverflow.Ellipsis)
-            echo.byline?.let { Text("— $it", fontFamily = FontFamily.Serif, fontSize = 12.sp, color = MaterialTheme.colorScheme.primary, maxLines = 1, overflow = TextOverflow.Ellipsis) }
+            Text(cardText(echo), fontFamily = BookSerif, fontSize = 14.sp, lineHeight = 20.sp, maxLines = 4, overflow = TextOverflow.Ellipsis)
+            echo.byline?.let { Text("— $it", fontFamily = BookSerif, fontSize = 12.sp, color = MaterialTheme.colorScheme.primary, maxLines = 1, overflow = TextOverflow.Ellipsis) }
         }
     }
     if (open) {
@@ -295,7 +295,7 @@ fun EchoNote(quote: Quote, favorites: List<Quote>, onReflect: (Quote, Quote) -> 
                 Column(Modifier.verticalScroll(rememberScrollState()), verticalArrangement = Arrangement.spacedBy(12.dp)) {
                     listOf(quote, echo).forEach { q ->
                         Column(verticalArrangement = Arrangement.spacedBy(4.dp)) {
-                            Text(q.shownText, fontFamily = FontFamily.Serif, fontSize = 16.sp, lineHeight = 22.sp)
+                            Text(q.shownText, fontFamily = BookSerif, fontSize = 16.sp, lineHeight = 22.sp)
                             q.byline?.let { Text("— $it", style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.primary) }
                         }
                     }

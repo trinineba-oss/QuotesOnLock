@@ -124,7 +124,7 @@ fun EssaysScreen(onBack: () -> Unit, onOpenAuthor: (String) -> Unit, onOpenPath:
                         .clickable(onClickLabel = "Read ${e.title}") { open = e.title }.padding(16.dp),
                     verticalArrangement = Arrangement.spacedBy(4.dp),
                 ) {
-                    Text(e.title, fontFamily = FontFamily.Serif, fontSize = 20.sp, fontWeight = FontWeight.SemiBold, color = Color.White)
+                    Text(e.title, fontFamily = BookSerif, fontSize = 20.sp, fontWeight = FontWeight.SemiBold, color = Color.White)
                     Text(e.voices, style = MaterialTheme.typography.bodySmall, color = Color.White.copy(alpha = 0.9f))
                     Text("${e.minutes} min read", style = MaterialTheme.typography.labelSmall, color = Color.White.copy(alpha = 0.85f))
                 }
@@ -157,7 +157,7 @@ internal fun EssayScreen(essay: Essay, onBack: () -> Unit, onOpenAuthor: (String
             item {
                 Column(verticalArrangement = Arrangement.spacedBy(6.dp)) {
                     Text("ESSAY", style = MaterialTheme.typography.labelMedium, color = tint, letterSpacing = 1.2.sp)
-                    Text(essay.title, fontFamily = FontFamily.Serif, fontSize = 28.sp, lineHeight = 34.sp)
+                    Text(essay.title, fontFamily = BookSerif, fontSize = 28.sp, lineHeight = 34.sp)
                     Text(
                         "${essay.minutes} min · ${voices.size} voices · written for the app",
                         style = MaterialTheme.typography.bodySmall,
@@ -167,7 +167,7 @@ internal fun EssayScreen(essay: Essay, onBack: () -> Unit, onOpenAuthor: (String
             }
             itemsIndexed(essay.parts) { _, part ->
                 when (part) {
-                    is EssayPart.Para -> Text(part.text, fontFamily = FontFamily.Serif, fontSize = 17.sp, lineHeight = 27.sp)
+                    is EssayPart.Para -> Text(part.text, fontFamily = BookSerif, fontSize = 17.sp, lineHeight = 27.sp)
                     else -> {
                         val q = Essays.resolve(bundled, part)
                         Row(
@@ -180,15 +180,15 @@ internal fun EssayScreen(essay: Essay, onBack: () -> Unit, onOpenAuthor: (String
                                 if (q == null) {
                                     Text("This line is no longer in the collection.", style = MaterialTheme.typography.bodySmall)
                                 } else {
-                                    q.title?.let { Text(it, fontFamily = FontFamily.Serif, fontWeight = FontWeight.SemiBold, fontSize = 17.sp) }
+                                    q.title?.let { Text(it, fontFamily = BookSerif, fontWeight = FontWeight.SemiBold, fontSize = 17.sp) }
                                     Text(
                                         if (q.isIdea) (q.brief ?: q.text) else q.shownText,
-                                        fontFamily = FontFamily.Serif,
+                                        fontFamily = BookSerif,
                                         fontStyle = if (q.isIdea) FontStyle.Normal else FontStyle.Italic,
                                         fontSize = 16.sp,
                                         lineHeight = 24.sp,
                                     )
-                                    q.byline?.let { Text("$it ›", fontFamily = FontFamily.Serif, fontSize = 13.sp, color = tint) }
+                                    q.byline?.let { Text("$it ›", fontFamily = BookSerif, fontSize = 13.sp, color = tint) }
                                 }
                             }
                         }

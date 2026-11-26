@@ -10,14 +10,14 @@ enum class QuoteFont(
     @LayoutRes val layout: Int,
 ) {
     SANS("sans", "Sans-serif", "sans-serif", R.layout.notif_quote_sans),
-    SERIF("serif", "Serif", "serif", R.layout.notif_quote_serif),
+    SERIF("serif", "Book serif", "serif", R.layout.notif_quote_serif),
     HANDWRITING("cursive", "Handwriting", "cursive", R.layout.notif_quote_cursive),
     CASUAL("casual", "Casual", "casual", R.layout.notif_quote_casual),
     MONO("mono", "Monospace", "monospace", R.layout.notif_quote_mono),
     CONDENSED("condensed", "Condensed", "sans-serif-condensed", R.layout.notif_quote_condensed);
 
     companion object {
-        fun fromKey(key: String?): QuoteFont = entries.firstOrNull { it.key == key } ?: SANS
+        fun fromKey(key: String?): QuoteFont = entries.firstOrNull { it.key == key } ?: SERIF
     }
 }
 

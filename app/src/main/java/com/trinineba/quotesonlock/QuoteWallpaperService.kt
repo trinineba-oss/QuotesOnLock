@@ -56,6 +56,7 @@ class QuoteWallpaperService : WallpaperService() {
             get() = (prefs.lockTheme ?: prefs.theme).let { if (it == AppTheme.CLASSIC) AppTheme.STARRY else it }
 
         override fun onCreate(surfaceHolder: SurfaceHolder) {
+            QuoteTypefaces.init(this@QuoteWallpaperService)
             super.onCreate(surfaceHolder)
             prefs.registerListener(this)
         }

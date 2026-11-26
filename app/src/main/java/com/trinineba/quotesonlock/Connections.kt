@@ -129,9 +129,9 @@ fun WordSheetHost() {
         ) {
             Text("THE WORD BEHIND THE WORD", style = MaterialTheme.typography.labelMedium, color = MaterialTheme.colorScheme.primary, letterSpacing = 1.2.sp)
             Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(16.dp)) {
-                Text(w.original, fontSize = if (w.original.length <= 4) 44.sp else 28.sp, fontFamily = FontFamily.Serif)
+                Text(w.original, fontSize = if (w.original.length <= 4) 44.sp else 28.sp, fontFamily = BookSerif)
                 Column {
-                    if (w.romanised != w.original) Text(w.romanised, fontFamily = FontFamily.Serif, fontStyle = FontStyle.Italic, fontSize = 17.sp)
+                    if (w.romanised != w.original) Text(w.romanised, fontFamily = BookSerif, fontStyle = FontStyle.Italic, fontSize = 17.sp)
                     Text("${w.language} · ${w.meaning}", style = MaterialTheme.typography.bodyMedium, color = MaterialTheme.colorScheme.primary)
                 }
             }
@@ -147,7 +147,7 @@ fun WordSheetHost() {
                     Surface(shape = RoundedCornerShape(12.dp), color = MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.5f), modifier = Modifier.fillMaxWidth()) {
                         Column(Modifier.padding(12.dp), verticalArrangement = Arrangement.spacedBy(4.dp)) {
                             q.title?.let { Text(it, fontWeight = FontWeight.SemiBold) }
-                            Text(q.shownText, fontFamily = FontFamily.Serif, fontSize = 15.sp)
+                            Text(q.shownText, fontFamily = BookSerif, fontSize = 15.sp)
                             q.byline?.let { Text("— $it", style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.primary) }
                         }
                     }
@@ -251,7 +251,7 @@ fun ThemesScreen(onBack: () -> Unit, onOpenAuthor: (String) -> Unit) {
 private fun VoiceCard(text: String, byline: String, onOpenAuthor: (String) -> Unit) {
     SoftCard(Modifier.fillMaxWidth()) {
         Column(Modifier.padding(14.dp), verticalArrangement = Arrangement.spacedBy(6.dp)) {
-            Text("“$text”", fontFamily = FontFamily.Serif, fontSize = 16.sp, lineHeight = 23.sp)
+            Text("“$text”", fontFamily = BookSerif, fontSize = 16.sp, lineHeight = 23.sp)
             val name = authorName(byline)
             Text(
                 "— $byline",

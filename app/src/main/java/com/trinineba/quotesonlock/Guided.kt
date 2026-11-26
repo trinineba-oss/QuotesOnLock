@@ -392,7 +392,7 @@ fun GuideScreen(guide: Guide, onBack: () -> Unit, onFinished: () -> Unit) {
             item {
                 Text(
                     steps.getOrNull(current)?.text.orEmpty(),
-                    fontFamily = FontFamily.Serif,
+                    fontFamily = BookSerif,
                     fontSize = 22.sp,
                     lineHeight = 32.sp,
                     textAlign = TextAlign.Center,
@@ -553,7 +553,7 @@ fun WindDownScreen(repo: QuoteRepository, onBack: () -> Unit) {
                     item {
                         Text(
                             "“" + q.text.replace("\\n", "\n") + "”",
-                            fontFamily = FontFamily.Serif,
+                            fontFamily = BookSerif,
                             fontSize = 19.sp,
                             lineHeight = 29.sp,
                             color = Color(0xFFE6DFCB),
@@ -565,7 +565,7 @@ fun WindDownScreen(repo: QuoteRepository, onBack: () -> Unit) {
                     item {
                         Text(
                             if (sound.layers.isEmpty()) "Goodnight." else "Let the sounds carry you.",
-                            fontFamily = FontFamily.Serif,
+                            fontFamily = BookSerif,
                             fontSize = 22.sp,
                             color = Color(0xFFE6DFCB),
                             textAlign = TextAlign.Center,

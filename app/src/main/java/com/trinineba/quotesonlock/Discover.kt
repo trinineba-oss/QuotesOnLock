@@ -131,7 +131,7 @@ fun ContextPassage(quote: Quote) {
                 withStyle(SpanStyle(background = mark, color = strong, fontWeight = FontWeight.Medium)) { append(passage.quote) }
                 if (passage.after.isNotBlank()) append(passage.after.trimEnd() + "…")
             },
-            fontFamily = FontFamily.Serif,
+            fontFamily = BookSerif,
             fontSize = 17.sp,
             lineHeight = 26.sp,
             color = MaterialTheme.colorScheme.onSurfaceVariant,
@@ -325,7 +325,7 @@ private fun Voice(author: String, year: String, text: String, onOpenAuthor: (Str
                 letterSpacing = 1.sp,
                 modifier = if (name != null) Modifier.clickable(onClickLabel = "All quotes by $name") { onOpenAuthor(name) } else Modifier,
             )
-            Text("“$text”", fontFamily = FontFamily.Serif, fontSize = 18.sp, lineHeight = 26.sp)
+            Text("“$text”", fontFamily = BookSerif, fontSize = 18.sp, lineHeight = 26.sp)
             if (author != name) Text(author, style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
         }
     }

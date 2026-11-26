@@ -50,7 +50,7 @@ object CardFit {
 
     /** [body] is the card's text as shown, quotation marks included (see [Quote.fullText]). */
     fun fit(context: Context, body: String, author: String?, style: QuoteStyle, framed: Boolean, featherDp: Int = 0): CardLayout {
-        val paint = TextPaint(TextPaint.ANTI_ALIAS_FLAG).apply { typeface = Typeface.create(style.font.family, Typeface.NORMAL) }
+        val paint = TextPaint(TextPaint.ANTI_ALIAS_FLAG).apply { QuoteTypefaces.init(context); typeface = QuoteTypefaces.of(style.font) }
         val frames = if (framed) listOf(6, 3) else listOf(0)
         val quoted = body
         var sp = style.size.sizeSp

@@ -211,14 +211,14 @@ private fun PathScreen(path: ReadingPath, prefs: QuotePrefs, onBack: () -> Unit,
             item {
                 SoftCard(Modifier.fillMaxWidth(), onClick = if (quote != null) ({ opened = quote }) else null) {
                     Column(Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
-                        quote?.title?.let { Text(it, fontFamily = FontFamily.Serif, fontSize = 21.sp) }
+                        quote?.title?.let { Text(it, fontFamily = BookSerif, fontSize = 21.sp) }
                         Text(
                             when {
                                 quote == null -> step.ref
                                 quote.isIdea -> quote.text
                                 else -> "“${quote.text}”"
                             },
-                            fontFamily = FontFamily.Serif,
+                            fontFamily = BookSerif,
                             fontSize = if (quote?.isIdea == true) 16.sp else 18.sp,
                             lineHeight = if (quote?.isIdea == true) 23.sp else 26.sp,
                         )
@@ -226,7 +226,7 @@ private fun PathScreen(path: ReadingPath, prefs: QuotePrefs, onBack: () -> Unit,
                         val name = authorName(by)
                         if (by != null) Text(
                             if (name != null) "— $by ›" else "— $by",
-                            fontFamily = FontFamily.Serif,
+                            fontFamily = BookSerif,
                             fontSize = 14.sp,
                             color = MaterialTheme.colorScheme.primary,
                             modifier = if (name != null) Modifier.clickable { onOpenAuthor(name) } else Modifier,

@@ -40,6 +40,7 @@ object QuoteShare {
 
     /** A 4:5 picture: the app theme's artwork, the quote card at the chosen opacity, and a small credit. */
     fun render(context: Context, quote: Quote, prefs: QuotePrefs): Bitmap {
+        QuoteTypefaces.init(context)
         val bitmap = Bitmap.createBitmap(WIDTH, HEIGHT, Bitmap.Config.ARGB_8888)
         val canvas = Canvas(bitmap)
         val theme = prefs.theme

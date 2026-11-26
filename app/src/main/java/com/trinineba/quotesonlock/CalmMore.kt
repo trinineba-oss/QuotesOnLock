@@ -140,17 +140,17 @@ fun SosScreen(onBack: () -> Unit, onTool: (String) -> Unit) {
                             .background(Brush.radialGradient(listOf(Glow.copy(alpha = 0.35f), Glow.copy(alpha = 0.08f))))
                             .border(2.dp, Glow.copy(alpha = 0.45f), CircleShape),
                     )
-                    Text(if (inhale) "Breathe in…" else "Breathe out…", color = Color.White, fontFamily = FontFamily.Serif, fontSize = 28.sp)
+                    Text(if (inhale) "Breathe in…" else "Breathe out…", color = Color.White, fontFamily = BookSerif, fontSize = 28.sp)
                 }
                 Spacer(Modifier.height(24.dp))
-                Text("$count", color = Color.White, fontFamily = FontFamily.Serif, fontSize = 44.sp)
+                Text("$count", color = Color.White, fontFamily = BookSerif, fontSize = 44.sp)
                 Spacer(Modifier.height(24.dp))
                 Text("The phone gives a soft buzz as each breath changes.\nKeep your eyes closed if you like.", color = Mist, style = MaterialTheme.typography.bodySmall, textAlign = TextAlign.Center)
             }
             Text("Tap anywhere to stop", color = Mist.copy(alpha = 0.7f), style = MaterialTheme.typography.labelMedium, modifier = Modifier.align(Alignment.BottomCenter))
         } else {
             Column(horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.spacedBy(10.dp)) {
-                Text("That's one minute.", color = Color.White, fontFamily = FontFamily.Serif, fontSize = 26.sp)
+                Text("That's one minute.", color = Color.White, fontFamily = BookSerif, fontSize = 26.sp)
                 Text("However you feel now is all right.", color = Mist, style = MaterialTheme.typography.bodyMedium)
                 Spacer(Modifier.height(10.dp))
                 Button(onClick = { round++; breathing = true }) { Text("Keep breathing") }
@@ -176,7 +176,7 @@ fun SosButton(onClick: () -> Unit) {
             .background(Brush.linearGradient(listOf(Color(0xFF3B5BA8), Color(0xFF5A3F8C))))
             .clickable(onClickLabel = "Breathe now", onClick = onClick).padding(horizontal = 16.dp, vertical = 14.dp),
     ) {
-        Text("It's too much right now ›", color = Color.White, fontFamily = FontFamily.Serif, fontSize = 19.sp)
+        Text("It's too much right now ›", color = Color.White, fontFamily = BookSerif, fontSize = 19.sp)
         Text("One tap. Nothing to choose.", color = Color.White.copy(alpha = 0.85f), style = MaterialTheme.typography.bodySmall)
     }
 }
@@ -307,9 +307,9 @@ fun LookScreen(scene: LookScene, onBack: () -> Unit, onFinished: () -> Unit) {
     val words: @Composable (Modifier) -> Unit = { mod ->
         Column(mod, verticalArrangement = Arrangement.spacedBy(8.dp)) {
             Text("STEP ${step + 1} OF ${scene.steps.size} · ${label.uppercase()}", color = Color(0xFFF2C94C), style = MaterialTheme.typography.labelSmall, letterSpacing = 1.3.sp)
-            Text(text, color = Color.White, fontFamily = FontFamily.Serif, fontSize = 18.sp, lineHeight = 27.sp)
+            Text(text, color = Color.White, fontFamily = BookSerif, fontSize = 18.sp, lineHeight = 27.sp)
             if (last) {
-                Text("“${scene.quote}”", color = Color(0xFFF6E2A0), fontFamily = FontFamily.Serif, fontStyle = FontStyle.Italic, fontSize = 15.sp, lineHeight = 22.sp)
+                Text("“${scene.quote}”", color = Color(0xFFF6E2A0), fontFamily = BookSerif, fontStyle = FontStyle.Italic, fontSize = 15.sp, lineHeight = 22.sp)
                 Text("— ${scene.quoteBy}", color = Mist, style = MaterialTheme.typography.bodySmall)
                 Text("${scene.place} · ${scene.credit}", color = Mist.copy(alpha = 0.7f), style = MaterialTheme.typography.labelSmall)
             }
@@ -484,7 +484,7 @@ fun WorryScreen(prefs: QuotePrefs, onBack: () -> Unit, onStart: () -> Unit, askN
                         Modifier.fillMaxWidth().clip(RoundedCornerShape(12.dp)).background(MaterialTheme.colorScheme.surfaceContainerHigh).padding(start = 14.dp),
                         verticalAlignment = Alignment.CenterVertically,
                     ) {
-                        Text(w.text, fontFamily = FontFamily.Serif, fontSize = 15.sp, modifier = Modifier.weight(1f).padding(vertical = 10.dp))
+                        Text(w.text, fontFamily = BookSerif, fontSize = 15.sp, modifier = Modifier.weight(1f).padding(vertical = 10.dp))
                         TextButton(onClick = { Worries.remove(prefs, w.id); list = Worries.all(prefs) }) { Text("✕") }
                     }
                 }
@@ -550,9 +550,9 @@ fun WorryTimeScreen(prefs: QuotePrefs, onBack: () -> Unit) {
         if (worries.isEmpty() || index >= worries.size) {
             item {
                 Column(verticalArrangement = Arrangement.spacedBy(10.dp), modifier = Modifier.padding(top = 24.dp)) {
-                    Text(if (worries.isEmpty()) "Nothing is waiting." else "That's all for today.", fontFamily = FontFamily.Serif, fontSize = 24.sp)
+                    Text(if (worries.isEmpty()) "Nothing is waiting." else "That's all for today.", fontFamily = BookSerif, fontSize = 24.sp)
                     Text("Let them rest now. Whatever is still there can wait until tomorrow's worry time.", style = MaterialTheme.typography.bodyMedium)
-                    Text("“$seneca”", fontFamily = FontFamily.Serif, fontStyle = FontStyle.Italic, color = MaterialTheme.colorScheme.primary, modifier = Modifier.padding(top = 8.dp))
+                    Text("“$seneca”", fontFamily = BookSerif, fontStyle = FontStyle.Italic, color = MaterialTheme.colorScheme.primary, modifier = Modifier.padding(top = 8.dp))
                     Text("— Seneca", style = MaterialTheme.typography.bodySmall)
                     Button(onClick = onBack, modifier = Modifier.padding(top = 12.dp)) { Text("Done") }
                 }
@@ -563,7 +563,7 @@ fun WorryTimeScreen(prefs: QuotePrefs, onBack: () -> Unit) {
         item { Text("${index + 1} of ${worries.size} · about 15 minutes in all", style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant) }
         item {
             Text(
-                w.text, fontFamily = FontFamily.Serif, fontSize = 19.sp,
+                w.text, fontFamily = BookSerif, fontSize = 19.sp,
                 modifier = Modifier.fillMaxWidth().clip(RoundedCornerShape(14.dp)).background(MaterialTheme.colorScheme.surfaceContainerHigh).padding(14.dp),
             )
         }

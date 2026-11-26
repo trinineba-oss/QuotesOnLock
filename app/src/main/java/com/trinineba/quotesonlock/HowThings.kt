@@ -155,12 +155,12 @@ private fun ThingScreen(
         }
         item(key = "t-" + thing.ref) {
             Column(verticalArrangement = Arrangement.spacedBy(6.dp)) {
-                Text(thing.emoji + "  " + thing.ref, fontFamily = FontFamily.Serif, fontSize = 26.sp, lineHeight = 32.sp)
+                Text(thing.emoji + "  " + thing.ref, fontFamily = BookSerif, fontSize = 26.sp, lineHeight = 32.sp)
                 q.byline?.let { by ->
                     val name = authorName(by)
                     Text(
                         if (name != null) "$by ›" else by,
-                        fontFamily = FontFamily.Serif,
+                        fontFamily = BookSerif,
                         fontSize = 14.sp,
                         color = tint,
                         modifier = if (name != null) Modifier.clickable { onOpenAuthor(name) } else Modifier,

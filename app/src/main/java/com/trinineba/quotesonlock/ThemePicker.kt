@@ -90,7 +90,7 @@ private fun ThemeTile(option: AppTheme?, selected: Boolean, sameAs: AppTheme?, m
         if (option == null) Box(Modifier.fillMaxSize().background(Color(0x66000000)))
         Text(
             if (option == null) "Same as\nthe app" else "“Know thyself.”",
-            fontFamily = FontFamily.Serif, fontSize = 13.sp, lineHeight = 16.sp, textAlign = TextAlign.Center,
+            fontFamily = BookSerif, fontSize = 13.sp, lineHeight = 16.sp, textAlign = TextAlign.Center,
             color = if (option == null) Color.White else if (light) Color(0xFF2E2012) else Color(0xFFF3EAD2),
             modifier = Modifier.align(Alignment.Center).padding(bottom = 14.dp),
         )

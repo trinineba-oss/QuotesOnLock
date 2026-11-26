@@ -131,7 +131,7 @@ fun UnstuckCard(onClick: () -> Unit) {
             .background(Brush.linearGradient(listOf(Color(0xFFB0703A), Color(0xFF7A3F5C))))
             .clickable(onClickLabel = "Get unstuck", onClick = onClick).padding(horizontal = 16.dp, vertical = 14.dp),
     ) {
-        Text("Stuck on something you're making? ›", color = Color.White, fontFamily = FontFamily.Serif, fontSize = 18.sp)
+        Text("Stuck on something you're making? ›", color = Color.White, fontFamily = BookSerif, fontSize = 18.sp)
         Text("Writing, drawing, music, anything. Ten minutes to get moving again.", color = Color.White.copy(alpha = 0.88f), style = MaterialTheme.typography.bodySmall)
     }
 }
@@ -167,7 +167,7 @@ fun UnstuckScreen(prefs: QuotePrefs, onBack: () -> Unit, onTool: (String) -> Uni
     when (stage) {
         Stage.PICK -> ToolScreen("Unstuck", onBack) {
             item {
-                Text("What does the block feel like?", fontFamily = FontFamily.Serif, fontSize = 24.sp)
+                Text("What does the block feel like?", fontFamily = BookSerif, fontSize = 24.sp)
                 Text("There's no wrong answer. Most blocks are one of these.", style = MaterialTheme.typography.bodyMedium, color = MaterialTheme.colorScheme.onSurfaceVariant)
             }
             data.blocks.forEach { b ->
@@ -216,7 +216,7 @@ fun UnstuckScreen(prefs: QuotePrefs, onBack: () -> Unit, onTool: (String) -> Uni
                 item {
                     Box(
                         Modifier.fillMaxWidth().clip(RoundedCornerShape(16.dp)).background(Color(0xFFF4EAD6)).padding(horizontal = 18.dp, vertical = 26.dp),
-                    ) { Text(card ?: "", color = Color(0xFF2E2012), fontFamily = FontFamily.Serif, fontSize = 20.sp, lineHeight = 29.sp) }
+                    ) { Text(card ?: "", color = Color(0xFF2E2012), fontFamily = BookSerif, fontSize = 20.sp, lineHeight = 29.sp) }
                 }
                 item { MediumChips(medium, label = null) { setMedium(it); card = Unstuck.prompt(data, it, card) } }
                 item {
@@ -281,7 +281,7 @@ private fun LineCard(text: String, by: String) {
         Modifier.fillMaxWidth().clip(RoundedCornerShape(16.dp)).background(MaterialTheme.colorScheme.surfaceContainerHigh).padding(16.dp),
         verticalArrangement = Arrangement.spacedBy(6.dp),
     ) {
-        Text("“$text”", fontFamily = FontFamily.Serif, fontSize = 18.sp, lineHeight = 27.sp)
+        Text("“$text”", fontFamily = BookSerif, fontSize = 18.sp, lineHeight = 27.sp)
         Text(by, style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
     }
 }
@@ -294,7 +294,7 @@ private fun TryCard(text: String, why: String, onStart: (Int) -> Unit) {
         verticalArrangement = Arrangement.spacedBy(6.dp),
     ) {
         Text("TRY THIS NOW", color = Color(0xFFBFE3CF), style = MaterialTheme.typography.labelMedium, letterSpacing = 1.2.sp)
-        Text(text, color = Color.White, fontFamily = FontFamily.Serif, fontSize = 19.sp, lineHeight = 26.sp)
+        Text(text, color = Color.White, fontFamily = BookSerif, fontSize = 19.sp, lineHeight = 26.sp)
         Text(why, color = Color.White.copy(alpha = 0.8f), style = MaterialTheme.typography.bodySmall)
         Row(horizontalArrangement = Arrangement.spacedBy(8.dp), verticalAlignment = Alignment.CenterVertically) {
             Button(onClick = { onStart(10) }) { Text("Start · 10 min") }
@@ -337,9 +337,9 @@ private fun TimerStage(label: String, task: String, minutes: Int, onStop: () -> 
                     drawArc(track, 0f, 360f, false, o, s, style = Stroke(w))
                     drawArc(ring, -90f, 360f * left / total.coerceAtLeast(1), false, o, s, style = Stroke(w, cap = StrokeCap.Round))
                 }
-                Text(String.format(Locale.US, "%d:%02d", left / 60, left % 60), fontFamily = FontFamily.Serif, fontSize = 48.sp)
+                Text(String.format(Locale.US, "%d:%02d", left / 60, left % 60), fontFamily = BookSerif, fontSize = 48.sp)
             }
-            Text("Keep the pen moving.\nNo going back.", fontFamily = FontFamily.Serif, fontSize = 20.sp, textAlign = TextAlign.Center, lineHeight = 28.sp)
+            Text("Keep the pen moving.\nNo going back.", fontFamily = BookSerif, fontSize = 20.sp, textAlign = TextAlign.Center, lineHeight = 28.sp)
             if (task.isNotBlank()) Text(task, style = MaterialTheme.typography.bodyMedium, color = MaterialTheme.colorScheme.onSurfaceVariant, textAlign = TextAlign.Center, modifier = Modifier.padding(top = 14.dp))
             Spacer(Modifier.height(28.dp))
             Row(horizontalArrangement = Arrangement.spacedBy(10.dp)) {
@@ -388,7 +388,7 @@ private fun DoneStage(
             verticalArrangement = Arrangement.Center,
         ) {
             Text("🌱", fontSize = 44.sp)
-            Text("You made something.", fontFamily = FontFamily.Serif, fontSize = 26.sp, modifier = Modifier.padding(top = 8.dp))
+            Text("You made something.", fontFamily = BookSerif, fontSize = 26.sp, modifier = Modifier.padding(top = 8.dp))
             Text(
                 "That's the whole job today. Tomorrow it will be a little easier to begin.",
                 style = MaterialTheme.typography.bodyMedium, color = MaterialTheme.colorScheme.onSurfaceVariant, textAlign = TextAlign.Center,

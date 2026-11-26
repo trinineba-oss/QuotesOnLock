@@ -425,14 +425,14 @@ private fun calmScheme(dark: Boolean, accent: Long, card: Long, text: Long, text
 /** Night themes get a soft shadow under all text so it reads over the painting; the book page gets serif type. */
 fun AppTheme.typography(base: Typography): Typography = when (this) {
     AppTheme.CLASSIC -> base
-    AppTheme.BLACK -> base.map(headings = { it.copy(fontFamily = FontFamily.Serif) }, all = { it })
+    AppTheme.BLACK -> base.map(headings = { it.copy(fontFamily = BookSerif) }, all = { it })
     AppTheme.STARRY, AppTheme.AURORA, AppTheme.SPACE, AppTheme.WATER, AppTheme.RAIN, AppTheme.RAIN_NIGHT,
     AppTheme.SNOW, AppTheme.CANDLE, AppTheme.FIREFLIES, AppTheme.WAVES, AppTheme.DROP, AppTheme.JELLY, AppTheme.MOUNTAINS, AppTheme.LANTERNS, AppTheme.LEAVES, AppTheme.SEA -> base.map(
-        headings = { it.copy(fontFamily = FontFamily.Serif) },
+        headings = { it.copy(fontFamily = BookSerif) },
         all = { it.copy(shadow = Shadow(Color(0xE6000000), Offset(0f, 2f), 8f)) },
     )
-    AppTheme.BOOK -> base.map(headings = { it }, all = { it.copy(fontFamily = FontFamily.Serif) })
-    AppTheme.BUTTERFLY, AppTheme.LAVENDER, AppTheme.CLOUDS, AppTheme.BAMBOO, AppTheme.ZEN, AppTheme.BLOSSOM, AppTheme.VITRUVIAN -> base.map(headings = { it.copy(fontFamily = FontFamily.Serif) }, all = { it })
+    AppTheme.BOOK -> base.map(headings = { it }, all = { it.copy(fontFamily = BookSerif) })
+    AppTheme.BUTTERFLY, AppTheme.LAVENDER, AppTheme.CLOUDS, AppTheme.BAMBOO, AppTheme.ZEN, AppTheme.BLOSSOM, AppTheme.VITRUVIAN -> base.map(headings = { it.copy(fontFamily = BookSerif) }, all = { it })
 }
 
 private fun Typography.map(headings: (TextStyle) -> TextStyle, all: (TextStyle) -> TextStyle) = Typography(

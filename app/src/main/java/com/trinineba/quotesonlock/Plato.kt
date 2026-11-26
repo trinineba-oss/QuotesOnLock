@@ -154,7 +154,7 @@ private fun PCard(title: String, meta: String, sub: String? = null, onClick: () 
             .clickable(onClickLabel = "Open $title", onClick = onClick).padding(horizontal = 14.dp, vertical = 11.dp),
         verticalArrangement = Arrangement.spacedBy(3.dp),
     ) {
-        Text(title, fontFamily = FontFamily.Serif, fontSize = 16.sp)
+        Text(title, fontFamily = BookSerif, fontSize = 16.sp)
         Text(meta, style = MaterialTheme.typography.bodySmall, color = PSoft)
         sub?.let { Text(it, style = MaterialTheme.typography.bodySmall, color = PSoft, maxLines = 2, overflow = TextOverflow.Ellipsis) }
     }
@@ -196,7 +196,7 @@ fun PlatoScreen(onBack: () -> Unit, onOpenAuthor: (String) -> Unit, start: Strin
                             .clickable(onClickLabel = "Read the introduction to ${d.title}") { reading = d.title }.padding(14.dp),
                         verticalArrangement = Arrangement.spacedBy(3.dp),
                     ) {
-                        Text("Reading the ${d.title}", fontFamily = FontFamily.Serif, fontSize = 17.sp)
+                        Text("Reading the ${d.title}", fontFamily = BookSerif, fontSize = 17.sp)
                         Text(
                             "An introduction: the question, the argument, why it still matters, and questions to take with you · ${a.minutes} min",
                             style = MaterialTheme.typography.bodySmall, color = PSoft,
@@ -277,14 +277,14 @@ private fun PlatoSceneScreen(s: PlatoScene, list: List<PlatoScene>, onGo: (Plato
             item {
                 Column(verticalArrangement = Arrangement.spacedBy(6.dp)) {
                     PLabel("${s.dialogue} · ${s.minutes} min")
-                    Text(s.title, fontFamily = FontFamily.Serif, fontSize = 26.sp, lineHeight = 32.sp)
+                    Text(s.title, fontFamily = BookSerif, fontSize = 26.sp, lineHeight = 32.sp)
                 }
             }
             itemsIndexed(s.paras) { _, p ->
                 val turn = remember(p) { Plato.speaker(p) }
                 val words = turn?.second ?: p
                 if (turn?.first == "SCENE") {
-                    Text(words, fontFamily = FontFamily.Serif, fontStyle = FontStyle.Italic, fontSize = 15.sp, color = PSoft)
+                    Text(words, fontFamily = BookSerif, fontStyle = FontStyle.Italic, fontSize = 15.sp, color = PSoft)
                     return@itemsIndexed
                 }
                 val lines = remember(words) { Plato.linesIn(bundled, words) }
@@ -305,7 +305,7 @@ private fun PlatoSceneScreen(s: PlatoScene, list: List<PlatoScene>, onGo: (Plato
                 }
                 Column(verticalArrangement = Arrangement.spacedBy(2.dp)) {
                     turn?.let { Text(it.first, style = MaterialTheme.typography.labelMedium, letterSpacing = 1.2.sp, color = accent) }
-                    Text(text, fontFamily = FontFamily.Serif, fontSize = readerSize(17f), lineHeight = readerSize(27f))
+                    Text(text, fontFamily = BookSerif, fontSize = readerSize(17f), lineHeight = readerSize(27f))
                 }
             }
             if (s.note.isNotEmpty()) item { PNote("What's at stake.", s.note) }
@@ -325,24 +325,24 @@ private fun PlatoAnalysisScreen(d: PlatoDialogue, a: PlatoAnalysis, onBack: () -
         item {
             Column(verticalArrangement = Arrangement.spacedBy(6.dp)) {
                 PLabel("${d.title} · An introduction")
-                Text("Reading the ${d.title}", fontFamily = FontFamily.Serif, fontSize = 28.sp, lineHeight = 34.sp)
+                Text("Reading the ${d.title}", fontFamily = BookSerif, fontSize = 28.sp, lineHeight = 34.sp)
                 Text("${a.minutes} min · written for the app", style = MaterialTheme.typography.bodySmall, color = PSoft)
             }
         }
         a.sections.forEach { (heading, paras) ->
             item(key = "h-$heading") {
-                Text(heading, fontFamily = FontFamily.Serif, fontSize = 20.sp, color = PAccent, modifier = Modifier.padding(top = 8.dp))
+                Text(heading, fontFamily = BookSerif, fontSize = 20.sp, color = PAccent, modifier = Modifier.padding(top = 8.dp))
             }
             itemsIndexed(paras, key = { i, _ -> "p-$heading-$i" }) { _, p ->
-                Text(p, fontFamily = FontFamily.Serif, fontSize = 17.sp, lineHeight = 27.sp)
+                Text(p, fontFamily = BookSerif, fontSize = 17.sp, lineHeight = 27.sp)
             }
         }
         if (a.questions.isNotEmpty()) {
-            item(key = "q-h") { Text("Questions to take with you", fontFamily = FontFamily.Serif, fontSize = 20.sp, color = PAccent, modifier = Modifier.padding(top = 8.dp)) }
+            item(key = "q-h") { Text("Questions to take with you", fontFamily = BookSerif, fontSize = 20.sp, color = PAccent, modifier = Modifier.padding(top = 8.dp)) }
             itemsIndexed(a.questions, key = { i, _ -> "q-$i" }) { _, q ->
                 Row(horizontalArrangement = Arrangement.spacedBy(10.dp)) {
-                    Text("·", fontFamily = FontFamily.Serif, fontSize = 20.sp, color = PAccent)
-                    Text(q, fontFamily = FontFamily.Serif, fontSize = 16.sp, lineHeight = 24.sp, modifier = Modifier.weight(1f))
+                    Text("·", fontFamily = BookSerif, fontSize = 20.sp, color = PAccent)
+                    Text(q, fontFamily = BookSerif, fontSize = 16.sp, lineHeight = 24.sp, modifier = Modifier.weight(1f))
                 }
             }
         }

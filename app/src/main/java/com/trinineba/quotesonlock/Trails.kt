@@ -103,8 +103,8 @@ private fun StepCard(title: String, bridge: String, onClick: () -> Unit) {
             .clickable(onClickLabel = "Go to $title", onClick = onClick).padding(horizontal = 14.dp, vertical = 11.dp),
         verticalArrangement = Arrangement.spacedBy(3.dp),
     ) {
-        Text("$title ›", fontFamily = FontFamily.Serif, fontSize = 16.sp)
-        Text(bridge, fontFamily = FontFamily.Serif, fontStyle = FontStyle.Italic, fontSize = 13.sp, lineHeight = 19.sp, color = MaterialTheme.colorScheme.onSurfaceVariant)
+        Text("$title ›", fontFamily = BookSerif, fontSize = 16.sp)
+        Text(bridge, fontFamily = BookSerif, fontStyle = FontStyle.Italic, fontSize = 13.sp, lineHeight = 19.sp, color = MaterialTheme.colorScheme.onSurfaceVariant)
     }
 }
 
@@ -131,7 +131,7 @@ fun WhereNext(quote: Quote, onGo: () -> Unit = {}) {
                     .clickable(onClickLabel = "Follow ${t.title}") { onGo(); LibraryLinks.open.value = "trail:${t.id}/0" }
                     .padding(horizontal = 14.dp, vertical = 11.dp),
             ) {
-                Text("${t.title} ›", fontFamily = FontFamily.Serif, fontSize = 16.sp)
+                Text("${t.title} ›", fontFamily = BookSerif, fontSize = 16.sp)
                 Text("${t.stops.size} stops · this is stop ${i + 1} · ${t.subtitle}", style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
             }
         }
@@ -181,7 +181,7 @@ private fun TrailRow(t: Trail, meta: String, fraction: Float?, onClick: () -> Un
     ) {
         Box(Modifier.width(6.dp).height(76.dp).background(Color(t.tint)))
         Column(Modifier.padding(horizontal = 12.dp, vertical = 10.dp).weight(1f), verticalArrangement = Arrangement.spacedBy(3.dp)) {
-            Text(t.title, fontFamily = FontFamily.Serif, fontSize = 16.sp, maxLines = 2, overflow = TextOverflow.Ellipsis)
+            Text(t.title, fontFamily = BookSerif, fontSize = 16.sp, maxLines = 2, overflow = TextOverflow.Ellipsis)
             Text(meta, style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant, maxLines = 2, overflow = TextOverflow.Ellipsis)
             fraction?.let { f ->
                 Box(Modifier.fillMaxWidth().height(4.dp).clip(RoundedCornerShape(2.dp)).background(MaterialTheme.colorScheme.outlineVariant)) {
@@ -229,15 +229,15 @@ fun TrailScreen(trailId: String, start: Int, onBack: () -> Unit, onOpenAuthor: (
                 )
             }
         }
-        item { Text(bridge, fontFamily = FontFamily.Serif, fontStyle = FontStyle.Italic, fontSize = 16.sp, lineHeight = 24.sp, color = MaterialTheme.colorScheme.onSurfaceVariant) }
-        item { Text(title, fontFamily = FontFamily.Serif, fontSize = 26.sp, lineHeight = 32.sp) }
+        item { Text(bridge, fontFamily = BookSerif, fontStyle = FontStyle.Italic, fontSize = 16.sp, lineHeight = 24.sp, color = MaterialTheme.colorScheme.onSurfaceVariant) }
+        item { Text(title, fontFamily = BookSerif, fontSize = 26.sp, lineHeight = 32.sp) }
         if (idea != null) {
-            item { Text(idea.shownText, fontFamily = if (idea.explained) null else FontFamily.Serif, fontSize = 17.sp, lineHeight = 26.sp) }
+            item { Text(idea.shownText, fontFamily = if (idea.explained) null else BookSerif, fontSize = 17.sp, lineHeight = 26.sp) }
             idea.byline?.let { by ->
                 item {
                     val name = authorName(by)
                     Text(
-                        "— $by" + if (name != null) " ›" else "", fontFamily = FontFamily.Serif, fontSize = 14.sp, color = MaterialTheme.colorScheme.primary,
+                        "— $by" + if (name != null) " ›" else "", fontFamily = BookSerif, fontSize = 14.sp, color = MaterialTheme.colorScheme.primary,
                         modifier = if (name != null) Modifier.clickable { onOpenAuthor(name) } else Modifier,
                     )
                 }
@@ -256,7 +256,7 @@ fun TrailScreen(trailId: String, start: Int, onBack: () -> Unit, onOpenAuthor: (
                         .border(1.dp, MaterialTheme.colorScheme.primary.copy(alpha = 0.45f), RoundedCornerShape(14.dp)).padding(14.dp),
                     verticalArrangement = Arrangement.spacedBy(4.dp),
                 ) {
-                    Text("The end of the trail", fontFamily = FontFamily.Serif, fontSize = 18.sp)
+                    Text("The end of the trail", fontFamily = BookSerif, fontSize = 18.sp)
                     Text("From ${trail.stops.first().first} to $title, in ${trail.stops.size} steps.", style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
                 }
             }

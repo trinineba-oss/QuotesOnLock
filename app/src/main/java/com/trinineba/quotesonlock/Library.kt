@@ -147,7 +147,7 @@ fun LibraryScreen(onBack: () -> Unit, onOpen: (String) -> Unit) {
                         .clickable(onClickLabel = "Continue ${p.title}") { onOpen(p.route) }.padding(horizontal = 14.dp, vertical = 11.dp),
                     verticalArrangement = Arrangement.spacedBy(4.dp),
                 ) {
-                    Text(p.title, fontFamily = FontFamily.Serif, fontSize = 16.sp, maxLines = 1, overflow = TextOverflow.Ellipsis)
+                    Text(p.title, fontFamily = BookSerif, fontSize = 16.sp, maxLines = 1, overflow = TextOverflow.Ellipsis)
                     Text(p.subtitle, style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
                     if (p.total > 1) {
                         val f = ((p.index + 1).toFloat() / p.total).coerceIn(0.02f, 1f)
@@ -167,7 +167,7 @@ fun LibraryScreen(onBack: () -> Unit, onOpen: (String) -> Unit) {
                             .clickable(onClickLabel = "Open ${s.title}") { onOpen(s.route) }.padding(10.dp),
                         verticalArrangement = Arrangement.Bottom,
                     ) {
-                        Text(s.title, fontFamily = FontFamily.Serif, fontSize = 14.sp, lineHeight = 17.sp, color = Color.White, maxLines = 3, overflow = TextOverflow.Ellipsis)
+                        Text(s.title, fontFamily = BookSerif, fontSize = 14.sp, lineHeight = 17.sp, color = Color.White, maxLines = 3, overflow = TextOverflow.Ellipsis)
                         val where = places[s.route.removePrefix("book:")]
                         Text(where?.let { "${it.index + 1} of ${it.total}" } ?: s.label, fontSize = 11.sp, color = Color.White.copy(alpha = 0.85f))
                     }
@@ -256,7 +256,7 @@ fun BookScreen(bookId: String, onBack: () -> Unit, onOpenEssay: (String) -> Unit
                         .border(1.dp, Color(book.tint).copy(alpha = 0.5f), RoundedCornerShape(16.dp))
                         .clickable(onClickLabel = "Read the guide") { guide = true }.padding(14.dp),
                 ) {
-                    Text("Reading the ${book.title}", fontFamily = FontFamily.Serif, fontSize = 17.sp)
+                    Text("Reading the ${book.title}", fontFamily = BookSerif, fontSize = 17.sp)
                     Text("A guide, written for the app · ${g.minutes} min", style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
                 }
             }
@@ -268,7 +268,7 @@ fun BookScreen(bookId: String, onBack: () -> Unit, onOpenEssay: (String) -> Unit
                 Modifier.fillMaxWidth().clip(RoundedCornerShape(14.dp)).background(MaterialTheme.colorScheme.surfaceContainerHigh)
                     .clickable(onClickLabel = "Read ${c.title}") { open = c.id }.padding(horizontal = 14.dp, vertical = 10.dp),
             ) {
-                Text(c.title, fontFamily = FontFamily.Serif, fontSize = 15.sp, maxLines = 2, overflow = TextOverflow.Ellipsis)
+                Text(c.title, fontFamily = BookSerif, fontSize = 15.sp, maxLines = 2, overflow = TextOverflow.Ellipsis)
                 Text(
                     when { c.id == here -> "Continue here"; read -> "✓ read"; else -> "${c.minutes} min" },
                     style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant,
@@ -332,7 +332,7 @@ private fun BookChapterScreen(book: Book, index: Int, onGo: (Int) -> Unit, onBac
                 item {
                     Column(verticalArrangement = Arrangement.spacedBy(6.dp)) {
                         Text(book.title.uppercase(), style = MaterialTheme.typography.labelMedium, letterSpacing = 1.2.sp, color = MaterialTheme.colorScheme.primary)
-                        Text(c.title, fontFamily = FontFamily.Serif, fontSize = 24.sp, lineHeight = 30.sp)
+                        Text(c.title, fontFamily = BookSerif, fontSize = 24.sp, lineHeight = 30.sp)
                     }
                 }
                 itemsIndexed(c.paras) { _, p ->
@@ -354,7 +354,7 @@ private fun BookChapterScreen(book: Book, index: Int, onGo: (Int) -> Unit, onBac
                         }
                     }
                     Text(
-                        text, fontFamily = FontFamily.Serif, fontSize = readerSize(17f), lineHeight = readerSize(if (verse) 25f else 27f),
+                        text, fontFamily = BookSerif, fontSize = readerSize(17f), lineHeight = readerSize(if (verse) 25f else 27f),
                         fontStyle = if (verse) FontStyle.Italic else FontStyle.Normal,
                         modifier = if (verse) Modifier.padding(start = 14.dp) else Modifier,
                     )
@@ -389,20 +389,20 @@ private fun BookGuideScreen(book: Book, g: PlatoAnalysis, onBack: () -> Unit, on
         item {
             Column(verticalArrangement = Arrangement.spacedBy(6.dp)) {
                 LibLabel("${book.title} · A guide")
-                Text("Reading the ${book.title}", fontFamily = FontFamily.Serif, fontSize = 28.sp, lineHeight = 34.sp)
+                Text("Reading the ${book.title}", fontFamily = BookSerif, fontSize = 28.sp, lineHeight = 34.sp)
                 Text("${g.minutes} min · written for the app", style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
             }
         }
         g.sections.forEach { (heading, paras) ->
-            item(key = "h-$heading") { Text(heading, fontFamily = FontFamily.Serif, fontSize = 20.sp, color = MaterialTheme.colorScheme.primary, modifier = Modifier.padding(top = 8.dp)) }
-            itemsIndexed(paras, key = { i, _ -> "p-$heading-$i" }) { _, p -> Text(p, fontFamily = FontFamily.Serif, fontSize = 17.sp, lineHeight = 27.sp) }
+            item(key = "h-$heading") { Text(heading, fontFamily = BookSerif, fontSize = 20.sp, color = MaterialTheme.colorScheme.primary, modifier = Modifier.padding(top = 8.dp)) }
+            itemsIndexed(paras, key = { i, _ -> "p-$heading-$i" }) { _, p -> Text(p, fontFamily = BookSerif, fontSize = 17.sp, lineHeight = 27.sp) }
         }
         if (g.questions.isNotEmpty()) {
-            item(key = "qh") { Text("Questions to take with you", fontFamily = FontFamily.Serif, fontSize = 20.sp, color = MaterialTheme.colorScheme.primary, modifier = Modifier.padding(top = 8.dp)) }
+            item(key = "qh") { Text("Questions to take with you", fontFamily = BookSerif, fontSize = 20.sp, color = MaterialTheme.colorScheme.primary, modifier = Modifier.padding(top = 8.dp)) }
             itemsIndexed(g.questions, key = { i, _ -> "q-$i" }) { _, q ->
                 Row(horizontalArrangement = Arrangement.spacedBy(10.dp)) {
                     Text("·", fontSize = 20.sp, color = MaterialTheme.colorScheme.primary)
-                    Text(q, fontFamily = FontFamily.Serif, fontSize = 16.sp, lineHeight = 24.sp, modifier = Modifier.weight(1f))
+                    Text(q, fontFamily = BookSerif, fontSize = 16.sp, lineHeight = 24.sp, modifier = Modifier.weight(1f))
                 }
             }
         }
@@ -414,7 +414,7 @@ private fun BookGuideScreen(book: Book, g: PlatoAnalysis, onBack: () -> Unit, on
                         val ch = book.chapters.firstOrNull { it.id == spot.item }
                         Text(
                             q.title + (ch?.let { " · " + it.title.substringBefore(" · ") } ?: ""),
-                            fontFamily = FontFamily.Serif, fontSize = 14.sp,
+                            fontFamily = BookSerif, fontSize = 14.sp,
                             modifier = Modifier.clip(RoundedCornerShape(18.dp)).border(1.dp, MaterialTheme.colorScheme.primary.copy(alpha = 0.5f), RoundedCornerShape(18.dp))
                                 .clickable(onClickLabel = "Open ${q.title}") { opened = q }.padding(horizontal = 12.dp, vertical = 7.dp),
                         )
@@ -430,7 +430,7 @@ private fun BookGuideScreen(book: Book, g: PlatoAnalysis, onBack: () -> Unit, on
                         .clickable(onClickLabel = "See the lines from this book", onClick = onOpenLines).padding(14.dp),
                 ) {
                     val chapters = quoted.map { it.second.item }.toSet().size
-                    Text("${quoted.size} ${if (quoted.size == 1) "line" else "lines"} across $chapters ${if (chapters == 1) "chapter" else "chapters"} ›", fontFamily = FontFamily.Serif, fontSize = 16.sp)
+                    Text("${quoted.size} ${if (quoted.size == 1) "line" else "lines"} across $chapters ${if (chapters == 1) "chapter" else "chapters"} ›", fontFamily = BookSerif, fontSize = 16.sp)
                     Text("The book's lines that are in your collection, in order", style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
                 }
             }
@@ -438,14 +438,14 @@ private fun BookGuideScreen(book: Book, g: PlatoAnalysis, onBack: () -> Unit, on
         item(key = "next") { LibLabel("Read next") }
         if (g.keyScene.isNotEmpty()) item(key = "ch") {
             Text(
-                g.keyScene + " ›", fontFamily = FontFamily.Serif, fontSize = 16.sp,
+                g.keyScene + " ›", fontFamily = BookSerif, fontSize = 16.sp,
                 modifier = Modifier.fillMaxWidth().clip(RoundedCornerShape(12.dp)).background(MaterialTheme.colorScheme.surfaceContainerHigh)
                     .clickable { onOpenChapter(g.keyScene) }.padding(14.dp),
             )
         }
         if (g.essay.isNotEmpty()) item(key = "es") {
             Text(
-                "Essay: ${g.essay} ›", fontFamily = FontFamily.Serif, fontSize = 16.sp,
+                "Essay: ${g.essay} ›", fontFamily = BookSerif, fontSize = 16.sp,
                 modifier = Modifier.fillMaxWidth().clip(RoundedCornerShape(12.dp)).background(MaterialTheme.colorScheme.surfaceContainerHigh)
                     .clickable { onOpenEssay(g.essay) }.padding(14.dp),
             )
@@ -470,13 +470,13 @@ private fun BookLinesScreen(book: Book, onBack: () -> Unit, onOpenChapter: (Stri
             val ch = book.chapters.firstOrNull { it.id == chapterId }
             item(key = "c-$chapterId") {
                 Text(
-                    (ch?.title ?: chapterId) + " ›", fontFamily = FontFamily.Serif, fontSize = 15.sp, color = MaterialTheme.colorScheme.primary,
+                    (ch?.title ?: chapterId) + " ›", fontFamily = BookSerif, fontSize = 15.sp, color = MaterialTheme.colorScheme.primary,
                     modifier = Modifier.padding(top = 8.dp).clickable(onClickLabel = "Read this chapter") { onOpenChapter(chapterId) },
                 )
             }
             items(list, key = { "q-" + it.first.text.hashCode() }) { (q, _) ->
                 Text(
-                    "“${q.text}”", fontFamily = FontFamily.Serif, fontSize = 16.sp, lineHeight = 24.sp,
+                    "“${q.text}”", fontFamily = BookSerif, fontSize = 16.sp, lineHeight = 24.sp,
                     modifier = Modifier.fillMaxWidth().clip(RoundedCornerShape(12.dp)).background(MaterialTheme.colorScheme.surfaceContainerHigh)
                         .clickable(onClickLabel = "Open this line") { opened = q }.padding(12.dp),
                 )

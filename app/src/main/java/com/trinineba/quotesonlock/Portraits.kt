@@ -99,7 +99,7 @@ fun AuthorPortrait(name: String, size: Dp = 76.dp) {
             Text(
                 Portraits.initials(name),
                 color = MaterialTheme.colorScheme.onPrimary,
-                fontFamily = FontFamily.Serif,
+                fontFamily = BookSerif,
                 fontSize = (size.value * 0.34f).sp,
             )
         }

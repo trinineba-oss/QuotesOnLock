@@ -296,7 +296,7 @@ private fun NoteCard(note: Note, bundled: List<Quote>, onClick: () -> Unit) {
             note.about?.let {
                 Text(
                     it,
-                    fontFamily = FontFamily.Serif,
+                    fontFamily = BookSerif,
                     fontStyle = FontStyle.Italic,
                     style = MaterialTheme.typography.bodySmall,
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
@@ -445,8 +445,8 @@ private fun NoteEditor(id: Long, prefs: QuotePrefs, bundled: List<Quote>, onBack
                     TextField(
                         value = title,
                         onValueChange = { title = it },
-                        placeholder = { Text("Title", fontFamily = FontFamily.Serif, fontSize = 22.sp) },
-                        textStyle = MaterialTheme.typography.headlineSmall.copy(fontFamily = FontFamily.Serif),
+                        placeholder = { Text("Title", fontFamily = BookSerif, fontSize = 22.sp) },
+                        textStyle = MaterialTheme.typography.headlineSmall.copy(fontFamily = BookSerif),
                         singleLine = true,
                         colors = clearFieldColors(),
                         modifier = Modifier.fillMaxWidth(),
@@ -458,7 +458,7 @@ private fun NoteEditor(id: Long, prefs: QuotePrefs, bundled: List<Quote>, onBack
                             Box(Modifier.width(3.dp).heightIn(min = 24.dp).fillMaxHeight().background(MaterialTheme.colorScheme.outlineVariant))
                             Text(
                                 about,
-                                fontFamily = FontFamily.Serif,
+                                fontFamily = BookSerif,
                                 fontStyle = FontStyle.Italic,
                                 style = MaterialTheme.typography.bodyMedium,
                                 color = MaterialTheme.colorScheme.onSurfaceVariant,
@@ -490,15 +490,15 @@ private fun NoteEditor(id: Long, prefs: QuotePrefs, bundled: List<Quote>, onBack
                                 if (q == null) {
                                     Text("This line is no longer in the collection.", style = MaterialTheme.typography.bodySmall)
                                 } else {
-                                    q.title?.let { Text(it, fontFamily = FontFamily.Serif, fontWeight = FontWeight.SemiBold) }
+                                    q.title?.let { Text(it, fontFamily = BookSerif, fontWeight = FontWeight.SemiBold) }
                                     Text(
                                         if (q.title != null) q.text else "“${q.text}”",
-                                        fontFamily = FontFamily.Serif,
+                                        fontFamily = BookSerif,
                                         style = MaterialTheme.typography.bodyMedium,
                                         maxLines = 6,
                                         overflow = TextOverflow.Ellipsis,
                                     )
-                                    q.byline?.let { Text("— $it ›", fontFamily = FontFamily.Serif, style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.primary) }
+                                    q.byline?.let { Text("— $it ›", fontFamily = BookSerif, style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.primary) }
                                 }
                             }
                             TextButton(onClick = { refs = refs - ref; persist() }) { Text("✕") }
@@ -626,9 +626,9 @@ private fun NoteReader(
                             Modifier.fillMaxSize().verticalScroll(rememberScrollState()),
                             verticalArrangement = Arrangement.spacedBy(6.dp, Alignment.CenterVertically),
                         ) {
-                            q.title?.let { Text(it, fontFamily = FontFamily.Serif, fontWeight = FontWeight.SemiBold, style = MaterialTheme.typography.titleMedium) }
-                            Text(q.shownText, fontFamily = FontFamily.Serif, style = MaterialTheme.typography.bodyLarge)
-                            q.byline?.let { Text("— $it", fontFamily = FontFamily.Serif, style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.primary) }
+                            q.title?.let { Text(it, fontFamily = BookSerif, fontWeight = FontWeight.SemiBold, style = MaterialTheme.typography.titleMedium) }
+                            Text(q.shownText, fontFamily = BookSerif, style = MaterialTheme.typography.bodyLarge)
+                            q.byline?.let { Text("— $it", fontFamily = BookSerif, style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.primary) }
                         }
                     }
                     val page = pager.currentPage.coerceIn(0, pool.size - 1)
