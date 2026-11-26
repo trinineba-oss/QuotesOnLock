@@ -98,6 +98,7 @@ private val Glow = Color(0xFF9FB8FF)
 fun SosScreen(onBack: () -> Unit, onTool: (String) -> Unit) {
     BackHandler(onBack = onBack)
     val view = LocalView.current
+    val context = LocalContext.current
     DisposableEffect(Unit) {
         view.keepScreenOn = true
         onDispose { view.keepScreenOn = false }
@@ -110,10 +111,10 @@ fun SosScreen(onBack: () -> Unit, onTool: (String) -> Unit) {
         if (!breathing) return@LaunchedEffect
         repeat(6) {
             inhale = true
-            view.performHapticFeedback(HapticFeedbackConstants.LONG_PRESS)
+            Haptics.breath(context, strong = true)
             for (c in 1..4) { count = c; delay(1000) }
             inhale = false
-            view.performHapticFeedback(HapticFeedbackConstants.CLOCK_TICK)
+            Haptics.breath(context, strong = false)
             for (c in 1..6) { count = c; delay(1000) }
         }
         breathing = false

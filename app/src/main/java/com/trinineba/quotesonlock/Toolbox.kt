@@ -226,7 +226,7 @@ fun BreatheScreen(repo: QuoteRepository, onBack: () -> Unit) {
                 shown = index
                 phase = p
                 from = scale.floatValue
-                if (vibrate) view.performHapticFeedback(HapticFeedbackConstants.LONG_PRESS)
+                if (vibrate) Haptics.breath(context, strong = p == steps.first().first)
             }
             phaseSeconds = ((duration - (inCycle - phaseStart) + 999) / 1000).toInt()
             val target = when (p) {
