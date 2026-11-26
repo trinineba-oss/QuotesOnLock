@@ -541,4 +541,4 @@ Three of the living themes are painted the same way and then set moving (gusts a
 
 - Lavender field: Hood River Lavender Farm, Oregon, photographed by Bonnie Moreland and released into the public domain (Wikimedia Commons, "Hood River Lavender Farm, Oregon - Flickr - Bonnie Moreland (free images).jpg").
 - Snowy night: the Yellowstone pines above (LC-DIG-highsm-47701), recoloured to dusk with a rising moon.
-- Waves at dusk: the last moments of a wave on Ocracoke Island, North Carolina, by Carol M. Highsmith (Library of Congress, LC-DIG-highsm-44775, public domain), recoloured to dusk.
+- Waves at sunrise: the last moments of a wave on Ocracoke Island, North Carolina, by Carol M. Highsmith (Library of Congress, LC-DIG-highsm-44775, public domain), recoloured to a sunrise.

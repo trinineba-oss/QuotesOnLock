@@ -26,7 +26,7 @@ import kotlin.random.Random
  *
  * - Lavender field: gusts of wind roll across the rows, bending them and catching the light as they pass.
  * - Snowy night: snow falls at three depths over moonlit pines at dusk, swung by the wind, with glints on the drifts.
- * - Waves at dusk: the painting's own surf runs up the sand, slows and slides back, a little differently each time,
+ * - Waves at sunrise: the painting's own surf runs up the sand, slows and slides back, a little differently each time,
  *   leaving the sand dark and wet for a moment.
  *
  * Each painting drifts slowly, like the Painted collection. The bending is done with a bitmap mesh, so it costs one
@@ -288,7 +288,7 @@ internal object LivingPaintArt {
                 path.lineTo(x, edgeY + h * RUN * lobes)
             }
             path.close()
-            fill.color = (((0.16f * (1f - dry)) * 255).toInt() shl 24) or 0x1A1726
+            fill.color = (((0.16f * (1f - dry)) * 255).toInt() shl 24) or 0x3A2418
             c.drawPath(path, fill)
         }
     }

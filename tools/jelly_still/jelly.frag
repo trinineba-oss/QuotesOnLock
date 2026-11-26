@@ -4,17 +4,179 @@ uniform float time;
 
 float hash(vec2 p){ return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5453); }
 
+// ---- how it swims -------------------------------------------------------------------------------
+// Slow and majestic, on a 100-second cycle. It floats, hanging almost still with slow, soft beats (0-30 s);
+// then it moves, rising slowly with fuller beats, each one lifting it a little (30-65 s); it floats again up
+// there (65-80 s), and finally lets itself sink gently back down to where it began (80-100 s).
+const float CYCLE = 100.0;
+const float BEAT = 4.2;
+
+float ease(float x) { x = clamp(x, 0.0, 1.0); return x * x * (3.0 - 2.0 * x); }
+
+// height gained within one beat while moving: a soft push as it squeezes, then a slow coast
+float lift(float ph) {
+  float x = max(ph - 0.1, 0.0);
+  return (1.0 - exp(-x * 4.0)) / (1.0 - exp(-0.9 * 4.0));
+}
+
+vec2 place(float t) {
+  float tc = mod(t, CYCLE);
+  float x = 0.5 + 0.07 * sin(t * 0.031 + 1.0) + 0.02 * sin(t * 0.083);
+  float y0 = 0.58, y1 = 0.38;
+  float y;
+  if (tc < 30.0) {
+    y = y0 + 0.008 * sin(tc / BEAT * 6.2832 - 1.0);                 // floating: barely bobbing
+  } else if (tc < 65.0) {
+    float m = tc - 30.0;
+    float n = floor(m / BEAT), ph = fract(m / BEAT);
+    float beats = 35.0 / BEAT;
+    float k = clamp((n + lift(ph)) / beats, 0.0, 1.0);
+    y = mix(y0, y1, ease(k));
+  } else if (tc < 80.0) {
+    y = y1 + 0.008 * sin(tc / BEAT * 6.2832 - 1.0);
+  } else {
+    y = mix(y1, y0, ease((tc - 80.0) / 20.0));
+  }
+  return vec2(x, y);
+}
+
+// How hard the bell is squeezed (0 open, 1 fully contracted): slow beats, softest while it floats or sinks.
+float squeeze(float t) {
+  float tc = mod(t, CYCLE);
+  float ph = fract(t / BEAT);
+  float p = smoothstep(0.0, 0.42, ph) * (1.0 - smoothstep(0.55, 1.0, ph));
+  float moving = smoothstep(28.0, 32.0, tc) * (1.0 - smoothstep(63.0, 67.0, tc));
+  float sinking = smoothstep(80.0, 84.0, tc) * (1.0 - smoothstep(96.0, 100.0, tc));
+  return p * mix(0.6, 1.0, moving) * mix(1.0, 0.45, sinking);
+}
+
+// ---- one jellyfish --------------------------------------------------------------------------------
+vec3 jelly(vec2 frag, vec2 c, float ang, float pulse, float R, float u, float t, float turn, float speed, vec2 lag, float later) {
+  vec3 col = vec3(0.0);
+  float ca = cos(ang), sa = sin(ang);
+  vec2 p = frag - c;
+  p = vec2(ca * p.x + sa * p.y, -sa * p.x + ca * p.y);
+  float w = R * (1.0 - 0.30 * pulse);
+  float hgt = R * 0.56 * (1.0 + 0.80 * pulse);
+  vec3 cyan = vec3(0.42, 0.80, 1.00);
+  vec3 violet = vec3(0.62, 0.48, 1.00);
+  vec3 rose = vec3(1.00, 0.52, 0.80);
+  float xn = p.x / w;
+  float glow = 0.0; float inner = 0.0; float gon = 0.0;
+  if (abs(xn) < 1.12 && p.y > -hgt * 1.2 && p.y < R * 0.3) {
+    float s = clamp(1.0 - xn * xn, 0.0, 1.0);
+    float top = -hgt * pow(s, mix(0.62, 0.36, pulse));
+    float bot = -hgt * 0.24 * pow(s, 0.9) + R * 0.05 * (1.0 - s);
+    // the margin ripples, and flares out as the bell opens again
+    bot += R * 0.018 * sin(xn * 26.0 + t * 0.8) * (1.0 - s) + R * 0.05 * (1.0 - pulse) * (1.0 - s) * (1.0 - s);
+    float th = max(bot - top, 1.0);
+    float k = (p.y - top) / th;
+    float inBell = smoothstep(-0.06, 0.02, k) * smoothstep(1.06, 0.98, k);
+    float skin = exp(-pow(k / 0.07, 2.0)) * 0.55 + exp(-pow((k - 1.0) / 0.10, 2.0)) * 0.25;
+    float body = inBell * (0.10 + 0.12 * (1.0 - s) + 0.10 * exp(-pow((k - 0.35) / 0.4, 2.0)));
+    float rimEdge = exp(-pow((abs(xn) - 1.0) / 0.05, 2.0)) * smoothstep(-hgt * 0.25, -hgt * 0.02, p.y) * smoothstep(R * 0.10, 0.0, p.y) * 0.5;
+    glow = (skin + body) * smoothstep(1.12, 0.98, abs(xn)) + rimEdge;
+    // the ring of lights flares as the bell contracts, a ripple of light around the margin
+    float spots = 0.0;
+    if (abs(p.y) < R * 0.25)
+    for (int m = 0; m < 16; m++) {
+      float fm = float(m);
+      float mx = (fm + 0.5) / 16.0 * 2.0 - 1.0;
+      float ms = 1.0 - mx * mx;
+      vec2 mp = vec2(mx * w, -hgt * 0.24 * pow(ms, 0.9) + R * 0.05 * (1.0 - ms) + R * 0.012);
+      float md = length(p - mp);
+      float tw = 0.35 + 0.65 * pow(0.5 + 0.5 * sin(t * 0.4 - fm * 0.8), 4.0);
+      tw += 0.8 * pulse * exp(-pow(abs(mx) - pulse, 2.0) * 8.0);
+      spots += exp(-md * md / (R * R * 0.00045)) * tw;
+    }
+    glow += spots * 0.9;
+    inner = inBell * pow(0.5 + 0.5 * cos(xn * 3.14159 * 7.0), 6.0) * 0.08 * (1.0 - k);
+    for (int j = 0; j < 4; j++) {
+      float gx = (float(j) - 1.5) * 0.36;
+      vec2 gd = vec2((xn - gx) / 0.17, (p.y + hgt * 0.5) / (hgt * 0.20));
+      gon += exp(-dot(gd, gd)) * 0.20;
+    }
+    gon *= inBell;
+    glow *= 1.0 + 0.35 * pulse;     // a little brighter as it works
+  }
+  col += cyan * glow + violet * inner + rose * gon;
+  float hd = length(vec2(p.x / (w * 1.6), (p.y + hgt * 0.4) / (hgt * 1.9)));
+  col += vec3(0.20, 0.45, 0.85) * 0.07 * exp(-hd * hd * 1.4) * (0.8 + 0.6 * pulse);
+  // tentacles: long and fine; each point hangs from where the bell was a moment ago, so they trail its path,
+  // and every squeeze sends a ripple down them, drawing them in and letting them float out again
+  float tent = 0.0;
+  float len = R * 5.2;
+  vec2 lq = vec2(ca * lag.x + sa * lag.y, -sa * lag.x + ca * lag.y);
+  float py = p.y - lq.y;
+  if (py > 0.0 && py < len + R * 0.1 && abs(p.x - lq.x) < R * 2.4)
+  for (int i = 0; i < 12; i++) {
+    float fi = float(i);
+    float hi = hash(vec2(fi, 4.0));
+    float x0 = ((fi + 0.5 * (hi - 0.5)) / 11.0 * 2.0 - 1.0) * w * 0.85;
+    float yy = py - R * 0.03 - R * 0.03 * hi;
+    float li = len * (0.5 + 0.5 * hi);
+    if (yy > 0.0 && yy < li) {
+      float k = yy / li;
+      float wave = sin(yy / R * (1.6 + 0.6 * hi) - t * (0.38 + 0.14 * hi) + fi * 1.9);
+      float sway = wave * R * 0.07 * k + sin(t * 0.10 + fi * 0.7) * R * 0.05 * k * k;
+      float inward = 1.0 - 0.35 * later * (1.0 - k * 0.5);
+      float x = x0 * (1.0 + 0.25 * k) * inward + sway + lq.x + sign(x0) * R * 0.04 * sin(min(k * 6.0, 3.14159));
+      float d = abs(p.x - x);
+      float wd = u * 0.0012 * (1.0 - 0.55 * k);
+      float fade = pow(1.0 - k, 1.2) * smoothstep(0.0, R * 0.22, yy);
+      tent += (exp(-d * d / (wd * wd)) * 0.6 + exp(-d * d / (wd * wd * 36.0)) * 0.05) * fade;
+      float bead = exp(-pow(fract(yy / (R * 0.2) + hi) - 0.5, 2.0) * 60.0);
+      tent += bead * exp(-d * d / (wd * wd * 4.0)) * 0.22 * fade;
+    }
+  }
+  col += vec3(0.62, 0.85, 1.0) * tent;
+  float arms = 0.0;
+  float alen = R * 2.0;
+  if (abs(p.x) < R * 1.3)
+  for (int j = 0; j < 4; j++) {
+    float fj = float(j);
+    float yy = p.y - lq.y * 0.6 + hgt * 0.30;
+    if (yy > 0.0 && yy < alen) {
+      float k = yy / alen;
+      float x = (fj - 1.5) * R * 0.07 * (1.0 + 1.5 * k) + sin(yy / R * 1.8 - t * 0.33 + fj * 1.7) * R * 0.15 * k * (1.0 - 0.5 * speed) + lq.x * 0.6;
+      float frill = 1.0 + 0.5 * sin(yy / R * 22.0 + fj * 3.0 - t * 0.6);
+      float wd = R * (0.045 * (1.0 - k) + 0.008) * frill;
+      float d = abs(p.x - x);
+      float a0 = smoothstep(0.0, R * 0.10, yy);
+      arms += a0 * exp(-d * d / (wd * wd)) * pow(1.0 - k, 1.3) * 0.22;
+      arms += a0 * exp(-pow((d - wd) / (R * 0.006), 2.0)) * pow(1.0 - k, 1.5) * 0.18;
+    }
+  }
+  col += mix(violet, rose, 0.4) * arms;
+  return col;
+}
+
 void main(){
   vec2 frag = vec2(gl_FragCoord.x, res.y - gl_FragCoord.y);
   float u = min(res.x, res.y * 0.56);
   float t = time;
   float vy = frag.y / res.y;
-  // the deep
   vec3 col = mix(vec3(0.012, 0.045, 0.090), vec3(0.001, 0.004, 0.012), smoothstep(0.0, 0.95, vy));
   float rx = frag.x / res.x - 0.5;
   float shaft = exp(-pow((rx - 0.18 * vy + 0.04 * sin(t * 0.05)) * 4.0, 2.0)) * pow(1.0 - vy, 2.0);
   col += vec3(0.20, 0.40, 0.55) * shaft * 0.05;
-  // marine snow: sparse, slow, at several depths
+
+  // where it is now, and (for the tentacles) where it was when the bell passed the point beside this pixel
+  vec2 here = place(t);
+  vec2 before = place(t - 0.6);
+  vec2 v = (here - before) * res / 0.6;
+  float sp = length(v) / u;
+  float speed = clamp(sp * 8.0, 0.0, 1.0);
+  float lean = clamp(atan(v.x, -v.y), -0.5, 0.5) * smoothstep(0.01, 0.06, sp) * 0.5;
+  float ang = -lean + 0.05 * sin(t * 0.12) + 0.025 * sin(t * 0.29);
+  float pulse = squeeze(t);
+  float below = max(frag.y - here.y * res.y, 0.0);
+  float delay = below / (u * 0.22 * 0.7);          // seconds for the bell's motion to reach this far down
+  vec2 lag = (place(t - delay) - here) * res;
+  float later = squeeze(t - delay * 0.8);
+  float turn = 0.0;
+
+  // marine snow; it streams past a little as the jellyfish surges
   for (int L = 0; L < 3; L++) {
     float fl = float(L);
     float cell = u * (0.16 - fl * 0.04);
@@ -30,112 +192,14 @@ void main(){
       col += vec3(0.50, 0.62, 0.70) * (0.06 + fl * 0.06) * tw * exp(-d * d / (r * r));
     }
   }
-  // the jellyfish, pulsing: a quick contraction and a slow release
-  float ph = fract(t * 0.13);
-  float pulse = ph < 0.3 ? smoothstep(0.0, 0.3, ph) : 1.0 - smoothstep(0.3, 1.0, ph);
-  float drift = t * 0.13 + 0.0;
-  vec2 c = vec2(res.x * (0.50 + 0.10 * sin(t * 0.043)), res.y * (0.38 + 0.04 * sin(t * 0.031)));
-  float ang = 0.14 * sin(t * 0.067 + 1.0) + 0.05 * sin(t * 0.23);
-  float ca = cos(ang), sa = sin(ang);
-  vec2 p = frag - c;
-  p = vec2(ca * p.x + sa * p.y, -sa * p.x + ca * p.y);
-  float R = u * 0.25;
-  float w = R * (1.0 - 0.16 * pulse);
-  float hgt = R * 0.86 * (1.0 + 0.14 * pulse);
-  vec3 cyan = vec3(0.42, 0.80, 1.00);
-  vec3 violet = vec3(0.62, 0.48, 1.00);
-  vec3 rose = vec3(1.00, 0.52, 0.80);
-  float xn = p.x / w;
-  float glow = 0.0; float inner = 0.0; float gon = 0.0;
-  if (abs(xn) < 1.12) {
-    float s = clamp(1.0 - xn * xn, 0.0, 1.0);
-    // outer surface: a soft dome, a little flattened on top
-    float top = -hgt * pow(s, 0.62);
-    // inner (subumbrella) surface: concave, rising into the bell
-    float bot = -hgt * 0.24 * pow(s, 0.9) + R * 0.05 * (1.0 - s);
-    // margin ruffle
-    float ruff = R * 0.018 * sin(xn * 26.0 + t * 1.6) * (1.0 - s);
-    bot += ruff;
-    float th = max(bot - top, 1.0);
-    float k = (p.y - top) / th;                         // 0 at outer skin, 1 at inner
-    float inBell = smoothstep(-0.06, 0.02, k) * smoothstep(1.06, 0.98, k);
-    // translucent: bright at the skins, faint in the jelly, brighter towards the margin
-    float skin = exp(-pow(k / 0.07, 2.0)) * 0.55 + exp(-pow((k - 1.0) / 0.10, 2.0)) * 0.25;
-    float body = inBell * (0.10 + 0.12 * (1.0 - s) + 0.10 * exp(-pow((k - 0.35) / 0.4, 2.0)));
-    float rimEdge = exp(-pow((abs(xn) - 1.0) / 0.05, 2.0)) * smoothstep(-hgt * 0.25, -hgt * 0.02, p.y) * smoothstep(R * 0.10, 0.0, p.y) * 0.5;
-    glow = (skin + body) * smoothstep(1.12, 0.98, abs(xn)) + rimEdge;
-    // a ring of tiny lights along the margin, twinkling one after another
-    float spots = 0.0;
-    if (abs(p.y) < R * 0.25)
-    for (int m = 0; m < 16; m++) {
-      float fm = float(m);
-      float mx = (fm + 0.5) / 16.0 * 2.0 - 1.0;
-      float ms = 1.0 - mx * mx;
-      vec2 mp = vec2(mx * w, -hgt * 0.24 * pow(ms, 0.9) + R * 0.05 * (1.0 - ms) + R * 0.012);
-      float md = length(p - mp);
-      float tw = 0.35 + 0.65 * pow(0.5 + 0.5 * sin(t * 0.7 - fm * 0.8), 4.0);
-      spots += exp(-md * md / (R * R * 0.00045)) * tw;
-    }
-    glow += spots * 0.9;
-    // radial canals, faint
-    inner = inBell * pow(0.5 + 0.5 * cos(xn * 3.14159 * 7.0), 6.0) * 0.08 * (1.0 - k);
-    // four soft gonads seen through the bell
-    for (int j = 0; j < 4; j++) {
-      float gx = (float(j) - 1.5) * 0.36;
-      vec2 gd = vec2((xn - gx) / 0.17, (p.y + hgt * 0.5) / (hgt * 0.20));
-      gon += exp(-dot(gd, gd)) * 0.20;
-    }
-    gon *= inBell;
-  }
-  col += cyan * glow + violet * inner + rose * gon;
-  // halo
-  float hd = length(vec2(p.x / (w * 1.6), (p.y + hgt * 0.4) / (hgt * 1.9)));
-  col += vec3(0.20, 0.45, 0.85) * 0.07 * exp(-hd * hd * 1.4) * (0.8 + 0.4 * pulse);
-  // tentacles: many fine threads, waves travelling down, trailing more when the bell contracts
-  float tent = 0.0;
-  float len = R * 3.6;
-  if (p.y > 0.0 && p.y < len + R * 0.1 && abs(p.x) < R * 2.0)
-  for (int i = 0; i < 22; i++) {
-    float fi = float(i);
-    float hi = hash(vec2(fi, 4.0));
-    float x0 = ((fi + 0.5 * (hi - 0.5)) / 21.0 * 2.0 - 1.0) * w * 0.96;
-    float yy = p.y - R * 0.03 - R * 0.03 * hi;
-    float li = len * (0.55 + 0.45 * hi);
-    if (yy > 0.0 && yy < li) {
-      float k = yy / li;
-      float wave = sin(yy / R * (2.4 + hi) - t * (0.9 + 0.3 * hi) + fi * 1.9);
-      float sway = wave * R * 0.13 * k + sin(t * 0.21 + fi * 0.7) * R * 0.07 * k * k;
-      float x = x0 * (1.0 + 0.18 * k - 0.12 * pulse * k) + sway + sign(x0) * R * 0.05 * sin(min(k * 6.0, 3.14159));
-      float d = abs(p.x - x);
-      float wd = u * 0.0014 * (1.0 - 0.5 * k);
-      float fade = pow(1.0 - k, 1.6) * smoothstep(0.0, R * 0.22, yy);
-      tent += (exp(-d * d / (wd * wd)) * 0.55 + exp(-d * d / (wd * wd * 36.0)) * 0.05) * fade;
-      // tiny beads of light along the thread
-      float bead = exp(-pow(fract(yy / (R * 0.18) + hi) - 0.5, 2.0) * 60.0);
-      tent += bead * exp(-d * d / (wd * wd * 4.0)) * 0.25 * fade;
-    }
-  }
-  col += vec3(0.62, 0.85, 1.0) * tent;
-  // oral arms: four long, translucent, frilled ribbons
-  float arms = 0.0;
-  float alen = R * 2.0;
-  if (abs(p.x) < R * 1.0)
-  for (int j = 0; j < 4; j++) {
-    float fj = float(j);
-    float yy = p.y + hgt * 0.30;
-    if (yy > 0.0 && yy < alen) {
-      float k = yy / alen;
-      float x = (fj - 1.5) * R * 0.07 * (1.0 + 1.5 * k) + sin(yy / R * 1.8 - t * 0.6 + fj * 1.7) * R * 0.15 * k;
-      float frill = 1.0 + 0.5 * sin(yy / R * 22.0 + fj * 3.0 - t * 1.2);
-      float wd = R * (0.045 * (1.0 - k) + 0.008) * frill;
-      float d = abs(p.x - x);
-      float a0 = smoothstep(0.0, R * 0.10, yy);
-      arms += a0 * exp(-d * d / (wd * wd)) * pow(1.0 - k, 1.3) * 0.22;
-      arms += a0 * exp(-pow((d - wd) / (R * 0.006), 2.0)) * pow(1.0 - k, 1.5) * 0.18;
-    }
-  }
-  col += mix(violet, rose, 0.4) * arms;
-  // vignette and a breath of grain
+
+  // a second, far smaller one deep in the distance, on its own slow rhythm
+  vec2 farC = vec2(res.x * (0.80 + 0.08 * sin(t * 0.021)), res.y * (0.72 - 0.10 * fract(t / 90.0)) );
+  float farPulse = squeeze(t * 0.83 + 17.0);
+  col += jelly(frag, farC, 0.15 * sin(t * 0.05), farPulse, u * 0.06, u, t * 0.9 + 5.0, 0.0, 0.2, vec2(0.0), farPulse) * 0.35 * sin(3.14159 * fract(t / 90.0));
+
+  col += jelly(frag, here * res, ang, pulse, u * 0.22, u, t, turn, speed, lag, later);
+
   vec2 vc = frag / res - 0.5;
   col *= 1.0 - dot(vc, vc) * 1.1;
   col += (hash(frag + fract(t * 7.0)) - 0.5) * 0.006;

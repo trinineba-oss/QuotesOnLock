@@ -128,8 +128,8 @@ enum class AppTheme(
         0xFF24364A.toInt(), 0xFF3E6E9E.toInt(),
     ),
     WAVES(
-        "waves", "Waves at dusk", "Waves on the sand", R.drawable.notif_frame_waves, 0xFF181A30.toInt(),
-        0xFFFFFFFF.toInt(), 0xFFFFC9A8.toInt(),
+        "waves", "Waves at sunrise", "Waves on the sand", R.drawable.notif_frame_waves, 0xFF2A2030.toInt(),
+        0xFFFFFFFF.toInt(), 0xFFFFD9A0.toInt(),
     ),
     BAMBOO(
         "bamboo", "Bamboo grove", "Bamboo in the wind", R.drawable.notif_frame_bamboo, 0xFFF2F7EE.toInt(),
@@ -408,7 +408,7 @@ fun AppTheme.colorScheme(cardOpacity: Float): ColorScheme? = when (this) {
     AppTheme.FIREFLIES -> calmScheme(true, 0xFFE4F59A, 0xFF0C1A24, 0xFFEFF6EC, 0xFFC4D6C6, cardOpacity)
     AppTheme.LAVENDER -> calmScheme(true, 0xFFE3C8F5, 0xFF241B30, 0xFFF6F0FA, 0xFFD8CCE0, cardOpacity)
     AppTheme.CLOUDS -> calmScheme(false, 0xFF3E6E9E, 0xFFF4F8FC, 0xFF24364A, 0xFF4A5E74, cardOpacity)
-    AppTheme.WAVES -> calmScheme(true, 0xFFFFC9A8, 0xFF10203A, 0xFFF4EEF2, 0xFFD6CCD8, cardOpacity)
+    AppTheme.WAVES -> calmScheme(true, 0xFFFFD9A0, 0xFF2A2030, 0xFFFFF6EE, 0xFFE6D6CC, cardOpacity)
     AppTheme.BAMBOO -> calmScheme(false, 0xFF3F6E33, 0xFFF2F7EE, 0xFF1F3324, 0xFF45604A, cardOpacity)
     AppTheme.BLOSSOM -> calmScheme(false, 0xFFB0446A, 0xFFFBF1F5, 0xFF4A2A38, 0xFF6E4A5A, cardOpacity)
     AppTheme.MOUNTAINS -> calmScheme(true, 0xFFF3C9A4, 0xFF2B2A38, 0xFFF4EEF2, 0xFFD6CCD6, cardOpacity)
