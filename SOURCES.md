@@ -536,3 +536,9 @@ Quotes and headings are set in Cormorant Garamond (Christian Thalmann) and the i
 ## The Painted themes
 
 The nine Painted themes are oil-brushstroke paintings made for the app, at full phone resolution, from photographs by Carol M. Highsmith in the Library of Congress (public domain): Grand Teton (LC-DIG-highsm-35450), Maroon Bells (33695), Big Sur (13822), Monument Valley (04002), Emerald Bay on Lake Tahoe at dusk (23364), autumn along the Colorado River (35078), trees glazed with snow in Yellowstone (47701), a sunflower field near Beloit, Wisconsin (16064), and the Colorado River near Kremmling in autumn sun (35083).
+
+Three of the living themes are painted the same way and then set moving (gusts across the field, falling snow, surf running up the sand):
+
+- Lavender field: Hood River Lavender Farm, Oregon, photographed by Bonnie Moreland and released into the public domain (Wikimedia Commons, "Hood River Lavender Farm, Oregon - Flickr - Bonnie Moreland (free images).jpg").
+- Snowy night: the Yellowstone pines above (LC-DIG-highsm-47701), recoloured to dusk with a rising moon.
+- Waves at dusk: the last moments of a wave on Ocracoke Island, North Carolina, by Carol M. Highsmith (Library of Congress, LC-DIG-highsm-44775, public domain), recoloured to dusk.
