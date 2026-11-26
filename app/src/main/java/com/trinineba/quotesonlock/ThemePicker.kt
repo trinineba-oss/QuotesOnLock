@@ -45,6 +45,7 @@ import kotlinx.coroutines.delay
 object ThemeGroups {
     val groups: List<Pair<String, List<AppTheme>>> by lazy {
         val listed = listOf(
+            "Painted" to listOf(AppTheme.P_TETONS, AppTheme.P_MAROON, AppTheme.P_BIGSUR, AppTheme.P_MONUMENT, AppTheme.P_LAKEDUSK, AppTheme.P_AUTUMN, AppTheme.P_SNOW, AppTheme.P_SUNFLOWERS, AppTheme.P_PLAINS),
             "Night skies" to listOf(AppTheme.STARRY, AppTheme.AURORA, AppTheme.SPACE, AppTheme.SNOW, AppTheme.LANTERNS),
             "Water" to listOf(AppTheme.WATER, AppTheme.RAIN, AppTheme.RAIN_NIGHT, AppTheme.WAVES, AppTheme.DROP, AppTheme.JELLY, AppTheme.SEA),
             "Nature" to listOf(AppTheme.BUTTERFLY, AppTheme.FIREFLIES, AppTheme.LAVENDER, AppTheme.BAMBOO, AppTheme.BLOSSOM, AppTheme.MOUNTAINS, AppTheme.LEAVES),

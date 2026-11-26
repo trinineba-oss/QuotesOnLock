@@ -167,6 +167,42 @@ enum class AppTheme(
         "sea", "Light under the sea", "Sunbeams and swaying kelp", R.drawable.notif_frame_sea, 0xFF082A40.toInt(),
         0xFFEFFAFF.toInt(), 0xFF9FE3F2.toInt(),
     ),
+    P_TETONS(
+        "paint_tetons", "Mountain lake", "A slow, gentle drift", R.drawable.notif_frame_paint_tetons, 0xFF1E2A33.toInt(),
+        0xFFFFFFFF.toInt(), 0xFFF2D49A.toInt(),
+    ),
+    P_MAROON(
+        "paint_maroon", "Alpine lake", "A slow, gentle drift", R.drawable.notif_frame_paint_maroon, 0xFF1F2A2A.toInt(),
+        0xFFFFFFFF.toInt(), 0xFFF2D49A.toInt(),
+    ),
+    P_BIGSUR(
+        "paint_bigsur", "Wild coast", "A slow, gentle drift", R.drawable.notif_frame_paint_bigsur, 0xFF14223A.toInt(),
+        0xFFFFFFFF.toInt(), 0xFFBFD8F2.toInt(),
+    ),
+    P_MONUMENT(
+        "paint_monument", "Desert light", "A slow, gentle drift", R.drawable.notif_frame_paint_monument, 0xFF2E1A14.toInt(),
+        0xFFFFFFFF.toInt(), 0xFFF2C08A.toInt(),
+    ),
+    P_LAKEDUSK(
+        "paint_lakedusk", "Lake at dusk", "A slow, gentle drift", R.drawable.notif_frame_paint_lakedusk, 0xFF1C1A20.toInt(),
+        0xFFFFFFFF.toInt(), 0xFFF2B8A8.toInt(),
+    ),
+    P_AUTUMN(
+        "paint_autumn", "Autumn river", "A slow, gentle drift", R.drawable.notif_frame_paint_autumnriver, 0xFF2A2418.toInt(),
+        0xFFFFFFFF.toInt(), 0xFFF2C46A.toInt(),
+    ),
+    P_SNOW(
+        "paint_snow", "Winter pines", "A slow, gentle drift", R.drawable.notif_frame_paint_snowpines, 0xFF1A2230.toInt(),
+        0xFFFFFFFF.toInt(), 0xFFCFE0F5.toInt(),
+    ),
+    P_SUNFLOWERS(
+        "paint_sunflowers", "Sunflower field", "A slow, gentle drift", R.drawable.notif_frame_paint_sunflowers, 0xFF1A2414.toInt(),
+        0xFFFFFFFF.toInt(), 0xFFF7D454.toInt(),
+    ),
+    P_PLAINS(
+        "paint_plains", "Golden plains", "A slow, gentle drift", R.drawable.notif_frame_paint_plains, 0xFF2A2214.toInt(),
+        0xFFFFFFFF.toInt(), 0xFFF2C46A.toInt(),
+    ),
     /** Leonardo's Vitruvian Man, from a photograph of the drawing; the circle and square can glow softly, as if by candlelight. */
     VITRUVIAN(
         "vitruvian", "Vitruvian Man", "A slow breath of candlelight", R.drawable.notif_frame_vitruvian, 0xFFF6ECD6.toInt(),
@@ -174,7 +210,9 @@ enum class AppTheme(
     );
 
     /** The calm themes drawn by [CalmArt]. */
-    val isCalm: Boolean get() = this == SNOW || this == CANDLE || this == FIREFLIES || this == LAVENDER || this == CLOUDS || this == WAVES || this == BAMBOO || this == ZEN
+    val isPainted: Boolean get() = PaintedArt.res(this) != null
+
+    val isCalm: Boolean get() = isPainted || this == SNOW || this == CANDLE || this == FIREFLIES || this == LAVENDER || this == CLOUDS || this == WAVES || this == BAMBOO || this == ZEN
 
     /** Light themes use dark text. */
     val isLight: Boolean get() = this == VITRUVIAN || this == BLOSSOM || this == BOOK || this == BUTTERFLY || this == LAVENDER || this == CLOUDS || this == BAMBOO
@@ -375,6 +413,15 @@ fun AppTheme.colorScheme(cardOpacity: Float): ColorScheme? = when (this) {
     AppTheme.BLOSSOM -> calmScheme(false, 0xFFB0446A, 0xFFFBF1F5, 0xFF4A2A38, 0xFF6E4A5A, cardOpacity)
     AppTheme.MOUNTAINS -> calmScheme(true, 0xFFF3C9A4, 0xFF2B2A38, 0xFFF4EEF2, 0xFFD6CCD6, cardOpacity)
     AppTheme.LANTERNS -> calmScheme(true, 0xFFFFC27A, 0xFF141A3A, 0xFFFFF4E6, 0xFFDCD2C8, cardOpacity)
+    AppTheme.P_TETONS -> calmScheme(true, 0xFFF2D49A, 0xFF1E2A33, 0xFFFFFFFF, 0xFFE4E0D8, cardOpacity)
+    AppTheme.P_MAROON -> calmScheme(true, 0xFFF2D49A, 0xFF1F2A2A, 0xFFFFFFFF, 0xFFE4E0D8, cardOpacity)
+    AppTheme.P_BIGSUR -> calmScheme(true, 0xFFBFD8F2, 0xFF14223A, 0xFFFFFFFF, 0xFFE4E0D8, cardOpacity)
+    AppTheme.P_MONUMENT -> calmScheme(true, 0xFFF2C08A, 0xFF2E1A14, 0xFFFFFFFF, 0xFFE4E0D8, cardOpacity)
+    AppTheme.P_LAKEDUSK -> calmScheme(true, 0xFFF2B8A8, 0xFF1C1A20, 0xFFFFFFFF, 0xFFE4E0D8, cardOpacity)
+    AppTheme.P_AUTUMN -> calmScheme(true, 0xFFF2C46A, 0xFF2A2418, 0xFFFFFFFF, 0xFFE4E0D8, cardOpacity)
+    AppTheme.P_SNOW -> calmScheme(true, 0xFFCFE0F5, 0xFF1A2230, 0xFFFFFFFF, 0xFFE4E0D8, cardOpacity)
+    AppTheme.P_SUNFLOWERS -> calmScheme(true, 0xFFF7D454, 0xFF1A2414, 0xFFFFFFFF, 0xFFE4E0D8, cardOpacity)
+    AppTheme.P_PLAINS -> calmScheme(true, 0xFFF2C46A, 0xFF2A2214, 0xFFFFFFFF, 0xFFE4E0D8, cardOpacity)
     AppTheme.LEAVES -> calmScheme(true, 0xFFF2B266, 0xFF3A2414, 0xFFFFF4E6, 0xFFE6D2BC, cardOpacity)
     AppTheme.SEA -> calmScheme(true, 0xFF9FE3F2, 0xFF082A40, 0xFFEFFAFF, 0xFFC4DCE6, cardOpacity)
     AppTheme.DROP -> calmScheme(true, 0xFFF2B66B, 0xFF0A1A24, 0xFFF0F2F0, 0xFFC9D3D6, cardOpacity)
@@ -427,7 +474,7 @@ fun AppTheme.typography(base: Typography): Typography = when (this) {
     AppTheme.CLASSIC -> base
     AppTheme.BLACK -> base.map(headings = { it.copy(fontFamily = BookSerif) }, all = { it })
     AppTheme.STARRY, AppTheme.AURORA, AppTheme.SPACE, AppTheme.WATER, AppTheme.RAIN, AppTheme.RAIN_NIGHT,
-    AppTheme.SNOW, AppTheme.CANDLE, AppTheme.FIREFLIES, AppTheme.WAVES, AppTheme.DROP, AppTheme.JELLY, AppTheme.MOUNTAINS, AppTheme.LANTERNS, AppTheme.LEAVES, AppTheme.SEA -> base.map(
+    AppTheme.SNOW, AppTheme.CANDLE, AppTheme.FIREFLIES, AppTheme.WAVES, AppTheme.DROP, AppTheme.JELLY, AppTheme.MOUNTAINS, AppTheme.LANTERNS, AppTheme.LEAVES, AppTheme.SEA, AppTheme.P_TETONS, AppTheme.P_MAROON, AppTheme.P_BIGSUR, AppTheme.P_MONUMENT, AppTheme.P_LAKEDUSK, AppTheme.P_AUTUMN, AppTheme.P_SNOW, AppTheme.P_SUNFLOWERS, AppTheme.P_PLAINS -> base.map(
         headings = { it.copy(fontFamily = BookSerif) },
         all = { it.copy(shadow = Shadow(Color(0xE6000000), Offset(0f, 2f), 8f)) },
     )
@@ -470,7 +517,7 @@ fun ThemedBackground(theme: AppTheme, animate: Boolean, auroraIntensity: Float =
         AppTheme.JELLY -> JellyBackground(animate)
         AppTheme.RAIN -> RainBackground(animate, night = false)
         AppTheme.RAIN_NIGHT -> RainBackground(animate, night = true)
-        AppTheme.SNOW, AppTheme.CANDLE, AppTheme.FIREFLIES, AppTheme.LAVENDER, AppTheme.CLOUDS, AppTheme.WAVES, AppTheme.BAMBOO, AppTheme.ZEN, AppTheme.BLOSSOM, AppTheme.MOUNTAINS, AppTheme.LANTERNS, AppTheme.LEAVES, AppTheme.SEA -> CalmBackground(theme, animate)
+        AppTheme.SNOW, AppTheme.CANDLE, AppTheme.FIREFLIES, AppTheme.LAVENDER, AppTheme.CLOUDS, AppTheme.WAVES, AppTheme.BAMBOO, AppTheme.ZEN, AppTheme.BLOSSOM, AppTheme.MOUNTAINS, AppTheme.LANTERNS, AppTheme.LEAVES, AppTheme.SEA, AppTheme.P_TETONS, AppTheme.P_MAROON, AppTheme.P_BIGSUR, AppTheme.P_MONUMENT, AppTheme.P_LAKEDUSK, AppTheme.P_AUTUMN, AppTheme.P_SNOW, AppTheme.P_SUNFLOWERS, AppTheme.P_PLAINS -> CalmBackground(theme, animate)
     }
 }
 

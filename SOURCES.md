@@ -526,3 +526,11 @@ Quoted myths are word for word from: the King James Bible (Project Gutenberg #10
 ## Words to stand on (affirmations)
 
 The affirmations are first-person lines already in the collection, word for word, chosen for the app and grouped by need; the ones you write are saved as your own quotes. Their lines are recorded in the same natural voice as the rest of Solace.
+
+## Fonts
+
+Quotes and headings are set in Cormorant Garamond (Christian Thalmann) and the interface in Inter (Rasmus Andersson), both under the SIL Open Font License 1.1, bundled as static instances subset to Latin, Greek and Cyrillic.
+
+## The Painted themes
+
+The nine Painted themes are oil-brushstroke paintings made for the app, at full phone resolution, from photographs by Carol M. Highsmith in the Library of Congress (public domain): Grand Teton (LC-DIG-highsm-35450), Maroon Bells (33695), Big Sur (13822), Monument Valley (04002), Emerald Bay on Lake Tahoe at dusk (23364), autumn along the Colorado River (35078), trees glazed with snow in Yellowstone (47701), a sunflower field near Beloit, Wisconsin (16064), and the Colorado River near Kremmling in autumn sun (35083).

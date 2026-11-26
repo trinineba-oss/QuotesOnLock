@@ -82,6 +82,8 @@ internal object CalmArt {
             AppTheme.BAMBOO -> bamboo(canvas, w, h, t, d)
             AppTheme.ZEN -> zen(canvas, w, h, t, d)
             AppTheme.BOOK -> book(canvas, w, h, t, d)
+            AppTheme.P_TETONS, AppTheme.P_MAROON, AppTheme.P_BIGSUR, AppTheme.P_MONUMENT, AppTheme.P_LAKEDUSK, AppTheme.P_AUTUMN, AppTheme.P_SNOW, AppTheme.P_SUNFLOWERS, AppTheme.P_PLAINS ->
+                if (!PaintedArt.draw(appContext, theme, canvas, w, h, t)) canvas.drawColor(fallback(theme))
             AppTheme.BLOSSOM, AppTheme.MOUNTAINS, AppTheme.LANTERNS, AppTheme.LEAVES, AppTheme.SEA ->
                 if (!NatureArt.draw(appContext, theme, canvas, w, h, t)) canvas.drawColor(fallback(theme))
             else -> Unit
