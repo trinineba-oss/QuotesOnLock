@@ -337,3 +337,54 @@ v_334|Write whatever is in your head. Worries, lists, dreams, complaints. It all
 v_335|Don't stop to fix a word. Don't read back. Keep the hand moving.
 v_336|If the critic in your head says this is pointless, write that down too, and keep going.
 v_337|Three pages, or as many as you can. Then close the book, and begin your day a little lighter.
+v_338|It matters not how strait the gate, How charged with punishments the scroll, I am the master of my fate: I am the captain of my soul.
+v_339|I am no bird; and no net ensnares me; I am a free human being with an independent will, which I now exert to leave you.
+v_340|You may write me down in history With your bitter, twisted lies, You may trod me in the very dirt But still, like dust, I'll rise.
+v_341|Lead me, O Zeus, and lead me, Destiny, What way soe’er ye have appointed me! I follow unafraid: yea, though the will Turn recreant, I needs must follow still.
+v_342|I hope nothing. I fear nothing. I am free.
+v_343|I know where I'm going and I know the truth, and I don't have to be what you want me to be. I'm free to be what I want.
+v_344|I do not care what comes after; I have seen the dragons on the wind of morning.
+v_345|I am seeking, I am striving, I am in it with all my heart.
+v_346|I too am not a bit tamed, I too am untranslatable, I sound my barbaric yawp over the roofs of the world.
+v_347|I exist as I am, that is enough, If no other in the world be aware I sit content, And if each and all be aware I sit content.
+v_348|I am I: and I must follow that furrow, not copy another. That is the only justification for my writing, living.
+v_349|I took a deep breath and listened to the old brag of my heart. I am, I am, I am.
+v_350|I celebrate myself, and sing myself, And what I assume you shall assume, For every atom belonging to me as good belongs to you.
+v_351|Do I contradict myself? Very well then I contradict myself, I am large, I contain multitudes.
+v_352|I find myself saying briefly and prosaically that it is much more important to be oneself than anything else.
+v_353|I am obscure to myself. I let myself happen. I unfold only in the now. I am rudely alive.
+v_354|I carry inside myself my earlier faces, as a tree contains its rings.
+v_355|I believe that the strongest need of your nature is to find yourself, to emerge as yourself.
+v_356|I can think. I can wait. I can fast.
+v_357|I will both lay me down in peace, and sleep: for thou, LORD, only makest me dwell in safety.
+v_358|I don't tell the murky world to turn pure. I purify myself and check my reflection in the water of the valley brook.
+v_359|I must be alone ten minutes in the morning and ten minutes in the evening. — Without a programme.
+v_360|I cannot cause light; the most I can do is try to put myself in the path of its beam.
+v_361|I, even I, am healed of my hurt, Low is my burden laid, my task is done, My heart is wholly set at liberty.
+v_362|I have seen how the foundations of the world are laid, and I have not the least doubt that it will stand a good while.
+v_363|I loafe and invite my soul, I lean and loafe at my ease observing a spear of summer grass.
+v_364|I am free, I am a friend of God, ready to render Him willing obedience.
+v_365|I have had a glimpse of the shore, and can now live by the hope of reaching it.
+v_366|I think I ought to begin to do some work, now that I am learning to see.
+v_367|I would walk with all those who walk. I would not stand still to watch the procession passing by.
+v_368|I will run alone, so that it may again become bright around me.
+v_369|I have started work again, for existence is only tolerable when one forgets one's miserable self.
+v_370|I am full of new pleasure in those things, because I have new hope of making things myself that have soul in them.
+v_371|I will no longer mutilate and destroy myself in order to find a secret behind the ruins.
+v_372|I would love to live like a river flows, carried by the surprise of its own unfolding.
+v_373|I have suffered and despaired and known death and I am glad that I am in this great world.
+v_374|I have been bent and broken, but—I hope—into a better shape.
+v_375|My soul waiteth for the Lord more than they that watch for the morning: I say, more than they that watch for the morning.
+v_376|I will participate in the game. It is a wonderful, wonderful opera – except that it hurts.
+v_377|I do not see the future black, but full of difficulties, and often I ask myself whether these will not prove stronger than I.
+v_378|I have decided to stick with love. Hate is too great a burden to bear.
+v_379|I will not say: do not weep; for not all tears are an evil.
+v_380|I am grateful for this life! And yet I miss the alternatives. All sketches wish to be real.
+v_381|I came to your shore as a stranger, I lived in your house as a guest, I leave your door as a friend, my earth.
+v_382|I have mental joys and mental health, Mental friends and mental wealth.
+v_383|I feel that a Man may be happy in This World, and I know that This World is a World of Imagination and Vision.
+v_384|I know and I feel that to do good is the truest happiness that the human heart can taste.
+v_385|I have, as it were, my own sun and moon and stars, and a little world all to myself.
+v_386|I love life - that's my real weakness. I love it so much that I am incapable of imagining what is not life.
+v_387|Let me enjoy the earth no less Because the all-enacting Might That fashioned forth its loveliness Had other aims than my delight.
+v_388|I taste a liquor never brewed, From tankards scooped in pearl; Not all the vats upon the Rhine Yield such an alcohol!

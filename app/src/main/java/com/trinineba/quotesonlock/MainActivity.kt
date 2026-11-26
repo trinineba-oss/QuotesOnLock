@@ -116,16 +116,20 @@ class MainActivity : ComponentActivity() {
         const val EXTRA_OPEN_LEARN = "open_learn"
         /** Opens worry time (from its reminder). */
         const val EXTRA_OPEN_WORRY = "open_worry"
+        /** Opens Words to stand on with today's line (from the morning affirmation). */
+        const val EXTRA_OPEN_AFFIRM = "open_affirm"
     }
 
     /** Counts taps on the daily notification's "Today's lesson", so the screen opens Learn each time. */
     private val learnRequests = androidx.compose.runtime.mutableIntStateOf(0)
     private val worryRequests = androidx.compose.runtime.mutableIntStateOf(0)
+    private val affirmRequests = androidx.compose.runtime.mutableIntStateOf(0)
 
     override fun onNewIntent(intent: Intent) {
         super.onNewIntent(intent)
         if (intent.getBooleanExtra(EXTRA_OPEN_LEARN, false)) learnRequests.intValue++
         if (intent.getBooleanExtra(EXTRA_OPEN_WORRY, false)) worryRequests.intValue++
+        if (intent.getBooleanExtra(EXTRA_OPEN_AFFIRM, false)) affirmRequests.intValue++
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -154,6 +158,7 @@ class MainActivity : ComponentActivity() {
         val openUpdates = intent.getBooleanExtra(EXTRA_OPEN_UPDATES, false)
         if (savedInstanceState == null && intent.getBooleanExtra(EXTRA_OPEN_LEARN, false)) learnRequests.intValue++
         if (savedInstanceState == null && intent.getBooleanExtra(EXTRA_OPEN_WORRY, false)) worryRequests.intValue++
+        if (savedInstanceState == null && intent.getBooleanExtra(EXTRA_OPEN_AFFIRM, false)) affirmRequests.intValue++
         CalmScene.load(this)
         setContent {
             var theme by remember { mutableStateOf(prefs.theme) }
@@ -181,6 +186,7 @@ class MainActivity : ComponentActivity() {
                     openUpdates = openUpdates,
                     learnRequest = learnRequests.intValue,
                     worryRequest = worryRequests.intValue,
+                    affirmRequest = affirmRequests.intValue,
                 )
                 WordSheetHost()
             }
@@ -252,6 +258,7 @@ private fun QuotesScreen(
     /** Goes up each time the daily notification's "Today's lesson" is tapped: open Discover › Learn. */
     learnRequest: Int = 0,
     worryRequest: Int = 0,
+    affirmRequest: Int = 0,
 ) {
     val context = LocalContext.current
     var enabled by remember { mutableStateOf(prefs.enabled) }
@@ -358,6 +365,13 @@ private fun QuotesScreen(
             LibraryLinks.open.value = null
             browse = if (page == Page.DISCOVER) browse + route else listOf(route)
             page = Page.DISCOVER
+        }
+    }
+    LaunchedEffect(affirmRequest) {
+        if (affirmRequest > 0) {
+            page = Page.TOOLBOX
+            browse = emptyList()
+            tool = "affirm:today"
         }
     }
     LaunchedEffect(worryRequest) {
@@ -810,6 +824,15 @@ private fun QuotesScreen(
                 },
             )
             "worrytime" -> WorryTimeScreen(prefs) { tool = null }
+            "affirm", "affirm:today" -> AffirmScreen(
+                prefs, onBack = { tool = null }, onFinished = { rateTool = "affirm"; tool = null },
+                startWithToday = t == "affirm:today",
+                askNotifications = {
+                    if (Build.VERSION.SDK_INT >= 33 &&
+                        ContextCompat.checkSelfPermission(context, Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED
+                    ) askWorryNotify.launch(Manifest.permission.POST_NOTIFICATIONS)
+                },
+            )
             "unstuck" -> UnstuckScreen(
                 prefs, onBack = { tool = null }, onTool = { tool = it },
                 onRoute = { tool = null; LibraryLinks.open.value = it },
@@ -1263,6 +1286,7 @@ private fun QuotesScreen(
             )
         }
         item(key = "home-otd") { OnThisDayCard { LibraryLinks.open.value = "onthisday" } }
+        if (prefs.raw.getBoolean("affirm_today", false)) item(key = "home-affirm") { AffirmTodayCard { page = Page.TOOLBOX; tool = "affirm:today" } }
         if (reflectOn) current?.let { q ->
             item(key = "home-reflect") {
                 // A quiet question to think with; writing is optional and stays on the phone.
@@ -2164,6 +2188,7 @@ private fun QuotesScreen(
         tabHeader("Solace")
         item(key = "tb-sos") { SosButton { tool = "sos" } }
         item(key = "tb-unstuck") { UnstuckCard { tool = "unstuck" } }
+        item(key = "tb-affirm") { AffirmCard { tool = "affirm" } }
         item(key = "tb-intro") {
             Text("Take a moment. What would help right now? Nothing here is saved unless you choose to.", style = MaterialTheme.typography.bodyMedium)
         }

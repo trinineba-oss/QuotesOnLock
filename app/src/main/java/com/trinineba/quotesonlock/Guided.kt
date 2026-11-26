@@ -150,6 +150,7 @@ object CalmLog {
             "worry" -> "Put the worry down"
             "worrytime" -> "Worry time"
             "unstuck" -> "Unstuck"
+            "affirm", "affirm:today" -> "Words to stand on"
             "breathe" -> "Breathe"
             "ground" -> "Ground yourself"
             "reframe" -> "Look at a thought"

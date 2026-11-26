@@ -57,6 +57,7 @@ class BootReceiver : BroadcastReceiver() {
         if (intent.action != Intent.ACTION_BOOT_COMPLETED) return
         DailyQuote.schedule(context)
         Worries.schedule(context)
+        Affirm.schedule(context)
         val prefs = QuotePrefs(context)
         if (!prefs.enabled) return
         val repo = QuoteRepository(context, prefs)

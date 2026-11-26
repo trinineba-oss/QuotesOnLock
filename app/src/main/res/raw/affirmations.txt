@@ -1,0 +1,59 @@
+# Words to stand on: affirmations, written for the app. S|key|emoji|name|for; then L|exact text in quotes.txt|its credit (exact).
+S|courage|🦁|Courage|for something hard ahead
+L|It matters not how strait the gate,\nHow charged with punishments the scroll,\nI am the master of my fate:\nI am the captain of my soul.|William Ernest Henley, Invictus
+L|I am no bird; and no net ensnares me; I am a free human being with an independent will, which I now exert to leave you.|Charlotte Brontë, Jane Eyre
+L|You may write me down in history\nWith your bitter, twisted lies,\nYou may trod me in the very dirt\nBut still, like dust, I'll rise.|Maya Angelou, Still I Rise
+L|Lead me, O Zeus, and lead me, Destiny,\nWhat way soe’er ye have appointed me!\nI follow unafraid: yea, though the will\nTurn recreant, I needs must follow still.|Cleanthes (tr. E. Vernon Arnold)
+L|I hope nothing. I fear nothing. I am free.|Nikos Kazantzakis
+L|I know where I'm going and I know the truth, and I don't have to be what you want me to be. I'm free to be what I want.|Muhammad Ali
+L|I do not care what comes after; I have seen the dragons on the wind of morning.|Ursula K. Le Guin, The Farthest Shore
+L|I am seeking, I am striving, I am in it with all my heart.|Vincent van Gogh, Letters
+L|I too am not a bit tamed, I too am untranslatable,\nI sound my barbaric yawp over the roofs of the world.|Walt Whitman, Leaves of Grass
+S|enough|🌱|I am enough|worth, without proving it
+L|I exist as I am, that is enough,\nIf no other in the world be aware I sit content,\nAnd if each and all be aware I sit content.|Walt Whitman, Leaves of Grass
+L|I am I: and I must follow that furrow, not copy another. That is the only justification for my writing, living.|Virginia Woolf, A Writer's Diary
+L|I took a deep breath and listened to the old brag of my heart. I am, I am, I am.|Sylvia Plath, The Bell Jar
+L|I celebrate myself, and sing myself,\nAnd what I assume you shall assume,\nFor every atom belonging to me as good belongs to you.|Walt Whitman, Leaves of Grass
+L|Do I contradict myself?\nVery well then I contradict myself,\nI am large, I contain multitudes.|Walt Whitman, Leaves of Grass
+L|I find myself saying briefly and prosaically that it is much more important to be oneself than anything else.|Virginia Woolf, A Room of One's Own
+L|I am obscure to myself. I let myself happen. I unfold only in the now. I am rudely alive.|Clarice Lispector, Água Viva
+L|I carry inside myself my earlier faces, as a tree contains its rings.|Tomas Tranströmer, Memories Look at Me
+L|I believe that the strongest need of your nature is to find yourself, to emerge as yourself.|Willa Cather, The Song of the Lark
+S|steady|🌊|Steadiness|when things are out of my hands
+L|I can think. I can wait. I can fast.|Hermann Hesse
+L|I will both lay me down in peace, and sleep: for thou, LORD, only makest me dwell in safety.|Psalms
+L|I don't tell the murky world to turn pure.\nI purify myself and check my reflection\nin the water of the valley brook.|Ryōkan
+L|I must be alone ten minutes in the morning and ten minutes in the evening. — Without a programme.|Tomas Tranströmer, Alone
+L|I cannot cause light; the most I can do is try to put myself in the path of its beam.|Annie Dillard, Pilgrim at Tinker Creek
+L|I, even I, am healed of my hurt,\nLow is my burden laid, my task is done,\nMy heart is wholly set at liberty.|Therigatha (tr. Mrs Rhys Davids)
+L|I have seen how the foundations of the world are laid, and I have not the least doubt that it will stand a good while.|Henry David Thoreau, A Week on the Concord and Merrimack Rivers
+L|I loafe and invite my soul,\nI lean and loafe at my ease observing a spear of summer grass.|Walt Whitman, Leaves of Grass
+L|I am free, I am a friend of God, ready to render Him willing obedience.|Epictetus, Golden Sayings (tr. Hastings Crossley)
+S|start|🌅|A new start|beginning again
+L|In the morning, when you find yourself unwilling to rise, have this thought at hand: I arise to the proper business of man, and shall I repine at setting about that work for which I was born and brought into the world? Am I equipped for nothing but to lie among the bed-clothes and keep warm?|Marcus Aurelius, Meditations (tr. George W. Chrystal)
+L|I have had a glimpse of the shore, and can now live by the hope of reaching it.|Helen Keller, Optimism
+L|I think I ought to begin to do some work, now that I am learning to see.|Rainer Maria Rilke, The Notebooks of Malte Laurids Brigge (tr. Claude)
+L|I would walk with all those who walk. I would not stand still to watch the procession passing by.|Kahlil Gibran, Sand and Foam
+L|I will run alone, so that it may again become bright around me.|Friedrich Nietzsche, Thus Spake Zarathustra
+L|I have started work again, for existence is only tolerable when one forgets one's miserable self.|Gustave Flaubert, letter to George Sand (tr. Aimée L. McKenzie)
+L|I am full of new pleasure in those things, because I have new hope of making things myself that have soul in them.|Vincent van Gogh, Letters to His Brother (tr. Mrs. J. van Gogh-Bonger)
+L|I will no longer mutilate and destroy myself in order to find a secret behind the ruins.|Hermann Hesse
+L|I would love to live like a river flows, carried by the surprise of its own unfolding.|John O'Donohue
+S|through|🕯️|Getting through|grief and hard times
+L|I have suffered and despaired and known death and I am glad that I am in this great world.|Rabindranath Tagore, Stray Birds
+L|I have been bent and broken, but—I hope—into a better shape.|Charles Dickens, Great Expectations
+L|My soul waiteth for the Lord more than they that watch for the morning: I say, more than they that watch for the morning.|Psalms
+L|I will participate in the game. It is a wonderful, wonderful opera – except that it hurts.|Joseph Campbell, The Power of Myth
+L|I do not see the future black, but full of difficulties, and often I ask myself whether these will not prove stronger than I.|Vincent van Gogh, The Letters of a Post-Impressionist (tr. Anthony M. Ludovici)
+L|I have decided to stick with love. Hate is too great a burden to bear.|Martin Luther King Jr.
+L|I will not say: do not weep; for not all tears are an evil.|J. R. R. Tolkien
+S|thanks|🙏|Gratitude|noticing what's good
+L|I am grateful for this life! And yet I miss the alternatives. All sketches wish to be real.|Tomas Tranströmer, The Blue House
+L|I came to your shore as a stranger, I lived in your house as a guest, I leave your door as a friend, my earth.|Rabindranath Tagore, Stray Birds
+L|I have mental joys and mental health,\nMental friends and mental wealth.|William Blake
+L|I feel that a Man may be happy in This World, and I know that This World is a World of Imagination and Vision.|William Blake
+L|I know and I feel that to do good is the truest happiness that the human heart can taste.|Jean-Jacques Rousseau, Reveries of a Solitary (tr. John Gould Fletcher)
+L|I have, as it were, my own sun and moon and stars, and a little world all to myself.|Henry David Thoreau, Walden
+L|I love life - that's my real weakness. I love it so much that I am incapable of imagining what is not life.|Albert Camus, The Fall
+L|Let me enjoy the earth no less\nBecause the all-enacting Might\nThat fashioned forth its loveliness\nHad other aims than my delight.|Thomas Hardy, Let Me Enjoy
+L|I taste a liquor never brewed,\nFrom tankards scooped in pearl;\nNot all the vats upon the Rhine\nYield such an alcohol!|Emily Dickinson, Poems

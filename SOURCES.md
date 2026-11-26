@@ -522,3 +522,7 @@ Unstuck (Solace), for writer's and creative block, is written for the app: the s
 ## Myths of creation and ending
 
 Quoted myths are word for word from: the King James Bible (Project Gutenberg #10); Ralph T. H. Griffith's *Hymns of the Rigveda*, vol. IV (1892, Internet Archive `india.history.resource.112166`); Rasmus B. Anderson's *Younger Edda* (#18947); Henry Callaway's *Religious System of the Amazulu* (1870, `relamazulu00calluoft`, OCR checked by hand); the *Egyptian Book of the Dead* (Renouf and Naville, #69566); E. W. West's *Bundahishn* in *Pahlavi Texts* I (SBE 5, 1880, `pahlavitexts01west`); and Ovid's *Metamorphoses* (Riley, #21765). Bumba, Purusha, the days of Brahma, Kalki and Maitreya are told in the app's own words. The essay "How it began, how it ends" is written for the app.
+
+## Words to stand on (affirmations)
+
+The affirmations are first-person lines already in the collection, word for word, chosen for the app and grouped by need; the ones you write are saved as your own quotes. Their lines are recorded in the same natural voice as the rest of Solace.

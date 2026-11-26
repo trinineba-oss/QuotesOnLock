@@ -61,4 +61,16 @@ class CalmContentTest {
         assertTrue("closing line not in the collection", quotes.any { it.text == finish!!.first && it.author == finish.second })
         listOf("writing", "art", "music").forEach { m -> assertTrue("too few $m prompts", (data.prompts[m]?.size ?: 0) >= 8) }
     }
+
+    @Test fun affirmationsAreFirstPersonLinesFromTheCollection() {
+        val sets = raw("affirmations.txt").useLines { Affirm.parse(it) }
+        assertTrue("too few sets: ${sets.size}", sets.size >= 6)
+        sets.forEach { s ->
+            assertTrue("${s.key}: too few lines", s.lines.size >= 7)
+            s.lines.forEach { a ->
+                assertTrue("${s.key}: not in the collection: ${a.text.take(40)}", quotes.any { it.text == a.text.replace("\\n", "\n") && it.author == a.by })
+                assertTrue("${s.key}: too long to say: ${a.text.take(40)}", a.text.length <= 300)
+            }
+        }
+    }
 }
