@@ -156,7 +156,7 @@ fun SosScreen(onBack: () -> Unit, onTool: (String) -> Unit) {
                 OutlinedButton(onClick = { onTool("ground") }) { Text("Ground yourself: 5 things you see") }
                 OutlinedButton(onClick = { onTool("lifeline") }) { Text("Open my lifeline") }
                 OutlinedButton(onClick = { onTool("sounds") }) { Text("Some quiet sound") }
-                TextButton(onClick = onBack) { Text("Back to Calm") }
+                TextButton(onClick = onBack) { Text("Back to Solace") }
                 Spacer(Modifier.height(16.dp))
                 Text(
                     "If you might hurt yourself, please call your local emergency number or someone you trust now.",

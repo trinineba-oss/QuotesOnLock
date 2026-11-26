@@ -525,7 +525,7 @@ fun StartHereScreen(
         item { FindLabel("OR JUST SEE WHAT'S HERE") }
         item {
             Text(
-                "Today · Discover · Yours · Calm: a one-minute look at the four places along the bottom ›",
+                "Today · Discover · Yours · Solace: a one-minute look at the four places along the bottom ›",
                 style = MaterialTheme.typography.bodyMedium,
                 modifier = Modifier.clickable { view = "tour" }.padding(vertical = 4.dp),
             )
@@ -611,7 +611,7 @@ private fun AppTour(onBack: () -> Unit) {
             Triple("Today", "Your quote for now", "Swipe for the next one; tap it to open its page with its context, more like it and your note. Save, share or put it on the lock screen."),
             Triple("Discover", "Everything to explore", "Search everything at the top. Then Learn, reading paths, essays, Van Gogh's letters, how things work, great ideas, myths and folklore."),
             Triple("Yours", "What you keep", "Favourites and your collections, Notes & journal (with a reading pane beside your writing), and quotes of your own."),
-            Triple("Calm", "For when it's too much", "A check-in, breathing, guided sessions read aloud, calming sounds, and gentle words for a feeling."),
+            Triple("Solace", "For when it's too much", "A check-in, breathing, guided sessions read aloud, calming sounds, and gentle words for a feeling."),
         ).forEach { (name, line, text) ->
             item {
                 Column(

@@ -1853,9 +1853,9 @@ private fun QuotesScreen(
         }
         item(key = "ap-calm-wallpaper") {
             var open by rememberSaveable { mutableStateOf(false) }
-            SettingsCard("Calm wallpaper") {
+            SettingsCard("Solace wallpaper") {
                 Text(
-                    "The Calm tab shows a slow, calm scene behind it, matching the sound you play.",
+                    "The Solace tab shows a slow, calm scene behind it, matching the sound you play.",
                     style = MaterialTheme.typography.bodySmall,
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
                 )
@@ -2161,7 +2161,7 @@ private fun QuotesScreen(
     }
 
     fun LazyListScope.toolboxPage() {
-        tabHeader("Calm")
+        tabHeader("Solace")
         item(key = "tb-sos") { SosButton { tool = "sos" } }
         item(key = "tb-unstuck") { UnstuckCard { tool = "unstuck" } }
         item(key = "tb-intro") {
@@ -2386,7 +2386,7 @@ private fun QuotesScreen(
                         Triple(Page.HOME, R.drawable.ic_today, "Today"),
                         Triple(Page.DISCOVER, R.drawable.ic_explore, "Discover"),
                         Triple(Page.YOURS, R.drawable.ic_bookmark, "Yours"),
-                        Triple(Page.TOOLBOX, R.drawable.ic_spa, "Calm"),
+                        Triple(Page.TOOLBOX, R.drawable.ic_spa, "Solace"),
                     ).forEach { (p, icon, label) ->
                         NavigationBarItem(
                             selected = page == p,
@@ -2445,7 +2445,7 @@ private enum class Page(val title: String) {
     HOME("Today"),
     DISCOVER("Discover"),
     YOURS("Yours"),
-    TOOLBOX("Calm"),
+    TOOLBOX("Solace"),
     SETTINGS("Settings"),
     QUOTES("Quotes & authors"),
     THEMES("Appearance"),

@@ -354,17 +354,17 @@ Legge's Tao Teh King marks words he supplied with parentheses; the app drops tho
 
 The Vitruvian Man theme uses Leonardo da Vinci's drawing (about 1490, Gallerie dell'Accademia, Venice), public domain, from the Library of Congress's photograph of a 1949 facsimile (Prints and Photographs Division, LC-USZ62-66656, cph 3g07740), cropped to the sheet and dimmed; the glow along the circle and square is drawn for the app. The Starry Night theme uses Vincent van Gogh's *The Starry Night* (1889), public domain, from the Google Art Project scan on Wikimedia Commons. The Van Gogh's clouds theme uses his *Wheat Field with Cypresses* (1889), The Metropolitan Museum of Art (1993.132), from the Met's Open Access image (public domain); the sky was separated from the hills and cypresses for the app, and a seamless loop made from van Gogh's own sky drifts behind them. The northern-lights frame and the old-paper texture are generated for this app.
 
-### Calm: guided sessions and practices
+### Solace: guided sessions and practices
 
 The guided sessions (breathing space, body scan, letting go of tension, loving-kindness, into sleep, a gentle start to the day, a kind hand for a hard day, leaves on a stream, riding the wave of a strong feeling, back to sleep in the night, walking slowly, the mountain, gratitude and a safe place) are written for the app, drawing on common, freely described relaxation, mindfulness and self-compassion exercises, and are read in the recorded natural voice (below). The practices quote their sources word for word: Seneca, *On Anger* III (tr. Aubrey Stewart, *Minor Dialogues*, Gutenberg #64576); Marcus Aurelius, *Meditations*; Epictetus, *Enchiridion* (tr. Higginson); Defoe, *Robinson Crusoe*; Seneca, *Moral Letters* 13 (tr. Richard M. Gummere); Marcus Aurelius, *Meditations* IV.17; the *Zhuangzi* (the use of the useless); Thoreau, *Walden*; Epictetus, *Enchiridion* 5 (tr. Higginson); John Muir, *My First Summer in the Sierra*; John Stuart Mill, *Autobiography*; Marcus Aurelius, *Meditations* V.1. Wind down reads passages already in the collection (Thoreau, Annie Dillard, Kamo no Chōmei, Kenkō, John Muir, Wordsworth, John Clare, George Gissing, Han Shan, Knut Hamsun, Goethe, Mark Twain, Sara Teasdale, Keats, Lucretius, Matthew Arnold and Langston Hughes, Hölderlin, George Eliot, Max Ehrmann, Yeats, Matthew Arnold, Van Gogh's letters and Wordsworth).
 
 ### The natural voice
 
-The recorded voice in Calm (the guided sessions, the practices' lines and the Wind down passages) was made for the app with Kokoro-82M (by hexgrad, Apache License 2.0), using its "Heart" voice, run offline once when the app was built: about 31 minutes of speech in 332 short recordings (res/raw/v_*.ogg, listed in voice_index.txt). Lines that are not recorded, such as your favourites in Slow reading and every quote elsewhere, are read by the phone's own voice; Read aloud settings can switch the recorded voice off.
+The recorded voice in Solace (the guided sessions, the practices' lines and the Wind down passages) was made for the app with Kokoro-82M (by hexgrad, Apache License 2.0), using its "Heart" voice, run offline once when the app was built: about 31 minutes of speech in 332 short recordings (res/raw/v_*.ogg, listed in voice_index.txt). Lines that are not recorded, such as your favourites in Slow reading and every quote elsewhere, are read by the phone's own voice; Read aloud settings can switch the recorded voice off.
 
 ### Inside the temple
 
-The "Inside the temple" theme, shown behind the singing bowls in Calm, was drawn for the app (a zen hall at night, made with a small script from simple shapes), so it uses no outside picture. The candle flames, the lantern's flicker, the incense smoke and the drifting dust are drawn by the app as it runs.
+The "Inside the temple" theme, shown behind the singing bowls in Solace, was drawn for the app (a zen hall at night, made with a small script from simple shapes), so it uses no outside picture. The candle flames, the lantern's flicker, the incense smoke and the drifting dust are drawn by the app as it runs.
 
 ### Calming sounds
 
@@ -448,7 +448,7 @@ Great ideas from the Library: 31 ideas quote the Library's own texts word for wo
 
 ## Slow looking
 
-The paintings in Calm › Slow looking were painted for the app, as oil brushstrokes laid over by a small program, from photographs by Carol M. Highsmith, who gave her archive to the Library of Congress for the public domain (Carol M. Highsmith Archive, Prints and Photographs Division, "no known restrictions on publication"): the Teton Range reflected in a stream, Grand Teton National Park (LC-DIG-highsm-35450); the Maroon Bells and Maroon Lake, Colorado (LC-DIG-highsm-33695); the Pacific coast at Big Sur, California (LC-DIG-highsm-13822); and Monument Valley, Arizona (LC-DIG-highsm-04002). The scenes themselves are unchanged. The steps are written for the app; the closing lines are from the collection.
+The paintings in Solace › Slow looking were painted for the app, as oil brushstrokes laid over by a small program, from photographs by Carol M. Highsmith, who gave her archive to the Library of Congress for the public domain (Carol M. Highsmith Archive, Prints and Photographs Division, "no known restrictions on publication"): the Teton Range reflected in a stream, Grand Teton National Park (LC-DIG-highsm-35450); the Maroon Bells and Maroon Lake, Colorado (LC-DIG-highsm-33695); the Pacific coast at Big Sur, California (LC-DIG-highsm-13822); and Monument Valley, Arizona (LC-DIG-highsm-04002). The scenes themselves are unchanged. The steps are written for the app; the closing lines are from the collection.
 
 ## Down the well (Murakami essay)
 
@@ -517,7 +517,7 @@ The Library's *Enchiridion* is Thomas Wentworth Higginson's translation (1865) a
 
 Julia Cameron's books are in copyright, so she appears only in short lines, each found on her Wikiquote page under the book it comes from (*The Artist's Way*, 1992; *Inspirations: Meditations from The Artist's Way*, 2001; *Blessings*, 1998). Her ideas (morning pages, the artist date, filling the well, the inner censor, shadow artists) are described in the app's own words. The Morning pages practice and the essay "Getting something down" are written for the app; its other voices are lines already in the collection.
 
-Unstuck (Calm), for writer's and creative block, is written for the app: the six kinds of block, the reasons and things to try draw on common advice from working writers and artists and on Cameron's *The Artist's Way*; the prompt cards are the app's own; each block's line is from the collection.
+Unstuck (Solace), for writer's and creative block, is written for the app: the six kinds of block, the reasons and things to try draw on common advice from working writers and artists and on Cameron's *The Artist's Way*; the prompt cards are the app's own; each block's line is from the collection.
 
 ## Myths of creation and ending
 

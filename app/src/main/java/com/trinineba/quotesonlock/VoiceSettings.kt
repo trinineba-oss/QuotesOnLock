@@ -104,7 +104,7 @@ fun ReadAloudSettings(prefs: QuotePrefs, onLockScreenChanged: () -> Unit) {
         }
         Row(verticalAlignment = Alignment.CenterVertically) {
             Column(Modifier.weight(1f)) {
-                Text("Natural voice in Calm")
+                Text("Natural voice in Solace")
                 Text(
                     "Guided sessions, practices and Wind down are read by a recorded natural voice, kept in the app. " +
                         "Off: your phone's voice reads them. Quotes always use your phone's voice.",

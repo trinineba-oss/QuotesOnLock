@@ -240,7 +240,7 @@ fun NotesScreen(onBack: () -> Unit, onOpenAuthor: (String) -> Unit) {
                         Column(Modifier.weight(1f)) {
                             Text("A question under the home-screen quote", style = MaterialTheme.typography.bodyMedium)
                             Text(
-                                "Tap Reflect to write; it is never required. Quote pages, echoes and Calm practices save their reflections here too.",
+                                "Tap Reflect to write; it is never required. Quote pages, echoes and Solace practices save their reflections here too.",
                                 style = MaterialTheme.typography.bodySmall,
                                 color = MaterialTheme.colorScheme.onSurfaceVariant,
                             )
