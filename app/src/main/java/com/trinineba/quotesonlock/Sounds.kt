@@ -41,29 +41,56 @@ enum class Soundscape(
     @DrawableRes val art: Int,
     val scene: AppTheme,
     val kind: SoundKind = SoundKind.NATURE,
+    /** A few words on where it was recorded or what it is, under the name. */
+    val note: String = "",
 ) {
-    RAIN("rain", "Rain on the window", R.raw.snd_rain, R.drawable.rain_night_frame, AppTheme.RAIN_NIGHT),
-    TENT("tent", "Rain on a tent", R.raw.snd_tent, R.drawable.rain_frame, AppTheme.RAIN),
-    STORM("storm", "Distant storm", R.raw.snd_storm, R.drawable.space_frame, AppTheme.RAIN_NIGHT),
-    WAVES("waves", "Waves on the shore", R.raw.snd_waves, R.drawable.waves_frame, AppTheme.WAVES),
-    STREAM("stream", "Mountain stream", R.raw.snd_stream, R.drawable.water_frame, AppTheme.WATER),
-    WIND("wind", "Wind in the trees", R.raw.snd_wind, R.drawable.bamboo_frame, AppTheme.BAMBOO),
-    FIRE("fire", "Campfire", R.raw.snd_fire, R.drawable.candle_frame, AppTheme.CANDLE),
-    FOREST("forest", "Night crickets", R.raw.snd_forest, R.drawable.fireflies_frame, AppTheme.FIREFLIES),
-    FROGS("frogs", "Frogs on a summer night", R.raw.snd_frogs, R.drawable.lavender_frame, AppTheme.FIREFLIES),
-    BIRDS("birds", "Dawn chorus", R.raw.snd_birds, R.drawable.clouds_frame, AppTheme.CLOUDS),
-    BROWN("brown", "Brown noise", R.raw.snd_brown, R.drawable.aurora_frame, AppTheme.SPACE, SoundKind.QUIET),
-    BOWL("bowl", "Singing bowls", R.raw.snd_bowl, R.drawable.zen_frame, AppTheme.ZEN, SoundKind.QUIET),
-    SATIE("satie", "Satie: Gymnopédie No. 1", R.raw.mus_satie, R.drawable.lavender_frame, AppTheme.LAVENDER, SoundKind.MUSIC),
-    BACH("bach", "Bach: Aria from the Goldberg Variations", R.raw.mus_bach, R.drawable.starry_frame, AppTheme.AURORA, SoundKind.MUSIC),
-    NOCTURNE("nocturne", "Chopin: Nocturne Op. 9 No. 2", R.raw.mus_nocturne, R.drawable.starry_frame, AppTheme.STARRY, SoundKind.MUSIC),
-    MOONLIGHT("moonlight", "Beethoven: Moonlight Sonata", R.raw.mus_moonlight, R.drawable.snow_frame, AppTheme.SNOW, SoundKind.MUSIC);
+    RAIN("rain", "Rain on the window", R.raw.snd_rain, R.drawable.rain_night_frame, AppTheme.RAIN_NIGHT, note = "on a roof window in Kraków"),
+    TENT("tent", "Rain on a tent", R.raw.snd_tent, R.drawable.rain_frame, AppTheme.RAIN, note = "a campground in California"),
+    LEAVES("leaves", "Rain on leaves", R.raw.snd_leaves, R.drawable.paint_autumnriver_frame, AppTheme.P_AUTUMN, note = "a valley of fallen leaves, Lithuania"),
+    STORM("storm", "Distant storm", R.raw.snd_storm, R.drawable.space_frame, AppTheme.RAIN_NIGHT, note = "summer thunder on the Rhine"),
+    WAVES("waves", "Waves on the shore", R.raw.snd_waves, R.drawable.paint_bigsur_frame, AppTheme.P_BIGSUR, note = "the Baltic at Rewal"),
+    STREAM("stream", "Mountain stream", R.raw.snd_stream, R.drawable.water_frame, AppTheme.WATER, note = "near Talasnal, Portugal"),
+    FALLS("falls", "Waterfall", R.raw.snd_falls, R.drawable.paint_maroon_frame, AppTheme.P_MAROON, note = "Bull Creek, Texas"),
+    WIND("wind", "Wind in the trees", R.raw.snd_wind, R.drawable.paint_plains_frame, AppTheme.P_PLAINS, note = "dry oak leaves, Yorkshire"),
+    FIRE("fire", "Campfire", R.raw.snd_fire, R.drawable.candle_frame, AppTheme.CANDLE, note = "at dusk, British Columbia"),
+    FOREST("forest", "Night crickets", R.raw.snd_forest, R.drawable.fireflies_frame, AppTheme.FIREFLIES, note = "a summer night in Provence"),
+    FROGS("frogs", "Frogs on a summer night", R.raw.snd_frogs, R.drawable.paint_lakedusk_frame, AppTheme.P_LAKEDUSK, note = "a lake in Lithuania"),
+    BIRDS("birds", "Dawn chorus", R.raw.snd_birds, R.drawable.paint_tetons_frame, AppTheme.P_TETONS, note = "a forest in North Carolina"),
+    BROWN("brown", "Brown noise", R.raw.snd_brown, R.drawable.aurora_frame, AppTheme.SPACE, SoundKind.QUIET, "deep and even, for focus or sleep"),
+    BOWL("bowl", "Singing bowls", R.raw.snd_bowl, R.drawable.zen_frame, AppTheme.ZEN, SoundKind.QUIET, "slow rings that fade away"),
+    SATIE("satie", "Satie: Gymnopédie No. 1", R.raw.mus_satie, R.drawable.lavender_frame, AppTheme.LAVENDER, SoundKind.MUSIC, "Gregor Horvath, piano"),
+    BACH("bach", "Bach: Aria from the Goldberg Variations", R.raw.mus_bach, R.drawable.starry_frame, AppTheme.AURORA, SoundKind.MUSIC, "Kimiko Ishizaka, piano"),
+    NOCTURNE("nocturne", "Chopin: Nocturne Op. 9 No. 2", R.raw.mus_nocturne, R.drawable.starry_frame, AppTheme.STARRY, SoundKind.MUSIC, "Aaron Dunn, piano"),
+    MOONLIGHT("moonlight", "Beethoven: Moonlight Sonata", R.raw.mus_moonlight, R.drawable.snow_frame, AppTheme.SNOW, SoundKind.MUSIC, "Paul Pitman, piano");
 
     val music: Boolean get() = kind == SoundKind.MUSIC
 
     companion object {
         fun fromKey(key: String?): Soundscape? = entries.firstOrNull { it.key == key }
     }
+}
+
+/** A ready-made mix with a name: tap it and it plays. */
+data class SoundScene(val name: String, val layers: List<SoundLayer>)
+
+object SoundScenes {
+    private fun scene(name: String, vararg l: Pair<Soundscape, Float>) = SoundScene(name, l.map { SoundLayer(it.first, it.second) })
+
+    val all = listOf(
+        scene("Rain on a cabin", Soundscape.TENT to 0.9f, Soundscape.FIRE to 0.4f),
+        scene("Night by the sea", Soundscape.WAVES to 0.9f, Soundscape.FOREST to 0.3f),
+        scene("Forest at dawn", Soundscape.BIRDS to 0.8f, Soundscape.STREAM to 0.35f, Soundscape.WIND to 0.2f),
+        scene("Fireside", Soundscape.FIRE to 0.9f, Soundscape.RAIN to 0.3f),
+        scene("Autumn walk", Soundscape.LEAVES to 0.85f, Soundscape.WIND to 0.3f),
+        scene("By the falls", Soundscape.FALLS to 0.7f, Soundscape.BIRDS to 0.35f),
+        scene("Summer night", Soundscape.FROGS to 0.55f, Soundscape.FOREST to 0.7f),
+        scene("Storm far away", Soundscape.STORM to 0.85f, Soundscape.RAIN to 0.4f),
+        scene("Deep focus", Soundscape.BROWN to 0.7f, Soundscape.RAIN to 0.3f),
+    )
+
+    /** The scene this mix is, if it's one of them (the same sounds, whatever the volumes). */
+    fun matching(layers: List<SoundLayer>): SoundScene? =
+        all.firstOrNull { sc -> sc.layers.map { it.sound }.toSet() == layers.map { it.sound }.toSet() }
 }
 
 /** One sound in a mix, with its own volume (0–1) under the overall volume. */
@@ -178,7 +205,7 @@ object SoundPlayer {
 
 /**
  * Plays a mix of up to three looping sounds in the foreground (so it keeps going with the screen off), each
- * with its own volume, starting with a short fade-in, with a sleep timer that fades out over the last minute,
+ * with its own volume, starting with a short fade-in, with a sleep timer that fades out over the last three minutes,
  * and a notification to pause, stop or add time.
  */
 class SoundService : Service() {
@@ -475,7 +502,7 @@ class SoundService : Service() {
         const val EXTRA_BREATHE = "breathe"
         private const val CHANNEL_ID = "sounds"
         private const val NOTIFICATION_ID = 4207
-        private const val FADE_MS = 60_000L
+        private const val FADE_MS = 180_000L
         private const val FADE_IN_MS = 2_500L
         private val ATTRIBUTES: AudioAttributes = AudioAttributes.Builder()
             .setUsage(AudioAttributes.USAGE_MEDIA)

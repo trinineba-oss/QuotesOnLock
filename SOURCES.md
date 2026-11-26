@@ -368,13 +368,15 @@ The "Inside the temple" theme, shown behind the singing bowls in Solace, was dra
 
 ### Calming sounds
 
-The nature sounds are field recordings in the public domain (Creative Commons Public Domain Mark) from radio aporee (Internet Archive), each made into a seamless stereo loop of two to four minutes (the end crossfaded into the start), levelled to an even loudness and re-encoded for the app:
+The nature sounds are field recordings in the public domain (Creative Commons Public Domain Mark) from radio aporee (Internet Archive), each made from the original full-quality file into a seamless 48 kHz stereo loop of up to five and a half minutes (the end crossfaded into the start over eight seconds), levelled to an even loudness and encoded as Ogg Vorbis:
 
 - Rain on the window: rain drops on a roof window, Kraków, Poland (`aporee_51783_60423`).
 - Rain on a tent: Ackerman Campground, California (`aporee_70996_82798`).
+- Rain on leaves: rain in a valley full of fallen leaves, Sirutėnai, Lithuania (`aporee_66409_76780`).
 - Distant storm: a summer thunderstorm, Andernach, Germany (`aporee_72422_84570`), softened with a gentle low-pass filter and compression.
 - Waves on the shore: sea waves at Rewal, Poland (`aporee_64598_74549`).
 - Mountain stream: a stream near Talasnal, Lousã, Portugal (`aporee_73898_86428`).
+- Waterfall: Lower Bull Creek waterfall, Austin, Texas (`aporee_45481_51637`).
 - Wind in the trees: strong wind in dry oak leaves, Ackworth, West Yorkshire (`aporee_26999_31125`).
 - Campfire: a campfire at dusk, Rolley Lake, British Columbia (`aporee_51228_58465`).
 - Night crickets: Moulin de Cost, Buis-les-Baronnies, France (`aporee_70552_82256`).

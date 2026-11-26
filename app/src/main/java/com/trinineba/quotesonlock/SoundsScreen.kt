@@ -82,10 +82,29 @@ fun SoundsScreen(prefs: QuotePrefs, onBack: () -> Unit) {
     ToolScreen("Sounds", onBack) {
         item(key = "s-intro") {
             Text(
-                "Tap a sound to play it; tap others to layer up to three. Each has its own volume.",
+                "Play a scene, or tap sounds to make your own mix of up to three.",
                 style = MaterialTheme.typography.bodyMedium,
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
             )
+        }
+        item(key = "s-scenes") {
+            val current = SoundScenes.matching(mix)
+            Column {
+                Text("Scenes", style = MaterialTheme.typography.labelLarge, color = MaterialTheme.colorScheme.primary)
+                FlowRow(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                    SoundScenes.all.forEach { sc ->
+                        val on = current == sc
+                        FilterChip(
+                            selected = on,
+                            onClick = { if (on && state.playing) SoundPlayer.stop(context) else SoundPlayer.playMix(context, sc.layers) },
+                            label = { Text(sc.name) },
+                            leadingIcon = if (on && state.playing) {
+                                { Icon(painterResource(R.drawable.ic_pause), contentDescription = null, modifier = Modifier.size(16.dp)) }
+                            } else null,
+                        )
+                    }
+                }
+            }
         }
         if (mix.isNotEmpty()) item(key = "s-mix") {
             SoftCard(Modifier.fillMaxWidth()) {
@@ -102,7 +121,7 @@ fun SoundsScreen(prefs: QuotePrefs, onBack: () -> Unit) {
                             )
                         }
                         Column(Modifier.weight(1f).padding(start = 14.dp)) {
-                            Text(if (mix.size == 1) "Playing" else "Your mix", style = MaterialTheme.typography.titleSmall, fontWeight = FontWeight.SemiBold)
+                            Text(SoundScenes.matching(mix)?.name ?: if (mix.size == 1) "Playing" else "Your mix", style = MaterialTheme.typography.titleSmall, fontWeight = FontWeight.SemiBold)
                             Text(
                                 listOfNotNull(
                                     if (state.playing) null else "Paused",
@@ -212,7 +231,7 @@ fun SoundsScreen(prefs: QuotePrefs, onBack: () -> Unit) {
                         }
                     }
                     Text(
-                        if (timer > 0) "Fades out slowly over the last minute." else "Plays until you stop it.",
+                        if (timer > 0) "Fades out slowly over the last three minutes." else "Plays until you stop it.",
                         style = MaterialTheme.typography.bodySmall,
                         color = MaterialTheme.colorScheme.onSurfaceVariant,
                     )
@@ -256,13 +275,13 @@ private fun SoundCard(sound: Soundscape, chosen: Boolean, playing: Boolean, modi
     val shape = RoundedCornerShape(16.dp)
     Box(
         modifier
-            .height(104.dp)
+            .height(118.dp)
             .clip(shape)
             .then(if (chosen) Modifier.border(3.dp, MaterialTheme.colorScheme.primary, shape) else Modifier)
             .clickable(onClickLabel = if (playing) "Pause ${sound.label}" else "Play ${sound.label}", onClick = onClick),
     ) {
         Image(painterResource(sound.art), contentDescription = null, contentScale = ContentScale.Crop, modifier = Modifier.fillMaxSize())
-        Box(Modifier.fillMaxSize().background(Brush.verticalGradient(0.3f to Color.Transparent, 1f to Color.Black.copy(alpha = 0.65f))))
+        Box(Modifier.fillMaxSize().background(Brush.verticalGradient(0.2f to Color.Transparent, 1f to Color.Black.copy(alpha = 0.75f))))
         Box(
             Modifier.align(Alignment.TopEnd).padding(8.dp).size(32.dp).clip(CircleShape)
                 .background(if (playing) MaterialTheme.colorScheme.primary else Color.Black.copy(alpha = 0.45f)),
@@ -275,12 +294,22 @@ private fun SoundCard(sound: Soundscape, chosen: Boolean, playing: Boolean, modi
                 modifier = Modifier.size(20.dp),
             )
         }
-        Text(
-            sound.label,
-            style = MaterialTheme.typography.labelLarge,
-            color = Color.White,
-            fontWeight = FontWeight.SemiBold,
-            modifier = Modifier.align(Alignment.BottomStart).padding(10.dp),
-        )
+        Column(Modifier.align(Alignment.BottomStart).padding(10.dp)) {
+            Text(
+                sound.label,
+                style = MaterialTheme.typography.titleMedium,
+                fontFamily = BookSerif,
+                color = Color.White,
+                fontWeight = FontWeight.SemiBold,
+                maxLines = 2,
+            )
+            if (sound.note.isNotEmpty()) Text(
+                sound.note,
+                style = MaterialTheme.typography.labelSmall,
+                color = Color.White.copy(alpha = 0.8f),
+                maxLines = 1,
+                overflow = androidx.compose.ui.text.style.TextOverflow.Ellipsis,
+            )
+        }
     }
 }

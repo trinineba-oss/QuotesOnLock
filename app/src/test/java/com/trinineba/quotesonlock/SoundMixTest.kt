@@ -21,4 +21,14 @@ class SoundMixTest {
         Soundscape.entries.forEach { assertTrue("${it.key} has no scene", it.scene != AppTheme.CLASSIC) }
         assertEquals(Soundscape.entries.size, Soundscape.entries.map { it.key }.toSet().size)
     }
+
+    @Test
+    fun scenesAreSmallDistinctMixes() {
+        assertTrue(SoundScenes.all.size >= 4)
+        SoundScenes.all.forEach { sc ->
+            assertTrue("${sc.name} is empty or too big", sc.layers.size in 1..SoundMix.MAX_LAYERS)
+            assertEquals(sc, SoundScenes.matching(SoundMix.decode(SoundMix.encode(sc.layers))))
+        }
+        assertEquals(SoundScenes.all.size, SoundScenes.all.map { it.name }.toSet().size)
+    }
 }
