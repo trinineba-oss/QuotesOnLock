@@ -395,7 +395,7 @@ internal fun JourneyCard(title: String, subtitle: String, tint: Color, modifier:
                 .padding(16.dp),
         ) {
             Column(verticalArrangement = Arrangement.spacedBy(4.dp)) {
-                Text(title, style = MaterialTheme.typography.titleMedium, fontFamily = androidx.compose.ui.text.font.BookSerif, fontWeight = androidx.compose.ui.text.font.FontWeight.SemiBold)
+                Text(title, style = MaterialTheme.typography.titleMedium, fontFamily = BookSerif, fontWeight = androidx.compose.ui.text.font.FontWeight.SemiBold)
                 Text(subtitle, style = MaterialTheme.typography.bodySmall)
             }
         }
