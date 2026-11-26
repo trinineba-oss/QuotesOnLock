@@ -8,6 +8,8 @@ import android.content.Context
 import android.widget.Toast
 import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.layout.WindowInsets
+import androidx.compose.foundation.layout.navigationBars
 import androidx.compose.foundation.selection.selectable
 import androidx.compose.foundation.selection.selectableGroup
 import androidx.compose.ui.draw.shadow
@@ -443,7 +445,7 @@ internal fun FloatingTabBar(items: List<TabItem>, selected: Int, onSelect: (Int)
     val shape = RoundedCornerShape(26.dp)
     Box(
         Modifier.fillMaxWidth()
-            .windowInsetsPadding(androidx.compose.foundation.layout.WindowInsets.navigationBars)
+            .windowInsetsPadding(WindowInsets.navigationBars)
             .padding(start = 14.dp, end = 14.dp, bottom = 10.dp, top = 4.dp),
     ) {
         Row(
