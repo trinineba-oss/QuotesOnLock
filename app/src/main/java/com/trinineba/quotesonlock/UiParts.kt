@@ -8,6 +8,11 @@ import android.content.Context
 import android.widget.Toast
 import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.selection.selectable
+import androidx.compose.foundation.selection.selectableGroup
+import androidx.compose.ui.draw.shadow
+import androidx.compose.foundation.layout.windowInsetsPadding
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.width
@@ -145,9 +150,10 @@ internal fun QuoteAction(
     Column(horizontalAlignment = Alignment.CenterHorizontally) {
         Box(
             modifier = Modifier
-                .size(46.dp)
+                .size(48.dp)
                 .clip(CircleShape)
-                .background(MaterialTheme.colorScheme.primary.copy(alpha = 0.12f))
+                .background(MaterialTheme.colorScheme.onSurface.copy(alpha = 0.07f))
+                .border(1.dp, MaterialTheme.colorScheme.onSurface.copy(alpha = 0.12f), CircleShape)
                 .clickable(enabled = enabled, onClickLabel = label, onClick = onClick),
             contentAlignment = Alignment.Center,
         ) { Icon(painterResource(icon), contentDescription = label, tint = color, modifier = Modifier.size(22.dp)) }
@@ -422,4 +428,55 @@ internal fun BackArrow(onBack: () -> Unit) {
             .clickable(onClickLabel = "Back", onClick = onBack),
         contentAlignment = Alignment.Center,
     ) { androidx.compose.material3.Icon(painterResource(R.drawable.ic_arrow_back), contentDescription = "Back") }
+}
+
+/** One place on the floating tab bar. */
+internal data class TabItem(@DrawableRes val icon: Int, val label: String)
+
+/**
+ * The tab bar: a rounded, softly translucent bar that floats above the bottom edge, the chosen tab marked
+ * by a pill behind its icon. Each tab is a full-height touch target.
+ */
+@Composable
+internal fun FloatingTabBar(items: List<TabItem>, selected: Int, onSelect: (Int) -> Unit) {
+    val view = androidx.compose.ui.platform.LocalView.current
+    val shape = RoundedCornerShape(26.dp)
+    Box(
+        Modifier.fillMaxWidth()
+            .windowInsetsPadding(androidx.compose.foundation.layout.WindowInsets.navigationBars)
+            .padding(start = 14.dp, end = 14.dp, bottom = 10.dp, top = 4.dp),
+    ) {
+        Row(
+            Modifier.fillMaxWidth().height(66.dp)
+                .shadow(10.dp, shape, ambientColor = Color.Black.copy(alpha = 0.4f), spotColor = Color.Black.copy(alpha = 0.4f))
+                .clip(shape)
+                .background(MaterialTheme.colorScheme.surfaceContainer.copy(alpha = 0.92f))
+                .border(1.dp, MaterialTheme.colorScheme.onSurface.copy(alpha = 0.08f), shape)
+                .selectableGroup(),
+            verticalAlignment = Alignment.CenterVertically,
+        ) {
+            items.forEachIndexed { i, item ->
+                val on = i == selected
+                val color by androidx.compose.animation.animateColorAsState(
+                    if (on) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onSurfaceVariant, label = "tab",
+                )
+                Column(
+                    Modifier.weight(1f).fillMaxHeight()
+                        .selectable(selected = on, role = androidx.compose.ui.semantics.Role.Tab) {
+                            if (!on) view.performHapticFeedback(android.view.HapticFeedbackConstants.CLOCK_TICK)
+                            onSelect(i)
+                        },
+                    horizontalAlignment = Alignment.CenterHorizontally,
+                    verticalArrangement = Arrangement.Center,
+                ) {
+                    Box(
+                        Modifier.clip(RoundedCornerShape(14.dp))
+                            .background(if (on) MaterialTheme.colorScheme.primary.copy(alpha = 0.16f) else Color.Transparent)
+                            .padding(horizontal = 16.dp, vertical = 4.dp),
+                    ) { Icon(painterResource(item.icon), contentDescription = null, tint = color, modifier = Modifier.size(22.dp)) }
+                    Text(item.label, style = MaterialTheme.typography.labelSmall, color = color, modifier = Modifier.padding(top = 3.dp), maxLines = 1)
+                }
+            }
+        }
+    }
 }

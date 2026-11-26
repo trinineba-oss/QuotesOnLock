@@ -171,13 +171,20 @@ fun SosScreen(onBack: () -> Unit, onTool: (String) -> Unit) {
 /** The plain button at the top of Calm. */
 @Composable
 fun SosButton(onClick: () -> Unit) {
-    Column(
-        Modifier.fillMaxWidth().clip(RoundedCornerShape(18.dp))
-            .background(Brush.linearGradient(listOf(Color(0xFF3B5BA8), Color(0xFF5A3F8C))))
-            .clickable(onClickLabel = "Breathe now", onClick = onClick).padding(horizontal = 16.dp, vertical = 14.dp),
+    val shape = RoundedCornerShape(22.dp)
+    Box(
+        Modifier.fillMaxWidth().height(150.dp).clip(shape)
+            .clickable(onClickLabel = "Breathe now", onClick = onClick),
     ) {
-        Text("It's too much right now ›", color = Color.White, fontFamily = BookSerif, fontSize = 19.sp)
-        Text("One tap. Nothing to choose.", color = Color.White.copy(alpha = 0.85f), style = MaterialTheme.typography.bodySmall)
+        androidx.compose.foundation.Image(
+            painterResource(R.drawable.paint_bigsur_frame), contentDescription = null,
+            contentScale = androidx.compose.ui.layout.ContentScale.Crop, modifier = Modifier.fillMaxSize(),
+        )
+        Box(Modifier.fillMaxSize().background(Brush.verticalGradient(0f to Color.Transparent, 1f to Color.Black.copy(alpha = 0.8f))))
+        Column(Modifier.align(Alignment.BottomStart).padding(16.dp)) {
+            Text("It's too much right now", color = Color.White, fontFamily = BookSerif, fontSize = 25.sp, fontWeight = androidx.compose.ui.text.font.FontWeight.Medium)
+            Text("One tap. Breathe with me.", color = Color.White.copy(alpha = 0.88f), style = MaterialTheme.typography.bodySmall)
+        }
     }
 }
 

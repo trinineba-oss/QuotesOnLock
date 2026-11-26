@@ -61,8 +61,6 @@ import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.FilterChip
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.NavigationBar
-import androidx.compose.material3.NavigationBarItem
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Scaffold
@@ -2187,11 +2185,21 @@ private fun QuotesScreen(
 
     fun LazyListScope.toolboxPage() {
         tabHeader("Solace")
+        item(key = "tb-ask") {
+            Text("What would help right now?", style = MaterialTheme.typography.bodyLarge, color = MaterialTheme.colorScheme.onSurfaceVariant)
+        }
         item(key = "tb-sos") { SosButton { tool = "sos" } }
-        item(key = "tb-unstuck") { UnstuckCard { tool = "unstuck" } }
-        item(key = "tb-affirm") { AffirmCard { tool = "affirm" } }
-        item(key = "tb-intro") {
-            Text("Take a moment. What would help right now? Nothing here is saved unless you choose to.", style = MaterialTheme.typography.bodyMedium)
+        item(key = "tb-main-1") {
+            Row(horizontalArrangement = Arrangement.spacedBy(12.dp)) {
+                TileCard(Tile(R.drawable.ic_format_quote, "Words to stand on", "Affirmations to say and keep") { tool = "affirm" }, Modifier.weight(1f))
+                TileCard(Tile(R.drawable.ic_air, "Breathe", "A calm circle, 1–5 min") { tool = "breathe" }, Modifier.weight(1f))
+            }
+        }
+        item(key = "tb-main-2") {
+            Row(horizontalArrangement = Arrangement.spacedBy(12.dp)) {
+                TileCard(Tile(R.drawable.ic_graphic_eq, "Sounds", "Rain, sea, fire, piano") { tool = "sounds" }, Modifier.weight(1f))
+                TileCard(Tile(R.drawable.ic_edit, "Unstuck", "When you can't start") { tool = "unstuck" }, Modifier.weight(1f))
+            }
         }
         item(key = "tb-checkin") {
             CheckInCard(onOpen = { tool = it }, onWords = { browse = listOf(BrowsePage.feeling(it)) })
@@ -2208,12 +2216,6 @@ private fun QuotesScreen(
         }
         item(key = "tb-quick-h") {
             Text("QUICK TOOLS", style = MaterialTheme.typography.labelLarge, color = MaterialTheme.colorScheme.primary)
-        }
-        item(key = "tb-tools-1") {
-            Row(horizontalArrangement = Arrangement.spacedBy(12.dp)) {
-                TileCard(Tile(R.drawable.ic_air, "Breathe", "A calm circle, 1–5 min") { tool = "breathe" }, Modifier.weight(1f))
-                TileCard(Tile(R.drawable.ic_graphic_eq, "Sounds", "Mix rain, fire, waves, piano") { tool = "sounds" }, Modifier.weight(1f))
-            }
         }
         item(key = "tb-tools-2") {
             Row(horizontalArrangement = Arrangement.spacedBy(12.dp)) {
@@ -2407,45 +2409,23 @@ private fun QuotesScreen(
     Scaffold(
         bottomBar = {
             if (page in TABS) {
-                NavigationBar(containerColor = MaterialTheme.colorScheme.surfaceContainer.copy(alpha = 0.94f)) {
+                FloatingTabBar(
                     listOf(
-                        Triple(Page.HOME, R.drawable.ic_today, "Today"),
-                        Triple(Page.DISCOVER, R.drawable.ic_explore, "Discover"),
-                        Triple(Page.YOURS, R.drawable.ic_bookmark, "Yours"),
-                        Triple(Page.TOOLBOX, R.drawable.ic_spa, "Solace"),
-                    ).forEach { (p, icon, label) ->
-                        NavigationBarItem(
-                            selected = page == p,
-                            onClick = { page = p; lastTab = p },
-                            icon = { Icon(painterResource(icon), contentDescription = null) },
-                            label = {
-                                if (p == Page.TOOLBOX) {
-                                    Column(horizontalAlignment = Alignment.CenterHorizontally) {
-                                        Text(label)
-                                        // One line, never wrapped (wrapping left only "when" showing).
-                                        Text(
-                                            "when overwhelmed",
-                                            fontSize = 9.sp,
-                                            lineHeight = 10.sp,
-                                            maxLines = 1,
-                                            softWrap = false,
-                                            overflow = TextOverflow.Visible,
-                                        )
-                                    }
-                                } else {
-                                    Text(label)
-                                }
-                            },
-                        )
-                    }
-                }
+                        TabItem(R.drawable.ic_today, "Today"),
+                        TabItem(R.drawable.ic_explore, "Discover"),
+                        TabItem(R.drawable.ic_bookmark, "Yours"),
+                        TabItem(R.drawable.ic_spa, "Solace"),
+                    ),
+                    selected = listOf(Page.HOME, Page.DISCOVER, Page.YOURS, Page.TOOLBOX).indexOf(page),
+                ) { i -> listOf(Page.HOME, Page.DISCOVER, Page.YOURS, Page.TOOLBOX)[i].let { page = it; lastTab = it } }
             }
         },
     ) { innerPadding ->
         LazyColumn(
             state = listState,
-            modifier = Modifier.fillMaxSize().padding(innerPadding),
-            contentPadding = PaddingValues(16.dp),
+            // The list runs under the floating tab bar and stops just clear of it.
+            modifier = Modifier.fillMaxSize().padding(top = innerPadding.calculateTopPadding()),
+            contentPadding = PaddingValues(start = 16.dp, end = 16.dp, top = 16.dp, bottom = 16.dp + innerPadding.calculateBottomPadding()),
             verticalArrangement = Arrangement.spacedBy(12.dp),
         ) {
             if (page !in TABS) header()
