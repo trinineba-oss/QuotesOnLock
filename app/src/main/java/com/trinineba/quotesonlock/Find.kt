@@ -87,6 +87,10 @@ class FindResults(
     val authors: List<Hit.AuthorHit> = emptyList(),
     val subjects: List<Hit.SubjectHit> = emptyList(),
     val feelings: List<Hit.FeelingHit> = emptyList(),
+    /** Quotes close in meaning to the best matches (from the same index as "More like this"). */
+    val related: List<Quote> = emptyList(),
+    /** The query as it was read, when a misspelt word was corrected ("nietzsche" for "neitzsche"). */
+    val corrected: String? = null,
 ) {
     val total: Int get() = essays.size + letters.size + leonardo.size + plato.size + items.size + things.size + paths.size + quotes.size + authors.size + subjects.size + feelings.size
 }
@@ -122,57 +126,111 @@ object Find {
         return (if (a > 0) "…" else "") + text.substring(a, b).trim() + if (b < text.length) "…" else ""
     }
 
+    // The words the app knows, for correcting typos, and each quote's text ready to match; built once.
+    @Volatile private var vocab: Smart.Vocabulary? = null
+    @Volatile private var prepared: List<String>? = null
+    @Volatile private var preparedFor: List<Quote>? = null
+
+    private fun prepare(bundled: List<Quote>) {
+        if (preparedFor === bundled && vocab != null && prepared != null) return
+        vocab = Smart.Vocabulary(bundled.asSequence().flatMap { sequenceOf(it.text, it.author.orEmpty(), it.title.orEmpty()) })
+        prepared = bundled.map { Smart.normalise(it.text + " — " + it.author.orEmpty() + " " + it.title.orEmpty() + " " + it.brief.orEmpty()) }
+        preparedFor = bundled
+    }
+
+    /** The feeling a query word points to, if any. */
+    private fun feelingFor(word: String): Feeling? {
+        val w = Smart.stem(word)
+        return when {
+            listOf("anxi", "worr", "fear", "afraid", "panic", "nerv").any { w.startsWith(it) } -> Feeling.ANXIOUS
+            listOf("sad", "sorrow", "depress", "unhapp", "down", "blue").any { w.startsWith(it) } -> Feeling.SAD
+            listOf("grie", "mourn", "loss", "bereave").any { w.startsWith(it) } -> Feeling.GRIEVING
+            listOf("lone", "alone", "isolat").any { w.startsWith(it) } -> Feeling.LONELY
+            listOf("overwhelm", "stress", "burnout", "busy").any { w.startsWith(it) } -> Feeling.OVERWHELMED
+            listOf("anger", "angr", "rage", "furious", "mad").any { w.startsWith(it) } -> Feeling.ANGRY
+            listOf("numb", "empty", "hollow").any { w.startsWith(it) } -> Feeling.NUMB
+            listOf("sleep", "insomnia", "awake", "restless").any { w.startsWith(it) } -> Feeling.SLEEP
+            else -> null
+        }
+    }
+
     fun search(context: Context, bundled: List<Quote>, query: String): FindResults {
-        val q = query.trim()
-        if (q.length < 2) return FindResults()
-        fun has(s: String?) = s?.contains(q, ignoreCase = true) == true
+        if (query.trim().length < 2) return FindResults()
+        prepare(bundled)
+        val sq = Smart.parse(query, vocab)
+        if (sq.isEmpty) return FindResults()
+        fun sc(vararg parts: String?) = Smart.score(parts.filterNotNull().joinToString(" · "), sq)
+        /** The best-matching paragraph of [paras], with its score. */
+        fun bestOf(paras: List<String>): Pair<String, Float>? = paras.map { it to Smart.score(it, sq) }.filter { it.second > 0f }.maxByOrNull { it.second }
+
         val essays = runCatching { Essays.all(context) }.getOrDefault(emptyList()).mapNotNull { e ->
-            val paraHit = e.parts.firstNotNullOfOrNull { p -> (p as? EssayPart.Para)?.text?.let { snippet(it, q) } }
-            when {
-                has(e.title) || has(e.voices) -> Hit.EssayHit(e, e.voices)
-                paraHit != null -> Hit.EssayHit(e, paraHit)
-                e.parts.any { (it as? EssayPart.Line)?.text?.let(::has) == true || (it as? EssayPart.Idea)?.title?.let(::has) == true } -> Hit.EssayHit(e, "Quotes a line that mentions “$q”")
-                else -> null
-            }
-        }
+            val head = sc(e.title, e.voices) * 1.5f
+            val para = bestOf(e.parts.mapNotNull { (it as? EssayPart.Para)?.text })
+            val line = e.parts.maxOfOrNull { p -> (p as? EssayPart.Line)?.text?.let { Smart.score(it, sq) } ?: (p as? EssayPart.Idea)?.title?.let { Smart.score(it, sq) } ?: 0f } ?: 0f
+            val best = maxOf(head, para?.second ?: 0f, line * 0.8f)
+            if (best <= 0f) null else best to Hit.EssayHit(
+                e,
+                when {
+                    head > 0f -> e.voices
+                    para != null -> Smart.snippet(para.first, sq) ?: e.voices
+                    else -> "Quotes a line about " + sq.terms.joinToString(" and ") { it.word }
+                },
+            )
+        }.sortedByDescending { it.first }.map { it.second }
         val letters = runCatching { Letters.groups(context) }.getOrDefault(emptyList()).flatMap { it.letters }.mapNotNull { l ->
-            when {
-                has(l.title) || has(l.note) -> Hit.LetterHit(l, l.note)
-                else -> l.paras.firstNotNullOfOrNull { snippet(it, q) }?.let { Hit.LetterHit(l, it) }
-            }
-        }
+            val head = sc(l.title, l.note) * 1.5f
+            val para = bestOf(l.paras)
+            val best = maxOf(head, para?.second ?: 0f)
+            if (best <= 0f) null else best to Hit.LetterHit(l, if (head > 0f) l.note else para?.first?.let { Smart.snippet(it, sq) })
+        }.sortedByDescending { it.first }.map { it.second }
         val leonardo = runCatching { Leonardo.book(context).all }.getOrDefault(emptyList()).mapNotNull { h ->
-            when {
-                has(h.title) || has(h.note) -> Hit.LeoHit(h, h.paras.firstOrNull { !Leonardo.isHeading(it) })
-                else -> h.paras.firstNotNullOfOrNull { snippet(it, q) }?.let { Hit.LeoHit(h, it) }
-            }
-        }
-        val plato = runCatching { Plato.dialogues(context).flatMap { it.scenes } }.getOrDefault(emptyList()).mapNotNull { s ->
-            when {
-                has(s.title) || has(s.note) || has(s.dialogue) -> Hit.PlatoHit(s, s.note)
-                else -> s.paras.firstNotNullOfOrNull { snippet(it, q) }?.let { Hit.PlatoHit(s, it) }
-            }
-        }
-        val items = bundled.filter { it.isIdea && (has(it.title) || has(it.text) || has(it.brief) || has(it.author)) }
-            .sortedByDescending { has(it.title) }
-            .map { Hit.ItemHit(it) }
+            val head = sc(h.title, h.note) * 1.5f
+            val para = bestOf(h.paras)
+            val best = maxOf(head, para?.second ?: 0f)
+            if (best <= 0f) null else best to Hit.LeoHit(h, if (head > 0f) h.paras.firstOrNull { !Leonardo.isHeading(it) } else para?.first?.let { Smart.snippet(it, sq) })
+        }.sortedByDescending { it.first }.map { it.second }
+        val plato = runCatching { Plato.dialogues(context).flatMap { it.scenes } }.getOrDefault(emptyList()).mapNotNull { sc0 ->
+            val head = sc(sc0.title, sc0.note, sc0.dialogue) * 1.5f
+            val para = bestOf(sc0.paras)
+            val best = maxOf(head, para?.second ?: 0f)
+            if (best <= 0f) null else best to Hit.PlatoHit(sc0, if (head > 0f) sc0.note else para?.first?.let { Smart.snippet(it, sq) })
+        }.sortedByDescending { it.first }.map { it.second }
+        val norm = prepared!!
+        // Each quote's score, once: great ideas and quotes are both drawn from it.
+        val scores = FloatArray(bundled.size) { i -> Smart.scoreNormalised(norm[i], sq) }
+        val items = bundled.indices.filter { bundled[it].isIdea && scores[it] > 0f }
+            .sortedByDescending { scores[it] + if (Smart.score(bundled[it].title, sq) > 0f) 5f else 0f }
+            .map { Hit.ItemHit(bundled[it]) }
         val things = runCatching { Things.sections(context) }.getOrDefault(emptyList()).flatMap { s ->
-            s.things.filter { has(it.label) || has(it.ref) }.map { Hit.ThingHit(it, s.title) }
+            s.things.map { it to sc(it.label, it.ref) }.filter { it.second > 0f }.sortedByDescending { it.second }.map { Hit.ThingHit(it.first, s.title) }
         }
-        val paths = runCatching { ReadingPaths.all(context) }.getOrDefault(emptyList()).filter { p ->
-            has(p.title) || has(p.subtitle) || p.steps.any { has(it.label) || has(it.note) }
-        }.map { Hit.PathHit(it) }
-        val subject = subjectFor(q)
-        val direct = bundled.filter { !it.isIdea && (has(it.text) || has(it.author)) }
-        val bySubject = if (subject == null) emptyList() else bundled.filter { !it.isIdea && subject.key in it.subjects && !has(it.text) && !has(it.author) }
-        val quotes = direct.map { Hit.QuoteHit(it, null) } + bySubject.map { Hit.QuoteHit(it, subject) }
-        val authors = bundled.mapNotNull { authorName(it.author) }.filter { has(it) }.groupingBy { it }.eachCount()
+        val paths = runCatching { ReadingPaths.all(context) }.getOrDefault(emptyList())
+            .map { p -> p to maxOf(sc(p.title, p.subtitle) * 1.5f, p.steps.maxOfOrNull { sc(it.label, it.note) } ?: 0f) }
+            .filter { it.second > 0f }.sortedByDescending { it.second }.map { Hit.PathHit(it.first) }
+        val subject = sq.terms.firstNotNullOfOrNull { subjectFor(it.word) } ?: subjectFor(sq.phrase)
+        val direct = bundled.indices.filter { !bundled[it].isIdea && scores[it] > 0f }
+            .sortedByDescending { i ->
+                val q = bundled[i]
+                scores[i] + (if (subject != null && subject.key in q.subjects) 1.5f else 0f) +
+                    (if (Smart.score(q.author, sq) > 0f) 2f else 0f) + (if (q.text.length < 220) 0.3f else 0f)
+            }
+        val directSet = direct.toHashSet()
+        val bySubject = if (subject == null) emptyList() else bundled.indices.filter { !bundled[it].isIdea && it !in directSet && subject.key in bundled[it].subjects }
+        val quotes = direct.map { Hit.QuoteHit(bundled[it], null) } + bySubject.map { Hit.QuoteHit(bundled[it], subject) }
+        val authors = bundled.mapNotNull { authorName(it.author) }.groupingBy { it }.eachCount()
+            .filter { Smart.direct(it.key, sq) }
             .map { Hit.AuthorHit(it.key, it.value) }.sortedByDescending { it.count }
-        val subjects = Subject.entries.filter { has(it.label) || it == subject }
+        val subjects = Subject.entries.filter { Smart.direct(it.label, sq) || it == subject }
             .map { s -> Hit.SubjectHit(s, bundled.count { s.key in it.subjects }) }
-        val feelings = Feeling.entries.filter { has(it.label) || (subject == Subject.SUFFERING && it == Feeling.GRIEVING && q.equals("grief", true)) }
-            .map { Hit.FeelingHit(it) }
-        return FindResults(essays, letters, leonardo, plato, items, things, paths, quotes, authors, subjects, feelings)
+        val feelings = (Feeling.entries.filter { Smart.direct(it.label, sq) } + sq.terms.mapNotNull { feelingFor(it.word) })
+            .distinct().map { Hit.FeelingHit(it) }
+        // Close in meaning: what the best few matches sit near, that the words alone didn't find.
+        val shownKeys = quotes.take(60).map { it.quote.text }.toHashSet()
+        val related = runCatching {
+            quotes.take(4).flatMap { h -> MoreLikeThis.of(context, h.quote) }
+                .filter { it.text !in shownKeys && !it.isIdea }.distinctBy { it.text }.take(8)
+        }.getOrDefault(emptyList())
+        return FindResults(essays, letters, leonardo, plato, items, things, paths, quotes, authors, subjects, feelings, related, sq.corrected)
     }
 }
 
@@ -306,7 +364,7 @@ private fun LazyListScope.findSuggestions(onPick: (String) -> Unit, onOpenPage: 
 
 private fun LazyListScope.findResults(
     r: FindResults,
-    q: String,
+    typed: String,
     kind: FindKind,
     onKind: (FindKind) -> Unit,
     selected: String?,
@@ -322,6 +380,17 @@ private fun LazyListScope.findResults(
         FindKind.ALL to r.total, FindKind.QUOTES to r.quotes.size, FindKind.ESSAYS to r.essays.size, FindKind.LETTERS to r.letters.size, FindKind.LEONARDO to r.leonardo.size, FindKind.PLATO to r.plato.size,
         FindKind.IDEAS to r.items.size, FindKind.THINGS to r.things.size, FindKind.PATHS to r.paths.size, FindKind.AUTHORS to r.authors.size,
     ).filter { it.second > 0 || it.first == FindKind.ALL }
+    // Highlight what the search actually looked for (the corrected spelling, if any).
+    val q = r.corrected ?: typed
+    r.corrected?.let { c ->
+        item(key = "f-corrected") {
+            Text(
+                "Showing results for “$c”",
+                style = MaterialTheme.typography.bodyMedium,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+            )
+        }
+    }
     item(key = "f-chips") {
         Row(Modifier.horizontalScroll(rememberScrollState()), horizontalArrangement = Arrangement.spacedBy(6.dp)) {
             counts.forEach { (k, n) -> FindChip("${k.label} ${"%,d".format(n)}", k == kind) { onKind(k) } }
@@ -330,7 +399,7 @@ private fun LazyListScope.findResults(
     if (r.total == 0) {
         item(key = "f-none") {
             Text(
-                "Nothing found for “$q”. Try a single word, an author's surname, or a subject such as love or time.",
+                "Nothing found for “$typed”. Try fewer words, an author's surname, or a subject such as love or time.",
                 style = MaterialTheme.typography.bodyMedium,
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
             )
@@ -371,6 +440,10 @@ private fun LazyListScope.findResults(
         section(FindKind.QUOTES, "Quotes", r.quotes.size, 4)
         items(cap(r.quotes, 4).let { if (all) it else it.take(300) }) { h ->
             FindQuote(h.quote, h.viaSubject, q) { onQuote(h.quote) }
+        }
+        if (all && r.related.isNotEmpty()) {
+            item(key = "f-h-related") { FindLabel("CLOSE IN MEANING") }
+            items(r.related.take(6), key = { "rel-" + it.text.hashCode() }) { rq -> FindQuote(rq, null, "") { onQuote(rq) } }
         }
         if (!all && r.quotes.size > 300) item(key = "f-q-more") {
             FindRow("Show all ${"%,d".format(r.quotes.size)} in the quote browser", "With favourites, copying and the lock screen") { onOpenPage(BrowsePage.SEARCH + q) }
@@ -445,14 +518,23 @@ private fun FindRow(title: String, subtitle: String, onClick: () -> Unit) {
     }
 }
 
-/** The text with every place [q] appears in gold. */
+/** The text with every place the query's words appear in gold. */
 private fun marked(text: String, q: String) = androidx.compose.ui.text.buildAnnotatedString {
     append(text)
     if (q.isNotBlank()) {
-        var i = text.indexOf(q, ignoreCase = true)
-        while (i >= 0) {
-            addStyle(androidx.compose.ui.text.SpanStyle(color = Gold), i, i + q.length)
-            i = text.indexOf(q, i + q.length, ignoreCase = true)
+        val lower = text.lowercase()
+        val taken = BooleanArray(text.length)
+        for (h in Smart.parse(q).highlights) {
+            var i = lower.indexOf(h)
+            while (i >= 0) {
+                // only where it counts as the word, carried to the word's end ("forgiv" lights all of "forgiveness")
+                val end = Smart.wordEnd(lower, i, h)
+                if (end >= 0 && (i until i + h.length).none { taken[it] }) {
+                    addStyle(androidx.compose.ui.text.SpanStyle(color = Gold), i, end)
+                    for (k in i until end) taken[k] = true
+                }
+                i = lower.indexOf(h, i + h.length)
+            }
         }
     }
 }
@@ -481,7 +563,7 @@ private fun FindQuote(quote: Quote, via: Subject?, q: String, onClick: () -> Uni
         verticalArrangement = Arrangement.spacedBy(4.dp),
     ) {
         val text = quote.shownText.replace("\\n", " ").replace('\n', ' ')
-        val shown = if (text.length > 260) (Find.snippet(text, q, 240) ?: text.take(240) + "…") else text
+        val shown = if (text.length > 260) (Smart.snippet(text, Smart.parse(q), 240) ?: text.take(240) + "…") else text
         Text(marked(shown, q), fontFamily = BookSerif, fontStyle = FontStyle.Italic, fontSize = 15.sp, lineHeight = 21.sp)
         Text(
             (quote.byline ?: "") + (via?.let { " · matches the subject ${it.label.lowercase()}" } ?: ""),

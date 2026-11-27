@@ -156,9 +156,10 @@ fun QuoteBrowser(
         when {
             q.isEmpty() && searching -> emptyList()
             q.isEmpty() -> inBook
-            else -> inBook.filter {
-                it.text.contains(q, ignoreCase = true) || it.author?.contains(q, ignoreCase = true) == true ||
-                    it.title?.contains(q, ignoreCase = true) == true
+            // The same smart matching as Search: words in any order, word forms, best matches first.
+            else -> Smart.parse(q).let { sq ->
+                inBook.map { it to Smart.score(it.text + " — " + it.author.orEmpty() + " " + it.title.orEmpty(), sq) }
+                    .filter { it.second > 0f }.sortedByDescending { it.second }.map { it.first }
             }
         }
     }
