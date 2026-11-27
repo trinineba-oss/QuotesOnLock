@@ -198,6 +198,17 @@ internal fun TileCard(tile: Tile, modifier: Modifier, wide: Boolean = false) {
     }
 }
 
+/** A small tile: a title and an optional short line, in the same card style as everything else. */
+@Composable
+internal fun MiniTile(title: String, subtitle: String?, modifier: Modifier, onClick: () -> Unit) {
+    SoftCard(onClick = onClick, modifier = modifier.heightIn(min = 72.dp)) {
+        Column(Modifier.padding(12.dp)) {
+            Text(title, style = MaterialTheme.typography.titleSmall, fontWeight = FontWeight.SemiBold, maxLines = 2)
+            if (subtitle != null) Text(subtitle, style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant, maxLines = 1)
+        }
+    }
+}
+
 @Composable
 internal fun SettingsCard(title: String, content: @Composable ColumnScope.() -> Unit) {
     SoftCard(Modifier.fillMaxWidth()) {

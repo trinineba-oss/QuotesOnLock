@@ -222,7 +222,9 @@ fun MoreLikeThisAction(quote: Quote?, onFavoritesChanged: () -> Unit = {}) {
     val context = LocalContext.current
     var open by remember { mutableStateOf(false) }
     val available = remember(quote?.text) { quote != null && MoreLikeThis.has(context, quote) }
-    QuoteAction(R.drawable.ic_hub, "More like this", enabled = available) { open = true }
+    // Hidden, rather than greyed out, when there is nothing like this quote to show.
+    if (!available) return
+    QuoteAction(R.drawable.ic_hub, "More like this") { open = true }
     if (open && quote != null) MoreLikeThisSheet(quote, { open = false }, onFavoritesChanged)
 }
 

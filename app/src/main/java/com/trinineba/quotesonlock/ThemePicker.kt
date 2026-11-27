@@ -90,14 +90,15 @@ private fun ThemeTile(option: AppTheme?, selected: Boolean, sameAs: AppTheme?, m
             Box(Modifier.fillMaxSize().background(Brush.verticalGradient(listOf(Color(0xFFE8E4F4), Color(0xFFCFD6EE)))))
         }
         if (option == null) Box(Modifier.fillMaxSize().background(Color(0x66000000)))
-        Text(
-            if (option == null) "Same as\nthe app" else "“Know thyself.”",
+        // The picture speaks for itself; only "same as the app" needs words on it.
+        if (option == null) Text(
+            "Same as\nthe app",
             fontFamily = BookSerif, fontSize = 13.sp, lineHeight = 16.sp, textAlign = TextAlign.Center,
-            color = if (option == null) Color.White else if (light) Color(0xFF2E2012) else Color(0xFFF3EAD2),
+            color = Color.White,
             modifier = Modifier.align(Alignment.Center).padding(bottom = 14.dp),
         )
         Text(
-            option?.label ?: (sameAs?.label ?: "Same"),
+            option?.shortLabel ?: (sameAs?.shortLabel ?: "Same"),
             style = MaterialTheme.typography.labelSmall.copy(shadow = null),
             color = if (option != null && light) Color(0xFF2E2012) else Color.White,
             fontWeight = FontWeight.SemiBold, textAlign = TextAlign.Center, maxLines = 1,

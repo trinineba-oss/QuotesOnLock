@@ -12,6 +12,8 @@ import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.lazy.LazyListScope
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -83,6 +85,8 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.SideEffect
+import androidx.compose.ui.draw.blur
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
@@ -216,15 +220,31 @@ private fun QuotesTheme(
     MaterialTheme(colorScheme = colors, typography = shownTheme.typography(appTypography())) {
         CompositionLocalProvider(LocalMotionSpeed provides motionSpeed, LocalCardSoftness provides cardSoftness) {
             Box(Modifier.fillMaxSize()) {
+                // Off Today, the picture steps back (dimmed and softened) so whatever is on top of it reads easily.
+                val recede by Backdrop.recede
+                val pictured = shownTheme != AppTheme.CLASSIC && shownTheme != AppTheme.BLACK
+                val amount by androidx.compose.animation.core.animateFloatAsState(
+                    if (recede && pictured) 1f else 0f, androidx.compose.animation.core.tween(600), label = "recede",
+                )
                 androidx.compose.animation.Crossfade(
                     targetState = shownTheme to shownAnimate,
                     animationSpec = androidx.compose.animation.core.tween(900),
                     label = "background",
+                    modifier = if (amount > 0f) Modifier.blur((8 * amount).dp, androidx.compose.ui.draw.BlurredEdgeTreatment.Rectangle) else Modifier,
                 ) { (t, a) -> ThemedBackground(t, a, auroraIntensity) }
+                if (amount > 0f) {
+                    val light = ThemeGroups.light(shownTheme)
+                    Box(Modifier.fillMaxSize().background((if (light) Color.White else Color.Black).copy(alpha = (if (light) 0.5f else 0.5f) * amount)))
+                }
                 content()
             }
         }
     }
+}
+
+/** Whether the picture behind the app should step back, because a page to read or choose from is on top of it. */
+internal object Backdrop {
+    val recede = mutableStateOf(false)
 }
 
 private val INTERVALS = listOf(
@@ -614,6 +634,10 @@ private fun QuotesScreen(
             onDismiss = { writingAbout = null },
         )
     }
+    // Today keeps the picture full and bright; everywhere else it steps back.
+    val onToday = quotePage == null && !welcome && tool == null && browse.isEmpty() && page == Page.HOME
+    SideEffect { Backdrop.recede.value = !onToday }
+
     quotePage?.let { (q, startTab) ->
         QuotePageSheet(
             quote = q,
@@ -1096,15 +1120,6 @@ private fun QuotesScreen(
                         .size(44.dp)
                         .clip(CircleShape)
                         .background(MaterialTheme.colorScheme.surfaceContainerHighest.copy(alpha = 0.7f))
-                        .clickable(onClickLabel = "Appearance") { lastTab = page; appearanceFromTab = true; page = Page.THEMES },
-                    contentAlignment = Alignment.Center,
-                ) { Icon(painterResource(R.drawable.ic_palette), contentDescription = "Appearance", tint = MaterialTheme.colorScheme.primary) }
-                Spacer(Modifier.width(8.dp))
-                Box(
-                    modifier = Modifier
-                        .size(44.dp)
-                        .clip(CircleShape)
-                        .background(MaterialTheme.colorScheme.surfaceContainerHighest.copy(alpha = 0.7f))
                         .clickable(onClickLabel = "Settings") { lastTab = page; appearanceFromTab = false; page = Page.SETTINGS },
                     contentAlignment = Alignment.Center,
                 ) { Icon(painterResource(R.drawable.ic_settings), contentDescription = "Settings", tint = MaterialTheme.colorScheme.primary) }
@@ -1179,7 +1194,7 @@ private fun QuotesScreen(
                             if (poolEmpty) {
                                 "No quotes available. Turn on a quote type in Quotes & authors, or add your own."
                             } else {
-                                "Press \"Next\" to pick a quote."
+                                if (swipeCard) "Swipe the card for a quote." else "Press \"Next\" to pick a quote."
                             }
                         )
                     } else {
@@ -1269,6 +1284,20 @@ private fun QuotesScreen(
                             }
                         }
                     }
+                    // A quiet question to think with, inside the card where it reads easily; writing stays on the phone.
+                    if (reflectOn) quote?.let { q ->
+                        HorizontalDivider(color = MaterialTheme.colorScheme.primary.copy(alpha = 0.2f))
+                        Row(verticalAlignment = Alignment.CenterVertically) {
+                            Text(
+                                Journal.promptFor(q),
+                                style = MaterialTheme.typography.bodyMedium,
+                                fontStyle = androidx.compose.ui.text.font.FontStyle.Italic,
+                                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                                modifier = Modifier.weight(1f),
+                            )
+                            TextButton(onClick = { writingAbout = q }) { Text("Reflect") }
+                        }
+                    }
                 }
             }
         }
@@ -1279,56 +1308,40 @@ private fun QuotesScreen(
             Text(
                 if (swipeCard) "Swipe for the next quote · tap it to open" else "Tap the quote to open it",
                 style = MaterialTheme.typography.labelSmall,
-                color = MaterialTheme.colorScheme.onSurfaceVariant,
-                modifier = Modifier.fillMaxWidth(),
+                color = Color.White.copy(alpha = 0.9f),
+                modifier = Modifier.fillMaxWidth().wrapContentWidth()
+                    .clip(RoundedCornerShape(12.dp)).background(Color.Black.copy(alpha = 0.35f))
+                    .padding(horizontal = 12.dp, vertical = 5.dp),
                 textAlign = androidx.compose.ui.text.style.TextAlign.Center,
             )
         }
         item(key = "home-otd") { OnThisDayCard { LibraryLinks.open.value = "onthisday" } }
         if (prefs.raw.getBoolean("affirm_today", false)) item(key = "home-affirm") { AffirmTodayCard { page = Page.TOOLBOX; tool = "affirm:today" } }
-        if (reflectOn) current?.let { q ->
-            item(key = "home-reflect") {
-                // A quiet question to think with; writing is optional and stays on the phone.
-                Row(
-                    Modifier.fillMaxWidth().padding(horizontal = 6.dp),
-                    verticalAlignment = Alignment.CenterVertically,
-                ) {
-                    Text(
-                        Journal.promptFor(q),
-                        style = MaterialTheme.typography.bodyMedium,
-                        fontStyle = androidx.compose.ui.text.font.FontStyle.Italic,
-                        color = MaterialTheme.colorScheme.onSurfaceVariant,
-                        modifier = Modifier.weight(1f),
-                    )
-                    TextButton(onClick = { writingAbout = q }) { Text("Reflect") }
-                }
-            }
-        }
     }
 
     fun LazyListScope.discoverPage() {
         tabHeader("Discover")
         item(key = "d-search") {
-            val startUsed = remember(page, browse) { prefs.startUsed }
-            Column(verticalArrangement = Arrangement.spacedBy(10.dp)) {
-                SoftCard(Modifier.fillMaxWidth(), onClick = { browse = listOf("find") }) {
-                    Row(Modifier.padding(horizontal = 18.dp, vertical = 14.dp), verticalAlignment = Alignment.CenterVertically) {
-                        Icon(painterResource(R.drawable.ic_search), contentDescription = null, tint = MaterialTheme.colorScheme.onSurfaceVariant)
-                        Text(
-                            "Search everything",
-                            style = MaterialTheme.typography.bodyLarge,
-                            color = MaterialTheme.colorScheme.onSurfaceVariant,
-                            modifier = Modifier.padding(start = 12.dp).weight(1f),
-                        )
-                        if (startUsed) Text(
-                            "Start here ›",
-                            style = MaterialTheme.typography.labelLarge,
-                            color = MaterialTheme.colorScheme.primary,
-                            modifier = Modifier.clip(RoundedCornerShape(12.dp)).clickable(onClickLabel = "Start here") { browse = listOf("start") }.padding(6.dp),
-                        )
-                    }
+            SoftCard(Modifier.fillMaxWidth(), onClick = { browse = listOf("find") }) {
+                Row(Modifier.padding(start = 18.dp, end = 10.dp).heightIn(min = 52.dp), verticalAlignment = Alignment.CenterVertically) {
+                    Icon(painterResource(R.drawable.ic_search), contentDescription = null, tint = MaterialTheme.colorScheme.onSurfaceVariant)
+                    Text(
+                        "Search everything",
+                        style = MaterialTheme.typography.bodyLarge,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                        modifier = Modifier.padding(start = 12.dp).weight(1f),
+                    )
+                    // Not sure where to go? A small way in, kept inside the search bar.
+                    Text(
+                        "Start here",
+                        style = MaterialTheme.typography.labelLarge,
+                        color = MaterialTheme.colorScheme.primary,
+                        modifier = Modifier.clip(RoundedCornerShape(14.dp))
+                            .border(1.dp, MaterialTheme.colorScheme.primary.copy(alpha = 0.45f), RoundedCornerShape(14.dp))
+                            .clickable(onClickLabel = "Start here") { browse = listOf("start") }
+                            .padding(horizontal = 12.dp, vertical = 8.dp),
+                    )
                 }
-                if (!startUsed) StartHereCard { browse = listOf("start") }
             }
         }
         item(key = "d-resume") {
@@ -1355,44 +1368,35 @@ private fun QuotesScreen(
             }
         }
         item(key = "d-read") {
-            val essayCount = remember { runCatching { Essays.all(context).size }.getOrDefault(0) }
-            val roomCount = remember { 3 + runCatching { Books.all(context).size }.getOrDefault(0) }
-            val tiles = listOf(
-                Triple("Library", "Whole books and letters · $roomCount rooms", 0xFF6A4A8C) to "library",
-                Triple("Essays", "$essayCount · one question, many voices", 0xFF5A6B8C) to "essays",
-                Triple("Reading paths", "Guided journeys: the Stoics, wonder, love…", 0xFF2E8B74) to "paths",
-                Triple("Learn", "Two minutes a day: one idea, one question", 0xFF8A6A3A) to "learn",
-            )
             Column(verticalArrangement = Arrangement.spacedBy(10.dp)) {
                 DiscoverLabel("Read")
-                tiles.chunked(2).forEach { row ->
-                    Row(horizontalArrangement = Arrangement.spacedBy(10.dp)) {
-                        row.forEach { (t, route) -> JourneyTile(t.first, t.second, Color(t.third), Modifier.weight(1f)) { browse = listOf(route) } }
-                    }
+                Row(Modifier.height(androidx.compose.foundation.layout.IntrinsicSize.Min), horizontalArrangement = Arrangement.spacedBy(10.dp)) {
+                    TileCard(Tile(R.drawable.ic_menu_book, "Library", "Books & letters") { browse = listOf("library") }, Modifier.weight(1f).fillMaxHeight())
+                    TileCard(Tile(R.drawable.ic_edit_note, "Essays", "Many voices, one question") { browse = listOf("essays") }, Modifier.weight(1f).fillMaxHeight())
+                }
+                Row(Modifier.height(androidx.compose.foundation.layout.IntrinsicSize.Min), horizontalArrangement = Arrangement.spacedBy(10.dp)) {
+                    TileCard(Tile(R.drawable.ic_explore, "Reading paths", "Guided journeys") { browse = listOf("paths") }, Modifier.weight(1f).fillMaxHeight())
+                    TileCard(Tile(R.drawable.ic_today, "Learn", "Two minutes a day") { browse = listOf("learn") }, Modifier.weight(1f).fillMaxHeight())
                 }
             }
         }
         item(key = "d-explore") {
             val groupCounts = remember { repo.bundled().groupingBy { it.category?.group }.eachCount() }
-            Column(verticalArrangement = Arrangement.spacedBy(12.dp)) {
+            val tiles = listOf(
+                Triple("Great ideas", "${groupCounts[QuoteGroup.IDEAS] ?: 0}", BrowsePage.group(QuoteGroup.IDEAS)),
+                Triple("Myths & tales", "${(groupCounts[QuoteGroup.MYTHS] ?: 0) + (groupCounts[QuoteGroup.FOLKLORE] ?: 0)}", "myths"),
+                Triple("How things work", null, "things"),
+                Triple("Curiosity trails", null, "trails"),
+                Triple("Connections", null, "connections"),
+                Triple("Authors", null, BrowsePage.SEARCH),
+            )
+            Column(verticalArrangement = Arrangement.spacedBy(10.dp)) {
                 DiscoverLabel("Explore")
-                Row(horizontalArrangement = Arrangement.spacedBy(12.dp)) {
-                    TileCard(Tile(R.drawable.ic_psychology, "Great ideas", "${groupCounts[QuoteGroup.IDEAS] ?: 0} ideas") { browse = listOf(BrowsePage.group(QuoteGroup.IDEAS)) }, Modifier.weight(1f))
-                    TileCard(Tile(R.drawable.ic_spa, "Myths & folklore", "${(groupCounts[QuoteGroup.MYTHS] ?: 0) + (groupCounts[QuoteGroup.FOLKLORE] ?: 0)} myths, fables and tales") { browse = listOf("myths") }, Modifier.weight(1f))
+                tiles.chunked(3).forEach { row ->
+                    Row(Modifier.height(androidx.compose.foundation.layout.IntrinsicSize.Min), horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                        row.forEach { (title, sub, route) -> MiniTile(title, sub, Modifier.weight(1f).fillMaxHeight()) { browse = listOf(route) } }
+                    }
                 }
-                Row(horizontalArrangement = Arrangement.spacedBy(12.dp)) {
-                    TileCard(Tile(R.drawable.ic_explore, "How things work", "The microwave, GPS, rainbows…") { browse = listOf("things") }, Modifier.weight(1f))
-                    TileCard(Tile(R.drawable.ic_format_quote, "Authors & subjects", "Every voice, every theme") { browse = listOf(BrowsePage.SEARCH) }, Modifier.weight(1f))
-                }
-            }
-        }
-        item(key = "d-trails") {
-            ToolRow(R.drawable.ic_explore, "Curiosity trails", "Follow one thread from idea to idea: the Ship of Theseus to a mended bowl, a falling apple to the edge of the universe") { browse = listOf("trails") }
-        }
-        item(key = "d-connect") {
-            Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
-                DiscoverLabel("Connections")
-                ToolRow(R.drawable.ic_hub, "How the voices connect", "One idea, many hands · Influences · Conversations across time · Who was alive together") { browse = listOf("connections") }
             }
         }
     }
@@ -1469,19 +1473,25 @@ private fun QuotesScreen(
     }
 
     fun LazyListScope.quotesPage() {
-        item(key = "q-intro") {
-            Column {
-                Text(
-                    "Choose which authors and themes appear. Tap a name to read its quotes.",
-                    style = MaterialTheme.typography.bodyMedium,
+        if (poolEmpty) item(key = "q-empty") {
+            Text("Turn on at least one type to get quotes.", style = MaterialTheme.typography.bodyMedium, color = MaterialTheme.colorScheme.error)
+        }
+        item(key = "type-search") {
+            Column(verticalArrangement = Arrangement.spacedBy(6.dp)) {
+                OutlinedTextField(
+                    value = query,
+                    onValueChange = { query = it },
+                    modifier = Modifier.fillMaxWidth(),
+                    singleLine = true,
+                    leadingIcon = { Icon(painterResource(R.drawable.ic_search), contentDescription = null) },
+                    placeholder = { Text("Find an author or theme") },
+                    shape = RoundedCornerShape(16.dp),
                 )
-                if (poolEmpty) {
-                    Text(
-                        "Turn on at least one type to get quotes.",
-                        style = MaterialTheme.typography.bodySmall,
-                        color = MaterialTheme.colorScheme.error,
-                    )
-                }
+                FilterChip(
+                    selected = onlyOn,
+                    onClick = { onlyOn = !onlyOn },
+                    label = { Text("Only the ones that are on") },
+                )
             }
         }
         item(key = "q-mix") {
@@ -1496,31 +1506,46 @@ private fun QuotesScreen(
                 }
                 share(QuoteGroup.IDEAS) to share(QuoteGroup.MYTHS, QuoteGroup.FOLKLORE)
             }
+            var why by remember { mutableStateOf(false) }
             if (ideasShare > 0 || mythsShare > 0) {
-                SettingsCard("Mix") {
-                    Text(
-                        "How often great ideas, and myths and folktales, come up on the lock screen and in the app. " +
-                            "\"Usual\" gives them their share of everything switched on.",
-                        style = MaterialTheme.typography.bodySmall,
-                    )
-                    listOf(
-                        Triple("Great ideas", ideasShare, ideasMix),
-                        Triple("Myths & folklore", mythsShare, mythsMix),
-                    ).forEach { (label, natural, value) ->
-                        if (natural == 0) return@forEach
-                        Text(label, style = MaterialTheme.typography.labelLarge)
-                        Row(
-                            modifier = Modifier.horizontalScroll(rememberScrollState()),
-                            horizontalArrangement = Arrangement.spacedBy(8.dp),
-                        ) {
-                            listOf(0, 20, 10, 5, 3).forEach { n ->
-                                FilterChip(
-                                    selected = value == n,
-                                    onClick = {
-                                        if (label == "Great ideas") { ideasMix = n; prefs.ideasMix = n } else { mythsMix = n; prefs.mythsMix = n }
-                                    },
-                                    label = { Text(if (n == 0) "Usual (1 in $natural)" else "1 in $n") },
-                                )
+                SoftCard(Modifier.fillMaxWidth()) {
+                    Column(Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
+                        Row(verticalAlignment = Alignment.CenterVertically) {
+                            Text("HOW OFTEN", style = MaterialTheme.typography.labelLarge, color = MaterialTheme.colorScheme.primary, modifier = Modifier.weight(1f))
+                            Box(
+                                Modifier.size(32.dp).clip(CircleShape).clickable(onClickLabel = if (why) "Hide the explanation" else "What this means") { why = !why },
+                                contentAlignment = Alignment.Center,
+                            ) { Icon(painterResource(R.drawable.ic_info), contentDescription = null, tint = MaterialTheme.colorScheme.onSurfaceVariant, modifier = Modifier.size(20.dp)) }
+                        }
+                        if (why) Text(
+                            "How often great ideas, and myths and folktales, come up on the lock screen and in the app. " +
+                                "Usual gives them their natural share of everything switched on (about 1 in $ideasShare for ideas" +
+                                (if (mythsShare > 0) ", 1 in $mythsShare for myths" else "") + "); Less halves it; More makes them about three times as common.",
+                            style = MaterialTheme.typography.bodySmall,
+                            color = MaterialTheme.colorScheme.onSurfaceVariant,
+                        )
+                        listOf(
+                            Triple("Great ideas", ideasShare, ideasMix),
+                            Triple("Myths & folklore", mythsShare, mythsMix),
+                        ).forEach { (label, natural, value) ->
+                            if (natural == 0) return@forEach
+                            val chosen = when {
+                                value == 0 -> 1
+                                value > natural -> 0
+                                else -> 2
+                            }
+                            Text(label, style = MaterialTheme.typography.bodyMedium)
+                            Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                                listOf("Less" to natural * 2, "Usual" to 0, "More" to (natural / 3).coerceAtLeast(2)).forEachIndexed { i, (name, n) ->
+                                    FilterChip(
+                                        selected = chosen == i,
+                                        onClick = {
+                                            if (label == "Great ideas") { ideasMix = n; prefs.ideasMix = n } else { mythsMix = n; prefs.mythsMix = n }
+                                        },
+                                        label = { Text(name, modifier = Modifier.fillMaxWidth(), textAlign = TextAlign.Center) },
+                                        modifier = Modifier.weight(1f),
+                                    )
+                                }
                             }
                         }
                     }
@@ -1528,36 +1553,17 @@ private fun QuotesScreen(
             }
         }
         item(key = "modern-authors") {
-            SettingsCard("Modern authors") {
-                Row(verticalAlignment = Alignment.CenterVertically) {
+            SoftCard(Modifier.fillMaxWidth()) {
+                Row(Modifier.padding(horizontal = 16.dp, vertical = 10.dp), verticalAlignment = Alignment.CenterVertically) {
                     Column(Modifier.weight(1f)) {
-                        Text("Authors still in copyright")
-                        Text(
-                            "Short excerpts from Camus, Hesse, Murakami and others. Switch off to use only public-domain texts.",
-                            style = MaterialTheme.typography.bodySmall,
-                        )
+                        Text("Modern authors", style = MaterialTheme.typography.titleSmall)
+                        Text("Short excerpts from writers still in copyright", style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
                     }
                     Switch(
                         checked = Category.MODERN.all { it in categories },
                         onCheckedChange = { setCategories(Category.MODERN, it) },
                     )
                 }
-            }
-        }
-        item(key = "type-search") {
-            Column(verticalArrangement = Arrangement.spacedBy(6.dp)) {
-                OutlinedTextField(
-                    value = query,
-                    onValueChange = { query = it },
-                    modifier = Modifier.fillMaxWidth(),
-                    singleLine = true,
-                    label = { Text("Search authors and types") },
-                )
-                FilterChip(
-                    selected = onlyOn,
-                    onClick = { onlyOn = !onlyOn },
-                    label = { Text("Only the ones that are on") },
-                )
             }
         }
         QuoteGroup.entries.forEach { group ->
@@ -1571,59 +1577,58 @@ private fun QuotesScreen(
             if (shown.isEmpty()) return@forEach
             val open = query.isNotBlank() || onlyOn || group == QuoteGroup.MINE || group.name in expandedGroups
             val groupOn = inGroup.count { it in categories }
+            // Each group is one card: its name (tap to open), then its switches.
             item(key = "group-${group.name}") {
-                Row(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .heightIn(min = 48.dp)
-                        .clickable(enabled = query.isBlank() && !onlyOn && group != QuoteGroup.MINE, onClickLabel = if (open) "Collapse" else "Expand") {
-                            expandedGroups = if (group.name in expandedGroups) expandedGroups - group.name else expandedGroups + group.name
-                        }
-                        .padding(top = 8.dp),
-                    horizontalArrangement = Arrangement.SpaceBetween,
-                    verticalAlignment = Alignment.CenterVertically,
-                ) {
-                    Column(Modifier.weight(1f)) {
-                        Text(group.title, style = MaterialTheme.typography.titleMedium)
-                        Text("$groupOn of ${inGroup.size} on", style = MaterialTheme.typography.bodySmall)
-                    }
-                    if (group != QuoteGroup.MINE) Text(if (open) "▾" else "▸", style = MaterialTheme.typography.titleLarge)
-                }
-            }
-            if (open) {
-                if (group != QuoteGroup.MINE) {
-                    item(key = "bulk-${group.name}") {
-                        Row(horizontalArrangement = Arrangement.spacedBy(4.dp)) {
-                            TextButton(onClick = { setCategories(shown, true) }) { Text("All on") }
-                            TextButton(onClick = { setCategories(shown, false) }) { Text("All off") }
-                        }
-                    }
-                }
-                items(shown, key = { it.key }) { category ->
-                    Row(
-                        modifier = Modifier.fillMaxWidth(),
-                        horizontalArrangement = Arrangement.SpaceBetween,
-                        verticalAlignment = Alignment.CenterVertically,
-                    ) {
-                        Column(
-                            Modifier
-                                .weight(1f)
-                                .clickable(enabled = countOf(category) > 0, onClickLabel = "Read ${category.label}") {
-                                    browse = listOf(BrowsePage.category(category))
-                                }
-                                .padding(vertical = 6.dp),
+                SoftCard(Modifier.fillMaxWidth()) {
+                    Column(Modifier.padding(horizontal = 16.dp, vertical = 6.dp)) {
+                        Row(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .heightIn(min = 52.dp)
+                                .clickable(enabled = query.isBlank() && !onlyOn && group != QuoteGroup.MINE, onClickLabel = if (open) "Collapse" else "Expand") {
+                                    expandedGroups = if (group.name in expandedGroups) expandedGroups - group.name else expandedGroups + group.name
+                                },
+                            verticalAlignment = Alignment.CenterVertically,
                         ) {
-                            Text(category.label)
-                            Text(
-                                "${countOf(category)} quotes · View ›",
-                                style = MaterialTheme.typography.bodySmall,
-                                color = MaterialTheme.colorScheme.primary,
-                            )
+                            Column(Modifier.weight(1f)) {
+                                Text(group.title, style = MaterialTheme.typography.titleMedium)
+                                Text("$groupOn of ${inGroup.size} on", style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
+                            }
+                            if (group != QuoteGroup.MINE) Text(if (open) "▾" else "▸", style = MaterialTheme.typography.titleLarge)
                         }
-                        Switch(
-                            checked = category in categories,
-                            onCheckedChange = { toggleCategory(category, it) },
-                        )
+                        if (open) {
+                            if (group != QuoteGroup.MINE) Row(horizontalArrangement = Arrangement.spacedBy(4.dp)) {
+                                TextButton(onClick = { setCategories(shown, true) }) { Text("All on") }
+                                TextButton(onClick = { setCategories(shown, false) }) { Text("All off") }
+                            }
+                            shown.forEach { category ->
+                                HorizontalDivider(color = MaterialTheme.colorScheme.outlineVariant.copy(alpha = 0.4f))
+                                Row(
+                                    modifier = Modifier.fillMaxWidth(),
+                                    verticalAlignment = Alignment.CenterVertically,
+                                ) {
+                                    Column(
+                                        Modifier
+                                            .weight(1f)
+                                            .clickable(enabled = countOf(category) > 0, onClickLabel = "Read ${category.label}") {
+                                                browse = listOf(BrowsePage.category(category))
+                                            }
+                                            .padding(vertical = 8.dp),
+                                    ) {
+                                        Text(category.label)
+                                        Text(
+                                            "${countOf(category)} quotes · View ›",
+                                            style = MaterialTheme.typography.bodySmall,
+                                            color = MaterialTheme.colorScheme.primary,
+                                        )
+                                    }
+                                    Switch(
+                                        checked = category in categories,
+                                        onCheckedChange = { toggleCategory(category, it) },
+                                    )
+                                }
+                            }
+                        }
                     }
                 }
             }
@@ -1642,7 +1647,7 @@ private fun QuotesScreen(
                 ) {
                     val family = fontFamilyOf(quoteFont)
                     val textColor = quoteColor?.let { Color(it) } ?: Color.Unspecified
-                    Text("Preview", style = MaterialTheme.typography.labelSmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
+                    Text("Preview · ${theme.label}", style = MaterialTheme.typography.labelSmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
                     Text(
                         "“${current?.text ?: "The unexamined life is not worth living."}”",
                         fontFamily = family,
@@ -2191,14 +2196,23 @@ private fun QuotesScreen(
         item(key = "tb-sos") { SosButton { tool = "sos" } }
         item(key = "tb-main-1") {
             Row(horizontalArrangement = Arrangement.spacedBy(12.dp)) {
-                TileCard(Tile(R.drawable.ic_format_quote, "Words to stand on", "Affirmations to say and keep") { tool = "affirm" }, Modifier.weight(1f))
-                TileCard(Tile(R.drawable.ic_air, "Breathe", "A calm circle, 1–5 min") { tool = "breathe" }, Modifier.weight(1f))
+                TileCard(Tile(R.drawable.ic_format_quote, "Words to stand on", "Affirmations") { tool = "affirm" }, Modifier.weight(1f))
+                TileCard(Tile(R.drawable.ic_air, "Breathe", "1 to 5 minutes") { tool = "breathe" }, Modifier.weight(1f))
             }
         }
         item(key = "tb-main-2") {
             Row(horizontalArrangement = Arrangement.spacedBy(12.dp)) {
-                TileCard(Tile(R.drawable.ic_graphic_eq, "Sounds", "Rain, sea, fire, piano") { tool = "sounds" }, Modifier.weight(1f))
+                TileCard(Tile(R.drawable.ic_graphic_eq, "Sounds", "Rain, sea, fire") { tool = "sounds" }, Modifier.weight(1f))
                 TileCard(Tile(R.drawable.ic_edit, "Unstuck", "When you can't start") { tool = "unstuck" }, Modifier.weight(1f))
+            }
+        }
+        // In the evening, winding down comes first.
+        val hour = java.util.Calendar.getInstance().get(java.util.Calendar.HOUR_OF_DAY)
+        val evening = hour >= 19 || hour < 4
+        if (evening) item(key = "tb-tonight") {
+            Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
+                DiscoverLabel("For tonight")
+                TileCard(Tile(R.drawable.ic_spa, "Wind down for sleep", "A dim screen, slow reading, sounds that fade away") { tool = "winddown" }, Modifier.fillMaxWidth(), wide = true)
             }
         }
         item(key = "tb-checkin") {
@@ -2206,7 +2220,7 @@ private fun QuotesScreen(
         }
         item(key = "tb-playing") {
             val sound by SoundPlayer.state.collectAsState()
-            sound.sound?.takeIf { !sound.forBreathe }?.let { playing ->
+            sound.sound?.takeIf { !sound.forBreathe }?.let { _ ->
                 ToolRow(
                     if (sound.playing) R.drawable.ic_pause else R.drawable.ic_play_arrow,
                     SoundMix.label(sound.layers),
@@ -2214,39 +2228,27 @@ private fun QuotesScreen(
                 ) { tool = "sounds" }
             }
         }
-        item(key = "tb-quick-h") {
-            Text("QUICK TOOLS", style = MaterialTheme.typography.labelLarge, color = MaterialTheme.colorScheme.primary)
-        }
-        item(key = "tb-tools-2") {
-            Row(horizontalArrangement = Arrangement.spacedBy(12.dp)) {
-                TileCard(Tile(R.drawable.ic_visibility, "Ground yourself", "5 things you see…") { tool = "ground" }, Modifier.weight(1f))
-                TileCard(Tile(R.drawable.ic_psychology, "Look at a thought", "What would you tell a friend?") { tool = "reframe" }, Modifier.weight(1f))
+        item(key = "tb-guided") {
+            Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
+                DiscoverLabel("Guided · read aloud")
+                GuidedShelf { tool = it }
             }
         }
-        item(key = "tb-worry") {
+        item(key = "tb-quick") {
             val n = remember(page, tool) { Worries.all(prefs).size }
-            ToolRow(R.drawable.ic_edit_note, "Put the worry down", if (n == 0) "Write it down now, look at it later" else "$n kept for your worry time") { tool = "worry" }
-        }
-        item(key = "tb-guides-h") {
-            Text("GUIDED SESSIONS · READ ALOUD", style = MaterialTheme.typography.labelLarge, color = MaterialTheme.colorScheme.primary)
-        }
-        item(key = "tb-guides") { GuideRow { tool = it } }
-        item(key = "tb-winddown") {
-            TileCard(Tile(R.drawable.ic_spa, "Wind down for sleep", "A dim screen, slow reading, sounds that fade away") { tool = "winddown" }, Modifier.fillMaxWidth(), wide = true)
-        }
-        item(key = "tb-look-h") {
-            Text("SLOW LOOKING", style = MaterialTheme.typography.labelLarge, color = MaterialTheme.colorScheme.primary)
-        }
-        item(key = "tb-look") { LookingRows { tool = "look:$it" } }
-        item(key = "tb-wise-h") {
-            Text("FROM THE WISE", style = MaterialTheme.typography.labelLarge, color = MaterialTheme.colorScheme.primary)
-        }
-        item(key = "tb-wise") { PracticeRow { tool = it } }
-        item(key = "tb-feel") {
-            Column(verticalArrangement = Arrangement.spacedBy(6.dp)) {
-                Text("Gentle words for when you feel…", style = MaterialTheme.typography.bodyMedium, color = MaterialTheme.colorScheme.onSurfaceVariant)
-                FeelingChips { browse = listOf(BrowsePage.feeling(it)) }
+            Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
+                DiscoverLabel("Quick tools")
+                QuickToolsShelf(n) { tool = it }
             }
+        }
+        item(key = "tb-look") {
+            Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
+                DiscoverLabel("Slow looking")
+                LookingShelf { tool = "look:$it" }
+            }
+        }
+        if (!evening) item(key = "tb-winddown") {
+            TileCard(Tile(R.drawable.ic_spa, "Wind down for sleep", "A dim screen, slow reading, sounds that fade away") { tool = "winddown" }, Modifier.fillMaxWidth(), wide = true)
         }
         item(key = "tb-lifeline") { ToolRow(R.drawable.ic_volunteer_activism, "My lifeline", "A letter to yourself, kept thoughts, what helps") { tool = "lifeline" } }
         item(key = "tb-helps") { WhatHelpsCard() }

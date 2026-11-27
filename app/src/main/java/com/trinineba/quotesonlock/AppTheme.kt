@@ -229,6 +229,15 @@ enum class AppTheme(
         0xFF2E2012.toInt(), 0xFF7A4A1E.toInt(),
     );
 
+    /** A name short enough for a small tile; the full [label] shows where there is room. */
+    val shortLabel: String get() = when (this) {
+        L_BLOSSOM -> "Blossom"
+        L_LANTERNS -> "Lake lanterns"
+        L_CANDLE -> "Candle"
+        SEA -> "Under the sea"
+        else -> label
+    }
+
     /** The calm themes drawn by [CalmArt]. */
     val isPainted: Boolean get() = PaintedArt.res(this) != null
 
