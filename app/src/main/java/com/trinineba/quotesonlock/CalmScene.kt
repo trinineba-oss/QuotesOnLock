@@ -39,7 +39,7 @@ object CalmScene {
 
     /** The scenes Calm can show when nothing is playing. */
     val choices = listOf(
-        AppTheme.P_TETONS, AppTheme.P_LAKEDUSK, AppTheme.P_SNOW, AppTheme.P_AUTUMN, AppTheme.P_BIGSUR, AppTheme.L_LANTERNS, AppTheme.L_BLOSSOM, AppTheme.L_MEADOW, AppTheme.L_SPACE,
+        AppTheme.P_TETONS, AppTheme.P_LAKEDUSK, AppTheme.P_SNOW, AppTheme.P_AUTUMN, AppTheme.P_BIGSUR, AppTheme.L_LANTERNS, AppTheme.L_BLOSSOM, AppTheme.L_MEADOW, AppTheme.L_CANDLE, AppTheme.L_SPACE,
         AppTheme.WATER, AppTheme.DROP, AppTheme.JELLY, AppTheme.SEA, AppTheme.LANTERNS, AppTheme.MOUNTAINS, AppTheme.BLOSSOM, AppTheme.LEAVES, AppTheme.ZEN, AppTheme.WAVES, AppTheme.RAIN, AppTheme.RAIN_NIGHT, AppTheme.SNOW, AppTheme.CANDLE,
         AppTheme.FIREFLIES, AppTheme.LAVENDER, AppTheme.CLOUDS, AppTheme.BAMBOO, AppTheme.AURORA, AppTheme.STARRY, AppTheme.SPACE,
     )

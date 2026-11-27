@@ -547,4 +547,6 @@ Seven of the living themes are painted the same way (Mystic Mountain is the phot
 - Butterfly meadow: wildflowers in the Lyndon B. Johnson National Historical Park, Johnson City, Texas, by Carol M. Highsmith (LC-DIG-highsm-29527, public domain), with a warmer sky.
 - Mystic Mountain: "Hubble Captures Spectacular 'Landscape' in the Carina Nebula" (2010), NASA, ESA, M. Livio and the Hubble 20th Anniversary Team (STScI), released by NASA; shown as the photograph, not painted.
 
-The earlier drawn versions of Falling blossoms, Floating lanterns, Butterflies and Space are kept alongside these.
+- Candle on the table: a scene painted for the app (a pillar candle on a wooden table against a warm wall), finished with the same light brushwork; its flame is drawn live.
+
+The earlier drawn versions of Falling blossoms, Floating lanterns, Butterflies, Space and Candlelight are kept alongside these.

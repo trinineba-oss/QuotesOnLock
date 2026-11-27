@@ -227,6 +227,7 @@ object QuoteWidgets {
         AppTheme.L_BLOSSOM -> R.drawable.living_blossom_frame
         AppTheme.L_LANTERNS -> R.drawable.living_lanterns_frame
         AppTheme.L_MEADOW -> R.drawable.living_meadow_frame
+        AppTheme.L_CANDLE -> R.drawable.living_candle_frame
         AppTheme.L_SPACE -> R.drawable.living_space_frame
         AppTheme.SEA -> R.drawable.sea_frame
         AppTheme.VITRUVIAN -> R.drawable.vitruvian_frame

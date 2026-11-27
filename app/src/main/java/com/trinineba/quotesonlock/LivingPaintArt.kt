@@ -32,6 +32,8 @@ import kotlin.random.Random
  * - Blossom by the water: petals drift down and turn, the flowering branch stirs, and the reflection trembles.
  * - Lanterns on the lake: paper lanterns rise from the water into the dusk, flickering, each mirrored below.
  * - Butterfly meadow: gusts move through the grass and flowers while butterflies wander and flutter over them.
+ * - Candle on the table: a pillar candle with a living flame: it flickers all the time, sways, stretches and shivers,
+ *   and now and then a draught bends it further; its light on the wall and table brightens and dims with it.
  * - Mystic Mountain: Hubble's picture of the Carina Nebula drifts slowly closer, with stars twinkling in front.
  *
  * Each painting drifts slowly, like the Painted collection. The bending is done with a bitmap mesh, so it costs one
@@ -46,6 +48,7 @@ internal object LivingPaintArt {
         AppTheme.L_BLOSSOM -> R.drawable.living_blossom
         AppTheme.L_LANTERNS -> R.drawable.living_lanterns
         AppTheme.L_MEADOW -> R.drawable.living_meadow
+        AppTheme.L_CANDLE -> R.drawable.living_candle
         AppTheme.L_SPACE -> R.drawable.living_space
         else -> null
     }
@@ -152,6 +155,7 @@ internal object LivingPaintArt {
             AppTheme.L_LANTERNS -> lanterns(canvas, b, w, h, t)
             AppTheme.L_MEADOW -> meadow(canvas, b, w, h, t)
             AppTheme.L_SPACE -> { plain(canvas, b); stars(canvas, w, h, t) }
+            AppTheme.L_CANDLE -> { plain(canvas, b); candle(canvas, b, t) }
             else -> waves(canvas, b, w, h, t)
         }
         val sk = "${w.toInt()}x${h.toInt()}"
@@ -441,6 +445,84 @@ internal object LivingPaintArt {
             c.drawBitmap(d, null, rect, paint)
         }
         paint.alpha = 255
+    }
+
+    // ---- candle: a living flame and its light ------------------------------------------------------------------
+
+    private const val FLAME_X = 0.5f
+    private const val WICK_Y = 0.482f     // where the flame stands, as a share of the painting's height
+    private const val GLOW_Y = 0.452f
+    private val flamePath = Path()
+    private val flamePaint = Paint(Paint.ANTI_ALIAS_FLAG)
+    private val lightPaint = Paint(Paint.ANTI_ALIAS_FLAG)
+
+    private fun candle(c: Canvas, b: Bitmap, t: Float) {
+        // the flame flickers all the time; now and then a draught bends it further, then it settles
+        val draught = ((noise(t * 0.12f, 3) - 0.15f) / 0.85f).coerceAtLeast(0f)
+        val lean = noise(t * 0.7f, 4) * (0.35f + 1.2f * draught)
+        val shiver = noise(t * 7f, 5) * (0.3f + 0.6f * draught)
+        val stretch = 1f + 0.12f * noise(t * 2.4f, 6) + 0.25f * draught + 0.08f * shiver
+        val bright = 1f + 0.10f * noise(t * 4f, 7) + 0.05f * noise(t * 11f, 9) - 0.12f * draught * (0.5f + 0.5f * noise(t * 7f, 8))
+        val bw = b.width * sc
+        val bh = b.height * sc
+        val fx = ox + FLAME_X * bw
+        val wy = oy + WICK_Y * bh
+        // the light on the wall and table brightens and dims with the flame
+        val gy = oy + GLOW_Y * bh
+        val lr = bw * 0.55f
+        val k = ((bright - 1f) * 2.2f).coerceIn(-0.5f, 0.5f)
+        lightPaint.shader = if (k >= 0f) {
+            RadialGradient(fx, gy, lr, intArrayOf(((k * 0.55f * 255).toInt() shl 24) or 0xFFB060, 0x00FFB060), null, Shader.TileMode.CLAMP)
+        } else {
+            RadialGradient(fx, gy, lr, intArrayOf(((-k * 0.6f * 255).toInt() shl 24) or 0x0A0502, 0x000A0502), null, Shader.TileMode.CLAMP)
+        }
+        c.drawCircle(fx, gy, lr, lightPaint)
+        // the flame: a teardrop that leans and bends from its base, orange at the edges, a pale core, a blue root
+        val fh = 0.05f * bh * stretch
+        val fw = 0.018f * bw * (1f - 0.1f * (stretch - 1f))
+        fun bend(v: Float) = (lean * 0.35f + shiver * 0.25f) * fw * 2.2f * v * v
+        fun outline(scale: Float, top: Float) {
+            flamePath.reset()
+            val n = 18
+            for (j in 0..n) {
+                val v = j / n.toFloat() * top
+                val half = 1.15f * kotlin.math.sqrt(v) * (1f - v).coerceAtLeast(0f).pow(0.75f) / 0.48f * fw * scale
+                val px = fx + bend(v) - half
+                val py = wy - v * fh
+                if (j == 0) flamePath.moveTo(px, py) else flamePath.lineTo(px, py)
+            }
+            for (j in n downTo 0) {
+                val v = j / n.toFloat() * top
+                val half = 1.15f * kotlin.math.sqrt(v) * (1f - v).coerceAtLeast(0f).pow(0.75f) / 0.48f * fw * scale
+                flamePath.lineTo(fx + bend(v) + half, wy - v * fh)
+            }
+            // a round base just below the wick
+            rect.set(fx - fw * 0.55f * scale, wy - fw * 0.5f * scale, fx + fw * 0.55f * scale, wy + fw * 0.35f * scale)
+            flamePath.addOval(rect, Path.Direction.CW)
+        }
+        val a = bright.coerceIn(0.7f, 1.2f)
+        // the bloom around it
+        flamePaint.shader = RadialGradient(fx + bend(0.5f) * 0.5f, wy - fh * 0.45f, bw * 0.14f,
+            intArrayOf(((0.42f * a * 255).toInt().coerceAtMost(255) shl 24) or 0xFF9E40, ((0.12f * a * 255).toInt() shl 24) or 0xFF9E40, 0x00FF9E40),
+            floatArrayOf(0f, 0.35f, 1f), Shader.TileMode.CLAMP)
+        c.drawCircle(fx + bend(0.5f) * 0.5f, wy - fh * 0.45f, bw * 0.14f, flamePaint)
+        flamePaint.shader = null
+        // soft edges: layers from a faint, wide orange glow in to a small, pale core near the base
+        val layers = arrayOf(
+            floatArrayOf(1.25f, 1.05f, 0.22f, 255f, 120f, 30f),
+            floatArrayOf(1.0f, 1.0f, 0.55f, 255f, 140f, 35f),
+            floatArrayOf(0.82f, 0.94f, 0.75f, 255f, 185f, 70f),
+            floatArrayOf(0.6f, 0.72f, 0.85f, 255f, 225f, 150f),
+            floatArrayOf(0.4f, 0.52f, 0.9f, 255f, 246f, 214f),
+        )
+        for (l in layers) {
+            outline(l[0], l[1])
+            flamePaint.color = argb(l[2] * a.coerceAtMost(1f), l[3].toInt(), l[4].toInt(), l[5].toInt())
+            c.drawPath(flamePath, flamePaint)
+        }
+        flamePaint.color = argb(0.28f, 70, 95, 230)
+        rect.set(fx - fw * 0.3f, wy - fw * 0.35f, fx + fw * 0.3f, wy + fw * 0.1f)
+        c.drawOval(rect, flamePaint)
     }
 
     private fun argb(a: Float, r: Int, g: Int, b: Int): Int = ((a.coerceIn(0f, 1f) * 255).toInt() shl 24) or (r shl 16) or (g shl 8) or b

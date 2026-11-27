@@ -46,7 +46,7 @@ object ThemeGroups {
     val groups: List<Pair<String, List<AppTheme>>> by lazy {
         val listed = listOf(
             "Painted" to listOf(AppTheme.P_TETONS, AppTheme.P_MAROON, AppTheme.P_BIGSUR, AppTheme.P_MONUMENT, AppTheme.P_LAKEDUSK, AppTheme.P_AUTUMN, AppTheme.P_SNOW, AppTheme.P_SUNFLOWERS, AppTheme.P_PLAINS),
-            "Living paintings" to listOf(AppTheme.LAVENDER, AppTheme.SNOW, AppTheme.WAVES, AppTheme.L_BLOSSOM, AppTheme.L_LANTERNS, AppTheme.L_MEADOW, AppTheme.L_SPACE),
+            "Living paintings" to listOf(AppTheme.LAVENDER, AppTheme.SNOW, AppTheme.WAVES, AppTheme.L_BLOSSOM, AppTheme.L_LANTERNS, AppTheme.L_MEADOW, AppTheme.L_CANDLE, AppTheme.L_SPACE),
             "Night skies" to listOf(AppTheme.STARRY, AppTheme.AURORA, AppTheme.SPACE, AppTheme.LANTERNS),
             "Water" to listOf(AppTheme.WATER, AppTheme.RAIN, AppTheme.RAIN_NIGHT, AppTheme.DROP, AppTheme.JELLY, AppTheme.SEA),
             "Nature" to listOf(AppTheme.BUTTERFLY, AppTheme.FIREFLIES, AppTheme.BAMBOO, AppTheme.BLOSSOM, AppTheme.MOUNTAINS, AppTheme.LEAVES),

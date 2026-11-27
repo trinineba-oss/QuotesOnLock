@@ -215,6 +215,10 @@ enum class AppTheme(
         "living_meadow", "Butterfly meadow", "Wind in the grass, butterflies", R.drawable.notif_frame_living_meadow, 0xFF1E2614.toInt(),
         0xFFFFFFFF.toInt(), 0xFFF7D454.toInt(),
     ),
+    L_CANDLE(
+        "living_candle", "Candle on the table", "A living, flickering flame", R.drawable.notif_frame_living_candle, 0xFF140C06.toInt(),
+        0xFFFFF4E6.toInt(), 0xFFFFC27A.toInt(),
+    ),
     L_SPACE(
         "living_space", "Mystic Mountain", "A slow drift through the nebula", R.drawable.notif_frame_living_space, 0xFF0E0A18.toInt(),
         0xFFFFFFFF.toInt(), 0xFFF2C48A.toInt(),
@@ -441,6 +445,7 @@ fun AppTheme.colorScheme(cardOpacity: Float): ColorScheme? = when (this) {
     AppTheme.L_BLOSSOM -> calmScheme(true, 0xFFF5C6D6, 0xFF2A2430, 0xFFFFFFFF, 0xFFE6DCE2, cardOpacity)
     AppTheme.L_LANTERNS -> calmScheme(true, 0xFFFFC27A, 0xFF121A2C, 0xFFFFF4E6, 0xFFD8D2CC, cardOpacity)
     AppTheme.L_MEADOW -> calmScheme(true, 0xFFF7D454, 0xFF1E2614, 0xFFFFFFFF, 0xFFE2E6D8, cardOpacity)
+    AppTheme.L_CANDLE -> calmScheme(true, 0xFFFFC27A, 0xFF140C06, 0xFFFFF4E6, 0xFFE3CDB4, cardOpacity)
     AppTheme.L_SPACE -> calmScheme(true, 0xFFF2C48A, 0xFF0E0A18, 0xFFFFFFFF, 0xFFDCD4E4, cardOpacity)
     AppTheme.LEAVES -> calmScheme(true, 0xFFF2B266, 0xFF3A2414, 0xFFFFF4E6, 0xFFE6D2BC, cardOpacity)
     AppTheme.SEA -> calmScheme(true, 0xFF9FE3F2, 0xFF082A40, 0xFFEFFAFF, 0xFFC4DCE6, cardOpacity)
@@ -494,7 +499,7 @@ fun AppTheme.typography(base: Typography): Typography = when (this) {
     AppTheme.CLASSIC -> base
     AppTheme.BLACK -> base.map(headings = { it.copy(fontFamily = BookSerif) }, all = { it })
     AppTheme.STARRY, AppTheme.AURORA, AppTheme.SPACE, AppTheme.WATER, AppTheme.RAIN, AppTheme.RAIN_NIGHT,
-    AppTheme.SNOW, AppTheme.CANDLE, AppTheme.FIREFLIES, AppTheme.LAVENDER, AppTheme.WAVES, AppTheme.DROP, AppTheme.JELLY, AppTheme.MOUNTAINS, AppTheme.LANTERNS, AppTheme.LEAVES, AppTheme.SEA, AppTheme.P_TETONS, AppTheme.P_MAROON, AppTheme.P_BIGSUR, AppTheme.P_MONUMENT, AppTheme.P_LAKEDUSK, AppTheme.P_AUTUMN, AppTheme.P_SNOW, AppTheme.P_SUNFLOWERS, AppTheme.P_PLAINS, AppTheme.L_BLOSSOM, AppTheme.L_LANTERNS, AppTheme.L_MEADOW, AppTheme.L_SPACE -> base.map(
+    AppTheme.SNOW, AppTheme.CANDLE, AppTheme.FIREFLIES, AppTheme.LAVENDER, AppTheme.WAVES, AppTheme.DROP, AppTheme.JELLY, AppTheme.MOUNTAINS, AppTheme.LANTERNS, AppTheme.LEAVES, AppTheme.SEA, AppTheme.P_TETONS, AppTheme.P_MAROON, AppTheme.P_BIGSUR, AppTheme.P_MONUMENT, AppTheme.P_LAKEDUSK, AppTheme.P_AUTUMN, AppTheme.P_SNOW, AppTheme.P_SUNFLOWERS, AppTheme.P_PLAINS, AppTheme.L_BLOSSOM, AppTheme.L_LANTERNS, AppTheme.L_MEADOW, AppTheme.L_CANDLE, AppTheme.L_SPACE -> base.map(
         headings = { it.copy(fontFamily = BookSerif) },
         all = { it.copy(shadow = Shadow(Color(0xE6000000), Offset(0f, 2f), 8f)) },
     )
@@ -537,7 +542,7 @@ fun ThemedBackground(theme: AppTheme, animate: Boolean, auroraIntensity: Float =
         AppTheme.JELLY -> JellyBackground(animate)
         AppTheme.RAIN -> RainBackground(animate, night = false)
         AppTheme.RAIN_NIGHT -> RainBackground(animate, night = true)
-        AppTheme.SNOW, AppTheme.CANDLE, AppTheme.FIREFLIES, AppTheme.LAVENDER, AppTheme.CLOUDS, AppTheme.WAVES, AppTheme.BAMBOO, AppTheme.ZEN, AppTheme.BLOSSOM, AppTheme.MOUNTAINS, AppTheme.LANTERNS, AppTheme.LEAVES, AppTheme.SEA, AppTheme.P_TETONS, AppTheme.P_MAROON, AppTheme.P_BIGSUR, AppTheme.P_MONUMENT, AppTheme.P_LAKEDUSK, AppTheme.P_AUTUMN, AppTheme.P_SNOW, AppTheme.P_SUNFLOWERS, AppTheme.P_PLAINS, AppTheme.L_BLOSSOM, AppTheme.L_LANTERNS, AppTheme.L_MEADOW, AppTheme.L_SPACE -> CalmBackground(theme, animate)
+        AppTheme.SNOW, AppTheme.CANDLE, AppTheme.FIREFLIES, AppTheme.LAVENDER, AppTheme.CLOUDS, AppTheme.WAVES, AppTheme.BAMBOO, AppTheme.ZEN, AppTheme.BLOSSOM, AppTheme.MOUNTAINS, AppTheme.LANTERNS, AppTheme.LEAVES, AppTheme.SEA, AppTheme.P_TETONS, AppTheme.P_MAROON, AppTheme.P_BIGSUR, AppTheme.P_MONUMENT, AppTheme.P_LAKEDUSK, AppTheme.P_AUTUMN, AppTheme.P_SNOW, AppTheme.P_SUNFLOWERS, AppTheme.P_PLAINS, AppTheme.L_BLOSSOM, AppTheme.L_LANTERNS, AppTheme.L_MEADOW, AppTheme.L_CANDLE, AppTheme.L_SPACE -> CalmBackground(theme, animate)
     }
 }
 
