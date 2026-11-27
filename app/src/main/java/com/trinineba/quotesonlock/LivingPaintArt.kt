@@ -13,6 +13,7 @@ import android.graphics.RadialGradient
 import android.graphics.RectF
 import android.graphics.Shader
 import kotlin.math.PI
+import kotlin.math.abs
 import kotlin.math.cos
 import kotlin.math.exp
 import kotlin.math.floor
@@ -28,6 +29,10 @@ import kotlin.random.Random
  * - Snowy night: snow falls at three depths over moonlit pines at dusk, swung by the wind, with glints on the drifts.
  * - Waves at sunrise: the painting's own surf runs up the sand, slows and slides back, a little differently each time,
  *   leaving the sand dark and wet for a moment.
+ * - Blossom by the water: petals drift down and turn, the flowering branch stirs, and the reflection trembles.
+ * - Lanterns on the lake: paper lanterns rise from the water into the dusk, flickering, each mirrored below.
+ * - Butterfly meadow: gusts move through the grass and flowers while butterflies wander and flutter over them.
+ * - Mystic Mountain: Hubble's picture of the Carina Nebula drifts slowly closer, with stars twinkling in front.
  *
  * Each painting drifts slowly, like the Painted collection. The bending is done with a bitmap mesh, so it costs one
  * textured draw. Wind and waves come from smooth noise, so the motion never settles into a rhythm. Sizes are given for
@@ -38,6 +43,10 @@ internal object LivingPaintArt {
         AppTheme.LAVENDER -> R.drawable.living_lavender
         AppTheme.SNOW -> R.drawable.living_snow
         AppTheme.WAVES -> R.drawable.living_waves
+        AppTheme.L_BLOSSOM -> R.drawable.living_blossom
+        AppTheme.L_LANTERNS -> R.drawable.living_lanterns
+        AppTheme.L_MEADOW -> R.drawable.living_meadow
+        AppTheme.L_SPACE -> R.drawable.living_space
         else -> null
     }
 
@@ -139,6 +148,10 @@ internal object LivingPaintArt {
         when (theme) {
             AppTheme.LAVENDER -> lavender(canvas, b, w, h, t)
             AppTheme.SNOW -> { plain(canvas, b); snow(canvas, w, h, t) }
+            AppTheme.L_BLOSSOM -> blossom(canvas, b, w, h, t)
+            AppTheme.L_LANTERNS -> lanterns(canvas, b, w, h, t)
+            AppTheme.L_MEADOW -> meadow(canvas, b, w, h, t)
+            AppTheme.L_SPACE -> { plain(canvas, b); stars(canvas, w, h, t) }
             else -> waves(canvas, b, w, h, t)
         }
         val sk = "${w.toInt()}x${h.toInt()}"
@@ -181,11 +194,11 @@ internal object LivingPaintArt {
 
     private const val FIELD_TOP = 0.38f
 
-    private fun lavender(c: Canvas, b: Bitmap, w: Float, h: Float, t: Float) {
+    private fun lavender(c: Canvas, b: Bitmap, w: Float, h: Float, t: Float, fieldTop: Float = FIELD_TOP) {
         val travel = (t * 0.13f) % 2.2f
         val strength = 0.6f + 0.4f * noise(t * 0.2f, 9)
         mesh(b.width, b.height) { x, y, v, out, i ->
-            val k = ((v - FIELD_TOP) / (1f - FIELD_TOP)).coerceIn(0f, 1f)
+            val k = ((v - fieldTop) / (1f - fieldTop)).coerceIn(0f, 1f)
             if (k > 0f) {
                 val front = x / w * 1.6f - travel + 0.3f
                 val g = exp(-((front - 0.5f) / 0.35f).pow(2)) * strength
@@ -196,7 +209,7 @@ internal object LivingPaintArt {
         c.drawBitmapMesh(b, MW, MH, verts, 0, null, 0, paint)
         // The light on the tops of the flowers as the gust passes.
         val fx = w * (0.5f + travel - 0.3f) / 1.6f
-        val top = oy + FIELD_TOP * b.height * sc
+        val top = oy + fieldTop * b.height * sc
         fill.shader = LinearGradient(fx - w * 0.35f, 0f, fx + w * 0.35f, 0f, intArrayOf(0x00FFF2FF, (((0.10f * strength) * 255).toInt() shl 24) or 0xFFF2FF, 0x00FFF2FF), null, Shader.TileMode.CLAMP)
         c.drawRect(0f, top, w, h, fill)
         fill.shader = null
@@ -292,4 +305,143 @@ internal object LivingPaintArt {
             c.drawPath(path, fill)
         }
     }
+
+    // ---- blossom: petals drift and turn; the branch stirs; the reflection trembles ---------------------------
+
+    private class Petal(val x: Float, val y: Float, val z: Float, val ph: Float, val sp: Float)
+    private val petals = Random(31).let { r -> List(64) { Petal(r.nextFloat(), r.nextFloat(), 0.4f + r.nextFloat(), r.nextFloat() * 6.28f, 0.7f + r.nextFloat() * 0.6f) } }
+
+    private fun blossom(c: Canvas, b: Bitmap, w: Float, h: Float, t: Float) {
+        val gust = noise(t * 0.2f, 4)
+        mesh(b.width, b.height) { x, y, v, out, i ->
+            // the branch across the top left stirs; the water below the far shore trembles
+            val kx = ((0.75f - x / w) / 0.75f).coerceIn(0f, 1f)
+            val ky = ((0.42f - v) / 0.42f).coerceIn(0f, 1f)
+            val k = (kx * ky).pow(1.5f)
+            var dx = (3f * sin(t * 0.7f + y / (90f * s)) + 4f * gust) * k * s
+            if (v > 0.6f) dx += 1.4f * s * ((v - 0.6f) / 0.05f).coerceAtMost(1f) * sin(y / (6f * s) + t * 2f) * sin(x / (50f * s) - t * 0.5f)
+            out[i] = x + dx
+        }
+        c.drawBitmapMesh(b, MW, MH, verts, 0, null, 0, paint)
+        val span = h + 60f * s
+        for (p in petals) {
+            val z = p.z
+            val y = ((p.y * span + t * (22f + 30f * z) * p.sp * s) % span) - 30f * s
+            val x = (((p.x * w + t * (8f + 26f * gust) * z * s + sin(t * 0.8f * p.sp + p.ph) * 18f * z * s) % (w + 60f * s)) + (w + 60f * s)) % (w + 60f * s) - 30f * s
+            val flip = abs(cos(t * 1.7f * p.sp + p.ph))
+            val r = (5.5f * z + 2f) * s
+            c.save()
+            c.translate(x, y)
+            c.rotate(((t * 0.9f * p.sp + p.ph) * 57.3f) % 360f)
+            fill.color = argb(0.95f, 255, (199 + 30 * flip).toInt().coerceAtMost(255), (219 + 20 * flip).toInt().coerceAtMost(255))
+            rect.set(-r, -r * (0.25f + 0.6f * flip), r, r * (0.25f + 0.6f * flip))
+            c.drawOval(rect, fill)
+            c.restore()
+        }
+    }
+
+    // ---- lanterns: they rise from the lake into the dusk, flickering, mirrored below ------------------------
+
+    private class Lantern(val x: Float, val p: Float, val z: Float, val ph: Float, val sp: Float)
+    private val lanternList = Random(26).let { r -> List(26) { Lantern(0.08f + r.nextFloat() * 0.84f, r.nextFloat(), 0.35f + r.nextFloat() * 0.65f, r.nextFloat() * 6.28f, 0.8f + r.nextFloat() * 0.4f) } }
+    private const val SHORE = 0.505f
+    private var lanternGlow: Bitmap? = null
+
+    private fun lanternBitmap(): Bitmap = lanternGlow ?: Bitmap.createBitmap(64, 64, Bitmap.Config.ARGB_8888).also { g ->
+        Canvas(g).drawCircle(32f, 32f, 32f, Paint(Paint.ANTI_ALIAS_FLAG).apply {
+            shader = RadialGradient(32f, 32f, 32f, intArrayOf(0xFFFFE6B0.toInt(), 0xFFFFA040.toInt(), 0x55FF8A30, 0x00FF8A30), floatArrayOf(0f, 0.18f, 0.4f, 1f), Shader.TileMode.CLAMP)
+        })
+        lanternGlow = g
+    }
+
+    private fun lanterns(c: Canvas, b: Bitmap, w: Float, h: Float, t: Float) {
+        mesh(b.width, b.height) { x, y, v, out, i ->
+            if (v > SHORE) out[i] = x + 1.8f * s * ((v - SHORE) / 0.02f).coerceAtMost(1f) * sin(y / (7f * s) + t * 1.6f) * sin(x / (60f * s) - t * 0.4f)
+        }
+        c.drawBitmapMesh(b, MW, MH, verts, 0, null, 0, paint)
+        val g = lanternBitmap()
+        val sy = oy + SHORE * b.height * sc
+        for (l in lanternList) {
+            val z = l.z
+            val p = (l.p + t * 0.012f * l.sp * (0.6f + 0.6f * z)) % 1f
+            val y = sy - 10f * s - p * sy * 1.05f * (0.55f + 0.45f * z)
+            val x = ((l.x * w + sin(t * 0.3f * l.sp + l.ph) * 14f * z * s + t * 2.5f * z * s) % w + w) % w
+            val fl = 0.85f + 0.1f * sin(t * 5.3f + l.ph) + 0.05f * sin(t * 11.7f + l.ph * 2f)
+            val fade = (p / 0.06f).coerceAtMost(1f) * (1f - ((p - 0.8f) / 0.2f).coerceAtLeast(0f))
+            val r = (2.6f + 7.5f * z * z) * s * 2.2f
+            paint.alpha = ((0.9f * fl * fade).coerceIn(0f, 1f) * 255).toInt()
+            rect.set(x - r, y - r * 1.2f, x + r, y + r * 1.2f)
+            c.drawBitmap(g, null, rect, paint)
+            val ry = 2f * sy - y + 8f * s
+            if (ry < h) {
+                paint.alpha = ((0.35f * fl * fade * (0.6f + 0.4f * sin(t * 3f + ry / 9f))).coerceIn(0f, 1f) * 255).toInt()
+                val rx = x + 2f * s * sin(t * 2f + ry / (6f * s))
+                rect.set(rx - r * 1.1f, ry - r * 1.4f, rx + r * 1.1f, ry + r * 1.4f)
+                c.drawBitmap(g, null, rect, paint)
+            }
+        }
+        paint.alpha = 255
+    }
+
+    // ---- meadow: gusts in the grass; butterflies wander and flutter -------------------------------------------
+
+    private class Fly(val seed: Int, val sp: Float, val wing: Int, val edge: Int)
+    private val butterflies = listOf(
+        Fly(21, 0.9f, 0xFFF08A1E.toInt(), 0xFF20140C.toInt()), Fly(37, 0.8f, 0xFFF29A2A.toInt(), 0xFF24160C.toInt()),
+        Fly(53, 1.05f, 0xFFF6F4EA.toInt(), 0xFF6A6A66.toInt()), Fly(71, 0.95f, 0xFFFFDA4C.toInt(), 0xFF7A6418.toInt()),
+    )
+
+    private fun meadow(c: Canvas, b: Bitmap, w: Float, h: Float, t: Float) {
+        lavender(c, b, w, h, t, 0.55f)
+        for (f in butterflies) {
+            val tt = t * f.sp + f.seed
+            val x = w * (0.5f + 0.42f * noise(tt * 0.09f, f.seed))
+            val y = h * (0.74f + 0.16f * noise(tt * 0.07f, f.seed + 10))
+            val ahead = w * (0.5f + 0.42f * noise((tt + 0.2f) * 0.09f, f.seed))
+            val flap = tt * 9f
+            val open = 0.25f + 0.75f * abs(cos(flap))      // the wings seen edge-on as they close
+            val size = 17f * s
+            c.save()
+            c.translate(x, y + 3f * s * sin(flap))
+            c.rotate(if (ahead > x) 14f else -14f)
+            for (side in intArrayOf(-1, 1)) {
+                c.save()
+                c.scale(side * open, 1f)
+                fill.color = f.wing
+                rect.set(size * 0.08f, -size * 0.85f, size * 1.05f, size * 0.15f)
+                c.drawOval(rect, fill)
+                rect.set(size * 0.08f, -size * 0.05f, size * 0.75f, size * 0.85f)
+                c.drawOval(rect, fill)
+                fill.color = f.edge
+                rect.set(size * 0.75f, -size * 0.8f, size * 1.05f, -size * 0.45f)
+                c.drawOval(rect, fill)
+                c.restore()
+            }
+            fill.color = 0xFF14100C.toInt()
+            rect.set(-size * 0.07f, -size * 0.55f, size * 0.07f, size * 0.55f)
+            c.drawOval(rect, fill)
+            c.restore()
+        }
+    }
+
+    // ---- space: stars in front of the nebula, twinkling and sliding slowly past -------------------------------
+
+    private val starList = Random(16).let { r -> List(160) { floatArrayOf(r.nextFloat(), r.nextFloat(), 0.2f + r.nextFloat() * 0.8f, r.nextFloat() * 6.28f) } }
+
+    private fun stars(c: Canvas, w: Float, h: Float, t: Float) {
+        val d = dot ?: return
+        for (st in starList) {
+            val z = st[2]
+            val x = ((st[0] * w + t * 4f * z * s) % w + w) % w
+            val y = st[1] * h
+            val tw = 0.55f + 0.45f * sin(t * (0.8f + z) + st[3])
+            paint.alpha = ((0.55f * tw * z).coerceIn(0f, 1f) * 255).toInt()
+            val r = (0.5f + 1.1f * z) * 2.2f * s
+            rect.set(x - r, y - r, x + r, y + r)
+            c.drawBitmap(d, null, rect, paint)
+        }
+        paint.alpha = 255
+    }
+
+    private fun argb(a: Float, r: Int, g: Int, b: Int): Int = ((a.coerceIn(0f, 1f) * 255).toInt() shl 24) or (r shl 16) or (g shl 8) or b
 }

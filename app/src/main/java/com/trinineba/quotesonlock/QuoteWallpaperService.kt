@@ -130,7 +130,7 @@ class QuoteWallpaperService : WallpaperService() {
                 AppTheme.JELLY -> drawJelly(canvas, t)
                 AppTheme.RAIN -> drawRain(canvas, t, night = false)
                 AppTheme.RAIN_NIGHT -> drawRain(canvas, t, night = true)
-                AppTheme.SNOW, AppTheme.CANDLE, AppTheme.FIREFLIES, AppTheme.LAVENDER, AppTheme.CLOUDS, AppTheme.WAVES, AppTheme.BAMBOO, AppTheme.ZEN, AppTheme.BOOK, AppTheme.BLOSSOM, AppTheme.MOUNTAINS, AppTheme.LANTERNS, AppTheme.LEAVES, AppTheme.SEA, AppTheme.P_TETONS, AppTheme.P_MAROON, AppTheme.P_BIGSUR, AppTheme.P_MONUMENT, AppTheme.P_LAKEDUSK, AppTheme.P_AUTUMN, AppTheme.P_SNOW, AppTheme.P_SUNFLOWERS, AppTheme.P_PLAINS -> {
+                AppTheme.SNOW, AppTheme.CANDLE, AppTheme.FIREFLIES, AppTheme.LAVENDER, AppTheme.CLOUDS, AppTheme.WAVES, AppTheme.BAMBOO, AppTheme.ZEN, AppTheme.BOOK, AppTheme.BLOSSOM, AppTheme.MOUNTAINS, AppTheme.LANTERNS, AppTheme.LEAVES, AppTheme.SEA, AppTheme.P_TETONS, AppTheme.P_MAROON, AppTheme.P_BIGSUR, AppTheme.P_MONUMENT, AppTheme.P_LAKEDUSK, AppTheme.P_AUTUMN, AppTheme.P_SNOW, AppTheme.P_SUNFLOWERS, AppTheme.P_PLAINS, AppTheme.L_BLOSSOM, AppTheme.L_LANTERNS, AppTheme.L_MEADOW, AppTheme.L_SPACE -> {
                     CalmArt.attach(this@QuoteWallpaperService)
                     runCatching { CalmArt.draw(theme, canvas, width.toFloat(), height.toFloat(), if (moving()) t else CalmArt.stillTime(theme), resources.displayMetrics.density) }
                         .onFailure { CalmArt.reset() }

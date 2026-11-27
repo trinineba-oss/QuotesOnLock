@@ -77,7 +77,7 @@ internal object CalmArt {
             AppTheme.CANDLE -> candle(canvas, w, h, t, d)
             AppTheme.FIREFLIES -> fireflies(canvas, w, h, t, d)
             AppTheme.CLOUDS -> clouds(canvas, w, h, t, d)
-            AppTheme.SNOW, AppTheme.LAVENDER, AppTheme.WAVES ->
+            AppTheme.SNOW, AppTheme.LAVENDER, AppTheme.WAVES, AppTheme.L_BLOSSOM, AppTheme.L_LANTERNS, AppTheme.L_MEADOW, AppTheme.L_SPACE ->
                 if (!LivingPaintArt.draw(appContext, theme, canvas, w, h, t)) canvas.drawColor(fallback(theme))
             AppTheme.BAMBOO -> bamboo(canvas, w, h, t, d)
             AppTheme.ZEN -> zen(canvas, w, h, t, d)

@@ -537,8 +537,14 @@ Quotes and headings are set in Cormorant Garamond (Christian Thalmann) and the i
 
 The nine Painted themes are oil-brushstroke paintings made for the app, at full phone resolution, from photographs by Carol M. Highsmith in the Library of Congress (public domain): Grand Teton (LC-DIG-highsm-35450), Maroon Bells (33695), Big Sur (13822), Monument Valley (04002), Emerald Bay on Lake Tahoe at dusk (23364), autumn along the Colorado River (35078), trees glazed with snow in Yellowstone (47701), a sunflower field near Beloit, Wisconsin (16064), and the Colorado River near Kremmling in autumn sun (35083).
 
-Three of the living themes are painted the same way and then set moving (gusts across the field, falling snow, surf running up the sand):
+Seven of the living themes are painted the same way (Mystic Mountain is the photograph itself) and then set moving (gusts across the field, falling snow, surf running up the sand):
 
 - Lavender field: Hood River Lavender Farm, Oregon, photographed by Bonnie Moreland and released into the public domain (Wikimedia Commons, "Hood River Lavender Farm, Oregon - Flickr - Bonnie Moreland (free images).jpg").
 - Snowy night: the Yellowstone pines above (LC-DIG-highsm-47701), recoloured to dusk with a rising moon.
 - Waves at sunrise: the last moments of a wave on Ocracoke Island, North Carolina, by Carol M. Highsmith (Library of Congress, LC-DIG-highsm-44775, public domain), recoloured to a sunrise.
+- Blossom by the water: cherry blossoms around the Tidal Basin, Washington, D.C., by Carol M. Highsmith (Library of Congress, LC-DIG-highsm-16063, public domain).
+- Lanterns on the lake: sunset over Chocorua Lake, Tamworth, New Hampshire, by Carol M. Highsmith (LC-DIG-highsm-48294, public domain), recoloured to dusk.
+- Butterfly meadow: wildflowers in the Lyndon B. Johnson National Historical Park, Johnson City, Texas, by Carol M. Highsmith (LC-DIG-highsm-29527, public domain), with a warmer sky.
+- Mystic Mountain: "Hubble Captures Spectacular 'Landscape' in the Carina Nebula" (2010), NASA, ESA, M. Livio and the Hubble 20th Anniversary Team (STScI), released by NASA; shown as the photograph, not painted.
+
+The earlier drawn versions of Falling blossoms, Floating lanterns, Butterflies and Space are kept alongside these.

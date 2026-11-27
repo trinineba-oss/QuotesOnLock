@@ -203,6 +203,22 @@ enum class AppTheme(
         "paint_plains", "Golden plains", "A slow, gentle drift", R.drawable.notif_frame_paint_plains, 0xFF2A2214.toInt(),
         0xFFFFFFFF.toInt(), 0xFFF2C46A.toInt(),
     ),
+    L_BLOSSOM(
+        "living_blossom", "Blossom by the water", "Falling petals, a trembling reflection", R.drawable.notif_frame_living_blossom, 0xFF2A2430.toInt(),
+        0xFFFFFFFF.toInt(), 0xFFF5C6D6.toInt(),
+    ),
+    L_LANTERNS(
+        "living_lanterns", "Lanterns on the lake", "Lanterns rising from the water", R.drawable.notif_frame_living_lanterns, 0xFF121A2C.toInt(),
+        0xFFFFFFFF.toInt(), 0xFFFFC27A.toInt(),
+    ),
+    L_MEADOW(
+        "living_meadow", "Butterfly meadow", "Wind in the grass, butterflies", R.drawable.notif_frame_living_meadow, 0xFF1E2614.toInt(),
+        0xFFFFFFFF.toInt(), 0xFFF7D454.toInt(),
+    ),
+    L_SPACE(
+        "living_space", "Mystic Mountain", "A slow drift through the nebula", R.drawable.notif_frame_living_space, 0xFF0E0A18.toInt(),
+        0xFFFFFFFF.toInt(), 0xFFF2C48A.toInt(),
+    ),
     /** Leonardo's Vitruvian Man, from a photograph of the drawing; the circle and square can glow softly, as if by candlelight. */
     VITRUVIAN(
         "vitruvian", "Vitruvian Man", "A slow breath of candlelight", R.drawable.notif_frame_vitruvian, 0xFFF6ECD6.toInt(),
@@ -212,7 +228,7 @@ enum class AppTheme(
     /** The calm themes drawn by [CalmArt]. */
     val isPainted: Boolean get() = PaintedArt.res(this) != null
 
-    val isCalm: Boolean get() = isPainted || this == SNOW || this == CANDLE || this == FIREFLIES || this == LAVENDER || this == CLOUDS || this == WAVES || this == BAMBOO || this == ZEN
+    val isCalm: Boolean get() = isPainted || LivingPaintArt.res(this) != null || this == SNOW || this == CANDLE || this == FIREFLIES || this == LAVENDER || this == CLOUDS || this == WAVES || this == BAMBOO || this == ZEN
 
     /** Light themes use dark text. */
     val isLight: Boolean get() = this == VITRUVIAN || this == BLOSSOM || this == BOOK || this == BUTTERFLY || this == CLOUDS || this == BAMBOO
@@ -422,6 +438,10 @@ fun AppTheme.colorScheme(cardOpacity: Float): ColorScheme? = when (this) {
     AppTheme.P_SNOW -> calmScheme(true, 0xFFCFE0F5, 0xFF1A2230, 0xFFFFFFFF, 0xFFE4E0D8, cardOpacity)
     AppTheme.P_SUNFLOWERS -> calmScheme(true, 0xFFF7D454, 0xFF1A2414, 0xFFFFFFFF, 0xFFE4E0D8, cardOpacity)
     AppTheme.P_PLAINS -> calmScheme(true, 0xFFF2C46A, 0xFF2A2214, 0xFFFFFFFF, 0xFFE4E0D8, cardOpacity)
+    AppTheme.L_BLOSSOM -> calmScheme(true, 0xFFF5C6D6, 0xFF2A2430, 0xFFFFFFFF, 0xFFE6DCE2, cardOpacity)
+    AppTheme.L_LANTERNS -> calmScheme(true, 0xFFFFC27A, 0xFF121A2C, 0xFFFFF4E6, 0xFFD8D2CC, cardOpacity)
+    AppTheme.L_MEADOW -> calmScheme(true, 0xFFF7D454, 0xFF1E2614, 0xFFFFFFFF, 0xFFE2E6D8, cardOpacity)
+    AppTheme.L_SPACE -> calmScheme(true, 0xFFF2C48A, 0xFF0E0A18, 0xFFFFFFFF, 0xFFDCD4E4, cardOpacity)
     AppTheme.LEAVES -> calmScheme(true, 0xFFF2B266, 0xFF3A2414, 0xFFFFF4E6, 0xFFE6D2BC, cardOpacity)
     AppTheme.SEA -> calmScheme(true, 0xFF9FE3F2, 0xFF082A40, 0xFFEFFAFF, 0xFFC4DCE6, cardOpacity)
     AppTheme.DROP -> calmScheme(true, 0xFFF2B66B, 0xFF0A1A24, 0xFFF0F2F0, 0xFFC9D3D6, cardOpacity)
@@ -474,7 +494,7 @@ fun AppTheme.typography(base: Typography): Typography = when (this) {
     AppTheme.CLASSIC -> base
     AppTheme.BLACK -> base.map(headings = { it.copy(fontFamily = BookSerif) }, all = { it })
     AppTheme.STARRY, AppTheme.AURORA, AppTheme.SPACE, AppTheme.WATER, AppTheme.RAIN, AppTheme.RAIN_NIGHT,
-    AppTheme.SNOW, AppTheme.CANDLE, AppTheme.FIREFLIES, AppTheme.LAVENDER, AppTheme.WAVES, AppTheme.DROP, AppTheme.JELLY, AppTheme.MOUNTAINS, AppTheme.LANTERNS, AppTheme.LEAVES, AppTheme.SEA, AppTheme.P_TETONS, AppTheme.P_MAROON, AppTheme.P_BIGSUR, AppTheme.P_MONUMENT, AppTheme.P_LAKEDUSK, AppTheme.P_AUTUMN, AppTheme.P_SNOW, AppTheme.P_SUNFLOWERS, AppTheme.P_PLAINS -> base.map(
+    AppTheme.SNOW, AppTheme.CANDLE, AppTheme.FIREFLIES, AppTheme.LAVENDER, AppTheme.WAVES, AppTheme.DROP, AppTheme.JELLY, AppTheme.MOUNTAINS, AppTheme.LANTERNS, AppTheme.LEAVES, AppTheme.SEA, AppTheme.P_TETONS, AppTheme.P_MAROON, AppTheme.P_BIGSUR, AppTheme.P_MONUMENT, AppTheme.P_LAKEDUSK, AppTheme.P_AUTUMN, AppTheme.P_SNOW, AppTheme.P_SUNFLOWERS, AppTheme.P_PLAINS, AppTheme.L_BLOSSOM, AppTheme.L_LANTERNS, AppTheme.L_MEADOW, AppTheme.L_SPACE -> base.map(
         headings = { it.copy(fontFamily = BookSerif) },
         all = { it.copy(shadow = Shadow(Color(0xE6000000), Offset(0f, 2f), 8f)) },
     )
@@ -517,7 +537,7 @@ fun ThemedBackground(theme: AppTheme, animate: Boolean, auroraIntensity: Float =
         AppTheme.JELLY -> JellyBackground(animate)
         AppTheme.RAIN -> RainBackground(animate, night = false)
         AppTheme.RAIN_NIGHT -> RainBackground(animate, night = true)
-        AppTheme.SNOW, AppTheme.CANDLE, AppTheme.FIREFLIES, AppTheme.LAVENDER, AppTheme.CLOUDS, AppTheme.WAVES, AppTheme.BAMBOO, AppTheme.ZEN, AppTheme.BLOSSOM, AppTheme.MOUNTAINS, AppTheme.LANTERNS, AppTheme.LEAVES, AppTheme.SEA, AppTheme.P_TETONS, AppTheme.P_MAROON, AppTheme.P_BIGSUR, AppTheme.P_MONUMENT, AppTheme.P_LAKEDUSK, AppTheme.P_AUTUMN, AppTheme.P_SNOW, AppTheme.P_SUNFLOWERS, AppTheme.P_PLAINS -> CalmBackground(theme, animate)
+        AppTheme.SNOW, AppTheme.CANDLE, AppTheme.FIREFLIES, AppTheme.LAVENDER, AppTheme.CLOUDS, AppTheme.WAVES, AppTheme.BAMBOO, AppTheme.ZEN, AppTheme.BLOSSOM, AppTheme.MOUNTAINS, AppTheme.LANTERNS, AppTheme.LEAVES, AppTheme.SEA, AppTheme.P_TETONS, AppTheme.P_MAROON, AppTheme.P_BIGSUR, AppTheme.P_MONUMENT, AppTheme.P_LAKEDUSK, AppTheme.P_AUTUMN, AppTheme.P_SNOW, AppTheme.P_SUNFLOWERS, AppTheme.P_PLAINS, AppTheme.L_BLOSSOM, AppTheme.L_LANTERNS, AppTheme.L_MEADOW, AppTheme.L_SPACE -> CalmBackground(theme, animate)
     }
 }
 
