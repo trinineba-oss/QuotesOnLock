@@ -2,6 +2,14 @@ package com.trinineba.quotesonlock
 
 import android.content.Context
 import androidx.compose.runtime.Composable
+import androidx.compose.foundation.background
+import androidx.compose.foundation.border
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.verticalScroll
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
+import androidx.compose.ui.draw.clip
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.foundation.clickable
@@ -88,13 +96,11 @@ fun CalmWallpaperSettings() {
                 color = androidx.compose.material3.MaterialTheme.colorScheme.primary,
                 modifier = androidx.compose.ui.Modifier.padding(top = 6.dp),
             )
-            androidx.compose.foundation.layout.FlowRow(horizontalArrangement = androidx.compose.foundation.layout.Arrangement.spacedBy(6.dp)) {
-                CalmScene.choices.forEach { t ->
-                    androidx.compose.material3.FilterChip(
-                        selected = s.theme == t,
-                        onClick = { CalmScene.save(context, s.copy(theme = t)) },
-                        label = { androidx.compose.material3.Text(t.label) },
-                    )
+            // The scenes as pictures, three to a row.
+            CalmScene.choices.chunked(3).forEach { row ->
+                androidx.compose.foundation.layout.Row(horizontalArrangement = androidx.compose.foundation.layout.Arrangement.spacedBy(8.dp)) {
+                    row.forEach { t -> SceneTile(t, s.theme == t, androidx.compose.ui.Modifier.weight(1f)) { CalmScene.save(context, s.copy(theme = t)) } }
+                    repeat(3 - row.size) { androidx.compose.foundation.layout.Spacer(androidx.compose.ui.Modifier.weight(1f)) }
                 }
             }
             androidx.compose.foundation.layout.Row(verticalAlignment = androidx.compose.ui.Alignment.CenterVertically) {
@@ -105,6 +111,54 @@ fun CalmWallpaperSettings() {
                 )
                 androidx.compose.material3.Switch(checked = s.still, onCheckedChange = { CalmScene.save(context, s.copy(still = it)) })
             }
+        }
+    }
+}
+
+/** One calm scene as a small picture with its name; outlined when chosen. */
+@Composable
+private fun SceneTile(t: AppTheme, selected: Boolean, modifier: androidx.compose.ui.Modifier, onClick: () -> Unit) {
+    val shape = androidx.compose.foundation.shape.RoundedCornerShape(12.dp)
+    androidx.compose.foundation.layout.Box(
+        modifier.height(80.dp).clip(shape)
+            .border(if (selected) 3.dp else 1.dp, if (selected) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.outlineVariant, shape)
+            .clickable(onClickLabel = "Use ${t.label}", onClick = onClick),
+    ) {
+        themePicture(t)?.let {
+            androidx.compose.foundation.Image(
+                androidx.compose.ui.res.painterResource(it), contentDescription = null,
+                contentScale = androidx.compose.ui.layout.ContentScale.Crop, modifier = androidx.compose.ui.Modifier.fillMaxSize(),
+            )
+        }
+        Text(
+            t.shortLabel,
+            style = MaterialTheme.typography.labelSmall.copy(shadow = null),
+            color = androidx.compose.ui.graphics.Color.White,
+            maxLines = 1,
+            textAlign = androidx.compose.ui.text.style.TextAlign.Center,
+            modifier = androidx.compose.ui.Modifier.align(androidx.compose.ui.Alignment.BottomCenter).fillMaxWidth()
+                .background(androidx.compose.ui.graphics.Color(0x99000000)).padding(vertical = 3.dp),
+        )
+    }
+}
+
+/** Solace's own appearance, from the palette button on the Solace tab: which scene sits behind it, and how. */
+@OptIn(androidx.compose.material3.ExperimentalMaterial3Api::class)
+@Composable
+fun SolaceSceneSheet(onDismiss: () -> Unit) {
+    androidx.compose.material3.ModalBottomSheet(onDismissRequest = onDismiss) {
+        androidx.compose.foundation.layout.Column(
+            androidx.compose.ui.Modifier.fillMaxWidth().verticalScroll(androidx.compose.foundation.rememberScrollState())
+                .padding(start = 20.dp, end = 20.dp, bottom = 28.dp),
+            verticalArrangement = androidx.compose.foundation.layout.Arrangement.spacedBy(8.dp),
+        ) {
+            Text("Solace's scene", style = MaterialTheme.typography.headlineSmall)
+            Text(
+                "The calm picture behind Solace, separate from the app's own theme.",
+                style = MaterialTheme.typography.bodySmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+            )
+            CalmWallpaperSettings()
         }
     }
 }

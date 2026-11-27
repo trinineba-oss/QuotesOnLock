@@ -321,6 +321,7 @@ private fun QuotesScreen(
     var newText by rememberSaveable { mutableStateOf("") }
     var newAuthor by rememberSaveable { mutableStateOf("") }
     var page by rememberSaveable { mutableStateOf(if (openUpdates) Page.ABOUT else Page.HOME) }
+    var solaceScene by remember { mutableStateOf(false) }
     // Calm and its tools show the calm wallpaper.
     LaunchedEffect(page, tool) { CalmScene.active.value = page == Page.TOOLBOX || tool != null }
     // After a Calm tool, one optional "how do you feel now?" (when it was used for at least a minute).
@@ -1115,6 +1116,19 @@ private fun QuotesScreen(
         item(key = "tab-header-$title") {
             Row(verticalAlignment = Alignment.CenterVertically) {
                 Text(title, style = MaterialTheme.typography.headlineMedium, modifier = Modifier.weight(1f))
+                // Appearance, one tap away. On Solace it chooses Solace's own scene.
+                val solace = page == Page.TOOLBOX
+                Box(
+                    modifier = Modifier
+                        .size(44.dp)
+                        .clip(CircleShape)
+                        .background(MaterialTheme.colorScheme.surfaceContainerHighest.copy(alpha = 0.7f))
+                        .clickable(onClickLabel = if (solace) "Solace's scene" else "Appearance") {
+                            if (solace) solaceScene = true else { lastTab = page; appearanceFromTab = true; page = Page.THEMES }
+                        },
+                    contentAlignment = Alignment.Center,
+                ) { Icon(painterResource(R.drawable.ic_palette), contentDescription = if (solace) "Solace's scene" else "Appearance", tint = MaterialTheme.colorScheme.primary) }
+                Spacer(Modifier.width(8.dp))
                 Box(
                     modifier = Modifier
                         .size(44.dp)
@@ -2404,6 +2418,7 @@ private fun QuotesScreen(
     }
 
     rateTool?.let { t -> FeelNowDialog(t) { rateTool = null } }
+    if (solaceScene) SolaceSceneSheet { solaceScene = false }
 
     // Each page opens at its top (About starts at the update card, not wherever the home screen was scrolled to).
     val listState = androidx.compose.foundation.lazy.rememberLazyListState()
