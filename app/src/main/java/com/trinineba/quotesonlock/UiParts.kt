@@ -8,6 +8,8 @@ import android.content.Context
 import android.widget.Toast
 import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.Image
+import androidx.compose.ui.draw.rotate
+import androidx.compose.animation.animateContentSize
 import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.navigationBars
 import androidx.compose.foundation.selection.selectable
@@ -195,6 +197,62 @@ internal fun TileCard(tile: Tile, modifier: Modifier, wide: Boolean = false) {
                 )
             }
         }
+    }
+}
+
+/**
+ * A card on Today that can be minimised to one line (its label and a short [teaser]) with the arrow at its corner,
+ * and opened again the same way; the choice is remembered under [foldKey]. Tapping the open card runs [onOpen].
+ */
+@Composable
+internal fun FoldingCard(
+    label: String,
+    foldKey: String,
+    teaser: String?,
+    openLabel: String,
+    onOpen: () -> Unit,
+    content: @Composable ColumnScope.() -> Unit,
+) {
+    val context = LocalContext.current
+    val store = remember { context.getSharedPreferences("quotesonlock", Context.MODE_PRIVATE) }
+    var folded by remember { mutableStateOf(store.getBoolean(foldKey, false)) }
+    fun fold(v: Boolean) { folded = v; store.edit().putBoolean(foldKey, v).apply() }
+    val accent = MaterialTheme.colorScheme.primary
+    val shape = RoundedCornerShape(16.dp)
+    Column(
+        // The same backing as the quote card (so it reads on any picture), with a touch of the accent.
+        Modifier.fillMaxWidth().clip(shape).background(MaterialTheme.colorScheme.surfaceContainerHighest).background(accent.copy(alpha = 0.06f))
+            .border(1.dp, accent.copy(alpha = 0.35f), shape)
+            .animateContentSize()
+            .clickable(onClickLabel = if (folded) "Show $label" else openLabel) { if (folded) fold(false) else onOpen() }
+            .padding(start = 14.dp, end = 4.dp, bottom = if (folded) 0.dp else 14.dp),
+        verticalArrangement = Arrangement.spacedBy(4.dp),
+    ) {
+        Row(verticalAlignment = Alignment.CenterVertically) {
+            Text(label.uppercase(), style = MaterialTheme.typography.labelSmall, letterSpacing = 1.2.sp, color = accent, maxLines = 1)
+            if (folded && teaser != null) {
+                Text(
+                    "  ·  $teaser",
+                    style = MaterialTheme.typography.bodySmall,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    maxLines = 1,
+                    overflow = TextOverflow.Ellipsis,
+                    modifier = Modifier.weight(1f),
+                )
+            } else {
+                Spacer(Modifier.weight(1f))
+            }
+            Box(
+                Modifier.size(40.dp).clip(CircleShape).clickable(onClickLabel = if (folded) "Show $label" else "Minimise $label") { fold(!folded) },
+                contentAlignment = Alignment.Center,
+            ) {
+                Icon(
+                    painterResource(R.drawable.ic_arrow_forward), contentDescription = null, tint = accent,
+                    modifier = Modifier.size(18.dp).rotate(if (folded) 90f else -90f),
+                )
+            }
+        }
+        if (!folded) Column(Modifier.padding(end = 10.dp), verticalArrangement = Arrangement.spacedBy(4.dp)) { content() }
     }
 }
 

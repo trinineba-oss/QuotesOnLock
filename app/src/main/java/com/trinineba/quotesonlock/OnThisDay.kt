@@ -72,13 +72,7 @@ fun OnThisDayCard(onOpen: () -> Unit) {
     val entries = remember(day) { runCatching { OnThisDay.on(context, today) }.getOrDefault(emptyList()) }
     val first = entries.firstOrNull() ?: return
     val accent = MaterialTheme.colorScheme.primary
-    Column(
-        Modifier.fillMaxWidth().clip(RoundedCornerShape(16.dp)).background(accent.copy(alpha = 0.08f))
-            .border(1.dp, accent.copy(alpha = 0.35f), RoundedCornerShape(16.dp))
-            .clickable(onClickLabel = "Open On this day", onClick = onOpen).padding(14.dp),
-        verticalArrangement = Arrangement.spacedBy(4.dp),
-    ) {
-        Text("ON THIS DAY · ${OnThisDay.label(today).uppercase()}", style = MaterialTheme.typography.labelSmall, letterSpacing = 1.2.sp, color = accent)
+    FoldingCard("On this day · ${OnThisDay.label(today)}", "fold_otd", "${first.yearLabel}: ${first.title}", "Open On this day", onOpen) {
         Text("${first.yearLabel}: ${first.title}", fontFamily = BookSerif, fontSize = 17.sp)
         Text(first.text, style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant, maxLines = 3, overflow = androidx.compose.ui.text.style.TextOverflow.Ellipsis)
         Text(if (entries.size > 1) "And ${entries.size - 1} more ›" else "More ›", style = MaterialTheme.typography.labelLarge, color = accent)

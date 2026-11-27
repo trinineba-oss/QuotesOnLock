@@ -230,15 +230,9 @@ fun AffirmCard(onClick: () -> Unit) {
 fun AffirmTodayCard(onOpen: () -> Unit) {
     val context = LocalContext.current
     val line = remember { runCatching { Affirm.today(context) }.getOrNull() } ?: return
-    val accent = MaterialTheme.colorScheme.primary
-    Column(
-        Modifier.fillMaxWidth().clip(RoundedCornerShape(16.dp)).background(accent.copy(alpha = 0.08f))
-            .border(1.dp, accent.copy(alpha = 0.35f), RoundedCornerShape(16.dp))
-            .clickable(onClickLabel = "Say it with me", onClick = onOpen).padding(14.dp),
-        verticalArrangement = Arrangement.spacedBy(4.dp),
-    ) {
-        Text("TODAY'S AFFIRMATION", style = MaterialTheme.typography.labelSmall, letterSpacing = 1.2.sp, color = accent)
-        Text(Affirm.shown(line.text), fontFamily = BookSerif, fontSize = 17.sp, maxLines = 4, overflow = androidx.compose.ui.text.style.TextOverflow.Ellipsis)
+    val shown = Affirm.shown(line.text)
+    FoldingCard("Today's affirmation", "fold_affirm", shown, "Say it with me", onOpen) {
+        Text(shown, fontFamily = BookSerif, fontSize = 17.sp, maxLines = 4, overflow = androidx.compose.ui.text.style.TextOverflow.Ellipsis)
         Text("${line.by} · say it with me ›", style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
     }
 }
