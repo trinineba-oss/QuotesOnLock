@@ -681,7 +681,7 @@ private fun QuotesScreen(
     var offered by remember { mutableStateOf<Release?>(null) }
     var declinedBuild by remember { mutableStateOf(0L) }
     LifecycleEventEffect(Lifecycle.Event.ON_START) {
-        if (prefs.updateCheck && !updateBusy) scope.launch {
+        if (BuildConfig.UPDATES && prefs.updateCheck && !updateBusy) scope.launch {
             val release = runCatching { withContext(Dispatchers.IO) { Updater.fetchLatest() } }.getOrNull() ?: return@launch
             if (release.build > currentBuild) {
                 latest = release
@@ -1490,7 +1490,7 @@ private fun QuotesScreen(
         item(key = "s-about") {
             ToolRow(
                 R.drawable.ic_info,
-                "About, backup & updates",
+                Page.ABOUT.title,
                 latest?.takeIf { it.build > currentBuild }?.let { "Update available: build ${it.build}" } ?: "Sources, backup and restore, feedback",
             ) { page = Page.ABOUT }
         }
@@ -2286,7 +2286,13 @@ private fun QuotesScreen(
     }
 
     fun LazyListScope.aboutPage() {
-        item(key = "a-update") {
+        // The Play build is kept up to date by Google Play; it just shows its version.
+        if (!BuildConfig.UPDATES) item(key = "a-version") {
+            SettingsCard("Version") {
+                Text("Quotes on Lock ${BuildConfig.VERSION_NAME}. Updates come through Google Play.", style = MaterialTheme.typography.bodyMedium)
+            }
+        }
+        if (BuildConfig.UPDATES) item(key = "a-update") {
             SettingsCard("App updates") {
                 Text("You have build $currentBuild.", style = MaterialTheme.typography.bodyMedium)
                 val release = latest
@@ -2485,7 +2491,7 @@ private enum class Page(val title: String) {
     SCHEDULE("Lock screen & daily quote"),
     FAVORITES("Favourites"),
     MINE("My quotes"),
-    ABOUT("About, backup & updates"),
+    ABOUT(if (BuildConfig.UPDATES) "About, backup & updates" else "About & backup"),
 }
 
 /** The four places along the bottom bar. */

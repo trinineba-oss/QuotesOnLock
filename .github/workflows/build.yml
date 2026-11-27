@@ -19,19 +19,41 @@ jobs:
           java-version: 17
       - uses: gradle/actions/setup-gradle@v4
       - name: Run tests
-        run: ./gradlew testDebugUnitTest
-      - name: Build release APK
-        run: ./gradlew assembleRelease
+        run: ./gradlew testGithubFullDebugUnitTest
+      - name: Build release APK (GitHub build, with its updater)
+        run: ./gradlew assembleGithubFullRelease
       - uses: actions/upload-artifact@v4
         with:
           name: quotes-on-lock
-          path: app/build/outputs/apk/release/app-release.apk
+          path: app/build/outputs/apk/githubFull/release/app-github-full-release.apk
+      # The Google Play build: an App Bundle with no updater and no internet access. It is signed with the
+      # Play upload key when the repository has the UPLOAD_* secrets; without them it is signed with the shared
+      # debug key, which Play will not accept, so the bundle is for checking only.
+      - name: Build Play bundle
+        env:
+          UPLOAD_KEYSTORE_B64: ${{ secrets.UPLOAD_KEYSTORE_B64 }}
+          UPLOAD_KEYSTORE_PASSWORD: ${{ secrets.UPLOAD_KEYSTORE_PASSWORD }}
+          UPLOAD_KEY_ALIAS: ${{ secrets.UPLOAD_KEY_ALIAS }}
+          UPLOAD_KEY_PASSWORD: ${{ secrets.UPLOAD_KEY_PASSWORD }}
+        run: |
+          if [ -n "$UPLOAD_KEYSTORE_B64" ]; then
+            echo "$UPLOAD_KEYSTORE_B64" | base64 -d > "$RUNNER_TEMP/upload.jks"
+            export UPLOAD_KEYSTORE_FILE="$RUNNER_TEMP/upload.jks"
+            echo "Signing the bundle with the Play upload key."
+          else
+            echo "No upload key in the repository secrets: the bundle is signed with the debug key (not for Play)."
+          fi
+          ./gradlew bundlePlayFullRelease
+      - uses: actions/upload-artifact@v4
+        with:
+          name: quotes-on-lock-play-bundle
+          path: app/build/outputs/bundle/playFullRelease/app-play-full-release.aab
       - name: Publish APK to the "latest" release
         if: github.event_name == 'push'
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          cp app/build/outputs/apk/release/app-release.apk quotes-on-lock.apk
+          cp app/build/outputs/apk/githubFull/release/app-github-full-release.apk quotes-on-lock.apk
           # version.json is what the in-app updater reads (build number, change summary, APK size).
           python3 -c 'import json,os,subprocess; print(json.dumps({"build": int(os.environ["GITHUB_RUN_NUMBER"]), "notes": subprocess.check_output(["git","log","-1","--format=%s"], text=True).strip(), "size": os.path.getsize("quotes-on-lock.apk")}))' > version.json
           cat version.json

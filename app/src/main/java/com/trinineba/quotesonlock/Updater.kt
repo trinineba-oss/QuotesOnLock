@@ -59,6 +59,8 @@ object Updater {
 
     /** Reads version.json ({build, notes}) published next to the APK. Blocking; call off the main thread. */
     fun fetchLatest(): Release {
+        // The Play build is updated by Play: it never asks GitHub (and has no internet permission to).
+        if (!BuildConfig.UPDATES) throw java.io.IOException("Updates come from Google Play")
         val connection = open(VERSION_URL, 15_000)
         try {
             when (val code = connection.responseCode) {

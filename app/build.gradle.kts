@@ -6,12 +6,13 @@ plugins {
 
 android {
     namespace = "com.trinineba.quotesonlock"
-    compileSdk = 35
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "com.trinineba.quotesonlock"
         minSdk = 26
-        targetSdk = 35
+        // Google Play: new apps and updates must target Android 16 (API 36) from 31 August 2026.
+        targetSdk = 36
         // CI numbers each build; the in-app updater compares this with the release's "Build N".
         val build = System.getenv("GITHUB_RUN_NUMBER")?.toIntOrNull() ?: 1
         versionCode = build
@@ -25,6 +26,15 @@ android {
             storePassword = "android"
             keyAlias = "androiddebugkey"
             keyPassword = "android"
+        }
+        // The Play upload key, kept out of the repository: CI writes it from repository secrets
+        // (UPLOAD_KEYSTORE_B64, UPLOAD_KEYSTORE_PASSWORD, UPLOAD_KEY_ALIAS, UPLOAD_KEY_PASSWORD).
+        val uploadStore = System.getenv("UPLOAD_KEYSTORE_FILE")?.let { file(it) }?.takeIf { it.exists() }
+        if (uploadStore != null) create("upload") {
+            storeFile = uploadStore
+            storePassword = System.getenv("UPLOAD_KEYSTORE_PASSWORD")
+            keyAlias = System.getenv("UPLOAD_KEY_ALIAS")
+            keyPassword = System.getenv("UPLOAD_KEY_PASSWORD")
         }
     }
 
@@ -40,6 +50,27 @@ android {
         }
     }
 
+    // Where the app comes from (store) and how much of it there is (edition).
+    //   github: the build on GitHub releases, with its own updater (installs from GitHub, needs the internet).
+    //   play:   the Google Play build: Play updates it, so no updater, no install permission and no internet.
+    //   full:   everything. A lite edition can be added here later (its own applicationIdSuffix and source set).
+    flavorDimensions += listOf("store", "edition")
+    productFlavors {
+        create("github") {
+            dimension = "store"
+            buildConfigField("boolean", "UPDATES", "true")
+        }
+        create("play") {
+            dimension = "store"
+            buildConfigField("boolean", "UPDATES", "false")
+            signingConfigs.findByName("upload")?.let { signingConfig = it }
+        }
+        create("full") {
+            dimension = "edition"
+            buildConfigField("boolean", "LITE", "false")
+        }
+    }
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
@@ -49,6 +80,7 @@ android {
     }
     buildFeatures {
         compose = true
+        buildConfig = true
     }
     testOptions {
         // Plain JVM tests: Android calls that sneak in return defaults instead of throwing.
