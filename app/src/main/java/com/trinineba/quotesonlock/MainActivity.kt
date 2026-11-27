@@ -1116,6 +1116,16 @@ private fun QuotesScreen(
         item(key = "tab-header-$title") {
             Row(verticalAlignment = Alignment.CenterVertically) {
                 Text(title, style = MaterialTheme.typography.headlineMedium, modifier = Modifier.weight(1f))
+                // Search everything, from any tab.
+                Box(
+                    modifier = Modifier
+                        .size(44.dp)
+                        .clip(CircleShape)
+                        .background(MaterialTheme.colorScheme.surfaceContainerHighest.copy(alpha = 0.7f))
+                        .clickable(onClickLabel = "Search everything") { browse = listOf("find") },
+                    contentAlignment = Alignment.Center,
+                ) { Icon(painterResource(R.drawable.ic_search), contentDescription = "Search", tint = MaterialTheme.colorScheme.primary) }
+                Spacer(Modifier.width(8.dp))
                 // Appearance, one tap away. On Solace it chooses Solace's own scene.
                 val solace = page == Page.TOOLBOX
                 Box(
