@@ -550,3 +550,17 @@ Seven of the living themes are painted the same way (Mystic Mountain is the phot
 - Candle on the table: a scene painted for the app (a pillar candle on a wooden table against a warm wall), finished with the same light brushwork; its flame is drawn live.
 
 The earlier drawn versions of Falling blossoms, Floating lanterns, Butterflies, Space and Candlelight are kept alongside these.
+
+## Talk to someone
+
+Solace's "Talk to someone" offers free, confidential crisis services that can be reached by text or online chat as well as by phone, so nobody has to call. Each was checked on its official website on 28 November 2026:
+
+- United States: 988 Suicide & Crisis Lifeline, text or call 988, chat at chat.988lifeline.org (988lifeline.org); Crisis Text Line, text HOME to 741741 (crisistextline.org).
+- Canada: 9-8-8, call or text 988 (988.ca).
+- United Kingdom: Shout, text SHOUT to 85258 (giveusashout.org); Samaritans, call 116 123 (samaritans.org).
+- Ireland: 50808, free 24/7 text service (textaboutit.ie); Samaritans, call 116 123.
+- Australia: Lifeline, text 0477 13 11 14, crisis chat online, call 13 11 14 (lifeline.org.au).
+- New Zealand: 1737, call or text 1737 (1737.org.nz).
+- Everywhere else: Find A Helpline (findahelpline.com), which lists free helplines in over 130 countries and shows which can be reached by text or chat.
+
+Numbers change; check them again before each release.

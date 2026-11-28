@@ -472,6 +472,7 @@ fun LifelineScreen(prefs: QuotePrefs, repo: QuoteRepository, onBack: () -> Unit)
     val favourites = remember { repo.favorites().shuffled().take(3) }
     ToolScreen("My lifeline", onBack) {
         item { Text("Things to hold on to, in your own words. They stay on this phone.", style = MaterialTheme.typography.bodyMedium) }
+        item { TalkCard() }
         item {
             SettingsBlock("A letter to myself") {
                 Text("Write it on a good day, for a hard one.", style = MaterialTheme.typography.bodySmall)

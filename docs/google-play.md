@@ -68,5 +68,5 @@ The screenshots can be rendered from the app with the Robolectric setup used dur
 ## Before you submit: decisions still open
 
 - **Modern authors.** Short excerpts from authors still in copyright (Camus, Murakami, Morrison and others) are the main legal risk on a public store. Options: ship them switched off by default, leave them out of the Play build, or keep them as brief credited quotation.
-- **Crisis lines.** Add emergency and helpline numbers for the countries you publish in to "It's too much right now" and My lifeline.
+- **Crisis lines.** Done: "Talk to someone" (text first) covers the US, Canada, the UK, Ireland, Australia and New Zealand, and findahelpline.com elsewhere. Recheck the numbers before each release (SOURCES.md lists them).
 - **Test on real phones.** At least one older budget phone, one recent phone and a tablet, through the internal testing track.

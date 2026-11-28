@@ -27,6 +27,7 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -157,10 +158,12 @@ fun SosScreen(onBack: () -> Unit, onTool: (String) -> Unit) {
                 OutlinedButton(onClick = { onTool("ground") }) { Text("Ground yourself: 5 things you see") }
                 OutlinedButton(onClick = { onTool("lifeline") }) { Text("Open my lifeline") }
                 OutlinedButton(onClick = { onTool("sounds") }) { Text("Some quiet sound") }
+                // A quiet way to reach a person, by text first: never a pop-up.
+                TalkCard(onDark = true, modifier = Modifier.padding(top = 6.dp).widthIn(max = 320.dp))
                 TextButton(onClick = onBack) { Text("Back to Solace") }
                 Spacer(Modifier.height(16.dp))
                 Text(
-                    "If you might hurt yourself, please call your local emergency number or someone you trust now.",
+                    "If you might hurt yourself, you don't have to be alone with it. Text someone now, or call your local emergency number.",
                     color = Mist, style = MaterialTheme.typography.bodySmall, textAlign = TextAlign.Center,
                 )
             }
